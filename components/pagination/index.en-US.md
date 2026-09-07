@@ -26,6 +26,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 <code src="./demo/total.tsx">Total number</code>
 <code src="./demo/all.tsx">Show All</code>
 <code src="./demo/itemRender.tsx">Prev and next</code>
+<code src="./demo/components.tsx" version="6.6.0">Custom component</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
 <code src="./demo/component-token.tsx" debug>component Token</code>
 <code src="./demo/variant-debug.tsx" debug>Variant Debug</code>
@@ -43,6 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- | --- |
 | align | Align | start \| center \| end | - | 5.19.0 | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| components | Customize internal components | { sizeChanger?: React.ComponentType } | - | 6.6.0 | × |
 | current | Current page number | number | - |  | × |
 | defaultCurrent | Default initial page number | number | 1 |  | × |
 | defaultPageSize | Default number of data items per page | number | 10 |  | × |

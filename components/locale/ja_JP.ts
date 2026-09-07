@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: '閉じる',
     show: '表示',
     hide: '非表示',
+    sortable: '並べ替え可能',
   },
   Table: {
     filterTitle: 'フィルター',
@@ -31,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'ページ単位で反転',
     selectNone: 'クリア',
     selectionAll: 'すべてを選択',
+    selectRow: '行を選択',
+    selectedRow: '行が選択されています',
+    selectionMenu: '選択メニュー',
     sortTitle: 'ソート',
     expand: '展開する',
     collapse: '折り畳む',
@@ -51,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'キャンセル',
+  },
+  Splitter: {
+    toggleStartPanel: '開始パネルを切り替える',
+    toggleEndPanel: '終了パネルを切り替える',
   },
   Transfer: {
     titles: ['', ''],
@@ -84,6 +92,10 @@ const localeValues: Locale = {
     copied: 'コピーされました',
     expand: '展開する',
     collapse: '折り畳む',
+  },
+  Carousel: {
+    prevSlide: '前のスライド',
+    nextSlide: '次のスライド',
   },
   Form: {
     optional: '(オプション)',

@@ -160,9 +160,20 @@ describe('Input.OTP', () => {
     const { container, rerender } = render(<OTP defaultValue="bamboo" />);
     expect(getText(container)).toBe('bamboo');
 
+    // support true
+    rerender(<OTP defaultValue="bamboo" mask />);
+    expect(getText(container)).toBe('bamboo');
+    expect(
+      Array.from(container.querySelectorAll('.ant-otp-mask-icon'))
+        .map((node) => node.textContent)
+        .join(''),
+    ).toBe('••••••');
+    expect(container.querySelector('input')).toHaveAttribute('type', 'password');
+
     // support string
     rerender(<OTP defaultValue="bamboo" mask="*" />);
     expect(getText(container)).toBe('bamboo');
+    expect(container.querySelector('input')).toHaveAttribute('type', 'password');
 
     // support emoji
     rerender(<OTP defaultValue="bamboo" mask="🔒" />);
@@ -186,7 +197,7 @@ describe('Input.OTP', () => {
   });
 
   it('support type', () => {
-    const { container } = render(<OTP type="number" />);
+    const { container } = render(<OTP mask type="number" />);
     expect(container.querySelector('input')).toHaveAttribute('type', 'number');
   });
 

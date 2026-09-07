@@ -10,6 +10,13 @@ describe('QRCode test', () => {
   mountTest(() => <QRCode value="" />);
   rtlTest(() => <QRCode value="" />);
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof QRCode>>();
+    const { container } = render(<QRCode ref={ref} value="Ant Design" />);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-qrcode'));
+  });
+
   it('should correct render', () => {
     const { container } = render(<QRCode value="test" />);
     expect(container?.querySelector<HTMLCanvasElement>('.ant-qrcode canvas')).toBeTruthy();

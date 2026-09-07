@@ -49,20 +49,20 @@ describe('Alert', () => {
     errSpy.mockRestore();
   });
 
-  it('onClose and closable.onClose', async () => {
+  it('should use closable.onClose without requiring closeIcon', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const onClose = jest.fn();
     const handleClosableClose = jest.fn();
-    const { container } = render(
+    render(
       <Alert
         title="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
         type="warning"
-        closable={{ onClose: handleClosableClose, closeIcon: true }}
+        closable={{ onClose: handleClosableClose }}
         onClose={onClose}
       />,
     );
 
-    fireEvent.click(container.querySelector('.ant-alert-close-icon')!);
+    fireEvent.click(screen.getByRole('button'));
 
     expect(onClose).toHaveBeenCalledTimes(0);
     expect(handleClosableClose).toHaveBeenCalledTimes(1);
@@ -167,6 +167,14 @@ describe('Alert', () => {
   it('should not render title div when no title', () => {
     const { container } = render(<Alert description="description" />);
     expect(!!container.querySelector('.ant-alert-title')).toBe(false);
+  });
+
+  it('should render numeric 0 for title, description and action', () => {
+    const { container } = render(<Alert title={0} description={0} action={0} />);
+    expect(container.querySelector('.ant-alert-title')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-alert-description')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-alert-actions')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-alert-with-description')).toBeTruthy();
   });
 
   it('close button should be hidden when closeIcon setting to null or false', () => {

@@ -24,6 +24,7 @@ import useStyle from './style';
 export type { ListConsumerProps } from './context';
 export type {
   ListItemMetaProps,
+  ListItemMetaRef,
   ListItemProps,
   ListItemSemanticClassNames,
   ListItemSemanticName,
@@ -152,9 +153,7 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
       key = (item as any).key;
     }
 
-    if (!key) {
-      key = `list-item-${index}`;
-    }
+    key ??= `list-item-${index}`;
 
     return <React.Fragment key={key}>{renderItem(item, index)}</React.Fragment>;
   };
@@ -307,7 +306,7 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
     warning(
       false,
       'deprecated',
-      'The `List` component is deprecated. And will be removed in next major version.',
+      "The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.",
     );
   }
 

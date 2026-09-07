@@ -5,11 +5,3 @@
 ## en-US
 
 async.
-
-<style>
-.antd-demo-dynamic-option img {
-  width: 20px;
-  height: 20px;
-  margin-inline-end: 8px;
-}
-</style>

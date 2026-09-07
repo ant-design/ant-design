@@ -2,14 +2,16 @@ import React from 'react';
 import { Tabs } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyle = createStyles(({ token, css }) => {
-  const antdTabsCls = '.ant-tabs';
+const useStyle = createStyles((props) => {
+  const { cssVar, prefixCls, css } = props;
+
+  const antdTabsCls = `.${prefixCls}-tabs`;
 
   return css`
     ${antdTabsCls}${antdTabsCls}-card {
       ${antdTabsCls}-body {
-        padding: ${token.padding}px;
-        background: ${token.colorBgContainer};
+        padding: ${cssVar.padding};
+        background: ${cssVar.colorBgContainer};
       }
 
       ${antdTabsCls}-nav {
@@ -18,10 +20,9 @@ const useStyle = createStyles(({ token, css }) => {
         ${antdTabsCls}-nav-wrap > ${antdTabsCls}-nav-list > ${antdTabsCls}-tab {
           background: transparent;
           border-color: transparent;
-
           &-active {
-            border-color: ${token.colorBorderBg};
-            background: ${token.colorBgContainer};
+            border-color: ${cssVar.colorBorderBg};
+            background: ${cssVar.colorBgContainer};
           }
         }
 
@@ -50,7 +51,6 @@ const items = Array.from({ length: 3 }).map((_, i) => {
 
 const App = () => {
   const { styles } = useStyle();
-
   return (
     <div className={styles}>
       <Tabs type="card" items={items} />

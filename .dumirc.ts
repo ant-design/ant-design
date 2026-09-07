@@ -73,7 +73,9 @@ export default defineConfig({
   mfsu: false,
   mako: isCloudflarePages && ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
   utoopack: {
-    pluginRuntimeStrategy: 'childProcesses',
+    watch: {
+      nodeModulesRegexes: ['rc-.*', '.*cssinjs.*', '@rc-component/.*'],
+    },
   },
   crossorigin: {},
   runtimePublicPath: {},
@@ -196,7 +198,7 @@ export default defineConfig({
           return /\\/?index(-cn)?/.test(pathname) ? '/' : pathname.replace('-cn', '');
         } else if (pathname === '/') {
           return '/index-cn';
-        } else if (pathname.indexOf('/') === pathname.length - 1) {
+        } else if (pathname.endsWith('/')) {
           return pathname.replace(/\\/$/, '-cn/');
         }
         return pathname + '-cn';

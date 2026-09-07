@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Zatvori',
     show: 'Prikaži',
     hide: 'Sakrij',
+    sortable: 'sortibilan',
   },
   Table: {
     filterTitle: 'Filter meni',
@@ -28,12 +29,18 @@ const localeValues: Locale = {
     selectAll: 'Označi trenutnu stranicu',
     selectInvert: 'Invertiraj trenutnu stranicu',
     selectionAll: 'Odaberite sve podatke',
+    selectRow: 'Odaberi redak',
+    selectedRow: 'Redak je odabran',
+    selectionMenu: 'Izbornik odabira',
     sortTitle: 'Sortiraj',
     expand: 'Proširi redak',
     collapse: 'Sažmi redak',
     triggerDesc: 'Kliknite za sortiranje silazno',
     triggerAsc: 'Kliknite za sortiranje uzlazno',
     cancelSort: 'Kliknite da biste otkazali sortiranje',
+    filterCheckAll: 'Odaberite sve stavke',
+    filterSearchPlaceholder: 'Traži u filterima',
+    selectNone: 'Izbriši sve podatke',
   },
   Tour: {
     Next: 'Slijedeći',
@@ -49,6 +56,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Odustani',
   },
+  Splitter: {
+    toggleStartPanel: 'Prebaci početnu ploču',
+    toggleEndPanel: 'Prebaci završnu ploču',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Pretraži ovdje',
@@ -60,6 +71,7 @@ const localeValues: Locale = {
     selectAll: 'Odaberite sve podatke',
     removeAll: 'Uklonite sve podatke',
     selectInvert: 'Obrni trenutnu stranicu',
+    deselectAll: 'Poništi odabir svih podataka',
   },
   Upload: {
     uploading: 'Upload u tijeku...',
@@ -79,6 +91,11 @@ const localeValues: Locale = {
     copy: 'Kopiraj',
     copied: 'Kopiranje uspješno',
     expand: 'Proširi',
+    collapse: 'Sažimanje',
+  },
+  Carousel: {
+    prevSlide: 'Prethodni slajd',
+    nextSlide: 'Sljedeći slajd',
   },
   Form: {
     optional: '(neobavezno)',
@@ -129,6 +146,17 @@ const localeValues: Locale = {
         mismatch: '${label} ne odgovara obrascu ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR kod je istekao',
+    refresh: 'Osvježi',
+    scanned: 'Skenirano',
+  },
+  ColorPicker: {
+    presetEmpty: 'Prazna',
+    transparent: 'Prozirno',
+    singleColor: 'Jedna boja',
+    gradientColor: 'Gradijent boje',
   },
 };
 

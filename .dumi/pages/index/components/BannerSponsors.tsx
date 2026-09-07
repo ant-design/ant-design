@@ -14,7 +14,7 @@ const useStyle = createStyles(({ cssVar, css }) => ({
     justify-content: center;
     gap: 0;
     padding-top: 20px;
-    border-top: 1px solid ${cssVar.colorBorderSecondary};
+    border-top: ${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorBorderSecondary};
     position: relative;
     z-index: 1;
     width: 100%;
@@ -49,7 +49,7 @@ const useStyle = createStyles(({ cssVar, css }) => ({
     border-radius: 50%;
     object-fit: contain;
     background: ${cssVar.colorBgContainer};
-    border: 1px solid ${cssVar.colorBorderSecondary};
+    border: ${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorBorderSecondary};
   `,
   sponsorName: css`
     font-size: 13px;

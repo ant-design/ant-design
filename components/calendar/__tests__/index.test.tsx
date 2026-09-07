@@ -68,6 +68,13 @@ describe('Calendar', () => {
     fireEvent.click(findSelectItem(wrapper)[index]);
   }
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Calendar>>();
+    const { container } = render(<Calendar ref={ref} fullscreen={false} />);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-picker-calendar'));
+  });
+
   // https://github.com/ant-design/ant-design/issues/30392
   it('should be able to set undefined or null', () => {
     expect(() => {

@@ -6,6 +6,7 @@ type BorderBeamGradientItem = {
 };
 
 export type BorderBeamGradient = BorderBeamGradientItem[];
+
 export type BorderBeamColor = string | BorderBeamGradient;
 
 export const DEFAULT_BORDER_BEAM_DURATION = 6;
@@ -48,4 +49,12 @@ export const getBorderBeamGradient = (value?: BorderBeamColor) => {
   return normalizedStops.length
     ? getLinearGradient(...normalizedStops.map((item) => `${item.color} ${item.percent}%`))
     : undefined;
+};
+
+export type BorderWidth = readonly [number, number, number, number];
+
+export const isSameBorderWidth = (left: BorderWidth, right: BorderWidth) => {
+  return (
+    left[0] === right[0] && left[1] === right[1] && left[2] === right[2] && left[3] === right[3]
+  );
 };

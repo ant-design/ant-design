@@ -26,6 +26,7 @@ demo:
 <code src="./demo/percent.tsx" version="5.18.0">进度</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/fullscreen.tsx">全屏</code>
+<code src="./demo/list-debug.tsx" debug>List 嵌套调试</code>
 
 ## API
 
@@ -45,7 +46,7 @@ demo:
 | ~~tip~~ | 当作为包裹元素时，可以自定义描述文案。已废弃，请使用 `description` | ReactNode | - |  | × |
 | ~~wrapperClassName~~ | 包装器的类属性。已废弃，请使用 `classNames.root` | string | - |  | × |
 
-### 静态方法
+### 静态方法 {#static-method}
 
 - `Spin.setDefaultIndicator(indicator: ReactNode)`
 

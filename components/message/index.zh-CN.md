@@ -81,7 +81,7 @@ demo:
 | onClick | 点击 message 时触发的回调函数 | function | - | - | × |
 | onClose | 关闭时触发的回调函数 | function | - | - | × |
 
-### 全局方法
+### 全局方法 {#global-static-methods}
 
 还提供了全局配置和全局销毁方法：
 
@@ -152,4 +152,4 @@ return (
 
 ### 静态方法如何设置 prefixCls ？ {#faq-set-prefix-cls}
 
-你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#configproviderconfig-4130) 进行设置。
+你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#config) 进行设置。

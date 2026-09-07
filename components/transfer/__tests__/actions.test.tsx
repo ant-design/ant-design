@@ -18,6 +18,18 @@ const listCommonProps: {
   targetKeys: ['b'],
 };
 
+const CustomLink = ({
+  disabled,
+  onClick,
+}: {
+  disabled?: boolean;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+}) => (
+  <a href="#target" aria-disabled={disabled} onClick={onClick}>
+    Custom Link
+  </a>
+);
+
 describe('Actions', () => {
   it('should handle custom button click correctly via actions', () => {
     const handleChange = jest.fn();
@@ -41,6 +53,42 @@ describe('Actions', () => {
     fireEvent.click(getByText('Custom Button'));
     expect(customButtonClick).toHaveBeenCalled();
     expect(handleChange).toHaveBeenCalled();
+  });
+
+  it('should preserve disabled state of custom actions', () => {
+    const { getByRole } = render(
+      <Transfer {...listCommonProps} oneWay actions={[<CustomLink key="test" disabled />]} />,
+    );
+
+    const link = getByRole('link', { name: 'Custom Link' });
+    expect(link).toHaveAttribute('aria-disabled', 'true');
+  });
+
+  it('should prevent default behavior of disabled custom actions', () => {
+    const { getByRole } = render(
+      <Transfer {...listCommonProps} oneWay actions={[<CustomLink key="test" disabled />]} />,
+    );
+
+    const link = getByRole('link', { name: 'Custom Link' });
+    expect(fireEvent.click(link)).toBe(false);
+  });
+
+  it('should prevent click handlers of disabled custom actions', () => {
+    const handleChange = jest.fn();
+    const customActionClick = jest.fn();
+
+    const { getByRole } = render(
+      <Transfer
+        {...listCommonProps}
+        onChange={handleChange}
+        oneWay
+        actions={[<CustomLink key="test" disabled onClick={customActionClick} />]}
+      />,
+    );
+
+    fireEvent.click(getByRole('link', { name: 'Custom Link' }));
+    expect(customActionClick).not.toHaveBeenCalled();
+    expect(handleChange).not.toHaveBeenCalled();
   });
 
   it('should accept multiple actions >= 3', () => {

@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { isNonNullable, isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isNonNullable } from '../_util/is';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
@@ -94,7 +94,7 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
         >
           {link}
         </li>
-        {separator && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}
+        {isReactRenderable(separator) && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}
       </>
     );
   }

@@ -50,7 +50,7 @@ demo:
 | onHoverChange | 鼠标经过时数值变化的回调 | function(value: number) | - |  | × |
 | onKeyDown | 按键回调 | function(event) | - |  | × |
 
-## 方法
+## 方法 {#methods}
 
 | 名称    | 描述     |
 | ------- | -------- |

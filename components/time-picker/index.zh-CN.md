@@ -53,7 +53,7 @@ dayjs.extend(customParseFormat)
 | --- | --- | --- | --- | --- | --- |
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 | 6.4.0 |
 | ~~addon~~ | TimePicker 面板底部的附加内容渲染函数，请使用 `renderExtraFooter` 替代 | () => ReactNode | - | - | × |
-| cellRender | 自定义单元格的内容 | (current: number, info: { originNode: React.ReactNode, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
+| cellRender | 自定义单元格的内容 | (current: number, info: { originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
 | changeOnScroll | 在滚动时改变选择值 | boolean | false | 5.14.0 | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.25.0 |
 | defaultValue | 默认时间 | [dayjs](http://day.js.org/) | - |  | × |
@@ -70,14 +70,14 @@ dayjs.extend(customParseFormat)
 | placeholder | 没有值的时候显示的内容 | string \| \[string, string] | `请选择时间` |  | × |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  | × |
 | ~~popupClassName~~ | 弹出层类名，请使用 `classNames.popup` 替换 | string | - |  | × |
-| ~~popupStyle~~ | 弹出层样式对象, 请使用 `styles.popup` 替换 | object | - |  | × |
+| ~~popupStyle~~ | 弹出层样式对象, 请使用 `styles.popup` 替换 | CSSProperties | - |  | × |
 | prefix | 自定义前缀 | ReactNode | - | 5.22.0 | × |
 | previewValue | 当用户选择时间悬停选项时，输入字段的值会发生临时更改 | false \| hover | hover | 6.0.0 | × |
 | renderExtraFooter | 选择框底部显示自定义的内容 | () => ReactNode | - |  | × |
 | secondStep | 秒选项间隔 | number | 1 |  | × |
 | showNow | 面板是否显示“此刻”按钮 | boolean | - | 4.4.0 | × |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `medium` \| `small` | - |  | × |
-| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 | × |
+| status | 设置校验状态 | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  | 6.3.0 |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  | × |
@@ -105,7 +105,7 @@ type DisabledTime = (now: Dayjs) => {
 
 注意：`disabledMilliseconds` 为 `5.14.0` 新增。
 
-## 方法
+## 方法 {#methods}
 
 | 名称    | 描述     | 版本 |
 | ------- | -------- | ---- |

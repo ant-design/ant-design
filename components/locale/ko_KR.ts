@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: '닫기',
     show: '표시',
     hide: '숨기기',
+    sortable: '정렬 가능',
   },
   Table: {
     filterTitle: '필터 메뉴',
@@ -31,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: '선택 반전',
     selectNone: '없음',
     selectionAll: '전체 선택',
+    selectRow: '행 선택',
+    selectedRow: '행 선택됨',
+    selectionMenu: '선택 메뉴',
     sortTitle: '정렬',
     expand: '펼치기',
     collapse: '접기',
@@ -52,6 +56,10 @@ const localeValues: Locale = {
     okText: '확인',
     cancelText: '취소',
   },
+  Splitter: {
+    toggleStartPanel: '시작 패널 전환',
+    toggleEndPanel: '끝 패널 전환',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: '여기에 검색하세요',
@@ -63,6 +71,7 @@ const localeValues: Locale = {
     selectAll: '전체 선택',
     removeAll: '전체 삭제',
     selectInvert: '선택 반전',
+    deselectAll: '모든 데이터 선택 해제',
   },
   Upload: {
     uploading: '업로드 중...',
@@ -82,6 +91,11 @@ const localeValues: Locale = {
     copy: '복사',
     copied: '복사됨',
     expand: '확장',
+    collapse: '접기',
+  },
+  Carousel: {
+    prevSlide: '이전 슬라이드',
+    nextSlide: '다음 슬라이드',
   },
   Form: {
     optional: '(선택사항)',
@@ -136,6 +150,7 @@ const localeValues: Locale = {
   QRCode: {
     expired: '만료된 QR 코드',
     refresh: '새로고침',
+    scanned: '스캔됨',
   },
   ColorPicker: {
     presetEmpty: '미정',

@@ -153,12 +153,16 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
 
   const renderExpandIcon = React.useCallback(
     (panelProps: PanelProps = {}) => {
+      const iconIsInteractive =
+        panelProps.collapsible === 'header' || panelProps.collapsible === 'icon';
       const icon = isFunction(mergedExpandIcon) ? (
         mergedExpandIcon(panelProps)
       ) : (
         <RightOutlined
           rotate={panelProps.isActive ? (direction === 'rtl' ? -90 : 90) : undefined}
-          aria-label={panelProps.isActive ? 'expanded' : 'collapsed'}
+          {...(iconIsInteractive
+            ? { 'aria-label': panelProps.isActive ? 'expanded' : 'collapsed' }
+            : { 'aria-hidden': true })}
         />
       );
       return cloneElement(icon, (oriProps) => ({

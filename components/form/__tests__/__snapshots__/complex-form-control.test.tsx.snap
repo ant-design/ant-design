@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Form complex control demo associates the Username label with its nested control 1`] = `
+<input
+  aria-required="true"
+  class="ant-input ant-input-outlined css-var-root ant-input-css-var"
+  id="username"
+  placeholder="Please input"
+  style="width: 160px;"
+  type="text"
+  value=""
+/>
+`;

@@ -662,11 +662,11 @@ exports[`renders components/slider/demo/event.tsx extend context correctly 2`] =
 
 exports[`renders components/slider/demo/icon-slider.tsx extend context correctly 1`] = `
 <div
-  class="icon-wrapper"
+  class="acss-10rh5vf ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
 >
   <span
     aria-label="frown"
-    class="anticon anticon-frown icon-wrapper-active"
+    class="anticon anticon-frown isActive"
     role="img"
   >
     <svg
@@ -684,7 +684,7 @@ exports[`renders components/slider/demo/icon-slider.tsx extend context correctly
     </svg>
   </span>
   <div
-    class="ant-slider css-var-test-id ant-slider-horizontal"
+    class="ant-slider acss-hhsnnh css-var-test-id ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -1035,11 +1035,14 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
 
 exports[`renders components/slider/demo/mark.tsx extend context correctly 1`] = `
 Array [
-  <h4>
+  <h4
+    style="margin-bottom: 16px;"
+  >
     included=true
   </h4>,
   <div
     class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
+    style="margin-bottom: 48px;"
   >
     <div
       class="ant-slider-rail"
@@ -1133,6 +1136,7 @@ Array [
   </div>,
   <div
     class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
+    style="margin-bottom: 48px;"
   >
     <div
       class="ant-slider-rail"
@@ -1214,11 +1218,14 @@ Array [
       </span>
     </div>
   </div>,
-  <h4>
+  <h4
+    style="margin-bottom: 16px;"
+  >
     included=false
   </h4>,
   <div
     class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
+    style="margin-bottom: 48px;"
   >
     <div
       class="ant-slider-rail"
@@ -1306,11 +1313,14 @@ Array [
       </span>
     </div>
   </div>,
-  <h4>
+  <h4
+    style="margin-bottom: 16px;"
+  >
     marks & step
   </h4>,
   <div
     class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
+    style="margin-bottom: 48px;"
   >
     <div
       class="ant-slider-rail"
@@ -1402,11 +1412,14 @@ Array [
       </span>
     </div>
   </div>,
-  <h4>
+  <h4
+    style="margin-bottom: 16px;"
+  >
     step=null
   </h4>,
   <div
     class="ant-slider css-var-test-id ant-slider-horizontal ant-slider-with-marks"
+    style="margin-bottom: 48px;"
   >
     <div
       class="ant-slider-rail"
@@ -1775,7 +1788,7 @@ exports[`renders components/slider/demo/style-class.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-slider acss-14altik css-var-test-id ant-slider-vertical"
+    class="ant-slider acss-jrq36w css-var-test-id ant-slider-vertical"
     style="height: 300px;"
   >
     <div
@@ -1795,7 +1808,7 @@ exports[`renders components/slider/demo/style-class.tsx extend context correctly
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="30"
-      class="ant-slider-handle acss-10vy2hp"
+      class="ant-slider-handle acss-4cyuny"
       role="slider"
       style="top: 30%; transform: translateY(-50%); border-color: rgb(114, 46, 209); box-shadow: 0 2px 8px #722ed1;"
       tabindex="0"

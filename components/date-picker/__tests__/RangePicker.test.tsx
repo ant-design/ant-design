@@ -57,8 +57,24 @@ describe('RangePicker', () => {
     }).not.toThrow();
   });
 
-  it('customize separator', () => {
-    const { container } = render(<RangePicker separator="test" />);
+  it('hides the default separator from the accessibility tree', () => {
+    const { container, queryByRole } = render(<RangePicker />);
+    const separator = container.querySelector('.ant-picker-separator');
+
+    expect(separator).toHaveAttribute('aria-hidden', 'true');
+    expect(separator).not.toHaveAttribute('aria-label');
+    expect(queryByRole('img', { name: 'swap-right' })).not.toBeInTheDocument();
+  });
+
+  it('preserves a custom separator accessible name', () => {
+    const { container, getByLabelText } = render(
+      <RangePicker separator={<span aria-label="Custom range separator">test</span>} />,
+    );
+    const separator = container.querySelector('.ant-picker-separator');
+
+    expect(separator).not.toHaveAttribute('aria-hidden');
+    expect(separator).not.toHaveAttribute('aria-label');
+    expect(getByLabelText('Custom range separator')).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
 

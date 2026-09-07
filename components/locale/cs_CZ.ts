@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Zavřít',
     show: 'Zobrazit',
     hide: 'Skrýt',
+    sortable: 'seřadit',
   },
   Table: {
     filterTitle: 'Filtr',
@@ -31,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Invertovat výběr na současné stránce',
     selectNone: 'Odznačit vše',
     selectionAll: 'Vybrat všechny řádky',
+    selectRow: 'Vybrat řádek',
+    selectedRow: 'Řádek vybrán',
+    selectionMenu: 'Nabídka výběru',
     sortTitle: 'Řadit',
     expand: 'Rozbalit řádek',
     collapse: 'Zabalit řádek',
@@ -52,6 +56,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Zrušit',
   },
+  Splitter: {
+    toggleStartPanel: 'Přepnout počáteční panel',
+    toggleEndPanel: 'Přepnout koncový panel',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Vyhledávání',
@@ -63,6 +71,7 @@ const localeValues: Locale = {
     selectAll: 'Označit vše',
     removeAll: 'Odznačit vše',
     selectInvert: 'Opačný výběr',
+    deselectAll: 'Zrušte výběr všech dat',
   },
   Upload: {
     uploading: 'Nahrávání...',
@@ -82,6 +91,11 @@ const localeValues: Locale = {
     copy: 'Kopírovat',
     copied: 'Zkopírované',
     expand: 'Zvětšit',
+    collapse: 'kolaps',
+  },
+  Carousel: {
+    prevSlide: 'Předchozí snímek',
+    nextSlide: 'Další snímek',
   },
   Form: {
     optional: '(nepovinné)',

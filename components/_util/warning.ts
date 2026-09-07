@@ -53,11 +53,10 @@ export interface WarningContextProps {
 export const WarningContext = React.createContext<WarningContextProps>({});
 
 /**
- * This is a hook but we not named as `useWarning`
- * since this is only used in development.
- * We should always wrap this in `if (process.env.NODE_ENV !== 'production')` condition
+ * This is a hook only used in development.
+ * We should always wrap this in `if (process.env.NODE_ENV !== 'production')` condition.
  */
-export const devUseWarning: (component: string) => TypeWarning =
+export const useDevWarning: (component: string) => TypeWarning =
   process.env.NODE_ENV !== 'production'
     ? (component) => {
         const { strict } = React.useContext(WarningContext);
@@ -106,5 +105,7 @@ export const devUseWarning: (component: string) => TypeWarning =
 
         return noopWarning;
       };
+
+export const devUseWarning = useDevWarning;
 
 export default warning;

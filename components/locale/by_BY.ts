@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Закрыць',
     show: 'Паказаць',
     hide: 'Схаваць',
+    sortable: 'сартавальны',
   },
   Table: {
     filterTitle: 'Фільтр',
@@ -31,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Інвертаваць выбар',
     selectNone: 'Ачысціць усе даныя',
     selectionAll: 'Выбраць усе даныя',
+    selectRow: 'Выбраць радок',
+    selectedRow: 'Радок выбраны',
+    selectionMenu: 'Меню выбару',
     sortTitle: 'Сартаванне',
     expand: 'Разгарнуць радок',
     collapse: 'Згарнуць радок',
@@ -52,6 +56,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Адмена',
   },
+  Splitter: {
+    toggleStartPanel: 'Пераключыць пачатковую панэль',
+    toggleEndPanel: 'Пераключыць канчатковую панэль',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Пошук',
@@ -63,6 +71,7 @@ const localeValues: Locale = {
     selectAll: 'Выбраць усе даныя',
     removeAll: 'Выдаліць усе даныя',
     selectInvert: 'Паказаць у адваротным парадку',
+    deselectAll: 'Адмяніце выбар усіх даных',
   },
   Upload: {
     uploading: 'Запампоўка...',
@@ -82,6 +91,7 @@ const localeValues: Locale = {
     copy: 'Капіяваць',
     copied: 'Капіяванне завершана',
     expand: 'Разгарнуць',
+    collapse: 'Згарнуць',
   },
   Form: {
     optional: '(не абавязкова)',
@@ -132,6 +142,17 @@ const localeValues: Locale = {
         mismatch: 'Значэнне поля «${label}» не адпавядае шаблону ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'Тэрмін дзеяння QR-кода скончыўся',
+    refresh: 'Абнавіць',
+    scanned: 'Адсканаваныя',
+  },
+  ColorPicker: {
+    presetEmpty: 'Пусты',
+    transparent: 'Празрысты',
+    singleColor: 'Аднакаляровы',
+    gradientColor: 'Градыент колеру',
   },
 };
 

@@ -7,6 +7,8 @@ import { clsx } from 'clsx';
 import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
+import { useLocale } from '../locale';
+import defaultLocale from '../locale/en_US';
 import useStyle, { DotDuration } from './style';
 
 export type CarouselEffect = 'scrollx' | 'fade';
@@ -30,6 +32,7 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass' | 'au
   autoplay?: boolean | { dotDuration?: boolean };
 }
 export interface CarouselRef {
+  nativeElement: HTMLDivElement;
   goTo: (slide: number, dontAnimate?: boolean) => void;
   next: () => void;
   prev: () => void;
@@ -90,7 +93,9 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     className: contextClassName,
     style: contextStyle,
   } = useComponentConfig('carousel');
+  const [contextLocale] = useLocale('Carousel', defaultLocale.Carousel);
   const slickRef = React.useRef<any>(null);
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
 
   const goTo = (slide: number, dontAnimate = false) => {
     slickRef.current.slickGoTo(slide, dontAnimate);
@@ -104,6 +109,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
       innerSlider: slickRef.current.innerSlider,
       prev: slickRef.current.slickPrev,
       next: slickRef.current.slickNext,
+      nativeElement: nativeElementRef.current!,
     }),
     [slickRef.current],
   );
@@ -117,7 +123,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
       const newIndex = isRTL ? count - initialSlide - 1 : initialSlide;
       goTo(newIndex, false);
     }
-  }, [count, initialSlide, isRTL]);
+  }, [initialSlide, isRTL]);
 
   // ========================== Warn ==========================
   if (process.env.NODE_ENV !== 'production') {
@@ -167,15 +173,15 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     : {};
 
   return (
-    <div className={className} id={id} style={dotDurationStyle}>
+    <div ref={nativeElementRef} className={className} id={id} style={dotDurationStyle}>
       <SlickCarousel
         ref={slickRef}
         {...newProps}
         dots={enableDots}
         dotsClass={dsClass}
         arrows={arrows}
-        prevArrow={prevArrow ?? <ArrowButton aria-label={isRTL ? 'next' : 'prev'} />}
-        nextArrow={nextArrow ?? <ArrowButton aria-label={isRTL ? 'prev' : 'next'} />}
+        prevArrow={prevArrow ?? <ArrowButton aria-label={isRTL ? contextLocale.nextSlide : contextLocale.prevSlide} />}
+        nextArrow={nextArrow ?? <ArrowButton aria-label={isRTL ? contextLocale.prevSlide : contextLocale.nextSlide} />}
         draggable={draggable}
         verticalSwiping={mergedVertical}
         autoplaySpeed={autoplaySpeed}

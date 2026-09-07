@@ -85,6 +85,10 @@ export interface CalendarProps<DateType> {
   onSelect?: (date: DateType, selectInfo: SelectInfo) => void;
 }
 
+export interface CalendarRef {
+  nativeElement: HTMLDivElement;
+}
+
 const isSameYear = <T extends AnyObject>(date1: T, date2: T, config: GenerateConfig<T>) => {
   const { getYear } = config;
   return date1 && date2 && getYear(date1) === getYear(date2);
@@ -101,7 +105,10 @@ const isSameDate = <T extends AnyObject>(date1: T, date2: T, config: GenerateCon
 };
 
 const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateConfig<DateType>) => {
-  const Calendar: React.FC<Readonly<CalendarProps<DateType>>> = (props) => {
+  const InternalCalendar = (
+    props: Readonly<CalendarProps<DateType>>,
+    ref: React.ForwardedRef<CalendarRef>,
+  ) => {
     const {
       prefixCls: customizePrefixCls,
       className,
@@ -354,8 +361,15 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       }
     };
 
+    const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+    React.useImperativeHandle(ref, () => ({
+      nativeElement: nativeElementRef.current!,
+    }));
+
     return (
       <div
+        ref={nativeElementRef}
         className={clsx(
           calendarPrefixCls,
           {
@@ -416,6 +430,10 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       </div>
     );
   };
+
+  const Calendar = React.forwardRef(InternalCalendar) as React.ForwardRefExoticComponent<
+    Readonly<CalendarProps<DateType>> & React.RefAttributes<CalendarRef>
+  >;
 
   if (process.env.NODE_ENV !== 'production') {
     Calendar.displayName = 'Calendar';

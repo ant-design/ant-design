@@ -1,4 +1,5 @@
 import React from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 import BorderBeam from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -14,6 +15,8 @@ describe('BorderBeam', () => {
   const [varName] = genCssVar(defaultPrefixCls, 'border-beam');
   const getBeamElement = (container: HTMLElement) =>
     container.querySelector<HTMLElement>('.ant-border-beam')!;
+  const getBeamElements = (container: HTMLElement) =>
+    container.querySelectorAll<HTMLElement>('.ant-border-beam');
 
   it('should inject the beam effect into the child host', async () => {
     const { container } = render(
@@ -141,6 +144,29 @@ describe('BorderBeam', () => {
     );
   });
 
+  it('should remove the effect when the host becomes unavailable', async () => {
+    const { container, rerender } = render(
+      <BorderBeam>
+        <div style={{ border: '4px solid #fff' }}>
+          <span>content</span>
+        </div>
+      </BorderBeam>,
+    );
+
+    await waitFor(() => {
+      expect(getBeamElement(container).style.getPropertyValue(varName('inset-offset'))).toBe(
+        '-4px -4px -4px -4px',
+      );
+    });
+
+    rerender(<BorderBeam>content</BorderBeam>);
+
+    await waitFor(() => {
+      expect(container).toHaveTextContent('content');
+      expect(container.querySelector('.ant-border-beam')).toBeFalsy();
+    });
+  });
+
   it('should support customizing the beam loop duration', async () => {
     const { container, rerender } = render(
       <BorderBeam duration={12}>
@@ -163,6 +189,82 @@ describe('BorderBeam', () => {
     );
 
     expect(getBeamElement(container).style.getPropertyValue(varName('duration'))).toBe('');
+  });
+
+  it('should render the configured number of evenly distributed beams', async () => {
+    const { container, rerender } = render(
+      <BorderBeam>
+        <div>content</div>
+      </BorderBeam>,
+    );
+
+    await waitFor(() => {
+      expect(getBeamElements(container)).toHaveLength(1);
+      expect(getBeamElement(container).style.getPropertyValue(varName('delay'))).toBe('');
+    });
+
+    rerender(
+      <BorderBeam count={3} duration={12}>
+        <div>content</div>
+      </BorderBeam>,
+    );
+
+    expect(getBeamElements(container)).toHaveLength(3);
+    expect(
+      Array.from(getBeamElements(container), (item) =>
+        item.style.getPropertyValue(varName('delay')),
+      ),
+    ).toEqual(['', '-4s', '-8s']);
+  });
+
+  it('should prioritize items over count and support configuring individual beams', async () => {
+    const warningSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(
+      <BorderBeam
+        color="#1677ff"
+        count={4}
+        duration={12}
+        items={[{ color: '#36cfc9', lineWidth: 3, outset: 4, size: 60 }, {}]}
+        lineWidth={2}
+        outset={1}
+        size={80}
+      >
+        <div>content</div>
+      </BorderBeam>,
+    );
+
+    await waitFor(() => {
+      expect(getBeamElements(container)).toHaveLength(2);
+    });
+
+    expect(
+      Array.from(getBeamElements(container), (beam) => ({
+        color: beam.style.getPropertyValue(varName('beam-gradient')),
+        lineWidth: beam.style.getPropertyValue(varName('line-width')),
+        outset: beam.style.getPropertyValue(varName('inset-offset')),
+        size: beam.style.getPropertyValue(varName('size')),
+        delay: beam.style.getPropertyValue(varName('delay')),
+      })),
+    ).toEqual([
+      {
+        color: 'linear-gradient(to left, #36cfc9 0%, #36cfc9 70%, transparent)',
+        lineWidth: '3px',
+        outset: '-4px',
+        size: '60px',
+        delay: '',
+      },
+      {
+        color: 'linear-gradient(to left, #1677ff 0%, #1677ff 70%, transparent)',
+        lineWidth: '2px',
+        outset: '-1px',
+        size: '80px',
+        delay: '-6s',
+      },
+    ]);
+    expect(warningSpy).toHaveBeenCalledWith(
+      'Warning: [antd: BorderBeam] `count` is ignored when `items` is provided.',
+    );
+    warningSpy.mockRestore();
   });
 
   it('should support customizing the beam size', async () => {
@@ -243,29 +345,19 @@ describe('BorderBeam', () => {
     expect(getBeamElement(container).style.getPropertyValue(varName('line-width'))).toBe('');
   });
 
-  it('should infer child border radius from computed style', async () => {
+  it('should inherit child border radius', async () => {
+    const cache = createCache();
     const { container } = render(
-      <BorderBeam>
-        <div style={{ borderRadius: 12 }}>content</div>
-      </BorderBeam>,
+      <StyleProvider cache={cache}>
+        <BorderBeam>
+          <div style={{ borderRadius: 12 }}>content</div>
+        </BorderBeam>
+      </StyleProvider>,
     );
-
     await waitFor(() => {
-      expect(getBeamElement(container).style.getPropertyValue(varName('border-radius'))).toBe(
-        '12px',
-      );
-    });
-
-    const { container: cssVarContainer } = render(
-      <BorderBeam>
-        <div style={{ borderRadius: 'var(--beam-radius)' }}>content</div>
-      </BorderBeam>,
-    );
-
-    await waitFor(() => {
-      expect(getBeamElement(cssVarContainer).style.getPropertyValue(varName('border-radius'))).toBe(
-        'var(--beam-radius)',
-      );
+      const beamElement = getBeamElement(container);
+      expect(getComputedStyle(beamElement.parentElement!).borderRadius).toBe('12px');
+      expect(extractStyle(cache, { plain: true })).toContain('border-radius:inherit');
     });
   });
 

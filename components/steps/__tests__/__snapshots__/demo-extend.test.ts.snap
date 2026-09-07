@@ -2377,7 +2377,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
 
 exports[`renders components/steps/demo/inline.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
 ]
 `;
 
@@ -4152,14 +4152,12 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
         </div>
       </div>
       <svg
+        aria-hidden="true"
         class="ant-steps-panel-arrow"
         preserveAspectRatio="none"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <title>
-          Arrow
-        </title>
         <path
           d="M 0 0 L 100 50 L 0 100"
         />
@@ -4220,14 +4218,12 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
         </div>
       </div>
       <svg
+        aria-hidden="true"
         class="ant-steps-panel-arrow"
         preserveAspectRatio="none"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <title>
-          Arrow
-        </title>
         <path
           d="M 0 0 L 100 50 L 0 100"
         />
@@ -4270,14 +4266,12 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
         </div>
       </div>
       <svg
+        aria-hidden="true"
         class="ant-steps-panel-arrow"
         preserveAspectRatio="none"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <title>
-          Arrow
-        </title>
         <path
           d="M 0 0 L 100 50 L 0 100"
         />
@@ -4334,14 +4328,12 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
         </div>
       </div>
       <svg
+        aria-hidden="true"
         class="ant-steps-panel-arrow"
         preserveAspectRatio="none"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <title>
-          Arrow
-        </title>
         <path
           d="M 0 0 L 100 50 L 0 100"
         />
@@ -4402,14 +4394,12 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
         </div>
       </div>
       <svg
+        aria-hidden="true"
         class="ant-steps-panel-arrow"
         preserveAspectRatio="none"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <title>
-          Arrow
-        </title>
         <path
           d="M 0 0 L 100 50 L 0 100"
         />
@@ -4452,14 +4442,12 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
         </div>
       </div>
       <svg
+        aria-hidden="true"
         class="ant-steps-panel-arrow"
         preserveAspectRatio="none"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <title>
-          Arrow
-        </title>
         <path
           d="M 0 0 L 100 50 L 0 100"
         />
@@ -4543,13 +4531,11 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
           aria-valuenow="60"
           class="ant-steps-item-progress-icon-svg"
           height="100%"
+          role="progressbar"
           viewBox="0 0 100 100"
           width="100%"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <title>
-            Progress
-          </title>
           <circle
             class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
           />
@@ -4768,13 +4754,11 @@ Array [
             aria-valuenow="0"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -4926,13 +4910,11 @@ Array [
             aria-valuenow="0"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -5084,13 +5066,11 @@ Array [
             aria-valuenow="0"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -5242,13 +5222,11 @@ Array [
             aria-valuenow="0"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -7192,13 +7170,11 @@ Array [
             aria-valuenow="60"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -7345,13 +7321,11 @@ Array [
             aria-valuenow="80"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -7963,13 +7937,11 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
             aria-valuenow="60"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -8124,13 +8096,11 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
               aria-valuenow="60"
               class="ant-steps-item-progress-icon-svg"
               height="100%"
+              role="progressbar"
               viewBox="0 0 100 100"
               width="100%"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>
-                Progress
-              </title>
               <circle
                 class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
               />
@@ -8282,13 +8252,11 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
               aria-valuenow="60"
               class="ant-steps-item-progress-icon-svg"
               height="100%"
+              role="progressbar"
               viewBox="0 0 100 100"
               width="100%"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>
-                Progress
-              </title>
               <circle
                 class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
               />

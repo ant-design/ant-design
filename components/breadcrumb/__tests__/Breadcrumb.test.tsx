@@ -24,6 +24,13 @@ describe('Breadcrumb', () => {
     errorSpy.mockRestore();
   });
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Breadcrumb>>();
+    const { container } = render(<Breadcrumb ref={ref} items={[{ title: 'Home' }]} />);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-breadcrumb'));
+  });
+
   it('warns on non-Breadcrumb.Item and non-Breadcrumb.Separator children', () => {
     const MyCom: React.FC = () => <div>foo</div>;
     render(
@@ -444,5 +451,12 @@ describe('Breadcrumb', () => {
       </ConfigProvider>,
     );
     getByText('666');
+  });
+
+  it('supports numeric 0 separator', () => {
+    const { container } = render(
+      <Breadcrumb separator={0} items={[{ title: 'foo' }, { title: 'bar' }]} />,
+    );
+    expect(container.querySelector('.ant-breadcrumb-separator')?.textContent).toBe('0');
   });
 });

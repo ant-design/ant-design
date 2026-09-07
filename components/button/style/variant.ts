@@ -6,7 +6,7 @@ import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { ButtonToken } from './token';
 
 const genVariantStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
-  const { componentCls, antCls, lineWidth } = token;
+  const { componentCls, antCls, lineWidth, lineType } = token;
 
   const [varName, varRef] = genCssVar(antCls, 'btn');
 
@@ -24,7 +24,7 @@ const genVariantStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
         [varName('border-color-active')]: varRef('border-color'),
         [varName('border-color-disabled')]: varRef('border-color'),
 
-        [varName('border-style')]: 'solid',
+        [varName('border-style')]: lineType,
 
         // Text
         [varName('text-color')]: '#000',

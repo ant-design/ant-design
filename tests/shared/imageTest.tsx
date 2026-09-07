@@ -9,10 +9,11 @@ import fse from 'fs-extra';
 import { globSync } from 'glob';
 import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
-import type { HTTPRequest, Viewport } from 'puppeteer';
+import type { HTTPRequest, Page, Viewport } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
 
 import { App, ConfigProvider, theme } from '../../components';
+import type { ThemeConfig } from '../../components';
 import { fillWindowEnv } from '../setup';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
@@ -28,10 +29,25 @@ const themes = {
   compact: theme.compactAlgorithm,
 };
 
+// 修复截图快照里面的中文是乱码的问题
+const imageSnapshotFontFamily = [
+  'Arial',
+  '"PingFang SC"',
+  '"Hiragino Sans GB"',
+  '"Microsoft YaHei"',
+  '"Noto Sans CJK SC"',
+  '"Noto Sans SC"',
+  '"Source Han Sans SC"',
+  '"WenQuanYi Micro Hei"',
+  'sans-serif',
+].join(', ');
+
 interface ImageTestOptions {
+  beforeScreenshot?: (testPage: Page) => Promise<void>;
   onlyViewport?: boolean;
   ssr?: boolean | string[];
   openTriggerClassName?: string;
+  hoverSelector?: string;
   mobile?: boolean;
 }
 
@@ -53,15 +69,7 @@ export default function imageTest(
     (global as any).window = win;
 
     // Fill env
-    const keys = [
-      ...Object.keys(win),
-      'HTMLElement',
-      'SVGElement',
-      'ShadowRoot',
-      'Element',
-      'File',
-      'Blob',
-    ].filter((key) => !(global as any)[key]);
+    const keys = Object.getOwnPropertyNames(win).filter((key) => !(key in global));
 
     keys.forEach((key) => {
       (global as any)[key] = win[key];
@@ -238,6 +246,10 @@ export default function imageTest(
         openTriggerClassName || '',
       );
 
+      if (options.hoverSelector) {
+        await page.hover(options.hoverSelector);
+      }
+
       // Wait for fonts to be ready and the layout to settle BEFORE measuring
       // the page size. Otherwise the rendered width/height may shift after the
       // screenshot is taken, making the visual diff flaky.
@@ -258,6 +270,8 @@ export default function imageTest(
           });
         });
       });
+
+      await options.beforeScreenshot?.(page);
 
       if (!options.onlyViewport) {
         // Get scroll height of the rendered page and set viewport
@@ -280,25 +294,38 @@ export default function imageTest(
 
   if (!options.mobile) {
     Object.entries(themes).forEach(([key, algorithm]) => {
-      const configTheme = {
+      const configTheme: ThemeConfig = {
         algorithm,
         token: {
-          fontFamily: 'Arial',
+          fontFamily: imageSnapshotFontFamily,
         },
       };
 
       test(
         `component image screenshot should correct ${key}`,
         `.${key}`,
-        <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
+        <div
+          key={`theme-${key}`}
+          style={{
+            padding: '24px 12px',
+            backgroundColor: key === 'dark' ? '#000' : undefined,
+            fontFamily: imageSnapshotFontFamily,
+          }}
+        >
           <ConfigProvider theme={configTheme}>{component}</ConfigProvider>
         </div>,
       );
     });
-
-    // Mobile Snapshot
   } else {
-    test(identifier, `.mobile`, component, true);
+    // Mobile Snapshot
+    test(
+      identifier,
+      `.mobile`,
+      <div style={{ fontFamily: imageSnapshotFontFamily }} key={`mobile-${identifier}`}>
+        {component}
+      </div>,
+      true,
+    );
   }
 }
 

@@ -78,7 +78,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
               <input
                 class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
                 id="content"
-                placeholder="请输入"
+                placeholder="Please enter"
                 type="text"
                 value="Ant Design"
               />

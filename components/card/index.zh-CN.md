@@ -27,6 +27,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 <code src="./demo/meta.tsx">支持更多内容配置</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/no-body-debug.tsx" debug>封面和操作区不渲染 body</code>
+<code src="./demo/button-alignment-debug.tsx" debug>按钮对齐</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API

@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Schließen',
     show: 'Anzeigen',
     hide: 'Ausblenden',
+    sortable: 'sortierbar',
   },
   Table: {
     filterTitle: 'Filter-Menü',
@@ -29,6 +30,9 @@ const localeValues: Locale = {
     selectAll: 'Selektiere Alle',
     selectInvert: 'Selektion Invertieren',
     selectionAll: 'Wählen Sie alle Daten aus',
+    selectRow: 'Zeile auswählen',
+    selectedRow: 'Zeile ausgewählt',
+    selectionMenu: 'Auswahlmenü',
     sortTitle: 'Sortieren',
     emptyText: 'Keine Daten',
     expand: 'Zeile erweitern',
@@ -36,6 +40,7 @@ const localeValues: Locale = {
     triggerDesc: 'Klicken zur absteigenden Sortierung',
     triggerAsc: 'Klicken zur aufsteigenden Sortierung',
     cancelSort: 'Klicken zum Abbrechen der Sortierung',
+    selectNone: 'Alle Daten löschen',
   },
   Tour: {
     Next: 'Weiter',
@@ -50,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Abbrechen',
+  },
+  Splitter: {
+    toggleStartPanel: 'Startpanel umschalten',
+    toggleEndPanel: 'Endpanel umschalten',
   },
   Transfer: {
     titles: ['', ''],
@@ -74,13 +83,22 @@ const localeValues: Locale = {
   Empty: {
     description: 'Keine Daten',
   },
+  Icon: {
+    icon: 'Symbol',
+  },
   Text: {
     edit: 'Bearbeiten',
     copy: 'Kopieren',
     copied: 'Kopiert',
     expand: 'Erweitern',
+    collapse: 'Zusammenbruch',
+  },
+  Carousel: {
+    prevSlide: 'Vorherige Folie',
+    nextSlide: 'Nächste Folie',
   },
   Form: {
+    optional: '(optional)',
     defaultValidateMessages: {
       default: 'Feld-Validierungsfehler: ${label}',
       required: 'Bitte geben Sie ${label} an',
@@ -132,6 +150,13 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR-Code abgelaufen',
     refresh: 'Aktualisieren',
+    scanned: 'Gescannt',
+  },
+  ColorPicker: {
+    presetEmpty: 'Leer',
+    transparent: 'Transparent',
+    singleColor: 'Einfarbig',
+    gradientColor: 'Farbverlauf',
   },
 };
 

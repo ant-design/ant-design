@@ -234,18 +234,18 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     { node, checked }: { node: EventDataNode<FilterTreeDataNode>; checked: boolean },
   ) => {
     if (!filterMultiple) {
-      onSelectKeys({ selectedKeys: checked && node.key ? [node.key] : [] });
+      onSelectKeys({ selectedKeys: checked ? [node.key] : [] });
     } else {
       onSelectKeys({ selectedKeys: keys });
     }
   };
 
   React.useEffect(() => {
-    if (!visible) {
+    if (!mergedVisible) {
       return;
     }
     onSelectKeys({ selectedKeys: wrapStringListType(propFilteredKeys) });
-  }, [propFilteredKeys]);
+  }, [propFilteredKeys, mergedVisible]);
 
   // ====================== Open Keys ======================
   const [openKeys, setOpenKeys] = React.useState<string[]>([]);
@@ -267,10 +267,10 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
   };
   // clear search value after close filter dropdown
   React.useEffect(() => {
-    if (!visible) {
+    if (!mergedVisible) {
       setSearchValue('');
     }
-  }, [visible]);
+  }, [mergedVisible]);
 
   // ======================= Submit ========================
   const internalTriggerFilter = (keys?: string[]) => {
@@ -328,10 +328,10 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
         setFilteredKeysSync(wrapStringListType(propFilteredKeys));
       }
 
-      triggerVisible(newVisible);
-
       if (!newVisible && !column.filterDropdown && filterOnClose) {
         onConfirm();
+      } else {
+        triggerVisible(newVisible);
       }
     }
   };

@@ -579,7 +579,7 @@ exports[`Table.filter renders menu correctly 1`] = `
   >
     <li
       class="ant-dropdown-menu-item"
-      data-menu-id="rc-menu-uuid-boy"
+      data-menu-id="rc-menu-uuid-test-id-boy"
       role="menuitem"
       tabindex="-1"
     >
@@ -605,7 +605,7 @@ exports[`Table.filter renders menu correctly 1`] = `
     </li>
     <li
       class="ant-dropdown-menu-item"
-      data-menu-id="rc-menu-uuid-girl"
+      data-menu-id="rc-menu-uuid-test-id-girl"
       role="menuitem"
       tabindex="-1"
     >
@@ -634,11 +634,11 @@ exports[`Table.filter renders menu correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-title-popup"
+        aria-controls="rc-menu-uuid-test-id-title-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-dropdown-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-title"
+        data-menu-id="rc-menu-uuid-test-id-title"
         role="menuitem"
         tabindex="-1"
       >
@@ -714,7 +714,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
   >
     <li
       class="ant-dropdown-menu-item"
-      data-menu-id="rc-menu-uuid-boy"
+      data-menu-id="rc-menu-uuid-test-id-boy"
       role="menuitem"
       tabindex="-1"
     >
@@ -740,7 +740,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
     </li>
     <li
       class="ant-dropdown-menu-item"
-      data-menu-id="rc-menu-uuid-girl"
+      data-menu-id="rc-menu-uuid-test-id-girl"
       role="menuitem"
       tabindex="-1"
     >
@@ -769,11 +769,11 @@ exports[`Table.filter renders radio filter correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-title-popup"
+        aria-controls="rc-menu-uuid-test-id-title-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-dropdown-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-title"
+        data-menu-id="rc-menu-uuid-test-id-title"
         role="menuitem"
         tabindex="-1"
       >

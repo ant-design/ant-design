@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { UnstableContext } from '@rc-component/steps';
+import { isNonNullable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable, isNumber } from '../_util/is';
+import { isNumber } from '../_util/is';
 import type { GetProp, GetProps, LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -197,9 +198,12 @@ const Timeline: CompoundedComponent = (props) => {
     items: mergedItems,
   };
 
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [stepsClassNames, contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     {
       props: mergedProps,
     },
@@ -253,7 +257,7 @@ const Timeline: CompoundedComponent = (props) => {
   }
 
   // ==================== Render ======================
-  const stepStyle: React.CSSProperties = { ...contextStyle, ...style };
+  const stepStyle: React.CSSProperties = {};
 
   if (isNonNullable(titleSpan) && mergedMode !== 'alternate') {
     if (isNumber(titleSpan)) {

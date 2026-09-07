@@ -21,7 +21,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
       margin-inline-start: 64px;
       overflow: hidden;
       font-size: ${cssVar.fontSize};
-      border-top: 1px solid ${colorSplit};
+      border-top: ${cssVar.lineWidth} ${cssVar.lineType} ${colorSplit};
       display: flex;
     `,
     pageNav: css`

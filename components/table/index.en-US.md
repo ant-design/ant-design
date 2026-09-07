@@ -85,6 +85,7 @@ const columns = [
 <code src="./demo/tree-data.tsx">Tree data</code>
 <code src="./demo/tree-table-ellipsis.tsx" debug>Tree data ellipsis debug demo</code>
 <code src="./demo/fixed-header.tsx">Fixed Header</code>
+<code src="./demo/auto-height.tsx">Auto height</code>
 <code src="./demo/fixed-columns.tsx">Fixed Columns</code>
 <code src="./demo/fixed-gapped-columns.tsx" version="5.14.0">Stack Fixed Columns</code>
 <code src="./demo/fixed-columns-header.tsx">Fixed Columns and Header</code>
@@ -104,6 +105,7 @@ const columns = [
 <code src="./demo/virtual-list.tsx" version="5.9.0">Virtual list</code>
 <code src="./demo/responsive.tsx">Responsive</code>
 <code src="./demo/nest-table-border-debug.tsx" debug>Nested Bordered Table Debug</code>
+<code src="./demo/nested-table-in-tabs-debug.tsx" debug>Nested Table in Tabs Debug</code>
 <code src="./demo/pagination.tsx">Pagination Settings</code>
 <code src="./demo/row-selection-custom-debug.tsx" debug>Custom selection group</code>
 <code src="./demo/sticky.tsx">Fixed header and scroll bar with the page</code>
@@ -260,6 +262,7 @@ Properties for expandable.
 | expandIcon | Customize row expand Icon. Ref [example](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | false |  |
 | fixed | Whether the expansion icon is fixed. Optional true `left` `right` | boolean \| string | false | 4.16.0 |
+| forceRender | Force render expanded row content before expansion. In virtual mode, only rows currently mounted by the virtual list are force-rendered; off-screen rows may still be unmounted | boolean | false | 6.6.0 |
 | indentSize | Indent size in pixels of tree data | number | 15 |  |
 | rowExpandable | Enable row can be expandable | (record) => boolean | - |  |
 | showExpandColumn | Show expand column | boolean | true | 4.18.0 |

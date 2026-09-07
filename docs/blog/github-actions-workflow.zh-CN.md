@@ -97,7 +97,7 @@ Ant Design 团队非常鼓励社区参与 Pull Request (PR)，可以先阅读 [�
 
 ### 其他审查
 
-- [size-limit.yml](https://github.com/ant-design/ant-design/blob/5dfce5443744271f778313c23eb8ec3a5af481f8/.github/workflows/size-limit.ym) Job 则是对 PR 的一个产物大小进行一个检查。
+- [size-limit.yml](https://github.com/ant-design/ant-design/blob/5dfce5443744271f778313c23eb8ec3a5af481f8/.github/workflows/size-limit.yml) Job 则是对 PR 的一个产物大小进行一个检查。
 - 最近比较火热的 chatGPT，团队也将它添加到 GitHub Action 中，用 AI 先对代码进行审查，具体 Job 可以参考 [chatgpt-cr.yml](https://github.com/ant-design/ant-design/blob/f7fd474cf8792ea01d03461d407c0edc11828a1c/.github/workflows/chatgpt-cr.yml) 文件。
 
 ## 单元测试

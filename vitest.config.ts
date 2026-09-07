@@ -115,6 +115,7 @@ export default defineConfig({
       'components/grid/__tests__/server.test.tsx',
       'components/input/__tests__/textarea.test.tsx',
       'components/layout/__tests__/index.test.tsx',
+      'components/listy/__tests__/token.test.tsx',
       'components/locale/__tests__/config.test.tsx',
       'components/masonry/__tests__/index.test.tsx',
       'components/mentions/__tests__/index.test.tsx',

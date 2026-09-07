@@ -18,6 +18,8 @@ const localeValues: Locale = {
     close: '關閉',
     show: '顯示',
     hide: '隱藏',
+    sortable: '可排序',
+    clear: '清除',
   },
   Table: {
     filterTitle: '篩選器',
@@ -31,6 +33,9 @@ const localeValues: Locale = {
     selectInvert: '反向選取',
     selectNone: '清空所有',
     selectionAll: '全選所有',
+    selectRow: '選取列',
+    selectedRow: '列已選取',
+    selectionMenu: '選取選單',
     sortTitle: '排序',
     expand: '展開行',
     collapse: '關閉行',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
     okText: '確定',
     cancelText: '取消',
   },
+  Splitter: {
+    toggleStartPanel: '切換起始面板',
+    toggleEndPanel: '切換結束面板',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: '搜尋資料',
@@ -63,6 +72,7 @@ const localeValues: Locale = {
     selectAll: '全選所有',
     removeAll: '刪除全部',
     selectInvert: '反選當頁',
+    deselectAll: '取消全選',
   },
   Upload: {
     uploading: '正在上傳...',
@@ -84,7 +94,12 @@ const localeValues: Locale = {
     expand: '展開',
     collapse: '收起',
   },
+  Carousel: {
+    prevSlide: '上一張幻燈片',
+    nextSlide: '下一張幻燈片',
+  },
   Form: {
+    optional: '（選填）',
     defaultValidateMessages: {
       default: '字段驗證錯誤${label}',
       required: '請輸入${label}',

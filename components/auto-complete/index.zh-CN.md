@@ -35,7 +35,10 @@ demo:
 <code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
 <code src="./demo/allowClear.tsx">自定义清除按钮</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
+<code src="./demo/customize-clear-debug.tsx" debug>自定义输入组件配合清除按钮 Debug</code>
 <code src="./demo/disabled-custom-debug.tsx" debug>禁用自定义输入 Debug</code>
+<code src="./demo/disabled-in-form-debug.tsx" debug>禁用文字颜色在 Form 中 Debug</code>
+<code src="./demo/filled-custom-debug.tsx" debug>填充形态自定义输入 Debug</code>
 <code src="./demo/form-debug.tsx" debug>在 Form 中 Debug</code>
 <code src="./demo/AutoComplete-and-Select.tsx" debug>AutoComplete 和 Select</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -57,8 +60,8 @@ demo:
 | disabled | 是否禁用 | boolean | false |  |
 | ~~dropdownClassName~~ | 下拉菜单的 className 属性，请使用 `classNames.popup.root` 替代 | string | - | - |
 | ~~dropdownMatchSelectWidth~~ | 下拉菜单和输入框是否同宽，请使用 `popupMatchSelectWidth` 替代 | boolean \| number | true | - |
-| ~~dropdownRender~~ | 自定义下拉框内容，使用 `popupRender` 替换 | (originNode: ReactNode) => ReactNode | - | 4.24.0 |
-| popupRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
+| ~~dropdownRender~~ | 自定义下拉框内容，使用 `popupRender` 替换 | (originNode: ReactElement) => ReactNode | - | 4.24.0 |
+| popupRender | 自定义下拉框内容 | (originNode: ReactElement) => ReactNode | - |  |
 | ~~popupClassName~~ | 下拉菜单的 className 属性，使用 `classNames.popup.root` 替换 | string | - | 4.23.0 |
 | ~~dropdownStyle~~ | 下拉菜单的 style 属性，使用 `styles.popup.root` 替换 | CSSProperties | - |  |
 | popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true |  |

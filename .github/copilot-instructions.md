@@ -2,7 +2,7 @@
 
 This is the Ant Design (antd) repository - a React component library with enterprise-class UI design language, widely used for building professional web applications.
 
-> For deeper, project-wide conventions (demo/test import rules, documentation format, changelog rules, PR templates, etc.), see [`CLAUDE.md`](../CLAUDE.md) at the repository root. This file is a concise, suggestion-time reference designed to keep AI tools from hallucinating non-existent components or APIs.
+> For deeper, project-wide conventions (demo/test import rules, documentation format, changelog rules, PR templates, etc.), see [`AGENTS.md`](../AGENTS.md) at the repository root. This file is a concise, suggestion-time reference designed to keep AI tools from hallucinating non-existent components or APIs.
 
 ## Project Context
 
@@ -129,14 +129,14 @@ Internally these are flagged via `warning.deprecated(...)` and `@deprecated` JSD
 - Target 100% test coverage
 - Place tests in `__tests__` directory as `index.test.tsx` or `componentName.test.tsx`
 - Include snapshot tests for UI components
-- Inside `components/**/__tests__/` use **relative** paths (`../`, `../../_util/...`) — never `antd`, `antd/es/*`, or path aliases. See [`CLAUDE.md`](../CLAUDE.md) for the full rule.
+- Inside `components/**/__tests__/` use **relative** paths (`../`, `../../_util/...`) — never `antd`, `antd/es/*`, or path aliases. See [`AGENTS.md`](../AGENTS.md) for the full rule.
 
 ### Demo & Documentation
 
 - Keep demo code concise and copy-pasteable
 - Focus each demo on a single feature
 - Provide both English and Chinese documentation (`index.en-US.md` and `index.zh-CN.md`)
-- Inside `components/**/demo/` use **absolute** imports (`antd`, `antd/es/*`, `antd/locale/*`) — never relative paths to component internals. The semantic demos (`_semantic*.tsx`) are an exception. See [`CLAUDE.md`](../CLAUDE.md) for the full rule.
+- Inside `components/**/demo/` use **absolute** imports (`antd`, `antd/es/*`, `antd/locale/*`) — never relative paths to component internals. The semantic demos (`_semantic*.tsx`) are an exception. See [`AGENTS.md`](../AGENTS.md) for the full rule.
 - Follow import order: React → dependencies → antd components → custom components → types → styles
 - Use 2-space indentation
 - Prefer antd built-in components over external dependencies

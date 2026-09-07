@@ -6,11 +6,14 @@
 - <Form.Item label="Field" name="field">
 -   <Input />
 - </Form.Item>
-+ <Form.Item label="Field">
-+   <Form.Item name="field" noStyle><Input /></Form.Item> // 直接包裹才会绑定表单
++ <Form.Item label="Field" htmlFor="field">
++   <Form.Item name="field" noStyle><Input id="field" /></Form.Item>
++   {/* 直接包裹才会绑定表单 */}
 +   <span>description</span>
 + </Form.Item>
 ```
+
+当带有 `label` 的外层 `Form.Item` 没有 `name` 时，它无法自动推断内层控件的 ID。如果该标签对应一个控件，请为外层设置 `htmlFor`，并为内层控件设置相同的 `id`，以保留点击标签聚焦和屏幕阅读器关联。
 
 这里展示了三种典型场景：
 
@@ -30,11 +33,14 @@ This demo shows how to use `Form.Item` with multiple controls. `<Form.Item name=
 - <Form.Item label="Field" name="field">
 -   <Input />
 - </Form.Item>
-+ <Form.Item label="Field">
-+   <Form.Item name="field" noStyle><Input /></Form.Item> // that will bind input
++ <Form.Item label="Field" htmlFor="field">
++   <Form.Item name="field" noStyle><Input id="field" /></Form.Item>
++   {/* The nested item binds the input. */}
 +   <span>description</span>
 + </Form.Item>
 ```
+
+When the outer labeled `Form.Item` has no `name`, it cannot infer the nested control's ID. If the label describes a single control, set `htmlFor` on the outer item and the same `id` on the nested control to preserve label-click focus and screen reader association.
 
 This demo shows three typical usages:
 

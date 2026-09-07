@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { useControlledState } from '@rc-component/util';
+import { isReactRenderable, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isReactRenderable } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -47,8 +46,8 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     placement = 'top',
     trigger,
     children,
-    mouseEnterDelay = 0.1,
-    mouseLeaveDelay = 0.1,
+    mouseEnterDelay,
+    mouseLeaveDelay,
     onOpenChange,
     overlayStyle = {},
     styles,
@@ -65,7 +64,12 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     styles: contextStyles,
     arrow: contextArrow,
     trigger: contextTrigger,
+    mouseEnterDelay: contextMouseEnterDelay,
+    mouseLeaveDelay: contextMouseLeaveDelay,
   } = useComponentConfig('popover');
+
+  const mergedMouseEnterDelay = mouseEnterDelay ?? contextMouseEnterDelay ?? 0.1;
+  const mergedMouseLeaveDelay = mouseLeaveDelay ?? contextMouseLeaveDelay ?? 0.1;
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
@@ -89,8 +93,8 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     ...props,
     placement,
     trigger: mergedTrigger,
-    mouseEnterDelay,
-    mouseLeaveDelay,
+    mouseEnterDelay: mergedMouseEnterDelay,
+    mouseLeaveDelay: mergedMouseLeaveDelay,
     overlayStyle,
     styles,
     classNames,
@@ -131,8 +135,8 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       arrow={mergedArrow}
       placement={placement}
       trigger={mergedTrigger}
-      mouseEnterDelay={mouseEnterDelay}
-      mouseLeaveDelay={mouseLeaveDelay}
+      mouseEnterDelay={mergedMouseEnterDelay}
+      mouseLeaveDelay={mergedMouseLeaveDelay}
       {...restProps}
       prefixCls={prefixCls}
       classNames={{

@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Stäng',
     show: 'Visa',
     hide: 'Dölj',
+    sortable: 'sorterbar',
   },
   Table: {
     filterTitle: 'Filtermeny',
@@ -31,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Invertera nuvarande sida',
     selectNone: 'Avmarkera all data',
     selectionAll: 'Markera all data',
+    selectRow: 'Välj rad',
+    selectedRow: 'Rad vald',
+    selectionMenu: 'Valmeny',
     sortTitle: 'Sortera',
     expand: 'Expandera rad',
     collapse: 'Komprimera rad',
@@ -52,6 +56,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Avbryt',
   },
+  Splitter: {
+    toggleStartPanel: 'Växla startpanelen',
+    toggleEndPanel: 'Växla slutpanelen',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Sök här',
@@ -63,6 +71,7 @@ const localeValues: Locale = {
     selectAll: 'Markera all data',
     removeAll: 'Ta bort all data',
     selectInvert: 'Invertera nuvarande sida',
+    deselectAll: 'Avmarkera all data',
   },
   Upload: {
     uploading: 'Laddar upp...',
@@ -82,6 +91,11 @@ const localeValues: Locale = {
     copy: 'Kopiera',
     copied: 'Kopierad',
     expand: 'Expandera',
+    collapse: 'Kollapsa',
+  },
+  Carousel: {
+    prevSlide: 'Föregående bild',
+    nextSlide: 'Nästa bild',
   },
   Form: {
     optional: '(valfritt)',
@@ -136,6 +150,13 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR-koden har upphört att gälla',
     refresh: 'Uppdatera',
+    scanned: 'Skannat',
+  },
+  ColorPicker: {
+    presetEmpty: 'Tom',
+    transparent: 'Transparent',
+    singleColor: 'Enfärgad',
+    gradientColor: 'Gradient färg',
   },
 };
 

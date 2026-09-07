@@ -20,7 +20,14 @@ import { InternalPanel } from './Panel';
 import SplitBar from './SplitBar';
 import useStyle from './style';
 
-const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
+export interface SplitterRef {
+  nativeElement: HTMLDivElement;
+}
+
+const InternalSplitter = (
+  props: React.PropsWithChildren<SplitterProps>,
+  ref: React.ForwardedRef<SplitterRef>,
+) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -188,6 +195,12 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     hashId,
   );
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   // ======================== Render ========================
   const maskCls = `${prefixCls}-mask`;
 
@@ -206,7 +219,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   return (
     <ResizeObserver onResize={onContainerResize}>
-      <div style={mergedStyles.root} className={containerClassName}>
+      <div ref={nativeElementRef} style={mergedStyles.root} className={containerClassName}>
         {items.map((item, idx) => {
           const panelProps = {
             ...item,
@@ -229,11 +242,13 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
           const resizableInfo = resizableInfos[idx];
           if (resizableInfo) {
-            const ariaMinStart = (stackSizes[idx - 1] || 0) + itemPtgMinSizes[idx];
-            const ariaMinEnd = (stackSizes[idx + 1] || 100) - itemPtgMaxSizes[idx + 1];
+            const prevStackSize = Number.isFinite(stackSizes[idx - 1]) ? stackSizes[idx - 1] : 0;
+            const nextStackSize = Number.isFinite(stackSizes[idx + 1]) ? stackSizes[idx + 1] : 1;
+            const ariaMinStart = prevStackSize + itemPtgMinSizes[idx];
+            const ariaMinEnd = nextStackSize - itemPtgMaxSizes[idx + 1];
 
-            const ariaMaxStart = (stackSizes[idx - 1] || 0) + itemPtgMaxSizes[idx];
-            const ariaMaxEnd = (stackSizes[idx + 1] || 100) - itemPtgMinSizes[idx + 1];
+            const ariaMaxStart = prevStackSize + itemPtgMaxSizes[idx];
+            const ariaMaxEnd = nextStackSize - itemPtgMinSizes[idx + 1];
 
             splitBar = (
               <SplitBar
@@ -287,6 +302,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     </ResizeObserver>
   );
 };
+
+const Splitter = React.forwardRef(InternalSplitter);
 
 if (process.env.NODE_ENV !== 'production') {
   Splitter.displayName = 'Splitter';

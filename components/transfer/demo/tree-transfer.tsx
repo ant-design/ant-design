@@ -24,12 +24,10 @@ const generateTree = (
     children: generateTree(children, checkedKeys),
   }));
 
-const TreeTransfer: React.FC<TreeTransferProps> = ({
-  dataSource,
-  targetKeys = [],
-  ...restProps
-}) => {
+const TreeTransfer: React.FC<TreeTransferProps> = (props) => {
   const { token } = theme.useToken();
+
+  const { dataSource, targetKeys = [], ...restProps } = props;
 
   const transferDataSource: TransferItem[] = [];
   function flatten(list: TreeDataNode[] = []) {
@@ -45,8 +43,7 @@ const TreeTransfer: React.FC<TreeTransferProps> = ({
       {...restProps}
       targetKeys={targetKeys}
       dataSource={transferDataSource}
-      className="tree-transfer"
-      render={(item) => item.title!}
+      render={(item) => item.title}
       showSelectAll={false}
     >
       {({ direction, onItemSelect, selectedKeys }) => {

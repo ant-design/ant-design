@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'बंद',
     show: 'दिखाएं',
     hide: 'छुपाएं',
+    sortable: 'क्रमबद्ध',
   },
   Table: {
     filterTitle: 'सूची बंद करें',
@@ -29,12 +30,17 @@ const localeValues: Locale = {
     selectInvert: 'वर्तमान पृष्ठ घुमाएं',
     selectNone: 'सभी डेटा साफ़ करें',
     selectionAll: 'सभी डेटा का चयन करें',
+    selectRow: 'पंक्ति चुनें',
+    selectedRow: 'पंक्ति चुनी गई',
+    selectionMenu: 'चयन मेनू',
     sortTitle: 'द्वारा क्रमबद्ध करें',
     expand: 'पंक्ति का विस्तार करें',
     collapse: 'पंक्ति संक्षिप्त करें',
     triggerDesc: 'अवरोही क्रमित करने के लिए क्लिक करें',
     triggerAsc: 'आरोही क्रमित करने के लिए क्लिक करें',
     cancelSort: 'छँटाई रद्द करने के लिए क्लिक करें',
+    filterCheckAll: 'सभी आइटम चुनें',
+    filterSearchPlaceholder: 'फ़िल्टर में खोजें',
   },
   Tour: {
     Next: 'अगाड़ा',
@@ -50,6 +56,10 @@ const localeValues: Locale = {
     okText: 'अच्छी तरह से',
     cancelText: 'रद्द करना',
   },
+  Splitter: {
+    toggleStartPanel: 'आरंभ पैनल टॉगल करें',
+    toggleEndPanel: 'अंत पैनल टॉगल करें',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'यहां खोजें',
@@ -61,6 +71,7 @@ const localeValues: Locale = {
     selectAll: 'सभी डेटा का चयन करें',
     removeAll: 'सभी डेटा हटाएं',
     selectInvert: 'वर्तमान पृष्ठ को उल्टा करें',
+    deselectAll: 'सभी डेटा का चयन रद्द करें',
   },
   Upload: {
     uploading: 'अपलोड हो रहा...',
@@ -80,6 +91,11 @@ const localeValues: Locale = {
     copy: 'प्रतिलिपि',
     copied: 'कॉपी किया गया',
     expand: 'विस्तार',
+    collapse: 'पतन',
+  },
+  Carousel: {
+    prevSlide: 'पिछली स्लाइड',
+    nextSlide: 'अगली स्लाइड',
   },
   Form: {
     optional: '(ऐच्छिक)',
@@ -130,6 +146,17 @@ const localeValues: Locale = {
         mismatch: '${label} ${pattern} पैटर्न से मेल नहीं खाता',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR कोड समाप्त हो गया',
+    refresh: 'ताज़ा करें',
+    scanned: 'स्कैन किया गया',
+  },
+  ColorPicker: {
+    presetEmpty: 'ख़ाली',
+    transparent: 'पारदर्शी',
+    singleColor: 'एकल रंग',
+    gradientColor: 'ढाल का रंग',
   },
 };
 

@@ -14,6 +14,7 @@ import useSize from '../../config-provider/hooks/useSize';
 import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
 import type { FormItemStatusContextProps } from '../../form/context';
+import useVariant from '../../form/hooks/useVariants';
 import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
@@ -110,7 +111,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     onChange,
     formatter,
     separator,
-    variant,
+    variant: customizeVariant,
     disabled,
     status: customStatus,
     autoFocus,
@@ -145,10 +146,12 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     className: contextClassName,
   } = useComponentConfig('otp');
   const prefixCls = getPrefixCls('otp', customizePrefixCls);
+  const [variant] = useVariant('otp', customizeVariant, undefined, 'input');
 
   const mergedProps: OTPProps = {
     ...props,
     length,
+    variant,
   };
 
   const contextStyleRoot = useSemanticRootStyle(contextStyle);

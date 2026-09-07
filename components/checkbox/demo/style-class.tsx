@@ -2,7 +2,7 @@ import React from 'react';
 import { Checkbox, Flex } from 'antd';
 import type { CheckboxProps, GetProp } from 'antd';
 import { createStyles } from 'antd-style';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 const useStyles = createStyles(({ token, css }) => ({
   root: css`

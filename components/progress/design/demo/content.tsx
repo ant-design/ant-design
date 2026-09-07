@@ -1,18 +1,33 @@
 import React from 'react';
 import { Flex, Progress, theme } from 'antd';
 
-const Demo = () => {
-  const { token } = theme.useToken();
+import useLocale from '../../../../.dumi/hooks/useLocale';
 
+const locales = {
+  cn: {
+    progress: '进行中',
+    completed: '已完成',
+    exception: '异常',
+  },
+  en: {
+    progress: 'In Progress',
+    completed: 'Completed',
+    exception: 'Exception',
+  },
+};
+
+const Demo: React.FC = () => {
+  const { token } = theme.useToken();
+  const [locale] = useLocale(locales);
   return (
     <Flex gap="large">
       <Flex gap="small" align="center">
         <Progress size={16} type="circle" percent={68} railColor={token.colorPrimaryBg} />
-        <div>进行中</div>
+        <div>{locale.progress}</div>
       </Flex>
       <Flex gap="small" align="center">
         <Progress size={16} type="circle" percent={100} status="success" />
-        <div>已完成</div>
+        <div>{locale.completed}</div>
       </Flex>
       <Flex gap="small" align="center">
         <Progress
@@ -22,7 +37,7 @@ const Demo = () => {
           status="exception"
           railColor={token.colorErrorBg}
         />
-        <div>错误/异常</div>
+        <div>{locale.exception}</div>
       </Flex>
     </Flex>
   );

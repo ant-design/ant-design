@@ -415,6 +415,10 @@ describe('Upload List', () => {
   });
 
   it('should support no onDownload', async () => {
+    const url =
+      'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
+    open.mockClear();
+
     const { container: wrapper, unmount } = render(
       <Upload
         listType="picture-card"
@@ -423,7 +427,7 @@ describe('Upload List', () => {
             uid: '0',
             name: 'xxx.png',
             status: 'done',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+            url,
           },
         ]}
         showUploadList={{
@@ -434,6 +438,7 @@ describe('Upload List', () => {
       </Upload>,
     );
     fireEvent.click(wrapper.querySelectorAll('.anticon-download')[0]);
+    expect(open).toHaveBeenCalledWith(url, '_blank', 'noopener');
 
     unmount();
   });
@@ -1151,6 +1156,17 @@ describe('Upload List', () => {
       expect(dataUrl).toBe('data:image/gif;base64,');
     });
     unmount();
+  });
+
+  it('should not leave a canvas after generating a GIF preview', async () => {
+    const mockFile = new File([''], 'foo.gif', {
+      type: 'image/gif',
+    });
+    const canvasCount = document.body.querySelectorAll('canvas').length;
+
+    await previewImage(mockFile);
+
+    expect(document.body.querySelectorAll('canvas')).toHaveLength(canvasCount);
   });
 
   it("upload non image file shouldn't be converted to the base64", async () => {

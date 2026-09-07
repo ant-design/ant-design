@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Cerrar',
     show: 'Mostrar',
     hide: 'Ocultar',
+    sortable: 'clasificable',
   },
   Table: {
     filterTitle: 'Filtrar menú',
@@ -26,6 +27,20 @@ const localeValues: Locale = {
     selectAll: 'Seleccionar todo',
     selectInvert: 'Invertir selección',
     sortTitle: 'Ordenar',
+    filterEmptyText: 'Sen filtros',
+    filterCheckAll: 'Selecciona todos os elementos',
+    filterSearchPlaceholder: 'Busca en filtros',
+    emptyText: 'Sen datos',
+    selectNone: 'Borrar todos os datos',
+    selectionAll: 'Seleccione todos os datos',
+    selectRow: 'Seleccionar fila',
+    selectedRow: 'Fila seleccionada',
+    selectionMenu: 'Menú de selección',
+    expand: 'Expandir fila',
+    collapse: 'Contraer fila',
+    triggerDesc: 'Fai clic para ordenar descendente',
+    triggerAsc: 'Fai clic para ordenar ascendente',
+    cancelSort: 'Fai clic para cancelar a clasificación',
   },
   Tour: {
     Next: 'Avanzar',
@@ -41,11 +56,22 @@ const localeValues: Locale = {
     okText: 'Aceptar',
     cancelText: 'Cancelar',
   },
+  Splitter: {
+    toggleStartPanel: 'Alternar o panel inicial',
+    toggleEndPanel: 'Alternar o panel final',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Buscar aquí',
     itemUnit: 'elemento',
     itemsUnit: 'elementos',
+    remove: 'Eliminar',
+    selectCurrent: 'Seleccione a páxina actual',
+    removeCurrent: 'Eliminar a páxina actual',
+    selectAll: 'Seleccione todos os datos',
+    deselectAll: 'Deseleccione todos os datos',
+    removeAll: 'Elimina todos os datos',
+    selectInvert: 'Inverte a páxina actual',
   },
   Upload: {
     uploading: 'Subindo...',
@@ -65,8 +91,14 @@ const localeValues: Locale = {
     copy: 'copiar',
     copied: 'copiado',
     expand: 'expandir',
+    collapse: 'Colapsar',
+  },
+  Carousel: {
+    prevSlide: 'Diapositiva anterior',
+    nextSlide: 'Diapositiva seguinte',
   },
   Form: {
+    optional: '(opcional)',
     defaultValidateMessages: {
       default: 'Error de validación do campo ${label}',
       required: 'Por favor complete ${label}',
@@ -114,6 +146,17 @@ const localeValues: Locale = {
         mismatch: '${label} non coincide co patrón ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'O código QR caducou',
+    refresh: 'Actualizar',
+    scanned: 'Escaneado',
+  },
+  ColorPicker: {
+    presetEmpty: 'Baleiro',
+    transparent: 'Transparente',
+    singleColor: 'Cor única',
+    gradientColor: 'Cor degradado',
   },
 };
 

@@ -19,6 +19,7 @@ const localeValues: Locale = {
     close: 'மூடு',
     show: 'காட்டு',
     hide: 'மறை',
+    sortable: 'வரிசைப்படுத்தக்கூடிய',
   },
   Table: {
     filterTitle: 'பட்டியலை மூடு',
@@ -28,7 +29,7 @@ const localeValues: Locale = {
     selectAll: 'அனைத்தையும் தேர்வுசெய்',
     selectInvert: 'தலைகீழாக மாற்று',
     sortTitle: 'தலைப்பை வரிசைப்படுத்தவும்',
-    filterEmptyText: 'No filters',
+    filterEmptyText: 'வடிப்பான்கள் இல்லை',
     filterCheckAll: 'அனைத்து பொருட்களையும் தேர்ந்தெடுக்கவும்',
     filterSearchPlaceholder: 'வடிப்பான்களில் தேடவும்',
     expand: 'வரிசையை விரிவாக்கு',
@@ -36,6 +37,11 @@ const localeValues: Locale = {
     triggerDesc: 'இறங்குவரிசையை வரிசைப்படுத்த கிளிக் செய்யவும்',
     triggerAsc: 'ஏறுவரிசையில் வரிசைப்படுத்த கிளிக் செய்யவும்',
     cancelSort: 'வரிசையாக்கத்தை ரத்து செய்ய கிளிக் செய்யவும்',
+    selectNone: 'எல்லா தரவையும் அழிக்கவும்',
+    selectionAll: 'எல்லா தரவையும் தேர்ந்தெடுக்கவும்',
+    selectRow: 'வரிசையைத் தேர்ந்தெடுக்கவும்',
+    selectedRow: 'வரிசை தேர்ந்தெடுக்கப்பட்டது',
+    selectionMenu: 'தேர்வு மெனு',
   },
   Tour: {
     Next: 'அடுத்தது',
@@ -51,12 +57,23 @@ const localeValues: Locale = {
     okText: 'சரி',
     cancelText: 'ரத்து செய்யவும்',
   },
+  Splitter: {
+    toggleStartPanel: 'தொடக்கப் பலகையை மாற்று',
+    toggleEndPanel: 'இறுதிப் பலகையை மாற்று',
+  },
   Transfer: {
     titles: ['', ''],
     notFoundContent: 'உள்ளடக்கம் கிடைக்கவில்லை',
     searchPlaceholder: 'இங்கு தேடவும்',
     itemUnit: 'தகவல்',
     itemsUnit: 'தகவல்கள்',
+    remove: 'அகற்று',
+    selectCurrent: 'தற்போதைய பக்கத்தைத் தேர்ந்தெடுக்கவும்',
+    removeCurrent: 'தற்போதைய பக்கத்தை அகற்று',
+    selectAll: 'எல்லா தரவையும் தேர்ந்தெடுக்கவும்',
+    deselectAll: 'எல்லா தரவையும் தேர்வுநீக்கவும்',
+    removeAll: 'எல்லா தரவையும் அகற்று',
+    selectInvert: 'தற்போதைய பக்கத்தை மாற்றவும்',
   },
   Upload: {
     uploading: 'பதிவேற்றுகிறது...',
@@ -76,6 +93,7 @@ const localeValues: Locale = {
     copy: 'நகல் எடு',
     copied: 'நகல் எடுக்கப்பட்டது',
     expand: 'விரிவாக்கவும்',
+    collapse: 'சுருக்கு',
   },
   Form: {
     optional: '(optional)',
@@ -130,6 +148,13 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR குறியீடு காலாவதியானது',
     refresh: 'புதுப்பிப்பு',
+    scanned: 'ஸ்கேன் செய்யப்பட்டது',
+  },
+  ColorPicker: {
+    presetEmpty: 'காலி',
+    transparent: 'வெளிப்படையானது',
+    singleColor: 'ஒற்றை நிறம்',
+    gradientColor: 'சாய்வு நிறம்',
   },
 };
 

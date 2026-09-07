@@ -5,6 +5,7 @@ import FolderOutlined from '@ant-design/icons/FolderOutlined';
 import { conductExpandParent, convertDataToEntities, convertTreeToData } from '@rc-component/tree';
 import type RcTree from '@rc-component/tree';
 import type { BasicDataNode, DataNode, EventDataNode } from '@rc-component/tree';
+import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
@@ -67,23 +68,15 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
     return initExpandedKeys;
   };
 
-  const [selectedKeys, setSelectedKeys] = React.useState(
-    props.selectedKeys || props.defaultSelectedKeys || [],
+  const [selectedKeys, setSelectedKeys] = useControlledState<React.Key[]>(
+    props.defaultSelectedKeys || [],
+    props.selectedKeys,
   );
 
-  const [expandedKeys, setExpandedKeys] = React.useState(() => getInitExpandedKeys());
-
-  React.useEffect(() => {
-    if ('selectedKeys' in props) {
-      setSelectedKeys(props.selectedKeys!);
-    }
-  }, [props.selectedKeys]);
-
-  React.useEffect(() => {
-    if ('expandedKeys' in props) {
-      setExpandedKeys(props.expandedKeys!);
-    }
-  }, [props.expandedKeys]);
+  const [expandedKeys, setExpandedKeys] = useControlledState<React.Key[]>(
+    getInitExpandedKeys,
+    props.expandedKeys,
+  );
 
   const onExpand = (
     keys: React.Key[],
@@ -93,9 +86,7 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
       nativeEvent: MouseEvent;
     },
   ) => {
-    if (!('expandedKeys' in props)) {
-      setExpandedKeys(keys);
-    }
+    setExpandedKeys(keys);
     // Call origin function
     return props.onExpand?.(keys, info);
   };
@@ -158,9 +149,7 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
     }
 
     props.onSelect?.(newSelectedKeys, newEvent);
-    if (!('selectedKeys' in props)) {
-      setSelectedKeys(newSelectedKeys);
-    }
+    setSelectedKeys(newSelectedKeys);
   };
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 

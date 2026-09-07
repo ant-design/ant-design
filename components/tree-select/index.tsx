@@ -29,6 +29,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
+import { useLocale } from '../locale';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
 import useIcons from '../select/useIcons';
@@ -110,6 +111,7 @@ interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = Dat
       | 'switcherIcon'
       | 'classNames'
       | 'styles'
+      | 'popupRender'
     > {
   size?: SizeType;
   disabled?: boolean;
@@ -130,8 +132,8 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   /** @deprecated Please use `classNames.popup.root` instead */
   dropdownClassName?: string;
   /** @deprecated Please use `popupRender` instead */
-  dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
-  popupRender?: (menu: React.ReactElement) => React.ReactElement;
+  dropdownRender?: (menu: React.ReactElement) => React.ReactNode;
+  popupRender?: (menu: React.ReactElement) => React.ReactNode;
   /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `onOpenChange` instead */
@@ -206,6 +208,8 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     classNames,
     ...restProps
   } = props;
+
+  const [locale] = useLocale('global');
 
   const {
     getPrefixCls,
@@ -355,7 +359,11 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     componentName: 'TreeSelect',
   });
 
-  const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
+  const mergedAllowClear = allowClear && {
+    clearIcon,
+    label: locale.clear,
+    ...(typeof allowClear !== 'boolean' ? allowClear : {}),
+  };
 
   // ===================== Empty =====================
   let mergedNotFound: React.ReactNode;

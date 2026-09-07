@@ -14,10 +14,11 @@ const localeValues: Locale = {
   TimePicker,
   Calendar,
   global: {
-    placeholder: 'Please select',
+    placeholder: 'Roghnaigh le do thoil',
     close: 'Dún',
     show: 'Taispeáin',
     hide: 'Folaigh',
+    sortable: 'insocraithe',
   },
   Table: {
     filterTitle: 'Filter menu',
@@ -26,12 +27,20 @@ const localeValues: Locale = {
     selectAll: 'Select current page',
     selectInvert: 'Invert current page',
     selectionAll: 'Select all data',
+    selectRow: 'Roghnaigh ró',
+    selectedRow: 'Ró roghnaithe',
+    selectionMenu: 'Roghchlár roghnúcháin',
     sortTitle: 'Sort',
     expand: 'Expand row',
     collapse: 'Collapse row',
     triggerDesc: 'Click to sort descending',
     triggerAsc: 'Click to sort ascending',
     cancelSort: 'Click to cancel sorting',
+    filterEmptyText: 'Gan scagairí',
+    filterCheckAll: 'Roghnaigh gach mír',
+    filterSearchPlaceholder: 'Cuardaigh i scagairí',
+    emptyText: 'Gan sonraí',
+    selectNone: 'Glan na sonraí go léir',
   },
   Tour: {
     Next: 'Aghaidh',
@@ -47,6 +56,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Cancel',
   },
+  Splitter: {
+    toggleStartPanel: 'Scoránaigh an painéal tosaigh',
+    toggleEndPanel: 'Scoránaigh an painéal deiridh',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Search here',
@@ -58,6 +71,7 @@ const localeValues: Locale = {
     selectAll: 'Select all data',
     removeAll: 'Remove all data',
     selectInvert: 'Invert current page',
+    deselectAll: 'Díroghnaigh na sonraí go léir',
   },
   Upload: {
     uploading: 'Uploading...',
@@ -77,8 +91,10 @@ const localeValues: Locale = {
     copy: 'Copy',
     copied: 'Copied',
     expand: 'Expand',
+    collapse: 'Laghdaigh',
   },
   Form: {
+    optional: '(roghnach)',
     defaultValidateMessages: {
       default: 'Field validation error for ${label}',
       required: 'Please enter ${label}',
@@ -126,6 +142,17 @@ const localeValues: Locale = {
         mismatch: '${label} does not match the pattern ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'Chuaigh an cód QR in éag',
+    refresh: 'Athnuaigh',
+    scanned: 'Scanta',
+  },
+  ColorPicker: {
+    presetEmpty: 'Folamh',
+    transparent: 'Trédhearcach',
+    singleColor: 'Dath aonair',
+    gradientColor: 'Dath grádán',
   },
 };
 

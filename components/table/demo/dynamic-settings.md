@@ -5,10 +5,3 @@
 ## en-US
 
 Select different settings to see the result.
-
-<style>
-.table-demo-control-bar .ant-form-item {
-  margin-inline-end: 16px !important;
-  margin-bottom: 8px !important;
-}
-</style>

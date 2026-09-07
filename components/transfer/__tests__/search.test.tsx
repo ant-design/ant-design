@@ -48,6 +48,7 @@ describe('Transfer.Search', () => {
     expect(onSearch).toHaveBeenCalledWith('left', 'a');
     onSearch.mockReset();
     fireEvent.click(container.querySelectorAll('.ant-input-clear-icon').item(0));
+    expect(onSearch).toHaveBeenCalledTimes(1);
     expect(onSearch).toHaveBeenCalledWith('left', '');
     jest.useRealTimers();
   });

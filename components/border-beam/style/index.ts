@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
-import { genNoMotionStyle } from '../../style/motion';
+import { genNoMotionRawStyle } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
@@ -11,20 +11,21 @@ export type ComponentToken = object;
 
 interface BorderBeamToken extends FullToken<'BorderBeam'> {}
 
-const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) => {
-  const { componentCls, antCls } = token;
-  const [, varRef] = genCssVar(antCls, 'border-beam');
-  const defaultBeamGradient = `linear-gradient(to left, ${token.colorPrimary} 0%, ${token.colorPrimaryHover} ${MAX_BEAM_COLOR_STOP_PERCENT}%, transparent)`;
+// =========================== Animation ============================
+const antBorderBeamMove = new Keyframes('antBorderBeamMove', {
+  from: {
+    offsetDistance: '0%',
+  },
+  to: {
+    offsetDistance: '100%',
+  },
+});
 
-  // =========================== Animation ============================
-  const antBorderBeamMove = new Keyframes('antBorderBeamMove', {
-    from: {
-      offsetDistance: '0%',
-    },
-    to: {
-      offsetDistance: '100%',
-    },
-  });
+const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) => {
+  const { componentCls, antCls, colorPrimary, colorPrimaryHover, lineWidth } = token;
+  const [, varRef] = genCssVar(antCls, 'border-beam');
+
+  const defaultBeamGradient = `linear-gradient(to left, ${colorPrimary} 0%, ${colorPrimaryHover} ${MAX_BEAM_COLOR_STOP_PERCENT}%, transparent)`;
 
   // ============================= Style ==============================
   return {
@@ -33,13 +34,13 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
       display: 'none',
       position: 'absolute',
       inset: varRef('inset-offset', '0px'),
-      borderRadius: varRef('border-radius', '0px'),
+      borderRadius: 'inherit',
       zIndex: 1,
       overflow: 'hidden',
       pointerEvents: 'none',
 
       // Border Beam
-      padding: varRef('line-width', unit(token.lineWidth)),
+      padding: varRef('line-width', unit(lineWidth)),
 
       // Border Beam Effect
       '@supports ((mask-composite: exclude) or (-webkit-mask-composite: xor))': {
@@ -52,7 +53,7 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
           display: 'block',
 
           '&::before': {
-            ...genNoMotionStyle(),
+            ...genNoMotionRawStyle(),
             content: '""',
             position: 'absolute',
             top: 0,
@@ -67,6 +68,7 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
             offsetRotate: 'auto',
             animationName: antBorderBeamMove,
             animationDuration: varRef('duration', `${DEFAULT_BORDER_BEAM_DURATION}s`),
+            animationDelay: varRef('delay', '0s'),
             animationTimingFunction: 'linear',
             animationIterationCount: 'infinite',
             willChange: 'offset-distance',

@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Itxi',
     show: 'Erakutsi',
     hide: 'Ezkutatu',
+    sortable: 'ordenagarria',
   },
   Table: {
     filterTitle: 'Iragazi menua',
@@ -31,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Alderantzikatu hautaketa',
     selectNone: 'Hustu dena',
     selectionAll: 'Hautatu datu guztiak',
+    selectRow: 'Hautatu errenkada',
+    selectedRow: 'Errenkada hautatuta',
+    selectionMenu: 'Hautapen-menua',
     sortTitle: 'Ordenatu',
     expand: 'Zabaldu',
     collapse: 'Itxi',
@@ -52,6 +56,10 @@ const localeValues: Locale = {
     okText: 'Onartu',
     cancelText: 'Utzi',
   },
+  Splitter: {
+    toggleStartPanel: 'Txandakatu hasierako panela',
+    toggleEndPanel: 'Txandakatu amaierako panela',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Bilatu hemen',
@@ -63,6 +71,7 @@ const localeValues: Locale = {
     selectAll: 'Datu guztiak hautatu',
     removeAll: 'Ezabatu datu guztiak',
     selectInvert: 'Uneko orrialdea alderantzikatu',
+    deselectAll: 'Deshautatu datu guztiak',
   },
   Upload: {
     uploading: 'Igotzen...',
@@ -82,6 +91,7 @@ const localeValues: Locale = {
     copy: 'Kopiatu',
     copied: 'Kopiatuta',
     expand: 'Zabaldu',
+    collapse: 'Tolestu',
   },
   Form: {
     optional: '(aukerakoa)',
@@ -136,6 +146,7 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR kodea kadukatuta',
     refresh: 'Freskatu',
+    scanned: 'Eskaneatua',
   },
   ColorPicker: {
     presetEmpty: 'Hustu',

@@ -46,6 +46,38 @@ describe('Transfer.Dropdown', () => {
     jest.useRealTimers();
   });
 
+  it('deselect all filtered items', () => {
+    jest.useFakeTimers();
+
+    const onSelectChange = jest.fn();
+    const { container } = render(
+      <Transfer
+        dataSource={[
+          { key: 'a', title: 'Apple' },
+          { key: 'b', title: 'Banana' },
+        ]}
+        selectedKeys={['a', 'b']}
+        targetKeys={[]}
+        showSearch
+        render={(item) => item.title}
+        onSelectChange={onSelectChange}
+      />,
+    );
+
+    fireEvent.change(container.querySelector('.ant-transfer-list-search input')!, {
+      target: { value: 'Apple' },
+    });
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    clickItem(container, 0);
+    expect(onSelectChange).toHaveBeenCalledWith(['b'], []);
+
+    jest.useRealTimers();
+  });
+
   it('select current page', () => {
     jest.useFakeTimers();
 

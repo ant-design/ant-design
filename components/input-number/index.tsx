@@ -175,7 +175,12 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
 
     const [variant, enableVariantCls] = useVariant('inputNumber', customVariant, bordered);
 
-    const suffixNode = hasFeedback && <>{feedbackIcon}</>;
+    const suffixNode = (hasFeedback || suffix) && (
+      <>
+        {suffix}
+        {hasFeedback && feedbackIcon}
+      </>
+    );
 
     // =========== Merged Props for Semantic ==========
     const mergedProps: InputNumberProps = {
@@ -225,7 +230,7 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
         readOnly={readOnly}
         controls={controlsTemp}
         prefix={prefix}
-        suffix={suffixNode || suffix}
+        suffix={suffixNode}
         classNames={mergedClassNames}
         styles={mergedStyles}
         {...others}

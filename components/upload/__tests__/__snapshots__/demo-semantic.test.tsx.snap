@@ -103,6 +103,7 @@ exports[`renders components/upload/demo/_semantic.tsx correctly 1`] = `
                 class="ant-upload-list-item-actions"
               >
                 <button
+                  aria-label="Remove file"
                   class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                   title="Remove file"
                   type="button"
@@ -177,6 +178,7 @@ exports[`renders components/upload/demo/_semantic.tsx correctly 1`] = `
                 class="ant-upload-list-item-actions"
               >
                 <button
+                  aria-label="Remove file"
                   class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                   title="Remove file"
                   type="button"
@@ -251,6 +253,7 @@ exports[`renders components/upload/demo/_semantic.tsx correctly 1`] = `
                 class="ant-upload-list-item-actions"
               >
                 <button
+                  aria-label="Remove file"
                   class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                   title="Remove file"
                   type="button"

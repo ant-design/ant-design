@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'بند کریں',
     show: 'دکھائیں',
     hide: 'چھپائیں',
+    sortable: 'قابل ترتیب',
   },
   Table: {
     filterTitle: 'فلٹر مینو',
@@ -29,12 +30,17 @@ const localeValues: Locale = {
     selectInvert: 'موجودہ صفحے کو الٹ دیں',
     selectNone: 'تمام ڈیٹا صاف کریں',
     selectionAll: 'تمام ڈیٹا کو منتخب کریں',
+    selectRow: 'قطار منتخب کریں',
+    selectedRow: 'قطار منتخب ہو گئی',
+    selectionMenu: 'انتخابی مینو',
     sortTitle: 'ترتیب دیں',
     expand: 'پھیلائیں',
     collapse: 'سمیٹیں',
     triggerDesc: 'نزولی کو ترتیب دینے کیلئے کلک کریں',
     triggerAsc: 'چڑھنے کو ترتیب دینے کیلئے کلک کریں',
     cancelSort: 'ترتیب کو منسوخ کرنے کیلئے دبائیں',
+    filterCheckAll: 'تمام اشیاء کو منتخب کریں۔',
+    filterSearchPlaceholder: 'فلٹرز میں تلاش کریں۔',
   },
   Tour: {
     Next: 'اگلا',
@@ -50,6 +56,10 @@ const localeValues: Locale = {
     okText: 'ٹھیک ہے',
     cancelText: 'منسوخ کریں',
   },
+  Splitter: {
+    toggleStartPanel: 'ابتدائی پینل ٹوگل کریں',
+    toggleEndPanel: 'اختتامی پینل ٹوگل کریں',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'یہاں تلاش کریں',
@@ -61,6 +71,7 @@ const localeValues: Locale = {
     selectAll: 'تمام ڈیٹا کو منتخب کریں',
     removeAll: 'تمام ڈیٹا کو ہٹا دیں',
     selectInvert: 'موجودہ صفحے کو الٹ دیں',
+    deselectAll: 'تمام ڈیٹا کو غیر منتخب کریں۔',
   },
   Upload: {
     uploading: 'اپ لوڈ ہو رہا ہے…',
@@ -80,6 +91,7 @@ const localeValues: Locale = {
     copy: 'کاپی',
     copied: 'کاپی ہوگیا',
     expand: 'پھیلائیں',
+    collapse: 'سمٹنا',
   },
   Form: {
     optional: '(اختیاری)',
@@ -130,6 +142,17 @@ const localeValues: Locale = {
         mismatch: '${label} پیٹرن سے ملتا نہیں ہے ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR کوڈ کی میعاد ختم ہو گئی۔',
+    refresh: 'ریفریش کریں۔',
+    scanned: 'سکین کیا گیا۔',
+  },
+  ColorPicker: {
+    presetEmpty: 'خالی',
+    transparent: 'شفاف',
+    singleColor: 'سنگل رنگ',
+    gradientColor: 'تدریجی رنگ',
   },
 };
 

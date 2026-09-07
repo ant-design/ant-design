@@ -31,13 +31,13 @@ const App: React.FC = () => (
       <Input placeholder="unavailable choice" disabled addonBefore="Buggy!" />
     </Form.Item>
     <Form.Item label="Normal3">
-      <Input placeholder="unavailable choice" prefix="人民币" value="50" />
+      <Input placeholder="unavailable choice" prefix="RMB" value="50" />
     </Form.Item>
     <Form.Item label="Fail3" validateStatus="error" help="Buggy!">
-      <Input placeholder="unavailable choice" prefix="人民币" value="50" />
+      <Input placeholder="unavailable choice" prefix="RMB" value="50" />
     </Form.Item>
     <Form.Item label="FailDisabled3" validateStatus="error" help="Buggy!">
-      <Input placeholder="unavailable choice" disabled prefix="人民币" value="50" />
+      <Input placeholder="unavailable choice" disabled prefix="RMB" value="50" />
     </Form.Item>
   </Form>
 );

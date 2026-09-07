@@ -19,6 +19,7 @@ const localeValues: Locale = {
     sortable: 'sortable',
     show: 'Show',
     hide: 'Hide',
+    clear: 'Clear',
   },
   Table: {
     filterTitle: 'Filter menu',
@@ -32,6 +33,9 @@ const localeValues: Locale = {
     selectInvert: 'Invert current page',
     selectNone: 'Clear all data',
     selectionAll: 'Select all data',
+    selectRow: 'Select row',
+    selectedRow: 'Row selected',
+    selectionMenu: 'Selection menu',
     sortTitle: 'Sort',
     expand: 'Expand row',
     collapse: 'Collapse row',
@@ -53,6 +57,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Cancel',
   },
+  Splitter: {
+    toggleStartPanel: 'Toggle start panel',
+    toggleEndPanel: 'Toggle end panel',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Search here',
@@ -64,6 +72,7 @@ const localeValues: Locale = {
     selectAll: 'Select all data',
     removeAll: 'Remove all data',
     selectInvert: 'Invert current page',
+    deselectAll: 'Deselect all data',
   },
   Upload: {
     uploading: 'Uploading...',
@@ -83,6 +92,11 @@ const localeValues: Locale = {
     copy: 'Copy',
     copied: 'Copied',
     expand: 'Expand',
+    collapse: 'Collapse',
+  },
+  Carousel: {
+    prevSlide: 'Previous slide',
+    nextSlide: 'Next slide',
   },
   Form: {
     optional: '(optional)',

@@ -5,8 +5,8 @@ import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
   root: {
-    border: `1px solid ${token.colorPrimary}`,
-    borderRadius: 8,
+    border: `${token.lineWidth}px ${token.lineType} ${token.colorPrimary}`,
+    borderRadius: token.borderRadiusLG,
     width: 300,
   },
 }));

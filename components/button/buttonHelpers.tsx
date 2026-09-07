@@ -1,7 +1,8 @@
 import React from 'react';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isNumber, isReactRenderable, isString } from '../_util/is';
+import { isNumber, isString } from '../_util/is';
 import { cloneElement, isFragment } from '../_util/reactNode';
 import { PresetColors } from '../theme/interface';
 import type { BaseButtonProps, LegacyButtonType } from './Button';

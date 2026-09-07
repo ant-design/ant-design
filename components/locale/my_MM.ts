@@ -19,6 +19,7 @@ const localeValues: Locale = {
     close: 'ပိတ်ပါ',
     show: 'ပြပါ',
     hide: 'ဖျောက်ပါ',
+    sortable: 'အမျိုးအစားခွဲနိုင်သည်။',
   },
   Table: {
     filterTitle: 'စစ်ထုတ်ခြင်း မီနူ',
@@ -31,10 +32,16 @@ const localeValues: Locale = {
     selectInvert: 'လက်ရှိစာမျက်နှာကို ပြောင်းလိုက်ပါ။',
     selectNone: 'ဒေတာအားလုံးကို ရှင်းလင်းပါ။',
     selectionAll: 'ဒေတာအားလုံးကို ရွေးပါ။',
+    selectRow: 'အတန်းကို ရွေးချယ်ပါ',
+    selectedRow: 'အတန်းကို ရွေးချယ်ပြီး',
+    selectionMenu: 'ရွေးချယ်မှု မီနူး',
     sortTitle: 'မျိုးတူစု',
     expand: 'အတန်းချဲ့ပါ။',
     collapse: 'အတန်းကို ခေါက်သိမ်းပါ။',
     cancelSort: 'အမျိုးအစားခွဲခြင်းကို ပယ်ဖျက်ရန် နှိပ်ပါ။',
+    emptyText: 'ဒေတာမရှိပါ။',
+    triggerDesc: 'ကြီးစဉ်ငယ်လိုက် စီရန် နှိပ်ပါ။',
+    triggerAsc: 'ကြီးကြီးလိုက် စီရန် နှိပ်ပါ။',
   },
   Tour: {
     Next: 'နောက်တစ်ခု',
@@ -50,6 +57,10 @@ const localeValues: Locale = {
     cancelText: 'မလုပ်တော့',
     okText: 'အိုကေ',
   },
+  Splitter: {
+    toggleStartPanel: 'အစပြုအကန့်ကို ပြောင်းရန်',
+    toggleEndPanel: 'အဆုံးအကန့်ကို ပြောင်းရန်',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'ဒီမှာရှာပါ။',
@@ -61,6 +72,7 @@ const localeValues: Locale = {
     selectAll: 'ဒေတာအားလုံးကို ရွေးပါ။',
     removeAll: 'ဒေတာအားလုံးကို ဖယ်ရှားပါ။',
     selectInvert: 'လက်ရှိစာမျက်နှာကို ပြောင်းလိုက်ပါ။',
+    deselectAll: 'ဒေတာအားလုံးကို မရွေးပါ။',
   },
   Upload: {
     uploading: 'တင်ခြင်း။...',
@@ -80,6 +92,7 @@ const localeValues: Locale = {
     copy: 'ကော်ပီ',
     copied: 'ကူးယူသည်။',
     expand: 'ချဲ့ထွင်ပါ။',
+    collapse: 'ပြိုကျသည်။',
   },
   Form: {
     optional: '(ချန်လှပ်ထားနိုင်သည်)',
@@ -134,6 +147,13 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR ကုဒ် သက်တမ်းကုန်သွားပါပြီ။',
     refresh: 'ပြန်လည်စတင်ပါ။',
+    scanned: 'စကင်န်ဖတ်သည်။',
+  },
+  ColorPicker: {
+    presetEmpty: 'ဗလာ',
+    transparent: 'ပွင့်လင်းသည်။',
+    singleColor: 'တစ်ရောင်တည်း',
+    gradientColor: 'Gradient အရောင်',
   },
 };
 

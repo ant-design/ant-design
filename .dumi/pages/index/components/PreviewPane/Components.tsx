@@ -35,6 +35,7 @@ import {
   Rate,
   Segmented,
   Select,
+  Skeleton,
   Space,
   Spin,
   Steps,
@@ -55,6 +56,8 @@ import { createStyles } from 'antd-style';
 import type { CheckboxGroupProps } from 'antd/es/checkbox';
 import type { ItemType } from 'antd/es/menu/interface';
 import { clsx } from 'clsx';
+import useSWR from 'swr';
+import type { SWRConfiguration } from 'swr';
 
 const { Title, Text } = Typography;
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPopconfirm } = Popconfirm;
@@ -71,7 +74,7 @@ interface ComponentsBlockProps {
   isDarkTheme?: boolean;
 }
 
-const useStyle = createStyles(({ css, token, cssVar }) => {
+const useStyle = createStyles(({ css, token }) => {
   return {
     container: css({
       backgroundColor: 'transparent',
@@ -118,13 +121,6 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
     }),
-    blockCard: css({
-      backgroundColor: cssVar.colorBgContainer,
-      borderRadius: token.borderRadiusLG,
-      boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-      padding: token.paddingLG,
-      userSelect: 'none',
-    }),
     avatarGroup: css({
       marginBlockEnd: 16,
     }),
@@ -154,13 +150,17 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
       gap: 12,
     }),
     blockCardQr: css({
-      padding: 6,
       flex: '0 0 auto',
     }),
-    blockCardExtraPad: css({
+    blockCardQrBody: css({
       padding: 6,
+    }),
+    blockCardExtraPad: css({
       justifyContent: 'center',
       marginBlockEnd: 8,
+    }),
+    blockCardExtraPadBody: css({
+      padding: 6,
     }),
     flexCol1: css({
       flex: 1,
@@ -172,7 +172,7 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
       width: '100%',
       margin: 0,
     }),
-    blockCardSegmented: css({
+    blockCardSegmentedBody: css({
       padding: 8,
     }),
     avatarSection: css({
@@ -210,6 +210,8 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
     }),
     signupCard: css({
       textAlign: 'center',
+    }),
+    signupCardBody: css({
       padding: '32px 24px',
     }),
     signupAvatar: css({
@@ -266,15 +268,6 @@ const tagList: TagProps[] = [
   { icon: <FacebookOutlined />, color: '#3b5999', content: 'Facebook' },
 ];
 
-const avatarGroupList = [
-  'https://avatars.githubusercontent.com/u/507615?v=4',
-  'https://avatars.githubusercontent.com/u/5378891?v=4',
-  'https://avatars.githubusercontent.com/u/49217418?v=4',
-  'https://avatars.githubusercontent.com/u/117748716?v=4',
-  'https://avatars.githubusercontent.com/u/59312002?v=4',
-  'https://avatars.githubusercontent.com/u/82765353?v=4',
-];
-
 const buttonList: ButtonProps[] = [
   { type: 'primary', children: 'Primary button' },
   { danger: true, children: 'Danger button' },
@@ -288,6 +281,52 @@ const stepsItems: StepItem[] = [
   { title: 'Waiting' },
 ];
 
+const botExcludes = [
+  'ant-design-bot',
+  'github-actions',
+  'github-actions[bot]',
+  'copilot',
+  'renovate',
+  'renovate[bot]',
+  'dependabot',
+  'dependabot[bot]',
+  'gemini-code-assist[bot]',
+  'dependabot-preview',
+  'dependabot-preview[bot]',
+  'depfu[bot]',
+];
+
+const fallbackAvatarGroupList = [
+  'https://avatars.githubusercontent.com/u/507615?v=4',
+  'https://avatars.githubusercontent.com/u/5378891?v=4',
+  'https://avatars.githubusercontent.com/u/49217418?v=4',
+  'https://avatars.githubusercontent.com/u/117748716?v=4',
+  'https://avatars.githubusercontent.com/u/59312002?v=4',
+  'https://avatars.githubusercontent.com/u/82765353?v=4',
+];
+
+interface Contributor {
+  avatar_url: string;
+  login: string;
+  html_url: string;
+  type: 'User' | 'Organization' | 'Bot';
+}
+
+const fetcher = async (...args: Parameters<typeof fetch>) => {
+  const response = await fetch(...args);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch contributors: ${response.status}`);
+  }
+  return response.json();
+};
+
+const swrConfig: SWRConfiguration<Contributor[], Error> = {
+  dedupingInterval: 1000 * 60 * 60 * 12, // 12 hours
+  revalidateOnFocus: false,
+  revalidateOnReconnect: false,
+  errorRetryCount: 3,
+};
+
 const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   const {
     config,
@@ -299,6 +338,38 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   } = props;
 
   const { styles } = useStyle();
+
+  const {
+    data: contributors,
+    error,
+    isLoading,
+  } = useSWR<Contributor[], Error>(
+    'https://api.github.com/repos/ant-design/ant-design/contributors?per_page=100',
+    fetcher,
+    swrConfig,
+  );
+
+  const avatarGroupList = useMemo(() => {
+    if (error) {
+      return fallbackAvatarGroupList.map((src) => ({ src, name: 'Ant Design contributor' }));
+    }
+    if (isLoading) {
+      return [];
+    }
+    if (!Array.isArray(contributors) || !contributors?.length) {
+      return [];
+    }
+    const filtered = contributors.filter((contributor) => {
+      const { login, type } = contributor;
+      const name = login.toLowerCase();
+      if (type === 'Bot') {
+        return false;
+      }
+      return !botExcludes.some((item) => name.includes(item));
+    });
+    const shuffled = filtered.sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 6).map((c) => ({ src: c.avatar_url, name: c.login }));
+  }, [contributors, error, isLoading]);
 
   const { theme, ...restConfig } = config || {};
 
@@ -338,7 +409,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                   <div>
                     <Flex vertical gap="middle">
                       <Flex gap="middle">
-                        <Input placeholder="antd@email.com" />
+                        <Input placeholder="hi@example.com" />
                         <Select
                           placeholder="Select one"
                           className={styles.selectInput}
@@ -387,20 +458,28 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                     </Flex>
                   </div>
                   <div className={styles.flexRow12}>
-                    <div className={clsx(styles.blockCard, styles.blockCardQr)}>
+                    <Card
+                      variant="borderless"
+                      className={styles.blockCardQr}
+                      classNames={{ body: styles.blockCardQrBody }}
+                    >
                       <QRCode
                         errorLevel="H"
                         value="https://ant.design/"
                         icon="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                       />
-                    </div>
+                    </Card>
                     <div className={styles.flexCol1}>
                       <Flex justify="space-around">
                         <Spin indicator={<LoadingOutlined spin />} size="middle" />
                         <Spin size="middle" />
                         <Rate size="middle" value={3} className={styles.rateStyle} />
                       </Flex>
-                      <div className={clsx(styles.blockCard, styles.blockCardExtraPad)}>
+                      <Card
+                        variant="borderless"
+                        className={styles.blockCardExtraPad}
+                        classNames={{ body: styles.blockCardExtraPadBody }}
+                      >
                         <Flex gap="small" align="center">
                           {tagList.map((tag) => {
                             const { content, ...restProps } = tag;
@@ -411,7 +490,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                             );
                           })}
                         </Flex>
-                      </div>
+                      </Card>
                       <InternalPopconfirm
                         title="Are you OK?"
                         placement="topRight"
@@ -420,7 +499,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                     </div>
                   </div>
 
-                  <div className={clsx(styles.blockCard, styles.blockCardSegmented)}>
+                  <Card variant="borderless" classNames={{ body: styles.blockCardSegmentedBody }}>
                     <Segmented block options={['1D', '7D', '1M', '1Y', 'All']} />
                     <Segmented
                       styles={{
@@ -434,17 +513,28 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                         { label: 'Emails', value: 'Emails', icon: <MailOutlined /> },
                       ]}
                     />
-                  </div>
+                  </Card>
                 </div>
 
                 {/* ================= CENTER COLUMN ================= */}
                 <div className={styles.colCenter}>
                   <div className={styles.avatarSection}>
                     <Avatar.Group className={styles.avatarGroup}>
-                      {avatarGroupList.map((src) => (
-                        <Avatar key={src} size={46} src={src} />
-                      ))}
-                      <Avatar size={46} className={styles.avatarExtra}>
+                      {isLoading && !error
+                        ? Array.from({ length: 6 }, (_, index) => (
+                            <Skeleton.Avatar key={`skeleton-${index}`} active size={46} />
+                          ))
+                        : avatarGroupList.map(({ src, name }) => (
+                            <Avatar
+                              key={src}
+                              size={46}
+                              src={src}
+                              draggable={false}
+                              alt={`Contributor: ${name}`}
+                              aria-label={`Contributor: ${name}`}
+                            />
+                          ))}
+                      <Avatar size={46} draggable={false} className={styles.avatarExtra}>
                         +5
                       </Avatar>
                     </Avatar.Group>
@@ -479,12 +569,13 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                       })}
                     </Flex>
                   </Flex>
-                  <div className={styles.blockCard}>
+                  <Card variant="borderless">
                     <Flex align="flex-start" gap="middle">
                       <Avatar
                         shape="square"
                         size={60}
                         src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+                        draggable={false}
                       />
                       <div className={styles.profileInfo}>
                         <Title level={5} className={styles.profileTitle}>
@@ -498,7 +589,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                         </p>
                       </div>
                     </Flex>
-                  </div>
+                  </Card>
                   <InternalPanel
                     styles={{ root: { width: '100%' } }}
                     title="Ant Design"
@@ -509,11 +600,16 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
 
                 {/* ================= RIGHT COLUMN ================= */}
                 <div className={styles.colRight}>
-                  <div className={clsx(styles.blockCard, styles.signupCard)}>
+                  <Card
+                    variant="borderless"
+                    className={styles.signupCard}
+                    classNames={{ body: styles.signupCardBody }}
+                  >
                     <Avatar
                       size={50}
-                      src="https://avatars.githubusercontent.com/u/27722486?v=4"
+                      src="https://github.com/ant-design.png?size=50"
                       className={styles.signupAvatar}
+                      draggable={false}
                     />
                     <Title level={4}>Create an account</Title>
                     <Text type="secondary" className={styles.signupText}>
@@ -531,7 +627,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                         Continue with Apple
                       </Button>
                     </Flex>
-                  </div>
+                  </Card>
 
                   <ModalInternalPanel title="Ant Design">
                     <div>

@@ -19,6 +19,21 @@ But in antd, `undefined` is treated as uncontrolled, and `null` is used as an ex
 
 Note: For `options` in `Select-like` components, it is **strongly recommended not** to use `undefined` and `null` as `value` in `option`. Please use `string | number` as a valid `value` in `option`.
 
+## Why is a DOM node still rendered for some empty content? {#react-renderable}
+
+antd uses `isReactRenderable` from `@rc-component/util` to determine whether a content wrapper DOM should be created. It is designed as a compatibility-oriented content presence check, not a validator for valid React nodes, and it does not recursively predict whether React will eventually produce visible content.
+
+`isReactRenderable` treats only `null`, `undefined`, `false`, and the empty string `''` as having no content. All other values are treated as content. Therefore, when it controls whether a wrapper DOM is rendered:
+
+| Value | `isReactRenderable` | Result |
+| --- | --- | --- |
+| `null`, `undefined`, `false`, `''` | `false` | Neither the wrapper DOM nor any content is rendered |
+| `true` | `true` | The wrapper DOM is created, but React renders no text content for `true` |
+| `0` | `true` | The wrapper DOM is created and `0` is rendered normally |
+| Non-empty strings, other numbers, React elements, etc. | `true` | The wrapper DOM is created and React handles the content |
+
+Here, `false` is treated as an explicit no-content marker, while `true` means that content was provided. Although `true` itself produces no text node, the wrapper DOM is still created. Similarly, an empty array, an empty Fragment, or a React element that eventually returns `null` passes the check. The number `0` is not mistaken for empty content and is rendered normally.
+
 ## Can I use internal API which is not documented on the site?
 
 NOT RECOMMENDED. Internal API is not guaranteed to be compatible with future versions. It may be removed or changed in some versions. If you really need to use it, you should make sure these APIs are still valid when upgrading to a new version or just lock version for usage.
@@ -56,14 +71,14 @@ While you can override a component's style, we don't recommend doing so. antd is
 antd will avoid breaking change in minor & patch version. You can safely do the following things:
 
 - Official demo usage
-- FAQ suggestion. Including codesandbox sample, marked as FAQ issue
+- FAQ suggestion. Including CodeSandbox sample, marked as FAQ issue
 
 And which you should avoid doing:
 
 - Bug as feature. It will break in any other case (e.g. Use div as Tabs children)
 - Use magic code to realize requirement but which can be realized with normal API
 
-## How to use other data-time lib like Moment.js?
+## How to use other date-time lib like Moment.js?
 
 Please refer to [Use custom date library](/docs/react/use-custom-date-library).
 
@@ -74,6 +89,18 @@ The `defaultXxxx` (e.g. `defaultValue`) of `Input`/`Select`(etc...) only works o
 ## Why does modifying props in mutable way not trigger a component update?
 
 antd use shallow compare of props to optimize performance. You should always pass the new object when updating the state. Please ref [React's document](https://react.dev/learn/thinking-in-react)
+
+## Does `antd` have a mirror in China?
+
+Yes, you can visit https://ant-design.antgroup.com.
+
+| Product/Version   | URL                                       |
+| ----------------- | ----------------------------------------- |
+| Ant Design 5.x    | https://5x-ant-design.antgroup.com        |
+| Ant Design 4.x    | https://4x-ant-design.antgroup.com        |
+| Ant Design Mobile | https://ant-design-mobile.antgroup.com/zh |
+| Ant Design Mini   | https://ant-design-mini.antgroup.com      |
+| Ant Design Charts | https://ant-design-charts.antgroup.com    |
 
 ## After I set the `value` of an `Input`/`Select`(etc.) component, the value cannot be changed by user's action.
 
@@ -154,7 +181,7 @@ If you are using a mismatched version of dayjs with [antd's dayjs](https://githu
 
 ## How do I fix dynamic styles while using a Content Security Policy (CSP)?
 
-You can configure `nonce` by [ConfigProvider](/components/config-provider/#content-security-policy).
+You can configure `nonce` by [ConfigProvider](/components/config-provider#csp).
 
 ## When I set `mode` to `DatePicker`/`RangePicker`, why can I not select a year or month anymore?
 
@@ -175,7 +202,7 @@ Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design
 
 Static methods like message/notification/Modal.confirm are not using the same render tree as `<Button />`, but rendered to independent DOM node created by `ReactDOM.render`, which cannot access React context from ConfigProvider. Consider two solutions here:
 
-1. Replace original usages with [message.useMessage](/components/message/#message-demo-hooks), [notification.useNotification](/components/notification/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-notification) and [Modal.useModal](/components/modal/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-modalxxx).
+1. Replace original usages with [message.useMessage](/components/message/#message-demo-hooks), [notification.useNotification](/components/notification#faq-context-redux) and [Modal.useModal](/components/modal#faq-context-redux).
 
 2. Use [App.useApp](/components/app#basic-usage) to get message/notification/modal instance.
 

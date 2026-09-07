@@ -37,6 +37,10 @@ const genSelectInputCustomizeStyle: GenerateStyle<SelectToken, CSSObject> = (tok
         },
       },
 
+      [`&${componentCls}-filled ${componentCls}-content`]: {
+        [`${antCls}-input-filled`]: transparentBackground,
+      },
+
       [`&${componentCls}-disabled ${componentCls}-content`]: {
         [disabledCustomizedInputSelector]: transparentBackground,
 

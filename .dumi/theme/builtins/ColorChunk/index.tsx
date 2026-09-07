@@ -18,7 +18,7 @@ const useStyle = createStyles(({ css, cssVar, token }) => ({
     height: 6px;
     border-radius: 50%;
     margin-inline-end: ${cssVar.marginXXS};
-    border: 1px solid ${cssVar.colorSplit};
+    border: ${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorSplit};
   `,
 }));
 

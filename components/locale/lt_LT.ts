@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Uždaryti',
     show: 'Rodyti',
     hide: 'Slėpti',
+    sortable: 'rūšiuojami',
   },
   Table: {
     filterTitle: 'Filtras',
@@ -31,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Apversti pasirinkimą',
     selectNone: 'Išvalyti visus',
     selectionAll: 'Rinktis visus',
+    selectRow: 'Pasirinkti eilutę',
+    selectedRow: 'Eilutė pasirinkta',
+    selectionMenu: 'Pasirinkimo meniu',
     sortTitle: 'Rikiavimas',
     expand: 'Išskleisti',
     collapse: 'Suskleisti',
@@ -52,6 +56,10 @@ const localeValues: Locale = {
     okText: 'Taip',
     cancelText: 'Atšaukti',
   },
+  Splitter: {
+    toggleStartPanel: 'Perjungti pradžios skydelį',
+    toggleEndPanel: 'Perjungti pabaigos skydelį',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Paieška',
@@ -63,6 +71,7 @@ const localeValues: Locale = {
     selectAll: 'Pasirinkti viską',
     removeAll: 'Ištrinti viską',
     selectInvert: 'Apversti pasirinkimą',
+    deselectAll: 'Panaikinkite visų duomenų pasirinkimą',
   },
   Upload: {
     uploading: 'Įkeliami duomenys...',
@@ -82,6 +91,11 @@ const localeValues: Locale = {
     copy: 'Kopijuoti',
     copied: 'Nukopijuota',
     expand: 'Plačiau',
+    collapse: 'Sutraukti',
+  },
+  Carousel: {
+    prevSlide: 'Ankstesnė skaidrė',
+    nextSlide: 'Kita skaidrė',
   },
   Form: {
     optional: '(neprivaloma)',
@@ -136,6 +150,7 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR kodo galiojimas baigėsi',
     refresh: 'Atnaujinti',
+    scanned: 'Nuskaityta',
   },
   ColorPicker: {
     presetEmpty: 'Tuščia',

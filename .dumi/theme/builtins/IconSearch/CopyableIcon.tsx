@@ -131,9 +131,12 @@ const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
       message.error(locale.errMessage);
     }
   };
+  // Derive the theme from the icon name so the correct hover style applies even
+  // in the "All" view, where a single list mixes icons of different themes.
+  const themeClass = name.match(/(Outlined|Filled|TwoTone)$/)?.[0] ?? theme;
   return (
     <li
-      className={clsx(theme, styles.iconItem, { copied: justCopied === name })}
+      className={clsx(themeClass, styles.iconItem, { copied: justCopied === name })}
       onClick={() => onCopy(`<${name} />`)}
       style={{ cursor: 'pointer' }}
     >

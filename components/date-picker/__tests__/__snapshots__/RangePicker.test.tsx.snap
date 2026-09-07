@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`RangePicker customize separator 1`] = `
+exports[`RangePicker preserves a custom separator accessible name 1`] = `
 <div
   class="ant-picker ant-picker-range ant-picker-outlined css-var-root ant-picker-css-var"
 >
@@ -20,10 +20,13 @@ exports[`RangePicker customize separator 1`] = `
     class="ant-picker-range-separator"
   >
     <span
-      aria-label="to"
       class="ant-picker-separator"
     >
-      test
+      <span
+        aria-label="Custom range separator"
+      >
+        test
+      </span>
     </span>
   </div>
   <div
@@ -90,7 +93,7 @@ Array [
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -201,7 +204,7 @@ Array [
                     class="ant-picker-header"
                   >
                     <button
-                      aria-label="Last year (Control + left)"
+                      aria-label="Last year"
                       class="ant-picker-header-super-prev-btn"
                       tabindex="-1"
                       type="button"
@@ -211,7 +214,7 @@ Array [
                       />
                     </button>
                     <button
-                      aria-label="Previous month (PageUp)"
+                      aria-label="Previous month"
                       class="ant-picker-header-prev-btn"
                       tabindex="-1"
                       type="button"
@@ -241,7 +244,7 @@ Array [
                       </button>
                     </div>
                     <button
-                      aria-label="Next month (PageDown)"
+                      aria-label="Next month"
                       class="ant-picker-header-next-btn"
                       style="visibility: hidden;"
                       tabindex="-1"
@@ -252,7 +255,7 @@ Array [
                       />
                     </button>
                     <button
-                      aria-label="Next year (Control + right)"
+                      aria-label="Next year"
                       class="ant-picker-header-super-next-btn"
                       style="visibility: hidden;"
                       tabindex="-1"
@@ -743,7 +746,7 @@ Array [
                     class="ant-picker-header"
                   >
                     <button
-                      aria-label="Last year (Control + left)"
+                      aria-label="Last year"
                       class="ant-picker-header-super-prev-btn"
                       style="visibility: hidden;"
                       tabindex="-1"
@@ -754,7 +757,7 @@ Array [
                       />
                     </button>
                     <button
-                      aria-label="Previous month (PageUp)"
+                      aria-label="Previous month"
                       class="ant-picker-header-prev-btn"
                       style="visibility: hidden;"
                       tabindex="-1"
@@ -785,7 +788,7 @@ Array [
                       </button>
                     </div>
                     <button
-                      aria-label="Next month (PageDown)"
+                      aria-label="Next month"
                       class="ant-picker-header-next-btn"
                       tabindex="-1"
                       type="button"
@@ -795,7 +798,7 @@ Array [
                       />
                     </button>
                     <button
-                      aria-label="Next year (Control + right)"
+                      aria-label="Next year"
                       class="ant-picker-header-super-next-btn"
                       tabindex="-1"
                       type="button"

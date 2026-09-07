@@ -30,6 +30,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
+import { useLocale } from '../locale';
 import type { SelectSemanticType } from '../select';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
@@ -143,7 +144,7 @@ export interface CascaderProps<
   Multiple extends boolean = boolean,
 > extends Omit<
     RcCascaderProps<OptionType, ValueField, Multiple>,
-    'checkable' | 'classNames' | 'styles'
+    'checkable' | 'classNames' | 'styles' | 'popupRender'
   > {
   multiple?: Multiple;
   size?: SizeType;
@@ -171,8 +172,8 @@ export interface CascaderProps<
   /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `popupRender` instead */
-  dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
-  popupRender?: (menu: React.ReactElement) => React.ReactElement;
+  dropdownRender?: (menu: React.ReactElement) => React.ReactNode;
+  popupRender?: (menu: React.ReactElement) => React.ReactNode;
   /** @deprecated Please use `styles.popup.listItem` instead */
   dropdownMenuColumnStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.popup.listItem` instead */
@@ -244,6 +245,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     suffixIcon,
     ...restProps
   } = props;
+
+  const [locale] = useLocale('global');
 
   const {
     getPrefixCls,
@@ -317,9 +320,10 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const [variant, enableVariantCls] = useVariant('cascader', customVariant, bordered);
 
   // =================== No Found ====================
-  const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
-    <DefaultRenderEmpty componentName="Cascader" />
-  );
+  const mergedNotFoundContent =
+    notFoundContent !== undefined
+      ? notFoundContent
+      : renderEmpty?.('Cascader') || <DefaultRenderEmpty componentName="Cascader" />;
 
   const mergedPopupRender = usePopupRender(popupRender || dropdownRender);
 
@@ -396,7 +400,11 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     return isRtl ? 'bottomRight' : 'bottomLeft';
   }, [placement, isRtl]);
 
-  const mergedAllowClear = allowClear === true ? { clearIcon: mergedClearIcon } : allowClear;
+  const mergedAllowClear = allowClear && {
+    clearIcon: mergedClearIcon,
+    label: locale.clear,
+    ...(typeof allowClear !== 'boolean' ? allowClear : {}),
+  };
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: CascaderProps<any> = {

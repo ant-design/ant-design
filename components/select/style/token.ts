@@ -150,6 +150,7 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     fontSize,
     lineHeight,
     lineWidth,
+    lineWidthFocus,
 
     controlHeight,
     controlHeightSM,
@@ -193,7 +194,8 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
   // FIXED_ITEM_MARGIN is a hardcode calculation since calc not support rounding
   const INTERNAL_FIXED_ITEM_MARGIN = Math.floor(paddingXXS / 2);
 
-  return {
+  const componentToken = {
+    lineWidthFocus: lineWidthFocus === 0 ? 0 : lineWidth,
     INTERNAL_FIXED_ITEM_MARGIN,
 
     zIndexPopup: zIndexPopupBase + 50,
@@ -222,4 +224,6 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     activeOutlineColor: controlOutline,
     selectAffixPadding: paddingXXS,
   };
+
+  return componentToken;
 };

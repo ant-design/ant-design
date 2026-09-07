@@ -34,7 +34,10 @@ The differences with Select are:
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/allowClear.tsx">Customize clear button</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
+<code src="./demo/customize-clear-debug.tsx" debug>Custom input with allowClear debug</code>
 <code src="./demo/disabled-custom-debug.tsx" debug>Disabled custom input debug</code>
+<code src="./demo/disabled-in-form-debug.tsx" debug>Disabled text color in Form debug</code>
+<code src="./demo/filled-custom-debug.tsx" debug>Filled custom input debug</code>
 <code src="./demo/form-debug.tsx" debug>Debug in Form</code>
 <code src="./demo/AutoComplete-and-Select.tsx" debug>AutoComplete and Select</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -56,8 +59,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabled | Whether disabled select | boolean | false |  |
 | ~~dropdownClassName~~ | The className of dropdown menu, please use `classNames.popup.root` instead | string | - | - |
 | ~~dropdownMatchSelectWidth~~ | Determine whether the dropdown menu and the input are the same width, please use `popupMatchSelectWidth` instead | boolean \| number | true | - |
-| ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (originNode: ReactNode) => ReactNode | - | 4.24.0 |
-| popupRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - |  |
+| ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (originNode: ReactElement) => ReactNode | - | 4.24.0 |
+| popupRender | Customize dropdown content | (originNode: ReactElement) => ReactNode | - |  |
 | ~~dropdownStyle~~ | The style of dropdown menu, use `styles.popup.root` instead | CSSProperties | - |  |
 | ~~popupClassName~~ | The className of dropdown menu, use `classNames.popup.root` instead | string | - | 4.23.0 |
 | popupMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |

@@ -14664,7 +14664,7 @@ Array [
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -25765,7 +25765,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -27370,7 +27370,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -35278,7 +35278,7 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -40017,7 +40017,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -43181,7 +43181,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -46345,7 +46345,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -49509,7 +49509,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span

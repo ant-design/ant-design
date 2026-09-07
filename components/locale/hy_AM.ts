@@ -66,6 +66,7 @@ const localeValues: Locale = {
     close: 'Դադարեցնել',
     show: 'Ցույց տալ',
     hide: 'Թաքցնել',
+    sortable: 'տեսակավորելի',
   },
   Table: {
     filterTitle: 'ֆիլտրի ընտրացանկ',
@@ -76,6 +77,18 @@ const localeValues: Locale = {
     sortTitle: 'Տեսակավորել',
     expand: 'Ընդլայնեք տողը',
     collapse: 'Կրճատել տողը',
+    filterEmptyText: 'Զտիչներ չկան',
+    filterCheckAll: 'Ընտրեք բոլոր տարրերը',
+    filterSearchPlaceholder: 'Որոնել ֆիլտրերում',
+    emptyText: 'Տվյալներ չկան',
+    selectNone: 'Մաքրել բոլոր տվյալները',
+    selectionAll: 'Ընտրեք բոլոր տվյալները',
+    selectRow: 'Ընտրել տողը',
+    selectedRow: 'Տողն ընտրված է',
+    selectionMenu: 'Ընտրության ընտրացանկ',
+    triggerDesc: 'Սեղմեք՝ նվազման կարգով',
+    triggerAsc: 'Սեղմեք՝ աճող տեսակավորելու համար',
+    cancelSort: 'Սեղմեք՝ տեսակավորումը չեղարկելու համար',
   },
   Tour: {
     Next: 'Հաջորդ',
@@ -91,11 +104,22 @@ const localeValues: Locale = {
     okText: 'Հաստատել',
     cancelText: 'Մերժել',
   },
+  Splitter: {
+    toggleStartPanel: 'Փոխարկել սկզբնական վահանակը',
+    toggleEndPanel: 'Փոխարկել վերջնական վահանակը',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Որոնեք այստեղ',
     itemUnit: 'պարագան',
     itemsUnit: 'պարագաները',
+    remove: 'Հեռացնել',
+    selectCurrent: 'Ընտրեք ընթացիկ էջը',
+    removeCurrent: 'Հեռացնել ընթացիկ էջը',
+    selectAll: 'Ընտրեք բոլոր տվյալները',
+    deselectAll: 'Ապաընտրել բոլոր տվյալները',
+    removeAll: 'Հեռացրեք բոլոր տվյալները',
+    selectInvert: 'Շրջել ընթացիկ էջը',
   },
   Upload: {
     uploading: 'Ներբեռնում...',
@@ -115,6 +139,7 @@ const localeValues: Locale = {
     copy: 'Պատճենել',
     copied: 'Պատճենվել է',
     expand: 'Տեսնել ավելին',
+    collapse: 'Փլուզում',
   },
   Form: {
     optional: '(ոչ պարտադիր)',
@@ -165,6 +190,17 @@ const localeValues: Locale = {
         mismatch: '${label}-ը չի համապատասխանում ${pattern} ձևանմուշին',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR կոդը ժամկետանց է',
+    refresh: 'Թարմացնել',
+    scanned: 'Սկանավորվել է',
+  },
+  ColorPicker: {
+    presetEmpty: 'Դատարկ',
+    transparent: 'Թափանցիկ',
+    singleColor: 'Մեկ գույն',
+    gradientColor: 'Գրադիենտ գույն',
   },
 };
 

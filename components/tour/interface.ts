@@ -45,7 +45,7 @@ export interface TourProps extends Omit<RCTourProps, 'renderPanel' | 'classNames
   current?: number;
   keyboard?: boolean;
   indicatorsRender?: (current: number, total: number) => ReactNode;
-  actionsRender?: TourStepProps['actionsRender'];
+  actionsRender?: (originNode: ReactNode, info: { current: number; total: number }) => ReactNode;
   type?: 'default' | 'primary'; //	default type, affects the background color and text color
   classNames?: TourSemanticAllType['classNamesAndFn'];
   styles?: TourSemanticAllType['stylesAndFn'];
@@ -67,8 +67,6 @@ export interface TourStepProps extends Omit<RCTourStepProps, 'styles' | 'classNa
     className?: string;
     style?: React.CSSProperties;
   };
-  indicatorsRender?: (current: number, total: number) => ReactNode;
-  actionsRender?: (originNode: ReactNode, info: { current: number; total: number }) => ReactNode;
   type?: 'default' | 'primary'; //	default type, affects the background color and text color
   classNames?: TourSemanticAllType['classNames'];
   styles?: TourSemanticAllType['styles'];

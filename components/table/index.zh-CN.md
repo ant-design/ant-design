@@ -87,6 +87,7 @@ const columns = [
 <code src="./demo/tree-table-ellipsis.tsx" debug>树形数据省略情况测试</code>
 <code src="./demo/tree-table-preserveSelectedRowKeys.tsx" debug>树形数据保留key测试</code>
 <code src="./demo/fixed-header.tsx">固定表头</code>
+<code src="./demo/auto-height.tsx">自动高度</code>
 <code src="./demo/fixed-columns.tsx">固定列</code>
 <code src="./demo/fixed-gapped-columns.tsx" version="5.14.0">堆叠固定列</code>
 <code src="./demo/fixed-columns-header.tsx">固定头和列</code>
@@ -106,6 +107,7 @@ const columns = [
 <code src="./demo/virtual-list.tsx" version="5.9.0">虚拟列表</code>
 <code src="./demo/responsive.tsx">响应式</code>
 <code src="./demo/nest-table-border-debug.tsx" debug>嵌套带边框的表格 Debug</code>
+<code src="./demo/nested-table-in-tabs-debug.tsx" debug>Tabs 中的嵌套表格 Debug</code>
 <code src="./demo/pagination.tsx">分页设置</code>
 <code src="./demo/row-selection-custom-debug.tsx" debug>自定义选择项组</code>
 <code src="./demo/sticky.tsx">随页面滚动的固定表头和滚动条</code>
@@ -162,7 +164,7 @@ const columns = [
 | nativeElement | 最外层 div 元素 | HTMLDivElement | 5.11.0 |
 | scrollTo | 滚动到目标位置（设置 `key` 时为 Record 对应的 `rowKey`）。当指定 `offset` 时，表格会滚动至目标行顶部对齐并应用指定的偏移量。`offset` 对 `top` 无效。可选 `align` 参数控制对齐方式：`start` 顶部对齐、`center` 中间对齐、`end` 底部对齐、`nearest` 智能对齐（默认）。虚拟滚动模式下不支持 `center` 对齐 | (config: { index?: number, key?: React.Key, top?: number, offset?: number, align?: 'start' \| 'center' \| 'end' \| 'nearest' }) => void | 5.11.0 |
 
-#### onRow 用法
+#### onRow 用法 {#onrow-usage}
 
 适用于 `onRow` `onHeaderRow` `onCell` `onHeaderCell`。
 
@@ -202,7 +204,7 @@ const columns = [
 | filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | ReactNode \| (props: [FilterDropdownProps](https://github.com/ant-design/ant-design/blob/ecc54dda839619e921c0ace530408871f0281c2a/components/table/interface.tsx#L79)) => ReactNode | - |  |
 | filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |  |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - |  |
-| filterIcon | 自定义 filter 图标。 | ReactNode \| (filtered: boolean) => ReactNode | false |  |
+| filterIcon | 自定义 filter 图标。 | ReactNode \| (filtered: boolean) => ReactNode | - |  |
 | filterOnClose | 是否在筛选菜单关闭时触发筛选 | boolean | true | 5.15.0 |
 | filterMultiple | 是否多选 | boolean | true |  |
 | filterMode | 指定筛选菜单的用户界面 | 'menu' \| 'tree' | 'menu' | 4.17.0 |
@@ -262,6 +264,7 @@ const columns = [
 | expandIcon | 自定义展开图标，参考[示例](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |
 | expandRowByClick | 通过点击行来展开子行 | boolean | false |  |
 | fixed | 控制展开图标是否固定，可选 `true` `'left'` `'right'` | boolean \| string | false | 4.16.0 |
+| forceRender | 在展开前强制渲染展开行内容。虚拟模式下，仅强制渲染虚拟列表当前挂载的行；屏幕外的行仍可能被卸载 | boolean | false | 6.6.0 |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |  |
 | rowExpandable | 设置是否允许行展开（`dataSource` 若存在 `children` 字段将不生效） | (record) => boolean | - |  |
 | showExpandColumn | 是否显示展开图标列 | boolean | true | 4.18.0 |
@@ -287,7 +290,7 @@ const columns = [
 | renderCell | 渲染勾选框，用法与 Column 的 `render` 相同 | (checked: boolean, record: T, index: number, originNode: ReactNode): ReactNode | - | 4.1.0 |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[] \| number\[] | \[] |  |
 | defaultSelectedRowKeys | 默认选中项的 key 数组 | string\[] \| number\[] | \[] |  |
-| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[] \| boolean | true |  |
+| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[] \| boolean | - |  |
 | type | 多选/单选 | `checkbox` \| `radio` | `checkbox` |  |
 | onCell | 设置单元格属性，用法与 Column 的 `onCell` 相同 | function(record, rowIndex) | - | 5.5.0 |
 | onChange | 选中项发生变化时的回调 | function(selectedRowKeys, selectedRows, info: { type }) | - | `info.type`: 4.21.0 |

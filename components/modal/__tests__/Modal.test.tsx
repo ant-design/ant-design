@@ -7,6 +7,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import zhTW from '../../locale/zh_TW';
 
 jest.mock('@rc-component/util/lib/Portal');
 
@@ -380,6 +381,15 @@ describe('Modal', () => {
     render(<Modal open closable={{ 'aria-label': 'xxx' }} />);
     const element = document.body.querySelector('.ant-modal-close');
     expect(element).toHaveAttribute('aria-label', 'xxx');
+  });
+
+  it('should localize the close button accessible name', () => {
+    render(
+      <ConfigProvider locale={zhTW}>
+        <Modal open />
+      </ConfigProvider>,
+    );
+    expect(document.body.querySelector('.ant-modal-close')).toHaveAttribute('aria-label', '關閉');
   });
 
   describe('closable onClose and afterClose ', () => {

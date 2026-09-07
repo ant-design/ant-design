@@ -1,18 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import CSSMotion from '@rc-component/motion';
 import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
-import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
+import { genCssVar } from '../theme/util/genStyleUtils';
 import { GroupContext } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { FloatButtonElement, FloatButtonProps, FloatButtonRef } from './FloatButton';
+import useScroll from './hooks/useScroll';
 
 export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
   visibilityHeight?: number;
@@ -24,6 +24,11 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
   rootClassName?: string;
   style?: React.CSSProperties;
   duration?: number;
+  /**
+   * @since 6.6.0
+   * @default false
+   */
+  showProgress?: boolean;
 }
 
 const defaultIcon = <VerticalAlignTopOutlined />;
@@ -34,6 +39,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
+    style,
     type = 'default',
     shape = 'circle',
     visibilityHeight = 400,
@@ -41,12 +47,11 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
     target,
     onClick,
     duration = 450,
+    showProgress = false,
     ...restProps
   } = props;
 
   const mergedIcon = icon ?? contextIcon ?? defaultIcon;
-
-  const [visible, setVisible] = useState<boolean>(visibilityHeight === 0);
 
   const internalRef = React.useRef<FloatButtonRef['nativeElement']>(null);
 
@@ -54,29 +59,20 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
     nativeElement: internalRef.current,
   }));
 
-  const getDefaultTarget = (): HTMLElement | Document | Window =>
-    internalRef.current?.ownerDocument || window;
+  const getDefaultTarget = React.useCallback((): HTMLElement | Document | Window => {
+    return internalRef.current?.ownerDocument || window;
+  }, []);
 
-  const handleScroll = throttleByAnimationFrame(
-    (e: React.UIEvent<HTMLElement, UIEvent> | { target: any }) => {
-      const scrollTop = getScroll(e.target);
-      setVisible(scrollTop >= visibilityHeight);
-    },
-  );
+  const getTarget = target || getDefaultTarget;
 
-  useEffect(() => {
-    const getTarget = target || getDefaultTarget;
-    const container = getTarget();
-    handleScroll({ target: container });
-    container?.addEventListener('scroll', handleScroll);
-    return () => {
-      handleScroll.cancel();
-      container?.removeEventListener('scroll', handleScroll);
-    };
-  }, [target]);
+  const { scrollProgress, visible } = useScroll({ getTarget, showProgress, visibilityHeight });
 
   const scrollToTop: React.MouseEventHandler<FloatButtonElement> = (e) => {
-    scrollTo(0, { getContainer: target || getDefaultTarget, duration });
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+    scrollTo(0, {
+      getContainer: getTarget,
+      duration: prefersReducedMotion?.matches ? 0 : duration,
+    });
     onClick?.(e);
   };
 
@@ -84,6 +80,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
 
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
+  const [varName] = genCssVar(rootPrefixCls, 'float-btn');
 
   const groupShape = useContext(GroupContext)?.shape;
 
@@ -94,6 +91,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
     icon: mergedIcon,
     type,
     shape: mergedShape,
+    style: showProgress ? { [varName('progress')]: `${scrollProgress}turn`, ...style } : style,
     ...restProps,
   };
 
@@ -104,7 +102,9 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
           ref={composeRef(internalRef, setRef)}
           {...contentProps}
           onClick={scrollToTop}
-          className={clsx(className, motionClassName)}
+          className={clsx(className, motionClassName, {
+            [`${prefixCls}-progress`]: showProgress,
+          })}
         />
       )}
     </CSSMotion>

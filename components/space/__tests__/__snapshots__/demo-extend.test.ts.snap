@@ -2,10 +2,10 @@
 
 exports[`renders components/space/demo/align.tsx extend context correctly 1`] = `
 <div
-  class="space-align-container"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-flex-start"
 >
   <div
-    class="space-align-block"
+    class="acss-1os7mti"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -31,7 +31,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <span
-          class="mock-block"
+          class="acss-3radhp"
         >
           Block
         </span>
@@ -39,7 +39,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     </div>
   </div>
   <div
-    class="space-align-block"
+    class="acss-1os7mti"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-start ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -65,7 +65,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <span
-          class="mock-block"
+          class="acss-3radhp"
         >
           Block
         </span>
@@ -73,7 +73,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     </div>
   </div>
   <div
-    class="space-align-block"
+    class="acss-1os7mti"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-end ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -99,7 +99,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <span
-          class="mock-block"
+          class="acss-3radhp"
         >
           Block
         </span>
@@ -107,7 +107,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     </div>
   </div>
   <div
-    class="space-align-block"
+    class="acss-1os7mti"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-baseline ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -133,7 +133,41 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
         class="ant-space-item"
       >
         <span
-          class="mock-block"
+          class="acss-3radhp"
+        >
+          Block
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="acss-1os7mti"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-stretch ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+    >
+      <div
+        class="ant-space-item"
+      >
+        stretch
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          type="button"
+        >
+          <span>
+            Primary
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="acss-3radhp"
         >
           Block
         </span>
@@ -504,8 +538,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -527,7 +563,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -541,7 +577,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <div
               aria-label="Zhejiang"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -549,7 +587,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               aria-label="Jiangsu"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_1"
               role="option"
             >
@@ -557,16 +597,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -713,8 +753,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -736,7 +778,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -750,7 +792,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <div
               aria-label="Zhejiang"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -758,7 +802,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               aria-label="Jiangsu"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_1"
               role="option"
             >
@@ -766,16 +812,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -1058,7 +1104,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <div
               aria-label="Option1"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -1066,7 +1114,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               aria-label="Option2"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_1"
               role="option"
             >
@@ -1074,16 +1124,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -1280,7 +1330,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     class="ant-picker-header"
                   >
                     <button
-                      aria-label="Last year (Control + left)"
+                      aria-label="Last year"
                       class="ant-picker-header-super-prev-btn"
                       tabindex="-1"
                       type="button"
@@ -1290,7 +1340,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       />
                     </button>
                     <button
-                      aria-label="Previous month (PageUp)"
+                      aria-label="Previous month"
                       class="ant-picker-header-prev-btn"
                       tabindex="-1"
                       type="button"
@@ -1320,7 +1370,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       </button>
                     </div>
                     <button
-                      aria-label="Next month (PageDown)"
+                      aria-label="Next month"
                       class="ant-picker-header-next-btn"
                       tabindex="-1"
                       type="button"
@@ -1330,7 +1380,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       />
                     </button>
                     <button
-                      aria-label="Next year (Control + right)"
+                      aria-label="Next year"
                       class="ant-picker-header-super-next-btn"
                       tabindex="-1"
                       type="button"
@@ -1859,7 +1909,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-picker-range-separator"
         >
           <span
-            aria-label="to"
+            aria-hidden="true"
             class="ant-picker-separator"
           >
             <span
@@ -1958,7 +2008,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="Last year (Control + left)"
+                          aria-label="Last year"
                           class="ant-picker-header-super-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -1968,7 +2018,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="Previous month (PageUp)"
+                          aria-label="Previous month"
                           class="ant-picker-header-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -1998,7 +2048,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </button>
                         </div>
                         <button
-                          aria-label="Next month (PageDown)"
+                          aria-label="Next month"
                           class="ant-picker-header-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -2009,7 +2059,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="Next year (Control + right)"
+                          aria-label="Next year"
                           class="ant-picker-header-super-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -2500,7 +2550,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="Last year (Control + left)"
+                          aria-label="Last year"
                           class="ant-picker-header-super-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -2511,7 +2561,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="Previous month (PageUp)"
+                          aria-label="Previous month"
                           class="ant-picker-header-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -2542,7 +2592,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </button>
                         </div>
                         <button
-                          aria-label="Next month (PageDown)"
+                          aria-label="Next month"
                           class="ant-picker-header-next-btn"
                           tabindex="-1"
                           type="button"
@@ -2552,7 +2602,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="Next year (Control + right)"
+                          aria-label="Next year"
                           class="ant-picker-header-super-next-btn"
                           tabindex="-1"
                           type="button"
@@ -3048,7 +3098,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         type="button"
       >
         <span>
-          查 询
+          Search
         </span>
       </button>
     </div>
@@ -3085,7 +3135,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-picker-range-separator"
         >
           <span
-            aria-label="to"
+            aria-hidden="true"
             class="ant-picker-separator"
           >
             <span
@@ -3184,7 +3234,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="Last year (Control + left)"
+                          aria-label="Last year"
                           class="ant-picker-header-super-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -3194,7 +3244,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="Previous month (PageUp)"
+                          aria-label="Previous month"
                           class="ant-picker-header-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -3224,7 +3274,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </button>
                         </div>
                         <button
-                          aria-label="Next month (PageDown)"
+                          aria-label="Next month"
                           class="ant-picker-header-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -3235,7 +3285,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="Next year (Control + right)"
+                          aria-label="Next year"
                           class="ant-picker-header-super-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -3726,7 +3776,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="Last year (Control + left)"
+                          aria-label="Last year"
                           class="ant-picker-header-super-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -3737,7 +3787,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="Previous month (PageUp)"
+                          aria-label="Previous month"
                           class="ant-picker-header-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -3768,7 +3818,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </button>
                         </div>
                         <button
-                          aria-label="Next month (PageDown)"
+                          aria-label="Next month"
                           class="ant-picker-header-next-btn"
                           tabindex="-1"
                           type="button"
@@ -3778,7 +3828,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="Next year (Control + right)"
+                          aria-label="Next year"
                           class="ant-picker-header-super-next-btn"
                           tabindex="-1"
                           type="button"
@@ -4328,7 +4378,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <div
               aria-label="Option1-1"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -4336,7 +4388,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               aria-label="Option1-2"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_1"
               role="option"
             >
@@ -4344,16 +4398,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -4453,7 +4507,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <div
               aria-label="Option2-1"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -4461,7 +4517,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               aria-label="Option2-2"
+              aria-posinset="2"
               aria-selected="true"
+              aria-setsize="2"
               id="test-id_list_1"
               role="option"
             >
@@ -4469,16 +4527,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -4586,7 +4644,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <div
               aria-label="Between"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -4594,7 +4654,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               aria-label="Except"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_1"
               role="option"
             >
@@ -4602,16 +4664,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -4742,7 +4804,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <div
               aria-label="Sign Up"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -4750,7 +4814,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               aria-label="Sign In"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_1"
               role="option"
             >
@@ -4758,16 +4824,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -4819,7 +4885,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Email
           </div>
@@ -4847,7 +4912,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -4855,16 +4922,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -6483,7 +6550,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Select Address
           </div>
@@ -6639,7 +6705,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-picker-range-separator"
         >
           <span
-            aria-label="to"
+            aria-hidden="true"
             class="ant-picker-separator"
           >
             <span
@@ -8265,8 +8331,10 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </svg>
           </span>
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -8288,7 +8356,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
               />
             </svg>
           </span>
-        </div>
+        </button>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
@@ -8956,7 +9024,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       >
                         <div
                           aria-label="HEX"
+                          aria-posinset="1"
                           aria-selected="true"
+                          aria-setsize="3"
                           id="test-id_list_0"
                           role="option"
                         >
@@ -8964,7 +9034,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </div>
                         <div
                           aria-label="HSB"
+                          aria-posinset="2"
                           aria-selected="false"
+                          aria-setsize="3"
                           id="test-id_list_1"
                           role="option"
                         >
@@ -8972,16 +9044,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </div>
                       </div>
                       <div
-                        class="rc-virtual-list"
+                        class="ant-select-dropdown-list"
                         style="position: relative;"
                       >
                         <div
-                          class="rc-virtual-list-holder"
+                          class="ant-select-dropdown-list-holder"
                           style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                         >
                           <div>
                             <div
-                              class="rc-virtual-list-holder-inner"
+                              class="ant-select-dropdown-list-holder-inner"
                               style="display: flex; flex-direction: column;"
                             >
                               <div
@@ -9654,7 +9726,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item"
-          data-menu-id="rc-menu-uuid-1"
+          data-menu-id="rc-menu-uuid-test-id-1"
           role="menuitem"
           tabindex="-1"
         >
@@ -9704,7 +9776,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item"
-          data-menu-id="rc-menu-uuid-2"
+          data-menu-id="rc-menu-uuid-test-id-2"
           role="menuitem"
           tabindex="-1"
         >
@@ -9754,7 +9826,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item"
-          data-menu-id="rc-menu-uuid-3"
+          data-menu-id="rc-menu-uuid-test-id-3"
           role="menuitem"
           tabindex="-1"
         >
@@ -10120,7 +10192,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-1"
+          data-menu-id="rc-menu-uuid-test-id-1"
           role="menuitem"
           tabindex="-1"
         >
@@ -10151,7 +10223,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-2"
+          data-menu-id="rc-menu-uuid-test-id-2"
           role="menuitem"
           tabindex="-1"
         >
@@ -10182,7 +10254,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         <li
           aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-3"
+          data-menu-id="rc-menu-uuid-test-id-3"
           role="menuitem"
           tabindex="-1"
         >
@@ -10398,7 +10470,8 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             class="ant-input-group-addon"
           >
             <div
-              class="ant-select ant-select-outlined select-before css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+              style="width: 90px;"
             >
               <div
                 class="ant-select-content ant-select-content-has-value"
@@ -10454,7 +10527,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 >
                   <div
                     aria-label="http://"
+                    aria-posinset="1"
                     aria-selected="true"
+                    aria-setsize="2"
                     id="test-id_list_0"
                     role="option"
                   >
@@ -10462,7 +10537,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   </div>
                   <div
                     aria-label="https://"
+                    aria-posinset="2"
                     aria-selected="false"
+                    aria-setsize="2"
                     id="test-id_list_1"
                     role="option"
                   >
@@ -10470,16 +10547,16 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   </div>
                 </div>
                 <div
-                  class="rc-virtual-list"
+                  class="ant-select-dropdown-list"
                   style="position: relative;"
                 >
                   <div
-                    class="rc-virtual-list-holder"
+                    class="ant-select-dropdown-list-holder"
                     style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                   >
                     <div>
                       <div
-                        class="rc-virtual-list-holder-inner"
+                        class="ant-select-dropdown-list-holder-inner"
                         style="display: flex; flex-direction: column;"
                       >
                         <div
@@ -10532,7 +10609,8 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             class="ant-input-group-addon"
           >
             <div
-              class="ant-select ant-select-outlined select-after css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+              style="width: 90px;"
             >
               <div
                 class="ant-select-content ant-select-content-has-value"
@@ -10588,7 +10666,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 >
                   <div
                     aria-label=".com"
+                    aria-posinset="1"
                     aria-selected="true"
+                    aria-setsize="4"
                     id="test-id_list_0"
                     role="option"
                   >
@@ -10596,7 +10676,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   </div>
                   <div
                     aria-label=".jp"
+                    aria-posinset="2"
                     aria-selected="false"
+                    aria-setsize="4"
                     id="test-id_list_1"
                     role="option"
                   >
@@ -10604,16 +10686,16 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   </div>
                 </div>
                 <div
-                  class="rc-virtual-list"
+                  class="ant-select-dropdown-list"
                   style="position: relative;"
                 >
                   <div
-                    class="rc-virtual-list-holder"
+                    class="ant-select-dropdown-list-holder"
                     style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                   >
                     <div>
                       <div
-                        class="rc-virtual-list-holder-inner"
+                        class="ant-select-dropdown-list-holder-inner"
                         style="display: flex; flex-direction: column;"
                       >
                         <div
@@ -10997,7 +11079,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 >
                   cascader
                 </div>
@@ -11342,7 +11423,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             <li
               aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-1"
+              data-menu-id="rc-menu-uuid-test-id-1"
               role="menuitem"
               tabindex="-1"
             >
@@ -11380,7 +11461,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             <li
               aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-2"
+              data-menu-id="rc-menu-uuid-test-id-2"
               role="menuitem"
               tabindex="-1"
             >
@@ -11547,7 +11628,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           class="ant-picker-header"
                         >
                           <button
-                            aria-label="Last year (Control + left)"
+                            aria-label="Last year"
                             class="ant-picker-header-super-prev-btn"
                             tabindex="-1"
                             type="button"
@@ -11557,7 +11638,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                             />
                           </button>
                           <button
-                            aria-label="Previous month (PageUp)"
+                            aria-label="Previous month"
                             class="ant-picker-header-prev-btn"
                             tabindex="-1"
                             type="button"
@@ -11587,7 +11668,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                             </button>
                           </div>
                           <button
-                            aria-label="Next month (PageDown)"
+                            aria-label="Next month"
                             class="ant-picker-header-next-btn"
                             tabindex="-1"
                             type="button"
@@ -11597,7 +11678,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                             />
                           </button>
                           <button
-                            aria-label="Next year (Control + right)"
+                            aria-label="Next year"
                             class="ant-picker-header-super-next-btn"
                             tabindex="-1"
                             type="button"
@@ -12183,7 +12264,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 />
                 <input
                   aria-autocomplete="list"
@@ -12443,7 +12523,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           >
             <div
               aria-label="Sign Up"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="2"
               id="test-id_list_0"
               role="option"
             >
@@ -12451,7 +12533,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             </div>
             <div
               aria-label="Sign In"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="2"
               id="test-id_list_1"
               role="option"
             >
@@ -12459,16 +12543,16 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             </div>
           </div>
           <div
-            class="rc-virtual-list"
+            class="ant-select-dropdown-list"
             style="position: relative;"
           >
             <div
-              class="rc-virtual-list-holder"
+              class="ant-select-dropdown-list-holder"
               style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
-                  class="rc-virtual-list-holder-inner"
+                  class="ant-select-dropdown-list-holder-inner"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
@@ -12539,7 +12623,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           class="ant-picker-range-separator"
         >
           <span
-            aria-label="to"
+            aria-hidden="true"
             class="ant-picker-separator"
           >
             <span
@@ -12638,7 +12722,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="Last year (Control + left)"
+                          aria-label="Last year"
                           class="ant-picker-header-super-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -12648,7 +12732,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </button>
                         <button
-                          aria-label="Previous month (PageUp)"
+                          aria-label="Previous month"
                           class="ant-picker-header-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -12678,7 +12762,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           </button>
                         </div>
                         <button
-                          aria-label="Next month (PageDown)"
+                          aria-label="Next month"
                           class="ant-picker-header-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -12689,7 +12773,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </button>
                         <button
-                          aria-label="Next year (Control + right)"
+                          aria-label="Next year"
                           class="ant-picker-header-super-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -13180,7 +13264,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="Last year (Control + left)"
+                          aria-label="Last year"
                           class="ant-picker-header-super-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -13191,7 +13275,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </button>
                         <button
-                          aria-label="Previous month (PageUp)"
+                          aria-label="Previous month"
                           class="ant-picker-header-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -13222,7 +13306,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           </button>
                         </div>
                         <button
-                          aria-label="Next month (PageDown)"
+                          aria-label="Next month"
                           class="ant-picker-header-next-btn"
                           tabindex="-1"
                           type="button"
@@ -13232,7 +13316,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </button>
                         <button
-                          aria-label="Next year (Control + right)"
+                          aria-label="Next year"
                           class="ant-picker-header-super-next-btn"
                           tabindex="-1"
                           type="button"
@@ -13812,7 +13896,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Select Address
           </div>
@@ -14151,7 +14234,9 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
             >
               <div
                 aria-label="Opt1"
+                aria-posinset="1"
                 aria-selected="true"
+                aria-setsize="2"
                 id="test-id_list_0"
                 role="option"
               >
@@ -14159,7 +14244,9 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
               </div>
               <div
                 aria-label="Opt2"
+                aria-posinset="2"
                 aria-selected="false"
+                aria-setsize="2"
                 id="test-id_list_1"
                 role="option"
               >
@@ -14167,16 +14254,16 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
               </div>
             </div>
             <div
-              class="rc-virtual-list"
+              class="ant-select-dropdown-list"
               style="position: relative;"
             >
               <div
-                class="rc-virtual-list-holder"
+                class="ant-select-dropdown-list-holder"
                 style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
-                    class="rc-virtual-list-holder-inner"
+                    class="ant-select-dropdown-list-holder-inner"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
@@ -15922,7 +16009,6 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Select Address
           </div>

@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { isNonNullable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isNonNullable, isNumber, isPlainObject } from '../_util/is';
+import { isNumber, isPlainObject } from '../_util/is';
 import { responsiveArrayReversed } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { LiteralUnion } from '../_util/type';
@@ -104,7 +105,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     };
 
     // Responsive flex layout
-    if (sizeProps.flex) {
+    if (sizeProps.flex || sizeProps.flex === 0) {
       sizeClassObj[`${prefixCls}-${size}-flex`] = true;
       sizeStyle[varName(`${size}-flex`)] = parseFlex(sizeProps.flex);
     }
@@ -133,7 +134,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     mergedStyle.paddingInline = horizontalGutter;
   }
 
-  if (flex) {
+  if (flex || flex === 0) {
     mergedStyle.flex = parseFlex(flex);
 
     // Hack for Firefox to avoid size issue

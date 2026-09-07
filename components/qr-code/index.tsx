@@ -21,7 +21,11 @@ import useStyle from './style/index';
 
 export type { QRCodeProps, QRProps, QRPropsCanvas, QRPropsSvg };
 
-const QRCode: React.FC<QRCodeProps> = (props) => {
+export interface QRCodeRef {
+  nativeElement: HTMLDivElement;
+}
+
+const QRCode = React.forwardRef<QRCodeRef, QRCodeProps>((props, ref) => {
   const [, token] = useToken();
   const {
     value,
@@ -125,6 +129,12 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     );
   }
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   if (!value) {
     return null;
   }
@@ -150,7 +160,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   };
 
   return (
-    <div {...restProps} className={rootClassNames} style={rootStyle}>
+    <div ref={nativeElementRef} {...restProps} className={rootClassNames} style={rootStyle}>
       {status !== 'active' && (
         <div
           className={clsx(`${prefixCls}-cover`, mergedClassNames.cover)}
@@ -168,7 +178,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
       {type === 'canvas' ? <QRCodeCanvas {...qrCodeProps} /> : <QRCodeSVG {...qrCodeProps} />}
     </div>
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   QRCode.displayName = 'QRCode';

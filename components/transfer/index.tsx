@@ -1,13 +1,13 @@
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
-import { pickAttrs } from '@rc-component/util';
+import { isNonNullable, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMultipleSelect } from '../_util/hooks';
 import type { PrevSelectedIndex } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction, isNonNullable } from '../_util/is';
+import { isFunction } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
@@ -141,10 +141,8 @@ export interface TransferSearchOption {
   defaultValue?: string;
 }
 
-export interface TransferProps<RecordType = any> extends Omit<
-  React.HTMLAttributes<HTMLDivElement>,
-  'onChange' | 'onScroll' | 'children'
-> {
+export interface TransferProps<RecordType = any>
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onScroll' | 'children'> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -191,8 +189,13 @@ export interface TransferProps<RecordType = any> extends Omit<
   selectionsIcon?: React.ReactNode;
 }
 
-const Transfer = <RecordType extends TransferItem = TransferItem>(
+export interface TransferRef {
+  nativeElement: HTMLDivElement;
+}
+
+const InternalTransfer = <RecordType extends TransferItem = TransferItem>(
   props: TransferProps<RecordType>,
+  ref: React.ForwardedRef<TransferRef>,
 ) => {
   const {
     prefixCls: customizePrefixCls,
@@ -595,6 +598,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     data: true,
   });
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Transfer');
@@ -612,7 +621,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   // ====================== Render ======================
   return (
-    <div {...rootProps} className={cls} style={mergedStyles.root}>
+    <div ref={nativeElementRef} {...rootProps} className={cls} style={mergedStyles.root}>
       <Section<KeyWise<RecordType>>
         prefixCls={prefixCls}
         style={handleListStyle('left')}
@@ -685,6 +694,19 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     </div>
   );
 };
+
+const Transfer = React.forwardRef(InternalTransfer) as unknown as (<
+  RecordType extends TransferItem = TransferItem,
+>(
+  props: TransferProps<RecordType> & {
+    ref?: React.ForwardedRef<TransferRef>;
+  },
+) => ReturnType<typeof InternalTransfer>) &
+  Pick<React.FC, 'displayName'> & {
+    List: typeof Section;
+    Search: typeof Search;
+    Operation: typeof Actions;
+  };
 
 if (process.env.NODE_ENV !== 'production') {
   Transfer.displayName = 'Transfer';

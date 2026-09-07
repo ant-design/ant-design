@@ -37,8 +37,8 @@ const App: React.FC = () => {
     color: token.colorTextTertiary,
     backgroundColor: token.colorFillAlter,
     borderRadius: token.borderRadiusLG,
-    border: `1px dashed ${token.colorBorder}`,
-    marginTop: 16,
+    border: `${token.lineWidth}px dashed ${token.colorBorder}`,
+    marginTop: token.margin,
   };
 
   return (

@@ -3,7 +3,7 @@ import { AntDesignOutlined } from '@ant-design/icons';
 import { Button, ConfigProvider, Space } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyle = createStyles(({ prefixCls, css }) => ({
+const useStyle = createStyles(({ cssVar, prefixCls, css }) => ({
   linearGradientButton: css`
     &.${prefixCls}-btn-primary:not([disabled]):not(.${prefixCls}-btn-dangerous) {
       > span {
@@ -16,7 +16,7 @@ const useStyle = createStyles(({ prefixCls, css }) => ({
         position: absolute;
         inset: -1px;
         opacity: 1;
-        transition: all 0.3s;
+        transition: all ${cssVar.motionDurationSlow};
         border-radius: inherit;
       }
 

@@ -19,7 +19,7 @@ const App: React.FC = () => {
 
   const wrapperStyle: React.CSSProperties = {
     width: 300,
-    border: `1px solid ${token.colorBorderSecondary}`,
+    border: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
     borderRadius: token.borderRadiusLG,
   };
 

@@ -23,12 +23,13 @@ demo:
 <code src="./demo/shape.tsx" iframe="360">形状</code>
 <code src="./demo/content.tsx" iframe="360">描述</code>
 <code src="./demo/tooltip.tsx" iframe="360">含有气泡卡片的悬浮按钮</code>
-<code src="./demo/group.tsx" iframe="360">浮动按钮组</code>
+<code src="./demo/group.tsx" iframe="360">悬浮按钮组</code>
 <code src="./demo/group-menu.tsx" iframe="360">菜单模式</code>
 <code src="./demo/controlled.tsx" iframe="360">受控模式</code>
 <code src="./demo/placement.tsx" iframe="380" version="5.21.0">弹出方向</code>
 <code src="./demo/draggable.tsx" iframe="380">可拖拽</code>
 <code src="./demo/back-top.tsx" iframe="360">回到顶部</code>
+<code src="./demo/progress-ring.tsx" iframe="360" version="6.6.0">滚动进度</code>
 <code src="./demo/badge.tsx" iframe="360">徽标数</code>
 <code src="./demo/badge-debug.tsx" iframe="360" debug>调试小圆点使用</code>
 <code src="./demo/style-class.tsx" iframe="360" version="6.0.0">自定义语义结构的样式和类</code>
@@ -40,7 +41,7 @@ demo:
 
 > 自 `antd@5.0.0` 版本开始提供该组件。
 
-### 共同的 API
+### 共同的 API {#common-api}
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
@@ -73,12 +74,13 @@ demo:
 
 ### FloatButton.BackTop
 
-| 参数             | 说明                               | 类型              | 默认值       | 版本 |
-| ---------------- | ---------------------------------- | ----------------- | ------------ | ---- |
-| duration         | 回到顶部所需时间（ms）             | number            | 450          |      |
-| target           | 设置需要监听其滚动事件的元素       | () => HTMLElement | () => window |      |
-| visibilityHeight | 滚动高度达到此参数值才出现 BackTop | number            | 400          |      |
-| onClick          | 点击按钮的回调函数                 | () => void        | -            |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| duration | 回到顶部所需时间（ms）；开启“减弱动态效果”（`prefers-reduced-motion: reduce`）时不生效 | number | 450 |  |
+| showProgress | 在 BackTop 按钮边缘展示当前滚动进度环 | boolean | false | 6.6.0 |
+| target | 设置需要监听其滚动事件的元素 | () => HTMLElement | () => window |  |
+| visibilityHeight | 滚动高度达到此参数值才出现 BackTop | number | 400 |  |
+| onClick | 点击按钮的回调函数 | () => void | - |  |
 
 ## Semantic DOM
 

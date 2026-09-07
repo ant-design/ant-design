@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Tutup',
     show: 'Tampilkan',
     hide: 'Sembunyikan',
+    sortable: 'dapat diurutkan',
   },
   Table: {
     filterTitle: 'Menu filter',
@@ -31,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Balikkan halaman saat ini',
     selectNone: 'Hapus semua data',
     selectionAll: 'Pilih semua data',
+    selectRow: 'Pilih baris',
+    selectedRow: 'Baris dipilih',
+    selectionMenu: 'Menu pilihan',
     sortTitle: 'Urutkan',
     expand: 'Perluas baris',
     collapse: 'Perkecil baris',
@@ -51,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Batal',
+  },
+  Splitter: {
+    toggleStartPanel: 'Alihkan panel awal',
+    toggleEndPanel: 'Alihkan panel akhir',
   },
   Transfer: {
     titles: ['', ''],
@@ -84,6 +92,10 @@ const localeValues: Locale = {
     copied: 'Disalin',
     expand: 'Perluas',
     collapse: 'Perkecil',
+  },
+  Carousel: {
+    prevSlide: 'Slide sebelumnya',
+    nextSlide: 'Slide berikutnya',
   },
   Form: {
     optional: '(optional)',

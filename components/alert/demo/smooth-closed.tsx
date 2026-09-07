@@ -18,7 +18,12 @@ const App: React.FC = () => {
         />
       )}
       <p>click the close button to see the effect</p>
-      <Switch onChange={setVisible} checked={visible} disabled={visible} />
+      <Switch
+        aria-label="Alert visibility"
+        onChange={setVisible}
+        checked={visible}
+        disabled={visible}
+      />
     </>
   );
 };

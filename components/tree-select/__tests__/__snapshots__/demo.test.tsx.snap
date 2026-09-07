@@ -10,7 +10,6 @@ exports[`renders components/tree-select/demo/async.tsx correctly 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility:visible"
     >
       Please select
     </div>
@@ -63,7 +62,6 @@ exports[`renders components/tree-select/demo/basic.tsx correctly 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility:visible"
     >
       Please select
     </div>
@@ -314,7 +312,6 @@ exports[`renders components/tree-select/demo/maxCountNoEffect.tsx correctly 1`] 
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         please select
       </div>
@@ -384,7 +381,6 @@ exports[`renders components/tree-select/demo/multiple.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Please select
       </div>
@@ -526,7 +522,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Please select
       </div>
@@ -639,7 +634,6 @@ exports[`renders components/tree-select/demo/status.tsx correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility:visible"
         >
           Error
         </div>
@@ -697,7 +691,6 @@ exports[`renders components/tree-select/demo/status.tsx correctly 1`] = `
         >
           <div
             class="ant-select-placeholder"
-            style="visibility:visible"
           >
             Warning multiple
           </div>
@@ -760,7 +753,6 @@ exports[`renders components/tree-select/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Object
       </div>
@@ -811,7 +803,6 @@ exports[`renders components/tree-select/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Function
       </div>
@@ -867,7 +858,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Please select
       </div>
@@ -923,7 +913,6 @@ Array [
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Please select
       </div>
@@ -976,7 +965,6 @@ exports[`renders components/tree-select/demo/treeData.tsx correctly 1`] = `
   >
     <div
       class="ant-select-placeholder"
-      style="visibility:visible"
     >
       Please select
     </div>
@@ -1119,7 +1107,6 @@ exports[`renders components/tree-select/demo/treeLine.tsx correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility:visible"
         />
         <input
           aria-autocomplete="list"
@@ -1175,7 +1162,6 @@ exports[`renders components/tree-select/demo/variant.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Please select
       </div>
@@ -1225,7 +1211,6 @@ exports[`renders components/tree-select/demo/variant.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Please select
       </div>
@@ -1275,7 +1260,6 @@ exports[`renders components/tree-select/demo/variant.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Please select
       </div>
@@ -1325,7 +1309,6 @@ exports[`renders components/tree-select/demo/variant.tsx correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility:visible"
       >
         Please select
       </div>

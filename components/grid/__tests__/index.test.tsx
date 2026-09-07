@@ -64,6 +64,17 @@ describe('Grid', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should support zero flex', () => {
+    const { container } = render(<Col flex={0} />);
+    expect(container.firstElementChild).toHaveStyle({ flex: '0 0 auto' });
+  });
+
+  it('should support responsive zero flex', () => {
+    const { container } = render(<Col xs={{ flex: 0 }} />);
+    expect(container.firstElementChild).toHaveClass('ant-col-xs-flex');
+    expect(container.firstElementChild).toHaveStyle({ '--ant-col-xs-flex': '0 0 auto' });
+  });
+
   it('should render Row', () => {
     const { asFragment } = render(<Row />);
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -190,6 +201,58 @@ describe('Grid', () => {
     expect(container2.innerHTML).toContain('ant-row-center');
     const { container: container3 } = render(<Row justify={{ lg: 'center' }} />);
     expect(container3.innerHTML).not.toContain('ant-row-center');
+  });
+
+  it('should clear align and justify when props are removed or no breakpoint matches', () => {
+    jest.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(max-width: 575px)') as any);
+    const { container, rerender } = render(<Row align="middle" justify="center" />);
+    const row = container.firstElementChild;
+
+    expect(row).toHaveClass('ant-row-middle', 'ant-row-center');
+
+    rerender(<Row />);
+    expect(row).not.toHaveClass('ant-row-middle');
+    expect(row).not.toHaveClass('ant-row-center');
+
+    rerender(<Row align={{ xs: 'middle' }} justify={{ xs: 'center' }} />);
+    expect(row).toHaveClass('ant-row-middle', 'ant-row-center');
+
+    rerender(<Row align={{ lg: 'middle' }} justify={{ lg: 'center' }} />);
+    expect(row).not.toHaveClass('ant-row-middle');
+    expect(row).not.toHaveClass('ant-row-center');
+  });
+
+  it('should clear align and justify before parent layout effects', () => {
+    let classesInLayoutEffect: string | undefined;
+
+    const ReactiveTest: React.FC = () => {
+      const [aligned, setAligned] = useState(true);
+      const rowRef = React.useRef<HTMLDivElement>(null);
+
+      React.useLayoutEffect(() => {
+        if (!aligned) {
+          classesInLayoutEffect = rowRef.current?.className;
+        }
+      }, [aligned]);
+
+      return (
+        <>
+          <Row
+            ref={rowRef}
+            align={aligned ? 'middle' : undefined}
+            justify={aligned ? 'center' : undefined}
+          />
+          <button type="button" onClick={() => setAligned(false)} />
+        </>
+      );
+    };
+
+    const { container } = render(<ReactiveTest />);
+    fireEvent.click(container.querySelector('button')!);
+
+    expect(classesInLayoutEffect).toBeDefined();
+    expect(classesInLayoutEffect).not.toContain('ant-row-middle');
+    expect(classesInLayoutEffect).not.toContain('ant-row-center');
   });
 
   // https://github.com/ant-design/ant-design/issues/39690

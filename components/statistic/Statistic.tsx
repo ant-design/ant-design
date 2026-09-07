@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { pickAttrs } from '@rc-component/util';
+import { isReactRenderable, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
@@ -182,7 +182,7 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {title && (
+      {isReactRenderable(title) && (
         <div className={headerClassNames} style={mergedStyles.header}>
           <div className={titleClassNames} style={mergedStyles.title}>
             {title}
@@ -191,13 +191,13 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
       )}
       <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`} active>
         <div className={contentClassNames} style={{ ...valueStyle, ...mergedStyles.content }}>
-          {prefix && (
+          {isReactRenderable(prefix) && (
             <span className={prefixClassNames} style={mergedStyles.prefix}>
               {prefix}
             </span>
           )}
           {isFunction(valueRender) ? valueRender(valueNode) : valueNode}
-          {suffix && (
+          {isReactRenderable(suffix) && (
             <span className={suffixClassNames} style={mergedStyles.suffix}>
               {suffix}
             </span>

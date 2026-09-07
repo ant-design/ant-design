@@ -6,6 +6,17 @@ import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('FloatButtonGroup', () => {
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof FloatButton.Group>>();
+    const { container } = render(
+      <FloatButton.Group ref={ref}>
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-float-btn-group'));
+  });
+
   it('should correct render', () => {
     const { container } = render(
       <FloatButton.Group>

@@ -1237,7 +1237,7 @@ exports[`renders components/alert/demo/error-boundary.tsx extend context correct
   type="button"
 >
   <span>
-    Click me to throw a error
+    Click to throw an error
   </span>
 </button>
 `;
@@ -1704,6 +1704,7 @@ Array [
   </p>,
   <button
     aria-checked="true"
+    aria-label="Alert visibility"
     class="ant-switch css-var-test-id ant-switch-checked ant-switch-disabled"
     disabled=""
     role="switch"

@@ -5,14 +5,3 @@
 ## en-US
 
 Components which support rtl direction are listed here, you can toggle the direction in the demo.
-
-```css
-.head-example {
-  display: inline-block;
-  width: 42px;
-  height: 42px;
-  vertical-align: middle;
-  background: #eee;
-  border-radius: 4px;
-}
-```

@@ -3,13 +3,12 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import WarningFilled from '@ant-design/icons/WarningFilled';
-import { pickAttrs } from '@rc-component/util';
+import { isReactRenderable, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import noFound from './noFound';
@@ -68,6 +67,10 @@ export interface ResultProps extends HTMLAriaDataAttributes {
   children?: React.ReactNode;
   classNames?: ResultSemanticAllType['classNamesAndFn'];
   styles?: ResultSemanticAllType['stylesAndFn'];
+}
+
+export interface ResultRef {
+  nativeElement: HTMLDivElement;
 }
 
 // ExceptionImageMap keys
@@ -138,13 +141,14 @@ const Extra: React.FC<ExtraProps> = ({ className, extra, style }) => {
   );
 };
 
-export interface ResultType extends React.FC<ResultProps> {
+export interface ResultType
+  extends React.ForwardRefExoticComponent<ResultProps & React.RefAttributes<ResultRef>> {
   PRESENTED_IMAGE_404: React.FC;
   PRESENTED_IMAGE_403: React.FC;
   PRESENTED_IMAGE_500: React.FC;
 }
 
-const Result: ResultType = (props) => {
+const Result = React.forwardRef<ResultRef, ResultProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className: customizeClassName,
@@ -224,8 +228,14 @@ const Result: ResultType = (props) => {
 
   const restProps = pickAttrs(rest, { aria: true, data: true });
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   return (
-    <div {...restProps} className={rootClassNames} style={rootStyles}>
+    <div ref={nativeElementRef} {...restProps} className={rootClassNames} style={rootStyles}>
       <Icon className={iconClassNames} style={mergedStyles.icon} status={status} icon={icon} />
       {isReactRenderable(title) && (
         <div className={titleClassNames} style={mergedStyles.title}>
@@ -245,7 +255,7 @@ const Result: ResultType = (props) => {
       )}
     </div>
   );
-};
+}) as ResultType;
 
 Result.PRESENTED_IMAGE_403 = ExceptionMap['403'];
 Result.PRESENTED_IMAGE_404 = ExceptionMap['404'];

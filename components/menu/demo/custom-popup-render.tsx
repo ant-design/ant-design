@@ -27,7 +27,7 @@ const useStyles = createStyles(({ token }) => ({
   leadingHeader: {
     margin: '0 !important',
     paddingBottom: token.paddingXS,
-    borderBottom: `1px solid ${token.colorSplit}`,
+    borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
   },
   marginLess: {
     margin: '0 !important',

@@ -38,6 +38,7 @@ demo:
 <code src="./demo/hide-selected.tsx">Hide Already Selected</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/filled-debug.tsx" debug>Filled debug</code>
+<code src="./demo/clear-suffix-debug.tsx" debug>Clear suffix</code>
 <code src="./demo/custom-tag-render.tsx">Custom Tag Render</code>
 <code src="./demo/custom-label-render.tsx">Custom Selected Label Render</code>
 <code src="./demo/responsive.tsx">Responsive maxTagCount</code>
@@ -73,8 +74,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~dropdownMatchSelectWidth~~ | Determine whether the popup menu and the select input are the same width, please use `popupMatchSelectWidth` instead | boolean \| number | true | - | × |
 | ~~popupClassName~~ | The className of dropdown menu, use `classNames.popup.root` instead | string | - | 4.23.0 | × |
 | popupMatchSelectWidth | Determine whether the popup menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | 5.5.0 | × |
-| ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (originNode: ReactNode) => ReactNode | - |  | × |
-| popupRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - | 5.25.0 | × |
+| ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (originNode: ReactElement) => ReactNode | - |  | × |
+| popupRender | Customize dropdown content | (originNode: ReactElement) => ReactNode | - | 5.25.0 | × |
 | ~~dropdownStyle~~ | The style of dropdown menu, use `styles.popup.root` instead | CSSProperties | - |  | × |
 | fieldNames | Customize node label, value, options，groupLabel field name | object | { label: `label`, value: `value`, options: `options`, groupLabel: `label` } | 4.17.0 (`groupLabel` added in 5.6.0) | × |
 | ~~filterOption~~ | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  | × |
@@ -90,7 +91,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | maxTagTextLength | Max tag text length to show | number | - |  | × |
 | menuItemSelectedIcon | The custom menuItemSelected icon with multiple options | ReactNode | `<CheckOutlined />` |  | 6.4.0 |
 | mode | Set mode of Select | `multiple` \| `tags` | - |  | × |
-| notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  | × |
+| notFoundContent | Specify content to show when no result matches | ReactNode | `No data` |  | × |
 | open | Controlled open state of dropdown | boolean | - |  | × |
 | ~~optionFilterProp~~ | Deprecated, see `showSearch.optionFilterProp` |  |  |  | × |
 | optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `children` |  | × |

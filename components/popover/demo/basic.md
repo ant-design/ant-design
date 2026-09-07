@@ -5,9 +5,3 @@
 ## en-US
 
 The most basic example. The size of the floating layer depends on the contents region.
-
-<style>
-.ant-popover-content p {
-  margin: 0;
-}
-</style>

@@ -65,8 +65,8 @@ demo:
 | tagRender | 自定义 tag 内容 render，仅在多选时生效 | ({ label: string, onClose: function, value: string }) => ReactNode | - |  | × |
 | ~~popupClassName~~ | 自定义浮层类名，使用 `classNames.popup.root` 替换 | string | - | 4.23.0 | × |
 | ~~dropdownClassName~~ | 自定义浮层类名，请使用 `classNames.popup.root` 替代 | string | - | - | × |
-| ~~dropdownRender~~ | 自定义下拉框内容，请使用 `popupRender` 替换 | (menus: ReactNode) => ReactNode | - | 4.4.0 | × |
-| popupRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - |  | × |
+| ~~dropdownRender~~ | 自定义下拉框内容，请使用 `popupRender` 替换 | (menus: ReactElement) => ReactNode | - | 4.4.0 | × |
+| popupRender | 自定义下拉框内容 | (menus: ReactElement) => ReactNode | - |  | × |
 | ~~dropdownStyle~~ | 下拉菜单的 style 属性，使用 `styles.popup.root` 替换 | CSSProperties | - |  | × |
 | expandIcon | 自定义次级菜单展开图标 | ReactNode | - | 4.4.0 | 6.3.0 |
 | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` |  | × |
@@ -77,7 +77,7 @@ demo:
 | maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | 4.17.0 | × |
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode \| function(omittedValues) | - | 4.17.0 | × |
 | maxTagTextLength | 最大显示的 tag 文本长度 | number | - | 4.17.0 | × |
-| notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  | × |
+| notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `暂无数据` |  | × |
 | open | 控制浮层显隐 | boolean | - | 4.17.0 | × |
 | options | 可选项数据源 | [Option](#option)\[] | - |  | × |
 | placeholder | 输入框占位文本 | string | - |  | × |

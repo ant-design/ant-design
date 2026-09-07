@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Zatvori',
     show: 'Prikaži',
     hide: 'Sakrij',
+    sortable: 'sortabilno',
   },
   Table: {
     filterTitle: 'Meni filtera',
@@ -29,12 +30,17 @@ const localeValues: Locale = {
     selectInvert: 'Obrni izbor trenutne stranice',
     selectNone: 'Obriši sve podatke',
     selectionAll: 'Izaberi sve podatke',
+    selectRow: 'Изабери ред',
+    selectedRow: 'Ред је изабран',
+    selectionMenu: 'Мени за избор',
     sortTitle: 'Sortiraj',
     expand: 'Proširi red',
     collapse: 'Skupi red',
     triggerDesc: 'Klikni da sortiraš po padajućem redosledu',
     triggerAsc: 'Klikni da sortiraš po rastućem redosledu',
     cancelSort: 'Klikni da otkažeš sortiranje',
+    filterCheckAll: 'Изаберите све ставке',
+    filterSearchPlaceholder: 'Тражи у филтерима',
   },
   Tour: {
     Next: 'Sledeće',
@@ -50,6 +56,10 @@ const localeValues: Locale = {
     okText: 'U redu',
     cancelText: 'Otkaži',
   },
+  Splitter: {
+    toggleStartPanel: 'Пребаци почетни панел',
+    toggleEndPanel: 'Пребаци завршни панел',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Pretraži ovde',
@@ -61,6 +71,7 @@ const localeValues: Locale = {
     selectAll: 'Izaberi sve podatke',
     removeAll: 'Ukloni sve podatke',
     selectInvert: 'Obrni izbor trenutne stranice',
+    deselectAll: 'Опозовите избор свих података',
   },
   Upload: {
     uploading: 'Otpremanje...',
@@ -80,6 +91,11 @@ const localeValues: Locale = {
     copy: 'Kopiraj',
     copied: 'Kopirano',
     expand: 'Proširi',
+    collapse: 'Колапс',
+  },
+  Carousel: {
+    prevSlide: 'Prethodni slajd',
+    nextSlide: 'Sledeći slajd',
   },
   Form: {
     optional: '(opcionalno)',
@@ -130,6 +146,17 @@ const localeValues: Locale = {
         mismatch: '${label} ne odgovara obrascu ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'КР код је истекао',
+    refresh: 'Освежи',
+    scanned: 'Скенирано',
+  },
+  ColorPicker: {
+    presetEmpty: 'Празан',
+    transparent: 'Транспарент',
+    singleColor: 'Једнобојна',
+    gradientColor: 'Градијентна боја',
   },
 };
 

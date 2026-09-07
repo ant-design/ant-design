@@ -7,12 +7,13 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import { Notification as RcNotification } from '@rc-component/notification';
 import type { NotificationProps as RcNotificationProps } from '@rc-component/notification';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { pickClosable, useClosable } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isPlainObject, isReactRenderable } from '../_util/is';
+import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -20,7 +21,10 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { IconType, NotificationSemanticType } from './interface';
 import useStyle, { PurePanelStyle } from './style';
 
-export type AnchorSemanticAllType = GenerateSemantic<NotificationSemanticType, PurePanelProps>;
+export type NotificationPurePanelSemanticAllType = GenerateSemantic<
+  NotificationSemanticType,
+  PurePanelProps
+>;
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -53,8 +57,8 @@ export interface PurePanelProps
   actions?: React.ReactNode;
   type?: IconType;
   role?: 'alert' | 'status';
-  classNames?: AnchorSemanticAllType['classNamesAndFn'];
-  styles?: AnchorSemanticAllType['stylesAndFn'];
+  classNames?: NotificationPurePanelSemanticAllType['classNamesAndFn'];
+  styles?: NotificationPurePanelSemanticAllType['stylesAndFn'];
   closeIcon?: React.ReactNode;
 }
 

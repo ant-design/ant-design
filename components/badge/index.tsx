@@ -3,7 +3,7 @@ import Ribbon from './Ribbon';
 
 export type { BadgeProps } from './Badge';
 
-export type { RibbonProps } from './Ribbon';
+export type { RibbonProps, RibbonRef } from './Ribbon';
 
 export type { ScrollNumberProps } from './ScrollNumber';
 

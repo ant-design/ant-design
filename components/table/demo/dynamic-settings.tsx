@@ -2,6 +2,22 @@ import React, { useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import type { GetProp, RadioChangeEvent, TableProps } from 'antd';
 import { Form, Radio, Space, Switch, Table } from 'antd';
+import { createStyles } from 'antd-style';
+
+const useStyles = createStyles((props) => {
+  const { css, cssVar } = props;
+  return {
+    tableControlBar: css`
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: ${cssVar.margin};
+      row-gap: ${cssVar.marginXS};
+      column-gap: 0;
+    `,
+  };
+});
 
 type SizeType = TableProps['size'];
 type ColumnsType<T extends object> = GetProp<TableProps<T>, 'columns'>;
@@ -77,6 +93,8 @@ const defaultTitle = () => 'Here is title';
 const defaultFooter = () => 'Here is footer';
 
 const App: React.FC = () => {
+  const { styles } = useStyles();
+
   const [bordered, setBordered] = useState(false);
   const [loading, setLoading] = useState(false);
   const [size, setSize] = useState<SizeType>('large');
@@ -154,6 +172,7 @@ const App: React.FC = () => {
   }
 
   const tableColumns = columns.map((item) => ({ ...item, ellipsis }));
+
   if (xScroll === 'fixed') {
     tableColumns[0].fixed = true;
     tableColumns[tableColumns.length - 1].fixed = 'right';
@@ -174,7 +193,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Form layout="inline" className="table-demo-control-bar" style={{ marginBottom: 16 }}>
+      <Form layout="inline" className={styles.tableControlBar}>
         <Form.Item label="Bordered">
           <Switch checked={bordered} onChange={handleBorderChange} />
         </Form.Item>

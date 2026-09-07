@@ -143,7 +143,6 @@ const GlobalLayout: React.FC = () => {
         setSearchParams(nextSearchParams);
       }
     },
-
     [searchParams, setSearchParams],
   );
 
@@ -217,7 +216,7 @@ const GlobalLayout: React.FC = () => {
     return () => {
       window.removeEventListener('resize', updateMobileMode);
     };
-  }, [searchParams, updateMobileMode]);
+  }, [bannerData, bannerLastTime, searchParams, systemTheme, updateMobileMode]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(
     () => ({

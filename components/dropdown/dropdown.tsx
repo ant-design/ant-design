@@ -10,7 +10,7 @@ import { clsx } from 'clsx';
 import { useZIndex } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isPlainObject, isPrimitive } from '../_util/is';
+import { isPlainObject, isPrimitive, isString } from '../_util/is';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import genPurePanel from '../_util/PurePanel';
@@ -52,6 +52,7 @@ export type DropdownArrowOptions = {
 export type DropdownSemanticType = {
   classNames?: {
     root?: string;
+    menu?: string;
     item?: string;
     itemTitle?: string;
     itemIcon?: string;
@@ -59,6 +60,7 @@ export type DropdownSemanticType = {
   };
   styles?: {
     root?: React.CSSProperties;
+    menu?: React.CSSProperties;
     item?: React.CSSProperties;
     itemTitle?: React.CSSProperties;
     itemIcon?: React.CSSProperties;
@@ -71,7 +73,7 @@ export type DropdownSemanticAllType = GenerateSemantic<DropdownSemanticType, Dro
 export interface DropdownProps {
   classNames?: DropdownSemanticAllType['classNamesAndFn'];
   styles?: DropdownSemanticAllType['stylesAndFn'];
-  menu?: MenuProps & { activeKey?: RcMenuProps['activeKey'] };
+  menu?: Omit<MenuProps, 'classNames' | 'styles'> & { activeKey?: RcMenuProps['activeKey'] };
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
@@ -288,20 +290,22 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
   const renderOverlay = () => {
     // @rc-component/dropdown already can process the function of overlay, but we have check logic here.
     // So we need render the element to check and pass back to @rc-component/dropdown.
-    const menuClassNames = omit(mergedClassNames, ['root']);
-    const menuStyles = omit(mergedStyles, ['root']);
+    const menuClassNames = omit(mergedClassNames, ['root', 'menu']);
+    const menuStyles = omit(mergedStyles, ['root', 'menu']);
     let overlayNode: React.ReactNode;
     if (menu?.items) {
       overlayNode = (
         <Menu
           {...menu}
           classNames={{
+            root: mergedClassNames.menu,
             ...menuClassNames,
             subMenu: {
               ...menuClassNames,
             },
           }}
           styles={{
+            root: mergedStyles.menu,
             ...menuStyles,
             subMenu: {
               ...menuStyles,
@@ -313,9 +317,11 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
     if (mergedPopupRender) {
       overlayNode = mergedPopupRender(overlayNode);
     }
-    overlayNode = React.Children.only(
-      typeof overlayNode === 'string' ? <span>{overlayNode}</span> : overlayNode,
-    );
+    if (isString(overlayNode)) {
+      overlayNode = <span>{overlayNode}</span>;
+    } else if (!React.isValidElement(overlayNode)) {
+      overlayNode = <>{overlayNode}</>;
+    }
     return (
       <OverrideProvider
         prefixCls={`${prefixCls}-menu`}

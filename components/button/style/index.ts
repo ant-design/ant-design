@@ -49,6 +49,26 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
       // https://github.com/ant-design/ant-design/issues/51380
       [`${componentCls}-icon > svg`]: resetIcon(),
 
+      // https://github.com/ant-design/ant-design/issues/57727
+      [`${componentCls}-icon`]: {
+        display: 'inline-flex',
+        alignItems: 'center',
+
+        [iconCls]: {
+          verticalAlign: 'middle',
+
+          // Baseline will align the first element.
+          // So the Button with SVG will make the baseline to be the bottom of the SVG.
+          // Let's use `:before` to add a space to make the baseline to be the center of the Button.
+          // https://github.com/ant-design/ant-design/issues/58428
+          '&:before': {
+            content: '"\\a0"',
+            display: 'inline-block',
+            width: 0,
+          },
+        },
+      },
+
       '> a': {
         color: 'currentColor',
       },
@@ -88,8 +108,9 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
       // iconPlacement
       [`&:not(${componentCls}-icon-end)`]: {
         [`${componentCls}-loading-icon-motion`]: {
-          '&-appear-start, &-enter-start': {
+          '&-appear-start, &-enter-start, &-appear-prepare, &-enter-prepare': {
             marginInlineEnd: calc(iconGap).mul(-1).equal(),
+            opacity: 0,
           },
           '&-appear-active, &-enter-active': {
             marginInlineEnd: 0,
@@ -107,8 +128,9 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
         flexDirection: 'row-reverse',
 
         [`${componentCls}-loading-icon-motion`]: {
-          '&-appear-start, &-enter-start': {
+          '&-appear-start, &-enter-start, &-appear-prepare, &-enter-prepare': {
             marginInlineStart: calc(iconGap).mul(-1).equal(),
+            opacity: 0,
           },
           '&-appear-active, &-enter-active': {
             marginInlineStart: 0,

@@ -27,6 +27,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 <code src="./demo/total.tsx">总数</code>
 <code src="./demo/all.tsx">全部展示</code>
 <code src="./demo/itemRender.tsx">上一步和下一步</code>
+<code src="./demo/components.tsx" version="6.6.0">定制组件</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/variant-debug.tsx" debug>变体 Debug</code>
@@ -44,6 +45,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 | --- | --- | --- | --- | --- | --- |
 | align | 对齐方式 | start \| center \| end | - | 5.19.0 | × |
 | classNames | 自定义组件内部各语义化结构的类名。支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| components | 自定义内部组件 | { sizeChanger?: React.ComponentType } | - | 6.6.0 | × |
 | current | 当前页数 | number | - |  | × |
 | defaultCurrent | 默认的当前页数 | number | 1 |  | × |
 | defaultPageSize | 默认的每页条数 | number | 10 |  | × |

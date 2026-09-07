@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Fechar',
     show: 'Mostrar',
     hide: 'Ocultar',
+    sortable: 'classificável',
   },
   Table: {
     filterTitle: 'Menu de Filtro',
@@ -31,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Inverter seleção',
     selectNone: 'Apagar todo o conteúdo',
     selectionAll: 'Selecionar todo o conteúdo',
+    selectRow: 'Selecionar linha',
+    selectedRow: 'Linha selecionada',
+    selectionMenu: 'Menu de seleção',
     sortTitle: 'Ordenar título',
     expand: 'Expandir linha',
     collapse: 'Colapsar linha',
@@ -52,6 +56,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Cancelar',
   },
+  Splitter: {
+    toggleStartPanel: 'Alternar painel inicial',
+    toggleEndPanel: 'Alternar painel final',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Procurar',
@@ -63,6 +71,7 @@ const localeValues: Locale = {
     selectAll: 'Selecionar todos',
     removeAll: 'Remover todos',
     selectInvert: 'Inverter seleção atual',
+    deselectAll: 'Desmarcar todos os dados',
   },
   Upload: {
     uploading: 'Enviando...',
@@ -82,6 +91,11 @@ const localeValues: Locale = {
     copy: 'copiar',
     copied: 'copiado',
     expand: 'expandir',
+    collapse: 'Recolher',
+  },
+  Carousel: {
+    prevSlide: 'Slide anterior',
+    nextSlide: 'Próximo slide',
   },
   Form: {
     optional: '(opcional)',

@@ -18,7 +18,7 @@ const outputFile = process.argv[2] || path.join(cwd, '_site', 'contributors.json
 
 const excludeComponents = new Set(['_util', 'overview']);
 
-const blockList = [
+const botExcludes = [
   'github-actions',
   'github-actions[bot]',
   'copilot',
@@ -27,6 +27,9 @@ const blockList = [
   'dependabot',
   'dependabot[bot]',
   'gemini-code-assist[bot]',
+  'dependabot-preview',
+  'dependabot-preview[bot]',
+  'depfu[bot]',
 ];
 
 const locales = [
@@ -144,7 +147,7 @@ async function getFileCommits(filePath: string) {
   return Array.from(
     commits.reduce<Set<string>>((loginSet, commit) => {
       const login = commit.author?.login;
-      if (login && !blockList.includes(login.toLowerCase())) {
+      if (login && !botExcludes.includes(login.toLowerCase())) {
         loginSet.add(login);
       }
       return loginSet;

@@ -18,6 +18,7 @@ const localeValues: Locale = {
     close: 'Хаах',
     show: 'Харуулах',
     hide: 'Нуух',
+    sortable: 'ангилах боломжтой',
   },
   Table: {
     filterTitle: 'Хайх цэс',
@@ -31,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Бусдыг сонгох',
     selectNone: 'Бүх өгөгдлийг арилгах',
     selectionAll: 'Бүх өгөгдлийг сонгоно уу',
+    selectRow: 'Мөр сонгох',
+    selectedRow: 'Мөр сонгогдсон',
+    selectionMenu: 'Сонголтын цэс',
     sortTitle: 'Эрэмбэлэх',
     expand: 'Мөрийг өргөжүүлэх',
     collapse: 'Мөрийг буулгах',
@@ -52,6 +56,10 @@ const localeValues: Locale = {
     okText: 'Тийм',
     cancelText: 'Цуцлах',
   },
+  Splitter: {
+    toggleStartPanel: 'Эхлэх самбарыг сэлгэх',
+    toggleEndPanel: 'Төгсгөлийн самбарыг сэлгэх',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Хайх',
@@ -63,6 +71,7 @@ const localeValues: Locale = {
     selectAll: 'Бүх өгөгдлийг сонгоно уу',
     removeAll: 'Бүх өгөгдлийг устгана уу',
     selectInvert: 'Одоогийн хуудсыг эргүүлэх',
+    deselectAll: 'Бүх өгөгдлийн сонголтыг цуцлах',
   },
   Upload: {
     uploading: 'Хуулж байна...',
@@ -82,6 +91,7 @@ const localeValues: Locale = {
     copy: 'Хуулбарлах',
     copied: 'Хуулсан',
     expand: 'Өргөтгөх',
+    collapse: 'Нурах',
   },
   Form: {
     optional: '(сонголттой)',
@@ -124,7 +134,7 @@ const localeValues: Locale = {
       },
       array: {
         len: '${len} ${label} байх ёстой',
-        min: 'Дор хаяж ${мин} ${label}',
+        min: 'Дор хаяж ${min} ${label}',
         max: 'Хамгийн ихдээ ${max} ${label}',
         range: '${label}-н хэмжээ ${min}-${max} хооронд байх ёстой',
       },
@@ -132,6 +142,17 @@ const localeValues: Locale = {
         mismatch: '${label} нь ${pattern} загвартай тохирохгүй байна',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR кодын хугацаа дууссан',
+    refresh: 'Сэргээх',
+    scanned: 'Сканнердсан',
+  },
+  ColorPicker: {
+    presetEmpty: 'Хоосон',
+    transparent: 'Ил тод',
+    singleColor: 'Ганц өнгө',
+    gradientColor: 'Градиент өнгө',
   },
 };
 

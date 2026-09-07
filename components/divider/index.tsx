@@ -61,7 +61,11 @@ export interface DividerProps {
   styles?: DividerSemanticAllType['stylesAndFn'];
 }
 
-const Divider: React.FC<DividerProps> = (props) => {
+export interface DividerRef {
+  nativeElement: HTMLDivElement;
+}
+
+const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
   const {
     getPrefixCls,
     direction,
@@ -178,6 +182,12 @@ const Divider: React.FC<DividerProps> = (props) => {
     marginInlineEnd: hasMarginEnd ? memoizedPlacementMargin : undefined,
   };
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Divider');
@@ -198,6 +208,7 @@ const Divider: React.FC<DividerProps> = (props) => {
 
   return (
     <div
+      ref={nativeElementRef}
       className={classString}
       style={{
         ...mergedStyles.root,
@@ -227,7 +238,7 @@ const Divider: React.FC<DividerProps> = (props) => {
       )}
     </div>
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Divider.displayName = 'Divider';

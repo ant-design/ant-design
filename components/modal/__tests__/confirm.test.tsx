@@ -659,8 +659,9 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
     await open({ bodyStyle: { width: 500 } });
 
-    const { width } = $$('.ant-modal-body')[0].style;
+    const { width } = $$('.ant-modal-confirm-content')[0].style;
     expect(width).toBe('500px');
+    expect($$('.ant-modal-body')[0].style.width).toBe('');
     expect(spy).toHaveBeenCalledWith(
       'Warning: [antd: Modal] `bodyStyle` is deprecated. Please use `styles.body` instead.',
     );
@@ -671,8 +672,104 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     resetWarned();
     await open({ styles: { body: { width: 500 } } });
 
-    const { width } = $$('.ant-modal-body')[0].style;
+    const { width } = $$('.ant-modal-confirm-content')[0].style;
     expect(width).toBe('500px');
+    expect($$('.ant-modal-body')[0].style.width).toBe('');
+  });
+
+  it('styles function should apply body semantic config to confirm content', async () => {
+    await open({
+      styles: () => ({ body: { width: 500 } }),
+    });
+
+    const { width } = $$('.ant-modal-confirm-content')[0].style;
+    expect(width).toBe('500px');
+    expect($$('.ant-modal-body')[0].style.width).toBe('');
+  });
+
+  it('should apply body semantic config to confirm content in App.useApp modal method', async () => {
+    const Confirm = () => {
+      const { modal } = App.useApp();
+
+      React.useEffect(() => {
+        modal.confirm({
+          title: 'Bamboo',
+          content: 'Little',
+          onCancel: () => undefined,
+        });
+      }, [modal]);
+
+      return null;
+    };
+
+    render(
+      <ConfigProvider
+        modal={{
+          classNames: { body: 'custom-confirm-content' },
+          styles: { body: { margin: 24 } },
+        }}
+      >
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+
+    await waitFakeTimer();
+
+    const modalBody = document.querySelector<HTMLElement>('.ant-modal-body')!;
+    const title = document.querySelector<HTMLElement>('.ant-modal-confirm-title')!;
+    const content = document.querySelector<HTMLElement>('.ant-modal-confirm-content')!;
+
+    expect(modalBody).not.toHaveClass('custom-confirm-content');
+    expect(modalBody.style.margin).toBe('');
+    expect(title.closest('.custom-confirm-content')).toBeFalsy();
+    expect(content).toHaveClass('custom-confirm-content');
+    expect(content.style.margin).toBe('24px');
+  });
+
+  it('should resolve confirm content body semantics with merged Modal props', async () => {
+    const Confirm = () => {
+      const { modal } = App.useApp();
+
+      React.useEffect(() => {
+        modal.confirm({
+          title: 'Bamboo',
+          content: 'Little',
+          onCancel: () => undefined,
+        });
+      }, [modal]);
+
+      return null;
+    };
+
+    render(
+      <ConfigProvider
+        modal={{
+          classNames: ({ props }) => ({
+            body: props.focusable?.trap === false ? 'custom-focusable-content' : '',
+          }),
+          focusable: { trap: false },
+          styles: ({ props }) => ({
+            body: { width: props.focusable?.trap === false ? 500 : 300 },
+          }),
+        }}
+      >
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+
+    await waitFakeTimer();
+
+    const modalBody = document.querySelector<HTMLElement>('.ant-modal-body')!;
+    const content = document.querySelector<HTMLElement>('.ant-modal-confirm-content')!;
+
+    expect(modalBody).not.toHaveClass('custom-focusable-content');
+    expect(modalBody.style.width).toBe('');
+    expect(content).toHaveClass('custom-focusable-content');
+    expect(content.style.width).toBe('500px');
   });
 
   describe('the callback close should be a method when onCancel has a close parameter', () => {

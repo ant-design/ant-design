@@ -38,3 +38,12 @@ export const expectSemanticRootStylePriority = (element: Element | null) => {
     borderTopWidth: semanticRootStylePriority.contextStyles.root.borderTopWidth,
   });
 };
+
+export const expectSemanticRootStyleWithRootStylePriority = (element: Element | null) => {
+  expect(element).toHaveStyle({
+    backgroundColor: semanticRootStylePriority.style.backgroundColor,
+    marginTop: semanticRootStylePriority.styles.root.marginTop,
+    paddingTop: semanticRootStylePriority.contextStyles.root.paddingTop,
+    borderTopWidth: semanticRootStylePriority.contextStyles.root.borderTopWidth,
+  });
+};
