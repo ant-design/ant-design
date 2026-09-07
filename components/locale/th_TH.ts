@@ -86,6 +86,10 @@ const localeValues: Locale = {
     expand: 'ขยาย',
     collapse: 'ย่อ',
   },
+  Carousel: {
+    prevSlide: 'สไลด์ก่อนหน้า',
+    nextSlide: 'สไลด์ถัดไป',
+  },
   Form: {
     optional: '(ไม่จำเป็น)',
     defaultValidateMessages: {

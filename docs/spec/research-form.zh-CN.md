@@ -260,8 +260,8 @@ Ant Design 标准注册模板
 
 ### 会用到哪些模块或组件
 
-- [表单](/components/form-cn#header)
-- [步骤条](/components/steps-cn#header)
+- [表单](/components/form-cn)
+- [步骤条](/components/steps-cn)
 
 ### 外部参考文章
 

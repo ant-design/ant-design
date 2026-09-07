@@ -76,7 +76,7 @@ demo:
 | loading | 显示骨架屏 | boolean |  | 5.18.0 | × |
 | scrollLock | 弹窗打开时是否锁定body滚动 | boolean | true | 6.5.0 | × |
 | title | 标题 | ReactNode | - |  | × |
-| open | 对话框是否可见 | boolean | - |  | × |
+| open | 对话框是否可见 | boolean | false |  | × |
 | width | 宽度 | string \| number \| [Breakpoint](/components/grid-cn#col) | 520 | Breakpoint: 5.23.0 | × |
 | wrapClassName | 对话框外层容器的类名 | string | - |  | × |
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |  | × |
@@ -240,4 +240,4 @@ return (
 
 ### 静态方法如何设置 prefixCls ？ {#faq-set-prefix-cls}
 
-你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#configproviderconfig-4130) 进行设置。
+你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#config) 进行设置。
