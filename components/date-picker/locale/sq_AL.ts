@@ -1,3 +1,5 @@
+import 'dayjs/locale/sq';
+
 import TimePickerLocale from '../../time-picker/locale/sq_AL';
 import type { PickerLocale } from '../generatePicker';
 
