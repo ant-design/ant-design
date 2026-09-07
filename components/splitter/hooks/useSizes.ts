@@ -2,7 +2,7 @@ import React from 'react';
 import { isNonNullable } from '@rc-component/util';
 
 import type { PanelProps } from '../interface';
-import { autoPtgSizes } from './sizeUtil';
+import { autoPtgSizes, limitPtgSizes } from './sizeUtil';
 
 export function getPtg(str: string) {
   return Number(str.slice(0, -1)) / 100;
@@ -80,14 +80,50 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
       }
     }
 
+    // Re-clamp explicit sizes below `min` back up: they were stored as
+    // absolute px values (e.g. from a drag) and re-based on the current
+    // container size, which can otherwise scale them below `min`
+    // (see https://github.com/ant-design/ant-design/issues/59083).
+    // `undefined` (auto) entries are left for `autoPtgSizes` to fill.
     // Use autoPtgSizes to handle the undefined sizes
-    return autoPtgSizes(ptgList, postPercentMinSizes, postPercentMaxSizes);
+    return autoPtgSizes(
+      limitPtgSizes(ptgList, postPercentMinSizes, postPercentMaxSizes),
+      postPercentMinSizes,
+      postPercentMaxSizes,
+    );
   }, [itemsCount, sizes, mergedContainerSize, postPercentMinSizes, postPercentMaxSizes]);
 
-  const postPxSizes = React.useMemo(
-    () => postPercentSizes.map(ptg2px),
-    [postPercentSizes, mergedContainerSize],
-  );
+  const postPxSizes = React.useMemo(() => {
+    const pxSizes = postPercentSizes.map(ptg2px);
+    // Absorb float dust (e.g. 290.00000000000006 from a 290/440 split) into
+    // one panel so both the total and the snapshots stay exact. Browser
+    // sub-pixel rendering is unaffected at this magnitude. Only tiny
+    // round-off is absorbed: a real leftover from `max` clamping (e.g. two
+    // max-200 panels in a 1000px container leaving 600px unassigned) must
+    // NOT be written into a panel (see #59083 review).
+    const total = pxSizes.reduce((sum, size) => sum + size, 0);
+    const dust = total - mergedContainerSize;
+    const tolerance = Number.EPSILON * mergedContainerSize * pxSizes.length;
+    if (dust !== 0 && Math.abs(dust) <= tolerance && pxSizes.length) {
+      // Absorb into a panel that stays within `[min, max]` afterwards.
+      // If no such panel exists (every candidate would break its bounds),
+      // skip compensation entirely: preserving min/max beats exact
+      // total-size matching at 1e-13 magnitude (see #59232 review).
+      let target = -1;
+      for (let i = pxSizes.length - 1; i >= 0; i -= 1) {
+        const max = postPercentMaxSizes[i] * mergedContainerSize;
+        const min = postPercentMinSizes[i] * mergedContainerSize;
+        if (pxSizes[i] - dust <= max && pxSizes[i] - dust >= min) {
+          target = i;
+          break;
+        }
+      }
+      if (target >= 0) {
+        pxSizes[target] -= dust;
+      }
+    }
+    return pxSizes;
+  }, [postPercentSizes, mergedContainerSize, postPercentMaxSizes]);
 
   // If ssr, we will use the size from developer config first.
   const panelSizes = React.useMemo(

@@ -41,7 +41,21 @@ export default function useResize(
     confirmed: boolean;
   } | null>(null);
 
-  const getPxSizes = () => percentSizes.map(ptg2px);
+  const getPxSizes = () => {
+    const pxSizes = percentSizes.map(ptg2px);
+    // Absorb float dust (e.g. 290.00000000000006 from a 290/440 split) into
+    // the last panel so collapse snapshots stay exact. Same rationale as the
+    // compensation in `useSizes.postPxSizes`. Only tiny round-off is
+    // absorbed here: `percentSizes` always sums to `1`, so any larger gap is
+    // a real size, not dust.
+    const total = pxSizes.reduce((sum, size) => sum + size, 0);
+    const dust = total - mergedContainerSize;
+    const tolerance = Number.EPSILON * mergedContainerSize * pxSizes.length;
+    if (dust !== 0 && Math.abs(dust) <= tolerance && pxSizes.length) {
+      pxSizes[pxSizes.length - 1] -= dust;
+    }
+    return pxSizes;
+  };
 
   const onOffsetStart = (index: number) => {
     setCacheSizes(getPxSizes());

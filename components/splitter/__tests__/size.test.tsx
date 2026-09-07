@@ -125,4 +125,92 @@ describe('useSizes', () => {
     // Check if the `size` of the first panel gets priority.
     expect(postPxSizes).toEqual([600, 400]);
   });
+
+  // https://github.com/ant-design/ant-design/issues/59083
+  it('should respect min when explicit sizes are re-based on a smaller container', () => {
+    // Simulates: panels dragged to explicit px sizes under a 1000px container,
+    // then the container shrinks to 500px. The stale px values must be
+    // re-clamped against min instead of being scaled below it.
+    const items = [
+      {
+        size: 200,
+        min: 200,
+      },
+      {
+        size: 800,
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, 500));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes[0]).toBeGreaterThanOrEqual(200);
+  });
+
+  // Review follow-up of https://github.com/ant-design/ant-design/issues/59083:
+  // float-dust compensation must not write a real `max` leftover into a panel.
+  it('should keep max-capped panels at max instead of absorbing the leftover', () => {
+    const items = [
+      {
+        max: 200,
+      },
+      {
+        max: 200,
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, 1000));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes).toEqual([200, 200]);
+  });
+
+  // Review follow-up of https://github.com/ant-design/ant-design/pull/59232:
+  // when mins exactly fill the container, every panel must pin at its `min`
+  // instead of being scaled below it.
+  it('should pin every panel at min when mins exactly fill the container', () => {
+    const items = [
+      {
+        size: 900,
+        min: 500,
+      },
+      {
+        size: 300,
+        min: 500,
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, 1000));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes[0]).toBeGreaterThanOrEqual(500);
+    expect(postPxSizes[1]).toBeGreaterThanOrEqual(500);
+  });
+
+  // Review follow-up of https://github.com/ant-design/ant-design/pull/59232:
+  // when no panel can absorb float dust within `[min, max]`, compensation
+  // must be skipped instead of breaking a panel bound (the old fallback
+  // wrote the dust into the last panel: 149.9999999999999 < min 150).
+  it('should skip dust compensation when no panel can absorb it within bounds', () => {
+    const items = [
+      {
+        size: 290,
+        min: 150,
+        max: 290,
+      },
+      {
+        size: 150,
+        min: 150,
+        max: 150,
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, 1000));
+    const [, postPxSizes] = result.current;
+
+    // Panel 1 is pinned at min=max=150 and cannot absorb the +1.1e-13 dust
+    // without breaking its bound; panel 0 is already at its max=290, so the
+    // dust stays unabsorbed and panel 1 keeps exactly 150.
+    expect(postPxSizes[1]).toBe(150);
+  });
 });
