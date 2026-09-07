@@ -105,6 +105,34 @@ describe('CheckboxGroup', () => {
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(1);
   });
 
+  describe('value is undefined', () => {
+    it('use `defaultValue` when `value` is undefined', () => {
+      const { container } = render(
+        <Checkbox.Group defaultValue={['A']} value={undefined} options={['A']} />,
+      );
+      expect(container.querySelectorAll('.ant-checkbox-checked')).toHaveLength(1);
+    });
+
+    it('should update value when `value` is undefined', () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <Checkbox.Group
+          defaultValue={['A']}
+          value={undefined}
+          options={['A', 'B']}
+          onChange={onChange}
+        />,
+      );
+      const checkboxes = container.querySelectorAll('input');
+
+      expect(checkboxes[0]).toBeChecked();
+      fireEvent.click(checkboxes[1]);
+      expect(checkboxes[0]).toBeChecked();
+      expect(checkboxes[1]).toBeChecked();
+      expect(onChange).toHaveBeenCalledWith(['A', 'B']);
+    });
+  });
+
   // https://github.com/ant-design/ant-design/issues/12642
   it('should trigger onChange in sub Checkbox', () => {
     const onChange = jest.fn();

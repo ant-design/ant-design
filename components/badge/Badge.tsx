@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
 import CSSMotion from '@rc-component/motion';
+import { isNonNullable, isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable, isNumber, isPlainObject, isReactRenderable, isString } from '../_util/is';
+import { isNumber, isPlainObject, isString } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';

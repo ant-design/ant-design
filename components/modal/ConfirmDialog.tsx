@@ -3,12 +3,12 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
-import { omit } from '@rc-component/util';
+import { isReactRenderable, omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import fallbackProp from '../_util/fallbackProp';
 import { CONTAINER_MAX_OFFSET, normalizeMaskConfig } from '../_util/hooks';
-import { isFunction, isPlainObject, isReactRenderable } from '../_util/is';
+import { isFunction, isPlainObject } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
