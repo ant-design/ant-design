@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,365081,t=>{"use strict";var e=t.i(391398),n=t.i(952169);t.s(["default",0,()=>(0,e.jsx)(n.f,{defaultActiveKey:"1",centered:!0,items:Array.from({length:3}).map((t,e)=>{let n=String(e+1);return{label:`Tab ${n}`,key:n,children:`Content of Tab Pane ${n}`}})})])}]);

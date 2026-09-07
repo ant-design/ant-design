@@ -1,0 +1,4 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,636768,e=>{"use strict";var t=e.i(391398),o=e.i(185830),r=e.i(504909),i=e.i(183056);let l=(0,e.i(827830).createStaticStyles)(({css:e})=>({root:e`
+    border-radius: 8px;
+    width: 300px;
+  `})),s=[{value:"GuangZhou",label:"GuangZhou"},{value:"ShenZhen",label:"ShenZhen"}],a={prefix:{color:"#1890ff"},suffix:{color:"#1890ff"}},u=({props:e})=>"filled"===e.variant?{prefix:{color:"#722ed1"},suffix:{color:"#722ed1"},popup:{root:{border:"1px solid #722ed1"}}}:{};e.s(["default",0,()=>{let e={options:s,classNames:l,prefix:(0,t.jsx)(o.f,{})};return(0,t.jsxs)(r.f,{vertical:!0,gap:"medium",children:[(0,t.jsx)(i.f,{...e,styles:a,placeholder:"Object"}),(0,t.jsx)(i.f,{...e,styles:u,placeholder:"Function",variant:"filled"})]})}])},183056,e=>{"use strict";var t=e.i(184229);e.s(["f",()=>t.f])},185830,e=>{"use strict";var t=e.i(525244);e.s(["f",()=>t.f])}]);

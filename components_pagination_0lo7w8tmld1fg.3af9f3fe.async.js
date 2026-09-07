@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,167917,t=>{"use strict";var u=t.i(391398),o=t.i(845386);t.s(["default",0,()=>(0,u.jsx)(o.f,{defaultCurrent:3,total:500,showQuickJumper:!0})])},845386,t=>{"use strict";var u=t.i(975367);t.s(["f",()=>u.f])}]);

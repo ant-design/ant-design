@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,574701,o=>{"use strict";o.s(["demoIndexMap",0,{}])}]);

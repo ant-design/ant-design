@@ -1,0 +1,5 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,941257,o=>{"use strict";var r=o.i(391398),t=o.i(504909),s=o.i(469323);let e=(0,o.i(827830).createStaticStyles)(({css:o})=>({root:o`
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+  `})),d={root:{border:"2px solid #1890ff",borderRadius:8,padding:16,backgroundColor:"rgb(24, 144, 255, 0.1)"}},a=o=>{if("canvas"===o.props.type)return{root:{border:"2px solid #ff4d4f",borderRadius:8,padding:16,backgroundColor:"rgba(255, 77, 79, 0.1)"}}};o.s(["default",0,()=>{let o={value:"https://ant.design/",size:160,classNames:e};return(0,r.jsxs)(t.f,{gap:"medium",children:[(0,r.jsx)(s.f,{...o,styles:d}),(0,r.jsx)(s.f,{...o,type:"canvas",icon:"https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",styles:a})]})}])},469323,o=>{"use strict";var r=o.i(208490);o.s(["f",()=>r.f])}]);
