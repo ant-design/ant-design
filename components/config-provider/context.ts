@@ -440,7 +440,7 @@ export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | '
 export type DatePickerConfig = ComponentStyleConfig &
   Pick<
     DatePickerProps,
-    'variant' | 'classNames' | 'styles' | 'suffixIcon' | 'allowClear' | 'clearIcon'
+    'variant' | 'classNames' | 'styles' | 'suffix' | 'suffixIcon' | 'allowClear' | 'clearIcon'
   >;
 
 export type RangePickerConfig = ComponentStyleConfig &
@@ -449,7 +449,7 @@ export type RangePickerConfig = ComponentStyleConfig &
 export type TimePickerConfig = ComponentStyleConfig &
   Pick<
     TimePickerProps,
-    'variant' | 'classNames' | 'styles' | 'suffixIcon' | 'allowClear' | 'clearIcon'
+    'variant' | 'classNames' | 'styles' | 'suffix' | 'suffixIcon' | 'allowClear' | 'clearIcon'
   >;
 
 export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
