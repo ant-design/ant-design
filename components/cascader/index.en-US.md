@@ -64,8 +64,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | tagRender | Custom render function for tags in `multiple` mode | (label: string, onClose: function, value: string) => ReactNode | - |  | × |
 | ~~popupClassName~~ | The additional className of popup overlay, use `classNames.popup.root` instead | string | - | 4.23.0 | × |
 | ~~dropdownClassName~~ | The additional className of popup overlay, please use `classNames.popup.root` instead | string | - | - | × |
-| ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (menus: ReactNode) => ReactNode | - | 4.4.0 | × |
-| popupRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - |  | × |
+| ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (menus: ReactElement) => ReactNode | - | 4.4.0 | × |
+| popupRender | Customize dropdown content | (menus: ReactElement) => ReactNode | - |  | × |
 | ~~dropdownStyle~~ | The style of dropdown menu, use `styles.popup.root` instead | CSSProperties | - |  | × |
 | expandIcon | Customize the current item expand icon | ReactNode | - | 4.4.0 | 6.3.0 |
 | expandTrigger | expand current item when click or hover, one of `click` `hover` | string | `click` |  | × |

@@ -3870,13 +3870,11 @@ exports[`renders components/steps/demo/progress.tsx correctly 1`] = `
           aria-valuenow="60"
           class="ant-steps-item-progress-icon-svg"
           height="100%"
+          role="progressbar"
           viewBox="0 0 100 100"
           width="100%"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <title>
-            Progress
-          </title>
           <circle
             class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
           />
@@ -4093,13 +4091,11 @@ Array [
             aria-valuenow="0"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -4251,13 +4247,11 @@ Array [
             aria-valuenow="0"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -4409,13 +4403,11 @@ Array [
             aria-valuenow="0"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -4567,13 +4559,11 @@ Array [
             aria-valuenow="0"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -6505,13 +6495,11 @@ Array [
             aria-valuenow="60"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -6658,13 +6646,11 @@ Array [
             aria-valuenow="80"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -7274,13 +7260,11 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
             aria-valuenow="60"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -7435,13 +7419,11 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
               aria-valuenow="60"
               class="ant-steps-item-progress-icon-svg"
               height="100%"
+              role="progressbar"
               viewBox="0 0 100 100"
               width="100%"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>
-                Progress
-              </title>
               <circle
                 class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
               />
@@ -7593,13 +7575,11 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
               aria-valuenow="60"
               class="ant-steps-item-progress-icon-svg"
               height="100%"
+              role="progressbar"
               viewBox="0 0 100 100"
               width="100%"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>
-                Progress
-              </title>
               <circle
                 class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
               />
