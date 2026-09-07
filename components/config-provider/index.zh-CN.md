@@ -150,6 +150,7 @@ const {
 - `textArea`：[Input.TextArea](/components/input-cn#inputtextarea)（自 5.15.0 起支持）
 - `layout`：[Layout](/components/layout-cn#api)（自 5.7.0 起支持）
 - `list`：[List](/components/list-cn#api)（自 5.7.0 起支持）
+- `listy`：[Listy](/components/listy-cn#api)（自 6.6.0 起支持）
 - `masonry`：[Masonry](/components/masonry-cn#api)（自 6.0.0 起支持）
 - `menu`：[Menu](/components/menu-cn#api)（自 5.15.0 起支持）
 - `mentions`：[Mentions](/components/mentions-cn#api)（自 5.13.0 起支持）

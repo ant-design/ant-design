@@ -118,7 +118,9 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     }
 
     const nextVisible = !visible;
-    setVisible(nextVisible);
+    if (!visibilityControlled) {
+      setVisible(nextVisible);
+    }
 
     if (isPlainObject(visibilityToggle)) {
       visibilityToggle.onVisibleChange?.(nextVisible);
