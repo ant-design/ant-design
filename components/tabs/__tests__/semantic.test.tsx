@@ -19,6 +19,7 @@ describe('Tabs.Semantic', () => {
       header: 'test-header',
       body: 'test-body',
       content: 'test-content',
+      popup: { root: 'test-popup' },
     };
     const customStyles = {
       root: { color: 'rgb(255, 0, 0)' },
@@ -28,11 +29,15 @@ describe('Tabs.Semantic', () => {
       header: { color: 'rgb(0, 255, 0)' },
       body: { color: 'rgb(0, 128, 128)' },
       content: { color: 'rgb(128, 0, 128)' },
+      popup: { root: { color: 'rgb(0, 255, 255)' } },
     };
     const { container } = render(
       <Tabs
         defaultActiveKey="1"
         type="editable-card"
+        // `more.visible` is spread over rc-tabs' own `visible`, so the popup mounts
+        // without having to fake element sizes to force tab overflow.
+        more={{ visible: true }}
         styles={customStyles}
         classNames={customClassnames}
         items={Array.from({ length: 30 }, (_, i) => {
@@ -53,6 +58,7 @@ describe('Tabs.Semantic', () => {
     const header = container.querySelector('.ant-tabs-nav');
     const body = container.querySelector('.ant-tabs-body');
     const content = container.querySelector('.ant-tabs-content');
+    const popup = document.body.querySelector('.ant-tabs-dropdown');
     expect(root).toHaveClass(customClassnames.root);
     expect(item).toHaveClass(customClassnames.item);
     expect(remove).toHaveClass(customClassnames.remove);
@@ -60,6 +66,7 @@ describe('Tabs.Semantic', () => {
     expect(header).toHaveClass(customClassnames.header);
     expect(body).toHaveClass(customClassnames.body);
     expect(content).toHaveClass(customClassnames.content);
+    expect(popup).toHaveClass(customClassnames.popup.root);
     expect(root).toHaveStyle({ color: customStyles.root.color });
     expect(item).toHaveStyle({ color: customStyles.item.color });
     expect(remove).toHaveStyle({ color: customStyles.remove.color });
@@ -67,6 +74,7 @@ describe('Tabs.Semantic', () => {
     expect(header).toHaveStyle({ color: customStyles.header.color });
     expect(body).toHaveStyle({ color: customStyles.body.color });
     expect(content).toHaveStyle({ color: customStyles.content.color });
+    expect(popup).toHaveStyle({ color: customStyles.popup.root.color });
   });
 
   it('support function classNames and styles', () => {
@@ -101,26 +109,6 @@ describe('Tabs.Semantic', () => {
     const root = container.querySelector('.ant-tabs');
     expect(root).toHaveClass('custom-card-root');
     expect(root).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
-  });
-  it('support popup classNames and styles', () => {
-    // `more.visible` is spread over rc-tabs' own `visible`, so the popup mounts
-    // without having to fake element sizes to force tab overflow.
-    render(
-      <Tabs
-        defaultActiveKey="0"
-        more={{ visible: true }}
-        classNames={{ popup: { root: 'test-popup' } }}
-        styles={{ popup: { root: { color: 'rgb(255, 0, 0)' } } }}
-        items={[
-          { key: '0', label: 'Tab-0', children: 'Content of tab 0' },
-          { key: '1', label: 'Tab-1', children: 'Content of tab 1' },
-        ]}
-      />,
-    );
-
-    const popup = document.body.querySelector('.ant-tabs-dropdown');
-    expect(popup).toHaveClass('test-popup');
-    expect(popup).toHaveStyle({ color: 'rgb(255, 0, 0)' });
   });
 
   it('should follow root style priority', () => {
