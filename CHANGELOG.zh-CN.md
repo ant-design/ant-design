@@ -19,7 +19,6 @@ tag: vVERSION
 
 `2026-09-07`
 
-- 🆕 新增 Icon 品牌图标 `MetaFilled` 和 `NetflixFilled`。[#59178](https://github.com/ant-design/ant-design/pull/59178) [ant-design-icons#755](https://github.com/ant-design/ant-design-icons/pull/755) [@github-actions](https://github.com/apps/github-actions) [@mohamedkhaled4053](https://github.com/mohamedkhaled4053)
 - 🐞 修复 DatePicker 和 TimePicker 的 `prefix`、`suffixIcon`、`allowClear.clearIcon` 或 `renderExtraFooter` 返回值为 `0` 时渲染异常的问题。[#59212](https://github.com/ant-design/ant-design/pull/59212) [react-component/picker#1009](https://github.com/react-component/picker/pull/1009) [@github-actions](https://github.com/apps/github-actions) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 修复 Modal 和 Drawer 复用 `mask` 配置对象时点击遮罩关闭行为异常的问题。[#59233](https://github.com/ant-design/ant-design/pull/59233) [@giaBaoJS](https://github.com/giaBaoJS)
 - 🤖 修正 Select、AutoComplete、Cascader 和 TreeSelect 的 `popupRender` 类型，支持接收 `ReactElement` 并返回 `ReactNode`。[#59207](https://github.com/ant-design/ant-design/pull/59207) [@QDyanbing](https://github.com/QDyanbing)
@@ -29,6 +28,7 @@ tag: vVERSION
   - 🌐 补充 DatePicker 在 32 个语言包中缺失的年、季度、月、周及对应范围选择占位文案。[#59219](https://github.com/ant-design/ant-design/pull/59219) [@stop1love1](https://github.com/stop1love1)
   - 🌐 修正 DatePicker 确认按钮和 ColorPicker 渐变色的繁体中文（台湾）文案。[#59129](https://github.com/ant-design/ant-design/pull/59129) [@nrps9909](https://github.com/nrps9909)
 - Icon
+  - 🆕 新增 Icon 品牌图标 `MetaFilled` 和 `NetflixFilled`。[#59178](https://github.com/ant-design/ant-design/pull/59178) [ant-design-icons#755](https://github.com/ant-design/ant-design-icons/pull/755) [@github-actions](https://github.com/apps/github-actions) [@mohamedkhaled4053](https://github.com/mohamedkhaled4053)
   - 🐞 修复 Icon 的 `XFilled` 图标显示为实心方块的问题。[#59178](https://github.com/ant-design/ant-design/pull/59178) [ant-design-icons#758](https://github.com/ant-design/ant-design-icons/pull/758) [@github-actions](https://github.com/apps/github-actions) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 修复 Icon 在 Bun 打包后无法显示的问题。[#59178](https://github.com/ant-design/ant-design/pull/59178) [ant-design-icons#768](https://github.com/ant-design/ant-design-icons/pull/768) [@github-actions](https://github.com/apps/github-actions) [@zombieJ](https://github.com/zombieJ)
   - 🐞 修复 Icon 遇到无效图标定义时导致页面崩溃的问题。[#59178](https://github.com/ant-design/ant-design/pull/59178) [ant-design-icons#762](https://github.com/ant-design/ant-design-icons/pull/762) [@github-actions](https://github.com/apps/github-actions) [@nrps9909](https://github.com/nrps9909)

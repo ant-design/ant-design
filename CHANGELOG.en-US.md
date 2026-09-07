@@ -19,7 +19,6 @@ tag: vVERSION
 
 `2026-09-07`
 
-- 🆕 Add `MetaFilled` and `NetflixFilled` brand icons to Icon. [#59178](https://github.com/ant-design/ant-design/pull/59178) [ant-design-icons#755](https://github.com/ant-design/ant-design-icons/pull/755) [@github-actions](https://github.com/apps/github-actions) [@mohamedkhaled4053](https://github.com/mohamedkhaled4053)
 - 🐞 Fix DatePicker and TimePicker rendering issues when `prefix`, `suffixIcon`, `allowClear.clearIcon`, or the value returned by `renderExtraFooter` is `0`. [#59212](https://github.com/ant-design/ant-design/pull/59212) [react-component/picker#1009](https://github.com/react-component/picker/pull/1009) [@github-actions](https://github.com/apps/github-actions) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 Fix Modal and Drawer mask click closing behavior when reusing a `mask` configuration object. [#59233](https://github.com/ant-design/ant-design/pull/59233) [@giaBaoJS](https://github.com/giaBaoJS)
 - 🤖 Fix Select, AutoComplete, Cascader, and TreeSelect `popupRender` types to accept `ReactElement` and return `ReactNode`. [#59207](https://github.com/ant-design/ant-design/pull/59207) [@QDyanbing](https://github.com/QDyanbing)
@@ -29,6 +28,7 @@ tag: vVERSION
   - 🌐 Add missing DatePicker year, quarter, month, week, and range placeholders in 32 locales. [#59219](https://github.com/ant-design/ant-design/pull/59219) [@stop1love1](https://github.com/stop1love1)
   - 🌐 Correct Traditional Chinese (Taiwan) text for the DatePicker confirmation button and ColorPicker gradient color. [#59129](https://github.com/ant-design/ant-design/pull/59129) [@nrps9909](https://github.com/nrps9909)
 - Icon
+  - 🆕 Add `MetaFilled` and `NetflixFilled` brand icons to Icon. [#59178](https://github.com/ant-design/ant-design/pull/59178) [ant-design-icons#755](https://github.com/ant-design/ant-design-icons/pull/755) [@github-actions](https://github.com/apps/github-actions) [@mohamedkhaled4053](https://github.com/mohamedkhaled4053)
   - 🐞 Fix Icon `XFilled` rendering as a solid square. [#59178](https://github.com/ant-design/ant-design/pull/59178) [ant-design-icons#758](https://github.com/ant-design/ant-design-icons/pull/758) [@github-actions](https://github.com/apps/github-actions) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 Fix Icon failing to render when bundled with Bun. [#59178](https://github.com/ant-design/ant-design/pull/59178) [ant-design-icons#768](https://github.com/ant-design/ant-design-icons/pull/768) [@github-actions](https://github.com/apps/github-actions) [@zombieJ](https://github.com/zombieJ)
   - 🐞 Fix Icon crashing the page when an icon definition is invalid. [#59178](https://github.com/ant-design/ant-design/pull/59178) [ant-design-icons#762](https://github.com/ant-design/ant-design-icons/pull/762) [@github-actions](https://github.com/apps/github-actions) [@nrps9909](https://github.com/nrps9909)
