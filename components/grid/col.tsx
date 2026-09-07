@@ -144,7 +144,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     mergedStyle.paddingInline = horizontalGutter;
   }
 
-  if (flex || flex === 0) {
+  if (!grid && (flex || flex === 0)) {
     mergedStyle.flex = parseFlex(flex);
 
     // Hack for Firefox to avoid size issue

@@ -375,4 +375,19 @@ describe('Grid Col', () => {
       display: 'none',
     });
   });
+
+  // flex/wrap should not leak into grid mode inline styles (see RFC Grid 模式下不生效的 Props)
+  it('should not apply flex or minWidth in grid mode even if flex is provided', () => {
+    const { container } = render(
+      <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)' }} wrap={false}>
+        <Col flex={2} span={4}>
+          test
+        </Col>
+      </Row>,
+    );
+    const col = container.querySelector('.ant-col-grid');
+    // grid 模式下 flex 不泄漏进行内样式,见 RFC「Grid 模式下不生效的 Props」
+    expect(col).not.toHaveStyle({ flex: '2 2 auto' });
+    expect(col).not.toHaveStyle({ minWidth: 0 });
+  });
 });
