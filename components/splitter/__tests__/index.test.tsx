@@ -375,6 +375,24 @@ describe('Splitter', () => {
       expect(onResizeEnd).toHaveBeenCalledWith([10, 90]);
     });
 
+    it('should respect min when container shrinks after drag', async () => {
+      containerSize = 1000;
+
+      const { container } = render(<SplitterDemo items={[{ min: 200 }, {}]} />);
+
+      await resizeSplitter();
+
+      mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, -300);
+
+      containerSize = 600;
+      await resizeSplitter();
+
+      const panels = container.querySelectorAll<HTMLElement>('.ant-splitter-panel');
+
+      expect(Number.parseFloat(panels[0].style.flexBasis)).toBeCloseTo(200);
+      expect(Number.parseFloat(panels[1].style.flexBasis)).toBeCloseTo(400);
+    });
+
     it('with max', async () => {
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
