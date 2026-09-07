@@ -6,26 +6,34 @@ order: 0
 title: 快速上手
 ---
 
-Ant Design React 致力于提供给程序员**愉悦**的开发体验。
+Ant Design React 致力于提供给程序员**愉悦**的开发体验。在开始之前，推荐先学习 [React](https://zh-hans.react.dev/)，并正确安装和配置了 [Node.js](https://nodejs.org/zh-cn/) v16 或以上。
 
-> 在开始之前，推荐先学习 [React](https://react.dev)，并正确安装和配置了 [Node.js](https://nodejs.org/) v16 或以上。官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 React 全家桶的正确开发方式。如果你刚开始学习前端或者 React，将 UI 框架作为你的第一步可能不是最好的主意。
+官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 React 全家桶的正确开发方式。如果你刚开始学习前端或者 React，将 UI 框架作为你的第一步可能不是最好的主意。
+
+最后，如果你使用本地开发环境，请参考 [脚手架指南](/docs/react/use-with-vite-cn) 创建新项目。
 
 ---
 
-## 第一个例子
+## 第一个例子 {#first-example}
 
 这是一个最简单的 Ant Design 组件的在线 CodeSandbox 演示。
 
 <!-- prettier-ignore -->
 <code src="./_demo/first-example.tsx">第一个例子</code>
 
-### 1. 创建一个 CodeSandbox
+按照以下步骤亲自体验 Ant Design：
+
+### 1. 创建一个 CodeSandbox {#create-codesandbox}
 
 访问 https://u.ant.design/reproduce 创建一个 CodeSandbox 的在线示例，别忘了保存以创建一个新的实例。
 
-### 2. 使用组件
+### 2. 使用组件 {#use-antd-component}
 
-直接用下面的代码替换 `index.js` 的内容，用 React 的方式直接使用 antd 组件。
+如果你在本地 React 项目中开发，请先安装 `antd`。上面创建的 CodeSandbox 已经包含该依赖。
+
+<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save' bun='$ bun add antd'></InstallDependencies>
+
+直接用下面的代码替换应用入口文件（例如 `src/main.jsx`）的内容，用 React 的方式直接使用 antd 组件。
 
 ```jsx
 import React, { useState } from 'react';
@@ -56,8 +64,8 @@ const App = () => {
         <div style={{ marginTop: 16 }}>
           当前日期：{date ? date.format('YYYY年MM月DD日') : '未选择'}
         </div>
+        {contextHolder}
       </div>
-      {contextHolder}
     </ConfigProvider>
   );
 };
@@ -65,23 +73,23 @@ const App = () => {
 createRoot(document.getElementById('root')).render(<App />);
 ```
 
-### 3. 探索更多组件用法
+### 3. 探索更多组件用法 {#explore-components}
 
-你可以在组件页面的左侧菜单查看组件列表，比如 [Alert](/components/alert-cn) 组件，组件文档中提供了各类演示，最下方有组件 API 文档可以查阅。在代码演示部分找到第一个例子，点击右下角的图标展开代码。
+你可以在组件页面的左侧菜单查看组件列表，比如 [Alert](/components/alert-cn) 组件，组件文档中提供了各类演示，最下方有组件 API 文档可以查阅。
 
-然后依照演示代码的写法，在之前的 CodeSandbox 里修改 `index.js`，首先在 `import` 内引入 Alert 组件：
+在代码演示部分找到第一个例子，点击“显示代码”图标查看源码。然后依照演示代码的写法，在之前的 CodeSandbox 中引入 `Alert` 组件：
 
 ```diff
 - import { ConfigProvider, DatePicker, message } from 'antd';
 + import { ConfigProvider, DatePicker, message, Alert } from 'antd';
 ```
 
-然后在 `render` 内添加相应的 jsx 代码：
+然后在 `App` 组件内添加相应的 JSX 代码：
 
 ```diff
-  <DatePicker onChange={value => this.handleChange(value)} />
+  <DatePicker onChange={handleChange} />
   <div style={{ marginTop: 16 }}>
--   当前日期：{date ? date.format('YYYY-MM-DD') : '未选择'}
+-   当前日期：{date ? date.format('YYYY年MM月DD日') : '未选择'}
 +   <Alert title="当前日期" description={date ? date.format('YYYY年MM月DD日') : '未选择'} />
   </div>
 ```
@@ -92,7 +100,7 @@ createRoot(document.getElementById('root')).render(<App />);
 
 好的，现在你已经会使用基本的 antd 组件了，你可以在这个例子中继续探索其他组件的用法。如果你遇到组件的 bug，也推荐建一个可重现的 CodeSandbox 来报告 bug。
 
-### 4. 下一步
+### 4. 下一步 {#next-steps}
 
 在实际项目开发中，你会遇到构建、调试、代理、打包部署等一系列工程化的需求。你可以阅读后面的文档或者使用以下脚手架和范例：
 
@@ -100,12 +108,12 @@ createRoot(document.getElementById('root')).render(<App />);
 - [create-next-app](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-inline-style)
 - 更多脚手架可以查看 [脚手架市场](https://scaffold.ant.design/)
 
-## 按需加载
+## 按需加载 {#import-on-demand}
 
 `antd` 默认支持基于 ES modules 的 tree shaking，直接引入 `import { Button } from 'antd';` 就会有按需加载的效果。
 
-## 自行构建
+## 自行构建 {#customize-workflow}
 
-如果想自己维护工作流，我们推荐使用 [webpack](https://webpack.js.org) 或者 [vite](https://cn.vitejs.dev/) 进行构建和调试，可以使用 React 生态圈中的 [各种脚手架](https://github.com/enaqx/awesome-react#react-tools) 进行开发。
+如果想自己维护工作流，我们推荐使用 [webpack](https://webpack.docschina.org/) 或者 [Vite](https://cn.vitejs.dev/) 进行构建和调试，可以使用 React 生态圈中的 [各种脚手架](https://github.com/enaqx/awesome-react#react-tools) 进行开发。
 
 目前社区也有很多基于 antd 定制的 [React 脚手架](https://scaffold.ant.design/)，欢迎进行试用和贡献。

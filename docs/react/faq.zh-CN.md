@@ -139,7 +139,7 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 你应该自行部署 iconfont 文件到你的网络上，参考这个[例子](https://github.com/ant-design/antd-init/tree/7c1a33cadb98f2fd8688fe527dd7f98215b9bced/examples/local-iconfont)。 [#1070](https://github.com/ant-design/ant-design/issues/1070)
 
-在 `3.9.x` 版本后，[我们会使用 svg 图标](/components/icon-cn#svg-icons)，你就不用担心本地部署 iconfont 的问题了！
+在 `3.9.x` 版本后，[我们会使用 svg 图标](/components/icon-cn#about-svg-icons)，你就不用担心本地部署 iconfont 的问题了！
 
 ## 如何拓展 antd 的组件？
 
@@ -192,7 +192,7 @@ npm ls dayjs
 
 ## 开启了 Content Security Policy (CSP) 如何处理动态样式？
 
-你可以通过 [ConfigProvider](/components/config-provider-cn#content-security-policy) 来配置 `nonce` 属性。
+你可以通过 [ConfigProvider](/components/config-provider-cn#csp) 来配置 `nonce` 属性。
 
 ## 当我指定了 DatePicker/RangePicker 的 `mode` 属性后，点击后无法选择年份/月份？
 
@@ -213,9 +213,9 @@ npm ls dayjs
 
 message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲染方式，是单独渲染在 `ReactDOM.render` 生成的 DOM 树节点上，无法共享 ConfigProvider 提供的 context 信息。你有两种解决方式：
 
-1. 使用官方提供的 [message.useMessage](/components/message-cn/#message-demo-hooks)、[notification.useNotification](/components/notification-cn#%E4%B8%BA%E4%BB%80%E4%B9%88-notification-%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux-%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-%E7%9A%84-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 和 [Modal.useModal](/components/modal-cn/#%E4%B8%BA%E4%BB%80%E4%B9%88-Modal-%E6%96%B9%E6%B3%95%E4%B8%8D%E8%83%BD%E8%8E%B7%E5%8F%96-context%E3%80%81redux%E3%80%81%E7%9A%84%E5%86%85%E5%AE%B9%E5%92%8C-ConfigProvider-locale/prefixCls-%E9%85%8D%E7%BD%AE%EF%BC%9F) 来调用这些方法。
+1. 使用官方提供的 [message.useMessage](/components/message-cn/#message-demo-hooks)、[notification.useNotification](/components/notification-cn#faq-context-redux) 和 [Modal.useModal](/components/modal-cn#faq-context-redux) 来调用这些方法。
 
-2. 使用 [App.useApp](/components/app-cn#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95) 直接调用 message、notification、modal 实例方法。
+2. 使用 [App.useApp](/components/app-cn#basic-usage) 直接调用 message、notification、modal 实例方法。
 
 ## 为什么我不应该通过 ref 访问组件内部的 props 和 state？
 
