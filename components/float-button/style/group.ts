@@ -15,22 +15,6 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
   const [varName, varRef] = genCssVar(antCls, 'float-btn');
 
   const menuBridgeOffset = unit(token.calc(padding).mul(-1).equal());
-  const menuBridgeStyle: CSSObject = {
-    content: '""',
-    position: 'absolute',
-  };
-  const verticalMenuBridgeStyle: CSSObject = {
-    ...menuBridgeStyle,
-    insetInlineStart: 0,
-    width: '100%',
-    height: unit(padding),
-  };
-  const horizontalMenuBridgeStyle: CSSObject = {
-    ...menuBridgeStyle,
-    insetBlockStart: 0,
-    width: unit(padding),
-    height: '100%',
-  };
 
   return {
     [groupCls]: [
@@ -87,6 +71,12 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
         // =========================== Menu ===========================
         [`&-menu-mode ${listCls}`]: {
           position: 'absolute',
+
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            inset: 0,
+          },
         },
 
         // ========================== Motion ==========================
@@ -121,7 +111,7 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
             bottom: varRef('list-trigger-offset'),
 
             '&::after': {
-              ...verticalMenuBridgeStyle,
+              top: '100%',
               bottom: menuBridgeOffset,
             },
           },
@@ -133,8 +123,8 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
             top: varRef('list-trigger-offset'),
 
             '&::after': {
-              ...verticalMenuBridgeStyle,
               top: menuBridgeOffset,
+              bottom: '100%',
             },
           },
         },
@@ -145,7 +135,7 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
             right: varRef('list-trigger-offset'),
 
             '&::after': {
-              ...horizontalMenuBridgeStyle,
+              left: '100%',
               right: menuBridgeOffset,
             },
           },
@@ -157,8 +147,8 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
             left: varRef('list-trigger-offset'),
 
             '&::after': {
-              ...horizontalMenuBridgeStyle,
               left: menuBridgeOffset,
+              right: '100%',
             },
           },
         },
