@@ -93,6 +93,10 @@ const localeValues: Locale = {
     expand: 'Zväčšiť',
     collapse: 'kolaps',
   },
+  Carousel: {
+    prevSlide: 'Predchádzajúca snímka',
+    nextSlide: 'Ďalšia snímka',
+  },
   Form: {
     optional: '(nepovinné)',
     defaultValidateMessages: {

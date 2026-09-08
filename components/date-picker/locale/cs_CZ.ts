@@ -7,7 +7,15 @@ import type { PickerLocale } from '../generatePicker';
 const locale: PickerLocale = {
   lang: {
     placeholder: 'Vybrat datum',
+    yearPlaceholder: 'Vybrat rok',
+    quarterPlaceholder: 'Vybrat čtvrtletí',
+    monthPlaceholder: 'Vybrat měsíc',
+    weekPlaceholder: 'Vybrat týden',
     rangePlaceholder: ['Od', 'Do'],
+    rangeYearPlaceholder: ['Počáteční rok', 'Koncový rok'],
+    rangeQuarterPlaceholder: ['Počáteční čtvrtletí', 'Koncové čtvrtletí'],
+    rangeMonthPlaceholder: ['Počáteční měsíc', 'Koncový měsíc'],
+    rangeWeekPlaceholder: ['Počáteční týden', 'Koncový týden'],
     ...CalendarLocale,
   },
   timePickerLocale: {
