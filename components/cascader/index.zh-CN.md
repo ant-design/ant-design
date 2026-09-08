@@ -94,7 +94,7 @@ demo:
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  | × |
 | onClear | 清除内容时回调 | () => void | - | - | × |
 | ~~onDropdownVisibleChange~~ | 显示/隐藏浮层的回调，请使用 `onOpenChange` 替换 | (value) => void | - | 4.17.0 | × |
-| onOpenChange | 显示/隐藏浮层的回调 | (value) => void | - |  | × |
+| onOpenChange | 显示/隐藏浮层的回调 | (open: boolean) => void | - |  | × |
 | ~~onPopupVisibleChange~~ | 显示或隐藏浮层的回调，请使用 `onOpenChange` 替代 | (value) => void | - | - | × |
 | multiple | 支持多选节点 | boolean | - | 4.17.0 | × |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  | 6.4.0 |
