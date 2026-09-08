@@ -2,7 +2,7 @@ import { unit } from '@ant-design/cssinjs';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 
 import type { MenuToken } from '.';
-import { genFocusOutline } from '../../style';
+import { genFocusOutline, genScrollFadeStyle } from '../../style';
 
 const accessibilityFocus = (token: MenuToken) => genFocusOutline(token);
 
@@ -175,6 +175,13 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       [`&${componentCls}-submenu-popup > ${componentCls}`]: {
         backgroundColor: popupBg,
       },
+
+      // Root vertical menus and popup submenu lists have different DOM shapes,
+      // but share the same fade implementation and themed popup background.
+      [`
+        &${componentCls}-scroll-fade${componentCls}-vertical,
+        &${componentCls}-submenu-popup${componentCls}-scroll-fade ${componentCls}-vertical${componentCls}-sub:not([class*='-active'])
+      `]: genScrollFadeStyle(token, { backgroundColor: popupBg }),
       // ===== 设置浮层的颜色 end =======
 
       // ====================== Horizontal ======================

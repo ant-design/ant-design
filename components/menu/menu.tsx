@@ -111,6 +111,8 @@ export interface MenuProps
   theme?: MenuTheme;
   inlineIndent?: number;
   tooltip?: false | TooltipProps;
+  /** Whether to show scroll fade hints for scrollable menus */
+  scrollFade?: boolean;
 
   // >>>>> Private
   /**
@@ -151,6 +153,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     overflowedIndicatorPopupClassName,
     classNames,
     styles,
+    scrollFade,
     ...restProps
   } = props;
 
@@ -164,7 +167,10 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    scrollFade: contextScrollFade,
   } = useComponentConfig('menu');
+
+  const mergedScrollFade = scrollFade ?? contextScrollFade ?? false;
 
   const rootPrefixCls = getPrefixCls();
 
@@ -331,6 +337,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
             cssVarCls,
             rootCls,
             mergedClassNames.root,
+            { [`${prefixCls}-scroll-fade`]: mergedScrollFade },
           )}
           _internalComponents={MENU_COMPONENTS}
         />

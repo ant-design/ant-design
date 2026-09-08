@@ -1,6 +1,7 @@
 import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import userEvent from '@testing-library/user-event';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 import type { SelectProps } from '..';
 import Select from '..';
@@ -92,6 +93,190 @@ describe('Select', () => {
     toggleOpen(container);
     expect(container.querySelectorAll('.ant-select-dropdown').length).toBe(1);
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
+  });
+
+  it('should disable scroll fade by default', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls="bamboo">
+        <Select open options={[{ label: '1', value: '1' }]} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.bamboo-select-dropdown')).not.toHaveClass(
+      'bamboo-select-dropdown-scroll-fade',
+    );
+  });
+
+  it('should support scroll fade from props and ConfigProvider', () => {
+    const { container, rerender } = render(
+      <Select scrollFade open options={[{ label: '1', value: '1' }]} />,
+    );
+
+    expect(container.querySelector('.ant-select-dropdown')).toHaveClass(
+      'ant-select-dropdown-scroll-fade',
+    );
+
+    rerender(
+      <ConfigProvider select={{ scrollFade: true }}>
+        <Select open options={[{ label: '1', value: '1' }]} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-select-dropdown')).toHaveClass(
+      'ant-select-dropdown-scroll-fade',
+    );
+
+    rerender(
+      <ConfigProvider select={{ scrollFade: true }}>
+        <Select scrollFade={false} open options={[{ label: '1', value: '1' }]} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-select-dropdown')).not.toHaveClass(
+      'ant-select-dropdown-scroll-fade',
+    );
+  });
+
+  it('should render background-colored fade overlays on the prefixed list frame', () => {
+    const cache = createCache();
+
+    const { container } = render(
+      <StyleProvider cache={cache}>
+        <ConfigProvider prefixCls="bamboo">
+          <Select scrollFade open options={[{ label: '1', value: '1' }]} />
+        </ConfigProvider>
+      </StyleProvider>,
+    );
+
+    expect(container.querySelector('.bamboo-select-dropdown-scroll-fade')).toBeTruthy();
+    const cssText = extractStyle(cache, { plain: true });
+    expect(cssText).toContain('.bamboo-select-dropdown-scroll-fade .bamboo-select-dropdown-list{');
+    expect(cssText).toContain('--bamboo-select-scroll-fade-top-height:0px;');
+    expect(cssText).toContain('--bamboo-select-scroll-fade-bottom-height:0px;');
+    expect(cssText).toContain('inset-inline-end:10px;');
+    expect(cssText).toContain('pointer-events:none;z-index:1;transition:height 75ms linear;');
+    expect(cssText).toContain('transition:height 75ms linear;');
+    expect(cssText).toContain('height:var(--bamboo-select-scroll-fade-top-height);');
+    expect(cssText).toContain('height:var(--bamboo-select-scroll-fade-bottom-height);');
+    expect(cssText).toMatch(
+      /linear-gradient\(to bottom in oklab,\s*var\(--bamboo-color-bg-elevated\),\s*transparent\)/,
+    );
+    expect(cssText).toMatch(
+      /linear-gradient\(to bottom in oklab,\s*transparent,\s*var\(--bamboo-color-bg-elevated\)\)/,
+    );
+    expect(cssText).not.toContain('background-attachment:local,local,scroll,scroll;');
+  });
+
+  it('should update fade overlay heights from the list holder scroll boundaries', () => {
+    const options = Array.from({ length: 30 }, (_, index) => ({
+      label: `Option ${index + 1}`,
+      value: index + 1,
+    }));
+
+    const { container } = render(<Select scrollFade open options={options} />);
+    const frame = container.querySelector<HTMLElement>('.ant-select-dropdown-list')!;
+    const holder = container.querySelector<HTMLElement>('.ant-select-dropdown-list-holder')!;
+
+    Object.defineProperties(holder, {
+      clientHeight: { configurable: true, value: 256 },
+      scrollHeight: { configurable: true, value: 1024 },
+    });
+
+    fireEvent.scroll(holder);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(frame.style.getPropertyValue('--ant-select-scroll-fade-top-height')).toBe('0px');
+    expect(frame.style.getPropertyValue('--ant-select-scroll-fade-bottom-height')).toBe('76px');
+
+    holder.scrollTop = 38;
+    fireEvent.scroll(holder);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(frame.style.getPropertyValue('--ant-select-scroll-fade-top-height')).toBe('38px');
+    expect(frame.style.getPropertyValue('--ant-select-scroll-fade-bottom-height')).toBe('76px');
+
+    holder.scrollTop = 768;
+    fireEvent.scroll(holder);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(frame.style.getPropertyValue('--ant-select-scroll-fade-top-height')).toBe('76px');
+    expect(frame.style.getPropertyValue('--ant-select-scroll-fade-bottom-height')).toBe('0px');
+  });
+
+  it('should start updating fade heights when options mount after the popup opens', () => {
+    const options = Array.from({ length: 30 }, (_, index) => ({
+      label: `Option ${index + 1}`,
+      value: index + 1,
+    }));
+
+    const { container, rerender } = render(<Select scrollFade open options={[]} />);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    rerender(<Select scrollFade open options={options} />);
+    const frame = container.querySelector<HTMLElement>('.ant-select-dropdown-list')!;
+    const holder = container.querySelector<HTMLElement>('.ant-select-dropdown-list-holder')!;
+
+    Object.defineProperties(holder, {
+      clientHeight: { configurable: true, value: 256 },
+      scrollHeight: { configurable: true, value: 1024 },
+    });
+
+    holder.scrollTop = 38;
+    fireEvent.scroll(holder);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(frame.style.getPropertyValue('--ant-select-scroll-fade-top-height')).toBe('38px');
+    expect(frame.style.getPropertyValue('--ant-select-scroll-fade-bottom-height')).toBe('76px');
+  });
+
+  it('should schedule fade updates when the list is resized', () => {
+    const options = Array.from({ length: 30 }, (_, index) => ({
+      label: `Option ${index + 1}`,
+      value: index + 1,
+    }));
+    const originResizeObserver = global.ResizeObserver;
+    let resizeObserverCallback: ResizeObserverCallback | undefined;
+
+    global.ResizeObserver = class ResizeObserverMock {
+      constructor(callback: ResizeObserverCallback) {
+        resizeObserverCallback = callback;
+      }
+
+      observe() {}
+
+      disconnect() {}
+    } as unknown as typeof ResizeObserver;
+
+    try {
+      const { container } = render(<Select scrollFade open options={options} />);
+      const frame = container.querySelector<HTMLElement>('.ant-select-dropdown-list')!;
+      const holder = container.querySelector<HTMLElement>('.ant-select-dropdown-list-holder')!;
+
+      Object.defineProperties(holder, {
+        clientHeight: { configurable: true, value: 256 },
+        scrollHeight: { configurable: true, value: 1024 },
+      });
+
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      holder.scrollTop = 38;
+      act(() => {
+        resizeObserverCallback?.([], {} as ResizeObserver);
+        jest.runAllTimers();
+      });
+
+      expect(frame.style.getPropertyValue('--ant-select-scroll-fade-top-height')).toBe('38px');
+      expect(frame.style.getPropertyValue('--ant-select-scroll-fade-bottom-height')).toBe('76px');
+    } finally {
+      global.ResizeObserver = originResizeObserver;
+    }
   });
 
   it('should show search icon when showSearch and open', () => {
