@@ -425,7 +425,7 @@ export type ResultConfig = ComponentStyleConfig & Pick<ResultProps, 'classNames'
 export type RadioConfig = ComponentStyleConfig & Pick<RadioProps, 'classNames' | 'styles'>;
 
 export type InputNumberConfig = ComponentStyleConfig &
-  Pick<InputNumberProps, 'variant' | 'classNames' | 'styles'>;
+  Pick<InputNumberProps, 'variant' | 'classNames' | 'styles' | 'allowClear'>;
 
 export type CascaderConfig = ComponentStyleConfig &
   Pick<
