@@ -31,7 +31,7 @@ demo:
 <code src="./demo/search.tsx">Search</code>
 <code src="./demo/lazy.tsx">Load Options Lazily</code>
 <code src="./demo/fields-name.tsx">Custom Field Names</code>
-<code src="./demo/suffix.tsx" version="5.22.0">Prefix and Suffix</code>
+<code src="./demo/suffix.tsx" version="6.7.0">Prefix and Suffix</code>
 <code src="./demo/custom-dropdown.tsx">Custom dropdown</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
@@ -82,12 +82,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | placeholder | The input placeholder | string | - |  | × |
 | placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 | × |
 | prefix | The custom prefix | ReactNode | - | 5.22.0 | × |
-| ~~showArrow~~ | Whether to show the arrow icon, please use `suffixIcon={null}` instead | boolean | true | - | × |
+| ~~showArrow~~ | Whether to show the arrow icon, please use `suffix={null}` instead | boolean | true | - | × |
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false |  | `searchIcon`: 6.4.0 |
 | size | The input size | `large` \| `medium` \| `small` | `medium` |  | × |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |
-| suffixIcon | The custom suffix icon | ReactNode | - |  | 6.4.0 |
+| suffix | The custom suffix. Custom suffixes will not respond to clicks to open, because the replaced suffix may be designed for other interactions. You can use `pointer-events: none` style to bypass | ReactNode \| (props) => ReactNode | `<DownOutlined />` | 6.7.0 | 6.7.0 |
+| ~~suffixIcon~~ | The custom suffix icon. Please use `suffix` instead | ReactNode | - |  | 6.4.0 |
 | value | The selected value | string\[] \| number\[] | - |  | × |
 | variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  | × |
