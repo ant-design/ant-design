@@ -5,7 +5,7 @@ import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import type {
   EditableConfig,
   GetIndicatorSize,
-  MoreProps,
+  MoreProps as RcMoreProps,
   TabsProps as RcTabsProps,
   Tab,
 } from '@rc-component/tabs';
@@ -63,6 +63,13 @@ export interface CompatibilityProps {
   /** @deprecated Please use `destroyOnHidden` instead */
   destroyInactiveTabPane?: boolean;
 }
+
+type MoreProps = RcMoreProps & {
+  /** @deprecated Please use `open` instead */
+  visible?: boolean;
+  /** @deprecated Please use `onOpenChange` instead */
+  onVisibleChange?: (open: boolean) => void;
+};
 
 export interface TabsRef {
   nativeElement: React.ComponentRef<typeof RcTabs> | null;
@@ -191,6 +198,15 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
       'destroyInactiveTabPane',
       'destroyOnHidden',
     );
+
+    if (more) {
+      [
+        ['visible', 'open'],
+        ['onVisibleChange', 'onOpenChange'],
+      ].forEach(([deprecatedName, newName]) => {
+        warning.deprecated(!(deprecatedName in more), `more.${deprecatedName}`, `more.${newName}`);
+      });
+    }
   }
 
   const size = useSize(customSize);
@@ -202,6 +218,22 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
   const mergedIndicator: TabsProps['indicator'] = {
     align: indicator?.align ?? tabs?.indicator?.align,
     size: indicator?.size ?? indicatorSize ?? tabs?.indicator?.size ?? tabs?.indicatorSize,
+  };
+
+  const {
+    visible: moreVisible,
+    onVisibleChange: moreOnVisibleChange,
+    ...restMoreProps
+  } = more ?? {};
+
+  const mergedMoreProps: RcMoreProps = {
+    icon: tabs?.more?.icon ?? tabs?.moreIcon ?? moreIcon ?? <EllipsisOutlined />,
+    transitionName: `${rootPrefixCls}-slide-up`,
+    ...restMoreProps,
+    ...(more && !('open' in more) && 'visible' in more ? { open: moreVisible } : {}),
+    ...(more && !('onOpenChange' in more) && 'onVisibleChange' in more
+      ? { onOpenChange: moreOnVisibleChange }
+      : {}),
   };
 
   const mergedPlacement: TabPosition | undefined = React.useMemo(() => {
@@ -276,11 +308,7 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
       styles={mergedStyles}
       style={mergedStyles.root}
       editable={editable}
-      more={{
-        icon: tabs?.more?.icon ?? tabs?.moreIcon ?? moreIcon ?? <EllipsisOutlined />,
-        transitionName: `${rootPrefixCls}-slide-up`,
-        ...more,
-      }}
+      more={mergedMoreProps}
       prefixCls={prefixCls}
       animated={mergedAnimated}
       indicator={mergedIndicator}

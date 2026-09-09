@@ -101,7 +101,9 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | --- | --- | --- | --- | --- |
 | icon | 自定义折叠图标 | ReactNode | - |  |
 | popupRender | 自定义折叠菜单渲染 | (menu: ReactElement, info: { restTabs: Tab[], onClose: () => void }) => ReactElement | - | 6.6.0 |
+| ~~visible~~ | 折叠菜单是否显示，使用 `open` 代替 | boolean | - |  |
 | [DropdownProps](/components/dropdown-cn#api) | 支持 Dropdown 的其他属性 |  |  |  |
+| ~~onVisibleChange~~ | 折叠菜单显示状态变化时调用，使用 `onOpenChange` 代替 | (open: boolean) => void | - |  |
 
 ## Semantic DOM
 
