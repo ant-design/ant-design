@@ -26,7 +26,7 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           for branch in master feature next; do
-            sha=$(gh api repos/$GH_REPO/git/ref/heads/$branch --jq '.object.sha')
+            sha=$(gh api repos/$GH_REPO/git/matching-refs/heads/$branch --jq ".[] | select(.ref == \"refs/heads/$branch\") | .object.sha")
             echo "$branch=$sha" >> "$GITHUB_OUTPUT"
           done
 
@@ -54,8 +54,8 @@ jobs:
           persist_if_changed() {
             branch=$1
             sha_before=$2
-            sha=$(gh api repos/$GH_REPO/git/ref/heads/$branch --jq '.object.sha')
-            if [[ "$sha" != "$sha_before" ]]; then
+            sha=$(gh api repos/$GH_REPO/git/matching-refs/heads/$branch --jq ".[] | select(.ref == \"refs/heads/$branch\") | .object.sha")
+            if [[ -n "$sha_before" && -n "$sha" && "$sha" != "$sha_before" ]]; then
               gh workflow run visual-regression-persist-start.yml --repo "$GH_REPO" --ref "$branch"
             fi
           }
