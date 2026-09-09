@@ -37,6 +37,7 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
     gradientDragging,
     onGradientDragging,
     disabledFormat,
+    controls,
   } = props;
   const colorPickerPanelPrefixCls = `${prefixCls}-inner`;
 
@@ -60,6 +61,7 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
       gradientDragging,
       onGradientDragging,
       disabledFormat,
+      controls,
     }),
     [
       prefixCls,
@@ -79,6 +81,7 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
       gradientDragging,
       onGradientDragging,
       disabledFormat,
+      controls,
     ],
   );
 
