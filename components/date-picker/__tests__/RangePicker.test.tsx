@@ -282,39 +282,50 @@ describe('RangePicker', () => {
     resetMockDate();
   });
 
-  describe('suffixIcon', () => {
-    it('should render custom suffixIcon', () => {
+  describe('suffix', () => {
+    it('should render custom suffix', () => {
       const { container } = render(
-        <RangePicker open suffixIcon={<div className="custom-suffix-icon">Custom Icon</div>} />,
+        <RangePicker open suffix={<div className="custom-suffix">Custom Suffix</div>} />,
       );
-      expect(container.querySelector('.custom-suffix-icon')).toBeTruthy();
+      expect(container.querySelector('.custom-suffix')).toBeTruthy();
     });
 
-    it('should render global suffixIcon', () => {
+    it('should render global suffix', () => {
       const { container } = render(
         <ConfigProvider
           datePicker={{
-            suffixIcon: <div className="global-custom-suffix-icon">Global Custom Icon</div>,
+            suffix: <div className="global-custom-suffix">Global Custom Suffix</div>,
           }}
         >
           <RangePicker open />
         </ConfigProvider>,
       );
-      expect(container.querySelector('.global-custom-suffix-icon')).toBeTruthy();
+      expect(container.querySelector('.global-custom-suffix')).toBeTruthy();
     });
 
-    it('should prefer custom suffixIcon over global suffixIcon', () => {
+    it('should prefer custom suffix over global suffix', () => {
       const { container } = render(
         <ConfigProvider
           datePicker={{
-            suffixIcon: <div className="global-custom-suffix-icon">Global Custom Icon</div>,
+            suffix: <div className="global-custom-suffix">Global Custom Suffix</div>,
           }}
         >
-          <RangePicker open suffixIcon={<div className="custom-suffix-icon">Custom Icon</div>} />
+          <RangePicker open suffix={<div className="custom-suffix">Custom Suffix</div>} />
         </ConfigProvider>,
       );
-      expect(container.querySelector('.custom-suffix-icon')).toBeTruthy();
-      expect(container.querySelector('.global-custom-suffix-icon')).toBeFalsy();
+      expect(container.querySelector('.custom-suffix')).toBeTruthy();
+      expect(container.querySelector('.global-custom-suffix')).toBeFalsy();
+    });
+
+    it('should support deprecated suffixIcon prop', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<RangePicker suffixIcon="legacy" />);
+      expect(container.querySelector('.ant-picker-suffix')).toHaveTextContent('legacy');
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: DatePicker.RangePicker] `suffixIcon` is deprecated. Please use `suffix` instead.',
+      );
+      errSpy.mockRestore();
     });
   });
 
