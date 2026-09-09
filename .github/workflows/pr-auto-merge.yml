@@ -12,12 +12,20 @@ jobs:
   pr-check-ci:
     if: github.repository == 'ant-design/ant-design'
     permissions:
+      actions: write  # for dispatching the visual regression snapshot workflow
       checks: read  # for actions-cool/check-pr-ci to get check reference
       contents: write  # for actions-cool/check-pr-ci to merge PRs
       issues: write  # for actions-cool/check-pr-ci to update issues
       pull-requests: write  # for actions-cool/check-pr-ci to update PRs
     runs-on: ubuntu-latest
     steps:
+      - name: Get feature ref before auto merge
+        id: feature-before
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: echo "sha=$(gh api repos/$GH_REPO/git/ref/heads/feature --jq '.object.sha')" >> "$GITHUB_OUTPUT"
+
       - uses: actions-cool/check-pr-ci@0ae0a449b0b4a24d792befccee14931cc91caff9 # v1
         with:
           filter-label: BranchAutoMerge
@@ -30,3 +38,14 @@ jobs:
           success-merge: true
           merge-method: merge
           merge-title: 'chore: auto merge branches (#${number})'
+
+      - name: Persist feature snapshots after auto merge
+        env:
+          FEATURE_SHA_BEFORE: ${{ steps.feature-before.outputs.sha }}
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          feature_sha=$(gh api repos/$GH_REPO/git/ref/heads/feature --jq '.object.sha')
+          if [[ "$feature_sha" != "$FEATURE_SHA_BEFORE" ]]; then
+            gh workflow run visual-regression-persist-start.yml --repo "$GH_REPO" --ref feature
+          fi
