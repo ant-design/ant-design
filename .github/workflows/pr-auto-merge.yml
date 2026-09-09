@@ -19,12 +19,16 @@ jobs:
       pull-requests: write  # for actions-cool/check-pr-ci to update PRs
     runs-on: ubuntu-latest
     steps:
-      - name: Get feature ref before auto merge
-        id: feature-before
+      - name: Get visual regression refs before auto merge
+        id: refs-before
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
-        run: echo "sha=$(gh api repos/$GH_REPO/git/ref/heads/feature --jq '.object.sha')" >> "$GITHUB_OUTPUT"
+        run: |
+          for branch in master feature next; do
+            sha=$(gh api repos/$GH_REPO/git/matching-refs/heads/$branch --jq ".[] | select(.ref == \"refs/heads/$branch\") | .object.sha")
+            echo "$branch=$sha" >> "$GITHUB_OUTPUT"
+          done
 
       - uses: actions-cool/check-pr-ci@0ae0a449b0b4a24d792befccee14931cc91caff9 # v1
         with:
@@ -39,13 +43,23 @@ jobs:
           merge-method: merge
           merge-title: 'chore: auto merge branches (#${number})'
 
-      - name: Persist feature snapshots after auto merge
+      - name: Persist snapshots after auto merge
         env:
-          FEATURE_SHA_BEFORE: ${{ steps.feature-before.outputs.sha }}
+          MASTER_SHA_BEFORE: ${{ steps.refs-before.outputs.master }}
+          FEATURE_SHA_BEFORE: ${{ steps.refs-before.outputs.feature }}
+          NEXT_SHA_BEFORE: ${{ steps.refs-before.outputs.next }}
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
         run: |
-          feature_sha=$(gh api repos/$GH_REPO/git/ref/heads/feature --jq '.object.sha')
-          if [[ "$feature_sha" != "$FEATURE_SHA_BEFORE" ]]; then
-            gh workflow run visual-regression-persist-start.yml --repo "$GH_REPO" --ref feature
-          fi
+          persist_if_changed() {
+            branch=$1
+            sha_before=$2
+            sha=$(gh api repos/$GH_REPO/git/matching-refs/heads/$branch --jq ".[] | select(.ref == \"refs/heads/$branch\") | .object.sha")
+            if [[ -n "$sha_before" && -n "$sha" && "$sha" != "$sha_before" ]]; then
+              gh workflow run visual-regression-persist-start.yml --repo "$GH_REPO" --ref "$branch"
+            fi
+          }
+
+          persist_if_changed master "$MASTER_SHA_BEFORE"
+          persist_if_changed feature "$FEATURE_SHA_BEFORE"
+          persist_if_changed next "$NEXT_SHA_BEFORE"
