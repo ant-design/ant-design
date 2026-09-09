@@ -1,12 +1,12 @@
 import React from 'react';
 
 import InputNumber from '..';
-import { render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import {
   expectSemanticRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('semantic', () => {
   it('should support classNames and styles', () => {
@@ -17,6 +17,7 @@ describe('semantic', () => {
       suffix: 'test-suffix',
       actions: 'test-actions',
       action: 'test-action',
+      clear: 'test-clear',
     };
     const testStyles = {
       root: { color: 'rgb(255, 0, 0)' },
@@ -25,12 +26,15 @@ describe('semantic', () => {
       suffix: { color: 'rgb(0, 255, 0)' },
       actions: { color: 'rgb(255, 255, 0)' },
       action: { color: 'rgb(255, 0, 255)' },
+      clear: { backgroundColor: 'rgb(0, 255, 255)' },
     };
     const { container } = render(
       <InputNumber
         prefix="prefix"
         className="my-class-name"
         suffix={<i>antd</i>}
+        allowClear
+        defaultValue={1}
         styles={testStyles}
         classNames={testClassNames}
       />,
@@ -41,18 +45,21 @@ describe('semantic', () => {
     const suffix = container.querySelector('.ant-input-number-suffix')!;
     const actions = container.querySelector('.ant-input-number-actions')!;
     const action = container.querySelector('.ant-input-number-action')!;
+    const clear = container.querySelector('.ant-input-number-clear-icon')!;
     expect(root.className).toContain(testClassNames.root);
     expect(input.className).toContain(testClassNames.input);
     expect(prefix.className).toContain(testClassNames.prefix);
     expect(suffix.className).toContain(testClassNames.suffix);
     expect(actions.className).toContain(testClassNames.actions);
     expect(action.className).toContain(testClassNames.action);
+    expect(clear.className).toContain(testClassNames.clear);
     expect(root).toHaveStyle(testStyles.root);
     expect(prefix).toHaveStyle(testStyles.prefix);
     expect(input).toHaveStyle(testStyles.input);
     expect(suffix).toHaveStyle(testStyles.suffix);
     expect(actions).toHaveStyle(testStyles.actions);
     expect(action).toHaveStyle(testStyles.action);
+    expect(clear).toHaveStyle(testStyles.clear);
   });
   it('should follow root style priority', () => {
     const { container } = render(

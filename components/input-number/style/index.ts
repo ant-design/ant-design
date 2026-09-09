@@ -1,7 +1,12 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
-import { genBasicInputStyle, genPlaceholderStyle, initInputToken } from '../../input/style';
+import {
+  genAllowClearStyle,
+  genBasicInputStyle,
+  genPlaceholderStyle,
+  initInputToken,
+} from '../../input/style';
 import {
   genBorderlessStyle,
   genFilledStyle,
@@ -333,6 +338,10 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
           transition: `margin ${motionDurationMid}`,
         },
 
+        [`${componentCls}-clear-icon`]: {
+          pointerEvents: 'auto',
+        },
+
         [`&:hover:not(${componentCls}-without-controls)`]: {
           [`${componentCls}-suffix`]: {
             marginInlineEnd: token.handleWidth,
@@ -362,6 +371,7 @@ export default genStyleHooks(
     const inputNumberToken = mergeToken<InputNumberToken>(token, initInputToken(token));
     return [
       genInputNumberStyles(inputNumberToken),
+      genAllowClearStyle(inputNumberToken),
       genCompatibleStyles(inputNumberToken),
       // =====================================================
       // ==             Space Compact                       ==
