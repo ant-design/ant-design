@@ -86,6 +86,19 @@ describe('Modal', () => {
     expect(btns[btns.length - 1]).toHaveClass('ant-btn-dangerous');
   });
 
+  it.each([
+    { name: 'zero', value: 0, expected: '0' },
+    { name: 'empty string', value: '', expected: '' },
+    { name: 'false', value: false, expected: '' },
+    { name: 'null', value: null, expected: '' },
+  ])('support $name button text', ({ value, expected }) => {
+    render(<Modal cancelText={value} okText={value} open />);
+    const btns = document.body.querySelectorAll('.ant-modal-footer .ant-btn');
+
+    expect(btns[0].textContent).toBe(expected);
+    expect(btns[1].textContent).toBe(expected);
+  });
+
   it('mouse position', () => {
     const Demo = () => {
       const [open, setOpen] = React.useState(false);
