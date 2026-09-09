@@ -31,7 +31,7 @@ jobs:
           BRANCH: ${{ github.event.workflow_run.head_branch }}
         run: |
           if [[ "$REPO" == "ant-design/ant-design" && \
-                "$EVENT" == "push" && \
+                ( "$EVENT" == "push" || "$EVENT" == "workflow_dispatch" ) && \
                 ( "$BRANCH" == "master" || \
                   "$BRANCH" == "feature" || \
                   "$BRANCH" == "next" ) ]]; then
