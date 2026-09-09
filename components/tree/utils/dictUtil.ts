@@ -1,8 +1,8 @@
 import type React from 'react';
 import { fillFieldNames } from '@rc-component/tree';
 import type { DataNode } from '@rc-component/tree';
+import { isNonNullable } from '@rc-component/util';
 
-import { isNonNullable } from '../../_util/is';
 import type { TreeProps } from '../Tree';
 
 const RECORD_NONE = 0;

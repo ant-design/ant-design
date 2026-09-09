@@ -95,6 +95,10 @@ const localeValues: Locale = {
     expand: 'Laienda',
     collapse: 'Ahenda',
   },
+  Carousel: {
+    prevSlide: 'Eelmine slaid',
+    nextSlide: 'Järgmine slaid',
+  },
   Form: {
     optional: '(valikuline)',
     defaultValidateMessages: {

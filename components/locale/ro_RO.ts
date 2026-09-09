@@ -95,6 +95,10 @@ const localeValues: Locale = {
     expand: 'extinde',
     collapse: 'Colaps',
   },
+  Carousel: {
+    prevSlide: 'Diapozitivul anterior',
+    nextSlide: 'Diapozitivul următor',
+  },
   Form: {
     optional: '(opțional)',
     defaultValidateMessages: {

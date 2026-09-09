@@ -1,9 +1,9 @@
 import * as React from 'react';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isReactRenderable } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 
 export type CardMetaSemanticType = {

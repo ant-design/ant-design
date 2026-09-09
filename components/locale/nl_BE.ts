@@ -95,6 +95,10 @@ const localeValues: Locale = {
     expand: 'Uitklappen',
     collapse: 'Samenvouwen',
   },
+  Carousel: {
+    prevSlide: 'Vorige dia',
+    nextSlide: 'Volgende dia',
+  },
   Form: {
     optional: '(optioneel)',
     defaultValidateMessages: {

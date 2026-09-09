@@ -52,9 +52,9 @@ demo:
 | ~~layout~~ | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - | × |
 | lazy | 延迟渲染模式 | `boolean` | `false` | 5.23.0 | × |
 | onCollapse | 展开-收起时回调 | `(collapsed: boolean[], sizes: number[]) => void` | - | 5.28.0 | × |
-| orientation | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - | × |
+| orientation | 布局方向 | `horizontal` \| `vertical` | `horizontal` | 6.0.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
-| vertical | 排列方向，与 `orientation` 同时存在，以 `orientation` 优先 | boolean | `false` |  | × |
+| vertical | 排列方向，与 `orientation` 同时存在，以 `orientation` 优先 | boolean | `false` | 6.0.0 | × |
 | onDraggerDoubleClick | 双击拖拽条回调 | `(index: number) => void` | - | 6.3.0 | × |
 | onResize | 面板大小变化回调 | `(sizes: number[]) => void` | - | - | × |
 | onResizeEnd | 拖拽结束回调 | `(sizes: number[]) => void` | - | - | × |

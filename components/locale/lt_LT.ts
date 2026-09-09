@@ -95,6 +95,10 @@ const localeValues: Locale = {
     expand: 'Plačiau',
     collapse: 'Sutraukti',
   },
+  Carousel: {
+    prevSlide: 'Ankstesnė skaidrė',
+    nextSlide: 'Kita skaidrė',
+  },
   Form: {
     optional: '(neprivaloma)',
     defaultValidateMessages: {

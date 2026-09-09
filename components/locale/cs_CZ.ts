@@ -95,6 +95,10 @@ const localeValues: Locale = {
     expand: 'Zvětšit',
     collapse: 'kolaps',
   },
+  Carousel: {
+    prevSlide: 'Předchozí snímek',
+    nextSlide: 'Další snímek',
+  },
   Form: {
     optional: '(nepovinné)',
     defaultValidateMessages: {

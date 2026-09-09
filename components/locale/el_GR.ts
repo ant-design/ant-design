@@ -95,6 +95,10 @@ const localeValues: Locale = {
     expand: 'Ανάπτυξη',
     collapse: 'Σύμπτυξη',
   },
+  Carousel: {
+    prevSlide: 'Προηγούμενη διαφάνεια',
+    nextSlide: 'Επόμενη διαφάνεια',
+  },
   Form: {
     optional: '(προαιρετικό)',
     defaultValidateMessages: {

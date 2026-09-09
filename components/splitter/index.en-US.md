@@ -51,9 +51,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~layout~~ | Layout direction | `horizontal` \| `vertical` | `horizontal` | - | × |
 | lazy | Lazy mode | `boolean` | `false` | 5.23.0 | × |
 | onCollapse | Callback when expanding or collapsing | `(collapsed: boolean[], sizes: number[]) => void` | - | 5.28.0 | × |
-| orientation | Orientation direction | `horizontal` \| `vertical` | `horizontal` |  | × |
+| orientation | Orientation direction | `horizontal` \| `vertical` | `horizontal` | 6.0.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
-| vertical | Orientation. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` |  | × |
+| vertical | Orientation. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` | 6.0.0 | × |
 | onDraggerDoubleClick | Callback triggered when the dragger is double-clicked | `(index: number) => void` | - | 6.3.0 | × |
 | onResize | Panel size change callback | `(sizes: number[]) => void` | - | - | × |
 | onResizeEnd | Drag end callback | `(sizes: number[]) => void` | - | - | × |

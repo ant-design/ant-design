@@ -95,6 +95,10 @@ const localeValues: Locale = {
     expand: 'Näytä lisää',
     collapse: 'Kutista',
   },
+  Carousel: {
+    prevSlide: 'Edellinen dia',
+    nextSlide: 'Seuraava dia',
+  },
   Form: {
     optional: '(valinnainen)',
     defaultValidateMessages: {

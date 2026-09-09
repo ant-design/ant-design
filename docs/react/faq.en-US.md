@@ -19,6 +19,21 @@ But in antd, `undefined` is treated as uncontrolled, and `null` is used as an ex
 
 Note: For `options` in `Select-like` components, it is **strongly recommended not** to use `undefined` and `null` as `value` in `option`. Please use `string | number` as a valid `value` in `option`.
 
+## Why is a DOM node still rendered for some empty content? {#react-renderable}
+
+antd uses `isReactRenderable` from `@rc-component/util` to determine whether a content wrapper DOM should be created. It is designed as a compatibility-oriented content presence check, not a validator for valid React nodes, and it does not recursively predict whether React will eventually produce visible content.
+
+`isReactRenderable` treats only `null`, `undefined`, `false`, and the empty string `''` as having no content. All other values are treated as content. Therefore, when it controls whether a wrapper DOM is rendered:
+
+| Value | `isReactRenderable` | Result |
+| --- | --- | --- |
+| `null`, `undefined`, `false`, `''` | `false` | Neither the wrapper DOM nor any content is rendered |
+| `true` | `true` | The wrapper DOM is created, but React renders no text content for `true` |
+| `0` | `true` | The wrapper DOM is created and `0` is rendered normally |
+| Non-empty strings, other numbers, React elements, etc. | `true` | The wrapper DOM is created and React handles the content |
+
+Here, `false` is treated as an explicit no-content marker, while `true` means that content was provided. Although `true` itself produces no text node, the wrapper DOM is still created. Similarly, an empty array, an empty Fragment, or a React element that eventually returns `null` passes the check. The number `0` is not mistaken for empty content and is rendered normally.
+
 ## Can I use internal API which is not documented on the site?
 
 NOT RECOMMENDED. Internal API is not guaranteed to be compatible with future versions. It may be removed or changed in some versions. If you really need to use it, you should make sure these APIs are still valid when upgrading to a new version or just lock version for usage.
@@ -95,6 +110,16 @@ Try `onChange` to change `value`, and please read [React's documentation](https:
 
 Try [Space](https://ant.design/components/space/) component to make them aligned.
 
+## Why do third-party SVG icons have margin-block-end? {#faq-icon-margin-block-end}
+
+Components such as Breadcrumb, Collapse, Segmented, Tabs, and Tag apply `display: inline-block`, `vertical-align: middle`, and `margin-block-end: 0.2em` to SVGs rendered directly in the corresponding icon slots to adjust their visual alignment with text.
+
+In inline layout, an SVG has no text baseline, so its bottom edge participates in baseline alignment by default, which can make it appear too high next to text. `display: inline-block` keeps the icon in the inline flow, while `vertical-align: middle` aligns the center of its margin box to the parent's baseline plus half its x-height (the height of a lowercase x), making the alignment independent of the icon's height.
+
+However, the center of the x-height is usually lower than the center of capital letters, so a small upward optical adjustment is needed. `margin-block-end: 0.2em` adds a margin below the icon. Once the margin box is centered, the icon itself moves up by about `0.1em`, bringing it closer to the center of capital letters in common fonts. The `0.2em` value approximates the difference between cap height and x-height in common fonts, and using `em` makes the adjustment scale with the font size.
+
+These styles target directly rendered SVGs. Icons from `@ant-design/icons` wrap their SVG in an extra container and use their own alignment styles. Different fonts, internal icon whitespace, or an icon's own `vertical-align` can affect the result. If an icon already handles its own alignment, or an icon-only use case does not need text alignment compensation, you can locally override the corresponding SVG with `margin-block-end: 0` and adjust its own styles as needed.
+
 ## antd overrides my global styles
 
 Yes, antd is designed to help you develop a complete background application. To do so, we override some global styles for styling convenience, and currently these cannot be removed or changed. More info at https://github.com/ant-design/ant-design/issues/4331 .
@@ -166,7 +191,7 @@ If you are using a mismatched version of dayjs with [antd's dayjs](https://githu
 
 ## How do I fix dynamic styles while using a Content Security Policy (CSP)?
 
-You can configure `nonce` by [ConfigProvider](/components/config-provider/#content-security-policy).
+You can configure `nonce` by [ConfigProvider](/components/config-provider#csp).
 
 ## When I set `mode` to `DatePicker`/`RangePicker`, why can I not select a year or month anymore?
 
@@ -187,7 +212,7 @@ Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design
 
 Static methods like message/notification/Modal.confirm are not using the same render tree as `<Button />`, but rendered to independent DOM node created by `ReactDOM.render`, which cannot access React context from ConfigProvider. Consider two solutions here:
 
-1. Replace original usages with [message.useMessage](/components/message/#message-demo-hooks), [notification.useNotification](/components/notification/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-notification) and [Modal.useModal](/components/modal/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-modalxxx).
+1. Replace original usages with [message.useMessage](/components/message/#message-demo-hooks), [notification.useNotification](/components/notification#faq-context-redux) and [Modal.useModal](/components/modal#faq-context-redux).
 
 2. Use [App.useApp](/components/app#basic-usage) to get message/notification/modal instance.
 
