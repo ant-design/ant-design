@@ -98,6 +98,16 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 尝试使用 [Space](/components/space-cn) 组件来使他们对齐。
 
+## 为什么第三方 SVG 图标设置了 margin-block-end？ {#faq-icon-margin-block-end}
+
+Breadcrumb、Collapse、Segmented、Tabs、Tag 等组件会对相应图标位置直接传入的 `<svg>` 设置 `display: inline-block`、`vertical-align: middle` 和 `margin-block-end: 0.2em`，用于调整图标与文字的视觉对齐。
+
+在行内布局中，SVG 没有文字基线，默认按底部边缘参与基线对齐，容易显得比文字偏高。`display: inline-block` 让图标保持在行内参与排版，`vertical-align: middle` 则将图标外边距盒的中心对齐到父元素基线上方半个 x-height（小写字母 x 的高度）的位置，使对齐不依赖图标自身的高度。
+
+但 x-height 的中心通常低于大写字母的中心，因此还需要一点向上的视觉补偿。`margin-block-end: 0.2em` 在图标底部增加外边距，外边距盒居中后，图标本身便会向上移动约 `0.1em`，更接近常见字体的大写字母中心。`0.2em` 是基于常见字体中大写字母与小写字母 x 的高度差所做的近似补偿，使用 `em` 使补偿量随字号缩放。
+
+这套样式针对直接传入的 SVG；`@ant-design/icons` 的 SVG 有额外容器包裹，使用自身的对齐样式。不同字体、图标内部留白或图标自带的 `vertical-align` 都可能影响最终效果。如果图标已经自行处理对齐，或纯图标场景无需文字对齐补偿，可以局部覆盖对应 SVG 的 `margin-block-end: 0`，并结合图标自身样式调整。
+
 ## antd 覆盖了我的全局样式！
 
 是的，antd 在设计的时候就是用来开发一个完整的应用的，为了方便，我们覆盖了一些全局样式，现在还不能移除，想要了解更多请追踪 [这个 issue](https://github.com/ant-design/ant-design/issues/4331)，或者参考这个教程 [How to avoid modifying global styles?](/docs/react/customize-theme-cn#how-to-avoid-modifying-global-styles)
