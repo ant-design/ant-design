@@ -12,13 +12,13 @@ export interface NormalCancelBtnProps extends Pick<ModalProps, 'cancelButtonProp
 const NormalCancelBtn: FC = () => {
   const { cancelButtonProps, cancelTextLocale, onCancel } = useContext(ModalContext);
 
-  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+  const onInternalClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
     onCancel?.(event);
     cancelButtonProps?.onClick?.(event);
   };
 
   return (
-    <Button {...cancelButtonProps} onClick={handleClick}>
+    <Button {...cancelButtonProps} onClick={onInternalClick}>
       {cancelTextLocale}
     </Button>
   );
