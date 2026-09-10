@@ -273,7 +273,8 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
         ...mergedClassNames,
         popup: clsx(popupClassName, hashId, cssVarCls, rootCls, mergedClassNames.popup?.root),
       }}
-      styles={mergedStyles}
+      // `popup` is nested as `{ root }` in antd but flat in rc-tabs, same as `classNames` above
+      styles={{ ...mergedStyles, popup: mergedStyles.popup?.root }}
       style={mergedStyles.root}
       editable={editable}
       more={{
