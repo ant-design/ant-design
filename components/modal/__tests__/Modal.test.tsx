@@ -65,6 +65,15 @@ describe('Modal', () => {
     expect(onCancel).toHaveBeenCalled();
   });
 
+  it('should trigger both onCancel and cancelButtonProps.onClick', () => {
+    const onCancel = jest.fn();
+    const onClick = jest.fn();
+    render(<Modal open onCancel={onCancel} cancelButtonProps={{ onClick }} />);
+    fireEvent.click(document.body.querySelectorAll('.ant-btn')[0]);
+    expect(onCancel).toHaveBeenCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
   it('onCancel should be called when pressing ESC', () => {
     const onCancel = jest.fn();
     render(<Modal open onCancel={onCancel} />);
