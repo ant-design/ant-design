@@ -54,6 +54,14 @@ export interface TableLocale {
   selectNone?: React.ReactNode;
   selectInvert?: React.ReactNode;
   selectionAll?: React.ReactNode;
+  /** Accessible label for a selectable row, e.g. 'Select row ${index + 1}' */
+  selectRow?: string;
+  /** Accessible label for a selected row, e.g. 'Row ${index + 1} selected' */
+  selectedRow?: string;
+  /** Accessible label for the header checkbox when custom selections are enabled */
+  customSelection?: string;
+  /** Accessible label for the selection menu dropdown trigger */
+  selectionMenu?: string;
   sortTitle?: string;
   expand?: string;
   collapse?: string;

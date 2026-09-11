@@ -465,10 +465,10 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           };
           customizeSelections = (
             <div className={`${prefixCls}-selection-extra`}>
-              <Dropdown menu={menu} getPopupContainer={getPopupContainer}>
-                <span>
+              <Dropdown menu={menu} getPopupContainer={getPopupContainer} trigger={['click', 'hover']}>
+                <button type="button" aria-label={tableLocale.selectionMenu ?? 'Selection menu'} aria-haspopup="menu" className={`${prefixCls}-selection-menu-trigger`}>
                   <DownOutlined />
-                </span>
+                </button>
               </Dropdown>
             </div>
           );
@@ -497,7 +497,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         const { onChange, disabled } = customCheckboxProps;
         columnTitleCheckbox = (
           <Checkbox
-            aria-label={customizeSelections ? 'Custom selection' : 'Select all'}
+            aria-label={customizeSelections ? tableLocale.customSelection ?? 'Custom selection' : tableLocale.selectAll as string || 'Select all'}
             {...customCheckboxProps}
             checked={
               !allDisabled ? !!flattedData.length && checkedCurrentAll : allDisabledAndChecked
@@ -535,7 +535,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           const key = getRowKey(record, index);
           const checked = keySet.has(key);
           const checkboxProps = checkboxPropsMap.get(key) as unknown as RadioProps;
-          const defaultAriaLabel = `Select row ${index + 1}`;
+          const defaultAriaLabel = tableLocale.selectRow?.replace('${index + 1}', `${index + 1}`) || `Select row ${index + 1}`;
           return {
             node: (
               <Radio
@@ -575,8 +575,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
             mergedIndeterminate = checkboxProps?.indeterminate ?? indeterminate;
           }
           const defaultAriaLabel = checked
-            ? `Row ${index + 1} selected`
-            : `Select row ${index + 1}`;
+            ? tableLocale.selectedRow?.replace('${index + 1}', `${index + 1}`) || `Row ${index + 1} selected`
+            : tableLocale.selectRow?.replace('${index + 1}', `${index + 1}`) || `Select row ${index + 1}`;
           // Record checked
           return {
             node: (

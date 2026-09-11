@@ -83,6 +83,25 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         marginInlineStart: '100%',
         paddingInlineStart: unit(calc(tablePaddingHorizontal).div(4).equal()),
 
+        // Reset native button styles for the keyboard-accessible trigger
+        [`${componentCls}-selection-menu-trigger`]: {
+          padding: 0,
+          border: 0,
+          background: 'transparent',
+          cursor: 'pointer',
+          lineHeight: 0,
+
+          [iconCls]: {
+            color: headerIconColor,
+            fontSize: fontSizeIcon,
+            verticalAlign: 'baseline',
+
+            '&:hover': {
+              color: headerIconHoverColor,
+            },
+          },
+        },
+
         [iconCls]: {
           color: headerIconColor,
           fontSize: fontSizeIcon,
