@@ -58,4 +58,25 @@ describe('Descriptions content rendering', () => {
       </div>
     `);
   });
+  [null, undefined, false, ''].forEach((value) => {
+    it(`should omit empty header slots for ${String(value)}`, () => {
+      const { container, rerender } = render(<Descriptions title={value} extra={0} />);
+      expect(container.querySelector('.ant-descriptions-title')).not.toBeInTheDocument();
+      expect(container.querySelector('.ant-descriptions-extra')).toHaveTextContent('0');
+
+      rerender(<Descriptions title={0} extra={value} />);
+      expect(container.querySelector('.ant-descriptions-title')).toHaveTextContent('0');
+      expect(container.querySelector('.ant-descriptions-extra')).not.toBeInTheDocument();
+
+      rerender(<Descriptions title={value} extra={value} />);
+      expect(container.querySelector('.ant-descriptions-header')).not.toBeInTheDocument();
+    });
+  });
+
+  it('should preserve the existing true-value header wrappers', () => {
+    const { container } = render(<Descriptions title extra />);
+    expect(container.querySelector('.ant-descriptions-header')).toBeInTheDocument();
+    expect(container.querySelector('.ant-descriptions-title')).toBeEmptyDOMElement();
+    expect(container.querySelector('.ant-descriptions-extra')).toBeEmptyDOMElement();
+  });
 });

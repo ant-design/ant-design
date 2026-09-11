@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import * as React from 'react';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
@@ -209,8 +210,8 @@ const Descriptions = React.forwardRef<DescriptionsRef, DescriptionsProps>((props
     nativeElement: nativeElementRef.current!,
   }));
 
-  const hasTitle = !!title || title === 0;
-  const hasExtra = !!extra || extra === 0;
+  const hasTitle = isReactRenderable(title);
+  const hasExtra = isReactRenderable(extra);
 
   return (
     <DescriptionsContext.Provider value={memoizedValue}>
