@@ -18,6 +18,7 @@ tag: 6.6.0
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/row-hoverable-debug.tsx" version="6.7.0" debug>Disable row hover</code>
 <code src="./demo/virtual.tsx">Virtual scrolling</code>
 <code src="./demo/horizontal.tsx" version="6.7.0">Horizontal scrolling</code>
 <code src="./demo/group.tsx">Grouping and sticky headers</code>
