@@ -449,7 +449,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
             tabindex="0"
           >
             <span
-              aria-label="expanded"
+              aria-label="Collapse"
               class="anticon anticon-right ant-collapse-arrow"
               role="img"
             >
@@ -515,7 +515,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
             tabindex="0"
           >
             <span
-              aria-label="expanded"
+              aria-label="Collapse"
               class="anticon anticon-right ant-collapse-arrow"
               role="img"
             >
