@@ -40,6 +40,7 @@ Common props ref: [Common props](/docs/react/common-props)
 | height | Height of the scroll container; content scrolls when it overflows | number | - | 6.6.0 | × |
 | itemRender | Render a single row | `(item: T, index: number) => ReactNode` | - | 6.6.0 | × |
 | items | Data source of the list | `T[]` | `[]` | 6.6.0 | × |
+| rowHoverable | Whether rows are hoverable | boolean | true | 6.7.0 | × |
 | rowKey | Unique key of an item, a field name or a getter | `keyof T \| (item: T) => Key` | - | 6.6.0 | × |
 | scrollWidth | Horizontal scroll width of the content; scrolls horizontally when it exceeds the container, only works with `virtual` | number | - | 6.7.0 | × |
 | sticky | Whether group headers stick to the top | boolean | false | 6.6.0 | × |
