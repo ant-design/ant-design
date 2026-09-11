@@ -698,7 +698,7 @@ Array [
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -734,7 +734,7 @@ Array [
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -868,7 +868,7 @@ Array [
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -970,7 +970,7 @@ Array [
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -1004,7 +1004,7 @@ Array [
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -1039,7 +1039,7 @@ Array [
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -1074,7 +1074,7 @@ Array [
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -1109,7 +1109,7 @@ Array [
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -1144,7 +1144,7 @@ Array [
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -1179,7 +1179,7 @@ Array [
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
