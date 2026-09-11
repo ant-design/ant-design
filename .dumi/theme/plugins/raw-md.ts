@@ -144,12 +144,16 @@ function replaceLocaleLinks(md: string, context: ContentFilterContext) {
     return md;
   }
 
-  return md.replace(/(?<!!)(\[[^\]\n]+\]\(\s*)(\/[^)\s]+)/g, (link, prefix, url) => {
+  return md.replace(/(?<!!)(\[[^\]\n]+\]\(\s*)(\/[^)\s]*)/g, (link, prefix, url) => {
     const suffixIndex = url.search(/[?#]/);
     const pathname = suffixIndex === -1 ? url : url.slice(0, suffixIndex);
     const suffix = suffixIndex === -1 ? '' : url.slice(suffixIndex);
     const trailingSlash = pathname.endsWith('/');
     const basePath = trailingSlash ? pathname.slice(0, -1) : pathname;
+
+    if (!basePath) {
+      return `${prefix}/index-cn${suffix}`;
+    }
 
     if (basePath.endsWith('-cn')) {
       return link;
