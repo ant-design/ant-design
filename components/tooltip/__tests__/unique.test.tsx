@@ -26,7 +26,17 @@ describe('Tooltip.Unique', () => {
     const tooltipRef = React.createRef<GetRef<typeof Tooltip>>();
 
     render(
-      <ConfigProvider tooltip={{ unique: true }}>
+      <ConfigProvider
+        tooltip={{
+          unique: true,
+          styles: {
+            container: {
+              backgroundColor: 'rgba(255, 255, 255, 0.4)',
+              backdropFilter: 'blur(12px)',
+            },
+          },
+        }}
+      >
         <Tooltip title="text" open ref={tooltipRef}>
           <span>xxxx</span>
         </Tooltip>
@@ -34,7 +44,14 @@ describe('Tooltip.Unique', () => {
     );
 
     await waitFakeTimer();
-    expect(document.querySelector('.ant-tooltip-unique-container-visible')).toBeTruthy();
+    const root = document.querySelector('.ant-tooltip');
+    const container = document.querySelector('.ant-tooltip-container');
+    const uniqueContainer = document.querySelector('.ant-tooltip-unique-container-visible');
+
+    expect(uniqueContainer).toHaveStyle({ backgroundColor: 'rgba(255, 255, 255, 0.4)' });
+    expect(getComputedStyle(root!).filter || 'none').toBe('none');
+    expect(getComputedStyle(container!).filter || 'none').toBe('none');
+    expect(getComputedStyle(uniqueContainer!).filter).toBe('var(--ant-drop-shadow-popover)');
 
     expect(() => {
       tooltipRef.current?.forceAlign();

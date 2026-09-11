@@ -285,12 +285,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     return overlay || title || '';
   }, [overlay, title]);
 
-  const memoOverlayWrapper = (
-    <ContextIsolator space form>
-      {isFunction(memoOverlay) ? memoOverlay() : memoOverlay}
-    </ContextIsolator>
-  );
-
   // =========== Merged Props for Semantic ===========
   const mergedProps: TooltipProps = {
     ...props,
@@ -361,12 +355,30 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     ...colorInfo.overlayStyle,
   };
 
+  // Keep the arrow in the same filtered element as the popup body. This preserves a single
+  // composite shadow without making `backdrop-filter` a descendant of an element with `filter`.
+  const memoOverlayWrapper = (
+    <>
+      {mergedShowArrow && (
+        <div
+          className={clsx(`${prefixCls}-arrow`, mergedClassNames.arrow)}
+          style={mergedStyles.arrow}
+        >
+          <span className={`${prefixCls}-arrow-content`} />
+        </div>
+      )}
+      <ContextIsolator space form>
+        {isFunction(memoOverlay) ? memoOverlay() : memoOverlay}
+      </ContextIsolator>
+    </>
+  );
+
   const content = (
     <RcTooltip
       unique
       {...restProps}
       zIndex={zIndex}
-      showArrow={mergedShowArrow}
+      showArrow={false}
       placement={placement}
       mouseEnterDelay={mergedMouseEnterDelay}
       mouseLeaveDelay={mergedMouseLeaveDelay}
@@ -391,7 +403,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       visible={tempOpen}
       onVisibleChange={onInternalOpenChange}
       afterVisibleChange={afterOpenChange}
-      arrowContent={<span className={`${prefixCls}-arrow-content`} />}
       motion={{
         motionName: getTransitionName(
           rootPrefixCls,
