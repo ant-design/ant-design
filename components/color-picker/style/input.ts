@@ -22,22 +22,31 @@ const genInputStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
     lineWidth,
   } = token;
 
+  const steppersStyle: CSSObject = {
+    fontSize: fontSizeSM,
+    lineHeight: lineHeightSM,
+    padding: 0,
+    [`${antCls}-input-number-input`]: {
+      paddingInlineStart: paddingXXS,
+      paddingInlineEnd: 0,
+    },
+    [`${antCls}-input-number-handler-wrap`]: {
+      width: colorPickerInputNumberHandleWidth,
+    },
+  };
+
   return {
+    [`${componentCls}-steppers${antCls}-input-number`]: steppersStyle,
+
+    [`${componentCls}-gradient-angle`]: {
+      marginBottom: marginXS,
+      [`${componentCls}-gradient-angle-input`]: {
+        width: '100%',
+      },
+    },
+
     [`${componentCls}-input-container`]: {
       display: 'flex',
-      [`${componentCls}-steppers${antCls}-input-number`]: {
-        fontSize: fontSizeSM,
-        lineHeight: lineHeightSM,
-        padding: 0,
-        [`${antCls}-input-number-input`]: {
-          paddingInlineStart: paddingXXS,
-          paddingInlineEnd: 0,
-        },
-        [`${antCls}-input-number-handler-wrap`]: {
-          width: colorPickerInputNumberHandleWidth,
-        },
-      },
-
       [`${componentCls}-steppers${componentCls}-alpha-input`]: {
         flex: `0 0 ${unit(colorPickerAlphaInputWidth)}`,
         marginInlineStart: marginXXS,

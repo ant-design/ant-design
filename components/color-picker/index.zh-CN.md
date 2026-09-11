@@ -22,6 +22,7 @@ group:
 <code src="./demo/size.tsx">触发器尺寸大小</code>
 <code src="./demo/controlled.tsx">受控模式</code>
 <code src="./demo/line-gradient.tsx" version="5.20.0">渐变色</code>
+<code src="./demo/gradient-angle.tsx" version="6.7.0">渐变角度</code>
 <code src="./demo/text-render.tsx">渲染触发器文本</code>
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/disabled-alpha.tsx">禁用透明度</code>
@@ -61,6 +62,7 @@ group:
 | presets | 预设的颜色 | [PresetColorType](#presetcolortype) | - |  | × |
 | placement | 弹出窗口的位置 | 同 `Tooltips` 组件的 [placement](/components/tooltip-cn/#api) 参数设计 | `bottomLeft` |  | × |
 | panelRender | 自定义渲染面板 | `(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode` | - | 5.7.0 | × |
+| showGradientAngle | 是否显示渐变角度输入框 | boolean | false | 6.7.0 | × |
 | showText | 显示颜色文本 | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 | × |
 | size | 设置触发器大小 | `large` \| `medium` \| `small` | `medium` | 5.7.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
@@ -81,8 +83,17 @@ type ColorType =
   | {
       color: string;
       percent: number;
-    }[];
+    }[]
+  | {
+      angle?: number;
+      colors: {
+        color: string;
+        percent: number;
+      }[];
+    };
 ```
+
+渐变数组形式的默认角度为 `90`。如需自定义 `0` 到 `360` 度的线性渐变角度，请使用对象形式。`angle` 自 `6.7.0` 版本开始支持。
 
 #### PresetColorType
 
@@ -100,6 +111,7 @@ type PresetColorType = {
 <!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 版本 |
 | :-- | :-- | :-- | :-- |
+| getAngle | 获取线性渐变角度 | `() => number` | 6.7.0 |
 | toCssString | 转换成 CSS 支持的格式 | `() => string` | 5.20.0 |
 | toHex | 转换成 `hex` 格式字符，返回格式如：`1677ff` | `() => string` | - |
 | toHexString | 转换成 `hex` 格式颜色字符串，返回格式如：`#1677ff` | `() => string` | - |
