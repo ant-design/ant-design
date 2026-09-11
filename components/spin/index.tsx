@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 import { debounce } from 'throttle-debounce';
 
@@ -210,7 +211,7 @@ const Spin = React.forwardRef<SpinRef, SpinProps>((props, ref) => {
         indicator={mergedIndicator}
         percent={mergedPercent}
       />
-      {mergedDescription && (
+      {isReactRenderable(mergedDescription) && (
         <div
           className={clsx(
             `${prefixCls}-description`,

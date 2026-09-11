@@ -71,7 +71,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
   return (
     <div className={`${prefixCls}-inner-content`} onClick={onPopupClick}>
       <div className={`${prefixCls}-message`}>
-        {icon && (
+        {isReactRenderable(icon) && (
           <span
             className={clsx(`${prefixCls}-message-icon`, classNames?.icon)}
             style={styles?.icon}
