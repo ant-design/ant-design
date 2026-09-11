@@ -118,7 +118,9 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     }
 
     const nextVisible = !visible;
-    setVisible(nextVisible);
+    if (!visibilityControlled) {
+      setVisible(nextVisible);
+    }
 
     if (isPlainObject(visibilityToggle)) {
       visibilityToggle.onVisibleChange?.(nextVisible);
@@ -153,7 +155,9 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            onVisibleChange();
+            if (!e.repeat) {
+              onVisibleChange();
+            }
           }
         }}
         {...{ [iconTrigger]: onVisibleChange }}

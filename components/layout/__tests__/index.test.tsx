@@ -152,6 +152,22 @@ describe('Layout', () => {
         expect(onCollapse).toHaveBeenCalledTimes(1);
       });
 
+      it('treats undefined collapsed as uncontrolled', () => {
+        const onCollapse = jest.fn();
+        const { container } = render(
+          <Sider collapsible collapsed={undefined} onCollapse={onCollapse}>
+            Sider
+          </Sider>,
+        );
+
+        fireEvent.click(container.querySelector('.ant-layout-sider-trigger')!);
+
+        expect(container.querySelector('.ant-layout-sider')).toHaveClass(
+          'ant-layout-sider-collapsed',
+        );
+        expect(onCollapse).toHaveBeenCalledWith(true, 'clickTrigger');
+      });
+
       it('controlled', () => {
         const Demo: React.FC = () => {
           const [collapsed, setCollapsed] = React.useState(true);

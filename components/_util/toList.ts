@@ -1,4 +1,4 @@
-import { isNonNullable } from './is';
+import { isNonNullable } from '@rc-component/util';
 
 interface Config {
   skipEmpty?: boolean;

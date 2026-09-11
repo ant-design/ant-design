@@ -1,9 +1,9 @@
 import * as React from 'react';
 import type { CSSMotionProps } from '@rc-component/motion';
 import CSSMotion, { CSSMotionList } from '@rc-component/motion';
+import { isNonNullable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isNonNullable } from '../_util/is';
 import initCollapseMotion from '../_util/motion';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormContext, FormItemPrefixContext } from './context';

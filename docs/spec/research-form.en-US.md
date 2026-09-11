@@ -261,8 +261,8 @@ The determination of which layout method to use is similar to the [Detail Page](
 
 ### Which Modules or Components to Use
 
-- [Form](/components/form-cn#header)
-- [Steps](/components/steps-cn#header)
+- [Form](/components/form)
+- [Steps](/components/steps)
 
 ### External Reference
 
