@@ -2191,6 +2191,7 @@ Array [
           class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg
@@ -3096,6 +3097,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
           class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg
@@ -16150,6 +16152,7 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
             class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
+              aria-hidden="true"
               class="ant-empty-image"
             >
               <svg
@@ -16262,6 +16265,7 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
             class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
+              aria-hidden="true"
               class="ant-empty-image"
             >
               <svg
