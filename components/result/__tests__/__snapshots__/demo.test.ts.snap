@@ -8,6 +8,8 @@ exports[`renders components/result/demo/403.tsx correctly 1`] = `
     class="ant-result-icon ant-result-image"
   >
     <svg
+      aria-hidden="true"
+      focusable="false"
       height="294"
       width="251"
     >
@@ -310,6 +312,8 @@ exports[`renders components/result/demo/404.tsx correctly 1`] = `
     class="ant-result-icon ant-result-image"
   >
     <svg
+      aria-hidden="true"
+      focusable="false"
       height="294"
       width="252"
     >
@@ -612,6 +616,8 @@ exports[`renders components/result/demo/500.tsx correctly 1`] = `
     class="ant-result-icon ant-result-image"
   >
     <svg
+      aria-hidden="true"
+      focusable="false"
       height="294"
       width="254"
     >

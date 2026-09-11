@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-const NoFound: React.FC = () => (
-  <svg width="252" height="294">
+const NoFound: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg width="252" height="294" {...props}>
     <title>No Found</title>
     <g fill="none" fillRule="evenodd">
       <circle cx="126.75" cy="128.1" r="126" fill="#E4EBF7" />
