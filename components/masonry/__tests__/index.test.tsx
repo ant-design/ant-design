@@ -149,6 +149,121 @@ describe('Masonry', () => {
     );
   });
 
+  it('does not re-emit onLayoutChange when callback identity changes', async () => {
+    const callCountRef = { current: 0 };
+    const items = heights.map((height, index) => ({
+      key: `item-${index}`,
+      data: height,
+    }));
+
+    const DemoWithInlineCallback = () => {
+      const [, forceUpdate] = React.useState(0);
+
+      return (
+        <DemoMasonry
+          columns={3}
+          items={items}
+          onLayoutChange={() => {
+            callCountRef.current += 1;
+            // Guard: stop before React maximum update depth if regression returns.
+            if (callCountRef.current < 5) {
+              forceUpdate((count) => count + 1);
+            }
+          }}
+        />
+      );
+    };
+
+    render(<DemoWithInlineCallback />);
+    await resizeMasonry();
+    await waitFakeTimer();
+
+    expect(callCountRef.current).toBe(1);
+  });
+
+  it('does not re-emit onLayoutChange when inline items are recreated', async () => {
+    const callCountRef = { current: 0 };
+
+    const DemoWithInlineItems = () => {
+      const [, forceUpdate] = React.useState(0);
+      const items = heights.map((height, index) => ({
+        key: `item-${index}`,
+        data: height,
+      }));
+
+      return (
+        <DemoMasonry
+          columns={3}
+          items={items}
+          onLayoutChange={() => {
+            callCountRef.current += 1;
+            if (callCountRef.current < 5) {
+              forceUpdate((count) => count + 1);
+            }
+          }}
+        />
+      );
+    };
+
+    render(<DemoWithInlineItems />);
+    await resizeMasonry();
+    await waitFakeTimer();
+
+    expect(callCountRef.current).toBe(1);
+  });
+
+  it('does not re-emit onLayoutChange when only children references change', async () => {
+    const onLayoutChange = jest.fn();
+    const baseItems = [
+      { key: 'a', data: 40, children: <div className="bamboo">a</div> },
+      { key: 'b', data: 50, children: <div className="bamboo">b</div> },
+    ];
+
+    const { rerender } = render(
+      <DemoMasonry columns={2} items={baseItems} onLayoutChange={onLayoutChange} />,
+    );
+    await resizeMasonry();
+    expect(onLayoutChange).toHaveBeenCalledTimes(1);
+    onLayoutChange.mockClear();
+
+    rerender(
+      <DemoMasonry
+        columns={2}
+        items={[
+          { key: 'a', data: 40, children: <div className="bamboo">a-new</div> },
+          { key: 'b', data: 50, children: <div className="bamboo">b-new</div> },
+        ]}
+        onLayoutChange={onLayoutChange}
+      />,
+    );
+    await resizeMasonry();
+    await waitFakeTimer();
+
+    expect(onLayoutChange).not.toHaveBeenCalled();
+  });
+
+  it('emits onLayoutChange([]) when items are cleared', async () => {
+    const onLayoutChange = jest.fn();
+    const items = heights.map((height, index) => ({
+      key: `item-${index}`,
+      data: height,
+    }));
+
+    const { rerender } = render(
+      <DemoMasonry columns={3} items={items} onLayoutChange={onLayoutChange} />,
+    );
+    await resizeMasonry();
+
+    expect(onLayoutChange).toHaveBeenCalled();
+    onLayoutChange.mockClear();
+
+    rerender(<DemoMasonry columns={3} items={[]} onLayoutChange={onLayoutChange} />);
+    await resizeMasonry();
+    await waitFakeTimer();
+
+    expect(onLayoutChange).toHaveBeenCalledWith([]);
+  });
+
   it('should handle responsive columns', async () => {
     minWidth = '576px';
 
