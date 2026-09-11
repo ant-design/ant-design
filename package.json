@@ -151,7 +151,7 @@
     "@rc-component/tabs": "~2.0.0",
     "@rc-component/tooltip": "~1.5.2",
     "@rc-component/tour": "~2.4.0",
-    "@rc-component/tree": "~1.5.0",
+    "@rc-component/tree": "~1.5.3",
     "@rc-component/tree-select": "~1.18.0",
     "@rc-component/trigger": "^3.10.1",
     "@rc-component/upload": "~1.1.1",
