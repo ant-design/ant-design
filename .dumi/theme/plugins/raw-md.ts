@@ -136,6 +136,30 @@ function replacePrettierIgnore(md: string) {
 }
 
 /**
+ * 为中文原始 Markdown 中的站内链接补充语言后缀。
+ * 网页中的链接由 LocaleLink 处理，原始 Markdown 则需要在构建时显式指定中文路由。
+ */
+function replaceLocaleLinks(md: string, context: ContentFilterContext) {
+  if (detectDocLocale(context.file) !== 'zh-CN') {
+    return md;
+  }
+
+  return md.replace(/(?<!!)(\[[^\]\n]+\]\(\s*)(\/[^)\s]+)/g, (link, prefix, url) => {
+    const suffixIndex = url.search(/[?#]/);
+    const pathname = suffixIndex === -1 ? url : url.slice(0, suffixIndex);
+    const suffix = suffixIndex === -1 ? '' : url.slice(suffixIndex);
+    const trailingSlash = pathname.endsWith('/');
+    const basePath = trailingSlash ? pathname.slice(0, -1) : pathname;
+
+    if (basePath.endsWith('-cn')) {
+      return link;
+    }
+
+    return `${prefix}${basePath}-cn${trailingSlash ? '/' : ''}${suffix}`;
+  });
+}
+
+/**
  * 替换 markdown 中的 "Semantic DOM" 部分的 code 标签为指向生成的 semantic.md 文件的链接
  *
  * @param md - 原始 markdown 内容
@@ -569,6 +593,9 @@ function emitRawMd(api: IApi) {
       if (PLUGIN_OPTIONS.enableReplaceCodeSrc !== false) {
         content = replaceCodeSrcToMarkdown(content, file, PLUGIN_OPTIONS.codeAppend);
       }
+
+      // 5. 为中文原始 Markdown 中的站内链接补充语言后缀
+      content = replaceLocaleLinks(content, filterContext);
 
       const outMd = path.join(outRoot, `${relPath}.md`);
       fs.mkdirSync(path.dirname(outMd), { recursive: true });

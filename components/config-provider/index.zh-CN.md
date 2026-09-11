@@ -65,8 +65,8 @@ export default Demo;
 | popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。`false` 时会关闭虚拟滚动 | boolean \| number | - | 5.5.0 |
 | popupOverflow | Select 类组件弹层展示逻辑，默认为可视区域滚动，可配置成滚动区域滚动 | 'viewport' \| 'scroll' <InlinePopover previewURL="https://user-images.githubusercontent.com/5378891/230344474-5b9f7e09-0a5d-49e8-bae8-7d2abed6c837.png"></InlinePopover> | 'viewport' | 5.5.0 |
 | prefixCls | 设置统一样式前缀 | string | `ant` |  |
-| renderEmpty | 自定义组件空状态。参考 [空状态](/components/empty-cn) | function(componentName: string): ReactNode | - |  |
-| theme | 设置主题，参考 [定制主题](/docs/react/customize-theme-cn) | [Theme](/docs/react/customize-theme-cn#theme) | - | 5.0.0 |
+| renderEmpty | 自定义组件空状态。参考 [空状态](/components/empty) | function(componentName: string): ReactNode | - |  |
+| theme | 设置主题，参考 [定制主题](/docs/react/customize-theme) | [Theme](/docs/react/customize-theme#theme) | - | 5.0.0 |
 | variant | 设置全局输入组件形态变体 | `outlined` \| `filled` \| `borderless` | - | 5.19.0 |
 | virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.3.0 |
 | warning | 设置警告等级，`strict` 为 `false` 时会将废弃相关信息聚合为单条信息 | { strict: boolean } | - | 5.10.0 |
@@ -113,82 +113,82 @@ const {
 
 以下配置项用于设置对应组件的通用属性或全局效果配置，具体 API 见链接：
 
-- `affix`：[Affix](/components/affix-cn#api)（自 6.0.0 起支持）
-- `alert`：[Alert](/components/alert-cn#api)（自 5.7.0 起支持）
-- `anchor`：[Anchor](/components/anchor-cn#api)（自 6.0.0 起支持）
-- `app`：[App](/components/app-cn#api)（自 6.3.0 起支持）
-- `avatar`：[Avatar](/components/avatar-cn#api)（自 5.7.0 起支持）
-- `badge`：[Badge](/components/badge-cn#api)（自 5.7.0 起支持）
-- `borderBeam`：[BorderBeam](/components/border-beam-cn#api)（自 6.4.0 起支持）
-- `breadcrumb`：[Breadcrumb](/components/breadcrumb-cn#api)（自 5.7.0 起支持）
-- `button`：[Button](/components/button-cn#api)（自 5.6.0 起支持）
-- `calendar`：[Calendar](/components/calendar-cn#api)（自 6.0.0 起支持）
-- `card`：[Card](/components/card-cn#api)（自 5.14.0 起支持）
-- `cardMeta`：[Card.Meta](/components/card-cn#cardmeta)（自 6.0.0 起支持）
-- `carousel`：[Carousel](/components/carousel-cn#api)（自 5.7.0 起支持）
-- `cascader`：[Cascader](/components/cascader-cn#api)（自 5.13.0 起支持）
-- `checkbox`：[Checkbox](/components/checkbox-cn#api)（自 6.0.0 起支持）
-- `collapse`：[Collapse](/components/collapse-cn#api)（自 5.15.0 起支持）
-- `colorPicker`：[ColorPicker](/components/color-picker-cn#api)（自 6.3.0 起支持）
-- `datePicker`：[DatePicker](/components/date-picker-cn#api)（自 5.7.0 起支持）
-- `rangePicker`：[RangePicker](/components/date-picker-cn#rangepicker)（自 5.11.0 起支持）
-- `descriptions`：[Descriptions](/components/descriptions-cn#api)（自 5.23.0 起支持）
-- `divider`：[Divider](/components/divider-cn#api)（自 5.10.0 起支持）
-- `drawer`：[Drawer](/components/drawer-cn#api)（自 5.10.0 起支持）
-- `dropdown`：[Dropdown](/components/dropdown-cn#api)（自 5.11.0 起支持）
-- `empty`：[Empty](/components/empty-cn#api)（自 5.23.0 起支持）
-- `flex`：[Flex](/components/flex-cn#api)（自 5.10.0 起支持）
-- `floatButton`：[FloatButton](/components/float-button-cn#api)（自 6.0.0 起支持）
-- `floatButtonGroup`：[FloatButton.Group](/components/float-button-cn#floatbuttongroup)（自 5.16.0 起支持）
-- `form`：[Form](/components/form-cn#api)（自 4.8.0 起支持）
-- `image`：[Image](/components/image-cn#api)（自 5.14.0 起支持）
-- `input`：[Input](/components/input-cn#input)（自 4.2.0 起支持）
-- `inputNumber`：[InputNumber](/components/input-number-cn#api)（自 5.19.0 起支持）
-- `otp`：[Input.OTP](/components/input-cn#inputotp)（自 6.0.0 起支持）
-- `inputPassword`：[Input.Password](/components/input-cn#inputpassword)（自 6.4.0 起支持）
-- `inputSearch`：[Input.Search](/components/input-cn#inputsearch)（自 6.4.0 起支持）
-- `textArea`：[Input.TextArea](/components/input-cn#inputtextarea)（自 5.15.0 起支持）
-- `layout`：[Layout](/components/layout-cn#api)（自 5.7.0 起支持）
-- `list`：[List](/components/list-cn#api)（自 5.7.0 起支持）
-- `listy`：[Listy](/components/listy-cn#api)（自 6.6.0 起支持）
-- `masonry`：[Masonry](/components/masonry-cn#api)（自 6.0.0 起支持）
-- `menu`：[Menu](/components/menu-cn#api)（自 5.15.0 起支持）
-- `mentions`：[Mentions](/components/mentions-cn#api)（自 5.13.0 起支持）
-- `message`：[Message](/components/message-cn#api)（自 5.7.0 起支持）
-- `modal`：[Modal](/components/modal-cn#api)（自 5.10.0 起支持）
-- `notification`：[Notification](/components/notification-cn#api)（自 5.14.0 起支持）
-- `pagination`：[Pagination](/components/pagination-cn#api)（自 6.0.0 起支持）
-- `progress`：[Progress](/components/progress-cn#api)（自 5.7.0 起支持）
-- `radio`：[Radio](/components/radio-cn#api)（自 6.0.0 起支持）
-- `rate`：[Rate](/components/rate-cn#api)（自 5.7.0 起支持）
-- `result`：[Result](/components/result-cn#api)（自 6.0.0 起支持）
-- `ribbon`：[Badge.Ribbon](/components/badge-cn#badgeribbon)（自 6.0.0 起支持）
-- `skeleton`：[Skeleton](/components/skeleton-cn#api)（自 6.0.0 起支持）
-- `segmented`：[Segmented](/components/segmented-cn#api)（自 6.0.0 起支持）
-- `select`：[Select](/components/select-cn#api)（自 5.13.0 起支持）
-- `slider`：[Slider](/components/slider-cn#api)（自 5.23.0 起支持）
-- `switch`：[Switch](/components/switch-cn#api)（自 6.0.0 起支持）
-- `space`：[Space](/components/space-cn#api)（自 5.6.0 起支持）
-- `splitter`：[Splitter](/components/splitter-cn#api)（自 5.21.0 起支持）
-- `spin`：[Spin](/components/spin-cn#api)（自 5.20.0 起支持）
-- `statistic`：[Statistic](/components/statistic-cn#api)（自 6.0.0 起支持）
-- `steps`：[Steps](/components/steps-cn#api)（自 5.10.0 起支持）
-- `table`：[Table](/components/table-cn#api)（自 6.2.0 起支持）
-- `tabs`：[Tabs](/components/tabs-cn#api)（自 5.14.0 起支持）
-- `tag`：[Tag](/components/tag-cn#api)（自 5.14.0 起支持）
-- `timeline`：[Timeline](/components/timeline-cn#api)（自 6.0.0 起支持）
-- `timePicker`：[TimePicker](/components/time-picker-cn#api)（自 5.13.0 起支持）
-- `tour`：[Tour](/components/tour-cn#api)（自 5.14.0 起支持）
-- `tooltip`：[Tooltip](/components/tooltip-cn#api)（自 6.1.0 起支持）
-- `popover`：[Popover](/components/popover-cn#api)（自 5.23.0 起支持）
-- `popconfirm`：[Popconfirm](/components/popconfirm-cn#api)（自 5.23.0 起支持）
-- `qrcode`：[QRCode](/components/qr-code-cn#api)（自 6.0.0 起支持）
-- `transfer`：[Transfer](/components/transfer-cn#api)（自 5.7.0 起支持）
-- `tree`：[Tree](/components/tree-cn#api)（自 6.0.0 起支持）
-- `treeSelect`：[TreeSelect](/components/tree-select-cn#api)（自 5.19.0 起支持）
-- `typography`：[Typography](/components/typography-cn#api)（自 6.4.0 起支持）
-- `upload`：[Upload](/components/upload-cn#api)（自 5.27.0 起支持）
-- `watermark`：[Watermark](/components/watermark-cn#api)（自 6.0.0 起支持）
+- `affix`：[Affix](/components/affix#api)（自 6.0.0 起支持）
+- `alert`：[Alert](/components/alert#api)（自 5.7.0 起支持）
+- `anchor`：[Anchor](/components/anchor#api)（自 6.0.0 起支持）
+- `app`：[App](/components/app#api)（自 6.3.0 起支持）
+- `avatar`：[Avatar](/components/avatar#api)（自 5.7.0 起支持）
+- `badge`：[Badge](/components/badge#api)（自 5.7.0 起支持）
+- `borderBeam`：[BorderBeam](/components/border-beam#api)（自 6.4.0 起支持）
+- `breadcrumb`：[Breadcrumb](/components/breadcrumb#api)（自 5.7.0 起支持）
+- `button`：[Button](/components/button#api)（自 5.6.0 起支持）
+- `calendar`：[Calendar](/components/calendar#api)（自 6.0.0 起支持）
+- `card`：[Card](/components/card#api)（自 5.14.0 起支持）
+- `cardMeta`：[Card.Meta](/components/card#cardmeta)（自 6.0.0 起支持）
+- `carousel`：[Carousel](/components/carousel#api)（自 5.7.0 起支持）
+- `cascader`：[Cascader](/components/cascader#api)（自 5.13.0 起支持）
+- `checkbox`：[Checkbox](/components/checkbox#api)（自 6.0.0 起支持）
+- `collapse`：[Collapse](/components/collapse#api)（自 5.15.0 起支持）
+- `colorPicker`：[ColorPicker](/components/color-picker#api)（自 6.3.0 起支持）
+- `datePicker`：[DatePicker](/components/date-picker#api)（自 5.7.0 起支持）
+- `rangePicker`：[RangePicker](/components/date-picker#rangepicker)（自 5.11.0 起支持）
+- `descriptions`：[Descriptions](/components/descriptions#api)（自 5.23.0 起支持）
+- `divider`：[Divider](/components/divider#api)（自 5.10.0 起支持）
+- `drawer`：[Drawer](/components/drawer#api)（自 5.10.0 起支持）
+- `dropdown`：[Dropdown](/components/dropdown#api)（自 5.11.0 起支持）
+- `empty`：[Empty](/components/empty#api)（自 5.23.0 起支持）
+- `flex`：[Flex](/components/flex#api)（自 5.10.0 起支持）
+- `floatButton`：[FloatButton](/components/float-button#api)（自 6.0.0 起支持）
+- `floatButtonGroup`：[FloatButton.Group](/components/float-button#floatbuttongroup)（自 5.16.0 起支持）
+- `form`：[Form](/components/form#api)（自 4.8.0 起支持）
+- `image`：[Image](/components/image#api)（自 5.14.0 起支持）
+- `input`：[Input](/components/input#input)（自 4.2.0 起支持）
+- `inputNumber`：[InputNumber](/components/input-number#api)（自 5.19.0 起支持）
+- `otp`：[Input.OTP](/components/input#inputotp)（自 6.0.0 起支持）
+- `inputPassword`：[Input.Password](/components/input#inputpassword)（自 6.4.0 起支持）
+- `inputSearch`：[Input.Search](/components/input#inputsearch)（自 6.4.0 起支持）
+- `textArea`：[Input.TextArea](/components/input#inputtextarea)（自 5.15.0 起支持）
+- `layout`：[Layout](/components/layout#api)（自 5.7.0 起支持）
+- `list`：[List](/components/list#api)（自 5.7.0 起支持）
+- `listy`：[Listy](/components/listy#api)（自 6.6.0 起支持）
+- `masonry`：[Masonry](/components/masonry#api)（自 6.0.0 起支持）
+- `menu`：[Menu](/components/menu#api)（自 5.15.0 起支持）
+- `mentions`：[Mentions](/components/mentions#api)（自 5.13.0 起支持）
+- `message`：[Message](/components/message#api)（自 5.7.0 起支持）
+- `modal`：[Modal](/components/modal#api)（自 5.10.0 起支持）
+- `notification`：[Notification](/components/notification#api)（自 5.14.0 起支持）
+- `pagination`：[Pagination](/components/pagination#api)（自 6.0.0 起支持）
+- `progress`：[Progress](/components/progress#api)（自 5.7.0 起支持）
+- `radio`：[Radio](/components/radio#api)（自 6.0.0 起支持）
+- `rate`：[Rate](/components/rate#api)（自 5.7.0 起支持）
+- `result`：[Result](/components/result#api)（自 6.0.0 起支持）
+- `ribbon`：[Badge.Ribbon](/components/badge#badgeribbon)（自 6.0.0 起支持）
+- `skeleton`：[Skeleton](/components/skeleton#api)（自 6.0.0 起支持）
+- `segmented`：[Segmented](/components/segmented#api)（自 6.0.0 起支持）
+- `select`：[Select](/components/select#api)（自 5.13.0 起支持）
+- `slider`：[Slider](/components/slider#api)（自 5.23.0 起支持）
+- `switch`：[Switch](/components/switch#api)（自 6.0.0 起支持）
+- `space`：[Space](/components/space#api)（自 5.6.0 起支持）
+- `splitter`：[Splitter](/components/splitter#api)（自 5.21.0 起支持）
+- `spin`：[Spin](/components/spin#api)（自 5.20.0 起支持）
+- `statistic`：[Statistic](/components/statistic#api)（自 6.0.0 起支持）
+- `steps`：[Steps](/components/steps#api)（自 5.10.0 起支持）
+- `table`：[Table](/components/table#api)（自 6.2.0 起支持）
+- `tabs`：[Tabs](/components/tabs#api)（自 5.14.0 起支持）
+- `tag`：[Tag](/components/tag#api)（自 5.14.0 起支持）
+- `timeline`：[Timeline](/components/timeline#api)（自 6.0.0 起支持）
+- `timePicker`：[TimePicker](/components/time-picker#api)（自 5.13.0 起支持）
+- `tour`：[Tour](/components/tour#api)（自 5.14.0 起支持）
+- `tooltip`：[Tooltip](/components/tooltip#api)（自 6.1.0 起支持）
+- `popover`：[Popover](/components/popover#api)（自 5.23.0 起支持）
+- `popconfirm`：[Popconfirm](/components/popconfirm#api)（自 5.23.0 起支持）
+- `qrcode`：[QRCode](/components/qr-code#api)（自 6.0.0 起支持）
+- `transfer`：[Transfer](/components/transfer#api)（自 5.7.0 起支持）
+- `tree`：[Tree](/components/tree#api)（自 6.0.0 起支持）
+- `treeSelect`：[TreeSelect](/components/tree-select#api)（自 5.19.0 起支持）
+- `typography`：[Typography](/components/typography#api)（自 6.4.0 起支持）
+- `upload`：[Upload](/components/upload#api)（自 5.27.0 起支持）
+- `watermark`：[Watermark](/components/watermark#api)（自 6.0.0 起支持）
 - `wave`：[WaveConfig](#waveconfig)（自 5.8.0 起支持）
 
 ### WaveConfig
