@@ -56,7 +56,7 @@ dayjs.extend(customParseFormat)
 | cellRender | 自定义单元格的内容 | (current: number, info: { originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
 | changeOnScroll | 在滚动时改变选择值 | boolean | false | 5.14.0 | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.25.0 |
-| defaultValue | 默认时间 | [dayjs](http://day.js.org/) | - |  | × |
+| defaultValue | 默认时间 | [dayjs](https://day.js.org/) | - |  | × |
 | disabled | 禁用全部操作 | boolean | false |  | × |
 | disabledTime | 不可选择的时间 | [DisabledTime](#disabledtime) | - | 4.19.0 | × |
 | format | 展示的时间格式 | string | `HH:mm:ss` |  | × |
@@ -81,7 +81,7 @@ dayjs.extend(customParseFormat)
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  | 6.3.0 |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  | × |
-| value | 当前时间 | [dayjs](http://day.js.org/) | - |  | × |
+| value | 当前时间 | [dayjs](https://day.js.org/) | - |  | × |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  | × |
 | onChange | 时间发生变化的回调 | function(time: dayjs, timeString: string): void | - |  | × |

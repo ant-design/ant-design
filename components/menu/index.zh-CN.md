@@ -104,8 +104,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 | label | 菜单项标题 | ReactNode | - |  |
 | popupClassName | 子菜单样式，`mode="inline"` 时无效 | string | - |  |
 | popupOffset | 子菜单偏移量，`mode="inline"` 时无效 | \[number, number] | - |  |
-| onTitleClick | 点击子菜单标题 | function({ key, domEvent }) | - |  |
 | theme | 设置子菜单的主题，默认从 Menu 上继承 | `light` \| `dark` | - |  |
+| onTitleClick | 点击子菜单标题 | function({ key, domEvent }) | - |  |
 | popupRender | 自定义当前子菜单的弹出框 | (node: ReactElement, props: { item: SubMenuProps; keys: string[] }) => ReactNode | - |  |
 
 #### MenuItemGroupType
