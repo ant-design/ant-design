@@ -86,6 +86,10 @@ const localeValues: Locale = {
     expand: 'Mở rộng',
     collapse: 'Thu gọn',
   },
+  Carousel: {
+    prevSlide: 'Slide trước',
+    nextSlide: 'Slide tiếp theo',
+  },
   Form: {
     optional: '(Tùy chọn)',
     defaultValidateMessages: {

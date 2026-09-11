@@ -1,10 +1,10 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ActionButton from '../_util/ActionButton';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
-import { isReactRenderable } from '../_util/is';
 import Button from '../button/Button';
 import { convertLegacyProps } from '../button/buttonHelpers';
 import { ConfigContext } from '../config-provider';

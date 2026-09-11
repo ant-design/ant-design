@@ -59,8 +59,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabled | Whether disabled select | boolean | false |  |
 | ~~dropdownClassName~~ | The className of dropdown menu, please use `classNames.popup.root` instead | string | - | - |
 | ~~dropdownMatchSelectWidth~~ | Determine whether the dropdown menu and the input are the same width, please use `popupMatchSelectWidth` instead | boolean \| number | true | - |
-| ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (originNode: ReactNode) => ReactNode | - | 4.24.0 |
-| popupRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - |  |
+| ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (originNode: ReactElement) => ReactNode | - | 4.24.0 |
+| popupRender | Customize dropdown content | (originNode: ReactElement) => ReactNode | - |  |
 | ~~dropdownStyle~~ | The style of dropdown menu, use `styles.popup.root` instead | CSSProperties | - |  |
 | ~~popupClassName~~ | The className of dropdown menu, use `classNames.popup.root` instead | string | - | 4.23.0 |
 | popupMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |

@@ -191,7 +191,7 @@ export interface ColumnType<RecordType = AnyObject>
    * @deprecated Please use `filterDropdownProps.onOpenChange` instead.
    * @since 4.23.0
    */
-  onFilterDropdownOpenChange?: (visible: boolean) => void;
+  onFilterDropdownOpenChange?: (open: boolean) => void;
 }
 
 export interface ColumnGroupType<RecordType = AnyObject>
