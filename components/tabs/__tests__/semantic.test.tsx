@@ -35,9 +35,8 @@ describe('Tabs.Semantic', () => {
       <Tabs
         defaultActiveKey="1"
         type="editable-card"
-        // `more.visible` is spread over rc-tabs' own `visible`, so the popup mounts
-        // without having to fake element sizes to force tab overflow.
-        more={{ visible: true }}
+        // Open the more popup without having to fake element sizes to force tab overflow.
+        more={{ open: true }}
         styles={customStyles}
         classNames={customClassnames}
         items={Array.from({ length: 30 }, (_, i) => {
