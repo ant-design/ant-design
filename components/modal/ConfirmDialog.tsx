@@ -129,8 +129,11 @@ export const ConfirmContent: React.FC<
   const mergedLocale = staticLocale || locale;
 
   // ================== Locale Text ==================
-  const okTextLocale = okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText);
-  const cancelTextLocale = cancelText || mergedLocale?.cancelText;
+  const okTextLocale = fallbackProp(
+    okText,
+    mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText,
+  );
+  const cancelTextLocale = fallbackProp(cancelText, mergedLocale?.cancelText);
 
   // ================= Context Value =================
   const { closable } = restProps;
