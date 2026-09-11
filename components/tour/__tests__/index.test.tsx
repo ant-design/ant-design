@@ -828,4 +828,14 @@ describe('Tour', () => {
       'Custom Close Button',
     );
   });
+
+  // https://github.com/ant-design/ant-design/issues/53536
+  it('should fall back to design token zIndexPopup instead of rc-tour default when zIndex is not provided', () => {
+    const { baseElement } = render(
+      <Tour open steps={[{ title: 'test', description: 'test' }]} />,
+    );
+    const mask = baseElement.querySelector<HTMLElement>('.ant-tour-mask');
+    // Default Tour token zIndexPopup = zIndexPopupBase (1000) + 70 = 1070
+    expect(mask?.style.zIndex).toBe('1070');
+  });
 });
