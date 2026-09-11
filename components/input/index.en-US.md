@@ -113,6 +113,7 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 | --- | --- | --- | --- | --- | --- |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-search), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-search), string> | - | 6.0.0 | 6.0.0 |
 | enterButton | false displays the default button color, true uses the primary color, or you can provide a custom button. Conflicts with addonAfter. | ReactNode | false |  | × |
+| enterButtonProps | Props for the generated search button. Configure a custom `enterButton` element directly. | [ButtonProps](/components/button#api) | - | 6.7.0 | × |
 | loading | Search box with loading | boolean | false |  | × |
 | onSearch | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event, { source: "input" \| "clear" }) | - |  | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-search), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-search), CSSProperties> | - | 6.0.0 | 6.0.0 |
