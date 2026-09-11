@@ -6,121 +6,121 @@ exports[`renders components/listy/demo/basic.tsx correctly 1`] = `
   style="max-height:400px;overflow-y:auto;overflow-anchor:none"
 >
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:0"
   >
     Item 0
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:1"
   >
     Item 1
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:2"
   >
     Item 2
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:3"
   >
     Item 3
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:4"
   >
     Item 4
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:5"
   >
     Item 5
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:6"
   >
     Item 6
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:7"
   >
     Item 7
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:8"
   >
     Item 8
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:9"
   >
     Item 9
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:10"
   >
     Item 10
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:11"
   >
     Item 11
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:12"
   >
     Item 12
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:13"
   >
     Item 13
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:14"
   >
     Item 14
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:15"
   >
     Item 15
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:16"
   >
     Item 16
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:17"
   >
     Item 17
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:18"
   >
     Item 18
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:19"
   >
     Item 19
@@ -134,7 +134,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
   style="max-height:400px;overflow-y:auto;overflow-anchor:none"
 >
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:0"
   >
     <div
@@ -178,7 +178,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:1"
   >
     <div
@@ -222,7 +222,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:2"
   >
     <div
@@ -266,7 +266,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:3"
   >
     <div
@@ -310,7 +310,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:4"
   >
     <div
@@ -354,7 +354,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:5"
   >
     <div
@@ -398,7 +398,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:6"
   >
     <div
@@ -442,7 +442,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:7"
   >
     <div
@@ -486,7 +486,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:8"
   >
     <div
@@ -530,7 +530,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:9"
   >
     <div
@@ -574,7 +574,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:10"
   >
     <div
@@ -618,7 +618,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:11"
   >
     <div
@@ -662,7 +662,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:12"
   >
     <div
@@ -706,7 +706,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:13"
   >
     <div
@@ -750,7 +750,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:14"
   >
     <div
@@ -794,7 +794,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:15"
   >
     <div
@@ -838,7 +838,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:16"
   >
     <div
@@ -882,7 +882,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:17"
   >
     <div
@@ -926,7 +926,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:18"
   >
     <div
@@ -970,7 +970,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:19"
   >
     <div
@@ -1031,7 +1031,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       A
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:0"
     >
       <div
@@ -1052,7 +1052,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:1"
     >
       <div
@@ -1083,7 +1083,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       B
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:2"
     >
       <div
@@ -1104,7 +1104,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:3"
     >
       <div
@@ -1135,7 +1135,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       C
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:4"
     >
       <div
@@ -1156,7 +1156,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:5"
     >
       <div
@@ -1187,7 +1187,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       D
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:6"
     >
       <div
@@ -1208,7 +1208,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:7"
     >
       <div
@@ -1239,7 +1239,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       E
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:8"
     >
       <div
@@ -1260,7 +1260,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:9"
     >
       <div
@@ -1291,7 +1291,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       F
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:10"
     >
       <div
@@ -1312,7 +1312,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:11"
     >
       <div
@@ -1343,7 +1343,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       G
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:12"
     >
       <div
@@ -1364,7 +1364,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:13"
     >
       <div
@@ -1395,7 +1395,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       H
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:14"
     >
       <div
@@ -1416,7 +1416,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:15"
     >
       <div
@@ -1447,7 +1447,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       I
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:16"
     >
       <div
@@ -1468,7 +1468,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:17"
     >
       <div
@@ -1499,7 +1499,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       J
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:18"
     >
       <div
@@ -1520,7 +1520,7 @@ exports[`renders components/listy/demo/group.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:19"
     >
       <div
@@ -1550,7 +1550,7 @@ exports[`renders components/listy/demo/rich.tsx correctly 1`] = `
   style="max-height:400px;overflow-y:auto;overflow-anchor:none"
 >
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:0"
   >
     <div
@@ -1596,7 +1596,7 @@ exports[`renders components/listy/demo/rich.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:1"
   >
     <div
@@ -1642,7 +1642,7 @@ exports[`renders components/listy/demo/rich.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:2"
   >
     <div
@@ -1688,7 +1688,7 @@ exports[`renders components/listy/demo/rich.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:3"
   >
     <div
@@ -1734,7 +1734,7 @@ exports[`renders components/listy/demo/rich.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:4"
   >
     <div
@@ -1780,7 +1780,7 @@ exports[`renders components/listy/demo/rich.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:5"
   >
     <div
@@ -1826,7 +1826,7 @@ exports[`renders components/listy/demo/rich.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:6"
   >
     <div
@@ -1872,7 +1872,7 @@ exports[`renders components/listy/demo/rich.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:7"
   >
     <div
@@ -1918,7 +1918,7 @@ exports[`renders components/listy/demo/rich.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:8"
   >
     <div
@@ -1964,7 +1964,7 @@ exports[`renders components/listy/demo/rich.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:9"
   >
     <div
@@ -2010,7 +2010,7 @@ exports[`renders components/listy/demo/rich.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:10"
   >
     <div
@@ -2056,7 +2056,7 @@ exports[`renders components/listy/demo/rich.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-listy-item"
+    class="ant-listy-item ant-listy-item-hoverable"
     data-key="item:11"
   >
     <div
@@ -2335,61 +2335,61 @@ exports[`renders components/listy/demo/scroll-to.tsx correctly 1`] = `
         Group 0
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:0"
       >
         Item 0
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:1"
       >
         Item 1
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:2"
       >
         Item 2
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:3"
       >
         Item 3
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:4"
       >
         Item 4
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:5"
       >
         Item 5
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:6"
       >
         Item 6
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:7"
       >
         Item 7
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:8"
       >
         Item 8
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:9"
       >
         Item 9
@@ -2405,61 +2405,61 @@ exports[`renders components/listy/demo/scroll-to.tsx correctly 1`] = `
         Group 1
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:10"
       >
         Item 10
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:11"
       >
         Item 11
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:12"
       >
         Item 12
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:13"
       >
         Item 13
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:14"
       >
         Item 14
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:15"
       >
         Item 15
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:16"
       >
         Item 16
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:17"
       >
         Item 17
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:18"
       >
         Item 18
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:19"
       >
         Item 19
@@ -2475,61 +2475,61 @@ exports[`renders components/listy/demo/scroll-to.tsx correctly 1`] = `
         Group 2
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:20"
       >
         Item 20
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:21"
       >
         Item 21
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:22"
       >
         Item 22
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:23"
       >
         Item 23
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:24"
       >
         Item 24
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:25"
       >
         Item 25
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:26"
       >
         Item 26
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:27"
       >
         Item 27
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:28"
       >
         Item 28
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:29"
       >
         Item 29
@@ -2545,61 +2545,61 @@ exports[`renders components/listy/demo/scroll-to.tsx correctly 1`] = `
         Group 3
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:30"
       >
         Item 30
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:31"
       >
         Item 31
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:32"
       >
         Item 32
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:33"
       >
         Item 33
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:34"
       >
         Item 34
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:35"
       >
         Item 35
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:36"
       >
         Item 36
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:37"
       >
         Item 37
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:38"
       >
         Item 38
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:39"
       >
         Item 39
@@ -2615,61 +2615,61 @@ exports[`renders components/listy/demo/scroll-to.tsx correctly 1`] = `
         Group 4
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:40"
       >
         Item 40
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:41"
       >
         Item 41
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:42"
       >
         Item 42
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:43"
       >
         Item 43
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:44"
       >
         Item 44
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:45"
       >
         Item 45
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:46"
       >
         Item 46
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:47"
       >
         Item 47
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:48"
       >
         Item 48
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:49"
       >
         Item 49
@@ -2685,61 +2685,61 @@ exports[`renders components/listy/demo/scroll-to.tsx correctly 1`] = `
         Group 5
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:50"
       >
         Item 50
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:51"
       >
         Item 51
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:52"
       >
         Item 52
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:53"
       >
         Item 53
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:54"
       >
         Item 54
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:55"
       >
         Item 55
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:56"
       >
         Item 56
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:57"
       >
         Item 57
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:58"
       >
         Item 58
       </div>
       <div
-        class="ant-listy-item"
+        class="ant-listy-item ant-listy-item-hoverable"
         data-key="item:59"
       >
         Item 59
@@ -2773,21 +2773,21 @@ exports[`renders components/listy/demo/style-class.tsx correctly 1`] = `
       Design
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:0"
       style="font-style:italic"
     >
       Olivia
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:1"
       style="font-style:italic"
     >
       Liam
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:2"
       style="font-style:italic"
     >
@@ -2804,21 +2804,21 @@ exports[`renders components/listy/demo/style-class.tsx correctly 1`] = `
       Engineering
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:3"
       style="font-style:italic"
     >
       Noah
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:4"
       style="font-style:italic"
     >
       Ava
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:5"
       style="font-style:italic"
     >
@@ -2835,14 +2835,14 @@ exports[`renders components/listy/demo/style-class.tsx correctly 1`] = `
       Marketing
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:6"
       style="font-style:italic"
     >
       Sophia
     </div>
     <div
-      class="ant-listy-item"
+      class="ant-listy-item ant-listy-item-hoverable"
       data-key="item:7"
       style="font-style:italic"
     >
