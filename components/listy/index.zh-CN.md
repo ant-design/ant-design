@@ -19,6 +19,7 @@ tag: 6.6.0
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基础用法</code>
+<code src="./demo/row-hoverable-debug.tsx" version="6.7.0" debug>关闭行悬浮效果</code>
 <code src="./demo/virtual.tsx">虚拟滚动</code>
 <code src="./demo/horizontal.tsx" version="6.7.0">横向滚动</code>
 <code src="./demo/group.tsx">分组与吸顶</code>
