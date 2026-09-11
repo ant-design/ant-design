@@ -92,6 +92,94 @@ describe('useSizes', () => {
     expect(sizes).toEqual([400, 600]);
   });
 
+  it('should respect min when container shrinks', () => {
+    const items = [
+      {
+        size: 200,
+        min: 200,
+      },
+      {
+        size: 800,
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, 600));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes[0]).toBeCloseTo(200);
+    expect(postPxSizes[1]).toBeCloseTo(400);
+  });
+
+  it('should respect percentage min when container shrinks', () => {
+    const items = [
+      {
+        size: 200,
+        min: '40%',
+      },
+      {
+        size: 800,
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, 600));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes[0]).toBeCloseTo(240);
+    expect(postPxSizes[1]).toBeCloseTo(360);
+  });
+
+  it('should respect max when container grows', () => {
+    const items = [
+      {
+        size: 100,
+        max: 200,
+      },
+      {
+        size: 100,
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, containerSize));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes).toEqual([200, 800]);
+  });
+
+  it('should keep collapsed panel at zero when container changes', () => {
+    const items = [
+      {
+        size: 0,
+        min: 200,
+      },
+      {
+        size: 1000,
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, 600));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes).toEqual([0, 600]);
+  });
+
+  it('should preserve proportions when limits cannot fit the container', () => {
+    const items = [
+      {
+        size: 200,
+        min: 400,
+      },
+      {
+        size: 800,
+        min: 400,
+      },
+    ];
+
+    const { result } = renderHook(() => useSizes(items, 600));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes).toEqual([120, 480]);
+  });
+
   it('should correct when all size is 0', () => {
     const items = [
       {
