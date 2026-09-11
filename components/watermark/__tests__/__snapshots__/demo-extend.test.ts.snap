@@ -123,8 +123,12 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 aria-describedby="test-id"
+                aria-expanded="false"
+                aria-label="rgba(0,0,0,0.15)"
                 class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
                 id="color"
+                role="button"
+                tabindex="0"
               >
                 <div
                   class="ant-color-picker-color-block"

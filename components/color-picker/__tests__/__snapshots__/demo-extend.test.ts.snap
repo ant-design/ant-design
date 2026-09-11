@@ -4,7 +4,11 @@ exports[`renders components/color-picker/demo/allowClear.tsx extend context corr
 Array [
   <div
     aria-describedby="test-id"
+    aria-expanded="false"
+    aria-label="rgb(22,119,255)"
     class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+    role="button"
+    tabindex="0"
   >
     <div
       class="ant-color-picker-color-block"
@@ -386,7 +390,11 @@ exports[`renders components/color-picker/demo/base.tsx extend context correctly 
 Array [
   <div
     aria-describedby="test-id"
+    aria-expanded="false"
+    aria-label="rgb(22,119,255)"
     class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+    role="button"
+    tabindex="0"
   >
     <div
       class="ant-color-picker-color-block"
@@ -763,7 +771,11 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
   >
     <div
       aria-describedby="test-id"
+      aria-expanded="false"
+      aria-label="rgb(22,119,255)"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -1132,7 +1144,11 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
   >
     <div
       aria-describedby="test-id"
+      aria-expanded="false"
+      aria-label="rgb(22,119,255)"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -1505,7 +1521,12 @@ exports[`renders components/color-picker/demo/disabled.tsx extend context correc
 Array [
   <div
     aria-describedby="test-id"
+    aria-disabled="true"
+    aria-expanded="false"
+    aria-label="rgb(22,119,255)"
     class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var ant-color-picker-trigger-disabled"
+    role="button"
+    tabindex="-1"
   >
     <div
       class="ant-color-picker-color-block"
@@ -1882,7 +1903,11 @@ exports[`renders components/color-picker/demo/disabled-alpha.tsx extend context 
 Array [
   <div
     aria-describedby="test-id"
+    aria-expanded="false"
+    aria-label="rgb(22,119,255)"
     class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+    role="button"
+    tabindex="0"
   >
     <div
       class="ant-color-picker-color-block"
@@ -2172,7 +2197,11 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
       >
         <div
           aria-describedby="test-id"
+          aria-expanded="false"
+          aria-label="rgb(22,119,255)"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -2556,7 +2585,11 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
       >
         <div
           aria-describedby="test-id"
+          aria-expanded="false"
+          aria-label="rgb(23,120,255)"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -3146,7 +3179,11 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
       >
         <div
           aria-describedby="test-id"
+          aria-expanded="false"
+          aria-label="rgb(22,119,255)"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -3739,7 +3776,11 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
   >
     <div
       aria-describedby="test-id"
+      aria-expanded="false"
+      aria-label="linear-gradient(90deg, rgb(16,142,233) 0%, rgb(135,208,104) 100%)"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -4208,7 +4249,11 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
   >
     <div
       aria-describedby="test-id"
+      aria-expanded="false"
+      aria-label="linear-gradient(90deg, rgb(16,142,233) 0%, rgb(135,208,104) 100%)"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -4656,7 +4701,11 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
       >
         <div
           aria-describedby="test-id"
+          aria-expanded="false"
+          aria-label="rgb(22,119,255)"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -5049,7 +5098,11 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
       >
         <div
           aria-describedby="test-id"
+          aria-expanded="false"
+          aria-label="rgb(22,119,255)"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -5999,7 +6052,11 @@ exports[`renders components/color-picker/demo/presets.tsx extend context correct
 Array [
   <div
     aria-describedby="test-id"
+    aria-expanded="false"
+    aria-label="rgb(22,119,255)"
     class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+    role="button"
+    tabindex="0"
   >
     <div
       class="ant-color-picker-color-block"
@@ -6802,8 +6859,12 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
   >
     <div
       aria-describedby="test-id"
+      aria-expanded="true"
+      aria-label="rgb(22,119,255)"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var ant-popover-open ant-color-picker-trigger-active"
+      role="button"
       style="margin: 0px;"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -7187,7 +7248,11 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       >
         <div
           aria-describedby="test-id"
+          aria-expanded="false"
+          aria-label="rgb(22,119,255)"
           class="ant-color-picker-trigger ant-color-picker-sm css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -7556,7 +7621,11 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       >
         <div
           aria-describedby="test-id"
+          aria-expanded="false"
+          aria-label="rgb(22,119,255)"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -7925,7 +7994,11 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       >
         <div
           aria-describedby="test-id"
+          aria-expanded="false"
+          aria-label="rgb(22,119,255)"
           class="ant-color-picker-trigger ant-color-picker-lg css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -8302,7 +8375,11 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       >
         <div
           aria-describedby="test-id"
+          aria-expanded="false"
+          aria-label="rgb(22,119,255)"
           class="ant-color-picker-trigger ant-color-picker-sm css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -8676,7 +8753,11 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       >
         <div
           aria-describedby="test-id"
+          aria-expanded="false"
+          aria-label="rgb(22,119,255)"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -9050,7 +9131,11 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
       >
         <div
           aria-describedby="test-id"
+          aria-expanded="false"
+          aria-label="rgb(22,119,255)"
           class="ant-color-picker-trigger ant-color-picker-lg css-var-test-id ant-color-picker-css-var"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-color-picker-color-block"
@@ -9439,7 +9524,11 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
     >
       <div
         aria-describedby="test-id"
+        aria-expanded="false"
+        aria-label="rgb(22,119,255)"
         class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var acss-pbemrr"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-color-picker-color-block"
@@ -9804,7 +9893,11 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
     >
       <div
         aria-describedby="test-id"
+        aria-expanded="false"
+        aria-label="rgb(114,46,209)"
         class="ant-color-picker-trigger ant-color-picker-lg css-var-test-id ant-color-picker-css-var acss-pbemrr"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-color-picker-color-block"
@@ -10175,7 +10268,11 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
   >
     <div
       aria-describedby="test-id"
+      aria-expanded="false"
+      aria-label="rgb(22,119,255)"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -10559,7 +10656,11 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
   >
     <div
       aria-describedby="test-id"
+      aria-expanded="false"
+      aria-label="rgb(22,119,255)"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -10935,7 +11036,11 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
   >
     <div
       aria-describedby="test-id"
+      aria-expanded="false"
+      aria-label="rgb(22,119,255)"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -11701,7 +11806,11 @@ exports[`renders components/color-picker/demo/trigger-event.tsx extend context c
 Array [
   <div
     aria-describedby="test-id"
+    aria-expanded="false"
+    aria-label="rgb(22,119,255)"
     class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+    role="button"
+    tabindex="0"
   >
     <div
       class="ant-color-picker-color-block"

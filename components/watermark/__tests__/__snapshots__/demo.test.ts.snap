@@ -114,8 +114,12 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-expanded="false"
+                aria-label="rgba(0,0,0,0.15)"
                 class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
                 id="color"
+                role="button"
+                tabindex="0"
               >
                 <div
                   class="ant-color-picker-color-block"

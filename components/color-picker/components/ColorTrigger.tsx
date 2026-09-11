@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import type { CSSProperties, MouseEventHandler } from 'react';
+import type { CSSProperties, KeyboardEventHandler, MouseEventHandler } from 'react';
 import React, { forwardRef, useMemo } from 'react';
 import { ColorBlock } from '@rc-component/color-picker';
 import { pickAttrs } from '@rc-component/util';
@@ -26,6 +26,8 @@ export interface ColorTriggerProps {
   onClick?: MouseEventHandler<HTMLDivElement>;
   onMouseEnter?: MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: MouseEventHandler<HTMLDivElement>;
+  onKeyDown?: KeyboardEventHandler<HTMLDivElement>;
+  onOpenChange?: (open: boolean) => void;
   activeIndex: number;
 }
 
@@ -42,6 +44,8 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
     styles,
     showText,
     activeIndex,
+    onKeyDown,
+    onOpenChange,
     ...rest
   } = props;
 
@@ -50,6 +54,20 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
   const colorTextCellPrefixCls = `${colorTextPrefixCls}-cell`;
 
   const [locale] = useLocale('ColorPicker');
+
+  const onInternalKeyDown: KeyboardEventHandler<HTMLDivElement> = (event) => {
+    onKeyDown?.(event);
+
+    if (
+      !event.defaultPrevented &&
+      !event.repeat &&
+      !disabled &&
+      (event.key === 'Enter' || event.key === ' ')
+    ) {
+      event.preventDefault();
+      onOpenChange?.(!open);
+    }
+  };
 
   // ============================== Text ==============================
   const desc: React.ReactNode = React.useMemo(() => {
@@ -117,6 +135,11 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
   return (
     <div
       ref={ref}
+      role="button"
+      aria-disabled={disabled || undefined}
+      aria-expanded={open}
+      aria-label={color.toCssString()}
+      tabIndex={disabled ? -1 : 0}
       className={clsx(colorTriggerPrefixCls, className, classNames.root, {
         [`${colorTriggerPrefixCls}-active`]: open,
         [`${colorTriggerPrefixCls}-disabled`]: disabled,
@@ -126,6 +149,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
         ...style,
       }}
       {...pickAttrs(rest)}
+      onKeyDown={onInternalKeyDown}
     >
       {containerNode}
       {showText && (
