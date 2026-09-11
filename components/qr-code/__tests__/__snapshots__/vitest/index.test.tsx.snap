@@ -24,6 +24,7 @@ exports[`QRCode test > custom status render 1`] = `
       </div>
     </div>
     <canvas
+      aria-label="test"
       height="160"
       role="img"
       width="160"
@@ -43,6 +44,7 @@ exports[`QRCode test > custom status render 1`] = `
       </div>
     </div>
     <canvas
+      aria-label="test"
       height="160"
       role="img"
       width="160"
@@ -62,6 +64,7 @@ exports[`QRCode test > custom status render 1`] = `
       </div>
     </div>
     <canvas
+      aria-label="test"
       height="160"
       role="img"
       width="160"
@@ -79,6 +82,7 @@ exports[`QRCode test > should correct render 1`] = `
     style="background-color: transparent; width: 160px; height: 160px;"
   >
     <canvas
+      aria-label="test"
       height="160"
       role="img"
       width="160"
