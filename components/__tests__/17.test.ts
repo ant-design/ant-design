@@ -1,4 +1,4 @@
-jest.mock('../_util/getReactMajorVersionCanDelMe', () => {
+jest.mock('../_util/getReactVersionCanDelMe', () => {
   return () => [17, 0, 0];
 });
 
