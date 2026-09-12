@@ -48,6 +48,26 @@ export function getOverflowOptions(
       baseOverflow.shiftX = true;
       baseOverflow.adjustX = true;
       break;
+
+    // angle placements: keep the arrow-aligned axis fixed, but allow the
+    // perpendicular (cardinal) axis to slide when the popup is overflowed.
+    case 'topLeft':
+    case 'topRight':
+    case 'bottomLeft':
+    case 'bottomRight':
+      baseOverflow.shiftX = arrowOffset.arrowOffsetHorizontal * 2 + arrowWidth;
+      baseOverflow.adjustX = true;
+      baseOverflow.adjustY = true;
+      break;
+
+    case 'leftTop':
+    case 'leftBottom':
+    case 'rightTop':
+    case 'rightBottom':
+      baseOverflow.shiftY = arrowOffset.arrowOffsetVertical * 2 + arrowWidth;
+      baseOverflow.adjustX = true;
+      baseOverflow.adjustY = true;
+      break;
   }
 
   const mergedOverflow = {

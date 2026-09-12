@@ -173,10 +173,10 @@ describe('Dropdown', () => {
     expect(triggerProps.builtinPlacements).toEqual(
       expect.objectContaining({
         bottomLeft: expect.objectContaining({
-          overflow: {
+          overflow: expect.objectContaining({
             adjustX: true,
             adjustY: true,
-          },
+          }),
         }),
       }),
     );
