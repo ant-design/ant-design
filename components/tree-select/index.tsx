@@ -315,7 +315,6 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
     },
     rootClassName,
-    mergedClassNames.root,
     mergedClassNames.popup?.root,
     cssVarCls,
     rootCls,
@@ -441,7 +440,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}
       popupClassName={mergedPopupClassName}
-      popupStyle={{ ...mergedStyles.root, ...mergedStyles.popup?.root, zIndex }}
+      popupStyle={{ ...mergedStyles.popup?.root, zIndex }}
       popupRender={mergedPopupRender}
       onPopupVisibleChange={mergedOnOpenChange}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
