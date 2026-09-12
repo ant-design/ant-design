@@ -1,4 +1,4 @@
-import getReactVersion from './_util/getReactMajorVersionCanDelMe';
+import getReactVersion from './_util/getReactVersionCanDelMe';
 import warning from './_util/warning';
 
 export type { Breakpoint } from './_util/responsiveObserver';
