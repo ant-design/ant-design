@@ -3,13 +3,13 @@ import React from 'react';
 import FloatButton from '..';
 import type { FloatButtonGroupProps, FloatButtonProps } from '..';
 import type { GetProp } from '../../_util/type';
-import { render } from '../../../tests/utils';
-import type { ButtonProps } from '../../button/Button';
-import ConfigProvider from '../../config-provider';
 import {
   expectSemanticRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import { render } from '../../../tests/utils';
+import type { ButtonProps } from '../../button/Button';
+import ConfigProvider from '../../config-provider';
 
 describe('FloatButton.Semantic', () => {
   it('should update classNames when props change (FloatButton)', () => {
@@ -193,6 +193,130 @@ describe('FloatButton.Semantic', () => {
     const { container } = render(<FloatButton classNames={classNames} styles={styles} />);
     expect(container.querySelector('.float-btn-custom')).toBeTruthy();
     expect(container.querySelector('.float-btn-icon-custom')).toBeTruthy();
+  });
+
+  it('should apply className and styles from ConfigProvider', () => {
+    const { container } = render(
+      <ConfigProvider
+        floatButton={{
+          className: 'global-float',
+          style: { right: 120 },
+          classNames: { root: 'global-root' },
+          styles: { root: { bottom: 99 } },
+        }}
+      >
+        <FloatButton />
+      </ConfigProvider>,
+    );
+
+    const floatButton = container.querySelector('.ant-float-btn');
+    expect(floatButton).toHaveClass('global-float', 'global-root');
+    expect(floatButton).toHaveStyle({ right: '120px', bottom: '99px' });
+  });
+
+  it('should apply ConfigProvider classNames and styles to semantic elements', () => {
+    const { container } = render(
+      <ConfigProvider
+        floatButton={{
+          classNames: { icon: 'global-icon', content: 'global-content' },
+          styles: {
+            icon: { color: 'rgb(255, 0, 0)', fontSize: '20px' },
+            content: { color: 'rgb(0, 0, 255)' },
+          },
+        }}
+      >
+        <FloatButton
+          shape="square"
+          icon="little"
+          content="bamboo"
+          classNames={{ icon: 'custom-icon' }}
+          styles={{ icon: { color: 'rgb(0, 128, 0)' } }}
+        />
+      </ConfigProvider>,
+    );
+
+    const icon = container.querySelector<HTMLElement>('.ant-float-btn-icon');
+    expect(icon).toHaveClass('global-icon', 'custom-icon');
+    expect(icon).toHaveStyle({ color: 'rgb(0, 128, 0)', fontSize: '20px' });
+
+    const content = container.querySelector<HTMLElement>('.ant-float-btn-content');
+    expect(content).toHaveClass('global-content');
+    expect(content).toHaveStyle({ color: 'rgb(0, 0, 255)' });
+  });
+
+  it('should merge ConfigProvider and Group classNames and styles for items', () => {
+    const { container } = render(
+      <ConfigProvider
+        floatButton={{
+          classNames: { root: 'global-root' },
+          styles: {
+            root: {
+              marginTop: '1px',
+              paddingTop: '1px',
+              paddingBottom: '1px',
+            },
+          },
+          style: { marginTop: '2px', paddingTop: '2px' },
+        }}
+      >
+        <FloatButton.Group
+          classNames={{ item: 'group-item' }}
+          styles={{ item: { paddingTop: '3px' } }}
+        >
+          <FloatButton
+            shape="square"
+            icon="little"
+            content="bamboo"
+            style={{ paddingBottom: '4px' }}
+          />
+        </FloatButton.Group>
+      </ConfigProvider>,
+    );
+
+    const item = container.querySelector<HTMLElement>('.ant-float-btn-group-list .ant-float-btn');
+    expect(item).toHaveClass('global-root', 'group-item');
+    expect(item).toHaveStyle({
+      marginTop: '2px',
+      paddingTop: '3px',
+      paddingBottom: '4px',
+    });
+  });
+
+  it('should apply className and styles from ConfigProvider to BackTop', () => {
+    const { container } = render(
+      <ConfigProvider
+        floatButton={{
+          className: 'global-float',
+          classNames: { root: 'global-root' },
+          style: { right: 120, zIndex: 2001 },
+          styles: { root: { bottom: 99 } },
+        }}
+      >
+        <FloatButton.BackTop visibilityHeight={0} />
+      </ConfigProvider>,
+    );
+
+    const backTop = container.querySelector('.ant-float-btn');
+    expect(backTop).toHaveClass('global-float', 'global-root');
+    expect(backTop).toHaveStyle({ right: '120px', bottom: '99px', zIndex: 2001 });
+  });
+
+  it('FloatButton should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        floatButton={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <FloatButton
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-float-btn'));
   });
 
   it('FloatButton.Group should follow root style priority', () => {
