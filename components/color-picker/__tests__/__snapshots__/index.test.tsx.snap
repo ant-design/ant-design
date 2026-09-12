@@ -6,10 +6,11 @@ exports[`ColorPicker Should disabled work 1`] = `
     class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-trigger-disabled"
   >
     <div
+      aria-disabled="true"
       aria-label="Clear color"
-      class="ant-color-picker-clear"
+      class="ant-color-picker-clear ant-color-picker-clear-disabled"
       role="button"
-      tabindex="0"
+      tabindex="-1"
     />
   </div>
 </div>
