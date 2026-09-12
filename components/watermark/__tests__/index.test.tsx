@@ -287,4 +287,12 @@ describe('Watermark', () => {
     await waitFakeTimer();
     expect(onRemove).not.toHaveBeenCalled();
   });
+
+  it('should render numeric 0 content without error', async () => {
+    const fillText = jest.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
+    render(<Watermark content={0} />);
+    await waitFakeTimer();
+    expect(fillText).toHaveBeenCalledWith('0', expect.any(Number), expect.any(Number));
+    fillText.mockRestore();
+  });
 });

@@ -48,13 +48,13 @@ export const getContentLines = (
   toList(content, { skipEmpty: true }).map((item) => {
     if (isWatermarkText(item)) {
       return {
-        text: item.text ?? '',
+        text: String(item.text ?? ''),
         font: mergeProps(font, item.font ?? {}),
       };
     }
 
     return {
-      text: item ?? '',
+      text: String(item ?? ''),
       font,
     };
   });
