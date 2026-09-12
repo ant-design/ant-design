@@ -462,7 +462,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           aria-label={ariaLabel}
           tabIndex={tabIndex}
         >
-          {icon || <EditOutlined role="button" />}
+          {isReactRenderable(icon) ? icon : <EditOutlined role="button" />}
         </button>
       </Tooltip>
     ) : null;

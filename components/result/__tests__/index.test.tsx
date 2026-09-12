@@ -138,4 +138,9 @@ describe('Result', () => {
     const root = getByLabelText('操作结果');
     expect(root).toHaveAttribute('aria-describedby', 'result-description');
   });
+
+  it('should render numeric 0 icon', () => {
+    const { container } = render(<Result status="success" icon={0} />);
+    expect(container.querySelector('.ant-result-icon')?.textContent).toBe('0');
+  });
 });

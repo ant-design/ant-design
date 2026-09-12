@@ -547,4 +547,16 @@ describe('Typography', () => {
       });
     });
   });
+
+  it('should render numeric 0 icon in editable and copyable', () => {
+    const { container } = render(
+      <div>
+        <Paragraph editable={{ icon: 0 }}>Editable text</Paragraph>
+        <Paragraph copyable={{ icon: 0 }}>Copyable text</Paragraph>
+      </div>,
+    );
+
+    expect(container.querySelector('.ant-typography-edit')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-typography-copy')?.textContent).toBe('0');
+  });
 });
