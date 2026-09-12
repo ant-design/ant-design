@@ -1688,6 +1688,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             class="config-radio-button config-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="config-radio-button-input"
               name="test-id"
@@ -1696,6 +1697,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Month
@@ -1708,6 +1710,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             class="config-radio-button"
           >
             <input
+              aria-label="Year"
               class="config-radio-button-input"
               name="test-id"
               type="radio"
@@ -1715,6 +1718,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Year
@@ -2555,6 +2559,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             class="config-radio-button"
           >
             <input
+              aria-label="Month"
               class="config-radio-button-input"
               name="test-id"
               type="radio"
@@ -2562,6 +2567,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Month
@@ -2574,6 +2580,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             class="config-radio-button config-radio-button-checked"
           >
             <input
+              aria-label="Year"
               checked=""
               class="config-radio-button-input"
               name="test-id"
@@ -2582,6 +2589,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Year
@@ -2935,6 +2943,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             class="config-radio-button config-radio-button-checked config-radio-button-disabled"
           >
             <input
+              aria-label="Month"
               checked=""
               class="config-radio-button-input"
               disabled=""
@@ -2944,6 +2953,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Month
@@ -2956,6 +2966,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             class="config-radio-button config-radio-button-disabled"
           >
             <input
+              aria-label="Year"
               class="config-radio-button-input"
               disabled=""
               name="test-id"
@@ -2964,6 +2975,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Year
@@ -3805,6 +3817,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             class="config-radio-button config-radio-button-disabled"
           >
             <input
+              aria-label="Month"
               class="config-radio-button-input"
               disabled=""
               name="test-id"
@@ -3813,6 +3826,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Month
@@ -3825,6 +3839,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             class="config-radio-button config-radio-button-checked config-radio-button-disabled"
           >
             <input
+              aria-label="Year"
               checked=""
               class="config-radio-button-input"
               disabled=""
@@ -3834,6 +3849,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Year
@@ -4185,6 +4201,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             class="config-radio-button config-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="config-radio-button-input"
               name="test-id"
@@ -4193,6 +4210,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Month
@@ -4205,6 +4223,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             class="config-radio-button"
           >
             <input
+              aria-label="Year"
               class="config-radio-button-input"
               name="test-id"
               type="radio"
@@ -4212,6 +4231,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Year
@@ -5052,6 +5072,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             class="config-radio-button"
           >
             <input
+              aria-label="Month"
               class="config-radio-button-input"
               name="test-id"
               type="radio"
@@ -5059,6 +5080,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Month
@@ -5071,6 +5093,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             class="config-radio-button config-radio-button-checked"
           >
             <input
+              aria-label="Year"
               checked=""
               class="config-radio-button-input"
               name="test-id"
@@ -5079,6 +5102,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Year
@@ -5430,6 +5454,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
             class="config-radio-button config-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="config-radio-button-input"
               name="test-id"
@@ -5438,6 +5463,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Month
@@ -5450,6 +5476,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
             class="config-radio-button"
           >
             <input
+              aria-label="Year"
               class="config-radio-button-input"
               name="test-id"
               type="radio"
@@ -5457,6 +5484,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Year
@@ -6297,6 +6325,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
             class="config-radio-button"
           >
             <input
+              aria-label="Month"
               class="config-radio-button-input"
               name="test-id"
               type="radio"
@@ -6304,6 +6333,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Month
@@ -6316,6 +6346,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
             class="config-radio-button config-radio-button-checked"
           >
             <input
+              aria-label="Year"
               checked=""
               class="config-radio-button-input"
               name="test-id"
@@ -6324,6 +6355,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Year
@@ -6675,6 +6707,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             class="config-radio-button config-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="config-radio-button-input"
               name="test-id"
@@ -6683,6 +6716,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Month
@@ -6695,6 +6729,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             class="config-radio-button"
           >
             <input
+              aria-label="Year"
               class="config-radio-button-input"
               name="test-id"
               type="radio"
@@ -6702,6 +6737,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Year
@@ -7542,6 +7578,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             class="config-radio-button"
           >
             <input
+              aria-label="Month"
               class="config-radio-button-input"
               name="test-id"
               type="radio"
@@ -7549,6 +7586,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Month
@@ -7561,6 +7599,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             class="config-radio-button config-radio-button-checked"
           >
             <input
+              aria-label="Year"
               checked=""
               class="config-radio-button-input"
               name="test-id"
@@ -7569,6 +7608,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             />
           </span>
           <span
+            aria-hidden="true"
             class="config-radio-button-label"
           >
             Year
@@ -7920,6 +7960,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -7928,6 +7969,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Month
@@ -7940,6 +7982,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Year"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -7947,6 +7990,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Year
@@ -8787,6 +8831,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Month"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -8794,6 +8839,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Month
@@ -8806,6 +8852,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Year"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -8814,6 +8861,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Year
@@ -9165,6 +9213,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -9173,6 +9222,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Month
@@ -9185,6 +9235,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Year"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -9192,6 +9243,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Year
@@ -10032,6 +10084,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Month"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -10039,6 +10092,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Month
@@ -10051,6 +10105,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Year"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -10059,6 +10114,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Year
@@ -21086,6 +21142,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
         class="config-radio ant-wave-target config-radio-checked"
       >
         <input
+          aria-label="Bamboo"
           checked=""
           class="config-radio-input"
           name="test-id"
@@ -21093,6 +21150,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="config-radio-label"
       >
         Bamboo
@@ -21110,6 +21168,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
         class="config-radio-button config-radio-button-checked"
       >
         <input
+          aria-label="Light"
           checked=""
           class="config-radio-button-input"
           name="test-id"
@@ -21117,6 +21176,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="config-radio-button-label"
       >
         Light
@@ -21139,6 +21199,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
         class="config-radio ant-wave-target config-radio-checked config-radio-disabled"
       >
         <input
+          aria-label="Bamboo"
           checked=""
           class="config-radio-input"
           disabled=""
@@ -21147,6 +21208,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
         />
       </span>
       <span
+        aria-hidden="true"
         class="config-radio-label"
       >
         Bamboo
@@ -21164,6 +21226,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
         class="config-radio-button config-radio-button-checked config-radio-button-disabled"
       >
         <input
+          aria-label="Light"
           checked=""
           class="config-radio-button-input"
           disabled=""
@@ -21172,6 +21235,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
         />
       </span>
       <span
+        aria-hidden="true"
         class="config-radio-button-label"
       >
         Light
@@ -21194,6 +21258,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
         class="config-radio ant-wave-target config-radio-checked"
       >
         <input
+          aria-label="Bamboo"
           checked=""
           class="config-radio-input"
           name="test-id"
@@ -21201,6 +21266,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
         />
       </span>
       <span
+        aria-hidden="true"
         class="config-radio-label"
       >
         Bamboo
@@ -21218,6 +21284,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
         class="config-radio-button config-radio-button-checked"
       >
         <input
+          aria-label="Light"
           checked=""
           class="config-radio-button-input"
           name="test-id"
@@ -21225,6 +21292,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
         />
       </span>
       <span
+        aria-hidden="true"
         class="config-radio-button-label"
       >
         Light
@@ -21247,6 +21315,7 @@ exports[`ConfigProvider components Radio configProvider componentSize medium 1`]
         class="config-radio ant-wave-target config-radio-checked"
       >
         <input
+          aria-label="Bamboo"
           checked=""
           class="config-radio-input"
           name="test-id"
@@ -21254,6 +21323,7 @@ exports[`ConfigProvider components Radio configProvider componentSize medium 1`]
         />
       </span>
       <span
+        aria-hidden="true"
         class="config-radio-label"
       >
         Bamboo
@@ -21271,6 +21341,7 @@ exports[`ConfigProvider components Radio configProvider componentSize medium 1`]
         class="config-radio-button config-radio-button-checked"
       >
         <input
+          aria-label="Light"
           checked=""
           class="config-radio-button-input"
           name="test-id"
@@ -21278,6 +21349,7 @@ exports[`ConfigProvider components Radio configProvider componentSize medium 1`]
         />
       </span>
       <span
+        aria-hidden="true"
         class="config-radio-button-label"
       >
         Light
@@ -21300,6 +21372,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
         class="config-radio ant-wave-target config-radio-checked"
       >
         <input
+          aria-label="Bamboo"
           checked=""
           class="config-radio-input"
           name="test-id"
@@ -21307,6 +21380,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
         />
       </span>
       <span
+        aria-hidden="true"
         class="config-radio-label"
       >
         Bamboo
@@ -21324,6 +21398,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
         class="config-radio-button config-radio-button-checked"
       >
         <input
+          aria-label="Light"
           checked=""
           class="config-radio-button-input"
           name="test-id"
@@ -21331,6 +21406,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
         />
       </span>
       <span
+        aria-hidden="true"
         class="config-radio-button-label"
       >
         Light
@@ -21353,6 +21429,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
+          aria-label="Bamboo"
           checked=""
           class="ant-radio-input"
           name="test-id"
@@ -21360,6 +21437,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Bamboo
@@ -21377,6 +21455,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Light"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -21384,6 +21463,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Light
@@ -21406,6 +21486,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
         class="prefix-Radio ant-wave-target prefix-Radio-checked"
       >
         <input
+          aria-label="Bamboo"
           checked=""
           class="prefix-Radio-input"
           name="test-id"
@@ -21413,6 +21494,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="prefix-Radio-label"
       >
         Bamboo
@@ -21430,6 +21512,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
         class="prefix-Radio-button prefix-Radio-button-checked"
       >
         <input
+          aria-label="Light"
           checked=""
           class="prefix-Radio-button-input"
           name="test-id"
@@ -21437,6 +21520,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="prefix-Radio-button-label"
       >
         Light

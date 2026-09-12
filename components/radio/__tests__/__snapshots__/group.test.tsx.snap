@@ -12,6 +12,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
       class="my-radio ant-wave-target"
     >
       <input
+        aria-label="Apple"
         class="my-radio-input"
         name="test-id"
         type="radio"
@@ -19,6 +20,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
       />
     </span>
     <span
+      aria-hidden="true"
       class="my-radio-label"
     >
       Apple
@@ -32,6 +34,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
       class="my-radio ant-wave-target"
     >
       <input
+        aria-label="Orange"
         class="my-radio-input"
         name="test-id"
         type="radio"
@@ -39,6 +42,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
       />
     </span>
     <span
+      aria-hidden="true"
       class="my-radio-label"
     >
       Orange
