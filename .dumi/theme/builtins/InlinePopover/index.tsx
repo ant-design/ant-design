@@ -21,12 +21,12 @@ export interface InlinePopoverProps {
 const InlinePopover: React.FC<InlinePopoverProps> = (props) => {
   const { previewURL } = props;
   const [locale] = useLocale(locales);
-  const [visible, setVisible] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
   return (
     <>
       <Tooltip title={locale.tip}>
-        <Typography.Link onClick={() => setVisible(true)}>
+        <Typography.Link onClick={() => setOpen(true)}>
           <PictureOutlined />
         </Typography.Link>
       </Tooltip>
@@ -36,10 +36,10 @@ const InlinePopover: React.FC<InlinePopoverProps> = (props) => {
         style={{ display: 'none' }}
         src={previewURL}
         preview={{
-          visible,
+          open,
           src: previewURL,
-          onVisibleChange: (value) => {
-            setVisible(value);
+          onOpenChange: (nextOpen) => {
+            setOpen(nextOpen);
           },
         }}
       />

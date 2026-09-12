@@ -87,8 +87,8 @@ export default App;
 
 ## 链接
 
-- [首页](/index-cn)
-- [所有组件](/components/overview-cn)
+- [首页](/index)
+- [所有组件](/components/overview)
 - [国内镜像](https://github.com/ant-design/ant-design/issues/25661)
 - [更新日志](/changelog)
 - [React 底层基础组件](https://react-component.github.io/)
@@ -116,7 +116,7 @@ export default App;
 
 ## 非 React 的实现
 
-我们采用 React 封装了一套 Ant Design 的组件库，其他语言的 UI 实现可以参考[此处](/docs/spec/introduce-cn#%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0)。
+我们采用 React 封装了一套 Ant Design 的组件库，其他语言的 UI 实现可以参考[此处](/docs/spec/introduce#%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0)。
 
 ## 谁在使用
 

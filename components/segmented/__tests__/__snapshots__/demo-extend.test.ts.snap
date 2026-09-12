@@ -12,7 +12,7 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -105,7 +105,7 @@ exports[`renders components/segmented/demo/block.tsx extend context correctly 1`
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -169,7 +169,7 @@ Array [
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -258,7 +258,7 @@ Array [
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -352,7 +352,7 @@ exports[`renders components/segmented/demo/controlled.tsx extend context correct
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -416,7 +416,7 @@ Array [
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -475,7 +475,7 @@ Array [
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -543,7 +543,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
     >
       <label
         aria-describedby="test-id"
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -721,7 +721,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -834,7 +834,7 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-disabled"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text ant-segmented-item-disabled"
       >
         <input
           checked=""
@@ -895,7 +895,7 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -994,7 +994,7 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1066,7 +1066,7 @@ exports[`renders components/segmented/demo/icon-only.tsx extend context correctl
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -1174,7 +1174,7 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
         </div>
       </label>
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1217,7 +1217,7 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1313,7 +1313,7 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1401,7 +1401,7 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1489,7 +1489,7 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1588,7 +1588,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
         class="ant-segmented-group"
       >
         <label
-          class="ant-segmented-item ant-segmented-item-selected"
+          class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
         >
           <input
             checked=""
@@ -1657,7 +1657,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
         class="ant-segmented-group"
       >
         <label
-          class="ant-segmented-item ant-segmented-item-selected"
+          class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
         >
           <input
             checked=""
@@ -1725,7 +1725,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
         class="ant-segmented-group"
       >
         <label
-          class="ant-segmented-item ant-segmented-item-selected"
+          class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
         >
           <input
             checked=""
@@ -1896,7 +1896,7 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -2027,7 +2027,7 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
         style="text-align: start;"
       >
         <input
@@ -2169,7 +2169,7 @@ exports[`renders components/segmented/demo/vertical.tsx extend context correctly
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -2259,7 +2259,7 @@ exports[`renders components/segmented/demo/with-icon.tsx extend context correctl
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -2395,7 +2395,7 @@ exports[`renders components/segmented/demo/with-name.tsx extend context correctl
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
