@@ -155,6 +155,7 @@ const localeValues: Locale = {
     transparent: 'வெளிப்படையானது',
     singleColor: 'ஒற்றை நிறம்',
     gradientColor: 'சாய்வு நிறம்',
+    clear: 'நிறத்தை அழி',
   },
 };
 
