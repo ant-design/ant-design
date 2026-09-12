@@ -560,6 +560,7 @@ const genVerticalStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
 
       [`${formItemCls}-control`]: {
         width: '100%',
+        flex: 'none',
       },
       [`> ${formItemCls}-row > ${formItemCls}-label,
         > ${formItemCls}-row > ${antCls}-col-24${formItemCls}-label,

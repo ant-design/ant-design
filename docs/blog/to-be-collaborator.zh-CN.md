@@ -164,4 +164,4 @@ npm run test component/XXX
 
 了解更多 Ant Design 的开发流程和和注意事项，可以参考：
 
-- [贡献者开发维护指南](/docs/blog/contributor-development-maintenance-guide-cn)
+- [贡献者开发维护指南](/docs/blog/contributor-development-maintenance-guide)

@@ -46,13 +46,13 @@ antd 在判断是否需要创建内容的包裹 DOM 时，采用 `@rc-component/
 
 该问题在 `3.11.0` 后已经解决。如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentElement}>` 来在 Popover 中渲染组件，或者使用其他的 `getXxxxContainer` 参数。
 
-可以参考 [Select 属性](/components/select-cn#select-props)
+可以参考 [Select 属性](/components/select#select-props)
 
 相关 issue：[#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
 ## `Select Dropdown DatePicker TimePicker Popover Popconfirm` 会跟随滚动条上下移动？
 
-使用 `<Select getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](/components/select-cn#select-props)）来将组件渲染到滚动区域内，或者使用其他的 `getXxxxContainer` 参数。如果需要全局解决这个问题，可以使用 `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](/components/config-provider-cn#api)）
+使用 `<Select getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](/components/select#select-props)）来将组件渲染到滚动区域内，或者使用其他的 `getXxxxContainer` 参数。如果需要全局解决这个问题，可以使用 `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](/components/config-provider#api)）
 
 并且保证 parentElement 是 `position: relative` 或 `position: absolute`。
 
@@ -60,7 +60,7 @@ antd 在判断是否需要创建内容的包裹 DOM 时，采用 `@rc-component/
 
 ## 如何修改 Ant Design 的默认主题？
 
-可以参考[定制主题](/docs/react/customize-theme-cn)。
+可以参考[定制主题](/docs/react/customize-theme)。
 
 ## 如何修改 Ant Design 组件的默认样式？
 
@@ -80,7 +80,7 @@ antd 在 minor 和 patch 版本迭代中会避免引入破坏性变更，遵从�
 
 ## 如何使用其他时间日期库如 Moment.js？
 
-可以参考[使用自定义日期库](/docs/react/use-custom-date-library-cn)。
+可以参考[使用自定义日期库](/docs/react/use-custom-date-library)。
 
 ## 当我动态改变 `defaultValue` 的时候它并没有生效。
 
@@ -96,7 +96,7 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 ## 多个组件放一排时没有垂直对齐怎么办？
 
-尝试使用 [Space](/components/space-cn) 组件来使他们对齐。
+尝试使用 [Space](/components/space) 组件来使他们对齐。
 
 ## 为什么第三方 SVG 图标设置了 margin-block-end？ {#faq-icon-margin-block-end}
 
@@ -110,7 +110,7 @@ Breadcrumb、Collapse、Segmented、Tabs、Tag 等组件会对相应图标位置
 
 ## antd 覆盖了我的全局样式！
 
-是的，antd 在设计的时候就是用来开发一个完整的应用的，为了方便，我们覆盖了一些全局样式，现在还不能移除，想要了解更多请追踪 [这个 issue](https://github.com/ant-design/ant-design/issues/4331)，或者参考这个教程 [How to avoid modifying global styles?](/docs/react/customize-theme-cn#how-to-avoid-modifying-global-styles)
+是的，antd 在设计的时候就是用来开发一个完整的应用的，为了方便，我们覆盖了一些全局样式，现在还不能移除，想要了解更多请追踪 [这个 issue](https://github.com/ant-design/ant-design/issues/4331)，或者参考这个教程 [How to avoid modifying global styles?](/docs/react/customize-theme#how-to-avoid-modifying-global-styles)
 
 ## 我没法安装 `antd` 和 `antd` 的依赖，顺便提一句，我在中国大陆。
 
@@ -149,7 +149,7 @@ Breadcrumb、Collapse、Segmented、Tabs、Tag 等组件会对相应图标位置
 
 你应该自行部署 iconfont 文件到你的网络上，参考这个[例子](https://github.com/ant-design/antd-init/tree/7c1a33cadb98f2fd8688fe527dd7f98215b9bced/examples/local-iconfont)。 [#1070](https://github.com/ant-design/ant-design/issues/1070)
 
-在 `3.9.x` 版本后，[我们会使用 svg 图标](/components/icon-cn#about-svg-icons)，你就不用担心本地部署 iconfont 的问题了！
+在 `3.9.x` 版本后，[我们会使用 svg 图标](/components/icon#about-svg-icons)，你就不用担心本地部署 iconfont 的问题了！
 
 ## 如何拓展 antd 的组件？
 
@@ -176,7 +176,7 @@ type InputRef = GetRef<typeof Input>;
 
 ## 我的组件默认语言是英文的？如何切回中文的。
 
-请尝试使用 [ConfigProvider](/components/config-provider-cn#config-provider-demo-locale) 组件来包裹你的应用。
+请尝试使用 [ConfigProvider](/components/config-provider#config-provider-demo-locale) 组件来包裹你的应用。
 
 如果日期组件的国际化仍未生效，请配置 `dayjs.locale('zh-cn')` 并**检查你本地的 `dayjs` 版本和 `antd` 依赖的 `dayjs` 版本是否一致**。
 
@@ -202,7 +202,7 @@ npm ls dayjs
 
 ## 开启了 Content Security Policy (CSP) 如何处理动态样式？
 
-你可以通过 [ConfigProvider](/components/config-provider-cn#csp) 来配置 `nonce` 属性。
+你可以通过 [ConfigProvider](/components/config-provider#csp) 来配置 `nonce` 属性。
 
 ## 当我指定了 DatePicker/RangePicker 的 `mode` 属性后，点击后无法选择年份/月份？
 
@@ -223,9 +223,9 @@ npm ls dayjs
 
 message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲染方式，是单独渲染在 `ReactDOM.render` 生成的 DOM 树节点上，无法共享 ConfigProvider 提供的 context 信息。你有两种解决方式：
 
-1. 使用官方提供的 [message.useMessage](/components/message-cn/#message-demo-hooks)、[notification.useNotification](/components/notification-cn#faq-context-redux) 和 [Modal.useModal](/components/modal-cn#faq-context-redux) 来调用这些方法。
+1. 使用官方提供的 [message.useMessage](/components/message/#message-demo-hooks)、[notification.useNotification](/components/notification#faq-context-redux) 和 [Modal.useModal](/components/modal#faq-context-redux) 来调用这些方法。
 
-2. 使用 [App.useApp](/components/app-cn#basic-usage) 直接调用 message、notification、modal 实例方法。
+2. 使用 [App.useApp](/components/app#basic-usage) 直接调用 message、notification、modal 实例方法。
 
 ## 为什么我不应该通过 ref 访问组件内部的 props 和 state？
 
@@ -239,7 +239,7 @@ message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲�
 
 ## 动态样式有 `:where` 导致旧版浏览器不支持怎么办？
 
-请参考动态主题文档 [兼容旧版浏览器](/docs/react/compatible-style-cn) 部分内容。
+请参考动态主题文档 [兼容旧版浏览器](/docs/react/compatible-style) 部分内容。
 
 ## CSS-in-JS 与 tailwindcss 优先级冲突？
 
@@ -247,7 +247,7 @@ message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲�
 
 ## CSS-in-JS 如何与 Shadow DOM 一同使用？
 
-请参考文档 [Shadow DOM 场景](/docs/react/compatible-style-cn#shadow-dom-场景) 内容。
+请参考文档 [Shadow DOM 场景](/docs/react/compatible-style#shadow-dom-场景) 内容。
 
 ## 如何关闭组件动画
 
@@ -263,7 +263,7 @@ import { ConfigProvider } from 'antd';
 
 ## 如何支持 SSR？
 
-请参考动态主题文档 [服务端渲染](/docs/react/server-side-rendering-cn) 部分内容。
+请参考动态主题文档 [服务端渲染](/docs/react/server-side-rendering) 部分内容。
 
 ## V5 中 colorPrimary 和 colorInfo 及 colorLink 之间是什么关系？
 

@@ -151,9 +151,9 @@ title: 详情页
 
 ### 会用到哪些模块或组件
 
-- [描述列表](/components/descriptions-cn)
-- [折叠面板](/components/collapse-cn/)
-- [表格](/components/table-cn/)
+- [描述列表](/components/descriptions)
+- [折叠面板](/components/collapse/)
+- [表格](/components/table/)
 
 ### 外部参考文章
 
