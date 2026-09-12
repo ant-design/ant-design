@@ -11,7 +11,7 @@ function filterKeys(keys: TransferKey[], dataKeys: Set<TransferKey>) {
 }
 
 function flattenKeys(keys: Set<TransferKey>) {
-  return Array.from(keys).join(';');
+  return JSON.stringify(Array.from(keys, (key) => [typeof key, String(key)]));
 }
 
 function useSelection<T extends { key: TransferKey }>(

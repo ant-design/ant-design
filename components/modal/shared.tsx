@@ -1,6 +1,7 @@
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
+import fallbackProp from '../_util/fallbackProp';
 import { isFunction } from '../_util/is';
 import { DisabledContextProvider } from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
@@ -52,8 +53,8 @@ export const Footer: React.FC<
   const [locale] = useLocale('Modal', getConfirmLocale());
 
   // ================== Locale Text ==================
-  const okTextLocale: React.ReactNode = okText || locale?.okText;
-  const cancelTextLocale = cancelText || locale?.cancelText;
+  const okTextLocale: React.ReactNode = fallbackProp(okText, locale?.okText);
+  const cancelTextLocale = fallbackProp(cancelText, locale?.cancelText);
 
   const memoizedValue = React.useMemo<ModalContextProps>(() => {
     return {
