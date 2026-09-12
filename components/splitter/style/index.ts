@@ -95,6 +95,8 @@ const genSplitterStyle: GenerateStyle<SplitterToken, CSSObject> = (token) => {
           ...centerStyle,
           zIndex: 1,
 
+          '&:focus-visible': genFocusOutline(token),
+
           // Hover background
           '&::before': {
             content: '""',
