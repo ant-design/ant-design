@@ -25,6 +25,7 @@ type PlacementStyleConfig = {
   horizontal: HorizontalPlacement;
   inlineEnd: HorizontalPlacement;
   motionOffset: PlacementMotionOffset;
+  leaveMotionOffset: PlacementMotionOffset;
   baseMotionOffset?: PlacementMotionOffset;
   isCenterPlacement: boolean;
 };
@@ -43,11 +44,12 @@ const getPlacementOffset = (
 });
 
 /** Convert placement offsets into the transform used by notice motion. */
-const getMotionTransform = (motionOffset?: PlacementMotionOffset) => {
+const getMotionTransform = (motionOffset?: PlacementMotionOffset, config?: { scale?: string }) => {
   const x = motionOffset?.x ?? '0';
   const y = motionOffset?.y ?? '0';
+  const scale = config?.scale ?? 'var(--notification-scale, 1)';
 
-  return `translate3d(${x}, ${y}, 0) scale(var(--notification-scale, 1))`;
+  return `translate3d(${x}, ${y}, 0) scale(${scale})`;
 };
 
 /** Build the placement metadata used by position and motion styles. */
@@ -69,6 +71,9 @@ const getPlacementStyleConfig = (
     horizontal,
     inlineEnd,
     motionOffset: isCenterPlacement ? { x: '-50%', y: offset } : { x: offset },
+    leaveMotionOffset: isCenterPlacement
+      ? { x: '-50%', y: `calc(${offset} / 2)` }
+      : { x: `calc(${offset} / 2)` },
     baseMotionOffset: isCenterPlacement ? { x: '-50%' } : undefined,
     isCenterPlacement,
   };
@@ -130,6 +135,9 @@ const genPlacementStyle = (token: NotificationToken, config: PlacementStyleConfi
   const enterTransform = getMotionTransform(config.motionOffset);
   // Transform used when fully visible; top/bottom keep translateX(-50%) for centering.
   const baseTransform = getMotionTransform(config.baseMotionOffset);
+  const leaveTransform = getMotionTransform(config.leaveMotionOffset, {
+    scale: 'calc(var(--notification-scale, 1) - 0.05)',
+  });
   const transformOrigin = getPlacementTransformOrigin(vertical);
 
   return {
@@ -175,18 +183,18 @@ const genPlacementStyle = (token: NotificationToken, config: PlacementStyleConfi
       },
 
       [`${noticeMotionCls}-appear-active, ${noticeMotionCls}-enter-active`]: {
-        opacity: 1,
+        opacity: 'var(--notification-opacity, 1)',
         transform: baseTransform,
       },
 
       [`${noticeMotionCls}-leave-start`]: {
-        opacity: 1,
+        opacity: 'var(--notification-opacity, 1)',
         transform: baseTransform,
       },
 
       [`${noticeMotionCls}-leave-active`]: {
         opacity: 0,
-        transform: enterTransform,
+        transform: leaveTransform,
       },
 
       [`&${componentCls}-stack:not(${componentCls}-stack-expanded)`]: {
