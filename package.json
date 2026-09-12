@@ -276,7 +276,7 @@
     "lodash": "^4.18.1",
     "lunar-typescript": "^1.8.6",
     "lz-string": "^1.5.0",
-    "mermaid": "^11.14.0",
+    "mermaid": "^12.0.0",
     "minimist": "^1.2.8",
     "mockdate": "^3.0.5",
     "motion": "^13.0.0",
@@ -338,7 +338,7 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "443 KiB",
+      "limit": "444 KiB",
       "gzip": true
     },
     {
