@@ -41,6 +41,8 @@ const localeValues: Locale = {
     selectionMenu: 'Valintavalikko',
     expand: 'Laajenna riviä',
     collapse: 'Tiivistä rivi',
+    expandAll: 'Laajenna kaikki rivit',
+    collapseAll: 'Tiivistä kaikki rivit',
   },
   Tour: {
     Next: 'Seuraava',

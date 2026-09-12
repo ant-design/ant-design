@@ -36,6 +36,8 @@ const localeValues: Locale = {
     sortTitle: 'დალაგება',
     expand: 'სტრიქონის გაშლა',
     collapse: 'სტრიქონის შეკუმშვა',
+    expandAll: 'ყველა სტრიქონის გაშლა',
+    collapseAll: 'ყველა სტრიქონის შეკუმშვა',
     triggerDesc: 'დაღმავალი დალაგება',
     triggerAsc: 'აღმავალი დალაგება',
     cancelSort: 'დალაგების გაუქმება',

@@ -36,6 +36,8 @@ const localeValues: Locale = {
     sortTitle: 'តម្រៀប',
     expand: 'ពន្លាត',
     collapse: 'បិតបាំង',
+    expandAll: 'ពន្លាតជួរដេកទាំងអស់',
+    collapseAll: 'បិតបាំងជួរដេកទាំងអស់',
     triggerDesc: 'ចុចដើម្បីរៀបតាមលំដាប់ធំ',
     triggerAsc: 'ចុចដើម្បីរៀបតាមលំដាប់តូច​',
     cancelSort: 'ចុចដើម្បីបោះបង់',

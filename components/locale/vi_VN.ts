@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Sắp xếp',
     expand: 'Mở rộng dòng',
     collapse: 'Thu gọn dòng',
+    expandAll: 'Mở rộng tất cả các dòng',
+    collapseAll: 'Thu gọn tất cả các dòng',
     triggerDesc: 'Nhấp để sắp xếp giảm dần',
     triggerAsc: 'Nhấp để sắp xếp tăng dần',
     cancelSort: 'Nhấp để hủy sắp xếp',

@@ -109,6 +109,190 @@ describe('Table.expand', () => {
     expect(container.querySelectorAll('.expand-icon')).toHaveLength(1);
   });
 
+  describe('expand all', () => {
+    const expandedRowRender = () => <div>Expanded content</div>;
+
+    it('expands and collapses all rows on the current page', () => {
+      const onExpandAll = jest.fn();
+      const onExpandedRowsChange = jest.fn();
+      const columnTitle = jest.fn(({ expandIcon }) => (
+        <div className="expand-column-title">
+          {expandIcon}
+          <span>Details</span>
+        </div>
+      ));
+      const { container } = render(
+        <Table
+          columns={columns}
+          dataSource={[John, Jim, { ...John, key: '3' }]}
+          locale={{ collapseAll: 'Collapse current page', expandAll: 'Expand current page' }}
+          pagination={{ pageSize: 2 }}
+          expandable={{
+            columnTitle,
+            expandedRowRender,
+            onExpandAll,
+            onExpandedRowsChange,
+            showExpandAll: true,
+          }}
+        />,
+      );
+
+      const expandAllIcon = container.querySelector<HTMLButtonElement>(
+        'thead .ant-table-row-expand-icon',
+      )!;
+      expect(columnTitle).toHaveBeenCalledWith({ expandIcon: expect.anything() });
+      expect(container.querySelector('.expand-column-title')).toHaveTextContent('Details');
+      expect(expandAllIcon).toHaveAccessibleName('Expand current page');
+      expect(expandAllIcon).toHaveAttribute('aria-expanded', 'false');
+      expect(expandAllIcon).toHaveClass('ant-table-row-expand-icon-collapsed');
+
+      fireEvent.click(expandAllIcon);
+      expect(expandAllIcon).toHaveAccessibleName('Collapse current page');
+      expect(expandAllIcon).toHaveAttribute('aria-expanded', 'true');
+      expect(expandAllIcon).toHaveClass('ant-table-row-expand-icon-expanded');
+      expect(container.querySelectorAll('.ant-table-expanded-row')).toHaveLength(2);
+      expect(onExpandAll).toHaveBeenLastCalledWith(true);
+      expect(onExpandedRowsChange).toHaveBeenLastCalledWith(['1', '2']);
+
+      fireEvent.click(expandAllIcon);
+      expect(expandAllIcon).toHaveAttribute('aria-expanded', 'false');
+      expect(onExpandAll).toHaveBeenLastCalledWith(false);
+      expect(onExpandedRowsChange).toHaveBeenLastCalledWith([]);
+    });
+
+    it('uses components.ExpandIcon for row and expand all icons', () => {
+      const { container } = render(
+        <Table
+          columns={columns}
+          dataSource={[John, Jim]}
+          pagination={false}
+          components={{
+            ExpandIcon: ({ type, record, expanded, expandable, onClick }) => (
+              <button
+                type="button"
+                className={type === 'all' ? 'custom-expand-all-icon' : 'custom-expand-row-icon'}
+                data-record-key={type === 'row' ? record.key : undefined}
+                aria-expanded={expanded}
+                disabled={!expandable}
+                onClick={onClick}
+              />
+            ),
+          }}
+          expandable={{
+            expandedRowRender,
+            expandIcon: () => <span className="legacy-expand-icon" />,
+            showExpandAll: true,
+          }}
+        />,
+      );
+
+      expect(container.querySelector('thead .custom-expand-all-icon')).toBeTruthy();
+      expect(container.querySelectorAll('tbody .custom-expand-row-icon')).toHaveLength(2);
+      expect(container.querySelector('.legacy-expand-icon')).toBeFalsy();
+
+      fireEvent.click(container.querySelector('.custom-expand-all-icon')!);
+      expect(container.querySelectorAll('.ant-table-expanded-row')).toHaveLength(2);
+    });
+
+    it('keeps expandable.expandIcon as a row-only fallback', () => {
+      const { container } = render(
+        <Table
+          columns={columns}
+          dataSource={[John, Jim]}
+          pagination={false}
+          expandable={{
+            expandedRowRender,
+            expandIcon: ({ onExpand, record }) => (
+              <button
+                type="button"
+                className="legacy-expand-icon"
+                onClick={(event) => onExpand(record, event)}
+              />
+            ),
+            showExpandAll: true,
+          }}
+        />,
+      );
+
+      expect(container.querySelector('thead .ant-table-row-expand-icon')).toBeTruthy();
+      expect(container.querySelector('thead .legacy-expand-icon')).toBeFalsy();
+      expect(container.querySelectorAll('tbody .legacy-expand-icon')).toHaveLength(2);
+
+      fireEvent.click(container.querySelector('tbody .legacy-expand-icon')!);
+      expect(container.querySelectorAll('.ant-table-expanded-row')).toHaveLength(1);
+    });
+
+    it('does not remount inline legacy expand icons on rerender', () => {
+      const onMount = jest.fn();
+      const LegacyIcon = ({
+        label,
+        onExpand,
+        record,
+      }: {
+        label: string;
+        onExpand: (record: typeof John, event: React.MouseEvent<HTMLElement>) => void;
+        record: typeof John;
+      }) => {
+        React.useEffect(() => {
+          onMount();
+        }, []);
+
+        return (
+          <button
+            type="button"
+            className="stateful-legacy-icon"
+            onClick={(event) => onExpand(record, event)}
+          >
+            {label}
+          </button>
+        );
+      };
+      const renderTable = (label: string) => (
+        <Table<typeof John>
+          columns={[{ dataIndex: 'firstName', title: 'Name' }]}
+          dataSource={[John, Jim]}
+          pagination={false}
+          expandable={{
+            expandedRowRender,
+            expandIcon: (props) => <LegacyIcon {...props} label={label} />,
+          }}
+        />
+      );
+      const { container, rerender } = render(renderTable('First'));
+
+      const initialMountCount = onMount.mock.calls.length;
+      expect(initialMountCount).toBeGreaterThan(0);
+      rerender(renderTable('Second'));
+      expect(onMount).toHaveBeenCalledTimes(initialMountCount);
+      expect(
+        [...container.querySelectorAll('.stateful-legacy-icon')].every(
+          (icon) => icon.textContent === 'Second',
+        ),
+      ).toBe(true);
+    });
+
+    it('renders a spaced header icon when no rows are expandable', () => {
+      const { container } = render(
+        <Table
+          columns={columns}
+          dataSource={[John]}
+          expandable={{
+            expandedRowRender,
+            rowExpandable: () => false,
+            showExpandAll: true,
+          }}
+        />,
+      );
+
+      expect(
+        container.querySelector(
+          'thead span.ant-table-row-expand-icon.ant-table-row-expand-icon-spaced',
+        ),
+      ).toBeTruthy();
+      expect(container.querySelector('thead button.ant-table-row-expand-icon')).toBeFalsy();
+    });
+  });
+
   it('row indent padding should be 0px when indentSize defined as 0', () => {
     const { container } = render(<Table indentSize={0} columns={columns} dataSource={data} />);
 
