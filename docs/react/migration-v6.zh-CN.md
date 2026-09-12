@@ -10,7 +10,7 @@ title: 从 v5 到 v6
 
 ## 推荐使用 CLI 辅助升级 {#use-cli}
 
-在手动核对下方清单前，推荐先使用 [Ant Design CLI](/docs/react/cli-cn) 辅助升级。CLI 可以基于项目代码检查废弃 API、组件用法与版本差异，避免只依赖文档逐项对照而遗漏。具体安装与使用方式请参考 [CLI 文档](/docs/react/cli-cn)。
+在手动核对下方清单前，推荐先使用 [Ant Design CLI](/docs/react/cli) 辅助升级。CLI 可以基于项目代码检查废弃 API、组件用法与版本差异，避免只依赖文档逐项对照而遗漏。具体安装与使用方式请参考 [CLI 文档](/docs/react/cli)。
 
 ## 升级准备
 

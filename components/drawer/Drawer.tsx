@@ -2,14 +2,14 @@ import * as React from 'react';
 import type { Placement, DrawerProps as RcDrawerProps } from '@rc-component/drawer';
 import RcDrawer from '@rc-component/drawer';
 import type { CSSMotionProps } from '@rc-component/motion';
-import { composeRef, useId } from '@rc-component/util';
+import { composeRef, isReactRenderable, useId } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import { useMergedMask, useZIndex } from '../_util/hooks';
 import type { MaskType } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
-import { isNumber, isReactRenderable } from '../_util/is';
+import { isNumber } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';

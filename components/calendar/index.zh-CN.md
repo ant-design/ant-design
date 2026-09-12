@@ -41,7 +41,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 <Calendar cellRender={cellRender} onPanelChange={onPanelChange} onSelect={onSelect} />
 ```
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | cellRender | 自定义单元格的内容 | function(current: dayjs, info: { prefixCls: string, originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
@@ -77,7 +77,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 
 ### 如何给日期类组件配置国际化？ {#faq-set-locale-date-components}
 
-参考 [如何给日期类组件配置国际化](/components/date-picker-cn#%E5%9B%BD%E9%99%85%E5%8C%96%E9%85%8D%E7%BD%AE)。
+参考 [如何给日期类组件配置国际化](/components/date-picker#localization)。
 
 ### 为什么时间类组件的国际化 locale 设置不生效？ {#faq-locale-not-working}
 

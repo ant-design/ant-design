@@ -10,7 +10,7 @@ import { clsx } from 'clsx';
 import { useZIndex } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isPlainObject, isPrimitive } from '../_util/is';
+import { isPlainObject, isPrimitive, isString } from '../_util/is';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import genPurePanel from '../_util/PurePanel';
@@ -317,9 +317,11 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
     if (mergedPopupRender) {
       overlayNode = mergedPopupRender(overlayNode);
     }
-    overlayNode = React.Children.only(
-      typeof overlayNode === 'string' ? <span>{overlayNode}</span> : overlayNode,
-    );
+    if (isString(overlayNode)) {
+      overlayNode = <span>{overlayNode}</span>;
+    } else if (!React.isValidElement(overlayNode)) {
+      overlayNode = <>{overlayNode}</>;
+    }
     return (
       <OverrideProvider
         prefixCls={`${prefixCls}-menu`}
@@ -360,7 +362,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
       {...omit(props, ['rootClassName', 'onOpenChange'])}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
-      visible={mergedOpen}
+      open={mergedOpen}
       builtinPlacements={builtinPlacements}
       arrow={!!arrow}
       overlayClassName={overlayClassNameCustomized}
@@ -370,7 +372,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
       trigger={triggerActions}
       overlay={renderOverlay}
       placement={memoPlacement as React.ComponentProps<typeof RcDropdown>['placement']}
-      onVisibleChange={onInnerOpenChange}
+      onOpenChange={onInnerOpenChange}
       overlayStyle={{ ...mergedRootStyles, zIndex }}
       autoDestroy={destroyOnHidden ?? destroyPopupOnHide}
     >

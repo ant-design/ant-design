@@ -32,7 +32,7 @@ demo:
 
 #### Statistic
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classNames | 用于自定义 Statistic 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | decimalSeparator | 设置小数点 | string | `.` |  | × |
@@ -61,7 +61,7 @@ demo:
 | value | 数值内容 | number | - |  |
 | valueStyle | 设置数值区域的样式 | CSSProperties | - |  |
 | onFinish | 倒计时完成时触发 | () => void | - |  |
-| onChange | 倒计时时间变化时触发 | (value: number) => void | - |  |
+| onChange | 倒计时时间变化时触发 | (value: number) => void | - | - |
 
 #### Statistic.Timer <Badge>5.25.0+</Badge>
 

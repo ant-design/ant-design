@@ -238,7 +238,11 @@ export type TabsConfig = ComponentStyleConfig &
 export type AnchorStyleConfig = ComponentStyleConfig & Pick<AnchorProps, 'classNames' | 'styles'>;
 
 export type AlertConfig = ComponentStyleConfig &
-  Pick<AlertProps, 'variant' | 'closable' | 'closeIcon' | 'classNames' | 'styles'> & {
+  Pick<AlertProps, 'variant' | 'closeIcon' | 'classNames' | 'styles'> & {
+    closable?:
+      | boolean
+      | (Pick<Exclude<NonNullable<AlertProps['closable']>, boolean>, 'closeIcon'> &
+          React.AriaAttributes);
     successIcon?: React.ReactNode;
     infoIcon?: React.ReactNode;
     warningIcon?: React.ReactNode;
@@ -348,6 +352,7 @@ export type SelectConfig = ComponentStyleConfig &
     | 'loadingIcon'
     | 'menuItemSelectedIcon'
     | 'removeIcon'
+    | 'suffix'
     | 'suffixIcon'
   >;
 
@@ -420,12 +425,19 @@ export type ResultConfig = ComponentStyleConfig & Pick<ResultProps, 'classNames'
 export type RadioConfig = ComponentStyleConfig & Pick<RadioProps, 'classNames' | 'styles'>;
 
 export type InputNumberConfig = ComponentStyleConfig &
-  Pick<InputNumberProps, 'variant' | 'classNames' | 'styles'>;
+  Pick<InputNumberProps, 'variant' | 'classNames' | 'styles' | 'allowClear'>;
 
 export type CascaderConfig = ComponentStyleConfig &
   Pick<
     CascaderProps,
-    'variant' | 'styles' | 'classNames' | 'expandIcon' | 'loadingIcon' | 'removeIcon' | 'suffixIcon'
+    | 'variant'
+    | 'styles'
+    | 'classNames'
+    | 'expandIcon'
+    | 'loadingIcon'
+    | 'removeIcon'
+    | 'suffix'
+    | 'suffixIcon'
   > & { clearIcon?: React.ReactNode; searchIcon?: React.ReactNode };
 
 export type TreeSelectConfig = ComponentStyleConfig &
@@ -436,7 +448,7 @@ export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | '
 export type DatePickerConfig = ComponentStyleConfig &
   Pick<
     DatePickerProps,
-    'variant' | 'classNames' | 'styles' | 'suffixIcon' | 'allowClear' | 'clearIcon'
+    'variant' | 'classNames' | 'styles' | 'suffix' | 'suffixIcon' | 'allowClear' | 'clearIcon'
   >;
 
 export type RangePickerConfig = ComponentStyleConfig &
@@ -445,7 +457,7 @@ export type RangePickerConfig = ComponentStyleConfig &
 export type TimePickerConfig = ComponentStyleConfig &
   Pick<
     TimePickerProps,
-    'variant' | 'classNames' | 'styles' | 'suffixIcon' | 'allowClear' | 'clearIcon'
+    'variant' | 'classNames' | 'styles' | 'suffix' | 'suffixIcon' | 'allowClear' | 'clearIcon'
   >;
 
 export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;

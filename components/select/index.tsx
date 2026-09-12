@@ -101,9 +101,15 @@ export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] 
 export interface InternalSelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
-> extends Omit<RcSelectProps<ValueType, OptionType>, 'mode' | 'styles' | 'classNames'> {
+> extends Omit<
+    RcSelectProps<ValueType, OptionType>,
+    'mode' | 'styles' | 'classNames' | 'onPopupVisibleChange' | 'popupRender'
+  > {
   rootClassName?: string;
   prefix?: React.ReactNode;
+  /** @since 6.7.0 */
+  suffix?: RcSelectProps<ValueType, OptionType>['suffix'];
+  /** @deprecated Please use `suffix` instead. */
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
@@ -112,7 +118,7 @@ export interface InternalSelectProps<
   bordered?: boolean;
   /**
    * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
-   *   default behavior, you can hide it by setting `suffixIcon` to null.
+   *   default behavior, you can hide it by setting `suffix` to null.
    */
   showArrow?: boolean;
   /**
@@ -124,6 +130,7 @@ export interface InternalSelectProps<
   styles?: SelectSemanticAllType['stylesAndFn'];
   loadingIcon?: React.ReactNode;
   showSearch?: boolean | (SearchConfig<OptionType> & { searchIcon?: React.ReactNode });
+  popupRender?: (menu: React.ReactElement) => React.ReactNode;
 }
 
 export interface SelectProps<
@@ -151,11 +158,11 @@ export interface SelectProps<
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: SelectProps['popupRender'];
   /** @deprecated Please use `onOpenChange` instead */
-  onDropdownVisibleChange?: SelectProps['onPopupVisibleChange'];
+  onDropdownVisibleChange?: RcSelectProps<ValueType, OptionType>['onPopupVisibleChange'];
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
-  onOpenChange?: (visible: boolean) => void;
+  onOpenChange?: (open: boolean) => void;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -195,6 +202,8 @@ const InternalSelect = <
     tagRender,
     maxCount,
     prefix,
+    suffix: customSuffix,
+    suffixIcon: customSuffixIcon,
     dropdownRender,
     /**
      * @since 5.25.0
@@ -205,6 +214,7 @@ const InternalSelect = <
     styles,
     classNames,
     clearIcon,
+    showArrow,
     showSearch,
     ...rest
   } = props;
@@ -232,6 +242,7 @@ const InternalSelect = <
     loadingIcon: contextLoadingIcon,
     menuItemSelectedIcon: contextMenuItemSelectedIcon,
     removeIcon: contextRemoveIcon,
+    suffix: contextSuffix,
     suffixIcon: contextSuffixIcon,
   } = useComponentConfig('select');
 
@@ -266,7 +277,8 @@ const InternalSelect = <
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
 
-  const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
+  const mergedCustomSuffix = customSuffix !== undefined ? customSuffix : customSuffixIcon;
+  const showSuffix = useShowArrow(mergedCustomSuffix, showArrow);
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
@@ -296,16 +308,18 @@ const InternalSelect = <
 
   // ===================== Icons =====================
   const {
-    suffixIcon,
+    suffix: mergedSuffix,
     itemIcon,
     removeIcon,
     clearIcon: mergedClearIcon,
   } = useIcons({
     ...rest,
+    suffix: mergedCustomSuffix,
     multiple: isMultiple,
     hasFeedback,
     feedbackIcon,
-    showSuffixIcon,
+    showSuffix,
+    showArrow,
     prefixCls,
     componentName: 'Select',
     clearIcon,
@@ -315,7 +329,7 @@ const InternalSelect = <
     contextMenuItemSelectedIcon,
     contextRemoveIcon,
     contextSearchIcon: normalizeIcon(contextShowSearch, 'searchIcon'),
-    contextSuffixIcon,
+    contextSuffix: contextSuffix !== undefined ? contextSuffix : contextSuffixIcon,
   });
 
   const finalAllowClear = allowClear ?? contextAllowClear;
@@ -326,7 +340,7 @@ const InternalSelect = <
   };
   const mergedShowSearch = showSearch ?? contextShowSearch;
 
-  const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
+  const selectProps = omit(rest, ['suffix', 'suffixIcon', 'itemIcon' as any]);
 
   const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
@@ -420,6 +434,7 @@ const InternalSelect = <
       dropdownRender: 'popupRender',
       onDropdownVisibleChange: 'onOpenChange',
       bordered: 'variant',
+      suffixIcon: 'suffix',
     };
 
     Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
@@ -429,7 +444,7 @@ const InternalSelect = <
     warning(
       !('showArrow' in props),
       'deprecated',
-      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffix` to null.',
     );
 
     warning(
@@ -465,7 +480,7 @@ const InternalSelect = <
       placement={memoPlacement}
       direction={direction}
       prefix={prefix}
-      suffixIcon={suffixIcon}
+      suffix={mergedSuffix}
       menuItemSelectedIcon={itemIcon}
       removeIcon={removeIcon}
       allowClear={mergedAllowClear}

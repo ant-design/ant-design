@@ -111,6 +111,7 @@ interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = Dat
       | 'switcherIcon'
       | 'classNames'
       | 'styles'
+      | 'popupRender'
     > {
   size?: SizeType;
   disabled?: boolean;
@@ -122,6 +123,9 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   extends BaseTreeSelectProps<ValueType, OptionType> {
   classNames?: TreeSelectSemanticAllType['classNamesAndFn'];
   styles?: TreeSelectSemanticAllType['stylesAndFn'];
+  /** @since 6.7.0 */
+  suffix?: RcTreeSelectProps<ValueType, OptionType>['suffix'];
+  /** @deprecated Please use `suffix` instead. */
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
@@ -131,8 +135,8 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   /** @deprecated Please use `classNames.popup.root` instead */
   dropdownClassName?: string;
   /** @deprecated Please use `popupRender` instead */
-  dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
-  popupRender?: (menu: React.ReactElement) => React.ReactElement;
+  dropdownRender?: (menu: React.ReactElement) => React.ReactNode;
+  popupRender?: (menu: React.ReactElement) => React.ReactNode;
   /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `onOpenChange` instead */
@@ -149,7 +153,7 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   popupMatchSelectWidth?: boolean | number;
   /**
    * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
-   *   default behavior, you can hide it by setting `suffixIcon` to null.
+   *   default behavior, you can hide it by setting `suffix` to null.
    */
   showArrow?: boolean;
   /**
@@ -205,6 +209,9 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     treeCheckStrictly,
     styles,
     classNames,
+    suffix: customSuffix,
+    suffixIcon: customSuffixIcon,
+    showArrow,
     ...restProps
   } = props;
 
@@ -239,6 +246,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
       dropdownRender: 'popupRender',
       onDropdownVisibleChange: 'onOpenChange',
       bordered: 'variant',
+      suffixIcon: 'suffix',
     };
 
     Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
@@ -254,7 +262,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     warning(
       !('showArrow' in props),
       'deprecated',
-      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffix` to null.',
     );
   }
 
@@ -342,16 +350,19 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     return maxCount;
   }, [maxCount, showCheckedStrategy, treeCheckStrictly]);
 
-  const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
+  const mergedCustomSuffix = customSuffix !== undefined ? customSuffix : customSuffixIcon;
+  const showSuffix = useShowArrow(mergedCustomSuffix, showArrow);
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
   // ===================== Icons =====================
-  const { suffixIcon, removeIcon, clearIcon } = useIcons({
+  const { suffix, removeIcon, clearIcon } = useIcons({
     ...restProps,
+    suffix: mergedCustomSuffix,
     multiple: isMultiple,
-    showSuffixIcon,
+    showSuffix,
+    showArrow,
     hasFeedback,
     feedbackIcon,
     prefixCls,
@@ -373,7 +384,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
   }
 
   // ==================== Render =====================
-  const selectProps = omit(restProps, ['suffixIcon', 'removeIcon', 'clearIcon']);
+  const selectProps = omit(restProps, ['removeIcon', 'clearIcon']);
 
   // ===================== Placement =====================
   const memoizedPlacement = React.useMemo<SelectCommonPlacement>(() => {
@@ -436,7 +447,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
         treeCheckable ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : treeCheckable
       }
       treeLine={!!treeLine}
-      suffixIcon={suffixIcon}
+      suffix={suffix}
       multiple={isMultiple}
       placement={memoizedPlacement}
       removeIcon={removeIcon}

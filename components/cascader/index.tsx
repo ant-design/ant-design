@@ -144,19 +144,22 @@ export interface CascaderProps<
   Multiple extends boolean = boolean,
 > extends Omit<
     RcCascaderProps<OptionType, ValueField, Multiple>,
-    'checkable' | 'classNames' | 'styles'
+    'checkable' | 'classNames' | 'styles' | 'popupRender'
   > {
   multiple?: Multiple;
   size?: SizeType;
   /**
    * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
-   *   default behavior, you can hide it by setting `suffixIcon` to null.
+   *   default behavior, you can hide it by setting `suffix` to null.
    */
   showArrow?: boolean;
   disabled?: boolean;
   /** @deprecated Use `variant` instead. */
   bordered?: boolean;
   placement?: SelectCommonPlacement;
+  /** @since 6.7.0 */
+  suffix?: RcCascaderProps<OptionType, ValueField, Multiple>['suffix'];
+  /** @deprecated Please use `suffix` instead. */
   suffixIcon?: React.ReactNode;
   showSearch?:
     | boolean
@@ -172,8 +175,8 @@ export interface CascaderProps<
   /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `popupRender` instead */
-  dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
-  popupRender?: (menu: React.ReactElement) => React.ReactElement;
+  dropdownRender?: (menu: React.ReactElement) => React.ReactNode;
+  popupRender?: (menu: React.ReactElement) => React.ReactNode;
   /** @deprecated Please use `styles.popup.listItem` instead */
   dropdownMenuColumnStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.popup.listItem` instead */
@@ -182,7 +185,7 @@ export interface CascaderProps<
   onDropdownVisibleChange?: (visible: boolean) => void;
   /** @deprecated Please use `onOpenChange` instead */
   onPopupVisibleChange?: (visible: boolean) => void;
-  onOpenChange?: (visible: boolean) => void;
+  onOpenChange?: (open: boolean) => void;
   /**
    * @since 5.13.0
    * @default "outlined"
@@ -242,7 +245,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     loadingIcon,
     clearIcon,
     removeIcon,
-    suffixIcon,
+    suffix: customSuffix,
+    suffixIcon: customSuffixIcon,
     ...restProps
   } = props;
 
@@ -259,6 +263,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     loadingIcon: contextLoadingIcon,
     clearIcon: contextClearIcon,
     removeIcon: contextRemoveIcon,
+    suffix: contextSuffix,
     suffixIcon: contextSuffixIcon,
     searchIcon: contextSearchIcon,
   } = useComponentConfig('cascader');
@@ -288,6 +293,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       onDropdownVisibleChange: 'onOpenChange',
       onPopupVisibleChange: 'onOpenChange',
       bordered: 'variant',
+      suffixIcon: 'suffix',
     };
 
     Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
@@ -297,7 +303,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     warning(
       !('showArrow' in props),
       'deprecated',
-      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffix` to null.',
     );
   }
 
@@ -368,9 +374,10 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const checkable = useCheckable(cascaderPrefixCls, multiple);
 
   // ===================== Icons =====================
-  const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
+  const mergedCustomSuffix = customSuffix !== undefined ? customSuffix : customSuffixIcon;
+  const showSuffix = useShowArrow(mergedCustomSuffix, showArrow);
   const {
-    suffixIcon: mergedSuffixIcon,
+    suffix: mergedSuffix,
     removeIcon: mergedRemoveIcon,
     clearIcon: mergedClearIcon,
   } = useSelectIcons({
@@ -380,13 +387,13 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     removeIcon,
     contextRemoveIcon,
     loadingIcon: mergedLoadingIcon,
-    suffixIcon,
-    contextSuffixIcon,
+    suffix: mergedCustomSuffix,
+    contextSuffix: contextSuffix !== undefined ? contextSuffix : contextSuffixIcon,
     searchIcon: isPlainObject(showSearch) ? showSearch.searchIcon : undefined,
     contextSearchIcon,
     hasFeedback,
     feedbackIcon,
-    showSuffixIcon,
+    showSuffix,
     multiple,
     prefixCls,
     componentName: 'Cascader',
@@ -489,7 +496,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       allowClear={mergedAllowClear}
       showSearch={mergedShowSearch}
       expandIcon={mergedExpandIcon}
-      suffixIcon={mergedSuffixIcon}
+      suffix={mergedSuffix}
       removeIcon={mergedRemoveIcon}
       loadingIcon={mergedLoadingIcon}
       checkable={checkable}

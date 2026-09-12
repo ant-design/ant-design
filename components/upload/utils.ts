@@ -96,6 +96,18 @@ export function previewImage(file: File | Blob): Promise<string> {
       resolve('');
       return;
     }
+
+    if (file.type.startsWith('image/gif')) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (reader.result) {
+          resolve(reader.result as string);
+        }
+      };
+      reader.readAsDataURL(file);
+      return;
+    }
+
     const canvas = document.createElement('canvas');
     canvas.width = MEASURE_SIZE;
     canvas.height = MEASURE_SIZE;
@@ -131,14 +143,6 @@ export function previewImage(file: File | Blob): Promise<string> {
       reader.onload = () => {
         if (reader.result && typeof reader.result === 'string') {
           img.src = reader.result;
-        }
-      };
-      reader.readAsDataURL(file);
-    } else if (file.type.startsWith('image/gif')) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (reader.result) {
-          resolve(reader.result as string);
         }
       };
       reader.readAsDataURL(file);

@@ -128,7 +128,7 @@ title: 结果页
 
 ### 会用到哪些模块或组件
 
-- [表单页](/components/form-cn/)
+- [表单页](/components/form/)
 
 ### 外部参考文章
 
