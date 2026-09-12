@@ -259,6 +259,17 @@ describe('ColorPicker', () => {
     expect(handleColorChange).toHaveBeenCalledTimes(2);
   });
 
+  it('Should not mutate preset items', () => {
+    const preset: PresetsItem = {
+      label: 'Brand',
+      colors: ['#1677ff'],
+    };
+    Object.freeze(preset);
+
+    expect(() => render(<ColorPicker open presets={[preset]} />)).not.toThrow();
+    expect(preset.colors).toEqual(['#1677ff']);
+  });
+
   describe('preset collapsed', () => {
     const recommendedPreset: PresetsItem = {
       key: 'Recommended',

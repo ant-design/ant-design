@@ -44,10 +44,10 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/mode.tsx" debug>Controlled Panels</code>
 <code src="./demo/start-end.tsx" debug>Customized Range Picker</code>
-<code src="./demo/suffix.tsx">Prefix and Suffix</code>
+<code src="./demo/suffix.tsx" version="6.7.0">Prefix and Suffix</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
-<code src="./demo/suffixIcon-debug.tsx" debug>suffixIcon</code>
+<code src="./demo/suffix-debug.tsx" debug>suffix</code>
 
 ## API
 
@@ -131,7 +131,8 @@ The following APIs are shared by DatePicker, RangePicker.
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 | × |
 | style | To customize the style of the input box | CSSProperties | {} |  | DatePicker: 5.7.0, RangePicker: 5.11.0 |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | DatePicker: 5.25.0, RangePicker: 5.25.0 |
-| suffixIcon | The custom suffix icon | ReactNode | - |  | DatePicker: 6.3.0, RangePicker: 6.4.0 |
+| suffix | The custom suffix | ReactNode | - | 6.7.0 | 6.7.0 |
+| ~~suffixIcon~~ | The custom suffix icon, please use `suffix` instead | ReactNode | - |  | DatePicker: 6.3.0, RangePicker: 6.4.0 |
 | superNextIcon | The custom super next icon | ReactNode | - | 4.17.0 | × |
 | superPrevIcon | The custom super prev icon | ReactNode | - | 4.17.0 | × |
 | clearIcon | (Only supports global configuration) Custom clear icon | ReactNode | - | × | 6.4.0 |
@@ -284,7 +285,7 @@ Please refer [FAQ](/docs/react/faq#when-set-mode-to-datepickerrangepicker-cannot
 
 After selecting the year, the system directly switches to the date panel instead of month panel. This design is intended to reduce the user's operational burden by allowing them to complete the year modification with just one click, without having to enter the month selection interface again. At the same time, it also avoids additional cognitive burden of remembering the month.
 
-### How to use DatePicker with customize date library like dayjs? {#faq-custom-date-library}
+### How to use DatePicker with customize date library like Moment.js? {#faq-custom-date-library}
 
 Please refer [Use custom date library](/docs/react/use-custom-date-library#datepicker)
 

@@ -87,7 +87,7 @@ export interface AutoCompleteProps<
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `onOpenChange` instead */
   onDropdownVisibleChange?: (visible: boolean) => void;
-  onOpenChange?: (visible: boolean) => void;
+  onOpenChange?: (open: boolean) => void;
   showSearch?:
     | boolean
     | Pick<
@@ -120,6 +120,8 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     onOpenChange,
     styles,
     classNames,
+    suffix,
+    suffixIcon,
     popupMatchSelectWidth,
     dropdownMatchSelectWidth,
   } = props;
@@ -193,6 +195,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       dropdownRender: 'popupRender',
       onDropdownVisibleChange: 'onOpenChange',
       dataSource: 'options',
+      suffixIcon: 'suffix',
     };
 
     Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
@@ -260,17 +263,20 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     [mergedStyles, style, dropdownStyle],
   );
 
+  const mergedSuffix = suffix !== undefined ? suffix : (suffixIcon ?? null);
+
   return (
     <Select
       ref={ref}
-      suffixIcon={null}
       {...omit(props, [
         'dataSource',
         'dropdownClassName',
         'popupClassName',
         'onDropdownVisibleChange',
         'onOpenChange',
+        'suffixIcon',
       ])}
+      suffix={mergedSuffix}
       prefixCls={prefixCls}
       classNames={finalClassNames}
       styles={finalStyles}
