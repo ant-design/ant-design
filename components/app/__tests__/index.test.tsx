@@ -281,13 +281,25 @@ describe('App', () => {
       );
     });
 
-    it('should warn if component is false and ref is not empty', () => {
+    it('should handle ref with component false based on React version', () => {
       const domRef = React.createRef<HTMLSpanElement>();
-      render(<App ref={domRef} component={false} />);
-
-      expect(errorSpy).toHaveBeenCalledWith(
-        'Warning: [antd: App] `ref` is not supported when `component` is `false`. Please provide a valid `component` instead.',
+      render(
+        <App ref={domRef} component={false}>
+          <span />
+        </App>,
       );
+
+      const [major, minor] = React.version.split('.').map((number) => Number.parseInt(number, 10));
+      const supportFragmentRef = major > 19 || (major === 19 && minor >= 3);
+
+      expect(Boolean(domRef.current)).toBe(supportFragmentRef);
+      if (supportFragmentRef) {
+        expect(errorSpy).not.toHaveBeenCalled();
+      } else {
+        expect(errorSpy).toHaveBeenCalledWith(
+          'Warning: [antd: App] `ref` is not supported when `component` is `false`. Please provide a valid `component` instead.',
+        );
+      }
     });
 
     it('App should support Ref', () => {

@@ -1,4 +1,4 @@
-import getReactMajorVersion from './_util/getReactMajorVersionCanDelMe';
+import getReactVersion from './_util/getReactMajorVersionCanDelMe';
 import warning from './_util/warning';
 
 export type { Breakpoint } from './_util/responsiveObserver';
@@ -223,7 +223,7 @@ export const unstableSetRender: any = () => {
 
 // Warning if React is less than 18 (not include 18)
 if (process.env.NODE_ENV !== 'production') {
-  const majorVersion = getReactMajorVersion();
+  const [majorVersion] = getReactVersion();
   warning(
     majorVersion >= 18,
     'version',

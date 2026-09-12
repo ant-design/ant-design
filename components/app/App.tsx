@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import React, { useContext } from 'react';
 import { clsx } from 'clsx';
 
+import getReactVersion from '../_util/getReactMajorVersionCanDelMe';
 import type { AnyObject, CustomComponent } from '../_util/type';
 import { useDevWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -11,6 +12,10 @@ import useNotification from '../notification/useNotification';
 import type { AppConfig, useAppProps } from './context';
 import AppContext, { AppConfigContext } from './context';
 import useStyle from './style';
+
+const [reactMajor, reactMinor] = getReactVersion();
+
+const supportFragmentRef = (reactMajor === 19 && reactMinor >= 3) || reactMajor > 19;
 
 export interface AppProps<P = AnyObject> extends AppConfig {
   style?: React.CSSProperties;
@@ -88,7 +93,7 @@ const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
   );
 
   devWarning(
-    !ref || component !== false,
+    supportFragmentRef || !ref || component !== false,
     'usage',
     '`ref` is not supported when `component` is `false`. Please provide a valid `component` instead.',
   );
@@ -104,7 +109,13 @@ const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
   return (
     <AppContext.Provider value={memoizedContextValue}>
       <AppConfigContext.Provider value={mergedAppConfig}>
-        <Component {...(component === false ? undefined : { ...rootProps, ref })}>
+        <Component
+          {...(component === false
+            ? supportFragmentRef
+              ? { ref }
+              : undefined
+            : { ...rootProps, ref })}
+        >
           {ModalContextHolder}
           {messageContextHolder}
           {notificationContextHolder}
