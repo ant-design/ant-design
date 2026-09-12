@@ -9,6 +9,8 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { useOrientation } from '../_util/hooks';
+import type { Orientation } from '../_util/hooks';
 import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -92,7 +94,9 @@ export interface ProgressProps extends ProgressAriaProps {
   gapPosition?: GapPosition;
   size?: number | [number | string, number] | ProgressSize | { width?: number; height?: number };
   steps?: number | { count: number; gap: number };
+  orientation?: Orientation;
   percentPosition?: PercentPositionType;
+  vertical?: boolean;
   children?: React.ReactNode;
   rounding?: (step: number) => number;
 }
@@ -113,6 +117,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     status,
     format,
     style,
+    vertical,
+    orientation,
     percentPosition = {},
     ...restProps
   } = props;
@@ -160,6 +166,9 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
 
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
+
+  // `orientation` takes priority over `vertical` syntactic sugar
+  const [, isVertical] = useOrientation(orientation, vertical);
 
   const mergedProps: ProgressProps = {
     ...props,
@@ -266,6 +275,14 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     }
 
     warning.deprecated(size !== 'default', 'size="default"', 'size="medium"');
+
+    if (steps && isVertical) {
+      warning(
+        false,
+        'usage',
+        '`steps` does not support vertical orientation. The `orientation="vertical"` and `vertical` props are ignored when `steps` is set.',
+      );
+    }
   }
 
   // ======================== Render ========================
@@ -293,6 +310,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
         strokeColor={strokeColorNotArray}
         prefixCls={prefixCls}
         direction={direction}
+        vertical={isVertical}
         percentPosition={{
           align: infoAlign,
           type: infoPosition,
@@ -323,6 +341,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       [`${prefixCls}-line`]: isPureLineType,
       [`${prefixCls}-line-align-${infoAlign}`]: isPureLineType,
       [`${prefixCls}-line-position-${infoPosition}`]: isPureLineType,
+      [`${prefixCls}-line-vertical`]: isPureLineType && isVertical,
       [`${prefixCls}-steps`]: steps,
       [`${prefixCls}-show-info`]: showInfo,
       [`${prefixCls}-small`]: size === 'small',
