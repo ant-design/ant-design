@@ -39,6 +39,21 @@ const genSpaceStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
         '&-baseline': {
           alignItems: 'baseline',
         },
+        '&-stretch': {
+          alignItems: 'stretch',
+          [`> ${componentCls}-item`]: {
+            display: 'flex',
+          },
+          [`&${componentCls}-vertical > ${componentCls}-item`]: {
+            flexDirection: 'column',
+          },
+          [`&${componentCls}-horizontal > ${componentCls}-item > *`]: {
+            height: '100%',
+          },
+          [`&${componentCls}-vertical > ${componentCls}-item > *`]: {
+            width: '100%',
+          },
+        },
       },
       [`${componentCls}-item:empty`]: {
         display: 'none',

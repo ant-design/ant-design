@@ -30,7 +30,7 @@ By clicking the input box, you can select a time from a popup panel.
 <code src="./demo/range-picker.tsx">Time Range Picker</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/status.tsx">Status</code>
-<code src="./demo/suffix.tsx">Prefix and Suffix</code>
+<code src="./demo/suffix.tsx" version="6.7.0">Prefix and Suffix</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
@@ -79,7 +79,8 @@ dayjs.extend(customParseFormat)
 | size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `medium` \| `small` | - |  | × |
 | status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |
-| suffixIcon | The custom suffix icon | ReactNode | - |  | 6.3.0 |
+| suffix | The custom suffix | ReactNode | - | 6.7.0 | 6.7.0 |
+| ~~suffixIcon~~ | The custom suffix icon, please use `suffix` instead | ReactNode | - |  | 6.3.0 |
 | use12Hours | Display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  | × |
 | value | To set time | [dayjs](https://day.js.org/) | - |  | × |
 | variant | Variants of picker | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |

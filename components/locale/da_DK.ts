@@ -30,6 +30,9 @@ const localeValues: Locale = {
     selectNone: 'Ryd alt data',
     selectInvert: 'Invertér valg',
     selectionAll: 'Vælg alt data',
+    selectRow: 'Vælg række',
+    selectedRow: 'Række valgt',
+    selectionMenu: 'Valgmenu',
     sortTitle: 'Sortér',
     expand: 'Udvid række',
     collapse: 'Flet række',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Afbryd',
+  },
+  Splitter: {
+    toggleStartPanel: 'Skift startpanelet',
+    toggleEndPanel: 'Skift slutpanelet',
   },
   Transfer: {
     titles: ['', ''],

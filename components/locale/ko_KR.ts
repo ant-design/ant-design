@@ -32,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: '선택 반전',
     selectNone: '없음',
     selectionAll: '전체 선택',
+    selectRow: '행 선택',
+    selectedRow: '행 선택됨',
+    selectionMenu: '선택 메뉴',
     sortTitle: '정렬',
     expand: '펼치기',
     collapse: '접기',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: '확인',
     cancelText: '취소',
+  },
+  Splitter: {
+    toggleStartPanel: '시작 패널 전환',
+    toggleEndPanel: '끝 패널 전환',
   },
   Transfer: {
     titles: ['', ''],

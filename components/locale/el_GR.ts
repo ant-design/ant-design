@@ -32,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Αντιστροφή τρέχουσας σελίδας',
     selectNone: 'Εκκαθάριση όλων των δεδομένων',
     selectionAll: 'Επιλογή όλων των δεδομένων',
+    selectRow: 'Επιλογή γραμμής',
+    selectedRow: 'Η γραμμή επιλέχθηκε',
+    selectionMenu: 'Μενού επιλογής',
     sortTitle: 'Ταξινόμηση',
     expand: 'Ανάπτυξη σειράς',
     collapse: 'Σύμπτυξη σειράς',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'ΟΚ',
     cancelText: 'Άκυρο',
+  },
+  Splitter: {
+    toggleStartPanel: 'Εναλλαγή αρχικού πίνακα',
+    toggleEndPanel: 'Εναλλαγή τελικού πίνακα',
   },
   Transfer: {
     titles: ['', ''],

@@ -9,7 +9,7 @@ import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMultipleSelect } from '../../_util/hooks';
-import { isFunction, isPlainObject } from '../../_util/is';
+import { isFunction, isPlainObject, isString } from '../../_util/is';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';
@@ -39,6 +39,40 @@ export const SELECTION_INVERT = 'SELECT_INVERT' as const;
 export const SELECTION_NONE = 'SELECT_NONE' as const;
 
 const EMPTY_LIST: React.Key[] = [];
+
+interface SelectionMenuProps {
+  menu: React.ComponentProps<typeof Dropdown>['menu'];
+  getPopupContainer?: GetPopupContainer;
+  label: string;
+}
+
+const SelectionMenu: React.FC<SelectionMenuProps> = (props) => {
+  const { menu, getPopupContainer, label } = props;
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <Dropdown
+      menu={menu}
+      getPopupContainer={getPopupContainer}
+      trigger={['click', 'hover']}
+      onOpenChange={setOpen}
+    >
+      <DownOutlined
+        role="button"
+        tabIndex={0}
+        aria-label={label}
+        aria-haspopup="menu"
+        aria-expanded={open}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            event.currentTarget.click();
+          }
+        }}
+      />
+    </Dropdown>
+  );
+};
 
 interface UseSelectionConfig<RecordType = AnyObject> {
   prefixCls: string;
@@ -108,6 +142,12 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     locale: tableLocale,
     getPopupContainer,
   } = config;
+  const {
+    selectAll,
+    selectRow = 'Select row',
+    selectedRow = 'Row selected',
+    selectionMenu = 'Selection menu',
+  } = tableLocale;
 
   const warning = devUseWarning('Table');
 
@@ -465,11 +505,11 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           };
           customizeSelections = (
             <div className={`${prefixCls}-selection-extra`}>
-              <Dropdown menu={menu} getPopupContainer={getPopupContainer}>
-                <span>
-                  <DownOutlined />
-                </span>
-              </Dropdown>
+              <SelectionMenu
+                menu={menu}
+                getPopupContainer={getPopupContainer}
+                label={selectionMenu}
+              />
             </div>
           );
         }
@@ -495,9 +535,10 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           allDisabled && allDisabledData.some(({ checked }) => checked);
         const customCheckboxProps = getTitleCheckboxProps?.() || {};
         const { onChange, disabled } = customCheckboxProps;
+        const selectAllLabel = isString(selectAll) && selectAll ? selectAll : 'Select all';
         columnTitleCheckbox = (
           <Checkbox
-            aria-label={customizeSelections ? 'Custom selection' : 'Select all'}
+            aria-label={selectAllLabel}
             {...customCheckboxProps}
             checked={
               !allDisabled ? !!flattedData.length && checkedCurrentAll : allDisabledAndChecked
@@ -535,7 +576,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           const key = getRowKey(record, index);
           const checked = keySet.has(key);
           const checkboxProps = checkboxPropsMap.get(key) as unknown as RadioProps;
-          const defaultAriaLabel = `Select row ${index + 1}`;
+          const defaultAriaLabel = selectRow;
           return {
             node: (
               <Radio
@@ -574,9 +615,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           } else {
             mergedIndeterminate = checkboxProps?.indeterminate ?? indeterminate;
           }
-          const defaultAriaLabel = checked
-            ? `Row ${index + 1} selected`
-            : `Select row ${index + 1}`;
+          const defaultAriaLabel = checked ? selectedRow : selectRow;
           // Record checked
           return {
             node: (
@@ -766,6 +805,10 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
       onSelectMultiple,
       triggerSingleSelection,
       isCheckboxDisabled,
+      selectAll,
+      selectRow,
+      selectedRow,
+      selectionMenu,
     ],
   );
 

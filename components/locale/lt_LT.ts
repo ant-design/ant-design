@@ -32,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Apversti pasirinkimą',
     selectNone: 'Išvalyti visus',
     selectionAll: 'Rinktis visus',
+    selectRow: 'Pasirinkti eilutę',
+    selectedRow: 'Eilutė pasirinkta',
+    selectionMenu: 'Pasirinkimo meniu',
     sortTitle: 'Rikiavimas',
     expand: 'Išskleisti',
     collapse: 'Suskleisti',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Taip',
     cancelText: 'Atšaukti',
+  },
+  Splitter: {
+    toggleStartPanel: 'Perjungti pradžios skydelį',
+    toggleEndPanel: 'Perjungti pabaigos skydelį',
   },
   Transfer: {
     titles: ['', ''],

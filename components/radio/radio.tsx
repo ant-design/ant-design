@@ -98,9 +98,13 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     RadioSemanticAllType['classNames'],
     RadioSemanticAllType['styles'],
     RadioProps
-  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
-    props: mergedProps,
-  });
+  >(
+    [contextClassNames, groupContext?.classNames, classNames],
+    [contextStyles, contextStyleRoot, groupContext?.styles, styles, styleRoot],
+    {
+      props: mergedProps,
+    },
+  );
 
   const wrapperClassString = clsx(
     `${prefixCls}-wrapper`,

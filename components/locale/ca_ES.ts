@@ -28,6 +28,9 @@ const localeValues: Locale = {
     selectAll: 'Seleccionar la pàgina actual',
     selectInvert: 'Invertir la selecció',
     selectionAll: 'Seleccionar-ho tot',
+    selectRow: 'Selecciona la fila',
+    selectedRow: 'Fila seleccionada',
+    selectionMenu: 'Menú de selecció',
     sortTitle: 'Ordenar',
     expand: 'Ampliar la fila',
     collapse: 'Plegar la fila',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'D’acord',
     cancelText: 'Cancel·lar',
+  },
+  Splitter: {
+    toggleStartPanel: 'Commuta el panell inicial',
+    toggleEndPanel: 'Commuta el panell final',
   },
   Transfer: {
     titles: ['', ''],

@@ -29,6 +29,9 @@ const localeValues: Locale = {
     selectAll: 'Барлығын таңдау',
     selectInvert: 'Таңдауды төңкеру',
     selectionAll: 'Барлық деректерді таңдаңыз',
+    selectRow: 'Жолды таңдау',
+    selectedRow: 'Жол таңдалды',
+    selectionMenu: 'Таңдау мәзірі',
     sortTitle: 'Сұрыптау',
     expand: 'Жолды жазу',
     collapse: 'Жолды бүктеу',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Жарайды',
     cancelText: 'Болдырмау',
+  },
+  Splitter: {
+    toggleStartPanel: 'Бастапқы панельді ауыстыру',
+    toggleEndPanel: 'Соңғы панельді ауыстыру',
   },
   Transfer: {
     titles: ['', ''],

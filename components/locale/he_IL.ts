@@ -27,6 +27,9 @@ const localeValues: Locale = {
     selectAll: 'בחר הכל',
     selectInvert: 'הפוך בחירה',
     selectionAll: 'בחר את כל הנתונים',
+    selectRow: 'בחירת שורה',
+    selectedRow: 'השורה נבחרה',
+    selectionMenu: 'תפריט בחירה',
     sortTitle: 'מיון',
     expand: 'הרחב שורה',
     collapse: 'צמצם שורה',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'אישור',
     cancelText: 'ביטול',
+  },
+  Splitter: {
+    toggleStartPanel: 'החלפת מצב הלוח ההתחלתי',
+    toggleEndPanel: 'החלפת מצב הלוח הסופי',
   },
   Transfer: {
     titles: ['', ''],

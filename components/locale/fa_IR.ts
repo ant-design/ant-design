@@ -32,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'معکوس کردن انتخاب‌ها در صفحه‌ی کنونی',
     selectNone: 'انتخاب هیچکدام',
     selectionAll: 'انتخاب همه‌ی داده‌ها',
+    selectRow: 'انتخاب ردیف',
+    selectedRow: 'ردیف انتخاب شد',
+    selectionMenu: 'منوی انتخاب',
     sortTitle: 'مرتب سازی',
     expand: 'باز شدن ردیف',
     collapse: 'بستن ردیف',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'تایید',
     cancelText: 'لغو',
+  },
+  Splitter: {
+    toggleStartPanel: 'تغییر وضعیت پنل آغازین',
+    toggleEndPanel: 'تغییر وضعیت پنل پایانی',
   },
   Transfer: {
     titles: ['', ''],

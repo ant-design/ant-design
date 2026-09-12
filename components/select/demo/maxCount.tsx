@@ -23,7 +23,7 @@ const App: React.FC = () => {
       value={value}
       style={{ width: '100%' }}
       onChange={setValue}
-      suffixIcon={suffix}
+      suffix={suffix}
       placeholder="Please select"
       options={[
         { value: 'Ava Swift', label: 'Ava Swift' },

@@ -33,6 +33,9 @@ const localeValues: Locale = {
     emptyText: 'Sen datos',
     selectNone: 'Borrar todos os datos',
     selectionAll: 'Seleccione todos os datos',
+    selectRow: 'Seleccionar fila',
+    selectedRow: 'Fila seleccionada',
+    selectionMenu: 'Menú de selección',
     expand: 'Expandir fila',
     collapse: 'Contraer fila',
     triggerDesc: 'Fai clic para ordenar descendente',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Aceptar',
     cancelText: 'Cancelar',
+  },
+  Splitter: {
+    toggleStartPanel: 'Alternar o panel inicial',
+    toggleEndPanel: 'Alternar o panel final',
   },
   Transfer: {
     titles: ['', ''],

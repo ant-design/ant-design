@@ -32,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'වත්මන් පිටුව යටියනය',
     selectNone: 'සියළු දත්ත ඉවතලන්න',
     selectionAll: 'සියළු දත්ත තෝරන්න',
+    selectRow: 'පේළිය තෝරන්න',
+    selectedRow: 'පේළිය තෝරා ඇත',
+    selectionMenu: 'තේරීම් මෙනුව',
     sortTitle: 'පෙළගැසීම',
     expand: 'පේළිය දිගහරින්න',
     collapse: 'පේළිය හකුළන්න',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'හරි',
     cancelText: 'අවලංගු කරන්න',
+  },
+  Splitter: {
+    toggleStartPanel: 'ආරම්භක පැනලය ටොගල් කරන්න',
+    toggleEndPanel: 'අවසාන පැනලය ටොගල් කරන්න',
   },
   Transfer: {
     titles: ['', ''],

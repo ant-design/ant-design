@@ -45,10 +45,10 @@ demo:
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/mode.tsx" debug>受控面板</code>
 <code src="./demo/start-end.tsx" debug>自定义日期范围选择</code>
-<code src="./demo/suffix.tsx">前后缀</code>
+<code src="./demo/suffix.tsx" version="6.7.0">前后缀</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
-<code src="./demo/suffixIcon-debug.tsx" debug>suffixIcon</code>
+<code src="./demo/suffix-debug.tsx" debug>suffix</code>
 
 ## API
 
@@ -132,7 +132,8 @@ dayjs.locale('zh-cn');
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 | × |
 | style | 自定义输入框样式 | CSSProperties | {} |  | DatePicker: 5.7.0，RangePicker: 5.11.0 |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | DatePicker: 5.25.0，RangePicker: 5.25.0 |
-| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  | DatePicker: 6.3.0，RangePicker: 6.4.0 |
+| suffix | 自定义后缀 | ReactNode | - | 6.7.0 | 6.7.0 |
+| ~~suffixIcon~~ | 自定义的选择框后缀图标，请使用 `suffix` 替代 | ReactNode | - |  | DatePicker: 6.3.0，RangePicker: 6.4.0 |
 | superNextIcon | 自定义 `>>` 切换图标 | ReactNode | - | 4.17.0 | × |
 | superPrevIcon | 自定义 `<<` 切换图标 | ReactNode | - | 4.17.0 | × |
 | clearIcon | （仅支持全局配置）自定义清除图标 | ReactNode | - | × | 6.4.0 |

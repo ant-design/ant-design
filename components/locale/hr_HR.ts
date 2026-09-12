@@ -29,6 +29,9 @@ const localeValues: Locale = {
     selectAll: 'Označi trenutnu stranicu',
     selectInvert: 'Invertiraj trenutnu stranicu',
     selectionAll: 'Odaberite sve podatke',
+    selectRow: 'Odaberi redak',
+    selectedRow: 'Redak je odabran',
+    selectionMenu: 'Izbornik odabira',
     sortTitle: 'Sortiraj',
     expand: 'Proširi redak',
     collapse: 'Sažmi redak',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Odustani',
+  },
+  Splitter: {
+    toggleStartPanel: 'Prebaci početnu ploču',
+    toggleEndPanel: 'Prebaci završnu ploču',
   },
   Transfer: {
     titles: ['', ''],

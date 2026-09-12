@@ -1,5 +1,6 @@
 import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
+import userEvent from '@testing-library/user-event';
 
 import type { SelectProps } from '..';
 import Select from '..';
@@ -12,7 +13,14 @@ import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import Input from '../../input';
+import deDE from '../../locale/de_DE';
+import zhCN from '../../locale/zh_CN';
 import Space from '../../space';
+
+// `userEvent.setup()` redefines `HTMLElement.prototype.focus`/`blur` as getter-only accessors.
+// It has to run before `focusTest` spies on those methods: a spy installed on a plain method
+// restores itself by assignment, which throws once user-event has replaced it with a getter.
+const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
 describe('Select', () => {
   focusTest(Select, { refFocus: true });
@@ -313,10 +321,13 @@ describe('Select', () => {
       resetWarned();
 
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(<Select showArrow />);
+      const { container, rerender } = render(<Select showArrow />);
       expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Select] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+        'Warning: [antd: Select] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffix` to null.',
       );
+      expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
+
+      rerender(<Select showArrow suffix={null} />);
       expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
       errSpy.mockRestore();
@@ -447,6 +458,110 @@ describe('Select', () => {
       );
       expect(container.querySelector('.ant-select-clear')!.textContent).toBe('allow');
     });
+
+    it('should support default clear icon if only label is passed in allowClear prop', () => {
+      const { container } = render(<Select {...props} allowClear={{ label: 'Clear' }} />);
+      expect(
+        container.querySelector('.ant-select-clear .anticon-close-circle'),
+      ).toBeInTheDocument();
+    });
+
+    it('should support clearIcon prop if only label is passed in allowClear prop', () => {
+      const { container } = render(
+        <Select {...props} allowClear={{ label: 'Clear' }} clearIcon="clear" />,
+      );
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('clear');
+    });
+
+    it('should support custom clear icon if both label and icon are passed in allowClear prop', () => {
+      const { container } = render(
+        <Select {...props} allowClear={{ label: 'Clear', clearIcon: 'custom' }} />,
+      );
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('custom');
+    });
+  });
+
+  describe('clear button accessibility', () => {
+    const props = {
+      options: [
+        { value: 'jack', label: 'Jack' },
+        { value: 'lucy', label: 'Lucy' },
+      ],
+      defaultValue: 'jack',
+    };
+
+    it('should expose an accessible label on the clear button', () => {
+      const { container } = render(<Select {...props} allowClear />);
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute('aria-label', 'Clear');
+    });
+
+    it('should localize the clear button accessible label', () => {
+      const { container } = render(
+        <ConfigProvider locale={zhCN}>
+          <Select {...props} allowClear />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute(
+        'aria-label',
+        zhCN.global?.clear,
+      );
+    });
+
+    it('should fall back to English for locales that do not translate `clear`', () => {
+      expect(deDE.global).not.toHaveProperty('clear');
+
+      const { container } = render(
+        <ConfigProvider locale={deDE}>
+          <Select {...props} allowClear />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute('aria-label', 'Clear');
+    });
+
+    it('should prefer a custom label from allowClear over the locale', () => {
+      const { container } = render(
+        <ConfigProvider locale={zhCN}>
+          <Select {...props} allowClear={{ label: 'Custom clear' }} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toHaveAttribute(
+        'aria-label',
+        'Custom clear',
+      );
+    });
+
+    it('should render the clear button as a keyboard-focusable native button', () => {
+      const { container } = render(<Select {...props} allowClear />);
+      const clearBtn = container.querySelector<HTMLButtonElement>('.ant-select-clear')!;
+
+      // A native <button> without a negative tabindex sits in the browser tab
+      // order, so keyboard users reach it without any custom key handling.
+      expect(clearBtn.tagName).toBe('BUTTON');
+      expect(clearBtn).not.toHaveAttribute('tabindex', '-1');
+
+      clearBtn.focus();
+      expect(clearBtn).toHaveFocus();
+    });
+
+    it.each([
+      ['Enter', '{Enter}'],
+      ['Space', '[Space]'],
+    ])(
+      'should clear the value when the clear button is activated by pressing %s key',
+      async (_, keys) => {
+        const onClear = jest.fn();
+        const { container } = render(<Select {...props} allowClear onClear={onClear} />);
+        expect(container.querySelector('.ant-select-content-has-value')).toHaveTextContent('Jack');
+
+        const clearButton = container.querySelector('.ant-select-clear') as HTMLButtonElement;
+        clearButton.focus();
+        await user.keyboard(keys);
+
+        expect(onClear).toHaveBeenCalledTimes(1);
+        expect(container.querySelector('.ant-select-content-has-value')).toBeFalsy();
+        expect(container.querySelector('.ant-select-open')).toBeFalsy();
+      },
+    );
   });
 
   describe('loadingIcon', () => {
@@ -581,10 +696,48 @@ describe('Select', () => {
     });
   });
 
-  describe('suffixIcon', () => {
+  describe('suffix', () => {
     it('should support suffixIcon prop', () => {
       const { container } = render(<Select suffixIcon="foobar" />);
       expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should support suffix prop', () => {
+      const { container } = render(<Select suffix="foobar" />);
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should prefer suffix prop over suffixIcon prop', () => {
+      const { container } = render(<Select suffix="foobar" suffixIcon={null} />);
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('foobar');
+    });
+
+    it('should support function suffix prop', () => {
+      const { container } = render(<Select suffix={({ open }) => (open ? 'opened' : 'closed')} />);
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('closed');
+
+      toggleOpen(container);
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('opened');
+    });
+
+    it('should not render suffix when function returns undefined', () => {
+      const { container } = render(<Select suffix={() => undefined} />);
+      expect(container.querySelector('.ant-select-suffix')).not.toBeInTheDocument();
+      expect(container.querySelector('.ant-select')).not.toHaveClass('ant-select-show-arrow');
+    });
+
+    it.each([
+      ['custom', 'foobar'],
+      ['null', null],
+    ])('should keep feedback icon with %s suffix', (_, suffix) => {
+      const { container } = render(
+        <Form>
+          <Form.Item hasFeedback validateStatus="error">
+            <Select suffix={suffix} />
+          </Form.Item>
+        </Form>,
+      );
+      expect(container.querySelector('.ant-form-item-feedback-icon-error')).toBeTruthy();
     });
 
     it('should support suffixIcon prop in config provider', () => {
@@ -596,6 +749,24 @@ describe('Select', () => {
       expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
     });
 
+    it('should support suffix prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ suffix: 'foobar' }}>
+          <Select />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('foobar');
+    });
+
+    it('should prefer suffix prop in config provider over suffixIcon', () => {
+      const { container } = render(
+        <ConfigProvider select={{ suffix: 'foobar', suffixIcon: 'legacy' }}>
+          <Select />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('foobar');
+    });
+
     it('should prefer suffixIcon prop over config provider', () => {
       const { container } = render(
         <ConfigProvider select={{ suffixIcon: 'foobar' }}>
@@ -604,5 +775,16 @@ describe('Select', () => {
       );
       expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('bamboo');
     });
+  });
+
+  it('should warn when using deprecated suffixIcon prop', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Select suffixIcon="foobar" />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Select] `suffixIcon` is deprecated. Please use `suffix` instead.',
+    );
+    errSpy.mockRestore();
   });
 });

@@ -41,6 +41,9 @@ const localeValues: Locale = {
     selectInvert: 'Përmbys faqen aktuale',
     selectNone: 'Pastro të gjitha të dhënat',
     selectionAll: 'Zgjidh të gjitha të dhënat',
+    selectRow: 'Zgjidh rreshtin',
+    selectedRow: 'Rreshti u zgjodh',
+    selectionMenu: 'Menyja e përzgjedhjes',
     sortTitle: 'Rendit',
     expand: 'Zgjero rreshtin',
     collapse: 'Mblidh rreshtin',
@@ -61,6 +64,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Anulo',
+  },
+  Splitter: {
+    toggleStartPanel: 'Ndrysho panelin fillestar',
+    toggleEndPanel: 'Ndrysho panelin përfundimtar',
   },
   Transfer: {
     titles: ['', ''],

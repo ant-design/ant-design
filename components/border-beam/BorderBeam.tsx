@@ -4,6 +4,7 @@ import { isNonNullable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isNumber, isString } from '../_util/is';
+import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import BorderBeamEffect from './BorderBeamEffect';
@@ -19,6 +20,13 @@ const getInset = (width: number | string) => {
   return isString(width) ? `calc(-1 * ${width})` : `-${width}px`;
 };
 
+export interface BorderBeamItem {
+  color?: BorderBeamColor;
+  lineWidth?: number | string;
+  outset?: number | string;
+  size?: number | string;
+}
+
 export interface BorderBeamProps {
   prefixCls?: string;
   className?: string;
@@ -27,6 +35,7 @@ export interface BorderBeamProps {
   color?: BorderBeamColor;
   count?: number;
   duration?: number;
+  items?: BorderBeamItem[];
   lineWidth?: number | string;
   outset?: number | string;
   size?: number | string;
@@ -39,8 +48,9 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     style,
     children,
     color,
-    count = 1,
+    count,
     duration,
+    items,
     lineWidth,
     outset,
     size,
@@ -63,9 +73,20 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const borderWidth = useBorderSize(childDomNode);
   const beamGradient = useMemo(() => getBorderBeamGradient(color), [color]);
   const mergedCount =
-    isNumber(count) && Number.isFinite(count) && count >= 1 ? Math.floor(count) : 1;
+    items?.length ??
+    (isNumber(count) && Number.isFinite(count) && count >= 1 ? Math.floor(count) : 1);
   const mergedDuration =
     isNumber(duration) && duration > 0 ? duration : DEFAULT_BORDER_BEAM_DURATION;
+
+  // ============================ Warning ============================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('BorderBeam');
+    warning(
+      !isNonNullable(items) || !isNonNullable(count),
+      'usage',
+      '`count` is ignored when `items` is provided.',
+    );
+  }
 
   // ============================ Border ============================
   const insetOffset = useMemo<string>(() => {
@@ -76,26 +97,41 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   return (
     <>
       {childNode}
-      {Array.from({ length: mergedCount }, (_, index) => (
-        <BorderBeamEffect
-          key={index}
-          prefixCls={prefixCls}
-          hostDom={childDomNode}
-          className={clsx(contextClassName, className, hashId, cssVarCls)}
-          style={{
-            ...contextStyle,
-            ...style,
-            ...(beamGradient && { [varName('beam-gradient')]: beamGradient }),
-            ...(isNumber(duration) && duration > 0 && { [varName('duration')]: `${duration}s` }),
-            ...(isNonNullable(lineWidth) && { [varName('line-width')]: unit(lineWidth) }),
-            ...(isNonNullable(size) && { [varName('size')]: unit(size) }),
-            ...(index > 0 && {
-              [varName('delay')]: `${(-mergedDuration * index) / mergedCount}s`,
-            }),
-            [varName('inset-offset')]: insetOffset,
-          }}
-        />
-      ))}
+      {Array.from({ length: mergedCount }, (_, index) => {
+        const item = items?.[index] ?? {};
+        const beamPhase = index / mergedCount;
+        const beamKey = `${mergedCount}-${beamPhase}`;
+        const itemBeamGradient = item.color ? getBorderBeamGradient(item.color) : beamGradient;
+        const itemLineWidth = item.lineWidth ?? lineWidth;
+        const itemSize = item.size ?? size;
+        const itemInsetOffset = isNonNullable(item.outset) ? getInset(item.outset) : insetOffset;
+
+        return (
+          <BorderBeamEffect
+            key={beamKey}
+            prefixCls={prefixCls}
+            hostDom={childDomNode}
+            className={clsx(contextClassName, className, hashId, cssVarCls)}
+            style={{
+              ...contextStyle,
+              ...style,
+              ...(itemBeamGradient && { [varName('beam-gradient')]: itemBeamGradient }),
+              ...(isNumber(duration) &&
+                duration > 0 && {
+                  [varName('duration')]: `${duration}s`,
+                }),
+              ...(isNonNullable(itemLineWidth) && {
+                [varName('line-width')]: unit(itemLineWidth),
+              }),
+              ...(isNonNullable(itemSize) && { [varName('size')]: unit(itemSize) }),
+              ...(beamPhase > 0 && {
+                [varName('delay')]: `${-mergedDuration * beamPhase}s`,
+              }),
+              [varName('inset-offset')]: itemInsetOffset,
+            }}
+          />
+        );
+      })}
     </>
   );
 };

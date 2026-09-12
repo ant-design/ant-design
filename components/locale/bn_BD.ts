@@ -30,6 +30,9 @@ const localeValues: Locale = {
     selectInvert: 'বর্তমান পৃষ্ঠাটি উল্টে দিন',
     selectNone: 'সমস্ত ডেটা সাফ করুন',
     selectionAll: 'সমস্ত ডেটা নির্বাচন করুন',
+    selectRow: 'সারি নির্বাচন করুন',
+    selectedRow: 'সারি নির্বাচিত',
+    selectionMenu: 'নির্বাচন মেনু',
     sortTitle: 'সাজান',
     expand: 'সারি প্রসারিত করুন',
     collapse: 'সারি সঙ্কুচিত করুন',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'ঠিক',
     cancelText: 'বাতিল',
+  },
+  Splitter: {
+    toggleStartPanel: 'শুরুর প্যানেল টগল করুন',
+    toggleEndPanel: 'শেষের প্যানেল টগল করুন',
   },
   Transfer: {
     titles: ['', ''],

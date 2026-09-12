@@ -1,10 +1,15 @@
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 
 import type { TableProps } from '..';
 import Table from '..';
 import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import type { Locale } from '../../locale';
+import enUS from '../../locale/en_US';
+import frFR from '../../locale/fr_FR';
+import zhTW from '../../locale/zh_TW';
 import type { TableRowSelection } from '../interface';
 
 describe('Table.rowSelection', () => {
@@ -148,9 +153,9 @@ describe('Table.rowSelection', () => {
     // Skip the header checkbox, start from body checkboxes
     const checkboxes = container.querySelectorAll<HTMLInputElement>('tbody input[type="checkbox"]');
 
-    expect(checkboxes[0].getAttribute('aria-label')).toBe('Select row 1');
-    expect(checkboxes[1].getAttribute('aria-label')).toBe('Select row 2');
-    expect(checkboxes[2].getAttribute('aria-label')).toBe('Select row 3');
+    expect(checkboxes[0].getAttribute('aria-label')).toBe('Select row');
+    expect(checkboxes[1].getAttribute('aria-label')).toBe('Select row');
+    expect(checkboxes[2].getAttribute('aria-label')).toBe('Select row');
   });
 
   it('should support custom aria-label from getCheckboxProps', () => {
@@ -170,18 +175,156 @@ describe('Table.rowSelection', () => {
     const { container } = render(createTable({ rowSelection: { type: 'radio' } }));
     const radios = container.querySelectorAll<HTMLInputElement>('tbody input[type="radio"]');
 
-    expect(radios[0].getAttribute('aria-label')).toBe('Select row 1');
-    expect(radios[1].getAttribute('aria-label')).toBe('Select row 2');
-    expect(radios[2].getAttribute('aria-label')).toBe('Select row 3');
+    expect(radios[0].getAttribute('aria-label')).toBe('Select row');
+    expect(radios[1].getAttribute('aria-label')).toBe('Select row');
+    expect(radios[2].getAttribute('aria-label')).toBe('Select row');
   });
 
   it('should have selected aria-label when row is selected', () => {
     const { container } = render(createTable({ rowSelection: { defaultSelectedRowKeys: [0, 1] } }));
     const checkboxes = container.querySelectorAll<HTMLInputElement>('tbody input[type="checkbox"]');
 
-    expect(checkboxes[0].getAttribute('aria-label')).toBe('Row 1 selected');
-    expect(checkboxes[1].getAttribute('aria-label')).toBe('Row 2 selected');
-    expect(checkboxes[2].getAttribute('aria-label')).toBe('Select row 3');
+    expect(checkboxes[0].getAttribute('aria-label')).toBe('Row selected');
+    expect(checkboxes[1].getAttribute('aria-label')).toBe('Row selected');
+    expect(checkboxes[2].getAttribute('aria-label')).toBe('Select row');
+  });
+
+  it('should localize row selection accessible names', () => {
+    const { container, rerender } = render(
+      <ConfigProvider locale={zhTW}>
+        {createTable({ rowSelection: { defaultSelectedRowKeys: [0] } })}
+      </ConfigProvider>,
+    );
+    const checkboxes = container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
+
+    expect(checkboxes[0]).toHaveAttribute('aria-label', '選取目前頁面');
+    expect(checkboxes[1]).toHaveAttribute('aria-label', '列已選取');
+    expect(checkboxes[2]).toHaveAttribute('aria-label', '選取列');
+
+    rerender(
+      <ConfigProvider locale={zhTW}>
+        {createTable({ rowSelection: { type: 'radio' } })}
+      </ConfigProvider>,
+    );
+    const radios = container.querySelectorAll<HTMLInputElement>('input[type="radio"]');
+
+    expect(radios[0]).toHaveAttribute('aria-label', '選取列');
+    expect(radios[1]).toHaveAttribute('aria-label', '選取列');
+  });
+
+  it('should update row selection accessible names when locale changes', () => {
+    const rowSelection = { selections: true };
+    const customLocale = {
+      ...enUS,
+      locale: 'custom',
+      Table: {
+        ...enUS.Table,
+        selectAll: 'Choose all rows',
+        selectRow: 'Choose row',
+        selectedRow: 'Row chosen',
+        selectionMenu: 'Choose rows menu',
+      },
+    };
+    const renderTable = (locale: Locale) => (
+      <ConfigProvider locale={locale}>
+        <Table columns={columns} dataSource={data} pagination={false} rowSelection={rowSelection} />
+      </ConfigProvider>
+    );
+    const { container, rerender } = render(renderTable(customLocale));
+
+    expect(container.querySelector('thead input')).toHaveAttribute('aria-label', 'Choose all rows');
+    expect(container.querySelector('tbody input')).toHaveAttribute('aria-label', 'Choose row');
+    expect(container.querySelector('.ant-table-selection-extra [role="button"]')).toHaveAttribute(
+      'aria-label',
+      'Choose rows menu',
+    );
+
+    rerender(renderTable(zhTW));
+
+    expect(container.querySelector('thead input')).toHaveAttribute('aria-label', '選取目前頁面');
+    expect(container.querySelector('tbody input')).toHaveAttribute('aria-label', '選取列');
+    expect(container.querySelector('.ant-table-selection-extra [role="button"]')).toHaveAttribute(
+      'aria-label',
+      '選取選單',
+    );
+  });
+
+  it('should localize row selection accessible names in French', () => {
+    const { container } = render(
+      <ConfigProvider locale={frFR}>
+        {createTable({ rowSelection: { defaultSelectedRowKeys: [0], selections: true } })}
+      </ConfigProvider>,
+    );
+    const checkboxes = container.querySelectorAll<HTMLInputElement>('tbody input');
+
+    expect(checkboxes[0]).toHaveAttribute('aria-label', 'Ligne sélectionnée');
+    expect(checkboxes[1]).toHaveAttribute('aria-label', 'Sélectionner la ligne');
+    expect(container.querySelector('.ant-table-selection-extra [role="button"]')).toHaveAttribute(
+      'aria-label',
+      'Menu de sélection',
+    );
+  });
+
+  it('should fall back to English accessible names for a custom locale', () => {
+    const { container } = render(
+      <ConfigProvider locale={{ locale: 'custom' }}>
+        {createTable({ rowSelection: { defaultSelectedRowKeys: [0], selections: true } })}
+      </ConfigProvider>,
+    );
+    const checkboxes = container.querySelectorAll<HTMLInputElement>('tbody input');
+
+    expect(checkboxes[0]).toHaveAttribute('aria-label', 'Row selected');
+    expect(checkboxes[1]).toHaveAttribute('aria-label', 'Select row');
+    expect(container.querySelector('.ant-table-selection-extra [role="button"]')).toHaveAttribute(
+      'aria-label',
+      'Selection menu',
+    );
+  });
+
+  it('should fall back when selectAll is not a string', () => {
+    const locale = {
+      ...enUS,
+      Table: {
+        ...enUS.Table,
+        selectAll: <span>Select all rows</span>,
+      },
+    };
+    const { container } = render(
+      <ConfigProvider locale={locale}>{createTable({ rowSelection: {} })}</ConfigProvider>,
+    );
+
+    expect(container.querySelector('thead input')).toHaveAttribute('aria-label', 'Select all');
+  });
+
+  it('should make the selection menu keyboard accessible', async () => {
+    const user = userEvent.setup();
+    const { container } = render(
+      <ConfigProvider locale={zhTW}>
+        {createTable({ pagination: false, rowSelection: { selections: true } })}
+      </ConfigProvider>,
+    );
+    const headerCheckbox = container.querySelector<HTMLInputElement>('thead input')!;
+    const menuTrigger = container.querySelector<HTMLElement>(
+      '.ant-table-selection-extra [role="button"]',
+    )!;
+
+    expect(menuTrigger.tagName).toBe('SPAN');
+    expect(headerCheckbox).toHaveAttribute('aria-label', '選取目前頁面');
+    expect(menuTrigger).toHaveAttribute('aria-label', '選取選單');
+    expect(menuTrigger).toHaveAttribute('aria-haspopup', 'menu');
+    expect(menuTrigger).toHaveAttribute('aria-expanded', 'false');
+
+    await user.tab();
+    expect(headerCheckbox).toHaveFocus();
+    await user.tab();
+    expect(menuTrigger).toHaveFocus();
+    await user.keyboard('{Enter}');
+    expect(menuTrigger).toHaveAttribute('aria-expanded', 'true');
+
+    await user.click(menuTrigger);
+    expect(menuTrigger).toHaveAttribute('aria-expanded', 'false');
+    await user.keyboard(' ');
+    expect(menuTrigger).toHaveAttribute('aria-expanded', 'true');
   });
 
   it("make getCheckboxProps's `indeterminate` override selectedRowKeys' effect", () => {

@@ -32,6 +32,9 @@ const localeValues: Locale = {
     emptyText: 'Engin gögn',
     selectNone: 'Hreinsaðu öll gögn',
     selectionAll: 'Veldu öll gögn',
+    selectRow: 'Velja röð',
+    selectedRow: 'Röð valin',
+    selectionMenu: 'Valmynd fyrir val',
     sortTitle: 'Raða',
     expand: 'Stækkaðu röð',
     collapse: 'Draga saman röð',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Áfram',
     cancelText: 'Hætta við',
+  },
+  Splitter: {
+    toggleStartPanel: 'Víxla upphafsspjaldinu',
+    toggleEndPanel: 'Víxla lokaspjaldinu',
   },
   Transfer: {
     titles: ['', ''],

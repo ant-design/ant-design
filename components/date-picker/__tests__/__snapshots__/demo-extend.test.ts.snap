@@ -85115,7 +85115,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
 
 exports[`renders components/date-picker/demo/suffix.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/suffix-debug.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
@@ -88145,7 +88145,7 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context
 </div>
 `;
 
-exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/date-picker/demo/suffix-debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/switchable.tsx extend context correctly 1`] = `
 <div
@@ -88212,7 +88212,9 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
         >
           <div
             aria-label="Time"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="6"
             id="test-id_list_0"
             role="option"
           >
@@ -88220,7 +88222,9 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
           </div>
           <div
             aria-label="Date"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="6"
             id="test-id_list_1"
             role="option"
           >

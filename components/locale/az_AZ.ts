@@ -32,6 +32,9 @@ const localeValues: Locale = {
     filterSearchPlaceholder: 'Filterlərdə axtar',
     selectNone: 'Bütün məlumatı sil',
     selectionAll: 'Bütün məlumatı seç',
+    selectRow: 'Sətri seç',
+    selectedRow: 'Sətir seçildi',
+    selectionMenu: 'Seçim menyusu',
     sortTitle: 'Sırala',
     expand: 'Sıranı genişləndir',
     collapse: 'Sıranı qapadın',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Bəli',
     cancelText: 'Ləğv et',
+  },
+  Splitter: {
+    toggleStartPanel: 'Başlanğıc panelini dəyişdir',
+    toggleEndPanel: 'Son paneli dəyişdir',
   },
   Transfer: {
     titles: ['', ''],

@@ -195,9 +195,19 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     CheckboxSemanticAllType['classNames'],
     CheckboxSemanticAllType['styles'],
     CheckboxProps
-  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
-    props: mergedProps,
-  });
+  >(
+    [contextClassNames, skipGroup ? undefined : checkboxGroup?.classNames, classNames],
+    [
+      contextStyles,
+      contextStyleRoot,
+      skipGroup ? undefined : checkboxGroup?.styles,
+      styles,
+      styleRoot,
+    ],
+    {
+      props: mergedProps,
+    },
+  );
 
   const classString = clsx(
     `${prefixCls}-wrapper`,

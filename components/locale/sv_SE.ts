@@ -32,6 +32,9 @@ const localeValues: Locale = {
     selectInvert: 'Invertera nuvarande sida',
     selectNone: 'Avmarkera all data',
     selectionAll: 'Markera all data',
+    selectRow: 'Välj rad',
+    selectedRow: 'Rad vald',
+    selectionMenu: 'Valmeny',
     sortTitle: 'Sortera',
     expand: 'Expandera rad',
     collapse: 'Komprimera rad',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Avbryt',
+  },
+  Splitter: {
+    toggleStartPanel: 'Växla startpanelen',
+    toggleEndPanel: 'Växla slutpanelen',
   },
   Transfer: {
     titles: ['', ''],

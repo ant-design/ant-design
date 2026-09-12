@@ -64,7 +64,9 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
         >
           <div
             aria-label="2006"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="20"
             id="test-id_list_0"
             role="option"
           >
@@ -72,7 +74,9 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           </div>
           <div
             aria-label="2007"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="20"
             id="test-id_list_1"
             role="option"
           >
@@ -495,7 +499,9 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
         >
           <div
             aria-label="Jan"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="12"
             id="test-id_list_0"
             role="option"
           >
@@ -503,7 +509,9 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           </div>
           <div
             aria-label="Feb"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="12"
             id="test-id_list_1"
             role="option"
           >
@@ -1620,7 +1628,9 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
           >
             <div
               aria-label="2006"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="20"
               id="test-id_list_0"
               role="option"
             >
@@ -1628,7 +1638,9 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             </div>
             <div
               aria-label="2007"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="20"
               id="test-id_list_1"
               role="option"
             >
@@ -2051,7 +2063,9 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
           >
             <div
               aria-label="Jan"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="12"
               id="test-id_list_0"
               role="option"
             >
@@ -2059,7 +2073,9 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             </div>
             <div
               aria-label="Feb"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="12"
               id="test-id_list_1"
               role="option"
             >
@@ -3175,7 +3191,9 @@ Array [
           >
             <div
               aria-label="2006"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="20"
               id="test-id_list_0"
               role="option"
             >
@@ -3183,7 +3201,9 @@ Array [
             </div>
             <div
               aria-label="2007"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="20"
               id="test-id_list_1"
               role="option"
             >
@@ -3606,7 +3626,9 @@ Array [
           >
             <div
               aria-label="Jan"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="12"
               id="test-id_list_0"
               role="option"
             >
@@ -3614,7 +3636,9 @@ Array [
             </div>
             <div
               aria-label="Feb"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="12"
               id="test-id_list_1"
               role="option"
             >
@@ -4724,7 +4748,9 @@ Array [
           >
             <div
               aria-label="2006"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="20"
               id="test-id_list_0"
               role="option"
             >
@@ -4732,7 +4758,9 @@ Array [
             </div>
             <div
               aria-label="2007"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="20"
               id="test-id_list_1"
               role="option"
             >
@@ -5155,7 +5183,9 @@ Array [
           >
             <div
               aria-label="Jan"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="12"
               id="test-id_list_0"
               role="option"
             >
@@ -5163,7 +5193,9 @@ Array [
             </div>
             <div
               aria-label="Feb"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="12"
               id="test-id_list_1"
               role="option"
             >
@@ -7901,7 +7933,9 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
         >
           <div
             aria-label="2016"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="20"
             id="test-id_list_0"
             role="option"
           >
@@ -7909,7 +7943,9 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
           </div>
           <div
             aria-label="2017"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="20"
             id="test-id_list_1"
             role="option"
           >
@@ -8332,7 +8368,9 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
         >
           <div
             aria-label="Jan"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="12"
             id="test-id_list_0"
             role="option"
           >
@@ -8340,7 +8378,9 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
           </div>
           <div
             aria-label="Feb"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="12"
             id="test-id_list_1"
             role="option"
           >
@@ -9848,7 +9888,9 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
         >
           <div
             aria-label="2006"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="20"
             id="test-id_list_0"
             role="option"
           >
@@ -9856,7 +9898,9 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           </div>
           <div
             aria-label="2007"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="20"
             id="test-id_list_1"
             role="option"
           >
@@ -10279,7 +10323,9 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
         >
           <div
             aria-label="Jan"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="12"
             id="test-id_list_0"
             role="option"
           >
@@ -10287,7 +10333,9 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           </div>
           <div
             aria-label="Feb"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="12"
             id="test-id_list_1"
             role="option"
           >
@@ -11814,7 +11862,9 @@ Array [
           >
             <div
               aria-label="2007"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="20"
               id="test-id_list_0"
               role="option"
             >
@@ -11822,7 +11872,9 @@ Array [
             </div>
             <div
               aria-label="2008"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="20"
               id="test-id_list_1"
               role="option"
             >
@@ -12245,7 +12297,9 @@ Array [
           >
             <div
               aria-label="Jan"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="12"
               id="test-id_list_0"
               role="option"
             >
@@ -12253,7 +12307,9 @@ Array [
             </div>
             <div
               aria-label="Feb"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="12"
               id="test-id_list_1"
               role="option"
             >
@@ -13372,7 +13428,9 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
           >
             <div
               aria-label="2006"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="20"
               id="test-id_list_0"
               role="option"
             >
@@ -13380,7 +13438,9 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
             </div>
             <div
               aria-label="2007"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="20"
               id="test-id_list_1"
               role="option"
             >
@@ -13803,7 +13863,9 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
           >
             <div
               aria-label="Jan"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="12"
               id="test-id_list_0"
               role="option"
             >
@@ -13811,7 +13873,9 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
             </div>
             <div
               aria-label="Feb"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="12"
               id="test-id_list_1"
               role="option"
             >
@@ -14921,7 +14985,9 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
           >
             <div
               aria-label="2006"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="20"
               id="test-id_list_0"
               role="option"
             >
@@ -14929,7 +14995,9 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
             </div>
             <div
               aria-label="2007"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="20"
               id="test-id_list_1"
               role="option"
             >
@@ -15352,7 +15420,9 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
           >
             <div
               aria-label="Jan"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="12"
               id="test-id_list_0"
               role="option"
             >
@@ -15360,7 +15430,9 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
             </div>
             <div
               aria-label="Feb"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="12"
               id="test-id_list_1"
               role="option"
             >
@@ -16476,7 +16548,9 @@ Array [
           >
             <div
               aria-label="2006"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="20"
               id="test-id_list_0"
               role="option"
             >
@@ -16484,7 +16558,9 @@ Array [
             </div>
             <div
               aria-label="2007"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="20"
               id="test-id_list_1"
               role="option"
             >
@@ -16907,7 +16983,9 @@ Array [
           >
             <div
               aria-label="Jan"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="12"
               id="test-id_list_0"
               role="option"
             >
@@ -16915,7 +16993,9 @@ Array [
             </div>
             <div
               aria-label="Feb"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="12"
               id="test-id_list_1"
               role="option"
             >
@@ -18086,7 +18166,9 @@ Array [
           >
             <div
               aria-label="2006"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="20"
               id="test-id_list_0"
               role="option"
             >
@@ -18094,7 +18176,9 @@ Array [
             </div>
             <div
               aria-label="2007"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="20"
               id="test-id_list_1"
               role="option"
             >
@@ -18517,7 +18601,9 @@ Array [
           >
             <div
               aria-label="Jan"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="12"
               id="test-id_list_0"
               role="option"
             >
@@ -18525,7 +18611,9 @@ Array [
             </div>
             <div
               aria-label="Feb"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="12"
               id="test-id_list_1"
               role="option"
             >

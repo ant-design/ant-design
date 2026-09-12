@@ -30,6 +30,9 @@ const localeValues: Locale = {
     selectInvert: 'നിലവിലെ പേജിൽ ഇല്ലാത്തത് തിരഞ്ഞെടുക്കുക',
     selectNone: 'എല്ലാ ഡാറ്റയും നീക്കം ചെയ്യുക',
     selectionAll: 'എല്ലാ ഡാറ്റയും തിരഞ്ഞെടുക്കുക',
+    selectRow: 'വരി തിരഞ്ഞെടുക്കുക',
+    selectedRow: 'വരി തിരഞ്ഞെടുത്തു',
+    selectionMenu: 'തിരഞ്ഞെടുക്കൽ മെനു',
     sortTitle: 'ക്രമമാക്കുക',
     expand: 'വരി വികസിപ്പിക്കുക',
     collapse: 'വരി ചുരുക്കുക',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'ശരിയാണ്',
     cancelText: 'റദ്ദാക്കുക',
+  },
+  Splitter: {
+    toggleStartPanel: 'ആരംഭ പാനൽ ടോഗിൾ ചെയ്യുക',
+    toggleEndPanel: 'അവസാന പാനൽ ടോഗിൾ ചെയ്യുക',
   },
   Transfer: {
     titles: ['', ''],

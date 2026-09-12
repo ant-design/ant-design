@@ -32,6 +32,9 @@ const localeValues: Locale = {
     emptyText: 'Ni podatkov',
     selectNone: 'Počisti vse podatke',
     selectionAll: 'Izberite vse podatke',
+    selectRow: 'Izberi vrstico',
+    selectedRow: 'Vrstica je izbrana',
+    selectionMenu: 'Meni za izbiro',
     sortTitle: 'Razvrsti',
     expand: 'Razširi vrstico',
     collapse: 'Strni vrstico',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'v redu',
     cancelText: 'Prekliči',
+  },
+  Splitter: {
+    toggleStartPanel: 'Preklopi začetno ploščo',
+    toggleEndPanel: 'Preklopi končno ploščo',
   },
   Transfer: {
     titles: ['', ''],

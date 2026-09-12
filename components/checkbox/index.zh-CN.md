@@ -52,10 +52,12 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-group), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-group), string> | - | 6.7.0 |
 | defaultValue | 默认选中的选项 | (string \| number)\[] | \[] |  |
 | disabled | 整组失效 | boolean | false |  |
 | name | CheckboxGroup 下所有 `input[type="checkbox"]` 的 `name` 属性 | string | - |  |
 | options | 指定可选项 | string\[] \| number\[] \| Option\[] | \[] |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-group), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-group), CSSProperties> | - | 6.7.0 |
 | value | 指定选中的选项 | (string \| number \| boolean)\[] | \[] |  |
 | title | 选项的 title | `string` | - |  |
 | className | 选项的类名 | `string` | - | 5.25.0 |
@@ -84,7 +86,13 @@ interface Option {
 
 ## Semantic DOM
 
+### Checkbox
+
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### Checkbox.Group {#semantic-group}
+
+<code src="./demo/_semantic_group.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）{#design-token}
 
