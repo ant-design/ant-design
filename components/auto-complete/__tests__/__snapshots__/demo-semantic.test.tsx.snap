@@ -94,7 +94,9 @@ exports[`renders components/auto-complete/demo/_semantic.tsx correctly 1`] = `
               </div>
               <div
                 aria-label="thinkasany"
+                aria-posinset="2"
                 aria-selected="false"
+                aria-setsize="3"
                 id="test-id_list_1"
                 role="option"
               >
