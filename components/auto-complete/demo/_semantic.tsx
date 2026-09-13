@@ -23,6 +23,7 @@ const App: React.FC = () => {
       component={AutoComplete}
       componentName="AutoComplete"
       prefix="prefix"
+      defaultValue="aojunhao123"
       style={{ width: 200 }}
       options={options}
       onSearch={(text: string) => setOptions(getPanelValue(text))}
