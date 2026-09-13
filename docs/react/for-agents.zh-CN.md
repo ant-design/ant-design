@@ -50,13 +50,13 @@ antd setup --client claude          # 为 AI Agent 接入 MCP/Skill
 antd upgrade                        # 升级 CLI 到最新版本
 ```
 
-完整参考：[CLI](/docs/react/cli-cn)
+完整参考：[CLI](/docs/react/cli)
 
 ### design.md — 设计语言上下文 {#design-md}
 
 [design.md](https://ant.design/design.md) 面向 AI 设计工具，描述 Ant Design 默认 Light 主题的视觉语言、组件范式和主题 Token。
 
-完整参考：[design.md](/docs/react/design-md-cn)
+完整参考：[design.md](/docs/react/design-md)
 
 ### MCP Server — IDE 集成 {#mcp}
 
@@ -73,7 +73,7 @@ CLI 同时支持作为 MCP 服务器运行，提供 8 个工具和 2 个提示�
 }
 ```
 
-完整参考：[MCP Server](/docs/react/mcp-cn)
+完整参考：[MCP Server](/docs/react/mcp)
 
 ### LLMs.txt — LLM 结构化文档 {#llms-txt}
 
@@ -88,4 +88,4 @@ CLI 同时支持作为 MCP 服务器运行，提供 8 个工具和 2 个提示�
 
 也可以获取单个组件文档：`https://ant.design/components/<name>.md`。
 
-完整参考：[LLMs.txt](/docs/react/llms-cn)、[design.md](/docs/react/design-md-cn)
+完整参考：[LLMs.txt](/docs/react/llms)、[design.md](/docs/react/design-md)
