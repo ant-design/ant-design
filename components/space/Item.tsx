@@ -1,8 +1,8 @@
 import * as React from 'react';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { SpaceSemanticAllType } from '.';
-import { isReactRenderable } from '../_util/is';
 import { SpaceContext } from './context';
 import type { SpaceContextType } from './context';
 

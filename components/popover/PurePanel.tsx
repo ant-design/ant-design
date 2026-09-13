@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Popup } from '@rc-component/tooltip';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { PopoverProps, PopoverSemanticAllType } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
-import { isReactRenderable } from '../_util/is';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 

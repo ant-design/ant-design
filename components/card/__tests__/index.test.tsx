@@ -360,4 +360,19 @@ describe('Card', () => {
 
     expect(container).toMatchSnapshot();
   });
+
+  it('should render numeric 0 for title, extra, and Card.Meta', () => {
+    const { container } = render(
+      <Card title={0} extra={0} cover={0}>
+        <Card.Meta avatar={0} title={0} description={0} />
+      </Card>,
+    );
+
+    expect(container.querySelector('.ant-card-head-title')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-card-extra')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-card-cover')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-card-meta-avatar')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-card-meta-title')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-card-meta-description')?.textContent).toBe('0');
+  });
 });

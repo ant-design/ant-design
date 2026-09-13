@@ -26,7 +26,7 @@ We provide comprehensive design guidelines, best practices, resources, and tools
 - [Illustrations](/docs/spec/illustration)
 - [Design resources](/docs/resources)
 - [Sketch toolbox](http://kitchen.alipay.com/)
-- [Articles](/docs/spec/article)
+- [Articles](/docs/resources#articles)
 
 ## Front-end Implementation
 

@@ -93,6 +93,10 @@ const localeValues: Locale = {
     expand: 'Genişlet',
     collapse: 'Daralt',
   },
+  Carousel: {
+    prevSlide: 'Önceki slayt',
+    nextSlide: 'Sonraki slayt',
+  },
   Form: {
     optional: '(opsiyonel)',
     defaultValidateMessages: {

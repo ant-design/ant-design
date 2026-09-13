@@ -7,7 +7,15 @@ import type { PickerLocale } from '../generatePicker';
 const locale: PickerLocale = {
   lang: {
     placeholder: 'בחר תאריך',
+    yearPlaceholder: 'בחר שנה',
+    quarterPlaceholder: 'בחר רבעון',
+    monthPlaceholder: 'בחר חודש',
+    weekPlaceholder: 'בחר שבוע',
     rangePlaceholder: ['תאריך התחלה', 'תאריך סיום'],
+    rangeYearPlaceholder: ['שנת התחלה', 'שנת סיום'],
+    rangeQuarterPlaceholder: ['רבעון התחלה', 'רבעון סיום'],
+    rangeMonthPlaceholder: ['חודש התחלה', 'חודש סיום'],
+    rangeWeekPlaceholder: ['שבוע התחלה', 'שבוע סיום'],
     ...CalendarLocale,
   },
   timePickerLocale: {

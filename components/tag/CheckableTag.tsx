@@ -62,7 +62,9 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
 
     if (e.key === ' ') {
       e.preventDefault();
-      onChange?.(!checked);
+      if (!e.repeat) {
+        onChange?.(!checked);
+      }
     }
   };
 
@@ -92,7 +94,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
       aria-checked={checked}
       aria-disabled={mergedDisabled || undefined}
       tabIndex={mergedDisabled ? -1 : 0}
-      style={{ ...style, ...tag?.style }}
+      style={{ ...tag?.style, ...style }}
       className={cls}
       onClick={handleClick}
       onKeyDown={handleKeyDown}

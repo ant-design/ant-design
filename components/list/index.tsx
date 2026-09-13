@@ -153,9 +153,7 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
       key = (item as any).key;
     }
 
-    if (!key) {
-      key = `list-item-${index}`;
-    }
+    key ??= `list-item-${index}`;
 
     return <React.Fragment key={key}>{renderItem(item, index)}</React.Fragment>;
   };

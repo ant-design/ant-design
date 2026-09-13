@@ -1,6 +1,6 @@
 import React from 'react';
+import { isNonNullable } from '@rc-component/util';
 
-import { isNonNullable } from '../../_util/is';
 import type { AnyObject } from '../../_util/type';
 import type { ColumnTitleProps, FilterValue } from '../interface';
 

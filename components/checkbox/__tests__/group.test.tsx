@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Collapse from '../../collapse';
+import ConfigProvider from '../../config-provider';
 import Input from '../../input';
 import Table from '../../table';
 
@@ -60,6 +61,18 @@ describe('CheckboxGroup', () => {
     expect(onChangeGroup).toHaveBeenCalledWith(['Apple']);
   });
 
+  it('should override context disabled status when CheckboxGroup is enabled', () => {
+    const { getByRole } = render(
+      <ConfigProvider componentDisabled>
+        <Checkbox.Group disabled={false}>
+          <Checkbox value="Apple" />
+        </Checkbox.Group>
+      </ConfigProvider>,
+    );
+
+    expect(getByRole('checkbox')).not.toBeDisabled();
+  });
+
   it('all children should have a name property', () => {
     const { container } = render(<Checkbox.Group name="checkboxgroup" options={['Yes', 'No']} />);
     Array.from(container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')).forEach(
@@ -90,6 +103,34 @@ describe('CheckboxGroup', () => {
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(0);
     rerender(renderCheckbox({ options, value: 'Apple' as any }));
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(1);
+  });
+
+  describe('value is undefined', () => {
+    it('use `defaultValue` when `value` is undefined', () => {
+      const { container } = render(
+        <Checkbox.Group defaultValue={['A']} value={undefined} options={['A']} />,
+      );
+      expect(container.querySelectorAll('.ant-checkbox-checked')).toHaveLength(1);
+    });
+
+    it('should update value when `value` is undefined', () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <Checkbox.Group
+          defaultValue={['A']}
+          value={undefined}
+          options={['A', 'B']}
+          onChange={onChange}
+        />,
+      );
+      const checkboxes = container.querySelectorAll('input');
+
+      expect(checkboxes[0]).toBeChecked();
+      fireEvent.click(checkboxes[1]);
+      expect(checkboxes[0]).toBeChecked();
+      expect(checkboxes[1]).toBeChecked();
+      expect(onChange).toHaveBeenCalledWith(['A', 'B']);
+    });
   });
 
   // https://github.com/ant-design/ant-design/issues/12642

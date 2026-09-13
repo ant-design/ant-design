@@ -8,6 +8,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 dayjs.extend(customParseFormat);
 
@@ -37,6 +38,52 @@ describe('TimePicker', () => {
     expect(container.querySelectorAll('.my-btn').length).toBeTruthy();
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: TimePicker] `addon` is deprecated. Please use `renderExtraFooter` instead.',
+    );
+  });
+
+  it('should support suffix prop', () => {
+    const { container } = render(<TimePicker suffix="suffix" />);
+    expect(container.querySelector('.ant-picker-suffix')).toHaveTextContent('suffix');
+  });
+
+  it('should support suffix prop in config provider', () => {
+    const { container } = render(
+      <ConfigProvider timePicker={{ suffix: 'suffix' }}>
+        <TimePicker />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-picker-suffix')).toHaveTextContent('suffix');
+  });
+
+  it('should support suffix prop in RangePicker', () => {
+    const { container } = render(<TimePicker.RangePicker suffix="suffix" />);
+    expect(container.querySelector('.ant-picker-suffix')).toHaveTextContent('suffix');
+  });
+
+  it('should support suffix prop from config provider in RangePicker', () => {
+    const { container } = render(
+      <ConfigProvider timePicker={{ suffix: 'suffix' }}>
+        <TimePicker.RangePicker />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-picker-suffix')).toHaveTextContent('suffix');
+  });
+
+  it('should warn when using deprecated suffixIcon prop', () => {
+    resetWarned();
+    const { container } = render(<TimePicker suffixIcon="legacy" />);
+    expect(container.querySelector('.ant-picker-suffix')).toHaveTextContent('legacy');
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: TimePicker] `suffixIcon` is deprecated. Please use `suffix` instead.',
+    );
+  });
+
+  it('should warn when using deprecated suffixIcon prop in RangePicker', () => {
+    resetWarned();
+    const { container } = render(<TimePicker.RangePicker suffixIcon="legacy" />);
+    expect(container.querySelector('.ant-picker-suffix')).toHaveTextContent('legacy');
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: TimePicker.RangePicker] `suffixIcon` is deprecated. Please use `suffix` instead.',
     );
   });
 

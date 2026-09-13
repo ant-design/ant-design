@@ -1,5 +1,5 @@
-/// <reference types="jest-environment-puppeteer" />
 import type * as React from 'react';
+import 'jest-puppeteer';
 
 declare global {
   namespace jest {

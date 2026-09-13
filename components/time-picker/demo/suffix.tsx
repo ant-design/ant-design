@@ -14,7 +14,7 @@ const onChange: TimePickerProps['onChange'] = (time, timeString) => {
 const App: React.FC = () => (
   <Space vertical size={12}>
     <TimePicker
-      suffixIcon={<SmileOutlined />}
+      suffix={<SmileOutlined />}
       onChange={onChange}
       defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
     />

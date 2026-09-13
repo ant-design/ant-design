@@ -4,12 +4,12 @@ import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import { RangePicker as RCRangePicker } from '@rc-component/picker';
 import type { PickerRef } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/generate/index';
-import { merge } from '@rc-component/util';
+import { isNonNullable, merge } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../../_util/ContextIsolator';
+import fallbackProp from '../../_util/fallbackProp';
 import { useAllowClear, useZIndex } from '../../_util/hooks';
-import { isNonNullable } from '../../_util/is';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
@@ -29,7 +29,7 @@ import { getRangePlaceholder } from '../util';
 import { TIME } from './constant';
 import type { PickerLocale, RangePickerProps } from './interface';
 import useComponents from './useComponents';
-import useSuffixIcon from './useSuffixIcon';
+import useSuffix from './useSuffix';
 
 const generateRangePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,
@@ -57,7 +57,8 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       popupClassName,
       popupStyle,
       rootClassName,
-      suffixIcon,
+      suffix: customSuffix,
+      suffixIcon: customSuffixIcon,
       separator,
       allowClear,
       clearIcon,
@@ -67,6 +68,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const pickerType = picker === TIME ? ('timePicker' as const) : ('datePicker' as const);
 
     const {
+      suffix: contextSuffix,
       suffixIcon: contextSuffixIcon,
       clearIcon: contextClearIcon,
       allowClear: contextAllowClear,
@@ -74,13 +76,16 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
 
     // ====================== Warning =======================
     if (process.env.NODE_ENV !== 'production') {
-      const warning = devUseWarning('DatePicker.RangePicker');
+      const warning = devUseWarning(
+        picker === TIME ? 'TimePicker.RangePicker' : 'DatePicker.RangePicker',
+      );
       const deprecatedProps = {
         dropdownClassName: 'classNames.popup.root',
         popupClassName: 'classNames.popup.root',
         popupStyle: 'styles.popup.root',
         bordered: 'variant',
         onSelect: 'onCalendarChange',
+        suffixIcon: 'suffix',
       };
       Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
         warning.deprecated(!(oldProp in props), oldProp, newProp);
@@ -145,11 +150,11 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     // ===================== FormItemInput =====================
     const formItemContext = useContext(FormItemInputContext);
     const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
-    const mergedSuffixIcon = useSuffixIcon({
+    const mergedSuffix = useSuffix({
       picker,
       hasFeedback,
       feedbackIcon,
-      suffixIcon: suffixIcon === undefined ? contextSuffixIcon : suffixIcon,
+      suffix: fallbackProp(customSuffix, customSuffixIcon, contextSuffix, contextSuffixIcon),
     });
     useImperativeHandle(ref, () => innerRef.current!);
 
@@ -175,7 +180,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           ref={innerRef as any} // Need to modify PickerRef
           placement={placement}
           placeholder={getRangePlaceholder(locale, picker, placeholder)}
-          suffixIcon={mergedSuffixIcon}
+          suffix={mergedSuffix}
           prevIcon={<span className={`${prefixCls}-prev-icon`} />}
           nextIcon={<span className={`${prefixCls}-next-icon`} />}
           superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}

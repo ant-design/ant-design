@@ -165,30 +165,29 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
         <RightOutlined className={styles.arrowIcon} rotate={open ? 90 : 0} />
         <Flex className={styles.tokenTitle} gap="small" justify="flex-start" align="center">
           {title}
-          <Popover
-            title={null}
-            destroyOnHidden
-            styles={{ root: { width: 400 } }}
-            content={
-              <Typography>
-                <pre dir="ltr" style={{ fontSize: 12 }}>
-                  <code
-                    dir="ltr"
-                    dangerouslySetInnerHTML={{ __html: highlightedCode }}
-                  />
-                </pre>
-                <a href={helpLink} target="_blank" rel="noopener noreferrer">
-                  <LinkOutlined style={{ marginInlineEnd: 4 }} />
-                  {helpText}
-                </a>
-              </Typography>
-            }
-          >
-            <span className={styles.help}>
-              <QuestionCircleOutlined style={{ marginInlineEnd: 4 }} />
-              {helpText}
-            </span>
-          </Popover>
+          <span onClick={(event) => event.stopPropagation()}>
+            <Popover
+              title={null}
+              destroyOnHidden
+              styles={{ root: { width: 400 } }}
+              content={
+                <Typography>
+                  <pre dir="ltr" style={{ fontSize: 12 }}>
+                    <code dir="ltr" dangerouslySetInnerHTML={{ __html: highlightedCode }} />
+                  </pre>
+                  <a href={helpLink} target="_blank" rel="noopener noreferrer">
+                    <LinkOutlined style={{ marginInlineEnd: 4 }} />
+                    {helpText}
+                  </a>
+                </Typography>
+              }
+            >
+              <span className={styles.help}>
+                <QuestionCircleOutlined style={{ marginInlineEnd: 4 }} />
+                {helpText}
+              </span>
+            </Popover>
+          </span>
         </Flex>
       </div>
       {open && (

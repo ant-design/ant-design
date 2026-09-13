@@ -84,8 +84,8 @@ interface LegacyTooltipProps
   > {
   open?: RcTooltipProps['visible'];
   defaultOpen?: RcTooltipProps['defaultVisible'];
-  onOpenChange?: RcTooltipProps['onVisibleChange'];
-  afterOpenChange?: RcTooltipProps['afterVisibleChange'];
+  onOpenChange?: (open: boolean) => void;
+  afterOpenChange?: (open: boolean) => void;
 }
 
 export type TooltipSemanticType = {
@@ -257,10 +257,10 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
 
   const noTitle = !title && !overlay && title !== 0; // overlay for old version compatibility
 
-  const onInternalOpenChange = (vis: boolean) => {
-    setOpen(noTitle ? false : vis);
+  const onInternalOpenChange = (nextOpen: boolean) => {
+    setOpen(noTitle ? false : nextOpen);
     if (!noTitle && onOpenChange) {
-      onOpenChange(vis);
+      onOpenChange(nextOpen);
     }
   };
 

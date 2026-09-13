@@ -8,6 +8,7 @@ import { merge } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../../_util/ContextIsolator';
+import fallbackProp from '../../_util/fallbackProp';
 import { useAllowClear, useZIndex } from '../../_util/hooks';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
@@ -44,7 +45,7 @@ import type {
   PickerPropsWithMultiple,
 } from './interface';
 import useComponents from './useComponents';
-import useSuffixIcon from './useSuffixIcon';
+import useSuffix from './useSuffix';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,
@@ -79,13 +80,15 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         popupClassName,
         popupStyle,
         rootClassName,
-        suffixIcon,
+        suffix: customSuffix,
+        suffixIcon: customSuffixIcon,
         allowClear,
         clearIcon,
         ...restProps
       } = props;
 
       const {
+        suffix: contextSuffix,
         suffixIcon: contextSuffixIcon,
         clearIcon: contextClearIcon,
         allowClear: contextAllowClear,
@@ -105,6 +108,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
           popupStyle: 'styles.popup.root',
           bordered: 'variant',
           onSelect: 'onCalendarChange',
+          suffixIcon: 'suffix',
         };
         Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
           warning.deprecated(!(oldProp in props), oldProp, newProp);
@@ -200,11 +204,11 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const formItemContext = useContext(FormItemInputContext);
       const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
 
-      const mergedSuffixIcon = useSuffixIcon({
+      const mergedSuffix = useSuffix({
         picker: mergedPicker,
         hasFeedback,
         feedbackIcon,
-        suffixIcon: suffixIcon === undefined ? contextSuffixIcon : suffixIcon,
+        suffix: fallbackProp(customSuffix, customSuffixIcon, contextSuffix, contextSuffixIcon),
       });
       const [contextLocale] = useLocale('DatePicker', enUS);
 
@@ -217,7 +221,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
           <RCPicker<DateType>
             ref={innerRef}
             placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
-            suffixIcon={mergedSuffixIcon}
+            suffix={mergedSuffix}
             placement={placement}
             prevIcon={<span className={`${prefixCls}-prev-icon`} />}
             nextIcon={<span className={`${prefixCls}-next-icon`} />}
