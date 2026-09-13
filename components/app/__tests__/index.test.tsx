@@ -1,3 +1,4 @@
+import type { FragmentInstance } from 'react';
 import React, { useEffect } from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 
@@ -282,20 +283,23 @@ describe('App', () => {
     });
 
     it('should handle ref with component false based on React version', () => {
-      const domRef = React.createRef<HTMLSpanElement>();
-      render(
-        <App ref={domRef} component={false}>
-          <span />
+      const fragmentRef = React.createRef<FragmentInstance>();
+      const { getByRole } = render(
+        <App ref={fragmentRef} component={false}>
+          <button type="button">First</button>
+          <button type="button">Last</button>
         </App>,
       );
 
       const [major, minor] = React.version.split('.').map((number) => Number.parseInt(number, 10));
       const supportFragmentRef = major > 19 || (major === 19 && minor >= 3);
 
-      expect(Boolean(domRef.current)).toBe(supportFragmentRef);
       if (supportFragmentRef) {
+        fragmentRef.current?.focusLast();
+        expect(getByRole('button', { name: 'Last' })).toHaveFocus();
         expect(errorSpy).not.toHaveBeenCalled();
       } else {
+        expect(fragmentRef.current).toBeNull();
         expect(errorSpy).toHaveBeenCalledWith(
           'Warning: [antd: App] `ref` is not supported when `component` is `false`. Please provide a valid `component` instead.',
         );
