@@ -14,6 +14,7 @@ import TreePure from './Tree';
 
 export type {
   ExpandAction as DirectoryTreeExpandAction,
+  DirectoryTreeFileDropInfo,
   DirectoryTreeProps,
 } from './DirectoryTree';
 
