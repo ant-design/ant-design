@@ -38,7 +38,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 <Card title="卡片标题">卡片内容</Card>
 ```
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | actions | 卡片操作组，位置在卡片底部 | Array&lt;ReactNode> | - |  | × |
 | activeTabKey | 当前激活页签的 key | string | - |  | × |
@@ -54,8 +54,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 | loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |  | × |
 | size | card 的尺寸 | `medium` \| `small` | `medium` |  | × |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode | - |  | × |
-| tabList | 页签标题列表 | [TabItemType](/components/tabs-cn#tabitemtype)[] | - |  | × |
-| tabProps | [Tabs](/components/tabs-cn#tabs) | - | - |  | × |
+| tabList | 页签标题列表 | [TabItemType](/components/tabs#tabitemtype)[] | - |  | × |
+| tabProps | [Tabs](/components/tabs#tabs) | - | - |  | × |
 | title | 卡片标题 | ReactNode | - |  | × |
 | type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.14.0 |
@@ -69,7 +69,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 
 ### Card.Meta
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | avatar | 头像/图标 | ReactNode | - |  | × |
 | description | 描述内容 | ReactNode | - |  | × |

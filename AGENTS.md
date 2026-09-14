@@ -35,7 +35,7 @@ ant-design/
 
 ## 通用编码规范
 
-- 判断数据类型时，优先使用 `components/_util/is.ts` 中已有的方法，例如 `isNumber`、`isString`、`isPlainObject`、`isFunction`、`isThenable`、`isPrimitive`、`isNonNullable`。
+- 判断数据类型时，优先使用 `@rc-component/util` 中的 `isNonNullable`、`isReactRenderable`，或 `components/_util/is.ts` 中已有的方法，例如 `isNumber`、`isString`、`isPlainObject`、`isFunction`、`isThenable`、`isPrimitive`。
 - 仅当 `components/_util/is.ts` 中没有合适方法，或当前场景需要更严格、更特殊的判断逻辑时，再使用内联 `typeof`、`instanceof` 等判断方式。
 
 ## 样式优先级规范
@@ -199,10 +199,10 @@ ant-design/
 | 🇺🇸🇨🇳🇬🇧 | 国际化改动             |
 | 📖 📝  | 文档或网站改进         |
 | ✅     | 新增或更新测试用例     |
-| 🛎     | 更新警告/提示信息      |
+| 🛎      | 更新警告/提示信息      |
 | ⌨️ ♿  | 可访问性增强           |
-| 🗑     | 废弃或移除             |
-| 🛠     | 重构或工具链优化       |
+| 🗑      | 废弃或移除             |
+| 🛠      | 重构或工具链优化       |
 | ⚡️     | 性能提升               |
 
 每条 Changelog 仅选择一个 Emoji，不要在同一条目中叠加多个 Emoji。

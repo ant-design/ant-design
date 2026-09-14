@@ -1,9 +1,9 @@
 import React, { useMemo, useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import { omit } from '@rc-component/util';
+import { isNonNullable, omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isFunction, isNonNullable, isNumber, isPlainObject, isString } from '../_util/is';
+import { isFunction, isNumber, isPlainObject, isString } from '../_util/is';
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';

@@ -1,8 +1,8 @@
 import React from 'react';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
-import { isReactRenderable } from '../_util/is';
 import type { CellSemanticType } from './DescriptionsContext';
 import DescriptionsContext from './DescriptionsContext';
 

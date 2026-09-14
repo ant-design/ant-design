@@ -1,13 +1,13 @@
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
-import { pickAttrs } from '@rc-component/util';
+import { isNonNullable, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMultipleSelect } from '../_util/hooks';
 import type { PrevSelectedIndex } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction, isNonNullable } from '../_util/is';
+import { isFunction } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';

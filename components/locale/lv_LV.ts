@@ -93,6 +93,10 @@ const localeValues: Locale = {
     expand: 'Izvērst',
     collapse: 'Sakļaut',
   },
+  Carousel: {
+    prevSlide: 'Iepriekšējais slaids',
+    nextSlide: 'Nākamais slaids',
+  },
   Form: {
     optional: '(pēc izvēles)',
     defaultValidateMessages: {

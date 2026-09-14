@@ -141,10 +141,10 @@ const ColorPicker: CompoundedComponent = (props) => {
     }
   };
 
-  const triggerOpenChange = (visible: boolean) => {
-    if (!visible || !mergedDisabled) {
-      setPopupOpen(visible);
-      onOpenChange?.(visible);
+  const triggerOpenChange = (open: boolean) => {
+    if (!open || !mergedDisabled) {
+      setPopupOpen(open);
+      onOpenChange?.(open);
     }
   };
 

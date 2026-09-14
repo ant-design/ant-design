@@ -43,7 +43,7 @@ group:
 > 自 `antd@5.5.0` 版本开始提供该组件。
 
 <!-- prettier-ignore -->
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | :-- | :-- | :-- | :-- | :-- | --- |
 | allowClear | 允许清除选择的颜色 | boolean | false |  | × |
 | arrow | 配置弹出的箭头 | `boolean \| { pointAtCenter: boolean }` | true |  | 6.3.0 |
@@ -60,7 +60,7 @@ group:
 | mode | 选择器模式，用于配置单色与渐变 | `'single' \| 'gradient' \| ('single' \| 'gradient')[]` | `single` | 5.20.0 | × |
 | open | 是否显示弹出窗口 | boolean | - |  | × |
 | presets | 预设的颜色 | [PresetColorType](#presetcolortype) | - |  | × |
-| placement | 弹出窗口的位置 | 同 `Tooltips` 组件的 [placement](/components/tooltip-cn/#api) 参数设计 | `bottomLeft` |  | × |
+| placement | 弹出窗口的位置 | 同 `Tooltips` 组件的 [placement](/components/tooltip/#api) 参数设计 | `bottomLeft` |  | × |
 | panelRender | 自定义渲染面板 | `(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode` | - | 5.7.0 | × |
 | showGradientAngle | 是否显示渐变角度输入框 | boolean | false | 6.7.0 | × |
 | showText | 显示颜色文本 | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 | × |

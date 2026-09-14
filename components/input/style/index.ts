@@ -388,7 +388,7 @@ export const genInputStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   };
 };
 
-const genAllowClearStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
+export const genAllowClearStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     // ========================= Input =========================

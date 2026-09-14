@@ -2,10 +2,10 @@ import * as React from 'react';
 import type { JSX } from 'react';
 import { Field, FieldContext, ListContext } from '@rc-component/form';
 import type { FieldProps, InternalNamePath, Meta, RuleObject } from '@rc-component/form';
-import { supportRef, useState } from '@rc-component/util';
+import { isNonNullable, supportRef, useState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isFunction, isNonNullable, isPlainObject } from '../../_util/is';
+import { isFunction, isPlainObject } from '../../_util/is';
 import { cloneElement } from '../../_util/reactNode';
 import { useDevWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
@@ -76,7 +76,9 @@ const MemoInput = React.memo<React.PropsWithChildren<MemoInputProps>>(
 );
 
 export interface FormItemProps<Values = any>
-  extends Omit<FormItemLabelProps, 'requiredMark'>, FormItemInputProps, RcFieldProps<Values> {
+  extends Omit<FormItemLabelProps, 'requiredMark'>,
+    FormItemInputProps,
+    RcFieldProps<Values> {
   prefixCls?: string;
   noStyle?: boolean;
   style?: React.CSSProperties;

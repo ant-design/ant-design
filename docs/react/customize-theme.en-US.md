@@ -178,7 +178,7 @@ If you want to use in preprocess style framework like less, use less-loader for 
 }
 ```
 
-Compatible package provide convert function to transform to v4 less variable. Read [this](/docs/react/migration-v5) for detail.
+Compatible package provide convert function to transform to v4 less variable. Read [this](https://5x.ant.design/docs/react/migration-v5) for detail.
 
 ### Theme editor
 

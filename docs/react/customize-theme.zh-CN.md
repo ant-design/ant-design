@@ -26,7 +26,7 @@ Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务
 `ConfigProvider` 对 `message.xxx`、`Modal.xxx`、`notification.xxx` 等静态方法不会生效，原因是在这些方法中，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。
 
 <!-- prettier-ignore -->
-当你需要 context 信息（例如 ConfigProvider 配置的内容）时，可以通过 `Modal.useModal` 方法返回 modal 实体以及 contextHolder 节点，将其插入到你需要获取 context 位置即可。也可通过 [App 包裹组件](/components/app-cn) 简化 useModal 等方法需要手动植入 contextHolder 的问题。
+当你需要 context 信息（例如 ConfigProvider 配置的内容）时，可以通过 `Modal.useModal` 方法返回 modal 实体以及 contextHolder 节点，将其插入到你需要获取 context 位置即可。也可通过 [App 包裹组件](/components/app) 简化 useModal 等方法需要手动植入 contextHolder 的问题。
 :::
 
 ### 修改主题变量
@@ -178,11 +178,11 @@ createRoot(document.getElementById('#app')).render(
 }
 ```
 
-兼容包提供了变量转换方法用于转成 v4 的 less 变量，如需使用[点击此处](/docs/react/migration-v5)查看详情。
+兼容包提供了变量转换方法用于转成 v4 的 less 变量，如需使用[点击此处](https://5x.ant.design/docs/react/migration-v5-cn)查看详情。
 
 ### 调试主题
 
-我们提供了帮助用户调试主题的工具：[主题编辑器](/theme-editor-cn)
+我们提供了帮助用户调试主题的工具：[主题编辑器](/theme-editor)
 
 你可以使用此工具自由地修改 Design Token，以达到你对主题的期望。
 

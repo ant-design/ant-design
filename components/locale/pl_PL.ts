@@ -93,6 +93,10 @@ const localeValues: Locale = {
     expand: 'Rozwiń',
     collapse: 'Zwiń',
   },
+  Carousel: {
+    prevSlide: 'Poprzedni slajd',
+    nextSlide: 'Następny slajd',
+  },
   Form: {
     optional: '(opcjonalne)',
     defaultValidateMessages: {

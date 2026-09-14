@@ -8,6 +8,7 @@ on:
       - master
       - feature
       - next
+  workflow_dispatch:
 
 permissions:
   contents: read
