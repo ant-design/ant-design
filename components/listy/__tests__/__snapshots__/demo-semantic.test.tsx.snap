@@ -24,19 +24,19 @@ exports[`renders components/listy/demo/_semantic.tsx correctly 1`] = `
             Design
           </div>
           <div
-            class="ant-listy-item semantic-mark-item"
+            class="ant-listy-item semantic-mark-item ant-listy-item-hoverable"
             data-key="item:0"
           >
             Olivia
           </div>
           <div
-            class="ant-listy-item semantic-mark-item"
+            class="ant-listy-item semantic-mark-item ant-listy-item-hoverable"
             data-key="item:1"
           >
             Liam
           </div>
           <div
-            class="ant-listy-item semantic-mark-item"
+            class="ant-listy-item semantic-mark-item ant-listy-item-hoverable"
             data-key="item:2"
           >
             Emma
@@ -52,19 +52,19 @@ exports[`renders components/listy/demo/_semantic.tsx correctly 1`] = `
             Engineering
           </div>
           <div
-            class="ant-listy-item semantic-mark-item"
+            class="ant-listy-item semantic-mark-item ant-listy-item-hoverable"
             data-key="item:3"
           >
             Noah
           </div>
           <div
-            class="ant-listy-item semantic-mark-item"
+            class="ant-listy-item semantic-mark-item ant-listy-item-hoverable"
             data-key="item:4"
           >
             Ava
           </div>
           <div
-            class="ant-listy-item semantic-mark-item"
+            class="ant-listy-item semantic-mark-item ant-listy-item-hoverable"
             data-key="item:5"
           >
             Ethan
