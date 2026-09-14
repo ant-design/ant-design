@@ -39,8 +39,12 @@ const genInputStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
     [`${componentCls}-steppers${antCls}-input-number`]: steppersStyle,
 
     [`${componentCls}-gradient-angle`]: {
+      alignSelf: 'stretch',
+      display: 'flex',
+      width: '100%',
       marginBottom: marginXS,
       [`${componentCls}-gradient-angle-input`]: {
+        flex: 1,
         width: '100%',
       },
     },
