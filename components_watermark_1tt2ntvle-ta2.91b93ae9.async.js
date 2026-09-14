@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,872423,t=>{"use strict";var e=t.i(391398),i=t.i(152476);t.s(["default",0,()=>(0,e.jsx)(i.f,{content:"Ant Design",children:(0,e.jsx)("div",{style:{height:500}})})])},152476,t=>{"use strict";var e=t.i(984611);t.s(["f",()=>e.f])}]);

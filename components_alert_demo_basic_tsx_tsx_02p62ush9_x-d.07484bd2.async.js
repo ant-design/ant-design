@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,174826,t=>{"use strict";var e=t.i(391398),s=t.i(125308);t.s(["default",0,()=>(0,e.jsx)(s.f,{title:"Success Text",type:"success"})])}]);

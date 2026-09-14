@@ -1,0 +1,6 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,712958,t=>{"use strict";var e=t.i(391398),o=t.i(504909),r=t.i(952169);let a=(0,t.i(827830).createStaticStyles)(({css:t})=>({root:t`
+    border-width: 2px;
+    border-style: dashed;
+    padding: 16px;
+    margin-bottom: 10px;
+  `})),d={root:{borderWidth:2,borderStyle:"dashed",padding:16,marginBottom:10},header:{backgroundColor:"rgba(245,245,245,0.5)"},item:{fontWeight:"bold",color:"#1890ff",padding:"6px 10px"},indicator:{backgroundColor:"rgba(255,77,79, 0.3)",height:4},body:{backgroundColor:"rgba(230,247,255,0.8)"},content:{padding:16}},n=t=>"card"===t.props.type?{root:{backgroundColor:"rgba(250,250,250, 0.8)",borderColor:"#d9d9d9"},header:{textAlign:"start"}}:{},l=[{key:"1",label:"Tab 1",children:"Content of Tab Pane 1"},{key:"2",label:"Tab 2",children:"Content of Tab Pane 2"},{key:"3",label:"Tab 3",children:"Content of Tab Pane 3"}];t.s(["default",0,()=>{let t={items:l,defaultActiveKey:"1",classNames:a};return(0,e.jsxs)(o.f,{vertical:!0,gap:"medium",children:[(0,e.jsx)(r.f,{...t,styles:d}),(0,e.jsx)(r.f,{tabPlacement:"start",type:"card",...t,styles:n})]})}])}]);
