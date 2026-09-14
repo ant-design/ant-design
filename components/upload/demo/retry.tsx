@@ -7,9 +7,15 @@ const App: React.FC = () => {
   const [messageApi, contextHolder] = message.useMessage();
 
   const props: UploadProps = {
-    // A deliberately failing endpoint so the file lands in `error` state
-    // and the retry icon shows up for manual testing.
-    action: 'https://660d2bd96ddfa2943b33731c.mockapi.io/api/force-error',
+    customRequest: ({ file, onSuccess, onError }) => {
+      setTimeout(() => {
+        if (Math.random() < 0.5) {
+          onSuccess?.({}, file);
+        } else {
+          onError?.(new Error('Upload failed'));
+        }
+      }, 1000);
+    },
     onChange({ file }) {
       console.log(file);
       if (file.status === 'done') {
@@ -31,7 +37,7 @@ const App: React.FC = () => {
     <>
       {contextHolder}
       <Upload {...props}>
-        <Button icon={<UploadOutlined />}>Upload (will fail, then retry)</Button>
+        <Button icon={<UploadOutlined />}>Upload</Button>
       </Upload>
     </>
   );
