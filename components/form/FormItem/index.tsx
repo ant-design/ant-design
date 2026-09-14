@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { JSX } from 'react';
 import { Field, FieldContext, ListContext } from '@rc-component/form';
 import type { FieldProps, InternalNamePath, Meta, RuleObject } from '@rc-component/form';
-import { isNonNullable, supportRef, useState } from '@rc-component/util';
+import { isNonNullable, isReactRenderable, supportRef, useState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isFunction, isPlainObject } from '../../_util/is';
@@ -374,12 +374,14 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             childProps.id = fieldId;
           }
 
-          if (help || mergedErrors.length > 0 || mergedWarnings.length > 0 || props.extra) {
+          const hasExtra = isReactRenderable(props.extra);
+
+          if (help || mergedErrors.length > 0 || mergedWarnings.length > 0 || hasExtra) {
             const describedbyArr: string[] = [];
             if (help || mergedErrors.length > 0) {
               describedbyArr.push(`${fieldId}_help`);
             }
-            if (props.extra) {
+            if (hasExtra) {
               describedbyArr.push(`${fieldId}_extra`);
             }
             childProps['aria-describedby'] = describedbyArr.join(' ');
