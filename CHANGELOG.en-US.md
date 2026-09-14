@@ -20,7 +20,7 @@ tag: vVERSION
 `2026-09-14`
 
 - 🗑 Deprecate legacy Avatar `GroupProps`, BackTop and FloatButton `BackTopProps`, Input `GroupProps`, Mentions `OptionProps`, and Select `OptionProps` types in favor of `GetProps` or option-derived types. [#58949](https://github.com/ant-design/ant-design/pull/58949) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🆕 Add AutoComplete `classNames.clear` and `styles.clear` semantic customizations for the clear button. [#59245](https://github.com/ant-design/ant-design/pull/59245) [@lazerg](https://github.com/lazerg)
+- 🐞 Fix AutoComplete missing `classNames.clear` and `styles.clear` semantic customizations for the clear button. [#59245](https://github.com/ant-design/ant-design/pull/59245) [@lazerg](https://github.com/lazerg)
 - Table
   - 🐞 Fix Table `filteredValue` being ignored when responsive columns are hidden. [#59198](https://github.com/ant-design/ant-design/pull/59198) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 Fix Table ignoring `pagination.classNames` and `pagination.styles` semantic customizations. [#59267](https://github.com/ant-design/ant-design/pull/59267) [@QDyanbing](https://github.com/QDyanbing)

@@ -20,7 +20,7 @@ tag: vVERSION
 `2026-09-14`
 
 - 🗑 废弃 Avatar `GroupProps`、BackTop 和 FloatButton `BackTopProps`、Input `GroupProps`、Mentions `OptionProps` 与 Select `OptionProps` 旧类型，建议改用 `GetProps` 或从选项推导的类型。[#58949](https://github.com/ant-design/ant-design/pull/58949) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🆕 新增 AutoComplete `classNames.clear` 和 `styles.clear` 语义化配置，用于自定义清除按钮。[#59245](https://github.com/ant-design/ant-design/pull/59245) [@lazerg](https://github.com/lazerg)
+- 🐞 修复 AutoComplete 缺失清除按钮 `classNames.clear` 和 `styles.clear` 语义化配置的问题。[#59245](https://github.com/ant-design/ant-design/pull/59245) [@lazerg](https://github.com/lazerg)
 - Table
   - 🐞 修复 Table 响应式列隐藏后 `filteredValue` 失效的问题。[#59198](https://github.com/ant-design/ant-design/pull/59198) [@QDyanbing](https://github.com/QDyanbing)
   - 🐞 修复 Table 忽略 `pagination.classNames` 和 `pagination.styles` 语义化配置的问题。[#59267](https://github.com/ant-design/ant-design/pull/59267) [@QDyanbing](https://github.com/QDyanbing)
