@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Сортировка',
     expand: 'Развернуть строку',
     collapse: 'Свернуть строку',
+    expandAll: 'Развернуть все строки',
+    collapseAll: 'Свернуть все строки',
     triggerDesc: 'Нажмите для сортировки по убыванию',
     triggerAsc: 'Нажмите для сортировки по возрастанию',
     cancelSort: 'Нажмите, чтобы отменить сортировку',

@@ -47,6 +47,8 @@ const localeValues: Locale = {
     sortTitle: 'Rendit',
     expand: 'Zgjero rreshtin',
     collapse: 'Mblidh rreshtin',
+    expandAll: 'Zgjero të gjithë rreshtat',
+    collapseAll: 'Mblidh të gjithë rreshtat',
     triggerDesc: 'Kliko për renditje zbritëse',
     triggerAsc: 'Kliko për renditje ngjitëse',
     cancelSort: 'Kliko për të anuluar renditjen',

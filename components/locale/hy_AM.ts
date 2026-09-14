@@ -77,6 +77,8 @@ const localeValues: Locale = {
     sortTitle: 'Տեսակավորել',
     expand: 'Ընդլայնեք տողը',
     collapse: 'Կրճատել տողը',
+    expandAll: 'Ընդլայնել բոլոր տողերը',
+    collapseAll: 'Կրճատել բոլոր տողերը',
     filterEmptyText: 'Զտիչներ չկան',
     filterCheckAll: 'Ընտրեք բոլոր տարրերը',
     filterSearchPlaceholder: 'Որոնել ֆիլտրերում',
