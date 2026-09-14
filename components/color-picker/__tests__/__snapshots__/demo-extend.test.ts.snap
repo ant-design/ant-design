@@ -3811,7 +3811,7 @@ Array [
               class="ant-color-picker-gradient-angle"
             >
               <div
-                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-gradient-angle-input ant-input-number-outlined ant-input-number-sm"
+                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-gradient-angle-input ant-input-number-outlined ant-input-number-sm"
               >
                 <input
                   aria-label="Gradient angle"
