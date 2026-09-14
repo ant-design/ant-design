@@ -23903,6 +23903,7 @@ exports[`ConfigProvider components Skeleton configProvider 1`] = `
     class="config-skeleton-section"
   >
     <h3
+      aria-hidden="true"
       class="config-skeleton-title"
       style="width: 50%;"
     />
@@ -23931,6 +23932,7 @@ exports[`ConfigProvider components Skeleton configProvider componentDisabled 1`]
     class="config-skeleton-section"
   >
     <h3
+      aria-hidden="true"
       class="config-skeleton-title"
       style="width: 50%;"
     />
@@ -23959,6 +23961,7 @@ exports[`ConfigProvider components Skeleton configProvider componentSize large 1
     class="config-skeleton-section"
   >
     <h3
+      aria-hidden="true"
       class="config-skeleton-title"
       style="width: 50%;"
     />
@@ -23987,6 +23990,7 @@ exports[`ConfigProvider components Skeleton configProvider componentSize medium 
     class="config-skeleton-section"
   >
     <h3
+      aria-hidden="true"
       class="config-skeleton-title"
       style="width: 50%;"
     />
@@ -24015,6 +24019,7 @@ exports[`ConfigProvider components Skeleton configProvider componentSize small 1
     class="config-skeleton-section"
   >
     <h3
+      aria-hidden="true"
       class="config-skeleton-title"
       style="width: 50%;"
     />
@@ -24043,6 +24048,7 @@ exports[`ConfigProvider components Skeleton normal 1`] = `
     class="ant-skeleton-section"
   >
     <h3
+      aria-hidden="true"
       class="ant-skeleton-title"
       style="width: 50%;"
     />
@@ -24071,6 +24077,7 @@ exports[`ConfigProvider components Skeleton prefixCls 1`] = `
     class="prefix-Skeleton-section"
   >
     <h3
+      aria-hidden="true"
       class="prefix-Skeleton-title"
       style="width: 50%;"
     />

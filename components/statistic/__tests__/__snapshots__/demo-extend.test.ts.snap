@@ -172,6 +172,7 @@ exports[`renders components/statistic/demo/basic.tsx extend context correctly 1`
           class="ant-skeleton-section"
         >
           <h3
+            aria-hidden="true"
             class="ant-skeleton-title"
           />
         </div>
@@ -443,6 +444,7 @@ exports[`renders components/statistic/demo/component-token.tsx extend context co
           class="ant-skeleton-section"
         >
           <h3
+            aria-hidden="true"
             class="ant-skeleton-title"
           />
         </div>
