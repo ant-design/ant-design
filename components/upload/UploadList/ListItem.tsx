@@ -2,6 +2,7 @@ import * as React from 'react';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import RedoOutlined from '@ant-design/icons/RedoOutlined';
 import CSSMotion from '@rc-component/motion';
 import { useDelayState } from '@rc-component/util';
 import { clsx } from 'clsx';
@@ -33,9 +34,11 @@ export interface ListItemProps {
   showRemoveIcon?: boolean | ((file: UploadFile) => boolean);
   showDownloadIcon?: boolean | ((file: UploadFile) => boolean);
   showPreviewIcon?: boolean | ((file: UploadFile) => boolean);
+  showRetryIcon?: boolean | ((file: UploadFile) => boolean);
   removeIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   downloadIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   previewIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
+  retryIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   extra?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   iconRender: (file: UploadFile) => React.ReactNode;
   actionIconRender: (
@@ -49,6 +52,7 @@ export interface ListItemProps {
   onPreview: (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => void;
   onClose: (file: UploadFile) => void;
   onDownload: (file: UploadFile) => void;
+  onRetry: (file: UploadFile) => void;
   progress?: UploadListProgressProps;
 }
 
@@ -72,13 +76,16 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       showPreviewIcon,
       showRemoveIcon,
       showDownloadIcon,
+      showRetryIcon,
       previewIcon: customPreviewIcon,
       removeIcon: customRemoveIcon,
       downloadIcon: customDownloadIcon,
+      retryIcon: customRetryIcon,
       extra: customExtra,
       onPreview,
       onDownload,
       onClose,
+      onRetry,
     },
     ref,
   ) => {
@@ -167,12 +174,27 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
             locale.downloadFile,
           )
         : null;
+
+    const showRetry =
+      mergedStatus === 'error' &&
+      file.originFileObj &&
+      (isFunction(showRetryIcon) ? showRetryIcon(file) : showRetryIcon);
+    const retryIcon = showRetry
+      ? actionIconRender(
+          isFunction(customRetryIcon) ? customRetryIcon(file) : customRetryIcon || <RedoOutlined />,
+          () => onRetry(file),
+          prefixCls,
+          locale.retryFile,
+        )
+      : null;
+
     const downloadOrDelete = listType !== 'picture-card' && listType !== 'picture-circle' && (
       <span
-        key="download-delete"
+        key="download-delete-retry"
         className={clsx(`${prefixCls}-list-item-actions`, { picture: listType === 'picture' })}
       >
         {downloadIcon}
+        {retryIcon}
         {removeIcon}
       </span>
     );
@@ -240,6 +262,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         <span className={`${prefixCls}-list-item-actions`}>
           {previewIcon}
           {mergedStatus === 'done' && downloadIcon}
+          {mergedStatus === 'error' && retryIcon}
           {removeIcon}
         </span>
       );
@@ -303,6 +326,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
               download: onDownload.bind(null, file),
               preview: onPreview.bind(null, file) as any,
               remove: onClose.bind(null, file),
+              retry: onRetry.bind(null, file),
             })
           : item}
       </div>

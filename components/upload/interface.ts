@@ -56,9 +56,11 @@ export interface ShowUploadListInterface<T = any> {
   showRemoveIcon?: boolean | ((file: UploadFile<T>) => boolean);
   showPreviewIcon?: boolean | ((file: UploadFile<T>) => boolean);
   showDownloadIcon?: boolean | ((file: UploadFile<T>) => boolean);
+  showRetryIcon?: boolean | ((file: UploadFile<T>) => boolean);
   removeIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
   downloadIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
   previewIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
+  retryIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
 }
 
 export interface UploadLocale {
@@ -67,6 +69,7 @@ export interface UploadLocale {
   downloadFile?: string;
   uploadError?: string;
   previewFile?: string;
+  retryFile?: string;
 }
 
 export type UploadType = 'drag' | 'select';
@@ -81,6 +84,7 @@ export type ItemRender<T = any> = (
     download: () => void;
     preview: () => void;
     remove: () => void;
+    retry: () => void;
   },
 ) => React.ReactNode;
 
@@ -105,10 +109,8 @@ export type UploadSemanticType = {
 
 export type UploadSemanticAllType<T = any> = GenerateSemantic<UploadSemanticType, UploadProps<T>>;
 
-export interface UploadProps<T = any> extends Pick<
-  RcUploadProps,
-  'capture' | 'hasControlInside' | 'pastable'
-> {
+export interface UploadProps<T = any>
+  extends Pick<RcUploadProps, 'capture' | 'hasControlInside' | 'pastable'> {
   type?: UploadType;
   name?: string;
   defaultFileList?: Array<UploadFile<T>>;
@@ -163,6 +165,7 @@ export interface UploadProps<T = any> extends Pick<
   /** Config max count of `fileList`. Will replace current one when `maxCount` is 1 */
   maxCount?: number;
   children?: React.ReactNode;
+  onRetry?: (file: UploadFile<T>) => void;
 }
 
 export interface UploadState<T = any> {
@@ -177,6 +180,7 @@ export interface UploadListProps<T = any> {
   onPreview?: (file: UploadFile<T>) => void;
   onDownload?: (file: UploadFile<T>) => void;
   onRemove?: (file: UploadFile<T>) => void | boolean;
+  onRetry?: (file: UploadFile<T>) => void;
   items?: Array<UploadFile<T>>;
   progress?: UploadListProgressProps;
   prefixCls?: string;
@@ -184,9 +188,11 @@ export interface UploadListProps<T = any> {
   showRemoveIcon?: boolean | ((file: UploadFile<T>) => boolean);
   showDownloadIcon?: boolean | ((file: UploadFile<T>) => boolean);
   showPreviewIcon?: boolean | ((file: UploadFile<T>) => boolean);
+  showRetryIcon?: boolean | ((file: UploadFile<T>) => boolean);
   removeIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
   downloadIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
   previewIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
+  retryIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
   extra?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
   locale: UploadLocale;
   previewFile?: PreviewFileHandler;

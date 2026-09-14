@@ -34,6 +34,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     onPreview,
     onDownload,
     onRemove,
+    onRetry,
     locale,
     iconRender,
     isImageUrl: isImgUrl = isImageUrl,
@@ -42,9 +43,11 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     showPreviewIcon = true,
     showRemoveIcon = true,
     showDownloadIcon = false,
+    showRetryIcon = false,
     removeIcon,
     previewIcon,
     downloadIcon,
+    retryIcon,
     extra,
     progress = { size: [-1, 2], showInfo: false },
     appendAction,
@@ -203,9 +206,11 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
             showPreviewIcon={showPreviewIcon}
             showRemoveIcon={showRemoveIcon}
             showDownloadIcon={showDownloadIcon}
+            showRetryIcon={showRetryIcon}
             removeIcon={removeIcon}
             previewIcon={previewIcon}
             downloadIcon={downloadIcon}
+            retryIcon={retryIcon}
             extra={extra}
             iconRender={internalIconRender}
             actionIconRender={actionIconRender}
@@ -213,6 +218,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
             onPreview={onInternalPreview}
             onDownload={onInternalDownload}
             onClose={onInternalClose}
+            onRetry={onRetry || (() => {})}
           />
         )}
       </CSSMotionList>
