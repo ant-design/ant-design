@@ -37,7 +37,7 @@ group:
 
 > 自 `antd@5.1.0` 版本开始提供该组件。
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | :-- | :-- | :-- | :-- | :-- | --- |
 | value | 扫描后的文本 | `string \| string[]` | - | `string[]`: 5.28.0 | × |
 | type | 渲染类型 | `canvas \| svg` | `canvas` | 5.6.0 | × |
@@ -52,7 +52,7 @@ group:
 | errorLevel | 二维码纠错等级 | `'L' \| 'M' \| 'Q' \| 'H'` | `M` | - | × |
 | boostLevel | 如果启用，自动提升纠错等级，结果的纠错级别可能会高于指定的纠错级别 | `boolean` | true | 5.28.0 | × |
 | status | 二维码状态 | `active \| expired \| loading \| scanned` | `active` | scanned: 5.13.0 | × |
-| statusRender | 自定义状态渲染器 | (info: [StatusRenderInfo](/components/qr-code-cn#statusrenderinfo)) => React.ReactNode | - | 5.20.0 | × |
+| statusRender | 自定义状态渲染器 | (info: [StatusRenderInfo](/components/qr-code#statusrenderinfo)) => React.ReactNode | - | 5.20.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
 
 ### StatusRenderInfo

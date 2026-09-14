@@ -16,7 +16,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 
 - 卡片式的页签，提供可关闭的样式，常用于容器顶部。
 - 既可用于容器顶部，也可用于容器内部，是最通用的 Tabs。
-- [Radio.Button](/components/radio-cn/#radio-demo-radiobutton) 可作为更次级的页签来使用。
+- [Radio.Button](/components/radio/#radio-demo-radiobutton) 可作为更次级的页签来使用。
 
 ## 代码演示 {#examples}
 
@@ -48,7 +48,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 
 ### Tabs
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | activeKey | 当前激活 tab 面板的 key | string | - |  | × |
 | addIcon | 自定义添加按钮，设置 `type="editable-card"` 时有效 | ReactNode | `<PlusOutlined />` | 4.4.0 | 5.14.0 |
@@ -102,7 +102,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | icon | 自定义折叠图标 | ReactNode | - |  |
 | popupRender | 自定义折叠菜单渲染 | (menu: ReactElement, info: { restTabs: Tab[], onClose: () => void }) => ReactElement | - | 6.6.0 |
 | ~~visible~~ | 折叠菜单是否显示，使用 `open` 代替 | boolean | - |  |
-| [DropdownProps](/components/dropdown-cn#api) | 支持 Dropdown 的其他属性 |  |  |  |
+| [DropdownProps](/components/dropdown#api) | 支持 Dropdown 的其他属性 |  |  |  |
 | ~~onVisibleChange~~ | 折叠菜单显示状态变化时调用，使用 `onOpenChange` 代替 | (open: boolean) => void | - |  |
 
 ## Semantic DOM

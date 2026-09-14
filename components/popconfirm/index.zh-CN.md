@@ -35,13 +35,13 @@ demo:
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  | × |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button#api) | - |  | × |
 | cancelText | 取消按钮文字 | string | `取消` |  | × |
 | disabled | 阻止点击 Popconfirm 子元素时弹出确认框 | boolean | false |  | × |
 | icon | 自定义弹出气泡 Icon 图标 | ReactNode | &lt;ExclamationCircleFilled /> |  | × |
-| okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  | × |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button#api) | - |  | × |
 | okText | 确认按钮文字 | string | `确定` |  | × |
 | okType | 确认按钮类型 | string | `primary` |  | × |
 | showCancel | 是否显示取消按钮 | boolean | true | 4.18.0 | × |
@@ -67,4 +67,4 @@ demo:
 
 <embed src="../tooltip/shared/sharedFAQ.zh-CN.md"></embed>
 
-更多问题，请参考 [Tooltip FAQ](/components/tooltip-cn#faq)。
+更多问题，请参考 [Tooltip FAQ](/components/tooltip#faq)。
