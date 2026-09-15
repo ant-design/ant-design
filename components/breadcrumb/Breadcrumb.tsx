@@ -18,6 +18,7 @@ import BreadcrumbSeparator from './BreadcrumbSeparator';
 import useStyle from './style';
 import useItemRender from './useItemRender';
 import useItems from './useItems';
+import { replaceParams } from './util';
 
 export interface BreadcrumbItemType extends React.AriaAttributes {
   key?: React.Key;
@@ -98,11 +99,7 @@ const getPath = <T extends AnyObject = AnyObject>(params: T, path?: string) => {
   if (path === undefined) {
     return path;
   }
-  let mergedPath = (path || '').replace(/^\//, '');
-  Object.keys(params).forEach((key) => {
-    mergedPath = mergedPath.replace(`:${key}`, params[key]!);
-  });
-  return mergedPath;
+  return replaceParams((path || '').replace(/^\//, ''), params);
 };
 
 const InternalBreadcrumb = <T extends AnyObject = AnyObject>(
