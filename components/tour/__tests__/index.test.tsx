@@ -828,4 +828,50 @@ describe('Tour', () => {
       'Custom Close Button',
     );
   });
+
+  it('should render numeric 0 closeIcon', () => {
+    const { container } = render(
+      <Tour
+        open
+        steps={[
+          {
+            title: 'test',
+            description: 'test',
+            closable: { closeIcon: 0 },
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelector<HTMLElement>('.ant-tour-close')?.textContent).toBe('0');
+  });
+
+  it('should fallback to default closeIcon for false and empty string', () => {
+    const { container: falseContainer } = render(
+      <Tour
+        open
+        steps={[
+          {
+            title: 'test',
+            description: 'test',
+            closable: { closeIcon: false },
+          },
+        ]}
+      />,
+    );
+    expect(falseContainer.querySelector<HTMLElement>('.ant-tour-close-icon')).toBeTruthy();
+
+    const { container: emptyContainer } = render(
+      <Tour
+        open
+        steps={[
+          {
+            title: 'test',
+            description: 'test',
+            closable: { closeIcon: '' },
+          },
+        ]}
+      />,
+    );
+    expect(emptyContainer.querySelector<HTMLElement>('.ant-tour-close-icon')).toBeTruthy();
+  });
 });
