@@ -55,7 +55,7 @@ demo:
 | classNames | 用于自定义 Drawer 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.10.0 |
 | closable | 是否显示关闭按钮。可通过 `placement` 配置其位置 | boolean \| { closeIcon?: React.ReactNode; disabled?: boolean; placement?: 'start' \| 'end' } | true | placement: 5.28.0 | 5.15.0，placement: 6.1.1 |
 | ~~contentWrapperStyle~~ | 抽屉包裹层样式，请使用 `styles.wrapper` 替代 | CSSProperties | - | - | × |
-| ~~destroyOnClose~~ | 关闭时销毁 Drawer 里的子元素 | boolean | false |  | × |
+| ~~destroyOnClose~~ | 关闭时销毁 Drawer 里的子元素，请使用 `destroyOnHidden` 替代 | boolean | false |  | × |
 | destroyOnHidden | 关闭时销毁 Drawer 里的子元素 | boolean | false | 5.25.0 | × |
 | ~~drawerStyle~~ | 抽屉面板样式，请使用 `styles.section` 替代 | CSSProperties | - | - | × |
 | extra | 抽屉右上角的操作区域 | ReactNode | - | 4.17.0 | × |
