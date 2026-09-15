@@ -41,6 +41,133 @@ describe('Input.Search', () => {
     }).not.toThrow();
   });
 
+  it.each([false, true, 'Search'])(
+    'should support generated button props with %s',
+    (enterButton) => {
+      const onButtonClick = jest.fn();
+      const onSearch = jest.fn();
+      const { getByRole } = render(
+        <Search
+          defaultValue="search text"
+          aria-label="Search query"
+          enterButton={enterButton}
+          enterButtonProps={{
+            'aria-label': 'Submit search',
+            className: 'custom-search-button',
+            onClick: onButtonClick,
+          }}
+          onSearch={onSearch}
+        />,
+      );
+
+      const button = getByRole('button', { name: 'Submit search' });
+      expect(button).toHaveClass('ant-input-search-btn', 'custom-search-button');
+      const input = getByRole('searchbox', { name: 'Search query' });
+      expect(input).not.toHaveAttribute('enterButtonProps');
+
+      fireEvent.click(button);
+      expect(onButtonClick).toHaveBeenCalledTimes(1);
+      expect(onSearch).toHaveBeenCalledWith('search text', expect.anything(), { source: 'input' });
+    },
+  );
+
+  it('should preserve input focus while calling the generated button mouse handler', () => {
+    const onMouseDown = jest.fn();
+    const { getByRole } = render(<Search enterButtonProps={{ onMouseDown }} />);
+    const input = getByRole('searchbox');
+    input.focus();
+
+    expect(fireEvent.mouseDown(getByRole('button'))).toBe(false);
+    expect(input).toHaveFocus();
+    expect(onMouseDown).toHaveBeenCalledTimes(1);
+    expect(onMouseDown.mock.calls[0][0].defaultPrevented).toBe(true);
+  });
+
+  it.each(['disabled', 'loading'] as const)(
+    'should preserve Search %s when generated button props request false',
+    (state) => {
+      const onSearch = jest.fn();
+      const onClick = jest.fn();
+      const { getByRole } = render(
+        <Search
+          disabled={state === 'disabled'}
+          loading={state === 'loading'}
+          enterButtonProps={{ disabled: false, loading: false, onClick }}
+          onSearch={onSearch}
+        />,
+      );
+
+      fireEvent.click(getByRole('button'));
+      expect(onClick).not.toHaveBeenCalled();
+      expect(onSearch).not.toHaveBeenCalled();
+    },
+  );
+
+  it.each(['disabled', 'loading'] as const)(
+    'should honor generated button %s independently of the input',
+    (state) => {
+      const onSearch = jest.fn();
+      const onClick = jest.fn();
+      const { getByRole } = render(
+        <Search
+          enterButtonProps={{
+            disabled: state === 'disabled',
+            loading: state === 'loading',
+            onClick,
+          }}
+          onSearch={onSearch}
+        />,
+      );
+
+      expect(getByRole('searchbox')).not.toBeDisabled();
+      fireEvent.click(getByRole('button'));
+      expect(onClick).not.toHaveBeenCalled();
+      expect(onSearch).not.toHaveBeenCalled();
+    },
+  );
+
+  it('should keep custom enter button props separate from generated button props', () => {
+    const onCustomClick = jest.fn();
+    const onGeneratedClick = jest.fn();
+    const onSearch = jest.fn();
+    const { getByRole, queryByRole } = render(
+      <Search
+        enterButton={<Button onClick={onCustomClick}>Custom search</Button>}
+        enterButtonProps={{ 'aria-label': 'Generated search', onClick: onGeneratedClick }}
+        onSearch={onSearch}
+      />,
+    );
+
+    expect(queryByRole('button', { name: 'Generated search' })).toBeNull();
+    fireEvent.click(getByRole('button', { name: 'Custom search' }));
+    expect(onCustomClick).toHaveBeenCalledTimes(1);
+    expect(onGeneratedClick).not.toHaveBeenCalled();
+    expect(onSearch).toHaveBeenCalledTimes(1);
+  });
+
+  it('should merge Search and enter button semantic styles', () => {
+    const { getByRole } = render(
+      <Search
+        enterButton
+        classNames={{ button: { root: 'search-button' } }}
+        styles={{ button: { root: { backgroundColor: 'red', color: 'blue' } } }}
+        enterButtonProps={{
+          classNames: ({ props }) => ({
+            root: props.color === 'primary' ? 'custom-button' : 'wrong-button',
+          }),
+          styles: ({ props }) => ({
+            root: { color: props.color === 'primary' ? 'green' : 'black' },
+          }),
+        }}
+      />,
+    );
+
+    const button = getByRole('button');
+    expect(button).toHaveClass('search-button', 'custom-button');
+    expect(button.style.backgroundColor).toBe('red');
+    expect(button.style.color).toBe('green');
+  });
+
   it('should support ReactNode suffix without error', () => {
     const { asFragment } = render(<Search suffix={<div>ok</div>} />);
     expect(asFragment().firstChild).toMatchSnapshot();
