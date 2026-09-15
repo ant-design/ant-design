@@ -383,6 +383,18 @@ describe('Drawer', () => {
       errorSpy.mockRestore();
     });
 
+    it('warning with deprecated destroyOnClose prop', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer destroyOnClose />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Drawer] `destroyOnClose` is deprecated. Please use `destroyOnHidden` instead.',
+      );
+
+      errorSpy.mockRestore();
+    });
+
     it('should hide close button when closeIcon is null or false', () => {
       const { baseElement, rerender } = render(
         <Drawer open closeIcon={null}>
