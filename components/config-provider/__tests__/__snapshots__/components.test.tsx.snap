@@ -24116,7 +24116,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
   >
     <div
       class="config-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
+      style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
     >
       <span
         class="config-tooltip-arrow-content"
@@ -24164,7 +24164,7 @@ exports[`ConfigProvider components Slider configProvider componentDisabled 1`] =
   >
     <div
       class="config-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
+      style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
     >
       <span
         class="config-tooltip-arrow-content"
@@ -24213,7 +24213,7 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
   >
     <div
       class="config-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
+      style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
     >
       <span
         class="config-tooltip-arrow-content"
@@ -24262,7 +24262,7 @@ exports[`ConfigProvider components Slider configProvider componentSize medium 1`
   >
     <div
       class="config-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
+      style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
     >
       <span
         class="config-tooltip-arrow-content"
@@ -24311,7 +24311,7 @@ exports[`ConfigProvider components Slider configProvider componentSize small 1`]
   >
     <div
       class="config-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
+      style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
     >
       <span
         class="config-tooltip-arrow-content"
@@ -24360,7 +24360,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
   >
     <div
       class="ant-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
+      style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
     >
       <span
         class="ant-tooltip-arrow-content"
@@ -24409,7 +24409,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   >
     <div
       class="prefix-Slider-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
+      style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
     >
       <span
         class="prefix-Slider-tooltip-arrow-content"

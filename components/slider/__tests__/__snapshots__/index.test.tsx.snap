@@ -61,7 +61,7 @@ exports[`Slider should render in RTL direction 1`] = `
     >
       <div
         class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+        style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
       >
         <span
           class="ant-tooltip-arrow-content"
@@ -86,7 +86,7 @@ exports[`Slider should show tooltip when hovering slider handler 1`] = `
 >
   <div
     class="ant-tooltip-arrow"
-    style="position: absolute; bottom: 0px; left: 0px;"
+    style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
   >
     <span
       class="ant-tooltip-arrow-content"
@@ -109,7 +109,7 @@ exports[`Slider should show tooltip when hovering slider handler 2`] = `
 >
   <div
     class="ant-tooltip-arrow"
-    style="position: absolute; bottom: 0px; left: 0px;"
+    style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
   >
     <span
       class="ant-tooltip-arrow-content"
