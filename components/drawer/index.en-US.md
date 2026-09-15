@@ -55,8 +55,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | classNames | Customize class for each semantic structure inside the Drawer component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.10.0 |
 | closable | Whether to show a close button. The position can be configured with `placement` | boolean \| { closeIcon?: React.ReactNode; disabled?: boolean; placement?: 'start' \| 'end' } | true | placement: 5.28.0 | 5.15.0, placement: 6.1.1 |
 | ~~contentWrapperStyle~~ | Style of the drawer wrapper, please use `styles.wrapper` instead | CSSProperties | - | - | × |
-| ~~destroyOnClose~~ | Whether to unmount child components on closing drawer or not | boolean | false |  | × |
-| destroyOnHidden | Whether to unmount child components on closing drawer or not, please use `destroyOnHidden` instead | boolean | false | 5.25.0 | × |
+| ~~destroyOnClose~~ | Whether to unmount child components on closing drawer or not, please use `destroyOnHidden` instead | boolean | false |  | × |
+| destroyOnHidden | Whether to unmount child components on closing drawer or not | boolean | false | 5.25.0 | × |
 | ~~drawerStyle~~ | Style of the drawer panel, please use `styles.section` instead | CSSProperties | - | - | × |
 | extra | Extra actions area at corner | ReactNode | - | 4.17.0 | × |
 | footer | The footer for Drawer | ReactNode | - |  | × |
