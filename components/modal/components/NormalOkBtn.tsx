@@ -13,12 +13,18 @@ export interface NormalOkBtnProps
 
 const NormalOkBtn: FC = () => {
   const { confirmLoading, okButtonProps, okType, okTextLocale, onOk } = useContext(ModalContext);
+
+  const onInternalClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+    onOk?.(event);
+    okButtonProps?.onClick?.(event);
+  };
+
   return (
     <Button
       {...convertLegacyProps(okType)}
       loading={confirmLoading}
-      onClick={onOk}
       {...okButtonProps}
+      onClick={onInternalClick}
     >
       {okTextLocale}
     </Button>
