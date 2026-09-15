@@ -176,6 +176,19 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(onOk.mock.calls.length).toBe(1);
   });
 
+  it('trigger both onOk and okButtonProps.onClick once when click on ok button', async () => {
+    const onOk = jest.fn();
+    const onClick = jest.fn();
+    await open({
+      onOk,
+      okButtonProps: { onClick },
+    });
+
+    $$('.ant-btn-primary')[0].click();
+    expect(onOk).toHaveBeenCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
   it('support falsy button text', async () => {
     await open({ cancelText: false, okText: 0 });
     const btns = $$('.ant-modal-confirm-btns .ant-btn');

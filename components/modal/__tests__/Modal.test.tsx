@@ -89,6 +89,16 @@ describe('Modal', () => {
     expect(onOk).toHaveBeenCalled();
   });
 
+  it('should trigger both onOk and okButtonProps.onClick', () => {
+    const onOk = jest.fn();
+    const onClick = jest.fn();
+    render(<Modal open onOk={onOk} okButtonProps={{ onClick }} />);
+    const btns = document.body.querySelectorAll('.ant-btn');
+    fireEvent.click(btns[btns.length - 1]);
+    expect(onOk).toHaveBeenCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
   it('danger type', () => {
     render(<Modal okType="danger" okText="123" open />);
     const btns = document.body.querySelectorAll('.ant-btn');
