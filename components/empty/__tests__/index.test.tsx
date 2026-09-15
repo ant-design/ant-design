@@ -198,4 +198,10 @@ describe('Empty', () => {
       'https://example.com/foobar.jpg',
     );
   });
+
+  it('should render numeric 0 for description and children', () => {
+    const { container } = render(<Empty description={0}>{0}</Empty>);
+    expect(container.querySelector('.ant-empty-description')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-empty-footer')?.textContent).toBe('0');
+  });
 });

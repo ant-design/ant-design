@@ -65,6 +65,15 @@ describe('Modal', () => {
     expect(onCancel).toHaveBeenCalled();
   });
 
+  it('should trigger both onCancel and cancelButtonProps.onClick', () => {
+    const onCancel = jest.fn();
+    const onClick = jest.fn();
+    render(<Modal open onCancel={onCancel} cancelButtonProps={{ onClick }} />);
+    fireEvent.click(document.body.querySelectorAll('.ant-btn')[0]);
+    expect(onCancel).toHaveBeenCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
   it('onCancel should be called when pressing ESC', () => {
     const onCancel = jest.fn();
     render(<Modal open onCancel={onCancel} />);
@@ -84,6 +93,19 @@ describe('Modal', () => {
     render(<Modal okType="danger" okText="123" open />);
     const btns = document.body.querySelectorAll('.ant-btn');
     expect(btns[btns.length - 1]).toHaveClass('ant-btn-dangerous');
+  });
+
+  it.each([
+    { name: 'zero', value: 0, expected: '0' },
+    { name: 'empty string', value: '', expected: '' },
+    { name: 'false', value: false, expected: '' },
+    { name: 'null', value: null, expected: '' },
+  ])('support $name button text', ({ value, expected }) => {
+    render(<Modal cancelText={value} okText={value} open />);
+    const btns = document.body.querySelectorAll('.ant-modal-footer .ant-btn');
+
+    expect(btns[0].textContent).toBe(expected);
+    expect(btns[1].textContent).toBe(expected);
   });
 
   it('mouse position', () => {

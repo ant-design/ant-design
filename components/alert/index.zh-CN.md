@@ -40,14 +40,14 @@ group:
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | action | 自定义操作项 | ReactNode | - |  | × |
 | ~~afterClose~~ | 关闭动画结束后触发的回调函数，请使用 `closable.afterClose` 替换 | () => void | - |  | × |
 | banner | 是否用作顶部公告 | boolean | false |  | × |
 | variant | 警告提示样式变体 | `outlined` \| `filled` | `outlined` | 6.4.0 | 6.4.0 |
 | classNames | 自定义组件内部各语义化结构的类名。支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
-| closable | 可关闭配置 | boolean \| [ClosableType](#closabletype) & React.AriaAttributes | `false` |  | 5.15.0 |
+| closable | 可关闭配置 | boolean \| [ClosableType](#closabletype) & React.AriaAttributes | `false` |  | `closable.closeIcon`、`closable.aria-*`：5.15.0 |
 | closeIcon | （仅支持全局配置）自定义关闭图标 | ReactNode | - | × | 5.14.0 |
 | description | 警告提示的辅助性文字介绍 | ReactNode | - |  | × |
 | errorIcon | （仅支持全局配置）自定义错误图标 | ReactNode | - | × | 6.2.0 |

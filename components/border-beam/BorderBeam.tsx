@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
 import { unit } from '@ant-design/cssinjs';
+import { isNonNullable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isNonNullable, isNumber, isString } from '../_util/is';
+import { isNumber, isString } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import BorderBeamEffect from './BorderBeamEffect';

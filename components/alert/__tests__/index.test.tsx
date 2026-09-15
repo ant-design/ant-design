@@ -169,6 +169,14 @@ describe('Alert', () => {
     expect(!!container.querySelector('.ant-alert-title')).toBe(false);
   });
 
+  it('should render numeric 0 for title, description and action', () => {
+    const { container } = render(<Alert title={0} description={0} action={0} />);
+    expect(container.querySelector('.ant-alert-title')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-alert-description')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-alert-actions')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-alert-with-description')).toBeTruthy();
+  });
+
   it('close button should be hidden when closeIcon setting to null or false', () => {
     const { container, rerender } = render(<Alert closeIcon={null} />);
     expect(container.querySelector('.ant-alert-close-icon')).toBeFalsy();

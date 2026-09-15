@@ -71,7 +71,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
   React.useEffect(() => {
     if (mergedPagination) {
       const maxPageCount = Math.ceil(filteredRenderItems.length / pageSize!);
-      setCurrent(Math.min(current, maxPageCount));
+      setCurrent(Math.max(1, Math.min(current, maxPageCount)));
     }
   }, [filteredRenderItems, mergedPagination, pageSize]);
 

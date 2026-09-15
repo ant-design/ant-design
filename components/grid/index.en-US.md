@@ -76,7 +76,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | order | Raster order | number | 0 |  | × |
 | pull | The number of cells that raster is moved to the left | number | 0 |  | × |
 | push | The number of cells that raster is moved to the right | number | 0 |  | × |
-| span | Raster number of cells to occupy, 0 corresponds to `display: none` | number | none |  | × |
+| span | Raster number of cells to occupy, 0 corresponds to `display: none` | number | - |  | × |
 | xs | `screen < 576px` and also default setting, could be a `span` value or an object containing above props | number \| object | - |  | × |
 | sm | `screen ≥ 576px`, could be a `span` value or an object containing above props | number \| object | - |  | × |
 | md | `screen ≥ 768px`, could be a `span` value or an object containing above props | number \| object | - |  | × |

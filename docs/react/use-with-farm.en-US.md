@@ -67,4 +67,4 @@ export function Main() {
 }
 ```
 
-We are successfully running the antd components using Rsbuild now, let’s start build your own application!
+We are successfully running the antd components using Farm now, let’s start build your own application!

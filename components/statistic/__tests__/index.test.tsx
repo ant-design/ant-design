@@ -30,6 +30,14 @@ describe('Statistic', () => {
     expect(container.querySelector('.ant-statistic-content')!.textContent).toBe('-');
   });
 
+  it('renders semantic nodes for zero title, prefix, and suffix', () => {
+    const { container } = render(<Statistic title={0} prefix={0} suffix={0} />);
+
+    expect(container.querySelector('.ant-statistic-title')).toHaveTextContent('0');
+    expect(container.querySelector('.ant-statistic-content-prefix')).toHaveTextContent('0');
+    expect(container.querySelector('.ant-statistic-content-suffix')).toHaveTextContent('0');
+  });
+
   it('customize formatter', () => {
     const formatter = jest.fn(() => 93);
     const { container } = render(<Statistic value={1128} formatter={formatter} />);

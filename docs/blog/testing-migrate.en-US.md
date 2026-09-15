@@ -7,7 +7,7 @@ yuque_url: https://www.yuque.com/ant-design/ant-design/bunxvp7nz4y7bbhi
 juejin_url: https://juejin.cn/post/7179115861176188983
 ---
 
-Hello, I am **[@li-jia-nan](https://github.com/li-jia-nan)**. It is also a new Collaborator who joined antd in the past few months. Fortunately, as one of the Collaborators, I developed the **[FloatButton component](/components/float-button)** and **[QRCode component](/components/qrcode)**, as well as some other maintenance work. Let me share the migration of the antd test library son~
+Hello, I am **[@li-jia-nan](https://github.com/li-jia-nan)**. It is also a new Collaborator who joined antd in the past few months. Fortunately, as one of the Collaborators, I developed the **[FloatButton component](/components/float-button)** and **[QRCode component](/components/qr-code)**, as well as some other maintenance work. Let me share the migration of the antd test library son~
 
 ## introduction
 

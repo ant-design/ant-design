@@ -23,7 +23,7 @@ juejin_url: https://juejin.cn/post/7322352551088635931
 
 ![image.png](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*XuVYRJ_27Q0AAAAAAAAAAAAADrJ8AQ/original)
 
-我们会对所有的 antd 组件应用**相同的** **hash**。如此一来，使用 antd 组件时，我们只会对当前的版本和主题变量进行 hash 计算，而前者可以直接由 `package.json`中得到，后者可以直接从 context 中得到，所以我们并不需要进行繁重的序列化 css 的操作，就可以得到稳定的 hash，从而大幅地减少性能消耗。
+我们会对所有的 antd 组件应用**相同的** **hash**。如此一来，使用 antd 组件时，我们只会对当前的版本和主题变量进行 hash 计算，而前者可以直接从 `package.json`中得到，后者可以直接从 context 中得到，所以我们并不需要进行繁重的序列化 css 的操作，就可以得到稳定的 hash，从而大幅地减少性能消耗。
 
 ## 组件缓存
 
