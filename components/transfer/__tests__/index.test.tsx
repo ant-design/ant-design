@@ -114,6 +114,16 @@ describe('Transfer', () => {
     expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
+  it('should pass direction to footer with rest parameters', () => {
+    const footer = (...args: Parameters<NonNullable<TransferProps['footer']>>) =>
+      args[1]?.direction ?? 'missing';
+    const { container } = render(<Transfer dataSource={[]} footer={footer} />);
+    const footers = container.querySelectorAll('.ant-transfer-list-footer');
+
+    expect(footers[0]).toHaveTextContent('left');
+    expect(footers[1]).toHaveTextContent('right');
+  });
+
   it('should only forward data and aria attributes to root element', () => {
     const { container } = render(
       <Transfer
