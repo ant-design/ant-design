@@ -320,7 +320,7 @@ const InternalTransfer = <RecordType extends TransferItem = TransferItem>(
         onSelectChange?.(sourceSelectedKeys, holder);
       }
     },
-    [sourceSelectedKeys, targetSelectedKeys],
+    [sourceSelectedKeys, targetSelectedKeys, onSelectChange],
   );
 
   const getTitles = (transferLocale: TransferLocale): React.ReactNode[] =>
