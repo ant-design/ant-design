@@ -187,6 +187,7 @@ exports[`Form form should support disabled 1`] = `
                   class="ant-radio ant-wave-target ant-radio-disabled"
                 >
                   <input
+                    aria-label="Apple"
                     class="ant-radio-input"
                     disabled=""
                     name="test-id"
@@ -195,6 +196,7 @@ exports[`Form form should support disabled 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-label"
                 >
                   Apple
@@ -207,6 +209,7 @@ exports[`Form form should support disabled 1`] = `
                   class="ant-radio ant-wave-target ant-radio-disabled"
                 >
                   <input
+                    aria-label="Pear"
                     class="ant-radio-input"
                     disabled=""
                     name="test-id"
@@ -215,6 +218,7 @@ exports[`Form form should support disabled 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-label"
                 >
                   Pear
