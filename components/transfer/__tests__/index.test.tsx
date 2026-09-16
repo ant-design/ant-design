@@ -197,6 +197,41 @@ describe('Transfer', () => {
     expect(handleSelectChange).toHaveBeenLastCalledWith(['a'], ['b']);
   });
 
+  it.each(['a', 'b'])('should use the latest onSelectChange when selecting %s', (key) => {
+    const previousOnSelectChange = jest.fn();
+    const onSelectChange = jest.fn();
+    const props = {
+      dataSource: listCommonProps.dataSource,
+      targetKeys: listCommonProps.targetKeys,
+      render: (item: { title: string }) => item.title,
+    };
+    const { getByText, rerender } = render(
+      <Transfer {...props} onSelectChange={previousOnSelectChange} />,
+    );
+
+    rerender(<Transfer {...props} onSelectChange={onSelectChange} />);
+    fireEvent.click(getByText(key));
+
+    expect(previousOnSelectChange).not.toHaveBeenCalled();
+    expect(onSelectChange).toHaveBeenCalledTimes(1);
+    expect(onSelectChange).toHaveBeenCalledWith(key === 'a' ? ['a'] : [], key === 'b' ? ['b'] : []);
+  });
+
+  it('should stop calling onSelectChange after it is removed', () => {
+    const onSelectChange = jest.fn();
+    const props = {
+      dataSource: listCommonProps.dataSource,
+      targetKeys: listCommonProps.targetKeys,
+      render: (item: { title: string }) => item.title,
+    };
+    const { getByText, rerender } = render(<Transfer {...props} onSelectChange={onSelectChange} />);
+
+    rerender(<Transfer {...props} />);
+    fireEvent.click(getByText('b'));
+
+    expect(onSelectChange).not.toHaveBeenCalled();
+  });
+
   it('multiple select/deselect by hold down the shift key', () => {
     const handleSelectChange = jest.fn();
     const { getByText } = render(
