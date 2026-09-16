@@ -126,24 +126,35 @@ describe('Input.Search', () => {
     },
   );
 
-  it('should keep custom enter button props separate from generated button props', () => {
-    const onCustomClick = jest.fn();
-    const onGeneratedClick = jest.fn();
-    const onSearch = jest.fn();
-    const { getByRole, queryByRole } = render(
-      <Search
-        enterButton={<Button onClick={onCustomClick}>Custom search</Button>}
-        enterButtonProps={{ 'aria-label': 'Generated search', onClick: onGeneratedClick }}
-        onSearch={onSearch}
-      />,
-    );
+  it.each(['antd', 'native'])(
+    'should keep custom %s button props separate from generated button props',
+    (buttonType) => {
+      const onCustomClick = jest.fn();
+      const onGeneratedClick = jest.fn();
+      const onSearch = jest.fn();
+      const { getByRole, queryByRole } = render(
+        <Search
+          enterButton={
+            buttonType === 'native' ? (
+              <button type="button" onClick={onCustomClick}>
+                Custom search
+              </button>
+            ) : (
+              <Button onClick={onCustomClick}>Custom search</Button>
+            )
+          }
+          enterButtonProps={{ 'aria-label': 'Generated search', onClick: onGeneratedClick }}
+          onSearch={onSearch}
+        />,
+      );
 
-    expect(queryByRole('button', { name: 'Generated search' })).toBeNull();
-    fireEvent.click(getByRole('button', { name: 'Custom search' }));
-    expect(onCustomClick).toHaveBeenCalledTimes(1);
-    expect(onGeneratedClick).not.toHaveBeenCalled();
-    expect(onSearch).toHaveBeenCalledTimes(1);
-  });
+      expect(queryByRole('button', { name: 'Generated search' })).toBeNull();
+      fireEvent.click(getByRole('button', { name: 'Custom search' }));
+      expect(onCustomClick).toHaveBeenCalledTimes(1);
+      expect(onGeneratedClick).not.toHaveBeenCalled();
+      expect(onSearch).toHaveBeenCalledTimes(1);
+    },
+  );
 
   it('should merge Search and enter button semantic styles', () => {
     const { getByRole } = render(
