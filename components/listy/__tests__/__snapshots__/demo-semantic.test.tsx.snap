@@ -11,7 +11,7 @@ exports[`renders components/listy/demo/_semantic.tsx correctly 1`] = `
       class="ant-col ant-col-16 acss-my3sst css-var-test-id"
     >
       <div
-        class="ant-listy semantic-mark-root css-var-test-id ant-listy-css-var"
+        class="ant-listy semantic-mark-root ant-listy-hoverable css-var-test-id ant-listy-css-var"
         style="overflow-anchor: none; width: 100%;"
       >
         <div
@@ -24,19 +24,19 @@ exports[`renders components/listy/demo/_semantic.tsx correctly 1`] = `
             Design
           </div>
           <div
-            class="ant-listy-item semantic-mark-item ant-listy-item-hoverable"
+            class="ant-listy-item semantic-mark-item"
             data-key="item:0"
           >
             Olivia
           </div>
           <div
-            class="ant-listy-item semantic-mark-item ant-listy-item-hoverable"
+            class="ant-listy-item semantic-mark-item"
             data-key="item:1"
           >
             Liam
           </div>
           <div
-            class="ant-listy-item semantic-mark-item ant-listy-item-hoverable"
+            class="ant-listy-item semantic-mark-item"
             data-key="item:2"
           >
             Emma
@@ -52,19 +52,19 @@ exports[`renders components/listy/demo/_semantic.tsx correctly 1`] = `
             Engineering
           </div>
           <div
-            class="ant-listy-item semantic-mark-item ant-listy-item-hoverable"
+            class="ant-listy-item semantic-mark-item"
             data-key="item:3"
           >
             Noah
           </div>
           <div
-            class="ant-listy-item semantic-mark-item ant-listy-item-hoverable"
+            class="ant-listy-item semantic-mark-item"
             data-key="item:4"
           >
             Ava
           </div>
           <div
-            class="ant-listy-item semantic-mark-item ant-listy-item-hoverable"
+            class="ant-listy-item semantic-mark-item"
             data-key="item:5"
           >
             Ethan

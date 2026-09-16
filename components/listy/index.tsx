@@ -87,13 +87,13 @@ const InternalListy = <T, K extends React.Key = React.Key>(
     mergedClassNames.root,
     rootClassName,
     className,
+    {
+      [`${prefixCls}-hoverable`]: rowHoverable,
+    },
     hashId,
     cssVarCls,
     rootCls,
   );
-  const itemClassNames = clsx(mergedClassNames.item, {
-    [`${prefixCls}-item-hoverable`]: rowHoverable,
-  });
 
   const mergedVirtual = virtual ?? contextVirtual ?? false;
 
@@ -105,7 +105,7 @@ const InternalListy = <T, K extends React.Key = React.Key>(
       direction={direction}
       virtual={mergedVirtual}
       itemHeight={itemHeight}
-      classNames={{ ...mergedClassNames, root: rootClassNames, item: itemClassNames }}
+      classNames={{ ...mergedClassNames, root: rootClassNames }}
       styles={mergedStyles}
     />
   );

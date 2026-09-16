@@ -41,11 +41,13 @@ const genListyStyle: GenerateStyle<ListyToken, CSSObject> = (token) => {
         borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
       },
 
-      [`${componentCls}-item-hoverable`]: {
-        transition: `background-color ${token.motionDurationMid} ${token.motionEaseInOut}`,
+      [`&${componentCls}-hoverable`]: {
+        [`${componentCls}-item`]: {
+          transition: `background-color ${token.motionDurationMid} ${token.motionEaseInOut}`,
 
-        '&:hover': {
-          backgroundColor: token.controlItemBgHover,
+          '&:hover': {
+            backgroundColor: token.controlItemBgHover,
+          },
         },
       },
 
