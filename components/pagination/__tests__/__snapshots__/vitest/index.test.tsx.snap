@@ -2,7 +2,7 @@
 
 exports[`Pagination > ConfigProvider > should be rendered correctly in RTL 1`] = `
 <ul
-  class="ant-pagination ant-pagination-rtl css-var-root"
+  class="ant-pagination ant-pagination-rtl ant-pagination-variant-outlined css-var-root"
 >
   <li
     aria-disabled="true"
@@ -128,7 +128,7 @@ exports[`Pagination > ConfigProvider > should be rendered correctly in RTL 1`] =
 
 exports[`Pagination > ConfigProvider > should be rendered correctly when componentSize is large 1`] = `
 <ul
-  class="ant-pagination ant-pagination-large css-var-root"
+  class="ant-pagination ant-pagination-large ant-pagination-variant-outlined css-var-root"
 >
   <li
     aria-disabled="true"
@@ -303,7 +303,7 @@ exports[`Pagination > ConfigProvider > should be rendered correctly when compone
 
 exports[`Pagination > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <ul
-  class="ant-pagination ant-pagination-rtl css-var-root"
+  class="ant-pagination ant-pagination-rtl ant-pagination-variant-outlined css-var-root"
 >
   <li
     aria-disabled="true"

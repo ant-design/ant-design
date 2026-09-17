@@ -16,6 +16,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/variant.tsx" version="6.6.0">Variant and Shape</code>
 <code src="./demo/align.tsx" version="5.19.0">Align</code>
 <code src="./demo/more.tsx">More</code>
 <code src="./demo/changer.tsx">Changer</code>
@@ -54,6 +55,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | pageSize | Number of data items per page | number | - |  | × |
 | pageSizeOptions | Specify the sizeChanger options | number\[] | \[`10`, `20`, `50`, `100`] |  | × |
 | responsive | If `size` is not specified, `Pagination` would resize according to the width of the window | boolean | - |  | × |
+| shape | Shape of page items | `default` \| `round` | `default` | 6.6.0 | 6.6.0 |
 | showLessItems | Show less page items | boolean | false |  | × |
 | showQuickJumper | Determine whether you can jump to pages directly | boolean \| { goButton: ReactNode } | false |  | × |
 | showSizeChanger | Determine whether to show `pageSize` select | boolean \| [SelectProps](/components/select#api) | - | SelectProps: 5.21.0 | 4.21.0, SelectProps: 5.21.0 |
@@ -64,6 +66,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | total | Total number of data items | number | 0 |  | × |
 | totalBoundaryShowSizeChanger | When `total` larger than it, `showSizeChanger` will be true | number | 50 |  | 6.2.0 |
+| variant | Style variant of page items. Also applies to size changer and quick jumper unless overridden | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 6.6.0 | 6.6.0 |
 | onChange | Called when the page number or `pageSize` is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  | × |
 | onShowSizeChange | Called when `pageSize` is changed | function(current, size) | - |  | × |
 
