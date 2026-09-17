@@ -191,6 +191,14 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         onPreview(file, e);
       }
     };
+    const spanProps: React.HTMLAttributes<HTMLSpanElement> = hasPreview
+      ? {
+          role: 'button',
+          tabIndex: 0,
+          onClick: (e) => onPreview(file, e),
+          onKeyDown: onPreviewKeyDown,
+        }
+      : {};
     const fileName = file.url ? (
       <a
         key="view"
@@ -206,15 +214,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         {extra}
       </a>
     ) : (
-      <span
-        key="view"
-        className={listItemNameClass}
-        role={hasPreview ? 'button' : undefined}
-        tabIndex={hasPreview ? 0 : undefined}
-        onClick={hasPreview ? (e) => onPreview(file, e) : undefined}
-        onKeyDown={hasPreview ? onPreviewKeyDown : undefined}
-        title={file.name}
-      >
+      <span key="view" className={listItemNameClass} {...spanProps} title={file.name}>
         {file.name}
         {extra}
       </span>
