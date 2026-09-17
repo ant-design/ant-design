@@ -15,7 +15,7 @@ title: Third-Party Libraries
 | React Form Library | [ProForm](https://procomponents.ant.design/components/form) [Formily](https://github.com/alibaba/formily) [react-hook-form](https://github.com/react-hook-form/react-hook-form) [formik](https://github.com/jaredpalmer/formik) |
 | Router | [react-router](https://github.com/remix-run/react-router) |
 | Layout | [react-grid-layout](https://github.com/react-grid-layout/react-grid-layout) [react-grid-system](https://github.com/sealninja/react-grid-system) [rc-dock](https://github.com/ticlo/rc-dock) |
-| Drag and drop | [dnd-kit](https://github.com/clauderic/dnd-kit) [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/react-dnd/react-dnd) |
+| Drag and drop | [dnd-kit](https://github.com/clauderic/dnd-kit) |
 | Code Editor | [react-codemirror2](https://github.com/scniro/react-codemirror2) [react-monaco-editor](https://github.com/react-monaco-editor/react-monaco-editor) |
 | Rich Text Editor | [react-quill](https://github.com/zenoamaro/react-quill) |
 | JSON Viewer | [react-json-view](https://github.com/mac-s-g/react-json-view) |

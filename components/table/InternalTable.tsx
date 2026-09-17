@@ -5,7 +5,13 @@ import { omit, pickAttrs, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useProxyImperativeHandle } from '../_util/hooks';
-import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
+import {
+  mergeClassNames,
+  mergeStyles,
+  resolveStyleOrClass,
+  useMergeSemantic,
+  useSemanticRootStyle,
+} from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction, isNumber, isPlainObject } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
@@ -497,6 +503,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     locale: tableLocale,
     dropdownPrefixCls,
     mergedColumns,
+    baseColumns,
     onFilterChange,
     getPopupContainer: getPopupContainer || getContextPopupContainer,
     rootClassName: clsx(rootClassName, rootCls),
@@ -526,6 +533,15 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     onPaginationChange,
     pagination,
   );
+
+  const paginationClassNames: TablePaginationConfig['classNames'] = (info) =>
+    mergeClassNames(
+      {},
+      mergedClassNames.pagination,
+      resolveStyleOrClass(mergedPagination.classNames, info),
+    );
+  const paginationStyles: TablePaginationConfig['styles'] = (info) =>
+    mergeStyles(resolveStyleOrClass(mergedPagination.styles, info), mergedStyles.pagination);
 
   changeEventInfo.pagination =
     pagination === false ? {} : getPaginationParam(mergedPagination, pagination);
@@ -657,8 +673,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     const renderPagination = (placement: 'start' | 'end' | 'center' = 'end') => (
       <Pagination
         {...mergedPagination}
-        classNames={mergedClassNames.pagination}
-        styles={mergedStyles.pagination}
+        classNames={paginationClassNames}
+        styles={paginationStyles}
         className={clsx(
           `${prefixCls}-pagination`,
           `${prefixCls}-pagination-${placement}`,
