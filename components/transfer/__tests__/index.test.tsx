@@ -114,6 +114,16 @@ describe('Transfer', () => {
     expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
+  it('should pass direction to footer with rest parameters', () => {
+    const footer = (...args: Parameters<NonNullable<TransferProps['footer']>>) =>
+      args[1]?.direction ?? 'missing';
+    const { container } = render(<Transfer dataSource={[]} footer={footer} />);
+    const footers = container.querySelectorAll('.ant-transfer-list-footer');
+
+    expect(footers[0]).toHaveTextContent('left');
+    expect(footers[1]).toHaveTextContent('right');
+  });
+
   it('should only forward data and aria attributes to root element', () => {
     const { container } = render(
       <Transfer
@@ -185,6 +195,41 @@ describe('Transfer', () => {
     );
     getByText('b').click();
     expect(handleSelectChange).toHaveBeenLastCalledWith(['a'], ['b']);
+  });
+
+  it.each(['a', 'b'])('should use the latest onSelectChange when selecting %s', (key) => {
+    const previousOnSelectChange = jest.fn();
+    const onSelectChange = jest.fn();
+    const props = {
+      dataSource: listCommonProps.dataSource,
+      targetKeys: listCommonProps.targetKeys,
+      render: (item: { title: string }) => item.title,
+    };
+    const { getByText, rerender } = render(
+      <Transfer {...props} onSelectChange={previousOnSelectChange} />,
+    );
+
+    rerender(<Transfer {...props} onSelectChange={onSelectChange} />);
+    fireEvent.click(getByText(key));
+
+    expect(previousOnSelectChange).not.toHaveBeenCalled();
+    expect(onSelectChange).toHaveBeenCalledTimes(1);
+    expect(onSelectChange).toHaveBeenCalledWith(key === 'a' ? ['a'] : [], key === 'b' ? ['b'] : []);
+  });
+
+  it('should stop calling onSelectChange after it is removed', () => {
+    const onSelectChange = jest.fn();
+    const props = {
+      dataSource: listCommonProps.dataSource,
+      targetKeys: listCommonProps.targetKeys,
+      render: (item: { title: string }) => item.title,
+    };
+    const { getByText, rerender } = render(<Transfer {...props} onSelectChange={onSelectChange} />);
+
+    rerender(<Transfer {...props} />);
+    fireEvent.click(getByText('b'));
+
+    expect(onSelectChange).not.toHaveBeenCalled();
   });
 
   it('multiple select/deselect by hold down the shift key', () => {

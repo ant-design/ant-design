@@ -283,7 +283,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     onChange?.(link);
   });
 
-  const handleScroll = React.useCallback(() => {
+  const handleScroll = useEvent(() => {
     if (animatingRef.current) {
       return;
     }
@@ -296,44 +296,41 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     );
 
     setCurrentActiveLink(currentActiveLink);
-  }, [links, targetOffset, offsetTop, bounds]);
+  });
 
-  const handleScrollTo = React.useCallback<(link: string, targetOffsetParams?: number) => void>(
-    (link, targetOffsetParams) => {
-      const previousRawActiveLink = rawActiveLinkRef.current;
-      setCurrentActiveLink(link, previousRawActiveLink !== link);
-      const sharpLinkMatch = sharpMatcherRegex.exec(link);
-      if (!sharpLinkMatch) {
+  const handleScrollTo = useEvent((link: string, targetOffsetParams?: number) => {
+    const previousRawActiveLink = rawActiveLinkRef.current;
+    setCurrentActiveLink(link, previousRawActiveLink !== link);
+    const sharpLinkMatch = sharpMatcherRegex.exec(link);
+    if (!sharpLinkMatch) {
+      return;
+    }
+    const targetElement = document.getElementById(sharpLinkMatch[1]);
+    if (!targetElement) {
+      return;
+    }
+
+    if (animatingRef.current) {
+      if (previousRawActiveLink === link) {
         return;
       }
-      const targetElement = document.getElementById(sharpLinkMatch[1]);
-      if (!targetElement) {
-        return;
-      }
+      scrollRequestIdRef.current?.();
+    }
 
-      if (animatingRef.current) {
-        if (previousRawActiveLink === link) {
-          return;
-        }
-        scrollRequestIdRef.current?.();
-      }
-
-      const container = getCurrentContainer();
-      const scrollTop = getScroll(container);
-      const eleOffsetTop = getOffsetTop(targetElement, container);
-      let y = scrollTop + eleOffsetTop;
-      const finalTargetOffset = targetOffsetParams ?? targetOffset ?? offsetTop ?? 0;
-      y -= finalTargetOffset;
-      animatingRef.current = true;
-      scrollRequestIdRef.current = scrollTo(y, {
-        getContainer: getCurrentContainer,
-        callback() {
-          animatingRef.current = false;
-        },
-      });
-    },
-    [targetOffset, offsetTop],
-  );
+    const container = getCurrentContainer();
+    const scrollTop = getScroll(container);
+    const eleOffsetTop = getOffsetTop(targetElement, container);
+    let y = scrollTop + eleOffsetTop;
+    const finalTargetOffset = targetOffsetParams ?? targetOffset ?? offsetTop ?? 0;
+    y -= finalTargetOffset;
+    animatingRef.current = true;
+    scrollRequestIdRef.current = scrollTo(y, {
+      getContainer: getCurrentContainer,
+      callback() {
+        animatingRef.current = false;
+      },
+    });
+  });
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: AnchorProps = {
@@ -405,7 +402,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     return () => {
       scrollContainer?.removeEventListener('scroll', handleScroll);
     };
-  }, [dependencyListItem]);
+  }, [dependencyListItem, getCurrentContainer, handleScroll]);
 
   React.useEffect(() => {
     if (isFunction(getCurrentAnchor)) {

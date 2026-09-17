@@ -330,7 +330,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   };
 
   // Custom Layout
-  const footerDom = footer && (footer.length < 2 ? footer(props) : footer(props, { direction }));
+  const footerDom = footer?.(props, { direction });
 
   // Get filtered, checked item list
   const listFooter = footerDom ? (
