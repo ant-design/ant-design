@@ -90,6 +90,8 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
     if (childrenWidth !== 0 && nodeWidth !== 0) {
       if (gap * 2 < nodeWidth) {
         setScale(nodeWidth - gap * 2 < childrenWidth ? (nodeWidth - gap * 2) / childrenWidth : 1);
+      } else {
+        setScale(1);
       }
     }
   };
