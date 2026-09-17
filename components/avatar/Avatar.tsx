@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ResizeObserver from '@rc-component/resize-observer';
-import { composeRef } from '@rc-component/util';
+import { composeRef, isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isNumber, isPlainObject } from '../_util/is';
@@ -117,6 +117,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   const needResponsive = Object.keys(isPlainObject(size) ? size || {} : {}).some((key) =>
     responsiveArray.includes(key as Breakpoint),
   );
+  const hasIcon = isReactRenderable(icon);
   const screens = useBreakpoint(needResponsive);
   const responsiveSizeStyle = React.useMemo<React.CSSProperties>(() => {
     if (!isPlainObject(size)) {
@@ -131,10 +132,10 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
       ? {
           width: currentSize,
           height: currentSize,
-          fontSize: currentSize && (icon || children) ? currentSize / 2 : 18,
+          fontSize: currentSize && (hasIcon || isReactRenderable(children)) ? currentSize / 2 : 18,
         }
       : {};
-  }, [screens, size, icon, children]);
+  }, [screens, size, hasIcon, children]);
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Avatar');
@@ -166,7 +167,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
     `${prefixCls}-${mergedShape}`,
     {
       [`${prefixCls}-image`]: hasImageElement || (src && isImgExist),
-      [`${prefixCls}-icon`]: !!icon,
+      [`${prefixCls}-icon`]: hasIcon,
     },
     cssVarCls,
     rootCls,
@@ -179,7 +180,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
     ? {
         width: size,
         height: size,
-        fontSize: icon ? size / 2 : 18,
+        fontSize: hasIcon ? size / 2 : 18,
       }
     : {};
 
@@ -197,7 +198,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
     );
   } else if (hasImageElement) {
     childrenToRender = src;
-  } else if (icon) {
+  } else if (hasIcon) {
     childrenToRender = icon;
   } else if (mounted || scale !== 1) {
     const transformString = `scale(${scale})`;
