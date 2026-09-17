@@ -229,8 +229,9 @@ export function useInternalNotification(
 
       const semanticClassNames = resolveStyleOrClass(configClassNames, { props: config });
       const semanticStyles = resolveStyleOrClass(styles, { props: config });
-      const iconNode = icon || (type ? TypeIcon[type] : null);
-      const typeIconCls = !icon && type ? `${noticePrefixCls}-icon-${type}` : undefined;
+      const isCustomIcon = isReactRenderable(icon);
+      const iconNode = isCustomIcon ? icon : (type ? TypeIcon[type] : null);
+      const typeIconCls = !isCustomIcon && type ? `${noticePrefixCls}-icon-${type}` : undefined;
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
