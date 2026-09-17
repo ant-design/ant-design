@@ -91,6 +91,7 @@ export interface ProgressProps extends ProgressAriaProps {
   /** @deprecated please use `gapPlacement` instead */
   gapPosition?: GapPosition;
   size?: number | [number | string, number] | ProgressSize | { width?: number; height?: number };
+  startPosition?: number;
   steps?: number | { count: number; gap: number };
   percentPosition?: PercentPositionType;
   children?: React.ReactNode;
@@ -354,6 +355,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
         'gapPosition',
         'gapPlacement',
         'strokeLinecap',
+        'startPosition',
         'success',
       ])}
     >
