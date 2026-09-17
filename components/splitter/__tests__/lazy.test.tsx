@@ -141,6 +141,58 @@ describe('Splitter lazy', () => {
     expect(container.querySelector('.ant-splitter-mask')).toBeFalsy();
   });
 
+  it('should only update after keyboard resize ends when lazy is true', async () => {
+    const onResize = jest.fn();
+    const onResizeEnd = jest.fn();
+    const { container } = render(
+      <SplitterDemo onResize={onResize} onResizeEnd={onResizeEnd} lazy />,
+    );
+
+    await resizeSplitter();
+
+    const dragger = container.querySelector<HTMLElement>('.ant-splitter-bar-dragger')!;
+    const preview = container.querySelector<HTMLElement>('.ant-splitter-bar-preview')!;
+
+    fireEvent.keyDown(dragger, { key: 'Enter' });
+    fireEvent.keyDown(dragger, { key: 'ArrowRight' });
+    expect(preview.style.getPropertyValue('--ant-splitter-bar-preview-offset')).toBe('10px');
+    expect(onResize).not.toHaveBeenCalled();
+    expect(onResizeEnd).not.toHaveBeenCalled();
+
+    fireEvent.keyDown(dragger, { key: 'ArrowRight' });
+    expect(preview.style.getPropertyValue('--ant-splitter-bar-preview-offset')).toBe('20px');
+    expect(onResize).not.toHaveBeenCalled();
+    expect(onResizeEnd).not.toHaveBeenCalled();
+
+    fireEvent.keyDown(dragger, { key: 'Enter' });
+    expect(preview.style.getPropertyValue('--ant-splitter-bar-preview-offset')).toBe('0px');
+    expect(onResize).not.toHaveBeenCalled();
+    expect(onResizeEnd).toHaveBeenCalledWith([70, 30]);
+  });
+
+  it('should commit lazy keyboard resize when the dragger loses focus', async () => {
+    const onResize = jest.fn();
+    const onResizeEnd = jest.fn();
+    const { container } = render(
+      <div>
+        <button type="button">Outside</button>
+        <SplitterDemo onResize={onResize} onResizeEnd={onResizeEnd} lazy />
+      </div>,
+    );
+
+    await resizeSplitter();
+
+    const dragger = container.querySelector<HTMLElement>('.ant-splitter-bar-dragger')!;
+    const outside = container.querySelector('button')!;
+    dragger.focus();
+    fireEvent.keyDown(dragger, { key: 'Enter' });
+    fireEvent.keyDown(dragger, { key: 'ArrowLeft' });
+    fireEvent.blur(dragger, { relatedTarget: outside });
+
+    expect(onResize).not.toHaveBeenCalled();
+    expect(onResizeEnd).toHaveBeenCalledWith([40, 60]);
+  });
+
   it('should not move preview when adjacent panels have zero size', async () => {
     const onResize = jest.fn();
     const onResizeEnd = jest.fn();
