@@ -5,18 +5,21 @@ import { clsx } from 'clsx';
 import type { AnyObject } from '../_util/type';
 import type { TableLocale } from './interface';
 
-type ExpandIconLocale = Pick<TableLocale, 'collapse' | 'collapseAll' | 'expand' | 'expandAll'>;
+interface ExpandIconLocale
+  extends Pick<TableLocale, 'collapse' | 'collapseAll' | 'expand' | 'expandAll'> {}
 
 type ExpandIconComponent<RecordType> = React.ComponentType<ExpandIconProps<RecordType>>;
 type RenderExpandIcon<RecordType> = NonNullable<ExpandableConfig<RecordType>['expandIcon']>;
 
-type DefaultExpandIconProps<RecordType> = ExpandIconProps<RecordType> & {
+interface DefaultExpandIconProps
+  extends Pick<
+    ExpandIconProps<unknown>,
+    'prefixCls' | 'type' | 'expanded' | 'expandable' | 'onClick'
+  > {
   locale: ExpandIconLocale;
-};
+}
 
-const DefaultExpandIcon = <RecordType extends AnyObject = AnyObject>(
-  props: DefaultExpandIconProps<RecordType>,
-) => {
+const DefaultExpandIcon = (props: DefaultExpandIconProps) => {
   const { prefixCls, type, expanded, expandable, locale, onClick } = props;
   const iconPrefix = `${prefixCls}-row-expand-icon`;
 
@@ -57,7 +60,6 @@ function renderExpandIcon<RecordType extends AnyObject = AnyObject>(
       <DefaultExpandIcon
         type="row"
         prefixCls={prefixCls}
-        record={record}
         expanded={expanded}
         expandable={expandable}
         locale={locale}

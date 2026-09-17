@@ -606,6 +606,10 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // ========================== Expandable ==========================
 
+  if (process.env.NODE_ENV !== 'production') {
+    warning.deprecated(!expandable?.expandIcon, 'expandable.expandIcon', 'components.ExpandIcon');
+  }
+
   // Pass origin render status into `@rc-component/table`, this can be removed when refactor with `@rc-component/table`
   (mergedExpandable as any).__PARENT_RENDER_ICON__ = mergedExpandable.expandIcon;
 

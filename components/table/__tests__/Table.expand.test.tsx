@@ -42,10 +42,21 @@ const data = [
 ];
 
 describe('Table.expand', () => {
+  let warnSpy: jest.SpyInstance;
+
+  beforeEach(() => {
+    warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    warnSpy.mockRestore();
+  });
+
   it('click to expand', () => {
     const { container, asFragment } = render(<Table columns={columns} dataSource={data} />);
     fireEvent.click(container.querySelector('.ant-table-row-expand-icon')!);
     expect(asFragment().firstChild).toMatchSnapshot();
+    expect(warnSpy).not.toHaveBeenCalled();
   });
 
   it('force renders expanded form fields before expansion', async () => {
@@ -107,6 +118,9 @@ describe('Table.expand', () => {
       />,
     );
     expect(container.querySelectorAll('.expand-icon')).toHaveLength(1);
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Table] `expandable.expandIcon` is deprecated. Please use `components.ExpandIcon` instead.',
+    );
   });
 
   describe('expand all', () => {
@@ -158,9 +172,10 @@ describe('Table.expand', () => {
       expect(expandAllIcon).toHaveAttribute('aria-expanded', 'false');
       expect(onExpandAll).toHaveBeenLastCalledWith(false);
       expect(onExpandedRowsChange).toHaveBeenLastCalledWith([]);
+      expect(warnSpy).not.toHaveBeenCalled();
     });
 
-    it('uses components.ExpandIcon for row and expand all icons', () => {
+    it.each([false, true])('uses components.ExpandIcon with legacy icon: %s', (withLegacyIcon) => {
       const { container } = render(
         <Table
           columns={columns}
@@ -180,7 +195,7 @@ describe('Table.expand', () => {
           }}
           expandable={{
             expandedRowRender,
-            expandIcon: () => <span className="legacy-expand-icon" />,
+            expandIcon: withLegacyIcon ? () => <span className="legacy-expand-icon" /> : undefined,
             showExpandAll: true,
           }}
         />,
@@ -192,6 +207,14 @@ describe('Table.expand', () => {
 
       fireEvent.click(container.querySelector('.custom-expand-all-icon')!);
       expect(container.querySelectorAll('.ant-table-expanded-row')).toHaveLength(2);
+
+      if (withLegacyIcon) {
+        expect(warnSpy).toHaveBeenCalledWith(
+          'Warning: [antd: Table] `expandable.expandIcon` is deprecated. Please use `components.ExpandIcon` instead.',
+        );
+      } else {
+        expect(warnSpy).not.toHaveBeenCalled();
+      }
     });
 
     it('keeps expandable.expandIcon as a row-only fallback', () => {
