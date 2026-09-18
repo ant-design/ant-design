@@ -2166,9 +2166,10 @@ Array [
                           Address
                         </span>
                         <span
+                          aria-label="Filter menu"
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
-                          tabindex="-1"
+                          tabindex="0"
                         >
                           <span
                             aria-label="filter"
@@ -3570,9 +3571,10 @@ Array [
                           Age
                         </span>
                         <span
+                          aria-label="Filter menu"
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
-                          tabindex="-1"
+                          tabindex="0"
                         >
                           <span
                             aria-label="filter"
@@ -3980,9 +3982,10 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                         Name
                       </span>
                       <span
+                        aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="search"
@@ -4117,9 +4120,10 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                         Age
                       </span>
                       <span
+                        aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="search"
@@ -4333,9 +4337,10 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                         </div>
                       </span>
                       <span
+                        aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="search"
@@ -6711,9 +6716,10 @@ Array [
                           Address
                         </span>
                         <span
+                          aria-label="Filter menu"
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
-                          tabindex="-1"
+                          tabindex="0"
                         >
                           <span
                             aria-label="filter"
@@ -10730,9 +10736,10 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                         Name
                       </span>
                       <span
+                        aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -11289,9 +11296,10 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                         Address
                       </span>
                       <span
+                        aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -11711,9 +11719,10 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                         Name
                       </span>
                       <span
+                        aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -12068,9 +12077,10 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                         Address
                       </span>
                       <span
+                        aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -13875,9 +13885,10 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                         Name
                       </span>
                       <span
+                        aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -14252,6 +14263,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                           Name
                         </span>
                         <span
+                          aria-label="Filter menu"
                           class="ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
@@ -15347,9 +15359,10 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                         </div>
                       </span>
                       <span
+                        aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -15749,9 +15762,10 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                         Address
                       </span>
                       <span
+                        aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -16935,9 +16949,10 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                         Name
                       </span>
                       <span
+                        aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="search"
@@ -17072,9 +17087,10 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                         Age
                       </span>
                       <span
+                        aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -17367,9 +17383,10 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                         </div>
                       </span>
                       <span
+                        aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="search"
@@ -17532,6 +17549,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                           Name
                         </span>
                         <span
+                          aria-label="Filter menu"
                           class="ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
@@ -17574,6 +17592,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                           Age
                         </span>
                         <span
+                          aria-label="Filter menu"
                           class="ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
@@ -17692,6 +17711,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                           </div>
                         </span>
                         <span
+                          aria-label="Filter menu"
                           class="ant-table-filter-trigger"
                           role="button"
                           tabindex="-1"
@@ -23535,9 +23555,10 @@ Array [
                           </div>
                         </span>
                         <span
+                          aria-label="Filter menu"
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
-                          tabindex="-1"
+                          tabindex="0"
                         >
                           <span
                             aria-label="filter"
@@ -23872,9 +23893,10 @@ Array [
                           </div>
                         </span>
                         <span
+                          aria-label="Filter menu"
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
-                          tabindex="-1"
+                          tabindex="0"
                         >
                           <span
                             aria-label="filter"
