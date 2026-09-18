@@ -1,5 +1,6 @@
 import React from 'react';
 import type RcTree from '@rc-component/tree';
+import type { BasicDataNode } from '@rc-component/tree';
 import debounce from 'lodash/debounce';
 
 import type { TreeProps } from '..';
@@ -9,6 +10,11 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 const { DirectoryTree, TreeNode } = Tree;
+
+interface FileDropTreeNode extends BasicDataNode {
+  id: number;
+  label: string;
+}
 
 jest.mock('lodash/debounce');
 
@@ -165,6 +171,112 @@ describe('Directory Tree', () => {
     expect(onSelect).toHaveBeenLastCalledWith(
       [0, 1, 2],
       expect.objectContaining({ selectedNodes: treeData }),
+    );
+  });
+
+  it('preserves numeric node keys when files are dropped from outside the browser', () => {
+    const onFileDrop = jest.fn();
+    const file = new File(['content'], 'example.txt', { type: 'text/plain' });
+    const { container } = render(
+      <DirectoryTree
+        allowFileDrop
+        treeData={[{ key: 0, title: 'Zero' }]}
+        onFileDrop={onFileDrop}
+      />,
+    );
+
+    const targets = container.querySelectorAll('.ant-tree-file-drop-target');
+    expect(targets[0]).toHaveTextContent('Zero');
+
+    fireEvent.drop(targets[0], {
+      dataTransfer: { files: [file], types: ['Files'] },
+    });
+
+    expect(onFileDrop).toHaveBeenCalledWith(
+      expect.objectContaining({
+        files: [file],
+        node: expect.objectContaining({ key: 0 }),
+      }),
+    );
+  });
+
+  it('only handles external file drags and preserves custom titles', () => {
+    const onFileDrop = jest.fn();
+    const file = new File(['content'], 'example.txt', { type: 'text/plain' });
+    const { container } = render(
+      <DirectoryTree
+        allowFileDrop
+        treeData={[{ key: 'custom', title: 'Custom' }]}
+        titleRender={(node) => <strong>{node.title}</strong>}
+        onFileDrop={onFileDrop}
+      />,
+    );
+    const target = container.querySelector<HTMLElement>('.ant-tree-file-drop-target')!;
+    const wrapper = container.querySelector<HTMLElement>('.ant-tree-directory-file-drop')!;
+
+    expect(target.querySelector('strong')).toHaveTextContent('Custom');
+
+    const textDrop = new Event('drop', { bubbles: true, cancelable: true });
+    Object.defineProperty(textDrop, 'dataTransfer', {
+      value: { files: [], types: ['text/plain'] },
+    });
+    target.dispatchEvent(textDrop);
+    expect(textDrop.defaultPrevented).toBe(false);
+    expect(onFileDrop).not.toHaveBeenCalled();
+
+    const textDragOver = new Event('dragover', { bubbles: true, cancelable: true });
+    Object.defineProperty(textDragOver, 'dataTransfer', {
+      value: { files: [], types: ['text/plain'] },
+    });
+    target.dispatchEvent(textDragOver);
+    expect(textDragOver.defaultPrevented).toBe(false);
+
+    fireEvent.dragOver(target.querySelector('strong')!, {
+      dataTransfer: { dropEffect: 'none', files: [], types: ['Files'] },
+    });
+    expect(target).toHaveClass('ant-tree-file-drop-target-active');
+
+    const innerDragLeave = new Event('dragleave', { bubbles: true });
+    Object.defineProperty(innerDragLeave, 'relatedTarget', { value: target });
+    target.dispatchEvent(innerDragLeave);
+    expect(target).toHaveClass('ant-tree-file-drop-target-active');
+
+    fireEvent.dragLeave(wrapper, { relatedTarget: document.body });
+    expect(target).not.toHaveClass('ant-tree-file-drop-target-active');
+
+    fireEvent.drop(wrapper, {
+      dataTransfer: { files: [file], types: ['Files'] },
+    });
+    expect(onFileDrop).not.toHaveBeenCalled();
+
+    fireEvent.drop(target, {
+      dataTransfer: { files: [file], types: ['Files'] },
+    });
+    expect(onFileDrop).toHaveBeenCalledTimes(1);
+    expect(target).not.toHaveClass('ant-tree-file-drop-target-active');
+  });
+
+  it('preserves custom title fields when external files are dropped', () => {
+    const onFileDrop = jest.fn();
+    const file = new File(['content'], 'example.txt', { type: 'text/plain' });
+    const treeData: FileDropTreeNode[] = [{ id: 0, label: 'Custom title' }];
+    const { container } = render(
+      <DirectoryTree<FileDropTreeNode>
+        allowFileDrop
+        treeData={treeData}
+        fieldNames={{ key: 'id', title: 'label' }}
+        onFileDrop={onFileDrop}
+      />,
+    );
+    const target = container.querySelector<HTMLElement>('.ant-tree-file-drop-target')!;
+
+    expect(target).toHaveTextContent('Custom title');
+
+    fireEvent.drop(target, {
+      dataTransfer: { files: [file], types: ['Files'] },
+    });
+    expect(onFileDrop).toHaveBeenCalledWith(
+      expect.objectContaining({ node: treeData[0], files: [file] }),
     );
   });
 
