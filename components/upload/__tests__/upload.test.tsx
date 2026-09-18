@@ -421,6 +421,29 @@ describe('Upload', () => {
     expect(linkNode?.getAttribute('rel')).toBe('noopener');
   });
 
+  it('should ignore linkProps when it is not a valid json string', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const fileList = [
+      {
+        uid: '-1',
+        name: 'foo.png',
+        status: 'done',
+        url: 'https://ant.design/foo.png',
+        linkProps: '{"download": "image"',
+      },
+    ];
+    const { container: wrapper } = render(
+      <Upload fileList={fileList as UploadProps['fileList']} />,
+    );
+    const linkNode = wrapper.querySelector('a.ant-upload-list-item-name');
+    expect(linkNode?.getAttribute('download')).toBe(null);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Upload] `linkProps` is not a valid JSON string. It will be ignored.',
+    );
+    errorSpy.mockRestore();
+  });
+
   it('should stop remove when return value of onRemove is false', async () => {
     const mockRemove = jest.fn(() => false);
     const props: UploadProps = {
