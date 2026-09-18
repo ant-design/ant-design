@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import type { SliderRef } from '@rc-component/slider';
 import { composeRef, raf } from '@rc-component/util';
 
-import type { TooltipProps } from '../tooltip';
+import type { AdjustOverflow, TooltipProps } from '../tooltip';
 import Tooltip from '../tooltip';
 
 export type SliderTooltipProps = TooltipProps & {
@@ -11,8 +11,15 @@ export type SliderTooltipProps = TooltipProps & {
   value?: number;
 };
 
+const sliderAutoAdjustOverflow: AdjustOverflow = {
+  adjustX: 1,
+  adjustY: 1,
+  shiftX: true,
+  shiftY: true,
+};
+
 const SliderTooltip = React.forwardRef<SliderRef, SliderTooltipProps>((props, ref) => {
-  const { open, draggingDelete, value } = props;
+  const { open, draggingDelete, value, autoAdjustOverflow } = props;
   const innerRef = useRef<any>(null);
 
   const mergedOpen = open && !draggingDelete;
@@ -41,7 +48,14 @@ const SliderTooltip = React.forwardRef<SliderRef, SliderTooltipProps>((props, re
     return cancelKeepAlign;
   }, [mergedOpen, props.title, value]);
 
-  return <Tooltip ref={composeRef(innerRef, ref)} {...props} open={mergedOpen} />;
+  return (
+    <Tooltip
+      ref={composeRef(innerRef, ref)}
+      {...props}
+      autoAdjustOverflow={autoAdjustOverflow === false ? false : sliderAutoAdjustOverflow}
+      open={mergedOpen}
+    />
+  );
 });
 
 if (process.env.NODE_ENV !== 'production') {
