@@ -176,6 +176,50 @@ describe('Popconfirm', () => {
     expect(onOpenChange).toHaveBeenLastCalledWith(false);
   });
 
+  it('should trigger both onConfirm and okButtonProps.onClick', async () => {
+    const onConfirm = jest.fn();
+    const onClick = jest.fn();
+    const onOpenChange = jest.fn();
+    const popconfirm = render(
+      <Popconfirm
+        title="code"
+        defaultOpen
+        onConfirm={onConfirm}
+        onOpenChange={onOpenChange}
+        okButtonProps={{ onClick }}
+      >
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+
+    fireEvent.click(popconfirm.container.querySelector('.ant-btn-primary')!);
+    expect(onConfirm).toHaveBeenCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(onOpenChange).toHaveBeenLastCalledWith(false);
+  });
+
+  it('should trigger both onCancel and cancelButtonProps.onClick', async () => {
+    const onCancel = jest.fn();
+    const onClick = jest.fn();
+    const onOpenChange = jest.fn();
+    const popconfirm = render(
+      <Popconfirm
+        title="code"
+        defaultOpen
+        onCancel={onCancel}
+        onOpenChange={onOpenChange}
+        cancelButtonProps={{ onClick }}
+      >
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+
+    fireEvent.click(popconfirm.container.querySelector('.ant-btn')!);
+    expect(onCancel).toHaveBeenCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(onOpenChange).toHaveBeenLastCalledWith(false);
+  });
+
   it('should support onConfirm to return Promise', async () => {
     const confirm = () =>
       new Promise((res) => {
