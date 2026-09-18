@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: '정렬',
     expand: '펼치기',
     collapse: '접기',
+    expandAll: '모든 행 펼치기',
+    collapseAll: '모든 행 접기',
     triggerDesc: '내림차순으로 정렬하기',
     triggerAsc: '오름차순으로 정렬하기',
     cancelSort: '정렬 취소하기',

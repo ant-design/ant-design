@@ -33,6 +33,8 @@ const localeValues: Locale = {
     sortTitle: 'מיון',
     expand: 'הרחב שורה',
     collapse: 'צמצם שורה',
+    expandAll: 'הרחב את כל השורות',
+    collapseAll: 'צמצם את כל השורות',
     triggerDesc: 'לחץ למיון לפי סדר יורד',
     triggerAsc: 'לחץ למיון לפי סדר עולה',
     cancelSort: 'לחץ כדי לבטל את המיון',

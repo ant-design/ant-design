@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Sortera',
     expand: 'Expandera rad',
     collapse: 'Komprimera rad',
+    expandAll: 'Expandera alla rader',
+    collapseAll: 'Komprimera alla rader',
     triggerDesc: 'Klicka för att sortera i fallande ordning',
     triggerAsc: 'Klicka för att sortera i stigande ordning',
     cancelSort: 'Klicka för att avbryta sortering',
