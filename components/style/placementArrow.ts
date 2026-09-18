@@ -33,6 +33,7 @@ const getArrowStyle = <
   options?: {
     arrowDistance?: number;
     arrowShadow?: boolean;
+    arrowInContainer?: boolean;
   },
 ): CSSInterpolation => {
   const {
@@ -45,7 +46,10 @@ const getArrowStyle = <
 
   const [varName] = genCssVar(antCls, 'tooltip');
 
-  const { arrowDistance = 0, arrowShadow = true } = options || {};
+  const { arrowDistance = 0, arrowShadow = true, arrowInContainer = false } = options || {};
+  const arrowSelector = arrowInContainer
+    ? `${componentCls}-container > ${componentCls}-arrow`
+    : `> ${componentCls}-arrow`;
 
   return {
     [componentCls]: {
@@ -68,18 +72,18 @@ const getArrowStyle = <
       // Here handle the arrow position and rotate stuff
       // >>>>> Top
       [[
-        `&-placement-top > ${componentCls}-arrow`,
-        `&-placement-topLeft > ${componentCls}-arrow`,
-        `&-placement-topRight > ${componentCls}-arrow`,
+        `&-placement-top ${arrowSelector}`,
+        `&-placement-topLeft ${arrowSelector}`,
+        `&-placement-topRight ${arrowSelector}`,
       ].join(',')]: {
         bottom: arrowDistance,
         transform: 'translateY(100%) rotate(180deg)',
       },
 
-      [`&-placement-top > ${componentCls}-arrow`]: {
+      [`&-placement-top ${arrowSelector}`]: {
         left: {
           _skip_check_: true,
-          value: '50%',
+          value: arrowInContainer ? 'var(--arrow-x, 50%)' : '50%',
         },
         transform: 'translateX(-50%) translateY(100%) rotate(180deg)',
       },
@@ -87,7 +91,7 @@ const getArrowStyle = <
       '&-placement-topLeft': {
         [varName('arrow-offset-x')]: arrowOffsetHorizontal,
 
-        [`> ${componentCls}-arrow`]: {
+        [arrowSelector]: {
           left: {
             _skip_check_: true,
             value: arrowOffsetHorizontal,
@@ -98,7 +102,7 @@ const getArrowStyle = <
       '&-placement-topRight': {
         [varName('arrow-offset-x')]: `calc(100% - ${unit(arrowOffsetHorizontal)})`,
 
-        [`> ${componentCls}-arrow`]: {
+        [arrowSelector]: {
           right: {
             _skip_check_: true,
             value: arrowOffsetHorizontal,
@@ -108,18 +112,18 @@ const getArrowStyle = <
 
       // >>>>> Bottom
       [[
-        `&-placement-bottom > ${componentCls}-arrow`,
-        `&-placement-bottomLeft > ${componentCls}-arrow`,
-        `&-placement-bottomRight > ${componentCls}-arrow`,
+        `&-placement-bottom ${arrowSelector}`,
+        `&-placement-bottomLeft ${arrowSelector}`,
+        `&-placement-bottomRight ${arrowSelector}`,
       ].join(',')]: {
         top: arrowDistance,
         transform: `translateY(-100%)`,
       },
 
-      [`&-placement-bottom > ${componentCls}-arrow`]: {
+      [`&-placement-bottom ${arrowSelector}`]: {
         left: {
           _skip_check_: true,
-          value: '50%',
+          value: arrowInContainer ? 'var(--arrow-x, 50%)' : '50%',
         },
         transform: `translateX(-50%) translateY(-100%)`,
       },
@@ -127,7 +131,7 @@ const getArrowStyle = <
       '&-placement-bottomLeft': {
         [varName('arrow-offset-x')]: arrowOffsetHorizontal,
 
-        [`> ${componentCls}-arrow`]: {
+        [arrowSelector]: {
           left: {
             _skip_check_: true,
             value: arrowOffsetHorizontal,
@@ -138,7 +142,7 @@ const getArrowStyle = <
       '&-placement-bottomRight': {
         [varName('arrow-offset-x')]: `calc(100% - ${unit(arrowOffsetHorizontal)})`,
 
-        [`> ${componentCls}-arrow`]: {
+        [arrowSelector]: {
           right: {
             _skip_check_: true,
             value: arrowOffsetHorizontal,
@@ -148,9 +152,9 @@ const getArrowStyle = <
 
       // >>>>> Left
       [[
-        `&-placement-left > ${componentCls}-arrow`,
-        `&-placement-leftTop > ${componentCls}-arrow`,
-        `&-placement-leftBottom > ${componentCls}-arrow`,
+        `&-placement-left ${arrowSelector}`,
+        `&-placement-leftTop ${arrowSelector}`,
+        `&-placement-leftBottom ${arrowSelector}`,
       ].join(',')]: {
         right: {
           _skip_check_: true,
@@ -159,27 +163,27 @@ const getArrowStyle = <
         transform: 'translateX(100%) rotate(90deg)',
       },
 
-      [`&-placement-left > ${componentCls}-arrow`]: {
+      [`&-placement-left ${arrowSelector}`]: {
         top: {
           _skip_check_: true,
-          value: '50%',
+          value: arrowInContainer ? 'var(--arrow-y, 50%)' : '50%',
         },
         transform: 'translateY(-50%) translateX(100%) rotate(90deg)',
       },
 
-      [`&-placement-leftTop > ${componentCls}-arrow`]: {
+      [`&-placement-leftTop ${arrowSelector}`]: {
         top: arrowOffsetVertical,
       },
 
-      [`&-placement-leftBottom > ${componentCls}-arrow`]: {
+      [`&-placement-leftBottom ${arrowSelector}`]: {
         bottom: arrowOffsetVertical,
       },
 
       // >>>>> Right
       [[
-        `&-placement-right > ${componentCls}-arrow`,
-        `&-placement-rightTop > ${componentCls}-arrow`,
-        `&-placement-rightBottom > ${componentCls}-arrow`,
+        `&-placement-right ${arrowSelector}`,
+        `&-placement-rightTop ${arrowSelector}`,
+        `&-placement-rightBottom ${arrowSelector}`,
       ].join(',')]: {
         left: {
           _skip_check_: true,
@@ -188,19 +192,19 @@ const getArrowStyle = <
         transform: 'translateX(-100%) rotate(-90deg)',
       },
 
-      [`&-placement-right > ${componentCls}-arrow`]: {
+      [`&-placement-right ${arrowSelector}`]: {
         top: {
           _skip_check_: true,
-          value: '50%',
+          value: arrowInContainer ? 'var(--arrow-y, 50%)' : '50%',
         },
         transform: 'translateY(-50%) translateX(-100%) rotate(-90deg)',
       },
 
-      [`&-placement-rightTop > ${componentCls}-arrow`]: {
+      [`&-placement-rightTop ${arrowSelector}`]: {
         top: arrowOffsetVertical,
       },
 
-      [`&-placement-rightBottom > ${componentCls}-arrow`]: {
+      [`&-placement-rightBottom ${arrowSelector}`]: {
         bottom: arrowOffsetVertical,
       },
     },
