@@ -798,8 +798,6 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             </div>
             <span
               class="ant-upload-list-item-name"
-              role="button"
-              tabindex="0"
               title="image.png"
             >
               image.png
@@ -1062,8 +1060,6 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             </div>
             <span
               class="ant-upload-list-item-name"
-              role="button"
-              tabindex="0"
               title="image.png"
             >
               image.png
@@ -3979,8 +3975,6 @@ exports[`renders components/upload/demo/picture-style.tsx extend context correct
         </div>
         <span
           class="ant-upload-list-item-name"
-          role="button"
-          tabindex="0"
           title="xxx.png"
         >
           xxx.png
@@ -4118,8 +4112,6 @@ exports[`renders components/upload/demo/picture-style.tsx extend context correct
         </div>
         <span
           class="ant-upload-list-item-name"
-          role="button"
-          tabindex="0"
           title="zzz.png"
         >
           zzz.png

@@ -532,4 +532,17 @@ describe('notification', () => {
       expect(document.querySelector('.ant-notification-notice-close')).toBeFalsy();
     });
   });
+
+  it('should render numeric 0 closeIcon and icon', async () => {
+    act(() => {
+      notification.open({
+        title: 'Title',
+        closeIcon: 0,
+        icon: 0,
+      });
+    });
+    await awaitPromise();
+    expect(document.querySelector('.ant-notification-notice-close')?.textContent).toBe('0');
+    expect(document.querySelector('.ant-notification-notice-icon')?.textContent).toBe('0');
+  });
 });

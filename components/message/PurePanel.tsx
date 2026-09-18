@@ -6,6 +6,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import { Notification as RcNotification } from '@rc-component/notification';
 import type { NotificationProps as RcNotificationProps } from '@rc-component/notification';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
@@ -23,7 +24,7 @@ export const TypeIcon = {
 };
 
 export const getMessageIcon = (type?: NoticeType, icon?: React.ReactNode) =>
-  icon || (type && TypeIcon[type]) || null;
+  isReactRenderable(icon) ? icon : (type && TypeIcon[type]) || null;
 
 export interface MessageContentProps {
   type?: NoticeType;

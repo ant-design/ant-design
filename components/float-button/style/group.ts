@@ -14,6 +14,8 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
 
   const [varName, varRef] = genCssVar(antCls, 'float-btn');
 
+  const menuBridgeOffset = unit(token.calc(padding).mul(-1).equal());
+
   return {
     [groupCls]: [
       // ==============================================================
@@ -69,6 +71,12 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
         // =========================== Menu ===========================
         [`&-menu-mode ${listCls}`]: {
           position: 'absolute',
+
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            inset: 0,
+          },
         },
 
         // ========================== Motion ==========================
@@ -101,6 +109,11 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
         '&-top': {
           [listCls]: {
             bottom: varRef('list-trigger-offset'),
+
+            '&::after': {
+              top: '100%',
+              bottom: menuBridgeOffset,
+            },
           },
         },
 
@@ -108,6 +121,11 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
           [listCls]: {
             [varName('list-transform-start')]: `translate(0, calc(${unit(floatButtonSize)} * -1))`,
             top: varRef('list-trigger-offset'),
+
+            '&::after': {
+              top: menuBridgeOffset,
+              bottom: '100%',
+            },
           },
         },
 
@@ -115,6 +133,11 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
           [listCls]: {
             [varName('list-transform-start')]: `translate(${unit(floatButtonSize)}, 0)`,
             right: varRef('list-trigger-offset'),
+
+            '&::after': {
+              left: '100%',
+              right: menuBridgeOffset,
+            },
           },
         },
 
@@ -122,6 +145,11 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
           [listCls]: {
             [varName('list-transform-start')]: `translate(calc(${unit(floatButtonSize)} * -1), 0)`,
             left: varRef('list-trigger-offset'),
+
+            '&::after': {
+              left: menuBridgeOffset,
+              right: '100%',
+            },
           },
         },
       },
