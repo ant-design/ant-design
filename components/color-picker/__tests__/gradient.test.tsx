@@ -102,6 +102,105 @@ describe('ColorPicker.gradient', () => {
     );
   });
 
+  it('supports custom gradient angle', () => {
+    const onChange = jest.fn();
+
+    const { container } = render(
+      <ColorPicker
+        mode="gradient"
+        showGradientAngle
+        defaultValue={{
+          angle: 180,
+          colors: [
+            {
+              color: '#FF0000',
+              percent: 0,
+            },
+            {
+              color: '#0000FF',
+              percent: 100,
+            },
+          ],
+        }}
+        open
+        onChange={onChange}
+      />,
+    );
+
+    const angleInput = container.querySelector('.ant-color-picker-gradient-angle-input input')!;
+    const angleRow = container.querySelector('.ant-color-picker-gradient-angle')!;
+    const gradientSlider = container.querySelector('.ant-color-picker-gradient-slider')!;
+
+    expect(angleInput).toHaveValue('180°');
+    expect(
+      angleRow.compareDocumentPosition(gradientSlider) & Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+
+    fireEvent.change(angleInput, {
+      target: { value: 270 },
+    });
+
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.objectContaining({ getAngle: expect.any(Function) }),
+      'linear-gradient(270deg, rgb(255,0,0) 0%, rgb(0,0,255) 100%)',
+    );
+    expect(onChange.mock.lastCall[0].getAngle()).toBe(270);
+  });
+
+  it('hides gradient angle input by default', () => {
+    const { container } = render(
+      <ColorPicker
+        mode="gradient"
+        defaultValue={{
+          angle: 180,
+          colors: [
+            {
+              color: '#FF0000',
+              percent: 0,
+            },
+          ],
+        }}
+        open
+      />,
+    );
+
+    expect(container.querySelector('.ant-color-picker-gradient-angle-input')).toBeFalsy();
+    expect(container.querySelector('.ant-color-picker-gradient-slider')).toBeTruthy();
+  });
+
+  it('preserves gradient angle when changing color stops', () => {
+    const onChange = jest.fn();
+
+    const { container } = render(
+      <ColorPicker
+        mode="gradient"
+        defaultValue={{
+          angle: 180,
+          colors: [
+            {
+              color: '#FF0000',
+              percent: 0,
+            },
+            {
+              color: '#0000FF',
+              percent: 100,
+            },
+          ],
+        }}
+        open
+        onChange={onChange}
+      />,
+    );
+
+    doDrag(container, 0, 80);
+
+    expect(onChange).toHaveBeenCalledWith(
+      expect.objectContaining({ getAngle: expect.any(Function) }),
+      'linear-gradient(180deg, rgb(255,0,0) 80%, rgb(0,0,255) 100%)',
+    );
+    expect(onChange.mock.lastCall[0].getAngle()).toBe(180);
+  });
+
   it('change color position', async () => {
     const onChange = jest.fn();
 
@@ -290,15 +389,32 @@ describe('ColorPicker.gradient', () => {
   });
 
   it('not crash when pass gradient color', async () => {
-    const color = new AggregationColor([
-      {
-        color: '#FF0000',
-        percent: 0,
-      },
-    ]);
+    const color = new AggregationColor({
+      angle: 180,
+      colors: [
+        {
+          color: '#FF0000',
+          percent: 0,
+        },
+      ],
+    });
 
     const newColor = new AggregationColor(color);
-    expect(newColor.toCssString()).toBe('linear-gradient(90deg, rgb(255,0,0) 0%)');
+    expect(newColor.getAngle()).toBe(180);
+    expect(newColor.toCssString()).toBe('linear-gradient(180deg, rgb(255,0,0) 0%)');
+    expect(
+      newColor.equals(
+        new AggregationColor({
+          angle: 90,
+          colors: [
+            {
+              color: '#FF0000',
+              percent: 0,
+            },
+          ],
+        }),
+      ),
+    ).toBeFalsy();
   });
 
   it('mode fallback', () => {
@@ -376,9 +492,48 @@ describe('ColorPicker.gradient', () => {
       document.querySelector('.ant-color-picker-presets .ant-color-picker-color-block-inner')!,
     );
     const color = onChange.mock.calls[0][0];
-    expect(color.toCssString()).toBe(
-      'linear-gradient(90deg, rgb(255,0,0) 0%, rgb(0,0,255) 100%)',
-    );
+    expect(color.toCssString()).toBe('linear-gradient(90deg, rgb(255,0,0) 0%, rgb(0,0,255) 100%)');
     expect(document.querySelector('.ant-color-picker-presets-color-checked')).toBeTruthy();
+  });
+
+  it('supports gradient angle in presets', () => {
+    const onChange = jest.fn();
+
+    render(
+      <ColorPicker
+        mode="gradient"
+        open
+        presets={[
+          {
+            label: 'Linear',
+            colors: [
+              {
+                angle: 180,
+                colors: [
+                  {
+                    color: '#FF0000',
+                    percent: 0,
+                  },
+                  {
+                    color: '#0000FF',
+                    percent: 100,
+                  },
+                ],
+              },
+            ],
+          },
+        ]}
+        onChange={onChange}
+      />,
+    );
+
+    fireEvent.click(
+      document.querySelector('.ant-color-picker-presets .ant-color-picker-color-block-inner')!,
+    );
+
+    expect(onChange.mock.lastCall[0].getAngle()).toBe(180);
+    expect(onChange.mock.lastCall[1]).toBe(
+      'linear-gradient(180deg, rgb(255,0,0) 0%, rgb(0,0,255) 100%)',
+    );
   });
 });
