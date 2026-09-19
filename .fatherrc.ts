@@ -57,7 +57,11 @@ export default defineConfig({
       },
     },
     bundler: 'utoopack',
-    concatenateModules: true,
+    utoopack: {
+      optimization: {
+        concatenateModules: true,
+      },
+    },
     copy: [
       {
         from: './components/style/reset.css',
