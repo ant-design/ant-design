@@ -90,6 +90,8 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
     if (childrenWidth !== 0 && nodeWidth !== 0) {
       if (gap * 2 < nodeWidth) {
         setScale(nodeWidth - gap * 2 < childrenWidth ? (nodeWidth - gap * 2) / childrenWidth : 1);
+      } else {
+        setScale(1);
       }
     }
   };
@@ -103,8 +105,6 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
     setScale(1);
   }, [src, srcSet]);
 
-  React.useEffect(setScaleParam, [gap]);
-
   const handleImgLoadError = () => {
     const errorFlag = onError?.();
     if (errorFlag !== false) {
@@ -113,6 +113,8 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   };
 
   const size = useSize((ctxSize) => customSize ?? avatarCtx?.size ?? ctxSize ?? 'medium');
+
+  React.useEffect(setScaleParam, [gap, size]);
 
   const needResponsive = Object.keys(isPlainObject(size) ? size || {} : {}).some((key) =>
     responsiveArray.includes(key as Breakpoint),
