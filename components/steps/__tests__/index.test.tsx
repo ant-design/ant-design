@@ -233,4 +233,18 @@ describe('Steps', () => {
       },
     });
   });
+
+  it('should render numeric 0 custom icon', () => {
+    const { container } = render(
+      <Steps
+        items={[
+          {
+            title: 'Step 1',
+            icon: 0,
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelector('.ant-steps-item-icon')?.textContent).toBe('0');
+  });
 });
