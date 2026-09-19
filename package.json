@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "6.6.3",
+  "version": "6.6.4",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -269,14 +269,14 @@
     "jest-image-snapshot": "^6.5.2",
     "jest-puppeteer": "^11.0.0",
     "jquery": "^4.0.0",
-    "jsdom": "^30.0.0",
+    "jsdom": "30.0.1",
     "jsonml-to-react-element": "^1.1.11",
     "jsonml.js": "^0.1.0",
     "lint-staged": "^17.0.2",
     "lodash": "^4.18.1",
     "lunar-typescript": "^1.8.6",
     "lz-string": "^1.5.0",
-    "mermaid": "^11.14.0",
+    "mermaid": "^12.0.0",
     "minimist": "^1.2.8",
     "mockdate": "^3.0.5",
     "motion": "^13.0.0",
@@ -338,7 +338,7 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "443 KiB",
+      "limit": "444 KiB",
       "gzip": true
     },
     {

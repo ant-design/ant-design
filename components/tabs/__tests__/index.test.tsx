@@ -267,9 +267,25 @@ describe('Tabs', () => {
 
   it('should render numeric 0 addIcon in editable-card', () => {
     const { container } = render(
-      <Tabs type="editable-card" addIcon={0} items={[{ key: '1', label: 'Tab 1', children: 'Content' }]} />,
+      <Tabs
+        type="editable-card"
+        addIcon={0}
+        items={[{ key: '1', label: 'Tab 1', children: 'Content' }]}
+      />,
     );
 
     expect(container.querySelector('.ant-tabs-nav-add')?.textContent).toBe('0');
+  });
+
+  it('should fallback to default addIcon when addIcon is NaN', () => {
+    const { container } = render(
+      <Tabs
+        type="editable-card"
+        addIcon={Number.NaN}
+        items={[{ key: '1', label: 'Tab 1', children: 'Content' }]}
+      />,
+    );
+
+    expect(container.querySelector('.ant-tabs-nav-add')?.textContent).toBe('+');
   });
 });

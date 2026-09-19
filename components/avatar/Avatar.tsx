@@ -101,7 +101,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   React.useEffect(() => {
     setIsImgExist(true);
     setScale(1);
-  }, [src]);
+  }, [src, srcSet]);
 
   React.useEffect(setScaleParam, [gap]);
 

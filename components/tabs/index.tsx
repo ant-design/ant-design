@@ -15,6 +15,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isNumber } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -160,11 +161,15 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
         onEdit?.(editType === 'add' ? event : key!, editType);
       },
       removeIcon: removeIcon ?? tabs?.removeIcon ?? <CloseOutlined />,
-      addIcon: isReactRenderable(mergedAddIcon)
-        ? typeof mergedAddIcon === 'number'
-          ? <>{mergedAddIcon}</>
-          : mergedAddIcon
-        : <PlusOutlined />,
+      addIcon: isReactRenderable(mergedAddIcon) ? (
+        isNumber(mergedAddIcon) ? (
+          <>{mergedAddIcon}</>
+        ) : (
+          mergedAddIcon
+        )
+      ) : (
+        <PlusOutlined />
+      ),
       showAdd: hideAdd !== true,
     };
   }

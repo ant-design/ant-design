@@ -113,6 +113,29 @@ describe('Avatar Render', () => {
     global.document.body.removeChild(div);
   });
 
+  it('should retry image load when srcSet changes after a failure state', () => {
+    const LOAD_FAILURE_SRC = 'http://error.url';
+    const LOAD_SUCCESS_SRC = 'https://api.dicebear.com/10.x/pixel-art/svg';
+
+    const { container, rerender } = render(
+      <Avatar src={LOAD_SUCCESS_SRC} srcSet={`${LOAD_FAILURE_SRC} 1x`}>
+        Fallback
+      </Avatar>,
+    );
+
+    fireEvent.error(container.querySelector('img')!);
+
+    expect(container.querySelectorAll('.ant-avatar-string').length).toBe(1);
+
+    rerender(
+      <Avatar src={LOAD_SUCCESS_SRC} srcSet={`${LOAD_SUCCESS_SRC} 1x`}>
+        Fallback
+      </Avatar>,
+    );
+
+    expect(container.querySelector('img')).toHaveAttribute('srcset', `${LOAD_SUCCESS_SRC} 1x`);
+  });
+
   it('should calculate scale of avatar children correctly', () => {
     const { container, rerender } = render(<Avatar>Avatar</Avatar>);
     expect(container.querySelector('.ant-avatar-string')).toMatchSnapshot();
