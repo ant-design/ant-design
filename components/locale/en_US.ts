@@ -80,6 +80,7 @@ const localeValues: Locale = {
     uploadError: 'Upload error',
     previewFile: 'Preview file',
     downloadFile: 'Download file',
+    retryFile: 'Retry',
   },
   Empty: {
     description: 'No data',
