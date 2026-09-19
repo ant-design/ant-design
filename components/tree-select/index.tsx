@@ -11,7 +11,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useZIndex } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -212,7 +212,9 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     getPrefixCls,
     getPopupContainer: getContextPopupContainer,
     direction,
+    style: contextStyle,
     styles: contextStyles,
+    className: contextClassName,
     classNames: contextClassNames,
     switcherIcon,
   } = useComponentConfig('treeSelect');
@@ -295,9 +297,15 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     variant,
   } as TreeSelectProps;
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TreeSelectSemanticAllType['classNames'],
+    TreeSelectSemanticAllType['styles'],
+    TreeSelectProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextStyleRoot, styles],
     {
       props: mergedProps as unknown as TreeSelectProps,
     },
@@ -388,6 +396,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     compactItemClassnames,
+    contextClassName,
     className,
     rootClassName,
     mergedClassNames?.root,

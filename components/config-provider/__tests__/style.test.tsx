@@ -548,6 +548,23 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
   });
 
+  it('Should TreeSelect className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        treeSelect={{ className: 'cp-tree-select', style: { backgroundColor: 'rgb(255, 0, 0)' } }}
+      >
+        <TreeSelect
+          treeData={[
+            { value: 'parent', title: 'Parent', children: [{ value: 'child', title: 'Child' }] },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-tree-select');
+    expect(element).toHaveClass('cp-tree-select');
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
+  });
+
   it('Should Steps className & style works', () => {
     const { container } = render(
       <ConfigProvider
