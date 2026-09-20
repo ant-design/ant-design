@@ -1,0 +1,4 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,961014,t=>{"use strict";var e=t.i(391398),s=t.i(504909),i=t.i(845386);let o=(0,t.i(827830).createStaticStyles)(({css:t})=>({root:t`
+    border: 2px dashed #ccc;
+    padding: 8px;
+  `})),r=({props:t})=>"small"===t.size?{item:{backgroundColor:"rgba(200, 200, 200, 0.3)",marginInlineEnd:4}}:{};t.s(["default",0,()=>{let t={total:500,classNames:{root:o.root}};return(0,e.jsxs)(s.f,{vertical:!0,gap:"medium",children:[(0,e.jsx)(i.f,{...t,styles:{item:{borderRadius:999}}}),(0,e.jsx)(i.f,{...t,size:"small",styles:r})]})}])},845386,t=>{"use strict";var e=t.i(975367);t.s(["f",()=>e.f])}]);

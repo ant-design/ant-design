@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,622767,t=>{"use strict";var o=t.i(391398),e=t.i(125308);t.s(["default",0,()=>(0,o.jsx)(e.f,{title:"Info Text",type:"info",variant:"filled"})])}]);

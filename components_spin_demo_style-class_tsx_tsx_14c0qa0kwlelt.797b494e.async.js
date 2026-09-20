@@ -1,0 +1,3 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,184168,t=>{"use strict";var e=t.i(391398),o=t.i(504909),s=t.i(158095);let i=(0,t.i(827830).createStaticStyles)(({css:t})=>({root:t`
+    padding: 8px;
+  `})),l={indicator:{color:"#00d4ff"}},n=({props:t})=>"small"===t.size?{indicator:{color:"#722ed1"}}:{};t.s(["default",0,()=>{let t={spinning:!0,percent:0,classNames:{root:i.root}};return(0,e.jsxs)(o.f,{align:"center",gap:"medium",children:[(0,e.jsx)(s.f,{...t,styles:l}),(0,e.jsx)(s.f,{...t,styles:n,size:"small"})]})}])}]);
