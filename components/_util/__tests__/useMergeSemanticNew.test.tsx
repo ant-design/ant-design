@@ -3,8 +3,9 @@ import { renderHook } from '@testing-library/react';
 
 import { render } from '../../../tests/utils';
 import { mergeStyles, useMergeSemantic } from '../hooks/useMergeSemantic';
-import type { SemanticSchema } from '../hooks/useMergeSemantic';
 import { fillObjectBySchema } from '../hooks/useMergeSemantic/utils';
+
+type SemanticStyleSchema = NonNullable<Parameters<typeof useMergeSemantic>[4]>;
 
 type DemoSemanticType = {
   classNames?: {
@@ -35,7 +36,7 @@ describe('useMergeSemantic,', () => {
     expect(contextStyles.root).toEqual({ color: 'red', padding: 12 });
   });
 
-  it('merges nested style properties without mutating the sources', () => {
+  it('merges nested style properties with a separate style schema', () => {
     const contextStyles = Object.freeze({
       popup: Object.freeze({
         root: Object.freeze({ color: 'red', padding: 12 }),
@@ -54,6 +55,7 @@ describe('useMergeSemantic,', () => {
         {
           popup: { _default: 'root' },
         },
+        { popup: {} },
       ),
     );
 
@@ -83,6 +85,7 @@ describe('useMergeSemantic,', () => {
         ],
         { props: {} },
         { dragger: { _default: 'default' }, level1: { level2: {} } },
+        { dragger: {}, level1: { level2: {} } },
       ),
     );
 
@@ -93,17 +96,17 @@ describe('useMergeSemantic,', () => {
     });
   });
 
-  it('recomputes styles when the semantic schema changes', () => {
+  it('recomputes styles when the style schema changes', () => {
     const contextStyles = { popup: { root: { color: 'red', padding: 12 } } };
     const localStyles = { popup: { root: { color: 'blue' } } };
     const { result, rerender } = renderHook(
-      ({ schema }: { schema: SemanticSchema }) =>
-        useMergeSemantic([], [contextStyles, localStyles], { props: {} }, schema),
-      { initialProps: { schema: {} } },
+      ({ stylesSchema }: { stylesSchema: SemanticStyleSchema }) =>
+        useMergeSemantic([], [contextStyles, localStyles], { props: {} }, undefined, stylesSchema),
+      { initialProps: { stylesSchema: {} } },
     );
     expect(result.current[1].popup.root).toEqual({ color: 'blue' });
 
-    rerender({ schema: { popup: { _default: 'root' } } });
+    rerender({ stylesSchema: { popup: {} } });
     expect(result.current[1].popup.root).toEqual({ color: 'blue', padding: 12 });
   });
 

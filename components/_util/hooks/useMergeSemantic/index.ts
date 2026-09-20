@@ -10,6 +10,10 @@ export type SemanticSchema = { _default?: string } & {
   [key: `${ValidChar}${string}`]: SemanticSchema;
 };
 
+type SemanticStyleSchema = {
+  [key: `${ValidChar}${string}`]: SemanticStyleSchema;
+};
+
 // ========================= ClassNames =========================
 export const mergeClassNames = <
   Name extends string,
@@ -59,19 +63,15 @@ interface SemanticStyles {
 }
 
 const mergeStylesBySchema = <StylesType extends AnyObject>(
-  schema: SemanticSchema = {},
+  schema: SemanticStyleSchema = {},
   ...styles: (Partial<StylesType> | undefined)[]
 ) => {
   return styles
     .filter((item): item is Partial<StylesType> => Boolean(item))
     .reduce<SemanticStyles>((acc, cur = {}) => {
       Object.keys(cur).forEach((key) => {
-        const keySchema = schema[key as keyof SemanticSchema] as SemanticSchema;
-        // Some existing callers still provide flat CSS at a schema node.
-        const hasNestedStyles =
-          keySchema &&
-          [...Object.values(acc[key] || {}), ...Object.values(cur[key] || {})].some(isPlainObject);
-        acc[key] = hasNestedStyles
+        const keySchema = schema[key as keyof SemanticStyleSchema];
+        acc[key] = keySchema
           ? mergeStylesBySchema(keySchema, acc[key], cur[key])
           : { ...acc[key], ...cur[key] };
       });
@@ -85,7 +85,7 @@ export const mergeStyles = <StylesType extends AnyObject>(
   mergeStylesBySchema({}, ...styles) as Record<PropertyKey, React.CSSProperties>;
 
 const useSemanticStyles = <StylesType extends AnyObject>(
-  schema?: SemanticSchema,
+  schema?: SemanticStyleSchema,
   ...styles: (Partial<StylesType> | undefined)[]
 ) => {
   return React.useMemo(
@@ -116,8 +116,8 @@ export const resolveStyleOrClass = <T = any>(
 type MaybeFn<T, P> = T | ((info: { props: P }) => T) | undefined;
 
 /**
- * @desc Merge classNames and styles from multiple sources. When `schema` is provided, it **must** provide the nest object structure.
- * @descZH 合并来自多个来源的 classNames 和 styles，当提供了 `schema` 时，必须提供嵌套的对象结构。
+ * @desc Merge classNames and styles from multiple sources. When a schema is provided, it **must** provide the nested object structure.
+ * @descZH 合并来自多个来源的 classNames 和 styles，当提供 schema 时，必须提供嵌套的对象结构。
  */
 export const useMergeSemantic = <
   ClassNamesType extends AnyObject | undefined = AnyObject,
@@ -128,6 +128,7 @@ export const useMergeSemantic = <
   stylesList: MaybeFn<StylesType, Props>[],
   info: { props: Props },
   schema?: SemanticSchema,
+  stylesSchema?: SemanticStyleSchema,
 ) => {
   const resolvedClassNamesList = classNamesList.map((classNames) =>
     classNames ? resolveStyleOrClass(classNames, info) : undefined,
@@ -142,14 +143,20 @@ export const useMergeSemantic = <
     ...resolvedClassNamesList,
   );
 
-  const mergedStyles = useSemanticStyles<NonNullable<StylesType>>(schema, ...resolvedStylesList);
+  const mergedStyles = useSemanticStyles<NonNullable<StylesType>>(
+    stylesSchema,
+    ...resolvedStylesList,
+  );
 
   return React.useMemo(() => {
-    if (!schema) {
+    if (!schema && !stylesSchema) {
       return [mergedClassNames, mergedStyles];
     }
-    return [fillObjectBySchema(mergedClassNames, schema), fillObjectBySchema(mergedStyles, schema)];
-  }, [mergedClassNames, mergedStyles, schema]) as [
+    return [
+      schema ? fillObjectBySchema(mergedClassNames, schema) : mergedClassNames,
+      fillObjectBySchema(mergedStyles, stylesSchema || schema || {}),
+    ];
+  }, [mergedClassNames, mergedStyles, schema, stylesSchema]) as [
     Required<RemoveClassNamesString<NonNullable<ClassNamesType>>>,
     Required<NonNullable<StylesType>>,
   ];

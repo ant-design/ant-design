@@ -359,6 +359,9 @@ const InternalSelect = <
         _default: 'root',
       },
     },
+    {
+      popup: {},
+    },
   );
 
   const mergedPopupClassName = clsx(
