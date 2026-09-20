@@ -11,7 +11,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useZIndex } from '../_util/hooks';
-import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -297,15 +297,9 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     variant,
   } as TreeSelectProps;
 
-  const contextStyleRoot = useSemanticRootStyle(contextStyle);
-
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TreeSelectSemanticAllType['classNames'],
-    TreeSelectSemanticAllType['styles'],
-    TreeSelectProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
-    [contextStyles, contextStyleRoot, styles],
+    [contextStyles, styles],
     {
       props: mergedProps as unknown as TreeSelectProps,
     },
@@ -432,7 +426,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
       ref={ref}
       prefixCls={prefixCls}
       className={mergedClassName}
-      style={{ ...mergedStyles?.root, ...style }}
+      style={{ ...contextStyle, ...mergedStyles?.root, ...style }}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       treeCheckable={

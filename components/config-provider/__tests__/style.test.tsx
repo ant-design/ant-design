@@ -565,6 +565,29 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
   });
 
+  it('Should TreeSelect className & style not affect popup', () => {
+    const { container, baseElement } = render(
+      <ConfigProvider
+        treeSelect={{ className: 'cp-tree-select', style: { height: 32, marginTop: 24 } }}
+      >
+        <TreeSelect
+          open
+          treeData={[
+            { value: 'parent', title: 'Parent', children: [{ value: 'child', title: 'Child' }] },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector<HTMLDivElement>('.ant-tree-select')).toHaveStyle({
+      height: '32px',
+      marginTop: '24px',
+    });
+    const popup = baseElement.querySelector<HTMLDivElement>('.ant-tree-select-dropdown');
+    expect(popup).not.toHaveClass('cp-tree-select');
+    expect(popup).not.toHaveStyle({ height: '32px' });
+    expect(popup).not.toHaveStyle({ marginTop: '24px' });
+  });
+
   it('Should Steps className & style works', () => {
     const { container } = render(
       <ConfigProvider
