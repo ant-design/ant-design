@@ -189,7 +189,7 @@
     "@octokit/rest": "^22.0.1",
     "@prettier/sync": "^0.6.1",
     "@rc-component/virtual-list": "^1.5.1",
-    "@size-limit/file": "^13.0.0",
+    "@size-limit/file": "^14.0.0",
     "@stackblitz/sdk": "^1.11.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^7.0.0",
@@ -261,11 +261,11 @@
     "immer": "^11.1.4",
     "is-ci": "^4.1.0",
     "isomorphic-fetch": "^3.0.0",
-    "jest": "30.5.1",
+    "jest": "30.5.2",
     "jest-axe": "^11.0.0",
     "jest-canvas-mock": "2.5.8",
-    "jest-environment-jsdom": "30.5.1",
-    "jest-environment-node": "30.5.1",
+    "jest-environment-jsdom": "30.5.2",
+    "jest-environment-node": "30.5.2",
     "jest-image-snapshot": "^6.5.2",
     "jest-puppeteer": "^11.0.0",
     "jquery": "^4.0.0",
@@ -348,7 +348,7 @@
     }
   ],
   "overrides": {
-    "jest-environment-node": "30.5.1"
+    "jest-environment-node": "30.5.2"
   },
   "title": "Ant Design",
   "tnpm": {
