@@ -1417,12 +1417,14 @@ describe('Menu', () => {
       .join('');
     const popupRule = cssText
       .split('}')
-      .find((rule) => rule.includes('-submenu-popup') && rule.includes('max-height'));
+      .find((rule) => /-submenu-popup\s*\{/.test(rule) && rule.includes('max-height'));
 
     expect(popupRule).toBeTruthy();
     expect(popupRule).toContain('calc(100vh');
     expect(popupRule).not.toMatch(/max-height:\s*100vh;/);
     expect(getMenuPopupPlacements().rightTop?.overflow?.shiftY).toBe(true);
     expect(getMenuPopupPlacements(true).rightTop?.overflow?.shiftY).toBe(true);
+    expect(getMenuPopupPlacements().bottomLeft?.overflow?.shiftY).toBeUndefined();
+    expect(getMenuPopupPlacements(true).bottomLeft?.overflow?.shiftY).toBeUndefined();
   });
 });

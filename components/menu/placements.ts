@@ -1,31 +1,35 @@
 import type { BuildInPlacements } from '@rc-component/trigger';
 
-const popupOverflow = {
+const flipOverflow = {
   adjustX: true,
   adjustY: true,
+};
+
+const sidePopupOverflow = {
+  ...flipOverflow,
   shiftY: true,
 };
 
 const menuPopupPlacements: BuildInPlacements = {
-  topLeft: { points: ['bl', 'tl'], overflow: popupOverflow },
-  topRight: { points: ['br', 'tr'], overflow: popupOverflow },
-  bottomLeft: { points: ['tl', 'bl'], overflow: popupOverflow },
-  bottomRight: { points: ['tr', 'br'], overflow: popupOverflow },
-  leftTop: { points: ['tr', 'tl'], overflow: popupOverflow },
-  leftBottom: { points: ['br', 'bl'], overflow: popupOverflow },
-  rightTop: { points: ['tl', 'tr'], overflow: popupOverflow },
-  rightBottom: { points: ['bl', 'br'], overflow: popupOverflow },
+  topLeft: { points: ['bl', 'tl'], overflow: flipOverflow },
+  topRight: { points: ['br', 'tr'], overflow: flipOverflow },
+  bottomLeft: { points: ['tl', 'bl'], overflow: flipOverflow },
+  bottomRight: { points: ['tr', 'br'], overflow: flipOverflow },
+  leftTop: { points: ['tr', 'tl'], overflow: sidePopupOverflow },
+  leftBottom: { points: ['br', 'bl'], overflow: sidePopupOverflow },
+  rightTop: { points: ['tl', 'tr'], overflow: sidePopupOverflow },
+  rightBottom: { points: ['bl', 'br'], overflow: sidePopupOverflow },
 };
 
 const menuPopupPlacementsRtl: BuildInPlacements = {
-  topLeft: { points: ['bl', 'tl'], overflow: popupOverflow },
-  topRight: { points: ['br', 'tr'], overflow: popupOverflow },
-  bottomLeft: { points: ['tl', 'bl'], overflow: popupOverflow },
-  bottomRight: { points: ['tr', 'br'], overflow: popupOverflow },
-  rightTop: { points: ['tr', 'tl'], overflow: popupOverflow },
-  rightBottom: { points: ['br', 'bl'], overflow: popupOverflow },
-  leftTop: { points: ['tl', 'tr'], overflow: popupOverflow },
-  leftBottom: { points: ['bl', 'br'], overflow: popupOverflow },
+  topLeft: { points: ['bl', 'tl'], overflow: flipOverflow },
+  topRight: { points: ['br', 'tr'], overflow: flipOverflow },
+  bottomLeft: { points: ['tl', 'bl'], overflow: flipOverflow },
+  bottomRight: { points: ['tr', 'br'], overflow: flipOverflow },
+  rightTop: { points: ['tr', 'tl'], overflow: sidePopupOverflow },
+  rightBottom: { points: ['br', 'bl'], overflow: sidePopupOverflow },
+  leftTop: { points: ['tl', 'tr'], overflow: sidePopupOverflow },
+  leftBottom: { points: ['bl', 'br'], overflow: sidePopupOverflow },
 };
 
 export default function getMenuPopupPlacements(rtl?: boolean): BuildInPlacements {
