@@ -241,8 +241,8 @@ const Header: React.FC = () => {
     setHeaderState((prev) => ({ ...prev, windowWidth: window.innerWidth }));
   }, []);
 
-  const onMenuVisibleChange = useCallback((visible: boolean) => {
-    setHeaderState((prev) => ({ ...prev, menuVisible: visible }));
+  const onMenuOpenChange = useCallback((open: boolean) => {
+    setHeaderState((prev) => ({ ...prev, menuVisible: open }));
   }, []);
 
   const onDirectionChange = () => {
@@ -422,7 +422,7 @@ const Header: React.FC = () => {
           trigger="click"
           open={menuVisible}
           arrow={{ pointAtCenter: true }}
-          onOpenChange={onMenuVisibleChange}
+          onOpenChange={onMenuOpenChange}
         >
           <MenuOutlined className="nav-phone-icon" />
         </Popover>

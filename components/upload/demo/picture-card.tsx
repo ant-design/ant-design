@@ -89,8 +89,8 @@ const App: React.FC = () => {
           styles={{ root: { display: 'none' } }}
           preview={{
             open: previewOpen,
-            onOpenChange: (visible) => setPreviewOpen(visible),
-            afterOpenChange: (visible) => !visible && setPreviewImage(''),
+            onOpenChange: (open) => setPreviewOpen(open),
+            afterOpenChange: (open) => !open && setPreviewImage(''),
           }}
           src={previewImage}
         />

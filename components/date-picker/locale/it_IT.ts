@@ -7,7 +7,15 @@ import type { PickerLocale } from '../generatePicker';
 const locale: PickerLocale = {
   lang: {
     placeholder: 'Selezionare la data',
+    yearPlaceholder: "Selezionare l'anno",
+    quarterPlaceholder: 'Selezionare il trimestre',
+    monthPlaceholder: 'Selezionare il mese',
+    weekPlaceholder: 'Selezionare la settimana',
     rangePlaceholder: ["Data d'inizio", 'Data di fine'],
+    rangeYearPlaceholder: ["Anno d'inizio", 'Anno di fine'],
+    rangeQuarterPlaceholder: ["Trimestre d'inizio", 'Trimestre di fine'],
+    rangeMonthPlaceholder: ["Mese d'inizio", 'Mese di fine'],
+    rangeWeekPlaceholder: ["Settimana d'inizio", 'Settimana di fine'],
     ...CalendarLocale,
   },
   timePickerLocale: {

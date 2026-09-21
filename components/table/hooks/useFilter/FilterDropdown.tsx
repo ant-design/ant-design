@@ -188,11 +188,11 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     filterState &&
     (filterState.filteredKeys?.length || filterState.forceFiltered)
   );
-  const triggerVisible = (newVisible: boolean) => {
-    setVisible(newVisible);
-    filterDropdownProps.onOpenChange?.(newVisible);
+  const triggerOpen = (nextOpen: boolean) => {
+    setVisible(nextOpen);
+    filterDropdownProps.onOpenChange?.(nextOpen);
     // deprecated
-    onFilterDropdownOpenChange?.(newVisible);
+    onFilterDropdownOpenChange?.(nextOpen);
   };
 
   // =================Warning===================
@@ -291,7 +291,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
   };
 
   const onConfirm = () => {
-    triggerVisible(false);
+    triggerOpen(false);
     internalTriggerFilter(getFilteredKeysSync());
   };
 
@@ -302,7 +302,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
       internalTriggerFilter([]);
     }
     if (closeDropdown) {
-      triggerVisible(false);
+      triggerOpen(false);
     }
 
     setSearchValue('');
@@ -316,22 +316,22 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
 
   const doFilter = ({ closeDropdown } = { closeDropdown: true }) => {
     if (closeDropdown) {
-      triggerVisible(false);
+      triggerOpen(false);
     }
     internalTriggerFilter(getFilteredKeysSync());
   };
 
-  const onVisibleChange: DropdownProps['onOpenChange'] = (newVisible, info) => {
+  const onDropdownOpenChange: DropdownProps['onOpenChange'] = (nextOpen, info) => {
     if (info.source === 'trigger') {
-      if (newVisible && propFilteredKeys !== undefined) {
+      if (nextOpen && propFilteredKeys !== undefined) {
         // Sync filteredKeys on appear in controlled mode (propFilteredKeys !== undefined)
         setFilteredKeysSync(wrapStringListType(propFilteredKeys));
       }
 
-      if (!newVisible && !column.filterDropdown && filterOnClose) {
+      if (!nextOpen && !column.filterDropdown && filterOnClose) {
         onConfirm();
       } else {
-        triggerVisible(newVisible);
+        triggerOpen(nextOpen);
       }
     }
   };
@@ -384,7 +384,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
       filters: column.filters,
       visible: mergedVisible,
       close: () => {
-        triggerVisible(false);
+        triggerOpen(false);
       },
     });
   } else if (column.filterDropdown) {
@@ -586,7 +586,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
       ...filterDropdownProps,
       rootClassName: clsx(rootClassName, filterDropdownProps.rootClassName),
       open: mergedVisible,
-      onOpenChange: onVisibleChange,
+      onOpenChange: onDropdownOpenChange,
       popupRender: () => {
         if (isFunction(filterDropdownProps?.dropdownRender)) {
           return filterDropdownProps.dropdownRender(dropdownContent);

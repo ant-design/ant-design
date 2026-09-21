@@ -10042,7 +10042,7 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
 <div
-  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
+  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-lej3nf"
 >
   <div
     aria-busy="false"
@@ -10834,7 +10834,7 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = `
 <div
-  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
+  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-lej3nf"
 >
   <div
     aria-busy="false"
@@ -12820,7 +12820,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
 
 exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = `
 <div
-  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
+  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-lej3nf"
 >
   <div
     aria-busy="false"
@@ -13566,7 +13566,7 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
 
 exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
 <div
-  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
+  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-lej3nf"
 >
   <div
     aria-busy="false"
@@ -14825,7 +14825,7 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
 <div
-  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
+  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-lej3nf"
 >
   <div
     aria-busy="false"
@@ -28588,7 +28588,7 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
-    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
+    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-lej3nf"
   >
     <div
       aria-busy="false"
@@ -28772,7 +28772,7 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
+    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-lej3nf"
   >
     <div
       aria-busy="false"

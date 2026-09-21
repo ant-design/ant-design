@@ -247,4 +247,14 @@ describe('message', () => {
     message.error(null);
     await awaitPromise();
   });
+
+  it('should render numeric 0 custom icon', async () => {
+    message.open({
+      content: 'Message with 0 icon',
+      icon: 0,
+      duration: 0,
+    });
+    await awaitPromise();
+    expect(document.querySelector('.ant-message-notice')?.textContent).toContain('0');
+  });
 });

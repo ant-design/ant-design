@@ -45,6 +45,7 @@ type RawValue = string | number;
 export type {
   BaseOptionType,
   DefaultOptionType,
+  /** @deprecated Please use `GetProps<typeof Select.Option>` instead. */
   OptionProps,
   BaseSelectRef as RefSelectProps,
   SearchConfig,
@@ -102,7 +103,7 @@ export interface InternalSelectProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     RcSelectProps<ValueType, OptionType>,
-    'mode' | 'styles' | 'classNames' | 'onPopupVisibleChange'
+    'mode' | 'styles' | 'classNames' | 'onPopupVisibleChange' | 'popupRender'
   > {
   rootClassName?: string;
   prefix?: React.ReactNode;
@@ -126,21 +127,22 @@ export interface InternalSelectProps<
   styles?: SelectSemanticAllType['stylesAndFn'];
   loadingIcon?: React.ReactNode;
   showSearch?: boolean | (SearchConfig<OptionType> & { searchIcon?: React.ReactNode });
+  popupRender?: (menu: React.ReactElement) => React.ReactNode;
 }
 
 export interface SelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
-    InternalSelectProps<ValueType, OptionType>,
-    | 'mode'
-    | 'getInputElement'
-    | 'getRawInputElement'
-    | 'backfill'
-    | 'placement'
-    | 'dropdownClassName'
-    | 'dropdownStyle'
-  > {
+  InternalSelectProps<ValueType, OptionType>,
+  | 'mode'
+  | 'getInputElement'
+  | 'getRawInputElement'
+  | 'backfill'
+  | 'placement'
+  | 'dropdownClassName'
+  | 'dropdownStyle'
+> {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
@@ -157,7 +159,7 @@ export interface SelectProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
-  onOpenChange?: (visible: boolean) => void;
+  onOpenChange?: (open: boolean) => void;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';

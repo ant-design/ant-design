@@ -71,9 +71,9 @@ describe('Select', () => {
     const onOpenChange = jest.fn();
     const TestComponent: React.FC = () => {
       const [open, setOpen] = React.useState(false);
-      const handleChange: SelectProps['onOpenChange'] = (value) => {
-        onOpenChange(value);
-        setOpen(value);
+      const handleChange: SelectProps['onOpenChange'] = (nextOpen) => {
+        onOpenChange(nextOpen);
+        setOpen(nextOpen);
       };
       return (
         <Select open={open} onOpenChange={handleChange} options={[{ label: '1', value: '1' }]} />

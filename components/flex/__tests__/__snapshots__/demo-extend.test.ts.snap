@@ -18,7 +18,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -124,7 +124,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
