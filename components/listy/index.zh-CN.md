@@ -43,7 +43,7 @@ tag: 6.6.0
 | itemRender | 渲染单行 | `(item: T, index: number) => ReactNode` | - | 6.6.0 | × |
 | items | 列表数据源 | `T[]` | `[]` | 6.6.0 | × |
 | rowHoverable | 列表行是否开启 hover 交互 | boolean | true | 6.7.0 | × |
-| rowKey | 每一项的唯一键，字段名或取值函数 | `keyof T \| (item: T) => Key` | - | 6.6.0 | × |
+| rowKey | 每一项的唯一键，字段名或取值函数 | `keyof T \| (item: T, index: number) => Key` | - | 6.6.0 | × |
 | scrollWidth | 内容的横向滚动宽度，超出容器宽度时可横向滚动，仅在 `virtual` 下生效 | number | - | 6.7.0 | × |
 | sticky | 分组标题是否吸顶 | boolean | false | 6.6.0 | × |
 | styles | 语义化结构 style | `{ root?, item?, groupHeader? }` | - | 6.6.0 | 6.6.0 |
