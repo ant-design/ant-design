@@ -10,7 +10,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。在开�
 
 官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 React 全家桶的正确开发方式。如果你刚开始学习前端或者 React，将 UI 框架作为你的第一步可能不是最好的主意。
 
-最后，如果你使用本地开发环境，请参考 [脚手架指南](/docs/react/use-with-vite-cn) 创建新项目。
+最后，如果你使用本地开发环境，请参考 [脚手架指南](/docs/react/use-with-vite) 创建新项目。
 
 ---
 
@@ -75,7 +75,7 @@ createRoot(document.getElementById('root')).render(<App />);
 
 ### 3. 探索更多组件用法 {#explore-components}
 
-你可以在组件页面的左侧菜单查看组件列表，比如 [Alert](/components/alert-cn) 组件，组件文档中提供了各类演示，最下方有组件 API 文档可以查阅。
+你可以在组件页面的左侧菜单查看组件列表，比如 [Alert](/components/alert) 组件，组件文档中提供了各类演示，最下方有组件 API 文档可以查阅。
 
 在代码演示部分找到第一个例子，点击“显示代码”图标查看源码。然后依照演示代码的写法，在之前的 CodeSandbox 中引入 `Alert` 组件：
 

@@ -25,6 +25,7 @@ demo:
 <code src="./demo/arrow.tsx">箭头展示</code>
 <code src="./demo/shift.tsx" iframe="300">贴边偏移</code>
 <code src="./demo/auto-adjust-overflow.tsx" debug>自动调整位置</code>
+<code src="./demo/force-align.tsx">布局变化后重新对齐</code>
 <code src="./demo/destroy-on-close.tsx" debug>隐藏后销毁</code>
 <code src="./demo/colorful.tsx">多彩文字提示</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -38,7 +39,7 @@ demo:
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | title | 提示文字 | ReactNode \| () => ReactNode | - | - | × |
 | color | 设置背景颜色，使用该属性后内部文字颜色将自适应 | string | - | 5.27.0 | × |
@@ -114,6 +115,10 @@ Tooltip 默认在关闭时会缓存内容，以防止内容更新时出现闪烁
 <div>
 <img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rUbsR4xWpMsAAAAAAAAAAAAADrJ8AQ/original" />
 </div>
+
+### 布局变化后 Tooltip 没有重新对齐？ {#faq-force-align}
+
+Tooltip 默认不会持续监听所有外部布局变化，以避免为每个打开的 Tooltip 带来额外开销。当异步加载数据、刷新列表或展开折叠区域导致触发元素的位置发生变化时，可以通过 `ref` 获取 `TooltipRef`，并在布局更新完成后调用 `forceAlign` 方法手动重新对齐（参考 [#57809](https://github.com/ant-design/ant-design/issues/57809)）。详见上方“布局变化后重新对齐” Demo。
 
 ---
 

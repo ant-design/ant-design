@@ -1,6 +1,6 @@
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
-import { isNonNullable, pickAttrs } from '@rc-component/util';
+import { isNonNullable, pickAttrs, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMultipleSelect } from '../_util/hooks';
@@ -312,16 +312,13 @@ const InternalTransfer = <RecordType extends TransferItem = TransferItem>(
     updatePrevSelectedIndex(value);
   };
 
-  const handleSelectChange = useCallback(
-    (direction: TransferDirection, holder: TransferKey[]) => {
-      if (direction === 'left') {
-        onSelectChange?.(holder, targetSelectedKeys);
-      } else {
-        onSelectChange?.(sourceSelectedKeys, holder);
-      }
-    },
-    [sourceSelectedKeys, targetSelectedKeys],
-  );
+  const handleSelectChange = useEvent((direction: TransferDirection, holder: TransferKey[]) => {
+    if (direction === 'left') {
+      onSelectChange?.(holder, targetSelectedKeys);
+    } else {
+      onSelectChange?.(sourceSelectedKeys, holder);
+    }
+  });
 
   const getTitles = (transferLocale: TransferLocale): React.ReactNode[] =>
     titles ?? transferLocale.titles ?? [];

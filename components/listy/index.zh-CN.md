@@ -19,6 +19,7 @@ tag: 6.6.0
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基础用法</code>
+<code src="./demo/row-hoverable-debug.tsx" version="6.7.0" debug>关闭行悬浮效果</code>
 <code src="./demo/virtual.tsx">虚拟滚动</code>
 <code src="./demo/horizontal.tsx" version="6.7.0">横向滚动</code>
 <code src="./demo/group.tsx">分组与吸顶</code>
@@ -34,13 +35,14 @@ tag: 6.6.0
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classNames | 语义化结构 class | `{ root?, item?, groupHeader? }` | - | 6.6.0 | 6.6.0 |
 | group | 分组配置，见下方 [Group](#group) | `Group<T, K>` | - | 6.6.0 | × |
 | height | 滚动容器高度，内容超出后滚动 | number | - | 6.6.0 | × |
 | itemRender | 渲染单行 | `(item: T, index: number) => ReactNode` | - | 6.6.0 | × |
 | items | 列表数据源 | `T[]` | `[]` | 6.6.0 | × |
+| rowHoverable | 列表行是否开启 hover 交互 | boolean | true | 6.7.0 | × |
 | rowKey | 每一项的唯一键，字段名或取值函数 | `keyof T \| (item: T) => Key` | - | 6.6.0 | × |
 | scrollWidth | 内容的横向滚动宽度，超出容器宽度时可横向滚动，仅在 `virtual` 下生效 | number | - | 6.7.0 | × |
 | sticky | 分组标题是否吸顶 | boolean | false | 6.6.0 | × |

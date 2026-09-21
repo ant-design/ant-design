@@ -15,6 +15,47 @@ tag: vVERSION
 
 ---
 
+## 6.6.5
+
+`2026-09-20`
+
+- 🐞 Fix numeric `0` content rendering across Result, message, notification, Avatar, Modal, Descriptions, and Form.Item. [#59153](https://github.com/ant-design/ant-design/pull/59153) [#59125](https://github.com/ant-design/ant-design/pull/59125) [#59289](https://github.com/ant-design/ant-design/pull/59289) [@bhumin18](https://github.com/bhumin18) [@nrps9909](https://github.com/nrps9909) [@QDyanbing](https://github.com/QDyanbing)
+- Upload
+  - 🐞 Fix Upload.Dragger custom `style.height` being overridden when the `height` prop is not set. [#59319](https://github.com/ant-design/ant-design/pull/59319) [@dogledogle](https://github.com/dogledogle)
+  - ♿ Fix Upload file names being focusable as buttons when no preview action is available. [#59295](https://github.com/ant-design/ant-design/pull/59295) [@QDyanbing](https://github.com/QDyanbing)
+- Transfer
+  - 🐞 Fix Transfer calling a stale `onSelectChange` callback after it is replaced or removed. [#59307](https://github.com/ant-design/ant-design/pull/59307) [@yunfeizhu](https://github.com/yunfeizhu)
+  - 🐞 Fix Transfer `footer` callbacks not receiving `direction` when using rest parameters. [#59303](https://github.com/ant-design/ant-design/pull/59303) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Avatar not retrying image loading after `srcSet` changes. [#59297](https://github.com/ant-design/ant-design/pull/59297) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Anchor scrolling and Table and Transfer range selection using stale values after updates. [#59308](https://github.com/ant-design/ant-design/pull/59308) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Select inconsistent single and multiple heights after customizing global `fontSize` or `lineHeight`. [#59298](https://github.com/ant-design/ant-design/pull/59298) [@zombieJ](https://github.com/zombieJ)
+- 🤖 Fix Tooltip, Popover, Popconfirm, and Slider TypeScript definitions accepting unsupported rc Tooltip props. [#59288](https://github.com/ant-design/ant-design/pull/59288) [@QDyanbing](https://github.com/QDyanbing)
+- 🛎 Fix Drawer not warning that `destroyOnClose` is deprecated. [#59299](https://github.com/ant-design/ant-design/pull/59299) [@dogledogle](https://github.com/dogledogle)
+
+## 6.6.4
+
+`2026-09-14`
+
+- 🗑 Deprecate legacy Avatar `GroupProps`, BackTop and FloatButton `BackTopProps`, Input `GroupProps`, Mentions `OptionProps`, and Select `OptionProps` types in favor of `GetProps` or option-derived types. [#58949](https://github.com/ant-design/ant-design/pull/58949) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix AutoComplete missing `classNames.clear` and `styles.clear` semantic customizations for the clear button. [#59245](https://github.com/ant-design/ant-design/pull/59245) [@lazerg](https://github.com/lazerg)
+- Table
+  - 🐞 Fix Table `filteredValue` being ignored when responsive columns are hidden. [#59198](https://github.com/ant-design/ant-design/pull/59198) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Table ignoring `pagination.classNames` and `pagination.styles` semantic customizations. [#59267](https://github.com/ant-design/ant-design/pull/59267) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Table virtual cell content not being vertically centered. [#59260](https://github.com/ant-design/ant-design/pull/59260) [@QDyanbing](https://github.com/QDyanbing)
+- Modal
+  - 🐞 Fix Modal `okText` and `cancelText` falling back to default text for falsy `ReactNode` values. [#59254](https://github.com/ant-design/ant-design/pull/59254) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Modal not triggering `onCancel` when `cancelButtonProps.onClick` is provided. [#59255](https://github.com/ant-design/ant-design/pull/59255) [@QDyanbing](https://github.com/QDyanbing)
+- ColorPicker
+  - 🐞 Fix ColorPicker clear control remaining interactive and showing hover styles when disabled. [#59164](https://github.com/ant-design/ant-design/pull/59164) [@dogledogle](https://github.com/dogledogle)
+  - 🐞 Fix ColorPicker modifying `presets` and crashing when preset items are frozen. [#59272](https://github.com/ant-design/ant-design/pull/59272) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Splitter panel sizes exceeding their `min` and `max` constraints when the container resizes. [#59084](https://github.com/ant-design/ant-design/pull/59084) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Segmented selected item text color lagging behind the thumb animation when custom `itemSelectedBg` and `itemSelectedColor` tokens are used. [#59046](https://github.com/ant-design/ant-design/pull/59046) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 Fix Transfer restoring stale selections after `dataSource` item `key` types change. [#59166](https://github.com/ant-design/ant-design/pull/59166) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix FloatButton.Group menu flickering when moving the pointer from the trigger to the menu with `trigger="hover"`. [#59246](https://github.com/ant-design/ant-design/pull/59246) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Form vertical Form.Item controls shrinking inside horizontal layouts. [#59263](https://github.com/ant-design/ant-design/pull/59263) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Tabs more dropdown ignoring `styles.popup.root`. [#59221](https://github.com/ant-design/ant-design/pull/59221) [@giaBaoJS](https://github.com/giaBaoJS)
+- 🐞 Fix ConfigProvider failing to inherit `zeroRuntime` in nested themes when `inherit` is `false`. [#59250](https://github.com/ant-design/ant-design/pull/59250) [@QDyanbing](https://github.com/QDyanbing)
+
 ## 6.6.3
 
 `2026-09-07`
