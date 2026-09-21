@@ -39,10 +39,15 @@ const genListyStyle: GenerateStyle<ListyToken, CSSObject> = (token) => {
       [`${componentCls}-item`]: {
         padding: `${unit(itemPaddingBlock)} ${unit(itemPaddingInline)}`,
         borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
-        transition: `background-color ${token.motionDurationMid} ${token.motionEaseInOut}`,
+      },
 
-        '&:hover': {
-          backgroundColor: token.controlItemBgHover,
+      [`&${componentCls}-hoverable`]: {
+        [`${componentCls}-item`]: {
+          transition: `background-color ${token.motionDurationMid} ${token.motionEaseInOut}`,
+
+          '&:hover': {
+            backgroundColor: token.controlItemBgHover,
+          },
         },
       },
 

@@ -12720,7 +12720,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
 
 exports[`renders components/table/demo/fixed-header.tsx extend context correctly 1`] = `
 <div
-  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
+  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-lej3nf"
 >
   <div
     aria-busy="false"
@@ -14087,7 +14087,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
 
 exports[`renders components/table/demo/grouping-columns.tsx extend context correctly 1`] = `
 <div
-  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
+  class="css-var-test-id ant-table-css-var ant-table-wrapper acss-lej3nf"
 >
   <div
     aria-busy="false"
