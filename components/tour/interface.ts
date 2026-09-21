@@ -5,6 +5,7 @@ import type {
 } from '@rc-component/tour';
 
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import type { ButtonProps } from '../button';
 
 export type TourSemanticType = {
   classNames?: {
@@ -57,13 +58,13 @@ export interface TourStepProps extends Omit<RCTourStepProps, 'styles' | 'classNa
   cover?: ReactNode; // Display pictures or videos
   nextButtonProps?: {
     children?: ReactNode;
-    onClick?: () => void;
+    onClick?: ButtonProps['onClick'];
     className?: string;
     style?: React.CSSProperties;
   };
   prevButtonProps?: {
     children?: ReactNode;
-    onClick?: () => void;
+    onClick?: ButtonProps['onClick'];
     className?: string;
     style?: React.CSSProperties;
   };
