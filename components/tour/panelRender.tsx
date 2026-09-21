@@ -66,18 +66,18 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const isLastStep = current === total - 1;
 
-  const prevBtnClick = () => {
+  const prevBtnClick: ButtonProps['onClick'] = (e) => {
     onPrev?.();
-    prevButtonProps?.onClick?.();
+    prevButtonProps?.onClick?.(e);
   };
 
-  const nextBtnClick = () => {
+  const nextBtnClick: ButtonProps['onClick'] = (e) => {
     if (isLastStep) {
       onFinish?.();
     } else {
       onNext?.();
     }
-    nextButtonProps?.onClick?.();
+    nextButtonProps?.onClick?.(e);
   };
 
   const headerNode = isReactRenderable(title) ? (

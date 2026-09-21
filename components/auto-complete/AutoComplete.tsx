@@ -27,6 +27,7 @@ export type AutoCompleteSemanticType = {
     input?: string;
     placeholder?: string;
     content?: string;
+    clear?: string;
     popup?: NonNullable<SelectSemanticAllType['classNames']>['popup'];
   };
   styles?: {
@@ -35,6 +36,7 @@ export type AutoCompleteSemanticType = {
     input?: React.CSSProperties;
     placeholder?: React.CSSProperties;
     content?: React.CSSProperties;
+    clear?: React.CSSProperties;
     popup?: NonNullable<SelectSemanticAllType['styles']>['popup'];
   };
 };
@@ -87,7 +89,7 @@ export interface AutoCompleteProps<
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `onOpenChange` instead */
   onDropdownVisibleChange?: (visible: boolean) => void;
-  onOpenChange?: (visible: boolean) => void;
+  onOpenChange?: (open: boolean) => void;
   showSearch?:
     | boolean
     | Pick<
@@ -235,6 +237,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       input: mergedClassNames.input,
       placeholder: mergedClassNames.placeholder,
       content: mergedClassNames.content,
+      clear: mergedClassNames.clear,
       popup: {
         root: clsx(popupClassName, dropdownClassName, mergedClassNames.popup.root),
         list: mergedClassNames.popup.list,
@@ -251,6 +254,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       prefix: mergedStyles.prefix,
       placeholder: mergedStyles.placeholder,
       content: mergedStyles.content,
+      clear: mergedStyles.clear,
       popup: {
         root: { ...dropdownStyle, ...mergedStyles.popup.root },
         list: mergedStyles.popup.list,

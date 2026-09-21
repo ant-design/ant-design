@@ -2,6 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
 import ColorAlphaInput from '../components/ColorAlphaInput';
+import ColorClear from '../components/ColorClear';
 import ColorHexInput from '../components/ColorHexInput';
 import ColorHsbInput from '../components/ColorHsbInput';
 import ColorRgbInput from '../components/ColorRgbInput';
@@ -15,6 +16,24 @@ describe('ColorPicker Components test', () => {
 
   afterEach(() => {
     jest.useRealTimers();
+  });
+
+  it('Should ColorClear disabled work', () => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <ColorClear prefixCls="test" value={generateColor('#1677ff')} onChange={onChange} disabled />,
+    );
+    const clear = container.querySelector<HTMLElement>('.test-clear')!;
+
+    expect(clear).toHaveClass('test-clear-disabled');
+    expect(clear).toHaveAttribute('aria-disabled', 'true');
+    expect(clear).toHaveAttribute('tabindex', '-1');
+
+    fireEvent.click(clear);
+    fireEvent.keyDown(clear, { key: 'Enter' });
+    fireEvent.keyDown(clear, { key: ' ' });
+
+    expect(onChange).not.toHaveBeenCalled();
   });
 
   it('Should ColorSteppers work correct', () => {

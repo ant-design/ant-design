@@ -86,6 +86,10 @@ const localeValues: Locale = {
     expand: 'Раскрыть',
     collapse: 'Свернуть',
   },
+  Carousel: {
+    prevSlide: 'Предыдущий слайд',
+    nextSlide: 'Следующий слайд',
+  },
   Form: {
     optional: '(необязательно)',
     defaultValidateMessages: {

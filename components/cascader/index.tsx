@@ -181,7 +181,7 @@ export interface CascaderProps<
   onDropdownVisibleChange?: (visible: boolean) => void;
   /** @deprecated Please use `onOpenChange` instead */
   onPopupVisibleChange?: (visible: boolean) => void;
-  onOpenChange?: (visible: boolean) => void;
+  onOpenChange?: (open: boolean) => void;
   /**
    * @since 5.13.0
    * @default "outlined"

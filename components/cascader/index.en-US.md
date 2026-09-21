@@ -93,7 +93,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  | × |
 | onClear | Called when clear | () => void | - | - | × |
 | ~~onDropdownVisibleChange~~ | Callback when popup shown or hidden, use `onOpenChange` instead | (value) => void | - | 4.17.0 | × |
-| onOpenChange | Callback when popup shown or hidden | (value) => void | - |  | × |
+| onOpenChange | Callback when popup shown or hidden | (open: boolean) => void | - |  | × |
 | ~~onPopupVisibleChange~~ | Callback when popup shown or hidden, please use `onOpenChange` instead | (value) => void | - | - | × |
 | multiple | Support multiple or not | boolean | - | 4.17.0 | × |
 | removeIcon | The custom remove icon | ReactNode | - |  | 6.4.0 |

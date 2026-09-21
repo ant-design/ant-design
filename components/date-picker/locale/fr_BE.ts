@@ -13,6 +13,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'Sélectionner une semaine',
     rangePlaceholder: ['Date de début', 'Date de fin'],
     rangeYearPlaceholder: ['Année de début', 'Année de fin'],
+    rangeQuarterPlaceholder: ['Trimestre de début', 'Trimestre de fin'],
     rangeMonthPlaceholder: ['Mois de début', 'Mois de fin'],
     rangeWeekPlaceholder: ['Semaine de début', 'Semaine de fin'],
     ...CalendarLocale,

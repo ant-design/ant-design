@@ -48,7 +48,7 @@ demo:
 
 ### Dropdown
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | arrow | 下拉框箭头是否显示 | boolean \| { pointAtCenter: boolean } | false |  | × |
 | autoAdjustOverflow | 下拉框被遮挡时自动调整位置 | boolean | true | 5.2.0 | × |
@@ -59,7 +59,7 @@ demo:
 | ~~dropdownRender~~ | 自定义下拉框内容，使用 `popupRender` 替换 | (menus: ReactNode) => ReactNode | - | 4.24.0 | × |
 | popupRender | 自定义弹出框内容 | (menus: ReactNode) => ReactNode | - | 5.25.0 | × |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  | × |
-| menu | 菜单配置项 | [MenuProps](/components/menu-cn#api) | - |  | × |
+| menu | 菜单配置项 | [MenuProps](/components/menu#api) | - |  | × |
 | ~~overlayClassName~~ | 下拉根元素的类名称, 请使用 `classNames.root` 替换 | string | - |  | × |
 | ~~overlayStyle~~ | 下拉根元素的样式，请使用 `styles.root` | CSSProperties | - |  | × |
 | placement | 菜单弹出位置：`top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` | string | `bottomLeft` | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom`：6.5.0 | × |
