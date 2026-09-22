@@ -1,5 +1,6 @@
 import React from 'react';
-import { Flex, type GetProps, Radio } from 'antd';
+import type { GetProps } from 'antd';
+import { Flex, Radio } from 'antd';
 
 const options = [
   { label: 'Hangzhou', value: 'a' },
