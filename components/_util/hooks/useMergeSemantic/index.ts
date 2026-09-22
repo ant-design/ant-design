@@ -10,10 +10,6 @@ export type SemanticSchema = { _default?: string } & {
   [key: `${ValidChar}${string}`]: SemanticSchema;
 };
 
-type SemanticStyleSchema = {
-  [key: `${ValidChar}${string}`]: SemanticStyleSchema;
-};
-
 // ========================= ClassNames =========================
 export const mergeClassNames = <
   Name extends string,
@@ -39,6 +35,8 @@ export const mergeClassNames = <
             if (defaultField) {
               acc[key] = acc[key] || {};
               acc[key][defaultField] = clsx(acc[key][defaultField], curVal);
+            } else {
+              acc[key] = clsx(acc[key], curVal);
             }
           }
         } else {
@@ -63,15 +61,17 @@ interface SemanticStyles {
 }
 
 const mergeStylesBySchema = <StylesType extends AnyObject>(
-  schema: SemanticStyleSchema = {},
+  schema: SemanticSchema = {},
   ...styles: (Partial<StylesType> | undefined)[]
 ) => {
   return styles
     .filter((item): item is Partial<StylesType> => Boolean(item))
     .reduce<SemanticStyles>((acc, cur = {}) => {
       Object.keys(cur).forEach((key) => {
-        const keySchema = schema[key as keyof SemanticStyleSchema];
-        acc[key] = keySchema
+        const keySchema = schema[key as keyof SemanticSchema] as SemanticSchema | undefined;
+        const hasNestedStyleSchema =
+          keySchema && Object.keys(keySchema).some((schemaKey) => schemaKey !== '_default');
+        acc[key] = hasNestedStyleSchema
           ? mergeStylesBySchema(keySchema, acc[key], cur[key])
           : { ...acc[key], ...cur[key] };
       });
@@ -85,7 +85,7 @@ export const mergeStyles = <StylesType extends AnyObject>(
   mergeStylesBySchema({}, ...styles) as Record<PropertyKey, React.CSSProperties>;
 
 const useSemanticStyles = <StylesType extends AnyObject>(
-  schema?: SemanticStyleSchema,
+  schema?: SemanticSchema,
   ...styles: (Partial<StylesType> | undefined)[]
 ) => {
   return React.useMemo(
@@ -128,7 +128,6 @@ export const useMergeSemantic = <
   stylesList: MaybeFn<StylesType, Props>[],
   info: { props: Props },
   schema?: SemanticSchema,
-  stylesSchema?: SemanticStyleSchema,
 ) => {
   const resolvedClassNamesList = classNamesList.map((classNames) =>
     classNames ? resolveStyleOrClass(classNames, info) : undefined,
@@ -143,20 +142,14 @@ export const useMergeSemantic = <
     ...resolvedClassNamesList,
   );
 
-  const mergedStyles = useSemanticStyles<NonNullable<StylesType>>(
-    stylesSchema,
-    ...resolvedStylesList,
-  );
+  const mergedStyles = useSemanticStyles<NonNullable<StylesType>>(schema, ...resolvedStylesList);
 
   return React.useMemo(() => {
-    if (!schema && !stylesSchema) {
+    if (!schema) {
       return [mergedClassNames, mergedStyles];
     }
-    return [
-      schema ? fillObjectBySchema(mergedClassNames, schema) : mergedClassNames,
-      fillObjectBySchema(mergedStyles, stylesSchema || schema || {}),
-    ];
-  }, [mergedClassNames, mergedStyles, schema, stylesSchema]) as [
+    return [fillObjectBySchema(mergedClassNames, schema), fillObjectBySchema(mergedStyles, schema)];
+  }, [mergedClassNames, mergedStyles, schema]) as [
     Required<RemoveClassNamesString<NonNullable<ClassNamesType>>>,
     Required<NonNullable<StylesType>>,
   ];
