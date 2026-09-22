@@ -129,7 +129,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
       return undefined;
     }
 
-    const horizontalOffset = Number.parseInt(offset[0] as string, 10);
+    const horizontalOffset = Number.parseFloat(offset[0] as string);
 
     return {
       marginTop: offset[1],
