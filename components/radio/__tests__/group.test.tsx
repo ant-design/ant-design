@@ -136,30 +136,6 @@ describe('Radio Group', () => {
   });
 
   it('should support size for default radio groups', () => {
-    const { container } = render(
-      <>
-        <Radio.Group size="large" options={['A']} />
-        <Radio.Group options={['B']} />
-        <Radio.Group size="small">
-          <Radio value="C">C</Radio>
-        </Radio.Group>
-      </>,
-    );
-    const [largeGroup, defaultGroup, smallGroup] = container.querySelectorAll('.ant-radio-group');
-    const getRadioStyle = (group: Element) => {
-      const radio = group.querySelector<HTMLElement>('.ant-radio')!;
-      return {
-        radioSize: getComputedStyle(radio).width,
-        labelFontSize: getComputedStyle(radio.parentElement!).fontSize,
-      };
-    };
-    const largeRadioStyle = getRadioStyle(largeGroup);
-    const defaultRadioStyle = getRadioStyle(defaultGroup);
-    const smallRadioStyle = getRadioStyle(smallGroup);
-
-    expect(largeRadioStyle).not.toEqual(defaultRadioStyle);
-    expect(defaultRadioStyle).not.toEqual(smallRadioStyle);
-
     const getRadioGroupStyle = (wireframe: boolean) => {
       const cache = createCache();
       renderToString(
@@ -172,18 +148,38 @@ describe('Radio Group', () => {
       );
       return extractStyle(cache);
     };
-    const getRadioDotSize = (style: string, size: 'large' | 'small') =>
+    const getSizeVar = (style: string, size: 'large' | 'small', name: string) =>
       style.match(
-        new RegExp(`\\.ant-radio-group-${size}[^}]*\\.ant-radio:after\\{width:([^;]+);`),
+        new RegExp(`\\.ant-radio-group-${size}\\{[^}]*--ant-cmp-radio-${name}:([^;]+);`),
       )?.[1];
 
     [false, true].forEach((wireframe) => {
       const style = getRadioGroupStyle(wireframe);
 
       expect(style).not.toContain('NaN');
-      expect(getRadioDotSize(style, 'large')).toBeDefined();
-      expect(getRadioDotSize(style, 'small')).toBeDefined();
-      expect(getRadioDotSize(style, 'large')).not.toEqual(getRadioDotSize(style, 'small'));
+      [
+        'size',
+        'dot-size',
+        'font-size',
+        'line-height',
+        'button-height',
+        'button-font-size',
+        'button-line-height',
+        'button-border-radius',
+        'button-padding-inline',
+      ].forEach((name) => {
+        expect(getSizeVar(style, 'large', name)).toBeDefined();
+        expect(getSizeVar(style, 'small', name)).toBeDefined();
+        expect(getSizeVar(style, 'large', name)).not.toEqual(getSizeVar(style, 'small', name));
+      });
+
+      expect(style).not.toMatch(/\.ant-radio-group-(?:large|small) [^{]+\{/);
+      expect(style).toContain('font-size:var(--ant-cmp-radio-font-size');
+      expect(style).toContain('line-height:var(--ant-cmp-radio-line-height');
+      expect(style).toContain('height:var(--ant-cmp-radio-button-height');
+      expect(style).toContain('font-size:var(--ant-cmp-radio-button-font-size');
+      expect(style).toContain('line-height:var(--ant-cmp-radio-button-line-height');
+      expect(style).toContain('border-start-start-radius:var(--ant-cmp-radio-button-border-radius');
     });
   });
 
@@ -202,13 +198,20 @@ describe('Radio Group', () => {
     expect(style).toContain('--ant-radio-radio-size:24');
     expect(style).toContain('--ant-radio-dot-size:12');
 
+    expect(style).toContain('width:var(--ant-cmp-radio-size');
+    expect(style).toContain('width:var(--ant-cmp-radio-dot-size');
+
     // large/small should scale from the component tokens instead of global font tokens
     ['.ant-radio-group-large', '.ant-radio-group-small'].forEach((groupCls) => {
       expect(style).toMatch(
-        new RegExp(`${groupCls} [^{]*\\.ant-radio\\{[^}]*var\\(--ant-radio-radio-size\\)`),
+        new RegExp(
+          `${groupCls}\\{[^}]*--ant-cmp-radio-size:[^}]*var\\(--ant-radio-radio-size\\)`,
+        ),
       );
       expect(style).toMatch(
-        new RegExp(`${groupCls} [^{]*\\.ant-radio:after\\{[^}]*var\\(--ant-radio-dot-size\\)`),
+        new RegExp(
+          `${groupCls}\\{[^}]*--ant-cmp-radio-dot-size:[^}]*var\\(--ant-radio-dot-size\\)`,
+        ),
       );
     });
   });

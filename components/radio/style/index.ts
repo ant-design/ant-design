@@ -4,6 +4,8 @@ import { unit } from '@ant-design/cssinjs';
 import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
+import genSizeStyle from './size';
 
 // ============================== Tokens ==============================
 export interface ComponentToken {
@@ -91,7 +93,7 @@ export interface ComponentToken {
  * @desc Radio 组件的 Token
  * @descEN Token for Radio component
  */
-interface RadioToken extends FullToken<'Radio'> {
+export interface RadioToken extends FullToken<'Radio'> {
   /**
    * @desc 单选框焦点阴影
    * @descEN Focus shadow of Radio
@@ -107,13 +109,14 @@ interface RadioToken extends FullToken<'Radio'> {
 // ============================== Styles ==============================
 // styles from RadioGroup only
 const getGroupRadioStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
-  const { componentCls, antCls, lineWidth, borderRadius, borderRadiusLG, borderRadiusSM, calc } =
-    token;
+  const { componentCls, antCls, lineWidth, borderRadius, calc } = token;
   const groupPrefixCls = `${componentCls}-group`;
   const buttonWrapperCls = `${componentCls}-button-wrapper`;
   const badgeCls = `${antCls}-badge`;
+  const [, varRef] = genCssVar(antCls, 'cmp-radio');
+  const buttonBorderRadiusValue = varRef('button-border-radius', unit(borderRadius));
 
-  const genVerticalBadgeButtonStyle = (radius: number): CSSObject => ({
+  const genVerticalBadgeButtonStyle = (): CSSObject => ({
     [`> ${badgeCls}`]: {
       width: 'auto',
     },
@@ -131,8 +134,8 @@ const getGroupRadioStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
     },
 
     [`> ${badgeCls}:first-child > ${buttonWrapperCls}`]: {
-      borderStartStartRadius: radius,
-      borderStartEndRadius: radius,
+      borderStartStartRadius: buttonBorderRadiusValue,
+      borderStartEndRadius: buttonBorderRadiusValue,
       borderEndStartRadius: 0,
       borderEndEndRadius: 0,
     },
@@ -140,8 +143,8 @@ const getGroupRadioStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
     [`> ${badgeCls}:last-child > ${buttonWrapperCls}`]: {
       borderStartStartRadius: 0,
       borderStartEndRadius: 0,
-      borderEndStartRadius: radius,
-      borderEndEndRadius: radius,
+      borderEndStartRadius: buttonBorderRadiusValue,
+      borderEndEndRadius: buttonBorderRadiusValue,
     },
 
     [`> ${badgeCls}:not(:first-child):not(:last-child) > ${buttonWrapperCls}`]: {
@@ -149,7 +152,7 @@ const getGroupRadioStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
     },
 
     [`> ${badgeCls}:first-child:last-child > ${buttonWrapperCls}`]: {
-      borderRadius: radius,
+      borderRadius: buttonBorderRadiusValue,
     },
   });
 
@@ -189,15 +192,7 @@ const getGroupRadioStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
           marginInlineEnd: 0,
         },
 
-        ...genVerticalBadgeButtonStyle(borderRadius),
-
-        [`&${groupPrefixCls}-large`]: {
-          ...genVerticalBadgeButtonStyle(borderRadiusLG),
-        },
-
-        [`&${groupPrefixCls}-small`]: {
-          ...genVerticalBadgeButtonStyle(borderRadiusSM),
-        },
+        ...genVerticalBadgeButtonStyle(),
       },
     },
   };
@@ -225,36 +220,12 @@ const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
     lineType,
     radioColor,
     radioBgColor,
-    fontSizeLG,
-    fontSizeSM,
-    fontHeight,
-    fontHeightLG,
-    fontHeightSM,
-    calc,
+    fontSize,
+    lineHeight,
+    antCls,
   } = token;
 
-  // Scale radio size with the fontHeight ladder, `radioSize` and `dotSize` stay as the
-  // base so customized component tokens control every size tier.
-  const genRadioSizeStyle = (
-    offset: number | string,
-    labelFontSize: number | string,
-  ): CSSObject => {
-    const scaledRadioSize = `calc(${radioSize} * 1px + ${unit(offset)})`;
-    const scaledDotSize = `calc(${dotSize} * 1px + ${unit(offset)})`;
-
-    return {
-      fontSize: labelFontSize,
-      [componentCls]: {
-        width: scaledRadioSize,
-        height: scaledRadioSize,
-
-        '&:after': {
-          width: scaledDotSize,
-          height: scaledDotSize,
-        },
-      },
-    };
-  };
+  const [, varRef] = genCssVar(antCls, 'cmp-radio');
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -264,6 +235,8 @@ const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
       marginInlineStart: 0,
       marginInlineEnd: wrapperMarginInlineEnd,
       cursor: 'pointer',
+      fontSize: varRef('font-size', fontSize),
+      lineHeight: varRef('line-height', lineHeight),
 
       '&:last-child': {
         marginInlineEnd: 0,
@@ -291,16 +264,6 @@ const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         justifyContent: 'center',
       },
 
-      [`${componentCls}-group-large &`]: genRadioSizeStyle(
-        calc(fontHeightLG).sub(fontHeight).equal(),
-        fontSizeLG,
-      ),
-
-      [`${componentCls}-group-small &`]: genRadioSizeStyle(
-        calc(fontHeightSM).sub(fontHeight).equal(),
-        fontSizeSM,
-      ),
-
       // ===================== Radio =====================
       [componentCls]: {
         ...resetComponent(token),
@@ -313,8 +276,8 @@ const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         // Styles moved from inner
         boxSizing: 'border-box',
         display: 'block',
-        width: `calc(${radioSize} * 1px)`,
-        height: `calc(${radioSize} * 1px)`,
+        width: varRef('size', `calc(${radioSize} * 1px)`),
+        height: varRef('size', `calc(${radioSize} * 1px)`),
         backgroundColor: colorBgContainer,
         border: `${unit(lineWidth)} ${lineType} ${colorBorder}`,
         borderRadius: '50%',
@@ -328,8 +291,8 @@ const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%) scale(0)',
-          width: `calc(${dotSize} * 1px)`,
-          height: `calc(${dotSize} * 1px)`,
+          width: varRef('dot-size', `calc(${dotSize} * 1px)`),
+          height: varRef('dot-size', `calc(${dotSize} * 1px)`),
           backgroundColor: radioColor,
           borderRadius: '50%',
           transformOrigin: '50% 50%',
@@ -416,13 +379,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
     buttonPaddingInline,
     fontSize,
     buttonBg,
-    fontSizeLG,
-    controlHeightLG,
-    controlHeightSM,
-    paddingXS,
     borderRadius,
-    borderRadiusSM,
-    borderRadiusLG,
     buttonCheckedBg,
     buttonSolidCheckedColor,
     colorTextDisabled,
@@ -436,18 +393,25 @@ const getRadioButtonStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
     buttonSolidCheckedHoverBg,
     buttonSolidCheckedActiveBg,
     calc,
+    antCls,
   } = token;
+  const [, varRef] = genCssVar(antCls, 'cmp-radio');
+  const buttonBorderRadiusValue = varRef('button-border-radius', unit(borderRadius));
+
   return {
     [`${componentCls}-button-wrapper`]: {
       position: 'relative',
       display: 'inline-block',
-      height: controlHeight,
+      height: varRef('button-height', unit(controlHeight)),
       margin: 0,
-      paddingInline: buttonPaddingInline,
+      paddingInline: varRef('button-padding-inline', unit(buttonPaddingInline)),
       paddingBlock: 0,
       color: buttonColor,
-      fontSize,
-      lineHeight: unit(calc(controlHeight).sub(calc(lineWidth).mul(2)).equal()),
+      fontSize: varRef('button-font-size', unit(fontSize)),
+      lineHeight: varRef(
+        'button-line-height',
+        unit(calc(controlHeight).sub(calc(lineWidth).mul(2)).equal()),
+      ),
       background: buttonBg,
       border: `${unit(lineWidth)} ${lineType} ${colorBorder}`,
       // strange align fix for chrome but works
@@ -478,50 +442,17 @@ const getRadioButtonStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
 
       '&:first-child': {
         borderInlineStart: `${unit(lineWidth)} ${lineType} ${colorBorder}`,
-        borderStartStartRadius: borderRadius,
-        borderEndStartRadius: borderRadius,
+        borderStartStartRadius: buttonBorderRadiusValue,
+        borderEndStartRadius: buttonBorderRadiusValue,
       },
 
       '&:last-child': {
-        borderStartEndRadius: borderRadius,
-        borderEndEndRadius: borderRadius,
+        borderStartEndRadius: buttonBorderRadiusValue,
+        borderEndEndRadius: buttonBorderRadiusValue,
       },
 
       '&:first-child:last-child': {
-        borderRadius,
-      },
-
-      [`${componentCls}-group-large &`]: {
-        height: controlHeightLG,
-        fontSize: fontSizeLG,
-        lineHeight: unit(calc(controlHeightLG).sub(calc(lineWidth).mul(2)).equal()),
-
-        '&:first-child': {
-          borderStartStartRadius: borderRadiusLG,
-          borderEndStartRadius: borderRadiusLG,
-        },
-
-        '&:last-child': {
-          borderStartEndRadius: borderRadiusLG,
-          borderEndEndRadius: borderRadiusLG,
-        },
-      },
-
-      [`${componentCls}-group-small &`]: {
-        height: controlHeightSM,
-        paddingInline: calc(paddingXS).sub(lineWidth).equal(),
-        paddingBlock: 0,
-        lineHeight: unit(calc(controlHeightSM).sub(calc(lineWidth).mul(2)).equal()),
-
-        '&:first-child': {
-          borderStartStartRadius: borderRadiusSM,
-          borderEndStartRadius: borderRadiusSM,
-        },
-
-        '&:last-child': {
-          borderStartEndRadius: borderRadiusSM,
-          borderEndEndRadius: borderRadiusSM,
-        },
+        borderRadius: buttonBorderRadiusValue,
       },
 
       [`${componentCls}-group-vertical > &`]: {
@@ -533,8 +464,8 @@ const getRadioButtonStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         },
 
         '&:first-child': {
-          borderStartStartRadius: borderRadius,
-          borderStartEndRadius: borderRadius,
+          borderStartStartRadius: buttonBorderRadiusValue,
+          borderStartEndRadius: buttonBorderRadiusValue,
           borderEndStartRadius: 0,
           borderEndEndRadius: 0,
         },
@@ -542,44 +473,12 @@ const getRadioButtonStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         '&:last-child': {
           borderStartStartRadius: 0,
           borderStartEndRadius: 0,
-          borderEndStartRadius: borderRadius,
-          borderEndEndRadius: borderRadius,
+          borderEndStartRadius: buttonBorderRadiusValue,
+          borderEndEndRadius: buttonBorderRadiusValue,
         },
 
         '&:first-child:last-child': {
-          borderRadius,
-        },
-      },
-
-      [`${componentCls}-group-vertical${componentCls}-group-large > &`]: {
-        '&:first-child': {
-          borderStartStartRadius: borderRadiusLG,
-          borderStartEndRadius: borderRadiusLG,
-        },
-
-        '&:last-child': {
-          borderEndStartRadius: borderRadiusLG,
-          borderEndEndRadius: borderRadiusLG,
-        },
-
-        '&:first-child:last-child': {
-          borderRadius: borderRadiusLG,
-        },
-      },
-
-      [`${componentCls}-group-vertical${componentCls}-group-small > &`]: {
-        '&:first-child': {
-          borderStartStartRadius: borderRadiusSM,
-          borderStartEndRadius: borderRadiusSM,
-        },
-
-        '&:last-child': {
-          borderEndStartRadius: borderRadiusSM,
-          borderEndEndRadius: borderRadiusSM,
-        },
-
-        '&:first-child:last-child': {
-          borderRadius: borderRadiusSM,
+          borderRadius: buttonBorderRadiusValue,
         },
       },
 
@@ -743,6 +642,7 @@ export default genStyleHooks(
       getGroupRadioStyle(radioToken),
       getRadioBasicStyle(radioToken),
       getRadioButtonStyle(radioToken),
+      genSizeStyle(radioToken),
     ];
   },
   prepareComponentToken,
