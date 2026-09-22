@@ -122,6 +122,21 @@ describe('Table.filter', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it.each(['Enter', ' '])('supports %s on filter trigger', async (key) => {
+    const { container } = render(createTable());
+    const trigger = container.querySelector('.ant-table-filter-trigger')!;
+
+    expect(trigger).toHaveAttribute('tabindex', '0');
+
+    trigger.focus();
+    expect(trigger).toHaveFocus();
+    fireEvent.keyDown(trigger, { key });
+
+    await waitFor(() => {
+      expect(container.querySelector('.ant-table-filter-dropdown')).toBeTruthy();
+    });
+  });
+
   // async await 解决 Warning: An update to Item ran an effect, but was not wrapped in act(...).
   it('renders menu correctly', async () => {
     const { container } = render(createTable());
