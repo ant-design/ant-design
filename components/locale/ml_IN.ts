@@ -93,6 +93,10 @@ const localeValues: Locale = {
     expand: 'വികസിപ്പിക്കുക',
     collapse: 'ചുരുക്കുക',
   },
+  Carousel: {
+    prevSlide: 'മുൻപത്തെ സ്ലൈഡ്',
+    nextSlide: 'അടുത്ത സ്ലൈഡ്',
+  },
   Form: {
     optional: '(optional)',
     defaultValidateMessages: {

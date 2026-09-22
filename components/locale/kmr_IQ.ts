@@ -93,6 +93,10 @@ const localeValues: Locale = {
     expand: 'Zêdetir nîşan bide',
     collapse: 'Hilweşîn',
   },
+  Carousel: {
+    prevSlide: 'Slayda berê',
+    nextSlide: 'Slayda pêş',
+  },
   Form: {
     optional: '(dilxwaz)',
     defaultValidateMessages: {
