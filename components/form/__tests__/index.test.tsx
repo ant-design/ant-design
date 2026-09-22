@@ -1013,6 +1013,16 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item-required')).toBeTruthy();
   });
 
+  it('does not set title on string labels', () => {
+    const { container } = render(
+      <Form.Item label="test" name="test">
+        <input />
+      </Form.Item>,
+    );
+
+    expect(container.querySelector('label')).not.toHaveAttribute('title');
+  });
+
   it('0 is a validate Field', () => {
     render(
       <Form.Item name={0} label="0">

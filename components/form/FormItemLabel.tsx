@@ -151,7 +151,6 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
         htmlFor={htmlFor}
         className={labelClassName}
         style={contextStyles?.label}
-        title={typeof label === 'string' ? label : undefined}
       >
         {labelChildren}
       </label>
