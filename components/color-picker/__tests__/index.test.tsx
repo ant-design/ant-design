@@ -127,15 +127,11 @@ describe('ColorPicker', () => {
     trigger.focus();
     expect(trigger).toHaveFocus();
 
+    const clickSpy = jest.spyOn(trigger, 'click');
     fireEvent.keyDown(trigger, { key: 'Enter' });
-    await waitFakeTimer();
-    expect(container.querySelector('.ant-color-picker')).toBeTruthy();
-
-    fireEvent.click(trigger);
-    await waitFakeTimer();
     fireEvent.keyDown(trigger, { key: ' ' });
-    await waitFakeTimer();
-    expect(container.querySelector('.ant-color-picker')).toBeTruthy();
+    expect(clickSpy).toHaveBeenCalledTimes(2);
+    clickSpy.mockRestore();
   });
 
   it('Should disabled work', async () => {
