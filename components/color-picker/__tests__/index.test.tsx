@@ -118,6 +118,26 @@ describe('ColorPicker', () => {
     expect(container.querySelector('.ant-popover-hidden')).toBeTruthy();
   });
 
+  it('Should default trigger work with keyboard', async () => {
+    const { container } = render(<ColorPicker />);
+    const trigger = container.querySelector<HTMLElement>('.ant-color-picker-trigger')!;
+
+    expect(trigger).toHaveAttribute('role', 'button');
+    expect(trigger).toHaveAttribute('tabindex', '0');
+    trigger.focus();
+    expect(trigger).toHaveFocus();
+
+    fireEvent.keyDown(trigger, { key: 'Enter' });
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker')).toBeTruthy();
+
+    fireEvent.click(trigger);
+    await waitFakeTimer();
+    fireEvent.keyDown(trigger, { key: ' ' });
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker')).toBeTruthy();
+  });
+
   it('Should disabled work', async () => {
     const { container } = render(<ColorPicker disabled />);
     expect(container.querySelector('.ant-color-picker-trigger-disabled')).toBeTruthy();
@@ -125,6 +145,9 @@ describe('ColorPicker', () => {
     expect(clear).toHaveClass('ant-color-picker-clear-disabled');
     expect(clear).toHaveAttribute('aria-disabled', 'true');
     expect(clear).toHaveAttribute('tabindex', '-1');
+    const trigger = container.querySelector<HTMLElement>('.ant-color-picker-trigger')!;
+    expect(trigger).toHaveAttribute('aria-disabled', 'true');
+    expect(trigger).toHaveAttribute('tabindex', '-1');
     expect(container).toMatchSnapshot();
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
