@@ -124,7 +124,7 @@ describe('Table.filter', () => {
 
   it.each(['Enter', ' '])('supports %s on filter trigger', async (key) => {
     const { container } = render(createTable());
-    const trigger = container.querySelector('.ant-table-filter-trigger')!;
+    const trigger = container.querySelector<HTMLElement>('.ant-table-filter-trigger')!;
 
     expect(trigger).toHaveAttribute('tabindex', '0');
 
