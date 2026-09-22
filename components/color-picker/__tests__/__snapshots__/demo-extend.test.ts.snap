@@ -5,6 +5,8 @@ Array [
   <div
     aria-describedby="test-id"
     class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+    role="button"
+    tabindex="0"
   >
     <div
       class="ant-color-picker-color-block"
@@ -387,6 +389,8 @@ Array [
   <div
     aria-describedby="test-id"
     class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+    role="button"
+    tabindex="0"
   >
     <div
       class="ant-color-picker-color-block"
@@ -764,6 +768,8 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
     <div
       aria-describedby="test-id"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -1133,6 +1139,8 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
     <div
       aria-describedby="test-id"
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -1505,7 +1513,10 @@ exports[`renders components/color-picker/demo/disabled.tsx extend context correc
 Array [
   <div
     aria-describedby="test-id"
+    aria-disabled="true"
     class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var ant-color-picker-trigger-disabled"
+    role="button"
+    tabindex="-1"
   >
     <div
       class="ant-color-picker-color-block"

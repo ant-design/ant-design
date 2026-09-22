@@ -3,6 +3,8 @@
 exports[`renders components/color-picker/demo/allowClear.tsx correctly 1`] = `
 <div
   class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+  role="button"
+  tabindex="0"
 >
   <div
     class="ant-color-picker-color-block"
@@ -18,6 +20,8 @@ exports[`renders components/color-picker/demo/allowClear.tsx correctly 1`] = `
 exports[`renders components/color-picker/demo/base.tsx correctly 1`] = `
 <div
   class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+  role="button"
+  tabindex="0"
 >
   <div
     class="ant-color-picker-color-block"
@@ -39,6 +43,8 @@ exports[`renders components/color-picker/demo/controlled.tsx correctly 1`] = `
   >
     <div
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -55,6 +61,8 @@ exports[`renders components/color-picker/demo/controlled.tsx correctly 1`] = `
   >
     <div
       class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-color-picker-color-block"
@@ -71,7 +79,10 @@ exports[`renders components/color-picker/demo/controlled.tsx correctly 1`] = `
 
 exports[`renders components/color-picker/demo/disabled.tsx correctly 1`] = `
 <div
+  aria-disabled="true"
   class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var ant-color-picker-trigger-disabled"
+  role="button"
+  tabindex="-1"
 >
   <div
     class="ant-color-picker-color-block"
