@@ -1,4 +1,7 @@
 import React from 'react';
+import { spyElementPrototypes } from '@rc-component/util';
+import { act } from '@testing-library/react';
+import { _rs as onResize } from '@rc-component/resize-observer/es/utils/observerUtil';
 
 import Tabs from '..';
 import type { TabsRef } from '..';
@@ -277,6 +280,126 @@ describe('Tabs', () => {
       } else {
         expect(consoleErrorSpy).not.toHaveBeenCalled();
       }
+    });
+  });
+
+  // Mock a fixed nav geometry (container 50, each tab 20, more btn 10) so the
+  // active tab overflows and `scrollPosition` produces a measurable transform.
+  // Mirrors the approach rc-tabs uses in its own overflow tests, adapted to the
+  // `ant-tabs` prefix.
+  function mockNavGeometry() {
+    const tabNode = 20;
+    const add = 10;
+    const more = 10;
+    const container = 50;
+
+    function getOffsetSize(this: HTMLElement) {
+      if (this.classList.contains('ant-tabs-nav')) return container;
+      if (this.classList.contains('ant-tabs-nav-list')) {
+        return this.querySelectorAll('.ant-tabs-tab').length * tabNode + add;
+      }
+      if (this.classList.contains('ant-tabs-tab')) return tabNode;
+      if (this.classList.contains('ant-tabs-nav-add')) return add;
+      if (this.classList.contains('ant-tabs-nav-more')) return more;
+      if (this.classList.contains('ant-tabs-ink-bar')) return container;
+      if (this.classList.contains('ant-tabs-nav-operations')) {
+        return this.querySelector('.ant-tabs-nav-add') ? more + add : more;
+      }
+      return 0;
+    }
+
+    function btnOffsetPosition(this: HTMLElement) {
+      if (!this.parentNode) return 0;
+      const list = Array.from(this.parentNode.childNodes).filter((e) =>
+        (e as HTMLElement).className.includes?.('ant-tabs-tab'),
+      );
+      return tabNode * list.indexOf(this);
+    }
+
+    return spyElementPrototypes(HTMLElement, {
+      offsetWidth: { get: getOffsetSize },
+      offsetHeight: { get: getOffsetSize },
+      offsetLeft: { get: btnOffsetPosition },
+      offsetTop: { get: btnOffsetPosition },
+      getBoundingClientRect() {
+        return { left: 0, top: 0, width: 0, height: 0 };
+      },
+    });
+  }
+
+  const scrollItems = ['light', 'bamboo', 'cute', 'disabled', 'miu'].map((key, i) => ({
+    key,
+    label: key,
+    children: key,
+    disabled: i === 3,
+  }));
+
+  const getTransformX = (container: Element) => {
+    const transform = container.querySelector<HTMLElement>('.ant-tabs-nav-list')!.style.transform;
+    const match = transform.match(/\(([-\d.]+)px/);
+    return match ? Number(match[1]) : NaN;
+  };
+
+  const resizeTabs = (container: Element) => {
+    act(() => {
+      onResize([{ target: container.querySelector('.ant-tabs-nav') } as ResizeObserverEntry]);
+    });
+  };
+
+  describe('scrollPosition', () => {
+    it('aligns the active tab per scrollPosition', () => {
+      const spy = mockNavGeometry();
+
+      // active `disabled` is the 4th tab → left 60; container 50, more 10.
+      // The expected transforms match rc-tabs' own overflow contract.
+      const cases: {
+        scrollPosition: React.ComponentProps<typeof Tabs>['scrollPosition'];
+        expected: number;
+      }[] = [
+        { scrollPosition: 'auto', expected: -40 },
+        { scrollPosition: 'start', expected: -60 },
+        { scrollPosition: 'center', expected: -50 },
+        { scrollPosition: 'end', expected: -40 },
+        { scrollPosition: 0.25, expected: -55 },
+        { scrollPosition: 1.5, expected: -40 },
+      ];
+
+      cases.forEach(({ scrollPosition, expected }) => {
+        const { container } = render(
+          <Tabs defaultActiveKey="disabled" scrollPosition={scrollPosition} items={scrollItems} />,
+        );
+        resizeTabs(container);
+        expect(getTransformX(container)).toBe(expected);
+      });
+
+      spy.mockRestore();
+    });
+
+    it('falls back to the ConfigProvider global config', () => {
+      const spy = mockNavGeometry();
+      const { container } = render(
+        <ConfigProvider tabs={{ scrollPosition: 'center' }}>
+          <Tabs defaultActiveKey="disabled" items={scrollItems} className="Tabs_global" />
+          <Tabs
+            defaultActiveKey="disabled"
+            scrollPosition="start"
+            items={scrollItems}
+            className="Tabs_override"
+          />
+        </ConfigProvider>,
+      );
+      for (const node of [
+        container.querySelector('.Tabs_global')!,
+        container.querySelector('.Tabs_override')!,
+      ]) {
+        resizeTabs(node);
+      }
+
+      // Global `center` aligns to center (-50); component `start` overrides (-60).
+      expect(getTransformX(container.querySelector('.Tabs_global')!)).toBe(-50);
+      expect(getTransformX(container.querySelector('.Tabs_override')!)).toBe(-60);
+
+      spy.mockRestore();
     });
   });
 
