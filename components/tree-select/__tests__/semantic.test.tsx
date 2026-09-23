@@ -2,6 +2,7 @@ import React from 'react';
 
 import TreeSelect from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('TreeSelect.Semantic', () => {
   it('support classNames and styles as functions', () => {
@@ -58,5 +59,26 @@ describe('TreeSelect.Semantic', () => {
     const style = treeSelectElement?.getAttribute('style');
     expect(style).toContain('opacity: 1');
     expect(style).toContain('background-color: white');
+  });
+
+  it('should support className and style from ConfigProvider', () => {
+    const { container } = render(
+      <ConfigProvider
+        treeSelect={{
+          className: 'context-tree-select',
+          style: { backgroundColor: 'rgb(0, 0, 255)' },
+        }}
+      >
+        <TreeSelect treeData={[{ value: 'leaf1', title: 'leaf1' }]} style={{ width: 100 }} />
+      </ConfigProvider>,
+    );
+
+    const treeSelectElement = container.querySelector('.ant-select');
+    expect(treeSelectElement).toHaveClass('context-tree-select');
+    // contextStyle takes effect, and component style still wins over it
+    expect(treeSelectElement).toHaveStyle({
+      backgroundColor: 'rgb(0, 0, 255)',
+      width: '100px',
+    });
   });
 });

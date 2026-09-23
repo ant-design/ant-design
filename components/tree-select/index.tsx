@@ -212,6 +212,8 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     getPrefixCls,
     getPopupContainer: getContextPopupContainer,
     direction,
+    className: contextClassName,
+    style: contextStyle,
     styles: contextStyles,
     classNames: contextClassNames,
     switcherIcon,
@@ -388,6 +390,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     compactItemClassnames,
+    contextClassName,
     className,
     rootClassName,
     mergedClassNames?.root,
@@ -423,7 +426,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
       ref={ref}
       prefixCls={prefixCls}
       className={mergedClassName}
-      style={{ ...mergedStyles?.root, ...style }}
+      style={{ ...contextStyle, ...mergedStyles?.root, ...style }}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       treeCheckable={
