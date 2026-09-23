@@ -25,7 +25,7 @@ export type ColorFormatType = typeof FORMAT_HEX | typeof FORMAT_RGB | typeof FOR
 
 export interface PresetsItem {
   label: React.ReactNode;
-  colors: (string | AggregationColor | LineGradientType)[];
+  colors: (string | AggregationColor | LineGradientType | LinearGradientType)[];
   /**
    * Whether the initial state is collapsed
    * @since 5.11.0
@@ -50,7 +50,13 @@ export type LineGradientType = {
   percent: number;
 }[];
 
-export type ColorValueType = SingleValueType | null | LineGradientType;
+export type LinearGradientType = {
+  /** Gradient angle in degrees */
+  angle?: number;
+  colors: LineGradientType;
+};
+
+export type ColorValueType = SingleValueType | null | LineGradientType | LinearGradientType;
 
 export type ModeType = 'single' | 'gradient';
 
@@ -104,6 +110,12 @@ export type ColorPickerProps = Omit<
     panel: React.ReactNode,
     extra: { components: { Picker: React.FC; Presets: React.FC } },
   ) => React.ReactNode;
+  /**
+   * Whether to show the gradient angle input
+   * @since 6.7.0
+   * @default false
+   */
+  showGradientAngle?: boolean;
   showText?: boolean | ((color: AggregationColor) => React.ReactNode);
   size?: SizeType;
   classNames?: ColorPickerSemanticAllType['classNamesAndFn'];

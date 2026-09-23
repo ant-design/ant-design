@@ -5,6 +5,7 @@ import type { Color } from '@rc-component/color-picker';
 import { useLayoutEffect } from '@rc-component/util';
 
 import { useForceUpdate } from '../../../_util/hooks';
+import InputNumber from '../../../input-number';
 import Segmented from '../../../segmented';
 import { AggregationColor } from '../../color';
 import { PanelPickerContext } from '../../context';
@@ -28,6 +29,7 @@ const PanelPicker: FC = () => {
 
   const {
     mode,
+    showGradientAngle,
     onModeChange,
     modeOptions,
     prefixCls,
@@ -130,7 +132,7 @@ const PanelPicker: FC = () => {
       color: submitColor,
     };
 
-    return new AggregationColor(nextColors);
+    return value.setColors(nextColors);
   };
 
   const onPickerChange = (
@@ -185,6 +187,21 @@ const PanelPicker: FC = () => {
   return (
     <>
       {operationNode}
+
+      {mode === 'gradient' && showGradientAngle && (
+        <div className={`${prefixCls}-gradient-angle`}>
+          <InputNumber
+            className={`${prefixCls}-gradient-angle-input`}
+            aria-label="Gradient angle"
+            min={0}
+            max={360}
+            value={value.getAngle()}
+            formatter={(angle) => `${angle}°`}
+            size="small"
+            onChange={(angle) => onChange(value.setAngle(angle || 0))}
+          />
+        </div>
+      )}
 
       <GradientColorBar {...panelPickerContext} colors={colors} />
 
