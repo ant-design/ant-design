@@ -309,15 +309,16 @@ describe('Grid', () => {
 });
 
 describe('Grid Col', () => {
-  it('should apply gridColumn from span in grid mode', () => {
+  it('should map columns number to repeat(N, 1fr) and span to gridColumn', () => {
     const { container } = render(
       <Row grid columns={4}>
         <Col span={4}>test</Col>
       </Row>,
     );
-    expect(container.querySelector('.ant-col-grid')).toBeTruthy();
-    const col = container.querySelector<HTMLElement>('.ant-col-grid');
-    expect(col).toHaveStyle({
+    expect(container.querySelector('.ant-row-grid')).toHaveStyle({
+      gridTemplateColumns: 'repeat(4, 1fr)',
+    });
+    expect(container.querySelector('.ant-col-grid')).toHaveStyle({
       gridColumn: 'span 4',
     });
   });
@@ -328,24 +329,22 @@ describe('Grid Col', () => {
         <Col span={6}>test</Col>
       </Row>,
     );
-    const row = container.querySelector<HTMLElement>('.ant-row-grid');
-    expect(row).toHaveStyle({
+    expect(container.querySelector('.ant-row-grid')).toHaveStyle({
       gridTemplateColumns: 'repeat(24, 1fr)',
     });
-    const col = container.querySelector<HTMLElement>('.ant-col-grid');
-    expect(col).toHaveStyle({
+    expect(container.querySelector('.ant-col-grid')).toHaveStyle({
       gridColumn: 'span 6',
     });
   });
 
-  it('should map columns number to repeat(N, 1fr)', () => {
+  it('should not crash when columns is a falsy non-preset value', () => {
     const { container } = render(
-      <Row grid columns={4}>
+      <Row grid columns={null as unknown as undefined}>
         <Col span={1}>test</Col>
       </Row>,
     );
-    expect(container.querySelector('.ant-row-grid')).toHaveStyle({
-      gridTemplateColumns: 'repeat(4, 1fr)',
+    expect(container.querySelector('.ant-row-grid')).not.toHaveStyle({
+      gridTemplateColumns: expect.any(String),
     });
   });
 
@@ -375,8 +374,8 @@ describe('Grid Col', () => {
     });
   });
 
-  it('should join areas 2D array into grid-template-areas', () => {
-    const { container } = render(
+  it('should normalize areas 2D array and omit grid-template-areas for empty array', () => {
+    const { container: c1 } = render(
       <Row
         grid
         areas={[
@@ -387,8 +386,17 @@ describe('Grid Col', () => {
         <Col area="header">h</Col>
       </Row>,
     );
-    expect(container.querySelector('.ant-row-grid')).toHaveStyle({
+    expect(c1.querySelector('.ant-row-grid')).toHaveStyle({
       gridTemplateAreas: '"header header" "sider content"',
+    });
+
+    const { container: c3 } = render(
+      <Row grid areas={[]}>
+        <Col span={1}>x</Col>
+      </Row>,
+    );
+    expect(c3.querySelector('.ant-row-grid')).not.toHaveStyle({
+      gridTemplateAreas: expect.any(String),
     });
   });
 
@@ -403,18 +411,7 @@ describe('Grid Col', () => {
     });
   });
 
-  it('should set display none when span is 0', () => {
-    const { container } = render(
-      <Row grid columns={4}>
-        <Col span={0}>test</Col>
-      </Row>,
-    );
-    expect(container.querySelector('.ant-col-grid')).toHaveStyle({
-      display: 'none',
-    });
-  });
-
-  it('span={0} should still hide even when area is provided', () => {
+  it('span={0} hides the col even when area is provided', () => {
     const { container } = render(
       <Row grid columns={4}>
         <Col span={0} area="header">
@@ -422,7 +419,6 @@ describe('Grid Col', () => {
         </Col>
       </Row>,
     );
-    // 新语义下 area 不覆盖 span={0} 的隐藏行为
     expect(container.querySelector('.ant-col-grid')).toHaveStyle({
       display: 'none',
     });
@@ -435,7 +431,6 @@ describe('Grid Col', () => {
         <Col span={1}>test</Col>
       </Row>,
     );
-    // md matches -> 4 columns
     expect(container.querySelector('.ant-row-grid')).toHaveStyle({
       gridTemplateColumns: 'repeat(4, 1fr)',
     });
@@ -448,7 +443,6 @@ describe('Grid Col', () => {
         <Col span={1}>test</Col>
       </Row>,
     );
-    // large screen query not matched -> fallback to 24
     expect(container.querySelector('.ant-row-grid')).toHaveStyle({
       gridTemplateColumns: 'repeat(24, 1fr)',
     });
@@ -468,7 +462,6 @@ describe('Grid Col', () => {
     });
   });
 
-  // flex/wrap should not leak into grid mode inline styles (see RFC Grid 模式下不生效的 Props)
   it('should not apply flex or minWidth in grid mode even if flex is provided', () => {
     const { container } = render(
       <Row grid columns={4} wrap={false}>
@@ -478,7 +471,6 @@ describe('Grid Col', () => {
       </Row>,
     );
     const col = container.querySelector<HTMLElement>('.ant-col-grid');
-    // grid 模式下 flex 不泄漏进行内样式,见 RFC「Grid 模式下不生效的 Props」
     expect(col).not.toHaveStyle({ flex: '2 2 auto' });
     expect(col).not.toHaveStyle({ minWidth: 0 });
   });
