@@ -44,6 +44,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
     prefixCls,
     classNames,
     styles,
+    filteredItems,
     filteredRenderItems,
     selectedKeys,
     disabled: globalDisabled,
@@ -76,7 +77,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
   }, [filteredRenderItems, mergedPagination, pageSize]);
 
   const onInternalClick = (item: KeyWiseTransferItem, e: React.MouseEvent<Element, MouseEvent>) => {
-    onItemSelect(item.key, !selectedKeys.includes(item.key), e);
+    onItemSelect(item.key, !selectedKeys.includes(item.key), e, filteredItems);
   };
 
   const onRemove = (item: KeyWiseTransferItem) => {
