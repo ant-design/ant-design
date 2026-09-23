@@ -289,12 +289,17 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
         }
       : undefined;
   const hasRestSticky = Object.values(restSticky ?? {}).some((val) => val !== undefined);
+  // Keep legacy truthy-object behavior (e.g. `sticky={{}}` still enables sticky header).
+  // Only disable rc-table sticky when the object is purely for pagination.
+  const hasPaginationKey = typeof sticky === 'object' && sticky !== null && 'pagination' in sticky;
   const rcSticky: RcTableProps<RecordType>['sticky'] =
     typeof sticky === 'boolean'
       ? sticky
       : hasRestSticky
         ? (restSticky as NonNullable<typeof restSticky>)
-        : false;
+        : hasPaginationKey && stickyPagination
+          ? false
+          : sticky;
 
   const components = tableProps.components as RcTableProps<RecordType>['components'];
   const ariaProps = pickAttrs(tableProps, { aria: true }) as React.AriaAttributes;

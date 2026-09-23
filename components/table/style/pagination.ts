@@ -33,7 +33,7 @@ const genPaginationStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           justifyContent: 'flex-end',
         },
 
-        '&-sticky': {
+        [`&-sticky${antCls}-pagination`]: {
           position: 'sticky',
           bottom: 0,
           zIndex: token.zIndexTableFixed - 1,

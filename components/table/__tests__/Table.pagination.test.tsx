@@ -763,5 +763,14 @@ describe('Table.pagination', () => {
       );
       expect(container.querySelector('.ant-table-sticky-holder')).toBeTruthy();
     });
+
+    it('keep legacy sticky header behavior for empty sticky object', () => {
+      const { container } = render(<Table columns={columns} dataSource={data} sticky={{}} />);
+
+      expect(container.querySelector('.ant-table-sticky-holder')).toBeTruthy();
+      expect(container.querySelector('.ant-table-pagination')).not.toHaveClass(
+        'ant-table-pagination-sticky',
+      );
+    });
   });
 });
