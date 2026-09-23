@@ -772,5 +772,23 @@ describe('Table.pagination', () => {
         'ant-table-pagination-sticky',
       );
     });
+
+    it('only apply sticky class to the bottom pagination with top and bottom placement', () => {
+      const { container } = render(
+        <Table
+          columns={columns}
+          dataSource={data}
+          sticky={{ pagination: true }}
+          pagination={{ placement: ['topStart', 'bottomEnd'], pageSize: 1 }}
+        />,
+      );
+
+      const topPagination = container.querySelector('.ant-table-pagination-start');
+      const bottomPagination = container.querySelector('.ant-table-pagination-end');
+      expect(topPagination).toBeTruthy();
+      expect(bottomPagination).toBeTruthy();
+      expect(topPagination).not.toHaveClass('ant-table-pagination-sticky');
+      expect(bottomPagination).toHaveClass('ant-table-pagination-sticky');
+    });
   });
 });
