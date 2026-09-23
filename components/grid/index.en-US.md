@@ -66,9 +66,12 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | align | Vertical alignment | `top` \| `middle` \| `bottom` \| `stretch` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'top' \| 'middle' \| 'bottom' \| 'stretch'}` | `top` | object: 4.24.0 | × |
-| grid | Enable CSS Grid layout, set to true to use Grid layout, or pass an object to configure grid template | `boolean \| { gridTemplateColumns?: string; gridTemplateRows?: string; gridTemplateAreas?: string }` | false | 6.5.0 | × |
-| gutter | Spacing between grids, could be a [string CSS units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units) or a object like { xs: 8, sm: 16, md: 24}. Or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` | number \| string \| object \| array | 0 | string: 5.28.0 | × |
+| areas | Defines `grid-template-areas` in grid mode. A 2D array is joined row by row into a multi-line string; a string is passed through as-is | string\[\]\[\] \| string | - | 6.5.0 | × |
+| columns | Column count or template in grid mode. A number maps to `repeat(N, 1fr)`, a string is passed through as-is, and an object is resolved by responsive breakpoint | number \| string \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: number \| string}` | 24 | 6.5.0 | × |
+| grid | Enable CSS Grid layout | boolean | false | 6.5.0 | × |
+| gutter | Spacing between grids, could be a [string CSS units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units) or a object like { xs: 8, sm: 16, md: 24}. Or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]`. In grid mode it is equivalent to `column-gap`/`row-gap` | number \| string \| object \| array | 0 | string: 5.28.0 | × |
 | justify | Horizontal arrangement | `start` \| `end` \| `center` \| `space-around` \| `space-between` \| `space-evenly` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly'}` | `start` | object: 4.24.0 | × |
+| rows | Row template in grid mode. A number maps to `repeat(N, 1fr)`, a string is passed through as-is | number \| string | - | 6.5.0 | × |
 | wrap | Auto wrap line | boolean | true | 4.8.0 | × |
 
 ### Col
@@ -77,12 +80,13 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
+| area | Named area in grid mode, mapped to `gridArea`, used together with Row `areas` | string | - | 6.5.0 | × |
 | flex | Flex layout style. Number for 'flex: n n auto', string is applied directly (e.g. pure number string 'n' for 'flex: n 1 0') | string \| number | - |  | × |
-| gridItemConfig | Grid mode configuration, supports gridColumn, gridRow, gridArea properties | `{ gridColumn?: string \| number; gridRow?: string \| number; gridArea?: string }` | - | 6.5.0 | × |
 | offset | The number of cells to offset Col from the left | number | 0 |  | × |
 | order | Raster order | number | 0 |  | × |
 | pull | The number of cells that raster is moved to the left | number | 0 |  | × |
 | push | The number of cells that raster is moved to the right | number | 0 |  | × |
+| rowSpan | Row span in grid mode, mapped to `gridRow: span N` | number | - | 6.5.0 | × |
 | span | Raster number of cells to occupy, 0 corresponds to `display: none` | number | - |  | × |
 | xs | `screen < 576px` and also default setting, could be a `span` value or an object containing above props | number \| object | - |  | × |
 | sm | `screen ≥ 576px`, could be a `span` value or an object containing above props | number \| object | - |  | × |
@@ -98,9 +102,13 @@ The breakpoints of responsive grid follow [BootStrap 4 media queries rules](http
 
 ### Grid Mode Notes {#grid-mode-notes}
 
-For responsive layouts in grid mode, configure the column count via `gridTemplateColumns` and ensure `span` values do not exceed the column count. For example: with `grid={{ gridTemplateColumns: 'repeat(12, 1fr)' }}`, `span={6}` occupies half the width.
+Grid mode defaults to 24 columns (`repeat(24, 1fr)`) to match the 24-grid mental model, where `span={N}` maps directly to `gridColumn: span N`. Use `columns` to customize the column count, e.g. `columns={4}` is equivalent to `repeat(4, 1fr)`; a responsive object like `columns={{ xs: 1, md: 4 }}` is also supported.
 
-`gridItemConfig.gridColumn` has higher priority than `span` prop. For example, `span={0}` will hide the element, but `span={0} gridItemConfig={{ gridColumn: 'span 2' }}` will display the element.
+For responsive layouts, configure column count via `columns` and ensure `span` values do not exceed the column count. For example, with `columns={12}`, `span={6}` occupies half the width.
+
+Template areas are configured via `areas`; `Col` is placed by its `area` prop and spans rows with `rowSpan`. For advanced positioning (e.g. grid-line ranges like `gridColumn: '2 / span 4'`), use `style` as the escape hatch — it has the highest priority and overrides values produced by `span`/`rowSpan`/`area`.
+
+`span={0}` still hides the element (`display: none`).
 
 ## Design Token
 

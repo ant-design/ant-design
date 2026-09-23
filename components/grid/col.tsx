@@ -9,7 +9,7 @@ import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import RowContext from './RowContext';
-import type { GridItemConfig } from './row';
+import { getGapStyle } from './row';
 import { useColStyle } from './style';
 
 // https://github.com/ant-design/ant-design/issues/14324
@@ -31,11 +31,12 @@ export interface ColProps
     Partial<Record<Breakpoint, ColSpanType | ColSize>> {
   flex?: FlexType;
   span?: ColSpanType;
+  rowSpan?: ColSpanType;
+  area?: string;
   order?: ColSpanType;
   offset?: ColSpanType;
   push?: ColSpanType;
   pull?: ColSpanType;
-  gridItemConfig?: GridItemConfig;
   prefixCls?: string;
 }
 
@@ -66,7 +67,8 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     offset,
     push,
     pull,
-    gridItemConfig,
+    rowSpan,
+    area,
     className,
     children,
     flex,
@@ -140,8 +142,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const mergedStyle: React.CSSProperties = {};
 
   if (!grid && gutter?.[0]) {
-    const horizontalGutter = isNumber(gutter[0]) ? `${gutter[0] / 2}px` : `calc(${gutter[0]} / 2)`;
-    mergedStyle.paddingInline = horizontalGutter;
+    mergedStyle.paddingInline = getGapStyle(gutter[0], 2);
   }
 
   if (!grid && (flex || flex === 0)) {
@@ -160,23 +161,23 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
     if (span !== undefined) {
       const spanNum = Number(span);
-
       if (spanNum > 0) {
         gridStyles.gridColumn = `span ${spanNum}`;
       } else {
-        if (!gridItemConfig?.gridColumn) {
-          gridStyles.display = 'none';
-        }
+        gridStyles.display = 'none';
       }
     }
 
-    // Skip undefined grid placement overrides so span remains the fallback
-    const filteredGridItemConfig = Object.fromEntries(
-      Object.entries(gridItemConfig ?? {}).filter(
-        ([, value]) => value !== undefined && value !== null,
-      ),
-    );
-    Object.assign(gridStyles, filteredGridItemConfig);
+    if (rowSpan !== undefined) {
+      const rowSpanNum = Number(rowSpan);
+      if (rowSpanNum > 0) {
+        gridStyles.gridRow = `span ${rowSpanNum}`;
+      }
+    }
+
+    if (area !== undefined) {
+      gridStyles.gridArea = area;
+    }
 
     Object.assign(mergedStyle, gridStyles);
   }

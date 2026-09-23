@@ -20,6 +20,10 @@ const createImplFn = (value: string | number) => {
   };
 };
 
+const mockMatchMedia = (query: string) => {
+  jest.spyOn(window, 'matchMedia').mockImplementation(createImplFn(query) as any);
+};
+
 // Mock for `responsiveObserve` to test `unsubscribe` call
 jest.mock('../../_util/responsiveObserver', () => {
   const modules = jest.requireActual('../../_util/responsiveObserver');
@@ -105,7 +109,7 @@ describe('Grid', () => {
   });
 
   it(`when typeof gutter is object array in large screen`, () => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(min-width: 1200px)') as any);
+    mockMatchMedia('(min-width: 1200px)');
     const { container, asFragment } = render(
       <Row
         gutter={[
@@ -164,7 +168,7 @@ describe('Grid', () => {
   // By jsdom mock, actual jsdom not implemented matchMedia
   // https://jestjs.io/docs/en/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
   it(`should work with useBreakpoint`, () => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(max-width: 575px)') as any);
+    mockMatchMedia('(max-width: 575px)');
     let screensVar: any = null;
     const Demo: React.FC = () => {
       const screens = useBreakpoint();
@@ -185,7 +189,7 @@ describe('Grid', () => {
   });
 
   it(`should align by responsive align prop`, () => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(max-width: 575px)') as any);
+    mockMatchMedia('(max-width: 575px)');
     const { container } = render(<Row align="middle" />);
     expect(container.innerHTML).toContain('ant-row-middle');
     const { container: container2 } = render(<Row align={{ xs: 'middle' }} />);
@@ -195,7 +199,7 @@ describe('Grid', () => {
   });
 
   it(`should justify by responsive justify prop`, () => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(max-width: 575px)') as any);
+    mockMatchMedia('(max-width: 575px)');
     const { container } = render(<Row justify="center" />);
     expect(container.innerHTML).toContain('ant-row-center');
     const { container: container2 } = render(<Row justify={{ xs: 'center' }} />);
@@ -205,7 +209,7 @@ describe('Grid', () => {
   });
 
   it('should clear align and justify when props are removed or no breakpoint matches', () => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(createImplFn('(max-width: 575px)') as any);
+    mockMatchMedia('(max-width: 575px)');
     const { container, rerender } = render(<Row align="middle" justify="center" />);
     const row = container.firstElementChild;
 
@@ -305,87 +309,175 @@ describe('Grid', () => {
 });
 
 describe('Grid Col', () => {
-  it('should apply gridColumn from span when gridTemplateColumns is provided', () => {
+  it('should apply gridColumn from span in grid mode', () => {
     const { container } = render(
-      <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+      <Row grid columns={4}>
         <Col span={4}>test</Col>
       </Row>,
     );
-    const col = container.querySelector('.ant-col-grid');
     expect(container.querySelector('.ant-col-grid')).toBeTruthy();
+    const col = container.querySelector<HTMLElement>('.ant-col-grid');
     expect(col).toHaveStyle({
       gridColumn: 'span 4',
     });
   });
 
-  it('should support gridRow/gridArea in grid mode', () => {
+  it('should default to 24 columns when columns is omitted', () => {
     const { container } = render(
       <Row grid>
-        <Col gridItemConfig={{ gridRow: 'span 2', gridArea: 'header' }}>test</Col>
+        <Col span={6}>test</Col>
       </Row>,
     );
-    const col = container.querySelector('.ant-col-grid');
+    const row = container.querySelector<HTMLElement>('.ant-row-grid');
+    expect(row).toHaveStyle({
+      gridTemplateColumns: 'repeat(24, 1fr)',
+    });
+    const col = container.querySelector<HTMLElement>('.ant-col-grid');
+    expect(col).toHaveStyle({
+      gridColumn: 'span 6',
+    });
+  });
+
+  it('should map columns number to repeat(N, 1fr)', () => {
+    const { container } = render(
+      <Row grid columns={4}>
+        <Col span={1}>test</Col>
+      </Row>,
+    );
+    expect(container.querySelector('.ant-row-grid')).toHaveStyle({
+      gridTemplateColumns: 'repeat(4, 1fr)',
+    });
+  });
+
+  it('should pass columns string through as gridTemplateColumns', () => {
+    const { container } = render(
+      <Row grid columns="repeat(auto-fit, minmax(120px, 1fr))">
+        <Col span={1}>test</Col>
+      </Row>,
+    );
+    expect(container.querySelector('.ant-row-grid')).toHaveStyle({
+      gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+    });
+  });
+
+  it('should support rowSpan and area in grid mode', () => {
+    const { container } = render(
+      <Row grid>
+        <Col rowSpan={2} area="header">
+          test
+        </Col>
+      </Row>,
+    );
+    const col = container.querySelector<HTMLElement>('.ant-col-grid');
     expect(col).toHaveStyle({
       gridRow: 'span 2',
       gridArea: 'header',
     });
   });
 
-  it('should set display none when span is 0 and gridTemplateColumns is provided', () => {
+  it('should join areas 2D array into grid-template-areas', () => {
     const { container } = render(
-      <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+      <Row
+        grid
+        areas={[
+          ['header', 'header'],
+          ['sider', 'content'],
+        ]}
+      >
+        <Col area="header">h</Col>
+      </Row>,
+    );
+    expect(container.querySelector('.ant-row-grid')).toHaveStyle({
+      gridTemplateAreas: '"header header" "sider content"',
+    });
+  });
+
+  it('should pass areas string through as grid-template-areas', () => {
+    const { container } = render(
+      <Row grid areas='"a a" "b b"'>
+        <Col area="a">a</Col>
+      </Row>,
+    );
+    expect(container.querySelector('.ant-row-grid')).toHaveStyle({
+      gridTemplateAreas: '"a a" "b b"',
+    });
+  });
+
+  it('should set display none when span is 0', () => {
+    const { container } = render(
+      <Row grid columns={4}>
         <Col span={0}>test</Col>
       </Row>,
     );
-    const col = container.querySelector('.ant-col-grid');
-    expect(col).toHaveStyle({
+    expect(container.querySelector('.ant-col-grid')).toHaveStyle({
       display: 'none',
     });
   });
 
-  it('gridItemConfig should override span={0} display:none behavior', () => {
+  it('span={0} should still hide even when area is provided', () => {
     const { container } = render(
-      <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
-        <Col span={0} gridItemConfig={{ gridColumn: 'span 2' }}>
+      <Row grid columns={4}>
+        <Col span={0} area="header">
           test
         </Col>
       </Row>,
     );
-    const col = container.querySelector('.ant-col-grid');
-    // gridItemConfig explicitly set gridColumn, so it should override span={0} display:none
-    expect(col).toHaveStyle({
-      gridColumn: 'span 2',
-    });
-    expect(col).not.toHaveStyle({
+    // 新语义下 area 不覆盖 span={0} 的隐藏行为
+    expect(container.querySelector('.ant-col-grid')).toHaveStyle({
       display: 'none',
     });
   });
 
-  it('span={0} should still hide when gridItemConfig does not have gridColumn', () => {
+  it('should resolve responsive columns by current screen', () => {
+    mockMatchMedia('(min-width: 768px)');
     const { container } = render(
-      <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
-        <Col span={0} gridItemConfig={{ gridRow: 'span 2' }}>
+      <Row grid columns={{ xs: 1, sm: 2, md: 4, lg: 8 }}>
+        <Col span={1}>test</Col>
+      </Row>,
+    );
+    // md matches -> 4 columns
+    expect(container.querySelector('.ant-row-grid')).toHaveStyle({
+      gridTemplateColumns: 'repeat(4, 1fr)',
+    });
+  });
+
+  it('should fall back to 24 columns when no responsive breakpoint matches', () => {
+    mockMatchMedia('(min-width: 2000px)');
+    const { container } = render(
+      <Row grid columns={{ lg: 8 }}>
+        <Col span={1}>test</Col>
+      </Row>,
+    );
+    // large screen query not matched -> fallback to 24
+    expect(container.querySelector('.ant-row-grid')).toHaveStyle({
+      gridTemplateColumns: 'repeat(24, 1fr)',
+    });
+  });
+
+  it('style should override span/rowSpan/area produced values', () => {
+    const { container } = render(
+      <Row grid columns={4}>
+        <Col span={2} style={{ gridColumn: '2 / span 3' }}>
           test
         </Col>
       </Row>,
     );
-    const col = container.querySelector('.ant-col-grid');
-    // gridItemConfig does not have gridColumn, so span={0} display:none should still apply
+    const col = container.querySelector<HTMLElement>('.ant-col-grid');
     expect(col).toHaveStyle({
-      display: 'none',
+      gridColumn: '2 / span 3',
     });
   });
 
   // flex/wrap should not leak into grid mode inline styles (see RFC Grid 模式下不生效的 Props)
   it('should not apply flex or minWidth in grid mode even if flex is provided', () => {
     const { container } = render(
-      <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)' }} wrap={false}>
+      <Row grid columns={4} wrap={false}>
         <Col flex={2} span={4}>
           test
         </Col>
       </Row>,
     );
-    const col = container.querySelector('.ant-col-grid');
+    const col = container.querySelector<HTMLElement>('.ant-col-grid');
     // grid 模式下 flex 不泄漏进行内样式,见 RFC「Grid 模式下不生效的 Props」
     expect(col).not.toHaveStyle({ flex: '2 2 auto' });
     expect(col).not.toHaveStyle({ minWidth: 0 });
