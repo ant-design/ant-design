@@ -137,9 +137,10 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
         ...styles.root,
         ...style,
       }}
-      role="button"
-      aria-disabled={disabled || undefined}
-      tabIndex={disabled ? -1 : 0}
+      role={color.cleared ? undefined : 'button'}
+      aria-label={color.cleared ? undefined : 'Open color picker'}
+      aria-disabled={color.cleared ? undefined : disabled || undefined}
+      tabIndex={color.cleared ? undefined : disabled ? -1 : 0}
       onKeyDown={onKeyDown}
       {...pickAttrs(rest)}
     >

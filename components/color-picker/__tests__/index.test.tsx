@@ -119,7 +119,7 @@ describe('ColorPicker', () => {
   });
 
   it('Should default trigger work with keyboard', async () => {
-    const { container } = render(<ColorPicker />);
+    const { container } = render(<ColorPicker defaultValue="#1677ff" />);
     const trigger = container.querySelector<HTMLElement>('.ant-color-picker-trigger')!;
 
     expect(trigger).toHaveAttribute('role', 'button');
@@ -141,9 +141,6 @@ describe('ColorPicker', () => {
     expect(clear).toHaveClass('ant-color-picker-clear-disabled');
     expect(clear).toHaveAttribute('aria-disabled', 'true');
     expect(clear).toHaveAttribute('tabindex', '-1');
-    const trigger = container.querySelector<HTMLElement>('.ant-color-picker-trigger')!;
-    expect(trigger).toHaveAttribute('aria-disabled', 'true');
-    expect(trigger).toHaveAttribute('tabindex', '-1');
     expect(container).toMatchSnapshot();
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();

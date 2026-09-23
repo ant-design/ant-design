@@ -16,6 +16,7 @@ exports[`renders components/color-picker/demo/_semantic.tsx correctly 1`] = `
       >
         <div
           aria-describedby="test-id"
+          aria-label="Open color picker"
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var ant-popover-open semantic-mark-root ant-color-picker-trigger-active"
           role="button"
           tabindex="0"
@@ -291,8 +292,6 @@ exports[`renders components/color-picker/demo/_semantic.tsx correctly 1`] = `
         </div>
         <div
           class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var semantic-mark-root"
-          role="button"
-          tabindex="0"
         >
           <div
             aria-label="Clear color"

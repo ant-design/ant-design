@@ -3,10 +3,7 @@
 exports[`ColorPicker Should disabled work 1`] = `
 <div>
   <div
-    aria-disabled="true"
     class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-trigger-disabled"
-    role="button"
-    tabindex="-1"
   >
     <div
       aria-disabled="true"
@@ -24,8 +21,6 @@ exports[`ColorPicker Should panelRender work 1`] = `
   <div
     aria-describedby="test-id"
     class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-popover-open ant-color-picker-trigger-active"
-    role="button"
-    tabindex="0"
   >
     <div
       aria-label="Clear color"
@@ -301,8 +296,6 @@ exports[`ColorPicker Should panelRender work 2`] = `
   <div
     aria-describedby="test-id"
     class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-popover-open ant-color-picker-trigger-active"
-    role="button"
-    tabindex="0"
   >
     <div
       aria-label="Clear color"
@@ -580,8 +573,6 @@ exports[`ColorPicker Should render trigger work 1`] = `
 exports[`ColorPicker rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-rtl"
-  role="button"
-  tabindex="0"
 >
   <div
     aria-label="Clear color"
