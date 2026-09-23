@@ -145,18 +145,32 @@ interface ChangeEventInfo<RecordType = AnyObject> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-export interface TableProps<RecordType = AnyObject> extends Omit<
-  RcTableProps<RecordType>,
-  | 'transformColumns'
-  | 'internalHooks'
-  | 'internalRefs'
-  | 'data'
-  | 'columns'
-  | 'scroll'
-  | 'emptyText'
-  | 'classNames'
-  | 'styles'
-> {
+export interface TableSticky {
+  offsetHeader?: number;
+  offsetSummary?: number;
+  offsetScroll?: number;
+  getContainer?: () => Window | HTMLElement;
+  /**
+   * Make pagination sticky to the bottom of the table container while scrolling.
+   */
+  pagination?: boolean;
+}
+
+export interface TableProps<RecordType = AnyObject>
+  extends Omit<
+    RcTableProps<RecordType>,
+    | 'transformColumns'
+    | 'internalHooks'
+    | 'internalRefs'
+    | 'data'
+    | 'columns'
+    | 'scroll'
+    | 'emptyText'
+    | 'classNames'
+    | 'styles'
+    | 'sticky'
+  > {
+  sticky?: boolean | TableSticky;
   classNames?: TableSemanticAllType<RecordType>['classNamesAndFn'];
   styles?: TableSemanticAllType<RecordType>['stylesAndFn'];
   dropdownPrefixCls?: string;
@@ -230,6 +244,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     virtual,
     title,
     showHeader,
+    sticky,
   } = props;
 
   const warning = devUseWarning('Table');
@@ -257,7 +272,29 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     'style',
     'column',
     'columns',
+    'sticky',
   ]);
+
+  // ========================== Sticky Pagination ==========================
+  // `sticky.pagination` is consumed by antd itself, the rest fields go to rc-table.
+  const stickyPagination =
+    typeof sticky === 'object' && sticky !== null ? Boolean(sticky.pagination) : false;
+  const restSticky: Omit<TableSticky, 'pagination'> | undefined =
+    typeof sticky === 'object' && sticky !== null
+      ? {
+          offsetHeader: sticky.offsetHeader,
+          offsetSummary: sticky.offsetSummary,
+          offsetScroll: sticky.offsetScroll,
+          getContainer: sticky.getContainer,
+        }
+      : undefined;
+  const hasRestSticky = Object.values(restSticky ?? {}).some((val) => val !== undefined);
+  const rcSticky: RcTableProps<RecordType>['sticky'] =
+    typeof sticky === 'boolean'
+      ? sticky
+      : hasRestSticky
+        ? (restSticky as NonNullable<typeof restSticky>)
+        : false;
 
   const components = tableProps.components as RcTableProps<RecordType>['components'];
   const ariaProps = pickAttrs(tableProps, { aria: true }) as React.AriaAttributes;
@@ -643,7 +680,10 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   if (pagination !== false && mergedPagination?.total) {
     const paginationSize = getPaginationSize(mergedPagination.size, mergedSize);
 
-    const renderPagination = (placement: 'start' | 'end' | 'center' = 'end') => (
+    const renderPagination = (
+      placement: 'start' | 'end' | 'center' = 'end',
+      isSticky?: boolean,
+    ) => (
       <Pagination
         {...mergedPagination}
         classNames={paginationClassNames}
@@ -651,6 +691,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
         className={clsx(
           `${prefixCls}-pagination`,
           `${prefixCls}-pagination-${placement}`,
+          isSticky && `${prefixCls}-pagination-sticky`,
           mergedPagination.className,
         )}
         size={paginationSize}
@@ -666,16 +707,16 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       );
       const isDisable = mergedPlacement.every((p) => `${p}` === 'none');
       if (!topPos && !bottomPos && !isDisable) {
-        bottomPaginationNode = renderPagination();
+        bottomPaginationNode = renderPagination('end', stickyPagination);
       }
       if (topPos) {
         topPaginationNode = renderPagination(normalizePlacement(topPos));
       }
       if (bottomPos) {
-        bottomPaginationNode = renderPagination(normalizePlacement(bottomPos));
+        bottomPaginationNode = renderPagination(normalizePlacement(bottomPos), stickyPagination);
       }
     } else {
-      bottomPaginationNode = renderPagination();
+      bottomPaginationNode = renderPagination('end', stickyPagination);
     }
 
     if (process.env.NODE_ENV !== 'production') {
@@ -749,6 +790,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           <TableComponent
             {...virtualProps}
             {...tableProps}
+            sticky={rcSticky}
             components={mergedComponents}
             scroll={mergedScroll}
             classNames={mergedClassNames as RcTableProps<RecordType>['classNames']}

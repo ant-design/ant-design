@@ -725,4 +725,43 @@ describe('Table.pagination', () => {
       consoleSpy.mockRestore();
     });
   });
+
+  describe('sticky pagination', () => {
+    it('apply sticky class when sticky.pagination is enabled', () => {
+      const { container } = render(
+        <Table columns={columns} dataSource={data} sticky={{ pagination: true }} />,
+      );
+
+      const pagination = container.querySelector('.ant-table-pagination');
+      expect(pagination).toBeTruthy();
+      expect(pagination).toHaveClass('ant-table-pagination-sticky');
+      // Should not enable sticky header
+      expect(container.querySelector('.ant-table-sticky-holder')).toBeFalsy();
+    });
+
+    it('apply sticky class together with sticky header', () => {
+      const { container } = render(
+        <Table
+          columns={columns}
+          dataSource={data}
+          sticky={{ offsetHeader: 64, pagination: true }}
+        />,
+      );
+
+      expect(container.querySelector('.ant-table-pagination')).toHaveClass(
+        'ant-table-pagination-sticky',
+      );
+      // Sticky header should also be enabled
+      expect(container.querySelector('.ant-table-sticky-holder')).toBeTruthy();
+    });
+
+    it('not apply sticky class without sticky.pagination', () => {
+      const { container } = render(<Table columns={columns} dataSource={data} sticky />);
+
+      expect(container.querySelector('.ant-table-pagination')).not.toHaveClass(
+        'ant-table-pagination-sticky',
+      );
+      expect(container.querySelector('.ant-table-sticky-holder')).toBeTruthy();
+    });
+  });
 });

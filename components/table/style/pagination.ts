@@ -32,6 +32,16 @@ const genPaginationStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         '&-end': {
           justifyContent: 'flex-end',
         },
+
+        '&-sticky': {
+          position: 'sticky',
+          bottom: 0,
+          zIndex: token.zIndexTableFixed - 1,
+          background: token.colorBgContainer,
+          margin: 0,
+          paddingTop: unit(margin),
+          paddingBottom: unit(margin),
+        },
       },
     },
   };
