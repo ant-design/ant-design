@@ -167,12 +167,18 @@ describe('Input.Password', () => {
       container.innerHTML = renderToString(input);
       const element = container.querySelector('input')!;
       expect(element).toHaveValue(password);
+      element.setSelectionRange(2, 5, 'backward');
 
       const { unmount } = render(input, { container, hydrate: true });
       await waitFakeTimer();
       expect(container.querySelector('input')).toBe(element);
       expect(element).toHaveValue(password);
       expect(element).not.toHaveAttribute('value');
+      expect([element.selectionStart, element.selectionEnd, element.selectionDirection]).toEqual([
+        2,
+        5,
+        'backward',
+      ]);
 
       fireEvent.change(element, { target: { value: 'edited-password' } });
       fireEvent.blur(element);
