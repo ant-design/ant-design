@@ -14254,7 +14254,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                         <span
                           class="ant-table-filter-trigger"
                           role="button"
-                          tabindex="0"
+                          tabindex="-1"
                         >
                           <span
                             aria-label="filter"
