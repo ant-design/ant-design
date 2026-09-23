@@ -1,5 +1,5 @@
 import React from 'react';
-import { Segmented, Tabs } from 'antd';
+import { Segmented, Space, Tabs } from 'antd';
 import type { SegmentedProps, TabsProps } from 'antd';
 
 const items: TabsProps['items'] = Array.from({ length: 12 }, (_, i) => {
@@ -29,18 +29,18 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Segmented<TabsProps['scrollPosition']>
-        value={scrollPosition}
-        onChange={setScrollPosition}
-        options={scrollPositionOptions}
-        style={{ marginBottom: 8 }}
-      />
-      <Segmented<NonNullable<TabsProps['tabPlacement']>>
-        value={tabPlacement}
-        onChange={setTabPlacement}
-        options={tabPlacementOptions}
-        style={{ marginBottom: 16 }}
-      />
+      <Space>
+        <Segmented<TabsProps['scrollPosition']>
+          value={scrollPosition}
+          onChange={setScrollPosition}
+          options={scrollPositionOptions}
+        />
+        <Segmented<NonNullable<TabsProps['tabPlacement']>>
+          value={tabPlacement}
+          onChange={setTabPlacement}
+          options={tabPlacementOptions}
+        />
+      </Space>
       <Tabs
         defaultActiveKey="6"
         scrollPosition={scrollPosition}

@@ -4968,136 +4968,146 @@ exports[`renders components/tabs/demo/popupRender-Search.tsx correctly 1`] = `
 exports[`renders components/tabs/demo/scroll-position.tsx correctly 1`] = `
 Array [
   <div
-    aria-label="segmented control"
-    aria-orientation="horizontal"
-    class="ant-segmented css-var-test-id"
-    role="radiogroup"
-    style="margin-bottom:8px"
-    tabindex="0"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
-      class="ant-segmented-group"
+      class="ant-space-item"
     >
-      <label
-        class="ant-segmented-item"
+      <div
+        aria-label="segmented control"
+        aria-orientation="horizontal"
+        class="ant-segmented css-var-test-id"
+        role="radiogroup"
+        tabindex="0"
       >
-        <input
-          class="ant-segmented-item-input"
-          name="test-id"
-          type="radio"
-        />
         <div
-          class="ant-segmented-item-label"
-          title="auto"
+          class="ant-segmented-group"
         >
-          auto
+          <label
+            class="ant-segmented-item"
+          >
+            <input
+              class="ant-segmented-item-input"
+              name="test-id"
+              type="radio"
+            />
+            <div
+              class="ant-segmented-item-label"
+              title="auto"
+            >
+              auto
+            </div>
+          </label>
+          <label
+            class="ant-segmented-item"
+          >
+            <input
+              class="ant-segmented-item-input"
+              name="test-id"
+              type="radio"
+            />
+            <div
+              class="ant-segmented-item-label"
+              title="start"
+            >
+              start
+            </div>
+          </label>
+          <label
+            class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+          >
+            <input
+              checked=""
+              class="ant-segmented-item-input"
+              name="test-id"
+              type="radio"
+            />
+            <div
+              class="ant-segmented-item-label"
+              title="center"
+            >
+              center
+            </div>
+          </label>
+          <label
+            class="ant-segmented-item"
+          >
+            <input
+              class="ant-segmented-item-input"
+              name="test-id"
+              type="radio"
+            />
+            <div
+              class="ant-segmented-item-label"
+              title="end"
+            >
+              end
+            </div>
+          </label>
+          <label
+            class="ant-segmented-item"
+          >
+            <input
+              class="ant-segmented-item-input"
+              name="test-id"
+              type="radio"
+            />
+            <div
+              class="ant-segmented-item-label"
+              title="0.25"
+            >
+              0.25
+            </div>
+          </label>
         </div>
-      </label>
-      <label
-        class="ant-segmented-item"
-      >
-        <input
-          class="ant-segmented-item-input"
-          name="test-id"
-          type="radio"
-        />
-        <div
-          class="ant-segmented-item-label"
-          title="start"
-        >
-          start
-        </div>
-      </label>
-      <label
-        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
-      >
-        <input
-          checked=""
-          class="ant-segmented-item-input"
-          name="test-id"
-          type="radio"
-        />
-        <div
-          class="ant-segmented-item-label"
-          title="center"
-        >
-          center
-        </div>
-      </label>
-      <label
-        class="ant-segmented-item"
-      >
-        <input
-          class="ant-segmented-item-input"
-          name="test-id"
-          type="radio"
-        />
-        <div
-          class="ant-segmented-item-label"
-          title="end"
-        >
-          end
-        </div>
-      </label>
-      <label
-        class="ant-segmented-item"
-      >
-        <input
-          class="ant-segmented-item-input"
-          name="test-id"
-          type="radio"
-        />
-        <div
-          class="ant-segmented-item-label"
-          title="0.25"
-        >
-          0.25
-        </div>
-      </label>
+      </div>
     </div>
-  </div>,
-  <div
-    aria-label="segmented control"
-    aria-orientation="horizontal"
-    class="ant-segmented css-var-test-id"
-    role="radiogroup"
-    style="margin-bottom:16px"
-    tabindex="0"
-  >
     <div
-      class="ant-segmented-group"
+      class="ant-space-item"
     >
-      <label
-        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+      <div
+        aria-label="segmented control"
+        aria-orientation="horizontal"
+        class="ant-segmented css-var-test-id"
+        role="radiogroup"
+        tabindex="0"
       >
-        <input
-          checked=""
-          class="ant-segmented-item-input"
-          name="test-id"
-          type="radio"
-        />
         <div
-          class="ant-segmented-item-label"
-          title="top"
+          class="ant-segmented-group"
         >
-          top
+          <label
+            class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+          >
+            <input
+              checked=""
+              class="ant-segmented-item-input"
+              name="test-id"
+              type="radio"
+            />
+            <div
+              class="ant-segmented-item-label"
+              title="top"
+            >
+              top
+            </div>
+          </label>
+          <label
+            class="ant-segmented-item"
+          >
+            <input
+              class="ant-segmented-item-input"
+              name="test-id"
+              type="radio"
+            />
+            <div
+              class="ant-segmented-item-label"
+              title="start"
+            >
+              start
+            </div>
+          </label>
         </div>
-      </label>
-      <label
-        class="ant-segmented-item"
-      >
-        <input
-          class="ant-segmented-item-input"
-          name="test-id"
-          type="radio"
-        />
-        <div
-          class="ant-segmented-item-label"
-          title="start"
-        >
-          start
-        </div>
-      </label>
+      </div>
     </div>
   </div>,
   <div
