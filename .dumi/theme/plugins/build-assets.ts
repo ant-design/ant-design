@@ -6,8 +6,9 @@ import type { IApi } from 'dumi';
 
 const siteLayerOrder = '@layer theme, base, global, antd, components, utilities;';
 const siteLayerStyle = `<style>${siteLayerOrder}</style>`;
-const tailwindLayerStyle = `<style type="text/tailwindcss">${siteLayerOrder}
-@import "tailwindcss";</style>`;
+// Tailwind Browser already provides the default theme and utilities. A bare import here is
+// requested by the browser as a stylesheet relative to every page before Tailwind can process it.
+const tailwindLayerStyle = `<style type="text/tailwindcss">${siteLayerOrder}</style>`;
 
 export const getHash = (str: string, length = 8) =>
   createHash('md5').update(str).digest('hex').slice(0, length);

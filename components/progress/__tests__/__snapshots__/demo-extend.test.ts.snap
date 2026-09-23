@@ -1466,7 +1466,7 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
         class="ant-segmented-group"
       >
         <label
-          class="ant-segmented-item ant-segmented-item-selected"
+          class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
         >
           <input
             checked=""
@@ -1557,7 +1557,7 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
           </div>
         </label>
         <label
-          class="ant-segmented-item ant-segmented-item-selected"
+          class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
         >
           <input
             checked=""

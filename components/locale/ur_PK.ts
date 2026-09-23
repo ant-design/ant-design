@@ -93,6 +93,10 @@ const localeValues: Locale = {
     expand: 'پھیلائیں',
     collapse: 'سمٹنا',
   },
+  Carousel: {
+    prevSlide: 'پچھلی سلائیڈ',
+    nextSlide: 'اگلی سلائیڈ',
+  },
   Form: {
     optional: '(اختیاری)',
     defaultValidateMessages: {

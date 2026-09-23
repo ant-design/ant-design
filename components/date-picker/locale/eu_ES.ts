@@ -7,7 +7,15 @@ import type { PickerLocale } from '../generatePicker';
 const locale: PickerLocale = {
   lang: {
     placeholder: 'Hautatu data',
+    yearPlaceholder: 'Hautatu urtea',
+    quarterPlaceholder: 'Hautatu hiruhilekoa',
+    monthPlaceholder: 'Hautatu hilabetea',
+    weekPlaceholder: 'Hautatu astea',
     rangePlaceholder: ['Hasierako data', 'Amaiera data'],
+    rangeYearPlaceholder: ['Hasierako urtea', 'Amaiera urtea'],
+    rangeQuarterPlaceholder: ['Hasierako hiruhilekoa', 'Amaiera hiruhilekoa'],
+    rangeMonthPlaceholder: ['Hasierako hilabetea', 'Amaiera hilabetea'],
+    rangeWeekPlaceholder: ['Hasierako astea', 'Amaiera astea'],
     ...CalendarLocale,
   },
   timePickerLocale: {

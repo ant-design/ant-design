@@ -82,6 +82,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
     key: TransferKey,
     check: boolean,
     e?: React.MouseEvent<Element, MouseEvent>,
+    filteredItems?: RecordType[],
   ) => void;
   onItemSelectAll: (dataSource: TransferKey[], checkAll: boolean | 'replace') => void;
   onItemRemove?: (keys: TransferKey[]) => void;
@@ -330,7 +331,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   };
 
   // Custom Layout
-  const footerDom = footer && (footer.length < 2 ? footer(props) : footer(props, { direction }));
+  const footerDom = footer?.(props, { direction });
 
   // Get filtered, checked item list
   const listFooter = footerDom ? (

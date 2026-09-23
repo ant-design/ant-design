@@ -110,6 +110,16 @@ Try `onChange` to change `value`, and please read [React's documentation](https:
 
 Try [Space](https://ant.design/components/space/) component to make them aligned.
 
+## Why do third-party SVG icons have margin-block-end? {#faq-icon-margin-block-end}
+
+Components such as Breadcrumb, Collapse, Segmented, Tabs, and Tag apply `display: inline-block`, `vertical-align: middle`, and `margin-block-end: 0.2em` to SVGs rendered directly in the corresponding icon slots to adjust their visual alignment with text.
+
+In inline layout, an SVG has no text baseline, so its bottom edge participates in baseline alignment by default, which can make it appear too high next to text. `display: inline-block` keeps the icon in the inline flow, while `vertical-align: middle` aligns the center of its margin box to the parent's baseline plus half its x-height (the height of a lowercase x), making the alignment independent of the icon's height.
+
+However, the center of the x-height is usually lower than the center of capital letters, so a small upward optical adjustment is needed. `margin-block-end: 0.2em` adds a margin below the icon. Once the margin box is centered, the icon itself moves up by about `0.1em`, bringing it closer to the center of capital letters in common fonts. The `0.2em` value approximates the difference between cap height and x-height in common fonts, and using `em` makes the adjustment scale with the font size.
+
+These styles target directly rendered SVGs. Icons from `@ant-design/icons` wrap their SVG in an extra container and use their own alignment styles. Different fonts, internal icon whitespace, or an icon's own `vertical-align` can affect the result. If an icon already handles its own alignment, or an icon-only use case does not need text alignment compensation, you can locally override the corresponding SVG with `margin-block-end: 0` and adjust its own styles as needed.
+
 ## antd overrides my global styles
 
 Yes, antd is designed to help you develop a complete background application. To do so, we override some global styles for styling convenience, and currently these cannot be removed or changed. More info at https://github.com/ant-design/ant-design/issues/4331 .

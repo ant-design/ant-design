@@ -51,14 +51,14 @@ const onChange: CascaderProps<Option>['onChange'] = (value) => {
 const App: React.FC = () => (
   <>
     <Cascader
-      suffixIcon={<SmileOutlined />}
+      suffix={<SmileOutlined />}
       options={options}
       onChange={onChange}
       placeholder="Please select"
     />
     <br />
     <br />
-    <Cascader suffixIcon="ab" options={options} onChange={onChange} placeholder="Please select" />
+    <Cascader suffix="ab" options={options} onChange={onChange} placeholder="Please select" />
     <br />
     <br />
     <Cascader

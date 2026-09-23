@@ -13,6 +13,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'Аптаны таңдаңыз',
     rangePlaceholder: ['Бастау күні', 'Аяқталу күні'],
     rangeYearPlaceholder: ['Бастау жылы', 'Аяқталу жылы'],
+    rangeQuarterPlaceholder: ['Бастау тоқсаны', 'Аяқталу тоқсаны'],
     rangeMonthPlaceholder: ['Бастау айы', 'Аяқталу айы'],
     rangeWeekPlaceholder: ['Бастау апта', 'Аяқталу апта'],
     ...CalendarLocale,

@@ -51,7 +51,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | showInkInFixed | Whether show ink-square when `affix={false}` | boolean | false |  | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | targetOffset | Anchor scroll offset, default as `offsetTop`, [example](#anchor-demo-targetoffset) | number | - |  | × |
-| onChange | Listening for anchor link change | (currentActiveLink: string) => void |  |  | × |
+| onChange | Listening for anchor link change | (currentActiveLink: string) => void | - |  | × |
 | onClick | Set the handler to handle `click` event | (e: MouseEvent, link: object) => void | - |  | × |
 | items | Data configuration option content, support nesting through children | { key, href, title, target, children }\[] [see](#anchoritem) | - | 5.1.0 | × |
 | direction | Set Anchor direction | `vertical` \| `horizontal` | `vertical` | 5.2.0 | × |

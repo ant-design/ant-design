@@ -521,20 +521,20 @@ describe('DatePicker', () => {
     expect(getClearButton()).toBeTruthy();
   });
 
-  it('suffixIcon', () => {
+  it('suffix', () => {
     const { rerender, container } = render(<DatePicker />);
     expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeTruthy();
 
-    rerender(<DatePicker suffixIcon />);
+    rerender(<DatePicker suffix />);
     expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeTruthy();
 
-    rerender(<DatePicker suffixIcon={false} />);
+    rerender(<DatePicker suffix={false} />);
     expect(container.querySelector('.ant-picker-suffix')).toBeFalsy();
 
-    rerender(<DatePicker suffixIcon={null} />);
+    rerender(<DatePicker suffix={null} />);
     expect(container.querySelector('.ant-picker-suffix')).toBeFalsy();
 
-    rerender(<DatePicker suffixIcon={'123'} />);
+    rerender(<DatePicker suffix="123" />);
     expect(container.querySelector('.ant-picker-suffix')?.textContent).toBe('123');
     expect(container.children).toMatchSnapshot();
   });
@@ -561,34 +561,72 @@ describe('DatePicker', () => {
     MockDate.reset();
   });
 
-  describe('suffixIcon', () => {
-    it('should support suffixIcon prop', () => {
+  describe('suffix', () => {
+    it('should support deprecated suffixIcon prop', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<DatePicker suffixIcon="foobar" />);
       expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('foobar');
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: DatePicker] `suffixIcon` is deprecated. Please use `suffix` instead.',
+      );
+      errSpy.mockRestore();
     });
 
-    it('should support suffixIcon prop in config provider', () => {
+    it('should support suffix prop', () => {
+      const { container } = render(<DatePicker suffix="foobar" />);
+      expect(container.querySelector('.ant-picker-suffix')).toHaveTextContent('foobar');
+    });
+
+    it('should prefer suffix prop over suffixIcon prop', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<DatePicker suffix={null} suffixIcon="legacy" />);
+      expect(container.querySelector('.ant-picker-suffix')).not.toBeInTheDocument();
+      errSpy.mockRestore();
+    });
+
+    it('should support suffix prop in config provider', () => {
       const { container } = render(
-        <ConfigProvider datePicker={{ suffixIcon: 'foobar' }}>
+        <ConfigProvider datePicker={{ suffix: 'foobar' }}>
           <DatePicker />
         </ConfigProvider>,
       );
       expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('foobar');
     });
 
-    it('should prefer suffixIcon prop over config provider', () => {
+    it('should support deprecated suffixIcon prop in config provider', () => {
       const { container } = render(
         <ConfigProvider datePicker={{ suffixIcon: 'foobar' }}>
+          <DatePicker />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-picker-suffix')).toHaveTextContent('foobar');
+    });
+
+    it('should prefer suffix over suffixIcon in config provider', () => {
+      const { container } = render(
+        <ConfigProvider datePicker={{ suffix: 'foobar', suffixIcon: 'legacy' }}>
+          <DatePicker />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-picker-suffix')).toHaveTextContent('foobar');
+    });
+
+    it('should prefer component suffixIcon prop over config provider suffix', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(
+        <ConfigProvider datePicker={{ suffix: 'foobar' }}>
           <DatePicker suffixIcon="bamboo" />
         </ConfigProvider>,
       );
       expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('bamboo');
+      errSpy.mockRestore();
     });
 
     it('should support global colorErrorAffix token for error status suffix', async () => {
       const { container } = render(
         <ConfigProvider theme={{ token: { colorErrorAffix: '#12abcd' } }}>
-          <DatePicker status="error" suffixIcon="suffix" />
+          <DatePicker status="error" suffix="suffix" />
         </ConfigProvider>,
       );
 
@@ -602,7 +640,7 @@ describe('DatePicker', () => {
     it('should support global colorWarningAffix token for warning status suffix', async () => {
       const { container } = render(
         <ConfigProvider theme={{ token: { colorWarningAffix: '#12abcd' } }}>
-          <DatePicker status="warning" suffixIcon="suffix" />
+          <DatePicker status="warning" suffix="suffix" />
         </ConfigProvider>,
       );
 

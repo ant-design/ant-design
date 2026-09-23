@@ -71,10 +71,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | options | Select options. Will get better perf than jsx definition | { label, value }\[] | - |  |
 | placeholder | The placeholder of input | string | - |  |
 | showSearch | search for configuration | true \| [Object](#showsearch) | true |  |
-| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | size | The size of the input box | `large` \| `medium` \| `small` | - |  |
-| value | Selected option | string | - |  |
+| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| suffix | The custom suffix | ReactNode \| (props) => ReactNode | - | 6.7.0 |
+| ~~suffixIcon~~ | The custom suffix icon. Please use `suffix` instead | ReactNode | - | - |
+| value | Selected option | string | - |  |
 | variant | Variants of input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when leaving the component | function() | - |  |

@@ -12,6 +12,7 @@ import type {
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
+import { useAllowClear } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isPlainObject } from '../_util/is';
@@ -27,6 +28,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
+import { useLocale } from '../locale';
 import SpaceAddon from '../space/Addon';
 import Compact, { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
@@ -38,6 +40,7 @@ export type InputNumberSemanticType = {
     suffix?: string;
     input?: string;
     actions?: string;
+    clear?: string;
   };
   styles?: {
     root?: React.CSSProperties;
@@ -45,6 +48,7 @@ export type InputNumberSemanticType = {
     suffix?: React.CSSProperties;
     input?: React.CSSProperties;
     actions?: React.CSSProperties;
+    clear?: React.CSSProperties;
   };
 };
 
@@ -126,6 +130,7 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       addonAfter: _addonAfter,
       prefix,
       suffix,
+      allowClear,
       bordered,
       readOnly,
       status,
@@ -145,7 +150,23 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       style: contextStyle,
       styles: contextStyles,
       classNames: contextClassNames,
+      allowClear: contextAllowClear,
     } = useComponentConfig('inputNumber');
+
+    // ====================== Clear =======================
+    const [locale] = useLocale('global');
+    const mergedAllowClear = useAllowClear({
+      allowClear,
+      contextAllowClear,
+      componentName: 'InputNumber',
+    });
+    const clearConfig = mergedAllowClear && {
+      ...(isPlainObject(mergedAllowClear) ? mergedAllowClear : {}),
+      label:
+        (isPlainObject(allowClear) ? allowClear.label : undefined) ??
+        (isPlainObject(contextAllowClear) ? contextAllowClear.label : undefined) ??
+        locale.clear,
+    };
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
@@ -188,6 +209,7 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       size: mergedSize,
       disabled: mergedDisabled,
       controls: mergedControls,
+      allowClear: clearConfig,
     };
 
     const contextStyleRoot = useSemanticRootStyle(contextStyle);
@@ -231,6 +253,7 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
         controls={controlsTemp}
         prefix={prefix}
         suffix={suffixNode}
+        allowClear={clearConfig}
         classNames={mergedClassNames}
         styles={mergedStyles}
         {...others}

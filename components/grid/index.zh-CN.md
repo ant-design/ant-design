@@ -62,7 +62,7 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 
 > 注意：grid 模式下，以下属性不生效：`align`、`justify`、`wrap`
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | align | 垂直对齐方式 | `top` \| `middle` \| `bottom` \| `stretch` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'top' \| 'middle' \| 'bottom' \| 'stretch'}` | `top` | object: 4.24.0 | × |
 | grid | 启用 CSS Grid 布局，设置为 true 时使用 Grid 布局，或传入对象配置 grid 模板 | `boolean \| { gridTemplateColumns?: string; gridTemplateRows?: string; gridTemplateAreas?: string }` | false | 6.5.0 | × |
@@ -74,7 +74,7 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 
 > 注意：grid 模式下，以下响应式属性不生效：`flex`、`offset`、`order`、`pull`、`push`、`xs`、`sm`、`md`、`lg`、`xl`、`xxl`、`xxxl`
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | flex | flex 布局属性。数字类型对应 'flex: n n auto'；字符串类型直接透传（例如纯数字字符串 'n' 对应 'flex: n 1 0'） | string \| number | - |  | × |
 | gridItemConfig | Grid 模式配置，支持 gridColumn、gridRow、gridArea 属性 | `{ gridColumn?: string \| number; gridRow?: string \| number; gridArea?: string }` | - | 6.5.0 | × |
@@ -91,7 +91,7 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 | xxl | `窗口宽度 ≥ 1600px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  | × |
 | xxxl | `窗口宽度 ≥ 1920px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - | 6.3.0 | × |
 
-您可以使用 [主题定制](/docs/react/customize-theme-cn) 修改 `screen[XS|SM|MD|LG|XL|XXL|XXXL]` 来修改断点值（自 5.1.0 起，[codesandbox demo](https://codesandbox.io/s/antd-reproduction-template-forked-dlq3r9?file=/index.js)）。
+您可以使用 [主题定制](/docs/react/customize-theme) 修改 `screen[XS|SM|MD|LG|XL|XXL|XXXL]` 来修改断点值（自 5.1.0 起，[codesandbox demo](https://codesandbox.io/s/antd-reproduction-template-forked-dlq3r9?file=/index.js)）。
 
 响应式栅格的断点扩展自 [BootStrap 4 的规则](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints)（不包含链接里 `occasionally` 的部分)。
 
