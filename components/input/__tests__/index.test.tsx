@@ -39,7 +39,9 @@ describe('Input', () => {
     const labelledby = input.getAttribute('aria-labelledby')!.split(' ');
 
     expect(labelledby).toHaveLength(2);
-    labelledby.forEach((id) => expect(container.querySelector(`#${id}`)).toBeTruthy());
+    labelledby.forEach((id) => {
+      expect(container.querySelector(`#${id}`)).toBeTruthy();
+    });
   });
 
   it('select()', () => {
