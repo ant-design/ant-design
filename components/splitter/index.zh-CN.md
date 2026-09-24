@@ -34,6 +34,10 @@ demo:
 <code src="./demo/debug.tsx" debug>调试</code>
 <code src="./demo/size-mix.tsx" debug>尺寸混合</code>
 
+## 键盘操作 {#keyboard}
+
+聚焦可调整的拖拽条后，按 `Enter` 或 `Space` 开始调整。水平方向使用 `ArrowLeft` 和 `ArrowRight`，垂直方向使用 `ArrowUp` 和 `ArrowDown`。再次按下 `Enter`、`Space` 或移开焦点可结束调整。
+
 ## API
 
 通用属性参考：[通用属性](/docs/react/common-props)
