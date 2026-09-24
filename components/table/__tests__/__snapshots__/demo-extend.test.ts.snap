@@ -16937,7 +16937,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="search"
@@ -17074,7 +17074,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -17369,7 +17369,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="search"
