@@ -62,7 +62,7 @@ describe('TreeSelect.Semantic', () => {
   });
 
   it('preserves global popup styles when local styles override one property', () => {
-    const { container } = render(
+    render(
       <ConfigProvider
         treeSelect={{
           styles: { popup: { root: { color: 'red', padding: 12 }, item: { margin: 8 } } },
@@ -77,10 +77,10 @@ describe('TreeSelect.Semantic', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-tree-select-dropdown')).toHaveStyle({
+    expect(document.body.querySelector('.ant-tree-select-dropdown')).toHaveStyle({
       color: 'rgb(0, 0, 255)',
       padding: '12px',
     });
-    expect(container.querySelector('.merged-tree-item')).toHaveStyle({ margin: '8px' });
+    expect(document.body.querySelector('.merged-tree-item')).toHaveStyle({ margin: '8px' });
   });
 });
