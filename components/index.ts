@@ -1,8 +1,16 @@
+import type { createCache } from '@ant-design/cssinjs';
+
 import getReactVersion from './_util/getReactVersionCanDelMe';
 import warning from './_util/warning';
 
 export type { Breakpoint } from './_util/responsiveObserver';
 export type { GetProp, GetProps, GetRef } from './_util/type';
+/**
+ * Cache entity produced by `createCache()` and consumed by `StyleProvider` / `extractStyle`.
+ * Derived from the return type because `@ant-design/cssinjs` does not export it from its root.
+ */
+export type Cache = ReturnType<typeof createCache>;
+
 export { default as Affix } from './affix';
 export type { AffixProps, AffixRef } from './affix';
 export { default as Alert } from './alert';
@@ -217,6 +225,19 @@ export type {
   WatermarkRef,
   WatermarkText,
 } from './watermark';
+// Re-export the CSS-in-JS runtime from `antd`, so that apps enabling `layer` (or extracting
+// styles for SSR) never need to install `@ant-design/cssinjs` themselves. Declaring it
+// separately is error prone: a version mismatch yields a second copy of the module, whose
+// `StyleContext` antd can not read, which silently disables `<StyleProvider layer>`.
+export {
+  autoPrefixTransformer,
+  createCache,
+  extractStyle,
+  legacyLogicalPropertiesTransformer,
+  px2remTransformer,
+  StyleProvider,
+} from '@ant-design/cssinjs';
+export type { StyleProviderProps } from '@ant-design/cssinjs';
 
 export const unstableSetRender: any = () => {
   warning(

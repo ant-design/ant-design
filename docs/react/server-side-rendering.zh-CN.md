@@ -12,17 +12,17 @@ title: 服务端渲染
 
 ## 内联样式
 
-使用 `@ant-design/cssinjs@2.x` 将所需样式抽离：
+使用 `extractStyle` 将所需样式抽离：
 
 ```tsx
 import React from 'react';
-import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
-import type Entity from '@ant-design/cssinjs/es/Cache';
+import { createCache, extractStyle, StyleProvider } from 'antd';
+import type { Cache } from 'antd';
 import { renderToString } from 'react-dom/server';
 
 const App = () => {
   // SSR Render
-  const cache = React.useMemo<Entity>(() => createCache(), []);
+  const cache = React.useMemo<Cache>(() => createCache(), []);
   const html = renderToString(
     <StyleProvider cache={cache}>
       <MyApp />
@@ -155,7 +155,7 @@ fs.writeFileSync(outputPath, css);
 然后，你只需要在`pages/_app.tsx`文件中引入这个文件即可：
 
 ```tsx
-import { StyleProvider } from '@ant-design/cssinjs';
+import { StyleProvider } from 'antd';
 import type { AppProps } from 'next/app';
 
 import '../public/antd.min.css'; // 添加这行
@@ -240,11 +240,11 @@ const cssText = extractStyle((node) => (
 import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
-import { extractStyle } from '@ant-design/cssinjs';
-import type Entity from '@ant-design/cssinjs/lib/Cache';
+import { extractStyle } from 'antd';
+import type { Cache } from 'antd';
 
 export interface DoExtraStyleOptions {
-  cache: Entity;
+  cache: Cache;
   dir?: string;
   baseFileName?: string;
 }
@@ -287,7 +287,7 @@ export const doExtraStyle = (opts: DoExtraStyleOptions) => {
 
 ```tsx
 // _document.tsx
-import { createCache, StyleProvider } from '@ant-design/cssinjs';
+import { createCache, StyleProvider } from 'antd';
 import type { DocumentContext } from 'next/document';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 
