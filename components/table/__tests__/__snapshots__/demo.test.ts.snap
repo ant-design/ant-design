@@ -2143,12 +2143,14 @@ Array [
                           Address
                         </span>
                         <span
+                          aria-expanded="false"
                           aria-label="Filter menu"
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="0"
                         >
                           <span
+                            aria-hidden="true"
                             aria-label="filter"
                             class="anticon anticon-filter"
                             role="img"
@@ -3393,12 +3395,14 @@ Array [
                           Age
                         </span>
                         <span
+                          aria-expanded="false"
                           aria-label="Filter menu"
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="0"
                         >
                           <span
+                            aria-hidden="true"
                             aria-label="filter"
                             class="anticon anticon-filter"
                             role="img"
@@ -3670,6 +3674,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
                         Name
                       </span>
                       <span
+                        aria-expanded="false"
                         aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
@@ -3710,6 +3715,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
                         Age
                       </span>
                       <span
+                        aria-expanded="false"
                         aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
@@ -3808,6 +3814,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
                         </div>
                       </span>
                       <span
+                        aria-expanded="false"
                         aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
@@ -6013,12 +6020,14 @@ Array [
                           Address
                         </span>
                         <span
+                          aria-expanded="false"
                           aria-label="Filter menu"
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="0"
                         >
                           <span
+                            aria-hidden="true"
                             aria-label="filter"
                             class="anticon anticon-filter"
                             role="img"
@@ -9326,12 +9335,14 @@ exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
                         Name
                       </span>
                       <span
+                        aria-expanded="false"
                         aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
                         tabindex="0"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="filter"
                           class="anticon anticon-filter"
                           role="img"
@@ -9430,12 +9441,14 @@ exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
                         Address
                       </span>
                       <span
+                        aria-expanded="false"
                         aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
                         tabindex="0"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="filter"
                           class="anticon anticon-filter"
                           role="img"
@@ -9681,12 +9694,14 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
                         Name
                       </span>
                       <span
+                        aria-expanded="false"
                         aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
                         tabindex="0"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="filter"
                           class="anticon anticon-filter"
                           role="img"
@@ -9785,12 +9800,14 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
                         Address
                       </span>
                       <span
+                        aria-expanded="false"
                         aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
                         tabindex="0"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="filter"
                           class="anticon anticon-filter"
                           role="img"
@@ -14837,12 +14854,14 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                         Name
                       </span>
                       <span
+                        aria-expanded="false"
                         aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
                         tabindex="0"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="filter"
                           class="anticon anticon-filter"
                           role="img"
@@ -15068,6 +15087,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                           tabindex="-1"
                         >
                           <span
+                            aria-hidden="true"
                             aria-label="filter"
                             class="anticon anticon-filter"
                             role="img"
@@ -16008,12 +16028,14 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
                         </div>
                       </span>
                       <span
+                        aria-expanded="false"
                         aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
                         tabindex="0"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="filter"
                           class="anticon anticon-filter"
                           role="img"
@@ -16113,12 +16135,14 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
                         Address
                       </span>
                       <span
+                        aria-expanded="false"
                         aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
                         tabindex="0"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="filter"
                           class="anticon anticon-filter"
                           role="img"
@@ -21840,12 +21864,14 @@ Array [
                           </div>
                         </span>
                         <span
+                          aria-expanded="false"
                           aria-label="Filter menu"
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="0"
                         >
                           <span
+                            aria-hidden="true"
                             aria-label="filter"
                             class="anticon anticon-filter"
                             role="img"
@@ -22004,12 +22030,14 @@ Array [
                           </div>
                         </span>
                         <span
+                          aria-expanded="false"
                           aria-label="Filter menu"
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
                           tabindex="0"
                         >
                           <span
+                            aria-hidden="true"
                             aria-label="filter"
                             class="anticon anticon-filter"
                             role="img"

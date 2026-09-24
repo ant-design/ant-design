@@ -128,6 +128,29 @@ describe('Table.filter', () => {
 
     expect(trigger).toHaveAttribute('aria-label', '篩選器');
     expect(trigger).toHaveAttribute('tabindex', '0');
+    expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    expect(trigger?.querySelector('.anticon-filter')).toHaveAttribute('aria-hidden', 'true');
+  });
+
+  it('opens and closes a hover filter trigger directly from the keyboard', () => {
+    const onOpenChange = jest.fn();
+    const { container } = render(
+      createTable({
+        columns: [{ ...column, filterDropdownProps: { trigger: ['hover'], onOpenChange } }],
+      }),
+    );
+    const trigger = container.querySelector<HTMLElement>('.ant-table-filter-trigger')!;
+
+    fireEvent.keyDown(trigger, { key: 'Enter' });
+    expect(onOpenChange).toHaveBeenCalledWith(true);
+    expect(trigger).toHaveAttribute('aria-expanded', 'true');
+
+    fireEvent.keyDown(trigger, { key: 'Enter', repeat: true });
+    expect(onOpenChange).toHaveBeenCalledTimes(1);
+
+    fireEvent.keyDown(trigger, { key: ' ' });
+    expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    expect(onOpenChange).toHaveBeenLastCalledWith(false);
   });
 
   it.each(['Enter', ' '])('opens the filter dropdown with %s', async (key) => {
@@ -2000,17 +2023,13 @@ describe('Table.filter', () => {
 
     const { container } = render(<App />);
 
-    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toBe(
-      `${32}`,
-    );
+    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toBe(`${32}`);
     fireEvent.click(container.querySelector('.ant-dropdown-trigger.ant-table-filter-trigger')!);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(
       container.querySelector('.ant-btn.ant-btn-color-primary.ant-btn-variant-solid.ant-btn-sm')!,
     );
-    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toBe(
-      `${66}`,
-    );
+    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toBe(`${66}`);
   });
 
   it('Columns with filters should filter correctly after reset it.', () => {
@@ -3106,17 +3125,13 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('input[type="checkbox"]')!);
 
     // The checkbox is now checked.
-    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toBe(
-      true,
-    );
+    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toBe(true);
     fireEvent.click(container.querySelector('.ant-btn-primary')!);
     // Table data changes while the dropdown is open and a user is setting filters.
     rerender(createTable({ ...tableProps, dataSource: [{ name: 'Foo' }] }));
 
     // The checkbox is still checked.
-    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toBe(
-      true,
-    );
+    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toBe(true);
   });
 
   it('should not crash when filterDropdown is boolean', () => {
@@ -3286,13 +3301,17 @@ describe('Table.filter', () => {
       const { container, rerender } = render(getTable(['boy']));
 
       await waitFor(() => {
-        expect(container.querySelectorAll<HTMLInputElement>('input[type="radio"]')[0]).toBeChecked();
+        expect(
+          container.querySelectorAll<HTMLInputElement>('input[type="radio"]')[0],
+        ).toBeChecked();
       });
 
       rerender(getTable(['girl']));
 
       await waitFor(() => {
-        expect(container.querySelectorAll<HTMLInputElement>('input[type="radio"]')[1]).toBeChecked();
+        expect(
+          container.querySelectorAll<HTMLInputElement>('input[type="radio"]')[1],
+        ).toBeChecked();
       });
     });
 

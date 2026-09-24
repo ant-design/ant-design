@@ -138,6 +138,7 @@ exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
                         Name
                       </span>
                       <span
+                        aria-expanded="false"
                         aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
@@ -245,6 +246,7 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
                         Name
                       </span>
                       <span
+                        aria-expanded="false"
                         aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
@@ -358,6 +360,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                         Name
                       </span>
                       <span
+                        aria-expanded="false"
                         aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
@@ -488,12 +491,14 @@ exports[`Table.filter renders filter correctly 1`] = `
                         Name
                       </span>
                       <span
+                        aria-expanded="false"
                         aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
                         tabindex="0"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="filter"
                           class="anticon anticon-filter"
                           role="img"
