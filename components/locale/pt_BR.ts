@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Ordenar título',
     expand: 'Expandir linha',
     collapse: 'Colapsar linha',
+    expandAll: 'Expandir todas as linhas',
+    collapseAll: 'Colapsar todas as linhas',
     triggerDesc: 'Clique organiza por descendente',
     triggerAsc: 'Clique organiza por ascendente',
     cancelSort: 'Clique para cancelar organização',

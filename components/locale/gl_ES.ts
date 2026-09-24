@@ -38,6 +38,8 @@ const localeValues: Locale = {
     selectionMenu: 'Menú de selección',
     expand: 'Expandir fila',
     collapse: 'Contraer fila',
+    expandAll: 'Expandir todas as filas',
+    collapseAll: 'Contraer todas as filas',
     triggerDesc: 'Fai clic para ordenar descendente',
     triggerAsc: 'Fai clic para ordenar ascendente',
     cancelSort: 'Fai clic para cancelar a clasificación',

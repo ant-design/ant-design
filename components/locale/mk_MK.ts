@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Подреди',
     expand: 'Проширете го редот',
     collapse: 'Собери ред',
+    expandAll: 'Проширете ги сите редови',
+    collapseAll: 'Соберете ги сите редови',
     triggerDesc: 'Кликнете за да сортирате опаѓачки',
     triggerAsc: 'Кликнете за да сортирате растечки',
     cancelSort: 'Кликнете за да го откажете сортирањето',
