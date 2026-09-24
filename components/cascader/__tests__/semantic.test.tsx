@@ -235,4 +235,27 @@ describe('Cascader.Semantic', () => {
 
     expectSemanticRootStylePriority(container.querySelector('.ant-cascader'));
   });
+
+  it('preserves global popup styles when local styles override one property', () => {
+    const { container } = render(
+      <ConfigProvider
+        cascader={{
+          styles: { popup: { root: { color: 'red', padding: 12 }, list: { margin: 8 } } },
+        }}
+      >
+        <Cascader
+          open
+          options={options}
+          styles={{ popup: { root: { color: 'blue' } } }}
+          classNames={{ popup: { list: 'merged-popup-list' } }}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-cascader-dropdown')).toHaveStyle({
+      color: 'rgb(0, 0, 255)',
+      padding: '12px',
+    });
+    expect(container.querySelector('.merged-popup-list')).toHaveStyle({ margin: '8px' });
+  });
 });

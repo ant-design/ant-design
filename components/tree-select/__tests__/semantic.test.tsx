@@ -2,6 +2,7 @@ import React from 'react';
 
 import TreeSelect from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('TreeSelect.Semantic', () => {
   it('support classNames and styles as functions', () => {
@@ -58,5 +59,28 @@ describe('TreeSelect.Semantic', () => {
     const style = treeSelectElement?.getAttribute('style');
     expect(style).toContain('opacity: 1');
     expect(style).toContain('background-color: white');
+  });
+
+  it('preserves global popup styles when local styles override one property', () => {
+    const { container } = render(
+      <ConfigProvider
+        treeSelect={{
+          styles: { popup: { root: { color: 'red', padding: 12 }, item: { margin: 8 } } },
+        }}
+      >
+        <TreeSelect
+          open
+          treeData={[{ value: 'leaf', title: 'Leaf' }]}
+          styles={{ popup: { root: { color: 'blue' } } }}
+          classNames={{ popup: { item: 'merged-tree-item' } }}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-tree-select-dropdown')).toHaveStyle({
+      color: 'rgb(0, 0, 255)',
+      padding: '12px',
+    });
+    expect(container.querySelector('.merged-tree-item')).toHaveStyle({ margin: '8px' });
   });
 });
