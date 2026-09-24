@@ -26,6 +26,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 <code src="./demo/centered.tsx">居中</code>
 <code src="./demo/icon.tsx">图标</code>
 <code src="./demo/custom-indicator.tsx">指示条</code>
+<code src="./demo/scroll-position.tsx" version="6.7.0">滚动位置</code>
 <code src="./demo/slide.tsx">滑动</code>
 <code src="./demo/extra.tsx">附加内容</code>
 <code src="./demo/size.tsx">大小</code>
@@ -63,6 +64,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | removeIcon | 自定义删除按钮，设置 `type="editable-card"` 时有效 | ReactNode | `<CloseOutlined />` | 5.15.0 | 5.15.0 |
 | ~~popupClassName~~ | 更多菜单的 `className`, 请使用 `classNames.popup` 替换 | string | - | 4.21.0 | × |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  | × |
+| scrollPosition | 切换标签时激活标签的滚动对齐方式。`auto` 仅在激活标签超出可视区域时滚动并对齐到最近的边缘 | `auto` \| `start` \| `center` \| `end` \| number | `auto` | 6.7.0 | 6.7.0 |
 | size | 大小，提供 `large` `medium` 和 `small` 三种大小 | `large` \| `medium` \| `small` | `medium` |  | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | object: 4.6.0 | × |
