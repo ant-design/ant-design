@@ -6,7 +6,7 @@ We wrote a **[contribution guide](https://ant.design/docs/react/contributing)** 
 
 ## Security
 
-If you're working with GitHub Actions workflows, please read our **[Workflows Security Guide](.github/WORKFLOWS_SECURITY.md)** to understand security best practices.
+If you're working with GitHub Actions workflows, please read our **[Workflows Security Guide](WORKFLOWS_SECURITY.md)** to understand security best practices.
 
 ---
 
@@ -18,4 +18,4 @@ If you're working with GitHub Actions workflows, please read our **[Workflows Se
 
 ## 安全
 
-如果你需要修改 GitHub Actions 工作流，请阅读我们的 **[工作流安全指南](.github/WORKFLOWS_SECURITY.md)** 以了解安全最佳实践。
+如果你需要修改 GitHub Actions 工作流，请阅读我们的 **[工作流安全指南](WORKFLOWS_SECURITY.md)** 以了解安全最佳实践。
