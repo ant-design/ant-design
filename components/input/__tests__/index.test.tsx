@@ -33,6 +33,15 @@ describe('Input', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should associate addons with the input', () => {
+    const { container } = render(<Input addonBefore="Before" addonAfter="After" />);
+    const input = container.querySelector('input')!;
+    const labelledby = input.getAttribute('aria-labelledby')!.split(' ');
+
+    expect(labelledby).toHaveLength(2);
+    labelledby.forEach((id) => expect(container.querySelector(`#${id}`)).toBeTruthy());
+  });
+
   it('select()', () => {
     const ref = React.createRef<InputRef>();
     render(<Input ref={ref} />);
