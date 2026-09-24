@@ -773,6 +773,17 @@ describe('Table.pagination', () => {
       );
     });
 
+    it('keep legacy sticky header behavior when pagination is explicitly false', () => {
+      const { container } = render(
+        <Table columns={columns} dataSource={data} sticky={{ pagination: false }} />,
+      );
+
+      expect(container.querySelector('.ant-table-sticky-holder')).toBeTruthy();
+      expect(container.querySelector('.ant-table-pagination')).not.toHaveClass(
+        'ant-table-pagination-sticky',
+      );
+    });
+
     it('only apply sticky class to the bottom pagination with top and bottom placement', () => {
       const { container } = render(
         <Table
