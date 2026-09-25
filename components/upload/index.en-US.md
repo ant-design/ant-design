@@ -38,6 +38,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 <code src="./demo/upload-with-aliyun-oss.tsx">Aliyun OSS</code>
 <code src="./demo/file-type.tsx" debug>custom show icon</code>
 <code src="./demo/upload-custom-action-icon.tsx">Custom action icon and extra info</code>
+<code src="./demo/retry.tsx">Retry upload</code>
 <code src="./demo/drag-sorting.tsx">Drag sorting of uploadList</code>
 <code src="./demo/crop-image.tsx">Crop image before uploading</code>
 <code src="./demo/customize-progress-bar.tsx">Customize Progress Bar</code>
@@ -64,7 +65,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | headers | Set request headers, valid above IE10 | object | - |  | × |
 | iconRender | Custom show icon | (file: UploadFile, listType?: UploadListType) => ReactNode | - |  | × |
 | isImageUrl | Customize if render &lt;img /> in thumbnail | (file: UploadFile) => boolean | [(inside implementation)](https://github.com/ant-design/ant-design/blob/4ad5830eecfb87471cd8ac588c5d992862b70770/components/upload/utils.tsx#L47-L68) |  | × |
-| itemRender | Custom item of uploadList | (originNode: ReactElement, file: UploadFile, fileList: object\[], actions: { download: function, preview: function, remove: function }) => React.ReactNode | - | 4.16.0 | × |
+| itemRender | Custom item of uploadList | (originNode: ReactElement, file: UploadFile, fileList: object\[], actions: { download: function, preview: function, remove: function, retry: function }) => React.ReactNode | - | 4.16.0 | × |
 | listType | Built-in stylesheets, support for four types: `text`, `picture`, `picture-card` or `picture-circle` | string | `text` | `picture-circle`(5.2.0+) | × |
 | maxCount | Limit the number of uploaded files. Will replace current one when `maxCount` is `1` | number | - | 4.10.0 | × |
 | method | The http method of upload request | string | `post` |  | × |
@@ -74,7 +75,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | pastable | Support paste file | boolean | false | 5.25.0 | × |
 | previewFile | Customize preview file logic | (file: File \| Blob) => Promise&lt;dataURL: string> | - |  | × |
 | progress | Custom progress bar | [ProgressProps](/components/progress/#api) (support `type="line"` only) | { strokeWidth: 2, showInfo: false } | 4.3.0 | 6.4.0 |
-| showUploadList | Whether to show default upload list, could be an object to specify `extra`, `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` and `downloadIcon` individually | boolean \| { extra?: ReactNode \| (file: UploadFile) => ReactNode, showPreviewIcon?: boolean \| (file: UploadFile) => boolean, showDownloadIcon?: boolean \| (file: UploadFile) => boolean, showRemoveIcon?: boolean \| (file: UploadFile) => boolean, previewIcon?: ReactNode \| (file: UploadFile) => ReactNode, removeIcon?: ReactNode \| (file: UploadFile) => ReactNode, downloadIcon?: ReactNode \| (file: UploadFile) => ReactNode } | true | `extra`: 5.20.0, `showPreviewIcon` function: 5.21.0, `showRemoveIcon` function: 5.21.0, `showDownloadIcon` function: 5.21.0 | × |
+| showUploadList | Whether to show default upload list, could be an object to specify `extra`, `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `showRetryIcon`, `removeIcon`, `downloadIcon` and `retryIcon` individually | boolean \| { extra?: ReactNode \| (file: UploadFile) => ReactNode, showPreviewIcon?: boolean \| (file: UploadFile) => boolean, showDownloadIcon?: boolean \| (file: UploadFile) => boolean, showRemoveIcon?: boolean \| (file: UploadFile) => boolean, showRetryIcon?: boolean \| (file: UploadFile) => boolean, previewIcon?: ReactNode \| (file: UploadFile) => ReactNode, removeIcon?: ReactNode \| (file: UploadFile) => ReactNode, downloadIcon?: ReactNode \| (file: UploadFile) => ReactNode, retryIcon?: ReactNode \| (file: UploadFile) => ReactNode } | true | `extra`: 5.20.0, `showPreviewIcon` function: 5.21.0, `showRemoveIcon` function: 5.21.0, `showDownloadIcon` function: 5.21.0, `showRetryIcon`: 6.6.0, `retryIcon`: 6.6.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | withCredentials | The ajax upload with cookie sent | boolean | false |  | × |
 | onChange | A callback function, can be executed when uploading state is changing. It will trigger by every uploading phase. see [onChange](#onchange) | function | - |  | × |
@@ -83,6 +84,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onFocus | Called when focus enters the Upload component | (event: React.FocusEvent&lt;HTMLSpanElement>) => void | - | 6.7.0 | × |
 | onPreview | A callback function, will be executed when the file link or preview icon is clicked | function(file) | - |  | × |
 | onRemove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when the return value is false or a Promise which resolve(false) or reject | function(file): boolean \| Promise | - |  | × |
+| onRetry | A callback function executed when retry button is clicked to retry the failed upload. The default retry logic will be executed first, then this callback will be invoked | function(file: UploadFile) => void | - | 6.6.0 | × |
 
 ## Interface
 
