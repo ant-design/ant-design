@@ -1,8 +1,11 @@
 import React from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { renderToString } from 'react-dom/server';
 
 import type { RadioGroupProps } from '..';
 import Radio from '..';
 import { fireEvent, render, screen } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 
 describe('Radio Group', () => {
@@ -130,6 +133,87 @@ describe('Radio Group', () => {
     const radios = container.querySelectorAll('input');
 
     expect(radios.length).toBe(3);
+  });
+
+  it('should support size for default radio groups', () => {
+    const getRadioGroupStyle = (wireframe: boolean) => {
+      const cache = createCache();
+      renderToString(
+        <ConfigProvider theme={wireframe ? { token: { wireframe } } : undefined}>
+          <StyleProvider cache={cache}>
+            <Radio.Group size="large" options={['A']} />
+            <Radio.Group size="small" options={['B']} />
+          </StyleProvider>
+        </ConfigProvider>,
+      );
+      return extractStyle(cache);
+    };
+    const getSizeVar = (style: string, size: 'large' | 'small', name: string) =>
+      style.match(
+        new RegExp(`\\.ant-radio-group-${size}\\{[^}]*--ant-cmp-radio-${name}:([^;]+);`),
+      )?.[1];
+
+    [false, true].forEach((wireframe) => {
+      const style = getRadioGroupStyle(wireframe);
+
+      expect(style).not.toContain('NaN');
+      [
+        'size',
+        'dot-size',
+        'font-size',
+        'line-height',
+        'button-height',
+        'button-font-size',
+        'button-line-height',
+        'button-border-radius',
+        'button-padding-inline',
+      ].forEach((name) => {
+        expect(getSizeVar(style, 'large', name)).toBeDefined();
+        expect(getSizeVar(style, 'small', name)).toBeDefined();
+        expect(getSizeVar(style, 'large', name)).not.toEqual(getSizeVar(style, 'small', name));
+      });
+
+      expect(style).not.toMatch(/\.ant-radio-group-(?:large|small) [^{]+\{/);
+      expect(style).toContain('font-size:var(--ant-cmp-radio-font-size');
+      expect(style).toContain('line-height:var(--ant-cmp-radio-line-height');
+      expect(style).toContain('height:var(--ant-cmp-radio-button-height');
+      expect(style).toContain('font-size:var(--ant-cmp-radio-button-font-size');
+      expect(style).toContain('line-height:var(--ant-cmp-radio-button-line-height');
+      expect(style).toContain('border-start-start-radius:var(--ant-cmp-radio-button-border-radius');
+    });
+  });
+
+  it('should scale large/small sizes from customized radioSize and dotSize', () => {
+    const cache = createCache();
+    renderToString(
+      <ConfigProvider theme={{ components: { Radio: { radioSize: 24, dotSize: 12 } } }}>
+        <StyleProvider cache={cache}>
+          <Radio.Group size="large" options={['A']} />
+          <Radio.Group size="small" options={['B']} />
+        </StyleProvider>
+      </ConfigProvider>,
+    );
+    const style = extractStyle(cache);
+
+    expect(style).toContain('--ant-radio-radio-size:24');
+    expect(style).toContain('--ant-radio-dot-size:12');
+
+    expect(style).toContain('width:var(--ant-cmp-radio-size');
+    expect(style).toContain('width:var(--ant-cmp-radio-dot-size');
+
+    // large/small should scale from the component tokens instead of global font tokens
+    ['.ant-radio-group-large', '.ant-radio-group-small'].forEach((groupCls) => {
+      expect(style).toMatch(
+        new RegExp(
+          `${groupCls}\\{[^}]*--ant-cmp-radio-size:[^}]*var\\(--ant-radio-radio-size\\)`,
+        ),
+      );
+      expect(style).toMatch(
+        new RegExp(
+          `${groupCls}\\{[^}]*--ant-cmp-radio-dot-size:[^}]*var\\(--ant-radio-dot-size\\)`,
+        ),
+      );
+    });
   });
 
   it('all children should have a name property', () => {
