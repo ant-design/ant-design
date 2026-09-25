@@ -1,4 +1,7 @@
 {
-  "*.{ts,tsx,js,jsx,css,mjs,json}": ["biome check --write --no-errors-on-unmatched", "eslint"],
+  "*.{ts,tsx,js,jsx,css,mjs,json}": [
+    "biome check --write --no-errors-on-unmatched",
+    "cross-env NODE_OPTIONS=--require=./scripts/load-typescript6.cjs eslint"
+  ],
   "*.{md,yml}": ["prettier --ignore-unknown --write"]
 }
