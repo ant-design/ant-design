@@ -45,11 +45,13 @@ exports[`Radio should render correctly 1`] = `
     class="ant-radio ant-wave-target"
   >
     <input
+      aria-label="Test"
       class="ant-radio-input"
       type="radio"
     />
   </span>
   <span
+    aria-hidden="true"
     class="ant-radio-label"
   >
     Test

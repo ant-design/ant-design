@@ -6128,6 +6128,7 @@ exports[`Locale Provider should display the text as ar 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="الشهر"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -6136,6 +6137,7 @@ exports[`Locale Provider should display the text as ar 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             الشهر
@@ -6148,6 +6150,7 @@ exports[`Locale Provider should display the text as ar 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="السنة"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -6155,6 +6158,7 @@ exports[`Locale Provider should display the text as ar 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             السنة
@@ -11363,6 +11367,7 @@ exports[`Locale Provider should display the text as az 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Ay"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -11371,6 +11376,7 @@ exports[`Locale Provider should display the text as az 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Ay
@@ -11383,6 +11389,7 @@ exports[`Locale Provider should display the text as az 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="İl"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -11390,6 +11397,7 @@ exports[`Locale Provider should display the text as az 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             İl
@@ -16598,6 +16606,7 @@ exports[`Locale Provider should display the text as bg 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Месец"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -16606,6 +16615,7 @@ exports[`Locale Provider should display the text as bg 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Месец
@@ -16618,6 +16628,7 @@ exports[`Locale Provider should display the text as bg 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Година"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -16625,6 +16636,7 @@ exports[`Locale Provider should display the text as bg 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Година
@@ -21833,6 +21845,7 @@ exports[`Locale Provider should display the text as bn-bd 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="মাস"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -21841,6 +21854,7 @@ exports[`Locale Provider should display the text as bn-bd 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             মাস
@@ -21853,6 +21867,7 @@ exports[`Locale Provider should display the text as bn-bd 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="বছর"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -21860,6 +21875,7 @@ exports[`Locale Provider should display the text as bn-bd 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             বছর
@@ -27068,6 +27084,7 @@ exports[`Locale Provider should display the text as by 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Месяц"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -27076,6 +27093,7 @@ exports[`Locale Provider should display the text as by 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Месяц
@@ -27088,6 +27106,7 @@ exports[`Locale Provider should display the text as by 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Год"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -27095,6 +27114,7 @@ exports[`Locale Provider should display the text as by 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Год
@@ -32303,6 +32323,7 @@ exports[`Locale Provider should display the text as ca 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mes"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -32311,6 +32332,7 @@ exports[`Locale Provider should display the text as ca 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mes
@@ -32323,6 +32345,7 @@ exports[`Locale Provider should display the text as ca 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Any"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -32330,6 +32353,7 @@ exports[`Locale Provider should display the text as ca 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Any
@@ -37538,6 +37562,7 @@ exports[`Locale Provider should display the text as cs 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Měsíc"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -37546,6 +37571,7 @@ exports[`Locale Provider should display the text as cs 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Měsíc
@@ -37558,6 +37584,7 @@ exports[`Locale Provider should display the text as cs 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Rok"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -37565,6 +37592,7 @@ exports[`Locale Provider should display the text as cs 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Rok
@@ -42773,6 +42801,7 @@ exports[`Locale Provider should display the text as da 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Måned"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -42781,6 +42810,7 @@ exports[`Locale Provider should display the text as da 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Måned
@@ -42793,6 +42823,7 @@ exports[`Locale Provider should display the text as da 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="År"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -42800,6 +42831,7 @@ exports[`Locale Provider should display the text as da 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             År
@@ -48008,6 +48040,7 @@ exports[`Locale Provider should display the text as de 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Monat"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -48016,6 +48049,7 @@ exports[`Locale Provider should display the text as de 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Monat
@@ -48028,6 +48062,7 @@ exports[`Locale Provider should display the text as de 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Jahr"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -48035,6 +48070,7 @@ exports[`Locale Provider should display the text as de 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Jahr
@@ -53243,6 +53279,7 @@ exports[`Locale Provider should display the text as el 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Μήνας"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -53251,6 +53288,7 @@ exports[`Locale Provider should display the text as el 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Μήνας
@@ -53263,6 +53301,7 @@ exports[`Locale Provider should display the text as el 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Έτος"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -53270,6 +53309,7 @@ exports[`Locale Provider should display the text as el 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Έτος
@@ -58478,6 +58518,7 @@ exports[`Locale Provider should display the text as en 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -58486,6 +58527,7 @@ exports[`Locale Provider should display the text as en 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Month
@@ -58498,6 +58540,7 @@ exports[`Locale Provider should display the text as en 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Year"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -58505,6 +58548,7 @@ exports[`Locale Provider should display the text as en 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Year
@@ -63713,6 +63757,7 @@ exports[`Locale Provider should display the text as en-gb 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -63721,6 +63766,7 @@ exports[`Locale Provider should display the text as en-gb 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Month
@@ -63733,6 +63779,7 @@ exports[`Locale Provider should display the text as en-gb 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Year"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -63740,6 +63787,7 @@ exports[`Locale Provider should display the text as en-gb 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Year
@@ -68948,6 +68996,7 @@ exports[`Locale Provider should display the text as es 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mes"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -68956,6 +69005,7 @@ exports[`Locale Provider should display the text as es 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mes
@@ -68968,6 +69018,7 @@ exports[`Locale Provider should display the text as es 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Año"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -68975,6 +69026,7 @@ exports[`Locale Provider should display the text as es 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Año
@@ -74183,6 +74235,7 @@ exports[`Locale Provider should display the text as es-us 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mes"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -74191,6 +74244,7 @@ exports[`Locale Provider should display the text as es-us 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mes
@@ -74203,6 +74257,7 @@ exports[`Locale Provider should display the text as es-us 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Año"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -74210,6 +74265,7 @@ exports[`Locale Provider should display the text as es-us 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Año
@@ -79418,6 +79474,7 @@ exports[`Locale Provider should display the text as et 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Kuu"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -79426,6 +79483,7 @@ exports[`Locale Provider should display the text as et 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Kuu
@@ -79438,6 +79496,7 @@ exports[`Locale Provider should display the text as et 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Aasta"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -79445,6 +79504,7 @@ exports[`Locale Provider should display the text as et 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Aasta
@@ -84653,6 +84713,7 @@ exports[`Locale Provider should display the text as eu 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Hilabete"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -84661,6 +84722,7 @@ exports[`Locale Provider should display the text as eu 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Hilabete
@@ -84673,6 +84735,7 @@ exports[`Locale Provider should display the text as eu 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Urte"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -84680,6 +84743,7 @@ exports[`Locale Provider should display the text as eu 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Urte
@@ -89888,6 +89952,7 @@ exports[`Locale Provider should display the text as fa 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="ماه"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -89896,6 +89961,7 @@ exports[`Locale Provider should display the text as fa 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             ماه
@@ -89908,6 +89974,7 @@ exports[`Locale Provider should display the text as fa 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="سال"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -89915,6 +89982,7 @@ exports[`Locale Provider should display the text as fa 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             سال
@@ -95123,6 +95191,7 @@ exports[`Locale Provider should display the text as fi 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Kuukausi"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -95131,6 +95200,7 @@ exports[`Locale Provider should display the text as fi 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Kuukausi
@@ -95143,6 +95213,7 @@ exports[`Locale Provider should display the text as fi 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Vuosi"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -95150,6 +95221,7 @@ exports[`Locale Provider should display the text as fi 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Vuosi
@@ -100358,6 +100430,7 @@ exports[`Locale Provider should display the text as fr 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mois"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -100366,6 +100439,7 @@ exports[`Locale Provider should display the text as fr 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mois
@@ -100378,6 +100452,7 @@ exports[`Locale Provider should display the text as fr 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Année"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -100385,6 +100460,7 @@ exports[`Locale Provider should display the text as fr 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Année
@@ -105593,6 +105669,7 @@ exports[`Locale Provider should display the text as fr 2`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mois"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -105601,6 +105678,7 @@ exports[`Locale Provider should display the text as fr 2`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mois
@@ -105613,6 +105691,7 @@ exports[`Locale Provider should display the text as fr 2`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Année"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -105620,6 +105699,7 @@ exports[`Locale Provider should display the text as fr 2`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Année
@@ -110828,6 +110908,7 @@ exports[`Locale Provider should display the text as fr 3`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mois"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -110836,6 +110917,7 @@ exports[`Locale Provider should display the text as fr 3`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mois
@@ -110848,6 +110930,7 @@ exports[`Locale Provider should display the text as fr 3`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Année"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -110855,6 +110938,7 @@ exports[`Locale Provider should display the text as fr 3`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Année
@@ -116063,6 +116147,7 @@ exports[`Locale Provider should display the text as ga 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="mhí"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -116071,6 +116156,7 @@ exports[`Locale Provider should display the text as ga 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             mhí
@@ -116083,6 +116169,7 @@ exports[`Locale Provider should display the text as ga 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="bhliain"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -116090,6 +116177,7 @@ exports[`Locale Provider should display the text as ga 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             bhliain
@@ -121298,6 +121386,7 @@ exports[`Locale Provider should display the text as gl 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mes"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -121306,6 +121395,7 @@ exports[`Locale Provider should display the text as gl 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mes
@@ -121318,6 +121408,7 @@ exports[`Locale Provider should display the text as gl 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Ano"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -121325,6 +121416,7 @@ exports[`Locale Provider should display the text as gl 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Ano
@@ -126533,6 +126625,7 @@ exports[`Locale Provider should display the text as he 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="חודש"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -126541,6 +126634,7 @@ exports[`Locale Provider should display the text as he 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             חודש
@@ -126553,6 +126647,7 @@ exports[`Locale Provider should display the text as he 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="שנה"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -126560,6 +126655,7 @@ exports[`Locale Provider should display the text as he 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             שנה
@@ -131768,6 +131864,7 @@ exports[`Locale Provider should display the text as hi 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="महीना"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -131776,6 +131873,7 @@ exports[`Locale Provider should display the text as hi 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             महीना
@@ -131788,6 +131886,7 @@ exports[`Locale Provider should display the text as hi 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="साल"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -131795,6 +131894,7 @@ exports[`Locale Provider should display the text as hi 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             साल
@@ -137003,6 +137103,7 @@ exports[`Locale Provider should display the text as hr 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mjesec"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -137011,6 +137112,7 @@ exports[`Locale Provider should display the text as hr 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mjesec
@@ -137023,6 +137125,7 @@ exports[`Locale Provider should display the text as hr 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Godina"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -137030,6 +137133,7 @@ exports[`Locale Provider should display the text as hr 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Godina
@@ -142238,6 +142342,7 @@ exports[`Locale Provider should display the text as hu 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Hónap"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -142246,6 +142351,7 @@ exports[`Locale Provider should display the text as hu 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Hónap
@@ -142258,6 +142364,7 @@ exports[`Locale Provider should display the text as hu 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Év"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -142265,6 +142372,7 @@ exports[`Locale Provider should display the text as hu 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Év
@@ -147473,6 +147581,7 @@ exports[`Locale Provider should display the text as hy-am 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Ամիս"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -147481,6 +147590,7 @@ exports[`Locale Provider should display the text as hy-am 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Ամիս
@@ -147493,6 +147603,7 @@ exports[`Locale Provider should display the text as hy-am 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Տարի"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -147500,6 +147611,7 @@ exports[`Locale Provider should display the text as hy-am 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Տարի
@@ -152708,6 +152820,7 @@ exports[`Locale Provider should display the text as id 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Bulan"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -152716,6 +152829,7 @@ exports[`Locale Provider should display the text as id 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Bulan
@@ -152728,6 +152842,7 @@ exports[`Locale Provider should display the text as id 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Tahun"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -152735,6 +152850,7 @@ exports[`Locale Provider should display the text as id 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Tahun
@@ -157943,6 +158059,7 @@ exports[`Locale Provider should display the text as is 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mánuður"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -157951,6 +158068,7 @@ exports[`Locale Provider should display the text as is 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mánuður
@@ -157963,6 +158081,7 @@ exports[`Locale Provider should display the text as is 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Ár"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -157970,6 +158089,7 @@ exports[`Locale Provider should display the text as is 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Ár
@@ -163178,6 +163298,7 @@ exports[`Locale Provider should display the text as it 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mese"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -163186,6 +163307,7 @@ exports[`Locale Provider should display the text as it 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mese
@@ -163198,6 +163320,7 @@ exports[`Locale Provider should display the text as it 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Anno"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -163205,6 +163328,7 @@ exports[`Locale Provider should display the text as it 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Anno
@@ -168413,6 +168537,7 @@ exports[`Locale Provider should display the text as ja 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="月"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -168421,6 +168546,7 @@ exports[`Locale Provider should display the text as ja 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             月
@@ -168433,6 +168559,7 @@ exports[`Locale Provider should display the text as ja 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="年"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -168440,6 +168567,7 @@ exports[`Locale Provider should display the text as ja 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             年
@@ -173648,6 +173776,7 @@ exports[`Locale Provider should display the text as ka 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="თვე"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -173656,6 +173785,7 @@ exports[`Locale Provider should display the text as ka 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             თვე
@@ -173668,6 +173798,7 @@ exports[`Locale Provider should display the text as ka 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="წელი"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -173675,6 +173806,7 @@ exports[`Locale Provider should display the text as ka 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             წელი
@@ -178883,6 +179015,7 @@ exports[`Locale Provider should display the text as kk 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Ай"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -178891,6 +179024,7 @@ exports[`Locale Provider should display the text as kk 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Ай
@@ -178903,6 +179037,7 @@ exports[`Locale Provider should display the text as kk 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Жыл"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -178910,6 +179045,7 @@ exports[`Locale Provider should display the text as kk 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Жыл
@@ -184116,6 +184252,7 @@ exports[`Locale Provider should display the text as km 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="ខែ"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -184124,6 +184261,7 @@ exports[`Locale Provider should display the text as km 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             ខែ
@@ -184136,6 +184274,7 @@ exports[`Locale Provider should display the text as km 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="ឆ្នាំ"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -184143,6 +184282,7 @@ exports[`Locale Provider should display the text as km 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             ឆ្នាំ
@@ -189351,6 +189491,7 @@ exports[`Locale Provider should display the text as kn 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="ತಿಂಗಳು"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -189359,6 +189500,7 @@ exports[`Locale Provider should display the text as kn 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             ತಿಂಗಳು
@@ -189371,6 +189513,7 @@ exports[`Locale Provider should display the text as kn 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="ವರ್ಷ"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -189378,6 +189521,7 @@ exports[`Locale Provider should display the text as kn 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             ವರ್ಷ
@@ -194586,6 +194730,7 @@ exports[`Locale Provider should display the text as ko 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="월"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -194594,6 +194739,7 @@ exports[`Locale Provider should display the text as ko 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             월
@@ -194606,6 +194752,7 @@ exports[`Locale Provider should display the text as ko 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="년"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -194613,6 +194760,7 @@ exports[`Locale Provider should display the text as ko 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             년
@@ -199821,6 +199969,7 @@ exports[`Locale Provider should display the text as ku 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Meh"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -199829,6 +199978,7 @@ exports[`Locale Provider should display the text as ku 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Meh
@@ -199841,6 +199991,7 @@ exports[`Locale Provider should display the text as ku 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Sal"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -199848,6 +199999,7 @@ exports[`Locale Provider should display the text as ku 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Sal
@@ -205056,6 +205208,7 @@ exports[`Locale Provider should display the text as ku-iq 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Meh"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -205064,6 +205217,7 @@ exports[`Locale Provider should display the text as ku-iq 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Meh
@@ -205076,6 +205230,7 @@ exports[`Locale Provider should display the text as ku-iq 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Sal"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -205083,6 +205238,7 @@ exports[`Locale Provider should display the text as ku-iq 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Sal
@@ -210291,6 +210447,7 @@ exports[`Locale Provider should display the text as lt 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mėnesis"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -210299,6 +210456,7 @@ exports[`Locale Provider should display the text as lt 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mėnesis
@@ -210311,6 +210469,7 @@ exports[`Locale Provider should display the text as lt 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Metai"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -210318,6 +210477,7 @@ exports[`Locale Provider should display the text as lt 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Metai
@@ -215526,6 +215686,7 @@ exports[`Locale Provider should display the text as lv 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mēnesis"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -215534,6 +215695,7 @@ exports[`Locale Provider should display the text as lv 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mēnesis
@@ -215546,6 +215708,7 @@ exports[`Locale Provider should display the text as lv 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Gads"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -215553,6 +215716,7 @@ exports[`Locale Provider should display the text as lv 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Gads
@@ -220761,6 +220925,7 @@ exports[`Locale Provider should display the text as mk 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Месец"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -220769,6 +220934,7 @@ exports[`Locale Provider should display the text as mk 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Месец
@@ -220781,6 +220947,7 @@ exports[`Locale Provider should display the text as mk 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Година"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -220788,6 +220955,7 @@ exports[`Locale Provider should display the text as mk 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Година
@@ -225996,6 +226164,7 @@ exports[`Locale Provider should display the text as ml 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="മാസം"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -226004,6 +226173,7 @@ exports[`Locale Provider should display the text as ml 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             മാസം
@@ -226016,6 +226186,7 @@ exports[`Locale Provider should display the text as ml 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="വർഷം"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -226023,6 +226194,7 @@ exports[`Locale Provider should display the text as ml 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             വർഷം
@@ -231231,6 +231403,7 @@ exports[`Locale Provider should display the text as mn-mn 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Сар"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -231239,6 +231412,7 @@ exports[`Locale Provider should display the text as mn-mn 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Сар
@@ -231251,6 +231425,7 @@ exports[`Locale Provider should display the text as mn-mn 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Жил"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -231258,6 +231433,7 @@ exports[`Locale Provider should display the text as mn-mn 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Жил
@@ -236466,6 +236642,7 @@ exports[`Locale Provider should display the text as mr 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="महिना"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -236474,6 +236651,7 @@ exports[`Locale Provider should display the text as mr 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             महिना
@@ -236486,6 +236664,7 @@ exports[`Locale Provider should display the text as mr 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="वर्ष"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -236493,6 +236672,7 @@ exports[`Locale Provider should display the text as mr 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             वर्ष
@@ -241701,6 +241881,7 @@ exports[`Locale Provider should display the text as ms-my 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Bulan"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -241709,6 +241890,7 @@ exports[`Locale Provider should display the text as ms-my 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Bulan
@@ -241721,6 +241903,7 @@ exports[`Locale Provider should display the text as ms-my 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Tahun"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -241728,6 +241911,7 @@ exports[`Locale Provider should display the text as ms-my 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Tahun
@@ -246936,6 +247120,7 @@ exports[`Locale Provider should display the text as my 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="လ"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -246944,6 +247129,7 @@ exports[`Locale Provider should display the text as my 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             လ
@@ -246956,6 +247142,7 @@ exports[`Locale Provider should display the text as my 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="နှစ်"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -246963,6 +247150,7 @@ exports[`Locale Provider should display the text as my 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             နှစ်
@@ -252171,6 +252359,7 @@ exports[`Locale Provider should display the text as nb 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Måned"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -252179,6 +252368,7 @@ exports[`Locale Provider should display the text as nb 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Måned
@@ -252191,6 +252381,7 @@ exports[`Locale Provider should display the text as nb 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="År"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -252198,6 +252389,7 @@ exports[`Locale Provider should display the text as nb 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             År
@@ -257406,6 +257598,7 @@ exports[`Locale Provider should display the text as ne-np 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -257414,6 +257607,7 @@ exports[`Locale Provider should display the text as ne-np 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Month
@@ -257426,6 +257620,7 @@ exports[`Locale Provider should display the text as ne-np 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Year"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -257433,6 +257628,7 @@ exports[`Locale Provider should display the text as ne-np 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Year
@@ -262641,6 +262837,7 @@ exports[`Locale Provider should display the text as nl 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Maand"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -262649,6 +262846,7 @@ exports[`Locale Provider should display the text as nl 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Maand
@@ -262661,6 +262859,7 @@ exports[`Locale Provider should display the text as nl 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Jaar"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -262668,6 +262867,7 @@ exports[`Locale Provider should display the text as nl 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Jaar
@@ -267876,6 +268076,7 @@ exports[`Locale Provider should display the text as nl-be 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Maand"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -267884,6 +268085,7 @@ exports[`Locale Provider should display the text as nl-be 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Maand
@@ -267896,6 +268098,7 @@ exports[`Locale Provider should display the text as nl-be 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Jaar"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -267903,6 +268106,7 @@ exports[`Locale Provider should display the text as nl-be 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Jaar
@@ -273111,6 +273315,7 @@ exports[`Locale Provider should display the text as pl 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Miesiąc"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -273119,6 +273324,7 @@ exports[`Locale Provider should display the text as pl 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Miesiąc
@@ -273131,6 +273337,7 @@ exports[`Locale Provider should display the text as pl 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Rok"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -273138,6 +273345,7 @@ exports[`Locale Provider should display the text as pl 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Rok
@@ -278346,6 +278554,7 @@ exports[`Locale Provider should display the text as pt 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mês"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -278354,6 +278563,7 @@ exports[`Locale Provider should display the text as pt 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mês
@@ -278366,6 +278576,7 @@ exports[`Locale Provider should display the text as pt 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Ano"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -278373,6 +278584,7 @@ exports[`Locale Provider should display the text as pt 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Ano
@@ -283581,6 +283793,7 @@ exports[`Locale Provider should display the text as pt-br 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mês"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -283589,6 +283802,7 @@ exports[`Locale Provider should display the text as pt-br 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mês
@@ -283601,6 +283815,7 @@ exports[`Locale Provider should display the text as pt-br 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Ano"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -283608,6 +283823,7 @@ exports[`Locale Provider should display the text as pt-br 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Ano
@@ -288816,6 +289032,7 @@ exports[`Locale Provider should display the text as ro 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Lună"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -288824,6 +289041,7 @@ exports[`Locale Provider should display the text as ro 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Lună
@@ -288836,6 +289054,7 @@ exports[`Locale Provider should display the text as ro 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="An"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -288843,6 +289062,7 @@ exports[`Locale Provider should display the text as ro 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             An
@@ -294051,6 +294271,7 @@ exports[`Locale Provider should display the text as ru 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Месяц"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -294059,6 +294280,7 @@ exports[`Locale Provider should display the text as ru 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Месяц
@@ -294071,6 +294293,7 @@ exports[`Locale Provider should display the text as ru 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Год"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -294078,6 +294301,7 @@ exports[`Locale Provider should display the text as ru 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Год
@@ -299286,6 +299510,7 @@ exports[`Locale Provider should display the text as si 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="මාසය"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -299294,6 +299519,7 @@ exports[`Locale Provider should display the text as si 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             මාසය
@@ -299306,6 +299532,7 @@ exports[`Locale Provider should display the text as si 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="අවුරුද්ද"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -299313,6 +299540,7 @@ exports[`Locale Provider should display the text as si 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             අවුරුද්ද
@@ -304521,6 +304749,7 @@ exports[`Locale Provider should display the text as sk 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mesiac"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -304529,6 +304758,7 @@ exports[`Locale Provider should display the text as sk 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mesiac
@@ -304541,6 +304771,7 @@ exports[`Locale Provider should display the text as sk 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Rok"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -304548,6 +304779,7 @@ exports[`Locale Provider should display the text as sk 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Rok
@@ -309756,6 +309988,7 @@ exports[`Locale Provider should display the text as sl 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mesec"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -309764,6 +309997,7 @@ exports[`Locale Provider should display the text as sl 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mesec
@@ -309776,6 +310010,7 @@ exports[`Locale Provider should display the text as sl 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Leto"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -309783,6 +310018,7 @@ exports[`Locale Provider should display the text as sl 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Leto
@@ -314991,6 +315227,7 @@ exports[`Locale Provider should display the text as sq 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Muaj"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -314999,6 +315236,7 @@ exports[`Locale Provider should display the text as sq 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Muaj
@@ -315011,6 +315249,7 @@ exports[`Locale Provider should display the text as sq 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Vit"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -315018,6 +315257,7 @@ exports[`Locale Provider should display the text as sq 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Vit
@@ -320226,6 +320466,7 @@ exports[`Locale Provider should display the text as sr 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Mesec"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -320234,6 +320475,7 @@ exports[`Locale Provider should display the text as sr 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Mesec
@@ -320246,6 +320488,7 @@ exports[`Locale Provider should display the text as sr 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Godina"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -320253,6 +320496,7 @@ exports[`Locale Provider should display the text as sr 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Godina
@@ -325461,6 +325705,7 @@ exports[`Locale Provider should display the text as sv 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Månad"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -325469,6 +325714,7 @@ exports[`Locale Provider should display the text as sv 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Månad
@@ -325481,6 +325727,7 @@ exports[`Locale Provider should display the text as sv 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="År"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -325488,6 +325735,7 @@ exports[`Locale Provider should display the text as sv 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             År
@@ -330696,6 +330944,7 @@ exports[`Locale Provider should display the text as ta 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="மாதம்"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -330704,6 +330953,7 @@ exports[`Locale Provider should display the text as ta 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             மாதம்
@@ -330716,6 +330966,7 @@ exports[`Locale Provider should display the text as ta 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="வருடம்"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -330723,6 +330974,7 @@ exports[`Locale Provider should display the text as ta 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             வருடம்
@@ -335931,6 +336183,7 @@ exports[`Locale Provider should display the text as th 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="เดือน"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -335939,6 +336192,7 @@ exports[`Locale Provider should display the text as th 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             เดือน
@@ -335951,6 +336205,7 @@ exports[`Locale Provider should display the text as th 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="ปี"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -335958,6 +336213,7 @@ exports[`Locale Provider should display the text as th 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             ปี
@@ -341166,6 +341422,7 @@ exports[`Locale Provider should display the text as tk 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Aý"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -341174,6 +341431,7 @@ exports[`Locale Provider should display the text as tk 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Aý
@@ -341186,6 +341444,7 @@ exports[`Locale Provider should display the text as tk 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Ýyl"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -341193,6 +341452,7 @@ exports[`Locale Provider should display the text as tk 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Ýyl
@@ -346401,6 +346661,7 @@ exports[`Locale Provider should display the text as tr 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Ay"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -346409,6 +346670,7 @@ exports[`Locale Provider should display the text as tr 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Ay
@@ -346421,6 +346683,7 @@ exports[`Locale Provider should display the text as tr 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Yıl"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -346428,6 +346691,7 @@ exports[`Locale Provider should display the text as tr 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Yıl
@@ -351636,6 +351900,7 @@ exports[`Locale Provider should display the text as uk 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Місяць"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -351644,6 +351909,7 @@ exports[`Locale Provider should display the text as uk 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Місяць
@@ -351656,6 +351922,7 @@ exports[`Locale Provider should display the text as uk 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Рік"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -351663,6 +351930,7 @@ exports[`Locale Provider should display the text as uk 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Рік
@@ -356871,6 +357139,7 @@ exports[`Locale Provider should display the text as ur 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="مہینہ"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -356879,6 +357148,7 @@ exports[`Locale Provider should display the text as ur 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             مہینہ
@@ -356891,6 +357161,7 @@ exports[`Locale Provider should display the text as ur 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="سال"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -356898,6 +357169,7 @@ exports[`Locale Provider should display the text as ur 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             سال
@@ -362106,6 +362378,7 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Oy"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -362114,6 +362387,7 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Oy
@@ -362126,6 +362400,7 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Yil"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -362133,6 +362408,7 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Yil
@@ -367341,6 +367617,7 @@ exports[`Locale Provider should display the text as vi 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Tháng"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -367349,6 +367626,7 @@ exports[`Locale Provider should display the text as vi 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Tháng
@@ -367361,6 +367639,7 @@ exports[`Locale Provider should display the text as vi 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="Năm"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -367368,6 +367647,7 @@ exports[`Locale Provider should display the text as vi 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Năm
@@ -372576,6 +372856,7 @@ exports[`Locale Provider should display the text as zh-cn 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="月"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -372584,6 +372865,7 @@ exports[`Locale Provider should display the text as zh-cn 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             月
@@ -372596,6 +372878,7 @@ exports[`Locale Provider should display the text as zh-cn 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="年"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -372603,6 +372886,7 @@ exports[`Locale Provider should display the text as zh-cn 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             年
@@ -377811,6 +378095,7 @@ exports[`Locale Provider should display the text as zh-hk 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="月"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -377819,6 +378104,7 @@ exports[`Locale Provider should display the text as zh-hk 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             月
@@ -377831,6 +378117,7 @@ exports[`Locale Provider should display the text as zh-hk 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="年"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -377838,6 +378125,7 @@ exports[`Locale Provider should display the text as zh-hk 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             年
@@ -383046,6 +383334,7 @@ exports[`Locale Provider should display the text as zh-tw 1`] = `
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="月"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -383054,6 +383343,7 @@ exports[`Locale Provider should display the text as zh-tw 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             月
@@ -383066,6 +383356,7 @@ exports[`Locale Provider should display the text as zh-tw 1`] = `
             class="ant-radio-button"
           >
             <input
+              aria-label="年"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -383073,6 +383364,7 @@ exports[`Locale Provider should display the text as zh-tw 1`] = `
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             年

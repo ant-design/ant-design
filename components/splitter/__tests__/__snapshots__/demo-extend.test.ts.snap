@@ -160,6 +160,7 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx extend context cor
           class="ant-radio ant-wave-target"
         >
           <input
+            aria-label="Auto"
             class="ant-radio-input"
             name="test-id"
             type="radio"
@@ -167,6 +168,7 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx extend context cor
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-label"
         >
           Auto
@@ -179,6 +181,7 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx extend context cor
           class="ant-radio ant-wave-target ant-radio-checked"
         >
           <input
+            aria-label="True"
             checked=""
             class="ant-radio-input"
             name="test-id"
@@ -187,6 +190,7 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx extend context cor
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-label"
         >
           True
@@ -199,6 +203,7 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx extend context cor
           class="ant-radio ant-wave-target"
         >
           <input
+            aria-label="False"
             class="ant-radio-input"
             name="test-id"
             type="radio"
@@ -206,6 +211,7 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx extend context cor
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-label"
         >
           False
@@ -1452,6 +1458,7 @@ Array [
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Size Bucket 1"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -1460,6 +1467,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Size Bucket 1
@@ -1472,6 +1480,7 @@ Array [
         class="ant-radio-button"
       >
         <input
+          aria-label="Size Bucket 2"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1479,6 +1488,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Size Bucket 2
