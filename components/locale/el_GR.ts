@@ -157,6 +157,7 @@ const localeValues: Locale = {
     transparent: 'Διαφανές',
     singleColor: 'Μονόχρωμο',
     gradientColor: 'Διαβάθμιση χρώματος',
+    clear: 'Διαγραφή χρώματος',
   },
 };
 

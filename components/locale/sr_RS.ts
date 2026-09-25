@@ -157,6 +157,7 @@ const localeValues: Locale = {
     transparent: 'Транспарент',
     singleColor: 'Једнобојна',
     gradientColor: 'Градијентна боја',
+    clear: 'Обриши боју',
   },
 };
 

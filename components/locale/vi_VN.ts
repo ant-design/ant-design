@@ -157,6 +157,7 @@ const localeValues: Locale = {
     transparent: 'Trong suốt',
     singleColor: 'Màu đơn',
     gradientColor: 'Màu chuyển sắc',
+    clear: 'Xóa màu',
   },
 };
 
