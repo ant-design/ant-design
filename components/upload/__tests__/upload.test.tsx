@@ -399,6 +399,34 @@ describe('Upload', () => {
     expect(linkNode?.getAttribute('rel')).toBe('noopener');
   });
 
+  it.each([false, true])('should call linkProps.onClick with onPreview=%s', (hasPreview) => {
+    const onClick = jest.fn((event: React.MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault();
+    });
+    const onPreview = jest.fn();
+    const file: UploadFile = {
+      uid: '-1',
+      name: 'report.pdf',
+      status: 'done',
+      url: '#report',
+      linkProps: { onClick },
+    };
+    const { getByRole } = render(
+      <Upload defaultFileList={[file]} onPreview={hasPreview ? onPreview : undefined} />,
+    );
+    const link = getByRole('link', { name: file.name });
+
+    expect(fireEvent.click(link)).toBe(false);
+    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(onClick).toHaveBeenCalledWith(expect.objectContaining({ type: 'click', target: link }));
+    if (hasPreview) {
+      expect(onPreview).toHaveBeenCalledTimes(1);
+      expect(onPreview).toHaveBeenCalledWith(file);
+    } else {
+      expect(onPreview).not.toHaveBeenCalled();
+    }
+  });
+
   it('should support linkProps as json stringify', () => {
     const linkPropsString = JSON.stringify({
       download: 'image',
