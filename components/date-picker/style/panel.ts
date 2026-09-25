@@ -2,6 +2,7 @@ import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
+import { genFocusOutline } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import type { PickerToken, SharedPickerToken } from './token';
 
@@ -56,6 +57,15 @@ const genPickerCellInnerStyle: GenerateStyle<SharedPickerToken, CSSObject> = (to
           background: cellHoverBg,
         },
       },
+
+    // >>> Focus
+    [`&:focus-visible`]: {
+      outline: 'none',
+      [pickerCellInnerCls]: {
+        // background: cellHoverBg,
+        ...genFocusOutline(token),
+      },
+    },
 
     // >>> Today
     [`&-in-view${pickerCellCls}-today ${pickerCellInnerCls}`]: {
@@ -161,7 +171,6 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
     colorSplit,
     pickerControlIconBorderWidth,
     colorIcon,
-    textHeight,
     motionDurationMid,
     colorIconHover,
     fontWeightStrong,
@@ -180,7 +189,6 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
     timeColumnWidth,
     timeCellHeight,
     controlItemBgActive,
-    marginXXS,
     pickerDatePanelPaddingHorizontal,
     pickerControlIconMargin,
   } = token;
@@ -240,7 +248,7 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
       // ======================= Header =======================
       '&-header': {
         display: 'flex',
-        padding: `0 ${unit(paddingXS)}`,
+        padding: unit(paddingXS),
         color: colorTextHeading,
         borderBottom: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
 
@@ -251,7 +259,6 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
         button: {
           padding: 0,
           color: colorIcon,
-          lineHeight: unit(textHeight),
           background: 'transparent',
           border: 0,
           cursor: 'pointer',
@@ -263,6 +270,11 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
 
           '&:empty': {
             display: 'none',
+          },
+
+          '&:focus-visible': {
+            borderRadius: borderRadiusSM,
+            ...genFocusOutline(token),
           },
         },
 
@@ -283,7 +295,6 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
         '&-view': {
           flex: 'auto',
           fontWeight: fontWeightStrong,
-          lineHeight: unit(textHeight),
 
           '> button': {
             color: 'inherit',
@@ -523,8 +534,7 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
         '&-column': {
           flex: '1 0 auto',
           width: timeColumnWidth,
-          margin: `${unit(paddingXXS)} 0`,
-          padding: 0,
+          padding: unit(paddingXXS),
           overflowY: 'auto',
           textAlign: 'start',
           listStyle: 'none',
@@ -566,24 +576,18 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
             padding: 0,
 
             [`&${componentCls}-time-panel-cell`]: {
-              marginInline: marginXXS,
+              borderRadius: borderRadiusSM,
+              transition: `background-color ${motionDurationMid}`,
+
               [`${componentCls}-time-panel-cell-inner`]: {
                 display: 'block',
-                width: token.calc(timeColumnWidth).sub(token.calc(marginXXS).mul(2)).equal(),
                 height: timeCellHeight,
                 margin: 0,
-                paddingBlock: 0,
-                paddingInlineEnd: 0,
-                paddingInlineStart: token.calc(timeColumnWidth).sub(timeCellHeight).div(2).equal(),
                 color: colorText,
+                textAlign: 'center',
                 lineHeight: unit(timeCellHeight),
                 borderRadius: borderRadiusSM,
                 cursor: 'pointer',
-                transition: `background-color ${motionDurationMid}`,
-
-                '&:hover': {
-                  background: cellHoverBg,
-                },
               },
 
               '&-selected': {
@@ -599,6 +603,15 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
                   cursor: 'not-allowed',
                 },
               },
+
+              '&:hover': {
+                background: cellHoverBg,
+              },
+
+              '&:focus-visible': {
+                background: cellHoverBg,
+                ...genFocusOutline(token),
+              },
             },
           },
         },
@@ -613,6 +626,7 @@ const genPickerPanelStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
     textHeight,
     lineWidth,
     paddingSM,
+    paddingXS,
     antCls,
     colorPrimary,
     cellActiveWithRangeBg,
@@ -644,24 +658,13 @@ const genPickerPanelStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-ranges`]: {
-        marginBlock: 0,
         paddingInline: unit(paddingSM),
+        paddingBlock: unit(paddingXS),
         overflow: 'hidden',
         textAlign: 'start',
-        listStyle: 'none',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-
-        '> li': {
-          lineHeight: unit(token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).equal()),
-          display: 'inline-block',
-        },
-
-        [`${componentCls}-now-btn-disabled`]: {
-          pointerEvents: 'none',
-          color: token.colorTextDisabled,
-        },
 
         // https://github.com/ant-design/ant-design/issues/23687
         [`${componentCls}-preset > ${antCls}-tag-blue`]: {
@@ -672,7 +675,6 @@ const genPickerPanelStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
         },
 
         [`${componentCls}-ok`]: {
-          paddingBlock: token.calc(lineWidth).mul(2).equal(),
           marginInlineStart: 'auto',
         },
       },
