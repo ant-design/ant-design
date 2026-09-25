@@ -302,7 +302,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           text: tableLocale.selectionAll,
           onSelect() {
             setSelectedKeys(
-              data.reduce<Key[]>((keys, record, index) => {
+              flattenData(childrenColumnName, data).reduce<Key[]>((keys, record, index) => {
                 const key = getRowKey(record, index);
                 if (!isCheckboxDisabled(record) || derivedSelectedKeySet.has(key)) {
                   keys.push(key);
@@ -378,6 +378,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     isCheckboxDisabled,
     derivedSelectedKeySet,
     data,
+    childrenColumnName,
     pageData,
     getRowKey,
     onSelectInvert,
