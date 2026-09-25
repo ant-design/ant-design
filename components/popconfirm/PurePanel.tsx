@@ -68,6 +68,11 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
   const titleNode = getRenderPropValue(title);
   const descriptionNode = getRenderPropValue(description);
 
+  const onInternalCancel: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+    onCancel?.(event);
+    cancelButtonProps?.onClick?.(event);
+  };
+
   return (
     <div className={`${prefixCls}-inner-content`} onClick={onPopupClick}>
       <div className={`${prefixCls}-message`}>
@@ -97,7 +102,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
       </div>
       <div className={`${prefixCls}-buttons`}>
         {showCancel && (
-          <Button onClick={onCancel} size="small" {...cancelButtonProps}>
+          <Button size="small" {...cancelButtonProps} onClick={onInternalCancel}>
             {cancelText || contextLocale?.cancelText}
           </Button>
         )}
