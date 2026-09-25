@@ -135,6 +135,28 @@ describe('Layout', () => {
     });
 
     describe('should collapsible', () => {
+      it('should toggle with keyboard interaction', () => {
+        const { container } = render(
+          <Layout>
+            <Sider collapsible collapsedWidth="0">
+              Sider
+            </Sider>
+            <Content>Content</Content>
+          </Layout>,
+        );
+
+        const trigger = container.querySelector('.ant-layout-sider-zero-width-trigger')!;
+
+        expect(trigger).toHaveAttribute('role', 'button');
+        expect(trigger).toHaveAttribute('tabindex', '0');
+
+        fireEvent.keyDown(trigger, { key: 'Enter' });
+        expect(container.querySelector('.ant-layout-sider-collapsed')).toBeTruthy();
+
+        fireEvent.keyDown(trigger, { key: ' ' });
+        expect(container.querySelector('.ant-layout-sider-collapsed')).toBeFalsy();
+      });
+
       it('uncontrolled', () => {
         const onCollapse = jest.fn();
 
@@ -194,6 +216,26 @@ describe('Layout', () => {
         expect(container.querySelector('.ant-layout-sider-collapsed')).toBeFalsy();
       });
     });
+  });
+
+  it('should toggle with keyboard interaction', () => {
+    const { container } = render(
+      <Layout>
+        <Sider collapsible>Sider</Sider>
+        <Content>Content</Content>
+      </Layout>,
+    );
+
+    const trigger = container.querySelector('.ant-layout-sider-trigger')!;
+
+    expect(trigger).toHaveAttribute('role', 'button');
+    expect(trigger).toHaveAttribute('tabindex', '0');
+
+    fireEvent.keyDown(trigger, { key: 'Enter' });
+    expect(container.querySelector('.ant-layout-sider-collapsed')).toBeTruthy();
+
+    fireEvent.keyDown(trigger, { key: ' ' });
+    expect(container.querySelector('.ant-layout-sider-collapsed')).toBeFalsy();
   });
 
   it('detect ant-layout-sider-dark as default theme', async () => {
