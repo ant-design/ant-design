@@ -60,6 +60,18 @@ describe('TreeSelect', () => {
     expect(container.querySelector('.ant-select-empty')?.innerHTML).toBe(content);
   });
 
+  it('should pass TreeSelect to ConfigProvider renderEmpty', () => {
+    const renderEmpty = jest.fn((name) => name === 'TreeSelect' && <span>tree empty</span>);
+    const { container } = render(
+      <ConfigProvider renderEmpty={renderEmpty}>
+        <TreeSelect open treeData={[]} />
+      </ConfigProvider>,
+    );
+
+    expect(renderEmpty).toHaveBeenCalledWith('TreeSelect');
+    expect(container.querySelector('.ant-select-empty')).toHaveTextContent('tree empty');
+  });
+
   it('legacy popupClassName', () => {
     resetWarned();
 

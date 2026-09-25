@@ -88,6 +88,21 @@ describe('Mentions', () => {
     expect(wrapper.container.querySelectorAll('.bamboo-light').length).toBeTruthy();
   });
 
+  it('should pass Mentions to ConfigProvider renderEmpty', () => {
+    const renderEmpty = jest.fn((name) => name === 'Mentions' && <span>mentions empty</span>);
+    const wrapper = render(
+      <ConfigProvider renderEmpty={renderEmpty}>
+        <Mentions />
+      </ConfigProvider>,
+    );
+    simulateInput(wrapper, '@');
+
+    expect(renderEmpty).toHaveBeenCalledWith('Mentions');
+    expect(wrapper.container.querySelector('.ant-mentions-dropdown')).toHaveTextContent(
+      'mentions empty',
+    );
+  });
+
   it('allowClear', () => {
     const wrapper = render(<Mentions allowClear defaultValue="111" />);
     const textareaInstance = wrapper.container.querySelector('textarea')!;

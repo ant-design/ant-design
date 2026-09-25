@@ -363,7 +363,9 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
   if (notFoundContent !== undefined) {
     mergedNotFound = notFoundContent;
   } else {
-    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
+    mergedNotFound = renderEmpty?.('TreeSelect') || (
+      <DefaultRenderEmpty componentName="TreeSelect" />
+    );
   }
 
   // ==================== Render =====================
