@@ -695,6 +695,96 @@ Array [
 ]
 `;
 
+exports[`renders components/grid/demo/grid.tsx correctly 1`] = `
+Array [
+  <div
+    aria-label="segmented control"
+    aria-orientation="horizontal"
+    class="ant-segmented css-var-test-id"
+    role="radiogroup"
+    tabindex="0"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <label
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Columns"
+        >
+          Columns
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Areas"
+        >
+          Areas
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="test-id"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Row Span"
+        >
+          Row Span
+        </div>
+      </label>
+    </div>
+  </div>,
+  <div
+    style="margin-top:16px"
+  >
+    <div
+      class="ant-row ant-row-grid css-var-test-id"
+      style="column-gap:16px;row-gap:16px;grid-template-columns:repeat(4, 1fr)"
+    >
+      <div
+        class="ant-col ant-col-grid css-var-test-id"
+        style="grid-column:span 1;min-height:60px;display:flex;align-items:center;justify-content:center;background:#1677ff;color:#fff"
+      >
+        1
+      </div>
+      <div
+        class="ant-col ant-col-grid css-var-test-id"
+        style="grid-column:span 1;min-height:60px;display:flex;align-items:center;justify-content:center;background:#1677ff;color:#fff"
+      >
+        1
+      </div>
+      <div
+        class="ant-col ant-col-grid css-var-test-id"
+        style="grid-column:span 2;min-height:60px;display:flex;align-items:center;justify-content:center;background:#1677ff;color:#fff"
+      >
+        2
+      </div>
+    </div>
+  </div>,
+]
+`;
+
 exports[`renders components/grid/demo/gutter.tsx correctly 1`] = `
 Array [
   <div

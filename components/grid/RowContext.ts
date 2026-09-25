@@ -6,6 +6,7 @@ export type RowContextGutter = readonly [GutterUnit, GutterUnit];
 export interface RowContextState {
   gutter?: RowContextGutter;
   wrap?: boolean;
+  grid?: boolean;
 }
 
 const RowContext = createContext<RowContextState>({});
