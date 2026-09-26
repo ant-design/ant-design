@@ -10,10 +10,12 @@ import type {
   Tab,
 } from '@rc-component/tabs';
 import RcTabs from '@rc-component/tabs';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isNumber } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -153,12 +155,21 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
 
   let editable: EditableConfig | undefined;
   if (type === 'editable-card') {
+    const mergedAddIcon = addIcon ?? tabs?.addIcon;
     editable = {
       onEdit: (editType, { key, event }) => {
         onEdit?.(editType === 'add' ? event : key!, editType);
       },
       removeIcon: removeIcon ?? tabs?.removeIcon ?? <CloseOutlined />,
-      addIcon: (addIcon ?? tabs?.addIcon) || <PlusOutlined />,
+      addIcon: isReactRenderable(mergedAddIcon) ? (
+        isNumber(mergedAddIcon) ? (
+          <>{mergedAddIcon}</>
+        ) : (
+          mergedAddIcon
+        )
+      ) : (
+        <PlusOutlined />
+      ),
       showAdd: hideAdd !== true,
     };
   }

@@ -651,4 +651,22 @@ describe('Descriptions', () => {
       expect(contentCell.style.color).toBe('green');
     });
   });
+
+  it('should render numeric 0 title and extra', () => {
+    const { container } = render(
+      <Descriptions
+        title={0}
+        extra={0}
+        items={[
+          {
+            key: '1',
+            label: 'Label',
+            children: 'Content',
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelector('.ant-descriptions-title')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-descriptions-extra')?.textContent).toBe('0');
+  });
 });
