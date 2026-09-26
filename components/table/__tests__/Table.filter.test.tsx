@@ -3221,6 +3221,33 @@ describe('Table.filter', () => {
       expect(getByText('Foo')).toBeTruthy();
     });
 
+    it('popupRender', () => {
+      const popupRender = jest.fn((node) => (
+        <>
+          {node}
+          <span>Foo</span>
+        </>
+      ));
+
+      const { container, getByText } = render(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterDropdownProps: {
+                popupRender,
+              },
+            },
+          ],
+        }),
+      );
+
+      fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+      expect(popupRender).toHaveBeenCalled();
+      expect(React.isValidElement<any>(popupRender.mock.calls[0][0])).toBeTruthy();
+      expect(getByText('Foo')).toBeTruthy();
+    });
+
     // https://github.com/ant-design/ant-design/issues/51151
     it('placement', () => {
       const { container } = render(
