@@ -1,8 +1,6 @@
-import { use, useMemo } from 'react';
+import { useMemo } from 'react';
 import { theme } from 'antd';
 import type { ConfigProviderProps } from 'antd';
-
-import { DarkContext } from '../../../../../hooks/useDark';
 
 const neutralBorder = '#e3e3e3';
 const fontFamily =
@@ -73,38 +71,30 @@ const lobePrimary = {
   ],
 } as const;
 
-const getLobePrimaryTokens = (isDark: boolean) => {
-  const colors = isDark ? lobePrimary.dark : lobePrimary.light;
-  const colorsA = isDark ? lobePrimary.darkA : lobePrimary.lightA;
-
-  return {
-    colorPrimaryBg: colors[1],
-    colorPrimaryBgHover: colors[2],
-    colorPrimaryBorder: colors[4],
-    colorPrimaryBorderHover: colors[3],
-    colorPrimaryHover: colors[8],
-    colorPrimary: colors[9],
-    colorPrimaryActive: colors[10],
-    colorPrimaryTextHover: colors[8],
-    colorPrimaryText: colors[9],
-    colorPrimaryTextActive: colors[10],
-    colorFill: colorsA[2],
-    colorFillSecondary: colorsA[1],
-    colorFillTertiary: colorsA[0],
-    colorFillQuaternary: colorsA[0],
-  } as const;
-};
+const lobePrimaryTokens = {
+  colorPrimaryBg: lobePrimary.light[1],
+  colorPrimaryBgHover: lobePrimary.light[2],
+  colorPrimaryBorder: lobePrimary.light[4],
+  colorPrimaryBorderHover: lobePrimary.light[3],
+  colorPrimaryHover: lobePrimary.light[8],
+  colorPrimary: lobePrimary.light[9],
+  colorPrimaryActive: lobePrimary.light[10],
+  colorPrimaryTextHover: lobePrimary.light[8],
+  colorPrimaryText: lobePrimary.light[9],
+  colorPrimaryTextActive: lobePrimary.light[10],
+  colorFill: lobePrimary.lightA[2],
+  colorFillSecondary: lobePrimary.lightA[1],
+  colorFillTertiary: lobePrimary.lightA[0],
+  colorFillQuaternary: lobePrimary.lightA[0],
+} as const;
 
 const useLobeTheme = () => {
-  const isDark = use(DarkContext);
-  const primaryTokens = getLobePrimaryTokens(isDark);
-
   return useMemo<ConfigProviderProps>(
     () => ({
       theme: {
-        algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm,
+        algorithm: theme.defaultAlgorithm,
         token: {
-          ...primaryTokens,
+          ...lobePrimaryTokens,
           colorSuccess: '#379d4a',
           colorWarning: '#ee9e0b',
           colorError: '#ec5e41',
@@ -192,10 +182,10 @@ const useLobeTheme = () => {
             defaultBorderColor: neutralBorder,
             defaultColor: '#080808',
             defaultBg: '#ffffff',
-            defaultHoverBg: isDark ? lobePrimary.darkA[0] : lobePrimary.lightA[0],
+            defaultHoverBg: lobePrimary.lightA[0],
             defaultHoverBorderColor: neutralBorder,
             defaultHoverColor: '#080808',
-            defaultActiveBg: isDark ? lobePrimary.darkA[1] : lobePrimary.lightA[1],
+            defaultActiveBg: lobePrimary.lightA[1],
             defaultActiveBorderColor: neutralBorder,
             borderRadius: 8,
             fontWeight: 500,
@@ -219,7 +209,7 @@ const useLobeTheme = () => {
             activeBorderColor: neutralBorder,
             hoverBorderColor: neutralBorder,
             optionSelectedBg: '#f5f5f5',
-            optionActiveBg: isDark ? lobePrimary.darkA[0] : lobePrimary.lightA[0],
+            optionActiveBg: lobePrimary.lightA[0],
             optionSelectedFontWeight: 500,
             borderRadius: 6,
           },
@@ -298,7 +288,7 @@ const useLobeTheme = () => {
       segmented: {},
       progress: {},
     }),
-    [isDark, primaryTokens],
+    [],
   );
 };
 
