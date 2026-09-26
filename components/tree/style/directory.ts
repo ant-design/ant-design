@@ -8,9 +8,22 @@ export const genDirectoryStyle = ({
   directoryNodeSelectedBg,
   directoryNodeSelectedColor,
   motionDurationMid,
+  motionDurationSlow,
   borderRadius,
   controlItemBgHover,
+  paddingXXS,
+  paddingXS,
 }: TreeToken): CSSObject => ({
+  [`${treeCls}-file-drop-target`]: {
+    padding: `${paddingXXS}px ${paddingXS}px`,
+    borderRadius,
+    transition: `background ${motionDurationSlow}`,
+
+    '&-active': {
+      background: controlItemBgHover,
+    },
+  },
+
   [`${treeCls}${treeCls}-directory ${treeNodeCls}`]: {
     // >>> Title
     [`${treeCls}-node-content-wrapper`]: {
