@@ -48,6 +48,7 @@ exports[`Input allowClear semantic dom snapshot 1`] = `
           prefix
         </span>
         <input
+          aria-labelledby="test-id-addon-after"
           class="ant-input custom-input"
           style="color: red;"
           type="text"
@@ -69,7 +70,11 @@ exports[`Input allowClear semantic dom snapshot 1`] = `
       <span
         class="ant-input-group-addon"
       >
-        addon
+        <span
+          id="test-id-addon-after"
+        >
+          addon
+        </span>
       </span>
     </span>
   </span>
@@ -87,6 +92,7 @@ exports[`Input allowClear semantic dom snapshot 1`] = `
       class="ant-input-wrapper ant-input-group"
     >
       <input
+        aria-labelledby="test-id-addon-after"
         class="ant-input custom-input ant-input-outlined"
         style="color: red;"
         type="text"
@@ -95,7 +101,11 @@ exports[`Input allowClear semantic dom snapshot 1`] = `
       <span
         class="ant-input-group-addon"
       >
-        addon
+        <span
+          id="test-id-addon-after"
+        >
+          addon
+        </span>
       </span>
     </span>
   </span>

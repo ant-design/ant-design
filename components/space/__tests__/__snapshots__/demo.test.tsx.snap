@@ -2521,9 +2521,14 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
           <span
             class="ant-input-group-addon"
           >
-            http://
+            <span
+              id="test-id-addon-before"
+            >
+              http://
+            </span>
           </span>
           <input
+            aria-labelledby="test-id-addon-before test-id-addon-after"
             class="ant-input ant-input-outlined"
             type="text"
             value="mysite"
@@ -2531,7 +2536,11 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
           <span
             class="ant-input-group-addon"
           >
-            .com
+            <span
+              id="test-id-addon-after"
+            >
+              .com
+            </span>
           </span>
         </span>
       </span>
@@ -2914,12 +2923,17 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
           <span
             class="ant-input-group-addon"
           >
-            http://
+            <span
+              id="test-id-addon-before"
+            >
+              http://
+            </span>
           </span>
           <span
             class="ant-input-affix-wrapper ant-input-outlined"
           >
             <input
+              aria-labelledby="test-id-addon-before"
               class="ant-input"
               type="text"
               value="mysite"
@@ -3047,12 +3061,17 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
           <span
             class="ant-input-group-addon"
           >
-            Prefix
+            <span
+              id="test-id-addon-before"
+            >
+              Prefix
+            </span>
           </span>
           <span
             class="ant-input-affix-wrapper ant-input-outlined"
           >
             <input
+              aria-labelledby="test-id-addon-before"
               class="ant-input"
               type="text"
               value="mysite"
@@ -3086,12 +3105,17 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
           <span
             class="ant-input-group-addon"
           >
-            Prefix
+            <span
+              id="test-id-addon-before"
+            >
+              Prefix
+            </span>
           </span>
           <span
             class="ant-input-affix-wrapper ant-input-outlined"
           >
             <input
+              aria-labelledby="test-id-addon-before"
               class="ant-input"
               type="text"
               value="mysite"
@@ -3140,12 +3164,17 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
           <span
             class="ant-input-group-addon"
           >
-            Prefix
+            <span
+              id="test-id-addon-before"
+            >
+              Prefix
+            </span>
           </span>
           <span
             class="ant-input-affix-wrapper ant-input-outlined"
           >
             <input
+              aria-labelledby="test-id-addon-before"
               class="ant-input"
               type="text"
               value="mysite"

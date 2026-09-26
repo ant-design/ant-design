@@ -16,9 +16,14 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
         <span
           class="ant-input-group-addon"
         >
-          http://
+          <span
+            id="test-id-addon-before"
+          >
+            http://
+          </span>
         </span>
         <input
+          aria-labelledby="test-id-addon-before test-id-addon-after"
           class="ant-input ant-input-outlined"
           type="text"
           value="mysite"
@@ -26,7 +31,11 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
         <span
           class="ant-input-group-addon"
         >
-          .com
+          <span
+            id="test-id-addon-after"
+          >
+            .com
+          </span>
         </span>
       </span>
     </span>
@@ -392,12 +401,17 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
         <span
           class="ant-input-group-addon"
         >
-          http://
+          <span
+            id="test-id-addon-before"
+          >
+            http://
+          </span>
         </span>
         <span
           class="ant-input-affix-wrapper ant-input-outlined"
         >
           <input
+            aria-labelledby="test-id-addon-before"
             class="ant-input"
             type="text"
             value="mysite"
@@ -766,9 +780,14 @@ Array [
       <span
         class="ant-input-group-addon"
       >
-        1
+        <span
+          id="test-id-addon-before"
+        >
+          1
+        </span>
       </span>
       <input
+        aria-labelledby="test-id-addon-before test-id-addon-after"
         class="ant-input ant-input-outlined"
         type="text"
         value=""
@@ -776,7 +795,11 @@ Array [
       <span
         class="ant-input-group-addon"
       >
-        2
+        <span
+          id="test-id-addon-after"
+        >
+          2
+        </span>
       </span>
     </span>
   </span>,
@@ -5254,7 +5277,11 @@ Array [
       <span
         class="ant-input-group-addon"
       >
-        Http://
+        <span
+          id="test-id-addon-before"
+        >
+          Http://
+        </span>
       </span>
       <span
         class="ant-input-affix-wrapper ant-input-outlined"
@@ -5265,6 +5292,7 @@ Array [
           $
         </span>
         <input
+          aria-labelledby="test-id-addon-before test-id-addon-after"
           class="ant-input"
           type="text"
           value="mysite"
@@ -5273,7 +5301,11 @@ Array [
       <span
         class="ant-input-group-addon"
       >
-        .com
+        <span
+          id="test-id-addon-after"
+        >
+          .com
+        </span>
       </span>
     </span>
   </span>,
@@ -6220,9 +6252,14 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
         <span
           class="ant-input-group-addon"
         >
-          http://
+          <span
+            id="test-id-addon-before"
+          >
+            http://
+          </span>
         </span>
         <input
+          aria-labelledby="test-id-addon-before test-id-addon-after"
           class="ant-input ant-input-filled"
           placeholder="Filled"
           type="text"
@@ -6231,7 +6268,11 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
         <span
           class="ant-input-group-addon"
         >
-          .com
+          <span
+            id="test-id-addon-after"
+          >
+            .com
+          </span>
         </span>
       </span>
     </span>
@@ -6244,9 +6285,14 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
         <span
           class="ant-input-group-addon"
         >
-          http://
+          <span
+            id="test-id-addon-before"
+          >
+            http://
+          </span>
         </span>
         <input
+          aria-labelledby="test-id-addon-before test-id-addon-after"
           class="ant-input ant-input-disabled ant-input-filled"
           disabled=""
           placeholder="Filled"
@@ -6256,7 +6302,11 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
         <span
           class="ant-input-group-addon"
         >
-          .com
+          <span
+            id="test-id-addon-after"
+          >
+            .com
+          </span>
         </span>
       </span>
     </span>
@@ -6269,9 +6319,14 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
         <span
           class="ant-input-group-addon"
         >
-          http://
+          <span
+            id="test-id-addon-before"
+          >
+            http://
+          </span>
         </span>
         <input
+          aria-labelledby="test-id-addon-before test-id-addon-after"
           class="ant-input ant-input-filled ant-input-status-error"
           placeholder="Filled"
           type="text"
@@ -6280,7 +6335,11 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
         <span
           class="ant-input-group-addon"
         >
-          .com
+          <span
+            id="test-id-addon-after"
+          >
+            .com
+          </span>
         </span>
       </span>
     </span>
@@ -6296,6 +6355,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
         class="ant-input-wrapper ant-input-group"
       >
         <input
+          aria-labelledby="test-id-addon-after"
           class="ant-input ant-input-filled"
           placeholder="Filled"
           type="text"
@@ -6304,7 +6364,11 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
         <span
           class="ant-input-group-addon"
         >
-          .com
+          <span
+            id="test-id-addon-after"
+          >
+            .com
+          </span>
         </span>
       </span>
     </span>
@@ -6315,6 +6379,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
         class="ant-input-wrapper ant-input-group"
       >
         <input
+          aria-labelledby="test-id-addon-after"
           class="ant-input ant-input-disabled ant-input-filled"
           disabled=""
           placeholder="Filled"
@@ -6324,7 +6389,11 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
         <span
           class="ant-input-group-addon"
         >
-          .com
+          <span
+            id="test-id-addon-after"
+          >
+            .com
+          </span>
         </span>
       </span>
     </span>
@@ -6335,6 +6404,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
         class="ant-input-wrapper ant-input-group"
       >
         <input
+          aria-labelledby="test-id-addon-after"
           class="ant-input ant-input-filled ant-input-status-error"
           placeholder="Filled"
           type="text"
@@ -6343,7 +6413,11 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
         <span
           class="ant-input-group-addon"
         >
-          .com
+          <span
+            id="test-id-addon-after"
+          >
+            .com
+          </span>
         </span>
       </span>
     </span>
@@ -6361,9 +6435,14 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
         <span
           class="ant-input-group-addon"
         >
-          http://
+          <span
+            id="test-id-addon-before"
+          >
+            http://
+          </span>
         </span>
         <input
+          aria-labelledby="test-id-addon-before"
           class="ant-input ant-input-filled"
           placeholder="Filled"
           type="text"
@@ -6380,9 +6459,14 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
         <span
           class="ant-input-group-addon"
         >
-          http://
+          <span
+            id="test-id-addon-before"
+          >
+            http://
+          </span>
         </span>
         <input
+          aria-labelledby="test-id-addon-before"
           class="ant-input ant-input-disabled ant-input-filled"
           disabled=""
           placeholder="Filled"
@@ -6400,9 +6484,14 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
         <span
           class="ant-input-group-addon"
         >
-          http://
+          <span
+            id="test-id-addon-before"
+          >
+            http://
+          </span>
         </span>
         <input
+          aria-labelledby="test-id-addon-before"
           class="ant-input ant-input-filled ant-input-status-error"
           placeholder="Filled"
           type="text"
