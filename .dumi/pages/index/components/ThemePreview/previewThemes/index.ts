@@ -3,7 +3,7 @@ import type { ConfigProviderProps, ThemeConfig } from 'antd';
 import { theme } from 'antd';
 
 import useLocale from '../../../../../hooks/useLocale';
-import { LobeIcon, SereneIcon } from '../svg-component';
+import { SereneIcon } from '../svg-component';
 import useBlossomTheme from './blossomTheme';
 import blossomThemeSource from './blossomTheme.ts?raw';
 import useBootstrapTheme from './bootstrapTheme';
@@ -274,7 +274,7 @@ const usePreviewThemes = () => {
       },
       {
         key: 'lobe',
-        icon: LobeIcon,
+        icon: 'https://unpkg.com/@lobehub/icons-static-svg@1.79.0/icons/lobehub-color.svg',
         name: locale.lobe,
         props: lobeTheme,
         copyCode: lobeThemeSource,
