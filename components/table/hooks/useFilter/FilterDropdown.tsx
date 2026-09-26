@@ -546,16 +546,26 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     } else if (column.filterIcon) {
       filterIcon = column.filterIcon;
     } else {
-      filterIcon = <FilterFilled />;
+      filterIcon = <FilterFilled aria-hidden />;
     }
 
     return (
       <span
         role="button"
-        tabIndex={-1}
+        aria-label={locale.filterTitle}
+        aria-expanded={inMeasureRow ? undefined : mergedVisible}
+        tabIndex={inMeasureRow ? -1 : 0}
         className={clsx(`${prefixCls}-trigger`, { active: filtered })}
         onClick={(e) => {
           e.stopPropagation();
+        }}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (!e.repeat && !inMeasureRow) {
+              onDropdownOpenChange(!mergedVisible, { source: 'trigger' });
+            }
+          }
         }}
       >
         {filterIcon}
