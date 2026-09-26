@@ -1341,6 +1341,7 @@ exports[`Cascader should render not found content 1`] = `
               class="css-var-root ant-empty ant-empty-normal ant-empty-small"
             >
               <div
+                aria-hidden="true"
                 class="ant-empty-image"
               >
                 <svg
@@ -1419,6 +1420,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
               class="css-var-root ant-empty ant-empty-normal ant-empty-small"
             >
               <div
+                aria-hidden="true"
                 class="ant-empty-image"
               >
                 <svg

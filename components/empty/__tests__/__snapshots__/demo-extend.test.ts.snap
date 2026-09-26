@@ -5,6 +5,7 @@ exports[`renders components/empty/demo/basic.tsx extend context correctly 1`] = 
   class="css-var-test-id ant-empty"
 >
   <div
+    aria-hidden="true"
     class="ant-empty-image"
   >
     <svg
@@ -1098,6 +1099,7 @@ exports[`renders components/empty/demo/simple.tsx extend context correctly 1`] =
   class="css-var-test-id ant-empty ant-empty-normal"
 >
   <div
+    aria-hidden="true"
     class="ant-empty-image"
   >
     <svg
@@ -1155,6 +1157,7 @@ exports[`renders components/empty/demo/style-class.tsx extend context correctly 
     style="background-color: rgb(245, 245, 245); border-radius: 8px;"
   >
     <div
+      aria-hidden="true"
       class="ant-empty-image"
       style="filter: grayscale(100%);"
     >
@@ -1219,6 +1222,7 @@ exports[`renders components/empty/demo/style-class.tsx extend context correctly 
     style="background-color: rgb(230, 247, 255); border: 1px solid rgb(145, 213, 255);"
   >
     <div
+      aria-hidden="true"
       class="ant-empty-image"
       style="filter: hue-rotate(180deg);"
     >

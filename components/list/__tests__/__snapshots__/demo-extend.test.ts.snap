@@ -829,6 +829,7 @@ Array [
             class="css-var-test-id ant-empty ant-empty-normal"
           >
             <div
+              aria-hidden="true"
               class="ant-empty-image"
             >
               <svg
@@ -2877,6 +2878,7 @@ exports[`renders components/list/demo/infinite-load.tsx extend context correctly
                 class="css-var-test-id ant-empty ant-empty-normal"
               >
                 <div
+                  aria-hidden="true"
                   class="ant-empty-image"
                 >
                   <svg

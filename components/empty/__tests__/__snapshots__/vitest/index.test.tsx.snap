@@ -5,6 +5,7 @@ exports[`Empty > dark mode compatible 1`] = `
   class="css-var-test-id ant-empty"
 >
   <div
+    aria-hidden="true"
     class="ant-empty-image"
   >
     <svg
@@ -77,6 +78,7 @@ exports[`Empty > rtl render > component should be rendered correctly in RTL dire
   class="css-var-root ant-empty ant-empty-rtl"
 >
   <div
+    aria-hidden="true"
     class="ant-empty-image"
   >
     <svg
@@ -149,6 +151,7 @@ exports[`Empty > should render in RTL direction 1`] = `
   class="css-var-root ant-empty ant-empty-rtl"
 >
   <div
+    aria-hidden="true"
     class="ant-empty-image"
   >
     <svg
