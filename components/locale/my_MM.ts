@@ -87,6 +87,10 @@ const localeValues: Locale = {
     expand: 'ချဲ့ထွင်ပါ။',
     collapse: 'ပြိုကျသည်။',
   },
+  Carousel: {
+    prevSlide: 'ယခင် ဆလိုက်',
+    nextSlide: 'နောက် ဆလိုက်',
+  },
   Form: {
     optional: '(ချန်လှပ်ထားနိုင်သည်)',
     defaultValidateMessages: {

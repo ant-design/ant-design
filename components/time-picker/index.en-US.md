@@ -144,4 +144,4 @@ type RangeDisabledTime = (
 
 ## FAQ
 
-- [How to use TimePicker with customize date library like dayjs](/docs/react/use-custom-date-library#timepicker)
+- [How to use TimePicker with customize date library like Moment.js](/docs/react/use-custom-date-library#timepicker)

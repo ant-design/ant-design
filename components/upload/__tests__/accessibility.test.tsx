@@ -16,6 +16,19 @@ const fileList: UploadProps['fileList'] = [
 ];
 
 describe('Upload accessibility', () => {
+  it('does not make a file without a preview focusable', () => {
+    render(
+      <Upload
+        defaultFileList={[{ uid: 'report', name: 'report.txt', status: 'done' }]}
+        showUploadList={{ showRemoveIcon: false }}
+      />,
+    );
+
+    const fileName = screen.getByText('report.txt');
+    expect(fileName).not.toHaveAttribute('role');
+    expect(fileName).not.toHaveAttribute('tabindex');
+  });
+
   it('uses the merged locale for default file actions', () => {
     render(
       <Upload

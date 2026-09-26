@@ -86,6 +86,10 @@ const localeValues: Locale = {
     expand: 'বিস্তৃত করা',
     collapse: 'সঙ্কুচিত',
   },
+  Carousel: {
+    prevSlide: 'পূর্ববর্তী স্লাইড',
+    nextSlide: 'পরবর্তী স্লাইড',
+  },
   Form: {
     optional: '(ঐচ্ছিক)',
     defaultValidateMessages: {

@@ -12,7 +12,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 
 导航菜单是一个网站的灵魂，用户依赖导航在各个页面中进行跳转。一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构。
 
-更多布局和导航的使用可以参考：[通用布局](/components/layout-cn)。
+更多布局和导航的使用可以参考：[通用布局](/components/layout)。
 
 ## 开发者注意事项 {#notes-for-developers}
 
@@ -47,7 +47,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 
 ### Menu
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | defaultOpenKeys | 初始展开的 SubMenu 菜单项 key 数组 | string\[] | - |  | × |
@@ -104,8 +104,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 | label | 菜单项标题 | ReactNode | - |  |
 | popupClassName | 子菜单样式，`mode="inline"` 时无效 | string | - |  |
 | popupOffset | 子菜单偏移量，`mode="inline"` 时无效 | \[number, number] | - |  |
-| onTitleClick | 点击子菜单标题 | function({ key, domEvent }) | - |  |
 | theme | 设置子菜单的主题，默认从 Menu 上继承 | `light` \| `dark` | - |  |
+| onTitleClick | 点击子菜单标题 | function({ key, domEvent }) | - |  |
 | popupRender | 自定义当前子菜单的弹出框 | (node: ReactElement, props: { item: SubMenuProps; keys: string[] }) => ReactNode | - |  |
 
 #### MenuItemGroupType

@@ -176,6 +176,14 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(onOk.mock.calls.length).toBe(1);
   });
 
+  it('support falsy button text', async () => {
+    await open({ cancelText: false, okText: 0 });
+    const btns = $$('.ant-modal-confirm-btns .ant-btn');
+
+    expect(btns[0].textContent).toBe('');
+    expect(btns[1].textContent).toBe('0');
+  });
+
   it('should allow Modal.confirm without onCancel been set', async () => {
     await open();
 

@@ -768,8 +768,6 @@ exports[`renders components/upload/demo/debug-disabled.tsx correctly 1`] = `
             </div>
             <span
               class="ant-upload-list-item-name"
-              role="button"
-              tabindex="0"
               title="image.png"
             >
               image.png
@@ -1011,8 +1009,6 @@ exports[`renders components/upload/demo/debug-disabled.tsx correctly 1`] = `
             </div>
             <span
               class="ant-upload-list-item-name"
-              role="button"
-              tabindex="0"
               title="image.png"
             >
               image.png
@@ -1968,8 +1964,6 @@ exports[`renders components/upload/demo/drag-sorting.tsx correctly 1`] = `
           </div>
           <span
             class="ant-upload-list-item-name"
-            role="button"
-            tabindex="0"
             title="image.png"
           >
             image.png
@@ -3726,8 +3720,6 @@ exports[`renders components/upload/demo/picture-style.tsx correctly 1`] = `
         </div>
         <span
           class="ant-upload-list-item-name"
-          role="button"
-          tabindex="0"
           title="xxx.png"
         >
           xxx.png
@@ -3864,8 +3856,6 @@ exports[`renders components/upload/demo/picture-style.tsx correctly 1`] = `
         </div>
         <span
           class="ant-upload-list-item-name"
-          role="button"
-          tabindex="0"
           title="zzz.png"
         >
           zzz.png

@@ -239,14 +239,6 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
           },
         },
       },
-
-      '&-close-text': {
-        color: colorIcon,
-        transition: `color ${motionDurationMid}`,
-        '&:hover': {
-          color: colorIconHover,
-        },
-      },
     },
   };
 };
