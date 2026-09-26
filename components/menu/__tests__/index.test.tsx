@@ -17,6 +17,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 import Layout from '../../layout';
 import OverrideContext from '../OverrideContext';
+import getMenuPopupPlacements from '../placements';
 
 Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', {
   writable: true,
@@ -1390,5 +1391,40 @@ describe('Menu', () => {
         itemData: expect.objectContaining({ ...itemInfo, eventKey: '1' }),
       }),
     );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/46099
+  it('collapsed submenu popup should clamp height within the viewport', () => {
+    const items = Array.from({ length: 30 }, (_, i) => ({
+      key: `item-${i}`,
+      label: `Option ${i}`,
+    }));
+    const { container } = render(
+      <Menu
+        mode="inline"
+        inlineCollapsed
+        items={[{ key: 'sub', label: 'Submenu', children: items }]}
+      />,
+    );
+
+    fireEvent.mouseEnter(container.querySelector('.ant-menu-submenu-title')!);
+    triggerAllTimer();
+
+    expect(container.querySelector('.ant-menu-submenu-popup .ant-menu-sub')).toBeTruthy();
+
+    const cssText = Array.from(document.head.querySelectorAll('style'))
+      .map((style) => style.innerHTML)
+      .join('');
+    const popupRule = cssText
+      .split('}')
+      .find((rule) => /-submenu-popup\s*\{/.test(rule) && rule.includes('max-height'));
+
+    expect(popupRule).toBeTruthy();
+    expect(popupRule).toContain('calc(100vh');
+    expect(popupRule).not.toMatch(/max-height:\s*100vh;/);
+    expect(getMenuPopupPlacements().rightTop?.overflow?.shiftY).toBe(true);
+    expect(getMenuPopupPlacements(true).rightTop?.overflow?.shiftY).toBe(true);
+    expect(getMenuPopupPlacements().bottomLeft?.overflow?.shiftY).toBeUndefined();
+    expect(getMenuPopupPlacements(true).bottomLeft?.overflow?.shiftY).toBeUndefined();
   });
 });
