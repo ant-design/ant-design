@@ -3,6 +3,10 @@ import { theme } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 
 const neutralBorder = '#e3e3e3';
+const fontFamily =
+  '"HarmonyOS Sans","Segoe UI","SF Pro Display",-apple-system,BlinkMacSystemFont,Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif,"HarmonyOS Sans SC","PingFang SC","Hiragino Sans GB","Microsoft Yahei UI","Microsoft Yahei","Source Han Sans CN",sans-serif,"Segoe UI Emoji","Segoe UI Symbol","Apple Color Emoji","Twemoji Mozilla","Noto Color Emoji","Android Emoji"';
+const fontFamilyCode =
+  'Hack,ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,"HarmonyOS Sans SC","PingFang SC","Hiragino Sans GB","Microsoft Yahei UI","Microsoft Yahei","Source Han Sans CN",sans-serif,"Segoe UI Emoji","Segoe UI Symbol","Apple Color Emoji","Twemoji Mozilla","Noto Color Emoji","Android Emoji"';
 
 const useLobeTheme = () => {
   return useMemo<ConfigProviderProps>(
@@ -86,6 +90,8 @@ const useLobeTheme = () => {
           controlOutline: 'rgba(0, 0, 0, 0.16)',
           fontSize: 14,
           fontSizeSM: 12,
+          fontFamily,
+          fontFamilyCode,
           lineHeight: 1.5714,
           borderRadius: 8,
           borderRadiusXS: 4,
@@ -125,6 +131,10 @@ const useLobeTheme = () => {
           },
           InputNumber: {
             activeShadow: 'none',
+            hoverBorderColor: neutralBorder,
+            activeBorderColor: neutralBorder,
+          },
+          Mentions: {
             hoverBorderColor: neutralBorder,
             activeBorderColor: neutralBorder,
           },
