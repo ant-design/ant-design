@@ -552,10 +552,16 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     return (
       <span
         role="button"
-        tabIndex={-1}
+        tabIndex={inMeasureRow ? -1 : 0}
         className={clsx(`${prefixCls}-trigger`, { active: filtered })}
         onClick={(e) => {
           e.stopPropagation();
+        }}
+        onKeyDown={(e) => {
+          if (!inMeasureRow && (e.key === 'Enter' || e.key === ' ')) {
+            e.preventDefault();
+            e.currentTarget.click();
+          }
         }}
       >
         {filterIcon}
