@@ -1,6 +1,8 @@
-import { useMemo } from 'react';
+import { use, useMemo } from 'react';
 import { theme } from 'antd';
 import type { ConfigProviderProps } from 'antd';
+
+import { DarkContext } from '../../../../../hooks/useDark';
 
 const neutralBorder = '#e3e3e3';
 const fontFamily =
@@ -8,13 +10,101 @@ const fontFamily =
 const fontFamilyCode =
   'Hack,ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,"HarmonyOS Sans SC","PingFang SC","Hiragino Sans GB","Microsoft Yahei UI","Microsoft Yahei","Source Han Sans CN",sans-serif,"Segoe UI Emoji","Segoe UI Symbol","Apple Color Emoji","Twemoji Mozilla","Noto Color Emoji","Android Emoji"';
 
+const lobePrimary = {
+  dark: [
+    '#000000',
+    '#111111',
+    '#333333',
+    '#555555',
+    '#666666',
+    '#888888',
+    '#aaaaaa',
+    '#cccccc',
+    '#dddddd',
+    '#eeeeee',
+    '#ffffff',
+    '#ffffff',
+    '#ffffff',
+  ],
+  darkA: [
+    'rgba(255, 255, 255, 0.02)',
+    'rgba(255, 255, 255, 0.08)',
+    'rgba(255, 255, 255, 0.16)',
+    'rgba(255, 255, 255, 0.22)',
+    'rgba(255, 255, 255, 0.36)',
+    'rgba(255, 255, 255, 0.48)',
+    'rgba(255, 255, 255, 0.6)',
+    'rgba(255, 255, 255, 0.72)',
+    'rgba(255, 255, 255, 0.84)',
+    'rgba(255, 255, 255, 0.88)',
+    'rgba(255, 255, 255, 0.92)',
+    'rgba(255, 255, 255, 0.96)',
+    'rgba(255, 255, 255, 0.98)',
+  ],
+  light: [
+    '#ffffff',
+    '#f5f5f5',
+    '#eeeeee',
+    '#cccccc',
+    '#aaaaaa',
+    '#888888',
+    '#666666',
+    '#444444',
+    '#333333',
+    '#222222',
+    '#111111',
+    '#0b0b0b',
+    '#000000',
+  ],
+  lightA: [
+    'rgba(0, 0, 0, 0.02)',
+    'rgba(0, 0, 0, 0.08)',
+    'rgba(0, 0, 0, 0.16)',
+    'rgba(0, 0, 0, 0.22)',
+    'rgba(0, 0, 0, 0.36)',
+    'rgba(0, 0, 0, 0.48)',
+    'rgba(0, 0, 0, 0.6)',
+    'rgba(0, 0, 0, 0.72)',
+    'rgba(0, 0, 0, 0.84)',
+    'rgba(0, 0, 0, 0.88)',
+    'rgba(0, 0, 0, 0.92)',
+    'rgba(0, 0, 0, 0.96)',
+    'rgba(0, 0, 0, 0.98)',
+  ],
+} as const;
+
+const getLobePrimaryTokens = (isDark: boolean) => {
+  const colors = isDark ? lobePrimary.dark : lobePrimary.light;
+  const colorsA = isDark ? lobePrimary.darkA : lobePrimary.lightA;
+
+  return {
+    colorPrimaryBg: colors[1],
+    colorPrimaryBgHover: colors[2],
+    colorPrimaryBorder: colors[4],
+    colorPrimaryBorderHover: colors[3],
+    colorPrimaryHover: colors[8],
+    colorPrimary: colors[9],
+    colorPrimaryActive: colors[10],
+    colorPrimaryTextHover: colors[8],
+    colorPrimaryText: colors[9],
+    colorPrimaryTextActive: colors[10],
+    colorFill: colorsA[2],
+    colorFillSecondary: colorsA[1],
+    colorFillTertiary: colorsA[0],
+    colorFillQuaternary: colorsA[0],
+  } as const;
+};
+
 const useLobeTheme = () => {
+  const isDark = use(DarkContext);
+  const primaryTokens = getLobePrimaryTokens(isDark);
+
   return useMemo<ConfigProviderProps>(
     () => ({
       theme: {
-        algorithm: theme.defaultAlgorithm,
+        algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm,
         token: {
-          colorPrimary: '#222222',
+          ...primaryTokens,
           colorSuccess: '#379d4a',
           colorWarning: '#ee9e0b',
           colorError: '#ec5e41',
@@ -25,15 +115,6 @@ const useLobeTheme = () => {
           colorLinkHover: '#4c90ff',
           colorLinkActive: '#005ae0',
           colorTextLightSolid: '#f8f8f8',
-          colorPrimaryBg: '#f5f5f5',
-          colorPrimaryBgHover: '#eeeeee',
-          colorPrimaryBorder: '#aaaaaa',
-          colorPrimaryBorderHover: '#cccccc',
-          colorPrimaryHover: '#333333',
-          colorPrimaryActive: '#111111',
-          colorPrimaryText: '#222222',
-          colorPrimaryTextHover: '#333333',
-          colorPrimaryTextActive: '#111111',
           colorSuccessBg: '#f4fdeb',
           colorSuccessBgHover: '#e7f8dd',
           colorSuccessBorder: '#c7eabd',
@@ -83,10 +164,6 @@ const useLobeTheme = () => {
           colorBorder: neutralBorder,
           colorBorderSecondary: '#eeeeee',
           colorSplit: '#eeeeee',
-          colorFill: 'rgba(0, 0, 0, 0.12)',
-          colorFillSecondary: 'rgba(0, 0, 0, 0.06)',
-          colorFillTertiary: 'rgba(0, 0, 0, 0.03)',
-          colorFillQuaternary: 'rgba(0, 0, 0, 0.015)',
           controlOutline: 'rgba(0, 0, 0, 0.16)',
           fontSize: 14,
           fontSizeSM: 12,
@@ -115,10 +192,10 @@ const useLobeTheme = () => {
             defaultBorderColor: neutralBorder,
             defaultColor: '#080808',
             defaultBg: '#ffffff',
-            defaultHoverBg: 'rgba(0, 0, 0, 0.03)',
+            defaultHoverBg: isDark ? lobePrimary.darkA[0] : lobePrimary.lightA[0],
             defaultHoverBorderColor: neutralBorder,
             defaultHoverColor: '#080808',
-            defaultActiveBg: 'rgba(0, 0, 0, 0.06)',
+            defaultActiveBg: isDark ? lobePrimary.darkA[1] : lobePrimary.lightA[1],
             defaultActiveBorderColor: neutralBorder,
             borderRadius: 8,
             fontWeight: 500,
@@ -142,7 +219,7 @@ const useLobeTheme = () => {
             activeBorderColor: neutralBorder,
             hoverBorderColor: neutralBorder,
             optionSelectedBg: '#f5f5f5',
-            optionActiveBg: 'rgba(0, 0, 0, 0.03)',
+            optionActiveBg: isDark ? lobePrimary.darkA[0] : lobePrimary.lightA[0],
             optionSelectedFontWeight: 500,
             borderRadius: 6,
           },
@@ -221,7 +298,7 @@ const useLobeTheme = () => {
       segmented: {},
       progress: {},
     }),
-    [],
+    [isDark, primaryTokens],
   );
 };
 
