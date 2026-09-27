@@ -6621,37 +6621,24 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   class="acss-pmp369"
 >
   <div
-    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-lg"
+    class="ant-space-compact"
   >
-    <div
-      class="ant-row css-var-test-id"
-      style="margin-inline: -4px;"
-    >
-      <div
-        class="ant-col ant-col-5 css-var-test-id"
-        style="padding-inline: 4px;"
-      >
-        <input
-          class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item ant-input-compact-last-item"
-          type="text"
-          value="0571"
-        />
-      </div>
-      <div
-        class="ant-col ant-col-8 css-var-test-id"
-        style="padding-inline: 4px;"
-      >
-        <input
-          class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item ant-input-compact-last-item"
-          type="text"
-          value="26888888"
-        />
-      </div>
-    </div>
+    <input
+      class="ant-input ant-input-lg ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
+      style="width: 120px;"
+      type="text"
+      value="0571"
+    />
+    <input
+      class="ant-input ant-input-lg ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
+      style="width: 200px;"
+      type="text"
+      value="26888888"
+    />
   </div>
   <br />
   <div
-    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+    class="ant-space-compact ant-space-compact-block"
   >
     <input
       class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
@@ -6668,7 +6655,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </div>
   <br />
   <div
-    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+    class="ant-space-compact ant-space-compact-block"
   >
     <input
       class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
@@ -6687,7 +6674,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </div>
   <br />
   <div
-    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+    class="ant-space-compact ant-space-compact-block"
   >
     <input
       class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
@@ -6747,7 +6734,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </div>
   <br />
   <div
-    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+    class="ant-space-compact ant-space-compact-block"
   >
     <div
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
@@ -6900,7 +6887,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </div>
   <br />
   <div
-    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+    class="ant-space-compact ant-space-compact-block"
   >
     <div
       class="ant-space-compact ant-input-search css-var-test-id"
@@ -7047,7 +7034,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </div>
   <br />
   <div
-    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+    class="ant-space-compact ant-space-compact-block"
   >
     <div
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
@@ -7257,7 +7244,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </div>
   <br />
   <div
-    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+    class="ant-space-compact ant-space-compact-block"
   >
     <input
       class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
@@ -7883,7 +7870,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </div>
   <br />
   <div
-    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+    class="ant-space-compact ant-space-compact-block"
   >
     <input
       class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-first-item"
@@ -9092,7 +9079,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </div>
   <br />
   <div
-    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+    class="ant-space-compact ant-space-compact-block"
   >
     <div
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
@@ -9347,7 +9334,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </div>
   <br />
   <div
-    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+    class="ant-space-compact ant-space-compact-block"
   >
     <div
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
@@ -9499,7 +9486,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </div>
   <br />
   <div
-    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+    class="ant-space-compact ant-space-compact-block"
   >
     <div
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
@@ -9726,7 +9713,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   </div>
   <br />
   <div
-    class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+    class="ant-space-compact ant-space-compact-block"
   >
     <div
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
@@ -9995,11 +9982,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders components/input/demo/group.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Input.Group] \`Input.Group\` is deprecated. Please use \`Space.Compact\` instead.",
-]
-`;
+exports[`renders components/input/demo/group.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
 <div

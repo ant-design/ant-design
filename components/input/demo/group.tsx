@@ -4,12 +4,11 @@ import {
   AutoComplete,
   Button,
   Cascader,
-  Col,
   DatePicker,
   Input,
   InputNumber,
-  Row,
   Select,
+  Space,
   Tooltip,
 } from 'antd';
 import { createStyles } from 'antd-style';
@@ -79,28 +78,22 @@ const App: React.FC = () => {
   const { styles } = useStyles();
   return (
     <div className={styles.inputWrapper}>
-      <Input.Group size="large">
-        <Row gutter={8}>
-          <Col span={5}>
-            <Input defaultValue="0571" />
-          </Col>
-          <Col span={8}>
-            <Input defaultValue="26888888" />
-          </Col>
-        </Row>
-      </Input.Group>
+      <Space.Compact size="large">
+        <Input style={{ width: 120 }} defaultValue="0571" />
+        <Input style={{ width: 200 }} defaultValue="26888888" />
+      </Space.Compact>
       <br />
-      <Input.Group compact>
+      <Space.Compact block>
         <Input style={{ width: '20%' }} defaultValue="0571" />
         <Input style={{ width: '30%' }} defaultValue="26888888" />
-      </Input.Group>
+      </Space.Compact>
       <br />
-      <Input.Group compact>
+      <Space.Compact block>
         <Input style={{ width: 'calc(100% - 200px)' }} defaultValue="https://ant.design" />
         <Button type="primary">Submit</Button>
-      </Input.Group>
+      </Space.Compact>
       <br />
-      <Input.Group compact>
+      <Space.Compact block>
         <Input
           style={{ width: 'calc(100% - 200px)' }}
           defaultValue="git@github.com:ant-design/ant-design.git"
@@ -108,9 +101,9 @@ const App: React.FC = () => {
         <Tooltip title="search git url">
           <Button icon={<SearchOutlined />} />
         </Tooltip>
-      </Input.Group>
+      </Space.Compact>
       <br />
-      <Input.Group compact>
+      <Space.Compact block>
         <Select
           defaultValue="Zhejiang"
           options={[
@@ -120,14 +113,14 @@ const App: React.FC = () => {
           ]}
         />
         <Input style={{ width: '50%' }} defaultValue="Xihu District, Hangzhou" />
-      </Input.Group>
+      </Space.Compact>
       <br />
-      <Input.Group compact>
+      <Space.Compact block>
         <Input.Search allowClear style={{ width: '40%' }} defaultValue="0571" />
         <Input.Search allowClear style={{ width: '40%' }} defaultValue="26888888" />
-      </Input.Group>
+      </Space.Compact>
       <br />
-      <Input.Group compact>
+      <Space.Compact block>
         <Select
           defaultValue="Option1"
           options={[
@@ -137,19 +130,19 @@ const App: React.FC = () => {
         />
         <Input style={{ width: '50%' }} defaultValue="input content" />
         <InputNumber prefix="@" />
-      </Input.Group>
+      </Space.Compact>
       <br />
-      <Input.Group compact>
+      <Space.Compact block>
         <Input style={{ width: '50%' }} defaultValue="input content" />
         <DatePicker style={{ width: '50%' }} />
-      </Input.Group>
+      </Space.Compact>
       <br />
-      <Input.Group compact>
+      <Space.Compact block>
         <Input style={{ width: '30%' }} defaultValue="input content" />
         <DatePicker.RangePicker style={{ width: '70%' }} />
-      </Input.Group>
+      </Space.Compact>
       <br />
-      <Input.Group compact>
+      <Space.Compact block>
         <Select
           defaultValue="Option1-1"
           options={[
@@ -164,9 +157,9 @@ const App: React.FC = () => {
             { label: 'Option2-2', value: 'Option2-2' },
           ]}
         />
-      </Input.Group>
+      </Space.Compact>
       <br />
-      <Input.Group compact>
+      <Space.Compact block>
         <Select
           defaultValue="1"
           options={[
@@ -186,9 +179,9 @@ const App: React.FC = () => {
           style={{ width: 100, textAlign: 'center' }}
           placeholder="Maximum"
         />
-      </Input.Group>
+      </Space.Compact>
       <br />
-      <Input.Group compact>
+      <Space.Compact block>
         <Select
           defaultValue="Sign Up"
           style={{ width: '30%' }}
@@ -202,9 +195,9 @@ const App: React.FC = () => {
           placeholder="Email"
           options={[{ value: 'text 1' }, { value: 'text 2' }]}
         />
-      </Input.Group>
+      </Space.Compact>
       <br />
-      <Input.Group compact>
+      <Space.Compact block>
         <Select
           style={{ width: '30%' }}
           defaultValue="Home"
@@ -214,7 +207,7 @@ const App: React.FC = () => {
           ]}
         />
         <Cascader style={{ width: '70%' }} options={options} placeholder="Select Address" />
-      </Input.Group>
+      </Space.Compact>
     </div>
   );
 };

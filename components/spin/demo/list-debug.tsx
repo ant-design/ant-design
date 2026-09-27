@@ -1,10 +1,16 @@
 import React from 'react';
-import { List, Spin } from 'antd';
+import { Flex, Listy, Spin } from 'antd';
 
 const App: React.FC = () => (
-  <List
-    dataSource={['Apple', 'Banana']}
-    renderItem={(item) => <List.Item extra={<Spin size="small" />}>{item}</List.Item>}
+  <Listy<string>
+    items={['Apple', 'Banana']}
+    rowKey={(item) => item}
+    itemRender={(item) => (
+      <Flex justify="space-between" align="center">
+        {item}
+        <Spin size="small" />
+      </Flex>
+    )}
   />
 );
 
