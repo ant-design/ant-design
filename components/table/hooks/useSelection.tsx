@@ -494,7 +494,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         const allDisabledSomeChecked =
           allDisabled && allDisabledData.some(({ checked }) => checked);
         const customCheckboxProps = getTitleCheckboxProps?.() || {};
-        const { onChange, disabled } = customCheckboxProps;
+        const { onChange, disabled, indeterminate: customIndeterminate } = customCheckboxProps;
         columnTitleCheckbox = (
           <Checkbox
             aria-label={customizeSelections ? 'Custom selection' : 'Select all'}
@@ -503,9 +503,10 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
               !allDisabled ? !!flattedData.length && checkedCurrentAll : allDisabledAndChecked
             }
             indeterminate={
-              !allDisabled
+              customIndeterminate ??
+              (!allDisabled
                 ? !checkedCurrentAll && checkedCurrentSome
-                : !allDisabledAndChecked && allDisabledSomeChecked
+                : !allDisabledAndChecked && allDisabledSomeChecked)
             }
             onChange={(e) => {
               onSelectAllChange();

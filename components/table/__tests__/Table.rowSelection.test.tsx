@@ -2217,4 +2217,36 @@ describe('Table.rowSelection', () => {
     expect(checkbox).toBeDisabled();
     expect(checkbox).toHaveAttribute('aria-label', 'Custom label');
   });
+
+  it('Table Header Checkbox should respect indeterminate from getTitleCheckboxProps', () => {
+    const dataSource = [
+      { key: '1', name: 'Item 1' },
+      { key: '2', name: 'Item 2' },
+    ];
+    const columns = [{ title: 'Name', dataIndex: 'name', key: 'name' }];
+    const { container, rerender } = render(
+      <Table
+        dataSource={dataSource}
+        columns={columns}
+        rowSelection={{ getTitleCheckboxProps: () => ({ indeterminate: true }) }}
+      />,
+    );
+    expect(container.querySelector('thead .ant-checkbox')).toHaveClass(
+      'ant-checkbox-indeterminate',
+    );
+
+    rerender(
+      <Table
+        dataSource={dataSource}
+        columns={columns}
+        rowSelection={{
+          selectedRowKeys: ['1'],
+          getTitleCheckboxProps: () => ({ indeterminate: false }),
+        }}
+      />,
+    );
+    expect(container.querySelector('thead .ant-checkbox')).not.toHaveClass(
+      'ant-checkbox-indeterminate',
+    );
+  });
 });
