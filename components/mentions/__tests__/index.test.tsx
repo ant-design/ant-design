@@ -111,6 +111,18 @@ describe('Mentions', () => {
     expect(container.querySelector('.ant-mentions-clear-icon')?.textContent).toBe('clear');
   });
 
+  it('should use getPopupContainer from ConfigProvider', () => {
+    const getPopupContainer = jest.fn(() => document.body);
+    const wrapper = render(
+      <ConfigProvider getPopupContainer={getPopupContainer}>
+        <Mentions notFoundContent="empty" />
+      </ConfigProvider>,
+    );
+    simulateInput(wrapper, '@');
+
+    expect(getPopupContainer).toHaveBeenCalled();
+  });
+
   describe('allowClear with ConfigProvider', () => {
     it('should inherit allowClear from ConfigProvider when prop is undefined', () => {
       const { container } = render(
