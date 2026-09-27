@@ -116,6 +116,8 @@ const AvatarGroup = React.forwardRef<AvatarGroupRef, AvatarGroupProps>((props, r
 
   const mergeCount = max?.count || maxCount;
   const numOfChildren = childrenWithProps.length;
+
+  let childrenToRender = childrenWithProps;
   if (mergeCount && mergeCount < numOfChildren) {
     const childrenShow = childrenWithProps.slice(0, mergeCount);
     const childrenHidden = childrenWithProps.slice(mergeCount, numOfChildren);
@@ -138,19 +140,13 @@ const AvatarGroup = React.forwardRef<AvatarGroupRef, AvatarGroupProps>((props, r
       </Popover>,
     );
 
-    return (
-      <AvatarContextProvider shape={shape} size={size}>
-        <div ref={nativeElementRef} className={cls} style={style}>
-          {childrenShow}
-        </div>
-      </AvatarContextProvider>
-    );
+    childrenToRender = childrenShow;
   }
 
   return (
     <AvatarContextProvider shape={shape} size={size}>
       <div ref={nativeElementRef} className={cls} style={style}>
-        {childrenWithProps}
+        {childrenToRender}
       </div>
     </AvatarContextProvider>
   );
