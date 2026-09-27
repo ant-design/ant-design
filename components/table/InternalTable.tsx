@@ -437,7 +437,11 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       }
     }
 
-    if (scroll && scroll.scrollToFirstRowOnChange !== false && internalRef.body.current) {
+    if (
+      mergedScroll &&
+      mergedScroll.scrollToFirstRowOnChange !== false &&
+      internalRef.body.current
+    ) {
       scrollTo(0, {
         getContainer: () => internalRef.body.current!,
       });
