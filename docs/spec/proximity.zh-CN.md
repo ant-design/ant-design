@@ -9,7 +9,7 @@ title: 亲密性
 
 ---
 
-## 纵向间距关系
+## 纵向间距关系 {#the-relation-of-vertical-spacing}
 
 <ImagePreview>
   <img class="preview-img" alt="纵向间距示例" description="在 Ant Design 中，这三种规格分别为：8px（小号间距）、16px（中号间距）、24px（大号间距）。" src="https://gw.alipayobjects.com/zos/rmsportal/goazWUHPXsGEDFIGsNlm.png">
@@ -29,7 +29,7 @@ title: 亲密性
 
 ---
 
-## 横向间距关系
+## 横向间距关系 {#horizontal-spacing-relationship}
 
 <ImagePreview>
   <img class="preview-img" alt="组合排布示例" src="https://gw.alipayobjects.com/zos/rmsportal/uYvsqAUXNaqURGIhZhxz.png">

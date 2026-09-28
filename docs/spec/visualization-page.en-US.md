@@ -88,7 +88,7 @@ When decision-makers need an overview and the option to gain further insights vi
 
 Key indicator, scorecard, filter, chart.
 
-#### [Monitor Dashboards](https://preview.pro.ant.design/dashboard/monitor)
+#### [Monitor Dashboards](https://preview.pro.ant.design/dashboard/monitor) {#template-monitor}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/antfincdn/Ls0j%26N%24i4A/4fcb4e43-5b33-4f3e-83ee-07b308c192ff.png">
@@ -110,7 +110,7 @@ Key indicator, scorecard, chart, map.
 
 Analytics dashboards separate the data-analysis interface into several parts. Usually their layouts are "summary and description" structure, showing overviews of the whole information with different aspects. These dashboards can assist the users to discover the current problems.
 
-#### Multi-dimension Analytics Dashboards
+#### Multi-dimension Analytics Dashboards {#multi-dimension-analytics}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/antfincdn/crg34dVGk%26/fc54e283-8748-45a0-b65f-e41336fdbd0d.png">
