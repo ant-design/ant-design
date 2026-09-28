@@ -16,8 +16,8 @@ Use `extractStyle` to extract style:
 
 ```tsx
 import React from 'react';
-import { createCache, extractStyle, StyleProvider } from 'antd';
-import type { Cache } from 'antd';
+import { createCache, extractStyle, StyleProvider } from 'antd/cssinjs';
+import type { Cache } from 'antd/cssinjs';
 import { renderToString } from 'react-dom/server';
 
 const App = () => {
@@ -155,7 +155,7 @@ Take Next.js for example（[example](https://github.com/ant-design/ant-design-ex
 Then, you just need to import this file into the `pages/_app.tsx` file:
 
 ```tsx
-import { StyleProvider } from 'antd';
+import { StyleProvider } from 'antd/cssinjs';
 import type { AppProps } from 'next/app';
 
 import '../public/antd.min.css'; // add this line
@@ -240,8 +240,8 @@ More about static-style-extract, see [static-style-extract](https://github.com/a
 import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
-import { extractStyle } from 'antd';
-import type { Cache } from 'antd';
+import { extractStyle } from 'antd/cssinjs';
+import type { Cache } from 'antd/cssinjs';
 
 export interface DoExtraStyleOptions {
   cache: Cache;
@@ -287,7 +287,7 @@ Export on demand using the above tools in `_document.tsx`
 
 ```tsx
 // _document.tsx
-import { createCache, StyleProvider } from 'antd';
+import { createCache, StyleProvider } from 'antd/cssinjs';
 import type { DocumentContext } from 'next/document';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 

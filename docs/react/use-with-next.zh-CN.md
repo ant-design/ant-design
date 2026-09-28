@@ -90,7 +90,7 @@ export default RootLayout;
 
 ```tsx
 import React from 'react';
-import { createCache, extractStyle, StyleProvider } from 'antd';
+import { createCache, extractStyle, StyleProvider } from 'antd/cssinjs';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import type { DocumentContext } from 'next/document';
 

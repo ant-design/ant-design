@@ -5,7 +5,8 @@
       "antd": ["./es"],
       "antd/es/*": ["./es/*"],
       "antd/lib/*": ["./lib/*"],
-      "antd/locale/*": ["./locale/*"]
+      "antd/locale/*": ["./locale/*"],
+      "antd/cssinjs": ["./cssinjs"]
     }
   },
   "include": ["components/*/demo/*.tsx"],

@@ -16,8 +16,8 @@ title: 服务端渲染
 
 ```tsx
 import React from 'react';
-import { createCache, extractStyle, StyleProvider } from 'antd';
-import type { Cache } from 'antd';
+import { createCache, extractStyle, StyleProvider } from 'antd/cssinjs';
+import type { Cache } from 'antd/cssinjs';
 import { renderToString } from 'react-dom/server';
 
 const App = () => {
@@ -155,7 +155,7 @@ fs.writeFileSync(outputPath, css);
 然后，你只需要在`pages/_app.tsx`文件中引入这个文件即可：
 
 ```tsx
-import { StyleProvider } from 'antd';
+import { StyleProvider } from 'antd/cssinjs';
 import type { AppProps } from 'next/app';
 
 import '../public/antd.min.css'; // 添加这行
@@ -240,8 +240,8 @@ const cssText = extractStyle((node) => (
 import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
-import { extractStyle } from 'antd';
-import type { Cache } from 'antd';
+import { extractStyle } from 'antd/cssinjs';
+import type { Cache } from 'antd/cssinjs';
 
 export interface DoExtraStyleOptions {
   cache: Cache;
@@ -287,7 +287,7 @@ export const doExtraStyle = (opts: DoExtraStyleOptions) => {
 
 ```tsx
 // _document.tsx
-import { createCache, StyleProvider } from 'antd';
+import { createCache, StyleProvider } from 'antd/cssinjs';
 import type { DocumentContext } from 'next/document';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 

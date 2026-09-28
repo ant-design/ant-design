@@ -90,7 +90,7 @@ If you are using the Pages Router in Next.js and using antd as your component li
 
 ```tsx
 import React from 'react';
-import { createCache, extractStyle, StyleProvider } from 'antd';
+import { createCache, extractStyle, StyleProvider } from 'antd/cssinjs';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import type { DocumentContext } from 'next/document';
 
