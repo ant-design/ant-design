@@ -38,6 +38,11 @@ export interface ComponentToken {
    */
   progressBg: string;
   /**
+   * @desc 提醒框进度条轨道背景色
+   * @descEN Background color of Notification progress track
+   */
+  progressTrackBg: string;
+  /**
    * @desc 成功提醒框容器背景色
    * @descEN Background color of success notification container
    */
@@ -123,6 +128,7 @@ const prepareComponentToken = (token: AliasToken) => ({
   zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
   width: 384,
   progressBg: `linear-gradient(90deg, ${token.colorPrimaryBorderHover}, ${token.colorPrimary})`,
+  progressTrackBg: token.colorFillTertiary,
   // Fix notification background color issue
   // https://github.com/ant-design/ant-design/issues/55649
   // https://github.com/ant-design/ant-design/issues/56055
