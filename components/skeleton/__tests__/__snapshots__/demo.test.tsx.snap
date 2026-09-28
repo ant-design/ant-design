@@ -704,7 +704,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-listy css-var-test-id ant-listy-css-var"
+    class="ant-listy ant-listy-hoverable css-var-test-id ant-listy-css-var"
     style="overflow-anchor:none"
   >
     <div
