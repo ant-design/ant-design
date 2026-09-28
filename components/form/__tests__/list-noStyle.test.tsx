@@ -63,4 +63,72 @@ describe('Form.List.NoStyle', () => {
     jest.clearAllTimers();
     jest.useRealTimers();
   });
+
+  // https://github.com/ant-design/ant-design/issues/54119
+  it('should not keep the error of a re-indexed nested field', async () => {
+    jest.useFakeTimers();
+
+    let itemsOperation: FormListOperation;
+    const listOperations: FormListOperation[] = [];
+
+    const { container } = render(
+      <Form>
+        <Form.List name="items">
+          {(fields, op) => {
+            itemsOperation = op;
+            return fields.map((field) => (
+              <div key={field.key} className="card">
+                <Form.Item label="List">
+                  <Form.List name={[field.name, 'list']}>
+                    {(subFields, subOp) => {
+                      listOperations[field.key] = subOp;
+                      return subFields.map((subField) => (
+                        <Form.Item
+                          key={subField.key}
+                          noStyle
+                          name={[subField.name, 'first']}
+                          rules={[{ required: true }]}
+                        >
+                          <Input />
+                        </Form.Item>
+                      ));
+                    }}
+                  </Form.List>
+                </Form.Item>
+              </div>
+            ));
+          }}
+        </Form.List>
+      </Form>,
+    );
+
+    const run = async (fn: () => void) => {
+      await act(async () => {
+        fn();
+      });
+      await waitFakeTimer();
+    };
+
+    await run(() => itemsOperation.add());
+    await run(() => itemsOperation.add());
+    await run(() => listOperations[0].add());
+    await run(() => listOperations[1].add());
+
+    await run(() => fireEvent.submit(container.querySelector('form')!));
+    await run(() => itemsOperation.remove(0));
+    await run(() => fireEvent.submit(container.querySelector('form')!));
+
+    const errors = Array.from(container.querySelectorAll('.ant-form-item-explain-error')).map(
+      (node) => node.textContent,
+    );
+    expect(errors).toEqual(["'items.0.list.0.first' is required"]);
+
+    fireEvent.change(container.querySelector('input')!, { target: { value: 'filled' } });
+    await waitFakeTimer();
+
+    expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(0);
+
+    jest.clearAllTimers();
+    jest.useRealTimers();
+  });
 });
