@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,588934,541494,t=>{"use strict";var e=t.i(871930);t.i(321880),t.s([],541494),t.i(541494),t.s(["createCynefinServices",()=>e.X],588934)}]);

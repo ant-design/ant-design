@@ -1,0 +1,5 @@
+(()=>{"use strict";(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,843688,e=>{var i=e.i(391398),s=e.i(820810),l=e.i(360945);let a=`
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;e.s(["default",0,()=>(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(l.f,{titlePlacement:"start",children:"Medium Size"}),(0,i.jsx)(s.f,{items:[{key:"1",label:"This is medium size panel header",children:(0,i.jsx)("p",{children:a})}]}),(0,i.jsx)(l.f,{titlePlacement:"start",children:"Small Size"}),(0,i.jsx)(s.f,{size:"small",items:[{key:"1",label:"This is small size panel header",children:(0,i.jsx)("p",{children:a})}]}),(0,i.jsx)(l.f,{titlePlacement:"start",children:"Large Size"}),(0,i.jsx)(s.f,{size:"large",items:[{key:"1",label:"This is large size panel header",children:(0,i.jsx)("p",{children:a})}]})]})])},820810,e=>{var i=e.i(327696);e.s(["f",()=>i.f])},360945,e=>{var i=e.i(415052);e.s(["f",()=>i.f])}])})();

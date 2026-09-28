@@ -1,0 +1,1 @@
+(()=>{"use strict";(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,670125,e=>{var o=e.i(391398),t=e.i(373271);let c=e=>{console.log(`checked = ${e.target.checked}`)};e.s(["default",0,()=>(0,o.jsx)(t.f,{onChange:c,children:"Checkbox"})])},373271,e=>{var o=e.i(120235);e.s(["f",()=>o.f])}])})();
