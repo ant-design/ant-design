@@ -879,7 +879,9 @@ Array [
                               >
                                 <div
                                   aria-label="Xiaoxiao Fu"
+                                  aria-posinset="1"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="owner_list_0"
                                   role="option"
                                 >
@@ -887,7 +889,9 @@ Array [
                                 </div>
                                 <div
                                   aria-label="Maomao Zhou"
+                                  aria-posinset="2"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="owner_list_1"
                                   role="option"
                                 >
@@ -1044,7 +1048,9 @@ Array [
                               >
                                 <div
                                   aria-label="private"
+                                  aria-posinset="1"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="type_list_0"
                                   role="option"
                                 >
@@ -1052,7 +1058,9 @@ Array [
                                 </div>
                                 <div
                                   aria-label="public"
+                                  aria-posinset="2"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="type_list_1"
                                   role="option"
                                 >
@@ -1214,7 +1222,9 @@ Array [
                               >
                                 <div
                                   aria-label="Jack Ma"
+                                  aria-posinset="1"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="approver_list_0"
                                   role="option"
                                 >
@@ -1222,7 +1232,9 @@ Array [
                                 </div>
                                 <div
                                   aria-label="Tom Liu"
+                                  aria-posinset="2"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="approver_list_1"
                                   role="option"
                                 >
@@ -1381,6 +1393,30 @@ Array [
                               class="ant-picker-active-bar"
                               style="position: absolute; width: 0px;"
                             />
+                            <span
+                              class="ant-picker-suffix"
+                            >
+                              <span
+                                aria-hidden="true"
+                                aria-label="calendar"
+                                class="anticon anticon-calendar"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="calendar"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
                           </div>
                           <div
                             class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
