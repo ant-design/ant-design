@@ -63,6 +63,9 @@ flowchart LR
 	IMPLEMENT --> REVIEW
 	HUMAN_PASS -->|"Yes"| COMMIT_MSG
 
+	style P1 fill:transparent,stroke:#8c8c8c,stroke-width:2px,stroke-dasharray:8 6;
+	style P2 fill:transparent,stroke:#8c8c8c,stroke-width:2px,stroke-dasharray:8 6;
+	style P3 fill:transparent,stroke:#8c8c8c,stroke-width:2px,stroke-dasharray:8 6;
 	classDef codex fill:#e6f4ff,stroke:#1677ff,color:#0958d9;
 	classDef skill fill:#f9f0ff,stroke:#722ed1,color:#531dab;
 	classDef human fill:#fff7e6,stroke:#fa8c16,color:#ad4e00;
