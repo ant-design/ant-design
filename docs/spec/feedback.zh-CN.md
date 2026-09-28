@@ -13,13 +13,13 @@ skip: true
 
 ---
 
-## 提示信息
+## 提示信息 {#prompt-message}
 
 任何一个产品，即使用户界面做的再好，也离不开用户引导和信息提示。提示信息是用来告诉用户需要知道什么、采取什么样行动的内容。
 
-### 警告
+### 警告 {#alert}
 
-#### 警告提示（Alert）
+#### 警告提示（Alert） {#alert-1}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/eviVRYTdxOxOfVENLnxq.png">
@@ -29,9 +29,9 @@ skip: true
 
 > 注：关闭按钮可根据业务需要增加或隐藏。
 
-### 通知
+### 通知 {#notification}
 
-#### 通知提醒（Notification）
+#### 通知提醒（Notification） {#notification-1}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/nElczRfDzAXRZSkpiJBQ.png" description="较为复杂的通知内容时使用。">
@@ -39,7 +39,7 @@ skip: true
 
 系统主动推送的重要的全局性通知信息，在系统右上角显示。
 
-#### 徽标数（Badge）
+#### 徽标数（Badge） {#badge}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/bVonmOmmkuvybQxTDGTC.png" description="当有 icon 的情况时一般居于 icon 右上角；无 icon 的情况下一般位于标题后侧。">
@@ -49,9 +49,9 @@ skip: true
 
 > 注：相对重要和用户关联度更高的信息提示，使用数字精准提示；权重不高和不是用户特别关心的消息提示，使用红点做提示。
 
-### 帮助
+### 帮助 {#help}
 
-#### 气泡卡片（Popover）
+#### 气泡卡片（Popover） {#popover}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/zsPOjQqkiwMnMhIsbDHz.png">
@@ -61,7 +61,7 @@ skip: true
 
 > 注：和 Tooltip 的区别是，Popover 可以承载更复杂的内容，比如链接或按钮等。
 
-#### 文字提示（Tooltip）
+#### 文字提示（Tooltip） {#tooltip}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/CKDiGEsluwkRRGqujpgv.png">
@@ -71,11 +71,11 @@ skip: true
 
 ---
 
-## 过程反馈
+## 过程反馈 {#process-feedback}
 
 操作过程中尽可能将状态的反馈给用户，即时的响应会给用户增加信赖感。
 
-### 加载状态进度反馈
+### 加载状态进度反馈 {#loading-status-progress-feedback}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/cHaaqZTvzgCZiYUnfNom.png" description="当用户不必等待较长时间的加载时使用。">
@@ -91,7 +91,7 @@ skip: true
 
 > 注：若加载时间较长，应提供取消操作。
 
-### 录入反馈
+### 录入反馈 {#input-feedback}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/CCeqqndHQgWnqVqvRptA.png">
@@ -101,7 +101,7 @@ skip: true
 
 > 注：反馈文字紧跟着要说明的区块（反馈内容一般是错误说明），不自动消失（当用户进行相应的交互操作后才消失）。
 
-#### 气泡确认框（Popconfirm）
+#### 气泡确认框（Popconfirm） {#popconfirm}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/lPZZxOAakfNhwfrpRPht.png" description="和全屏居中模态对话框相比，交互形式更轻量。">
@@ -111,11 +111,11 @@ skip: true
 
 ---
 
-## 结果反馈
+## 结果反馈 {#result-feedback}
 
 操作过程中尽可能将状态的反馈给用户，即时的响应会给用户增加信赖感。
 
-### 顶部全局提示反馈（Message）
+### 顶部全局提示反馈（Message） {#message}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/pqJMJfJGLkYTDbLyJwIg.png" description="当用户不必等待较长时间的加载时使用。">
@@ -132,7 +132,7 @@ skip: true
 
 由于反馈浮层的展示时长较短（默认 3s），对于比较重要的失败通知，建议改用对话框的形式进行通知，以避免用户遗漏信息。
 
-### 对话框反馈
+### 对话框反馈 {#dialog-feedback}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/OTzldmUjUgERMbUCHwzt.png">
