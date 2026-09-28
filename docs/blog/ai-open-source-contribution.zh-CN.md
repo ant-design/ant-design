@@ -38,25 +38,25 @@ flowchart LR
 	subgraph P1["阶段一：复现和修复"]
 		direction TB
 		ISSUE["Issue 链接"] --> ANALYZE["Codex 复现并分析"]
-		ANALYZE --> CONFIRM_FIX["人工确认修复方向"]
-		CONFIRM_FIX --> IMPLEMENT["Codex 修复并补充验证"]
+		ANALYZE --> CONFIRM_FIX{"人工确认修复方向"}
+		CONFIRM_FIX -->|"通过"| IMPLEMENT["Codex 修复并补充验证"]
 	end
 
 	subgraph P2["阶段二：CR 和确认"]
 		direction TB
-		REVIEW["Codex 完整 CR<br/>实现 · 测试 · 改动范围"] --> TEST_REVIEW["test-review<br/>测试专项检查"]
-		TEST_REVIEW --> AI_PASS{"AI CR 是否全部通过？"}
+		REVIEW["Codex 完整 CR<br/>实现 · 测试 · 改动范围"] --> AI_PASS{"AI CR 是否全部通过？"}
+		REVIEW -.->|"其中：测试专项检查"| TEST_REVIEW["test-review"]
 		AI_PASS -->|"是"| HUMAN_PASS{"人工确认是否通过？"}
 		AI_PASS -->|"否"| RETURN["回到阶段一<br/>重新修复并验证"]
 		HUMAN_PASS -->|"否"| RETURN
-		RETURN --> REVIEW
+		RETURN -->|"修复完成，再次 CR"| REVIEW
 	end
 
 	subgraph P3["阶段三：创建和提交"]
 		direction TB
 		COMMIT_MSG["commit-msg<br/>生成提交信息"] --> COMMIT["提交 Commit"]
 		COMMIT --> CREATE_PR["create-pr<br/>根据完整 Diff 准备 PR"]
-		CREATE_PR --> CONFIRM_PR["人工确认 PR 内容"]
+		CREATE_PR --> CONFIRM_PR{"人工确认 PR 内容"}
 		CONFIRM_PR --> PR["创建 PR"]
 	end
 
@@ -67,10 +67,14 @@ flowchart LR
 	classDef skill fill:#f9f0ff,stroke:#722ed1,color:#531dab;
 	classDef human fill:#fff7e6,stroke:#fa8c16,color:#ad4e00;
 	classDef neutral fill:#ffffff,stroke:#8c8c8c,color:#262626;
-	class ANALYZE,IMPLEMENT,REVIEW codex;
+	classDef success fill:#f6ffed,stroke:#52c41a,color:#237804;
+	classDef failure fill:#fff1f0,stroke:#ff4d4f,color:#a8071a;
+	class ANALYZE,IMPLEMENT,REVIEW,AI_PASS codex;
 	class TEST_REVIEW,COMMIT_MSG,CREATE_PR skill;
-	class CONFIRM_FIX,AI_PASS,HUMAN_PASS,CONFIRM_PR human;
-	class ISSUE,RETURN,COMMIT,PR neutral;
+	class CONFIRM_FIX,HUMAN_PASS,CONFIRM_PR human;
+	class ISSUE neutral;
+	class COMMIT,PR success;
+	class RETURN failure;
 ```
 
 三个虚线框分别是复现和修复、CR 和确认、创建和提交。蓝色节点由 Codex 执行，紫色节点是仓库 Skills，橙色节点需要人工确认。CR 是第二阶段的主任务，`test-review` 只是其中的测试专项检查；AI CR 或人工确认没有通过，都会返回修复，完成后重新进入 CR。
