@@ -57,18 +57,13 @@ const DumiPluginMermaid: React.FC<MermaidProps> = (props) => {
       <div className={styles.header}>
         <Segmented<MermaidView> options={viewOptions} value={view} onChange={setView} />
       </div>
-      {
-        view === 'preview'
-          ? (
-            <div
-              className={styles.preview}
-              onClick={() => setPreviewOpen(!!previewSrc)}
-            >
-              <Mermaid {...props} onRender={setSvg} />
-            </div>
-          )
-          : <MermaidSource code={props.code} />
-      }
+      {view === 'preview' ? (
+        <div className={styles.preview} onClick={() => setPreviewOpen(!!previewSrc)}>
+          <Mermaid {...props} onRender={setSvg} />
+        </div>
+      ) : (
+        <MermaidSource code={props.code} />
+      )}
       <Image
         aria-hidden
         hidden
