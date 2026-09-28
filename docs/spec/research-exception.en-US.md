@@ -80,7 +80,7 @@ No permission, which might include no application or data permissions, depending
 
 When the server encounters an error and cannot provide service to the user.
 
-#### Template - Browser Incompatibility
+#### Template - Browser Incompatibility {#template-browser-incompatibility}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*bowLQ7DhaKsAAAAAAAAAAABkARQnAQ">

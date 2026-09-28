@@ -529,6 +529,39 @@ describe('Splitter', () => {
         '80',
       );
     });
+    it('should render correct aria attributes for dragger separator and collapsible buttons', async () => {
+      const { container, rerender } = render(
+        <SplitterDemo
+          items={[
+            { size: 20, collapsible: true, resizable: true },
+            { collapsible: true, resizable: false },
+          ]}
+        />,
+      );
+
+      await resizeSplitter();
+
+      const dragger = container.querySelector('.ant-splitter-bar-dragger');
+      expect(dragger).toHaveAttribute('role', 'separator');
+      expect(dragger).toHaveAttribute('aria-disabled', 'true');
+      expect(dragger).toHaveAttribute('aria-orientation', 'vertical');
+
+      const startCollapse = container.querySelector('.ant-splitter-bar-collapse-bar-start');
+      expect(startCollapse).toHaveAttribute('role', 'button');
+      expect(startCollapse).toHaveAttribute('aria-label', 'Toggle start panel');
+
+      const endCollapse = container.querySelector('.ant-splitter-bar-collapse-bar-end');
+      expect(endCollapse).toHaveAttribute('role', 'button');
+      expect(endCollapse).toHaveAttribute('aria-label', 'Toggle end panel');
+
+      rerender(
+        <SplitterDemo items={[{ resizable: true }, { resizable: true }]} orientation="vertical" />,
+      );
+
+      const verticalDragger = container.querySelector('.ant-splitter-bar-dragger');
+      expect(verticalDragger).toHaveAttribute('aria-disabled', 'false');
+      expect(verticalDragger).toHaveAttribute('aria-orientation', 'horizontal');
+    });
   });
 
   // ============================= Collapsible =============================

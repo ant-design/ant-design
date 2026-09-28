@@ -7,13 +7,13 @@ title: 导航
 
 导航用来展示当前产品中，用户在哪儿，可以去哪儿。
 
-## 设计目标
+## 设计目标 {#design-goals}
 
 让用户明确知晓当前所处产品中的位置，并方便快捷地带用户到他想去的地方。
 
 ---
 
-## 设计原则
+## 设计原则 {#design-principles}
 
 <div class="design-inline-cards">
   <div>
@@ -36,9 +36,9 @@ title: 导航
 
 ---
 
-## 设计建议
+## 设计建议 {#design-suggestions}
 
-### 信息架构
+### 信息架构 {#information-architecture}
 
 • 设计时应尽量保持浅平宽的信息架构层级；
 
@@ -52,7 +52,7 @@ title: 导航
 
 3. 按任务，例如了解合作模式、联系合作专员、签约流程、合作联调、业务运营、客户服务。
 
-### 导航路径
+### 导航路径 {#navigation-paths}
 
 完善的导航应该允许用户沿多种路径移动：
 
@@ -70,7 +70,7 @@ title: 导航
 
 ---
 
-## 类型
+## 类型 {#types}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*MU2BQpS51mMAAAAAAAAAAABkARQnAQ">
@@ -90,7 +90,7 @@ title: 导航
 
 5.联想类导航
 
-### 全局导航
+### 全局导航 {#global-navigation}
 
 全局导航体现网站的核心组织结构。
 
@@ -98,7 +98,7 @@ title: 导航
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PgY8S6Mx3x8AAAAAAAAAAABkARQnAQ">
 </div>
 
-#### 侧边导航
+#### 侧边导航 {#sidebar-navigation}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fNW0Rak8sL8AAAAAAAAAAABkARQnAQ">
@@ -110,7 +110,7 @@ title: 导航
 
 - 企业级产品推荐使用侧栏导航，其可见性更好易于扫读，各菜单重要性受菜单排列顺序影响较小。
 
-#### 顶部导航
+#### 顶部导航 {#top-navigation}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*MmmnTKl0hO8AAAAAAAAAAABkARQnAQ">
@@ -122,7 +122,7 @@ title: 导航
 
 - 建议 1-2 个层级；超出 2 个层级时，建议采用弹出式导航。
 
-#### 弹出式导航
+#### 弹出式导航 {#pop-up-navigation}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8lgCQb8copwAAAAAAAAAAABkARQnAQ" alt="正确示范">
@@ -139,7 +139,7 @@ title: 导航
 
 > 此建议仅针对导航类菜单，不适用于操作类菜单。
 
-#### 实用工具
+#### 实用工具 {#utility-navigation}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*UXcoSYBXgOMAAAAAAAAAAABkARQnAQ">
@@ -169,7 +169,7 @@ title: 导航
 
 **不要将页面内的操作放到实用工具中。**
 
-### 子站点导航
+### 子站点导航 {#subsite-navigation}
 
 企业级产品常采用层级+数据库混合结构的信息架构，这种信息架构通常层级较深，为了实现用户感知层面的浅平宽，将较深几个层级组织为一个子站点，降低单个站点层级数量，减轻用户认知负担。
 
@@ -181,7 +181,7 @@ title: 导航
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*jYG0T7S-SjsAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-#### 沉浸式导航
+#### 沉浸式导航 {#immersive-navigation}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vABzS5JNgocAAAAAAAAAAABkARQnAQ">
@@ -189,7 +189,7 @@ title: 导航
 
 用于处理较为复杂或需要较大工作空间的任务。
 
-#### 多级站点导航
+#### 多级站点导航 {#multilevel-site-navigation}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mXw5TIVLL-sAAAAAAAAAAABkARQnAQ">
@@ -199,11 +199,11 @@ title: 导航
 
 - 子站点设计上，应明显区别于全站导航，使得进入子站点需要成较大的过渡波动，提示用户进入了新的空间。
 
-### 页内导航
+### 页内导航 {#in-page-navigation}
 
 信息架构中较低层级的内容导航可以使用页内导航，如果页面需要分享给他人，需在 url 添加定位标记。
 
-#### 页头
+#### 页头 {#page-header}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ah4HQ6gPheQAAAAAAAAAAABkARQnAQ">
@@ -211,7 +211,7 @@ title: 导航
 
 页头位于页内容上方，主要作用是申明页面主题、页内信息导航、页面级内容操作。
 
-#### Tree 树型控件
+#### Tree 树型控件 {#tree-control}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PJ2fTKBEZIoAAAAAAAAAAABkARQnAQ">
@@ -219,7 +219,7 @@ title: 导航
 
 页面内多层次的结构展示。
 
-#### 锚点
+#### 锚点 {#anchor}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*d6eDQZy-6gkAAAAAAAAAAABkARQnAQ">
@@ -227,7 +227,7 @@ title: 导航
 
 在各个页面分区之间跳转，当平铺呈现的内容过长时使用。
 
-#### 回到顶部
+#### 回到顶部 {#back-to-top}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*-QkOT5KrcDwAAAAAAAAAAABkARQnAQ">
@@ -235,7 +235,7 @@ title: 导航
 
 快速回到页面顶部。
 
-#### 走马灯
+#### 走马灯 {#carousel}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*gVZZQIz6yw4AAAAAAAAAAABkARQnAQ">
@@ -243,13 +243,13 @@ title: 导航
 
 循环播放一系列内容。
 
-### 下钻类导航
+### 下钻类导航 {#drill-down-navigation}
 
 点击进入信息架构下层内容，默认站内跳转，站外新开标签页，典型场景为列表下钻至详情。
 
-### 返回类导航
+### 返回类导航 {#back-navigation}
 
-#### 面包屑
+#### 面包屑 {#breadcrumbs}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QcmiTLXUH1oAAAAAAAAAAABkARQnAQ">
@@ -257,7 +257,7 @@ title: 导航
 
 反映当前页面在网站结构中的位置，在少于三个层级时无需展示，此时的全局导航能直接呈现位置。用户可通过面包屑返回上级页面。
 
-#### 返回按钮
+#### 返回按钮 {#back-button}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*z1XdRrwsqgQAAAAAAAAAAABkARQnAQ">
@@ -267,9 +267,9 @@ title: 导航
 
 页头中的返回按钮相当于一个短面包屑，用于返回上一层级页面。适用于子站点场景，该场景隐藏了全站导航，用户需要通过返回按钮回到上级页面。
 
-### 联想类导航
+### 联想类导航 {#associative-navigation}
 
-#### 步骤条
+#### 步骤条 {#step-bar}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*jhNXQL5oRaMAAAAAAAAAAABkARQnAQ">
@@ -285,7 +285,7 @@ title: 导航
 
 • 步骤条将复杂的任务分解为易于处理的小任务，减少用户出错，更快完成任务。
 
-#### 上一篇下一篇
+#### 上一篇下一篇 {#previousnext}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5Es3S4HJvrEAAAAAAAAAAABkARQnAQ">
@@ -295,7 +295,7 @@ title: 导航
 
 ---
 
-## 如何验证设计结果
+## 如何验证设计结果 {#how-to-validate-design-results}
 
 验证导航系统的设计好坏可对其进行压力测试：像跳伞一样跳进网站里，验证导航系统的极限。
 
@@ -307,9 +307,9 @@ title: 导航
 
 ---
 
-## 扩展阅读
+## 扩展阅读 {#further-reading}
 
-### 外部参考文章
+### 外部参考文章 {#external-reference-articles}
 
 - [阿里云-控制台导内容区导航系统](https://xconsole.aliyun-inc.com/spec/hxzewz)
 - [Material Design Navigation](https://material.io/design/navigation/understanding-navigation.html#)
