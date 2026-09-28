@@ -33,7 +33,45 @@ https://github.com/ant-design/ant-design/issues/58884
 
 后面的实现、测试、本地 CR、提交和创建 PR 都可以继续用很短的指令。三个 Skills 不会取代 Codex，也不是彼此独立的工具；它们出现在不同阶段，把仓库已经确认的做法交给 Codex 执行。
 
-![Codex、Skills 与人工确认组成的维护流程](https://mdn.alipayobjects.com/huamei_ktaqcm/afts/file/A*WYVwSLqs0mMAAAAAQrAAAAgAeuN6AQ)
+```mermaid
+flowchart LR
+	subgraph P1["阶段一：复现和修复"]
+		direction TB
+		ISSUE["Issue 链接"] --> ANALYZE["Codex 复现并分析"]
+		ANALYZE --> CONFIRM_FIX["人工确认修复方向"]
+		CONFIRM_FIX --> IMPLEMENT["Codex 修复并补充验证"]
+	end
+
+	subgraph P2["阶段二：CR 和确认"]
+		direction TB
+		REVIEW["Codex 完整 CR<br/>实现 · 测试 · 改动范围"] --> TEST_REVIEW["test-review<br/>测试专项检查"]
+		TEST_REVIEW --> AI_PASS{"AI CR 是否全部通过？"}
+		AI_PASS -->|"是"| HUMAN_PASS{"人工确认是否通过？"}
+		AI_PASS -->|"否"| RETURN["回到阶段一<br/>重新修复并验证"]
+		HUMAN_PASS -->|"否"| RETURN
+		RETURN --> REVIEW
+	end
+
+	subgraph P3["阶段三：创建和提交"]
+		direction TB
+		COMMIT_MSG["commit-msg<br/>生成提交信息"] --> COMMIT["提交 Commit"]
+		COMMIT --> CREATE_PR["create-pr<br/>根据完整 Diff 准备 PR"]
+		CREATE_PR --> CONFIRM_PR["人工确认 PR 内容"]
+		CONFIRM_PR --> PR["创建 PR"]
+	end
+
+	IMPLEMENT --> REVIEW
+	HUMAN_PASS -->|"是"| COMMIT_MSG
+
+	classDef codex fill:#e6f4ff,stroke:#1677ff,color:#0958d9;
+	classDef skill fill:#f9f0ff,stroke:#722ed1,color:#531dab;
+	classDef human fill:#fff7e6,stroke:#fa8c16,color:#ad4e00;
+	classDef neutral fill:#ffffff,stroke:#8c8c8c,color:#262626;
+	class ANALYZE,IMPLEMENT,REVIEW codex;
+	class TEST_REVIEW,COMMIT_MSG,CREATE_PR skill;
+	class CONFIRM_FIX,AI_PASS,HUMAN_PASS,CONFIRM_PR human;
+	class ISSUE,RETURN,COMMIT,PR neutral;
+```
 
 三个虚线框分别是复现和修复、CR 和确认、创建和提交。蓝色节点由 Codex 执行，紫色节点是仓库 Skills，橙色节点需要人工确认。CR 是第二阶段的主任务，`test-review` 只是其中的测试专项检查；AI CR 或人工确认没有通过，都会返回修复，完成后重新进入 CR。
 
