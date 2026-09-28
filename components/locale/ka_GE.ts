@@ -95,6 +95,10 @@ const localeValues: Locale = {
     expand: 'გაშლა',
     collapse: 'კოლაფსი',
   },
+  Carousel: {
+    prevSlide: 'წინა სლაიდი',
+    nextSlide: 'შემდეგი სლაიდი',
+  },
   Form: {
     optional: '(არასავალდებულო)',
     defaultValidateMessages: {

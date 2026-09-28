@@ -95,6 +95,10 @@ const localeValues: Locale = {
     expand: 'විහිදුවන්න',
     collapse: 'හකුළන්න',
   },
+  Carousel: {
+    prevSlide: 'කලින් ස්ලයිඩ්',
+    nextSlide: 'ඊළඟ ස්ලයිඩ්',
+  },
   Form: {
     optional: '(විකල්පයකි)',
     defaultValidateMessages: {

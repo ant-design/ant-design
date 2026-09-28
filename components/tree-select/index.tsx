@@ -11,7 +11,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useZIndex } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -221,6 +221,8 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     getPrefixCls,
     getPopupContainer: getContextPopupContainer,
     direction,
+    className: contextClassName,
+    style: contextStyle,
     styles: contextStyles,
     classNames: contextClassNames,
     switcherIcon,
@@ -305,9 +307,16 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     variant,
   } as TreeSelectProps;
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TreeSelectSemanticAllType['classNames'],
+    TreeSelectSemanticAllType['styles'],
+    TreeSelectProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     {
       props: mergedProps as unknown as TreeSelectProps,
     },
@@ -325,7 +334,6 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
     },
     rootClassName,
-    mergedClassNames.root,
     mergedClassNames.popup?.root,
     cssVarCls,
     rootCls,
@@ -405,6 +413,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     compactItemClassnames,
+    contextClassName,
     className,
     rootClassName,
     mergedClassNames?.root,
@@ -440,7 +449,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
       ref={ref}
       prefixCls={prefixCls}
       className={mergedClassName}
-      style={{ ...mergedStyles?.root, ...style }}
+      style={mergedStyles.root}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       treeCheckable={
@@ -458,7 +467,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}
       popupClassName={mergedPopupClassName}
-      popupStyle={{ ...mergedStyles.root, ...mergedStyles.popup?.root, zIndex }}
+      popupStyle={{ ...mergedStyles.popup?.root, zIndex }}
       popupRender={mergedPopupRender}
       onPopupVisibleChange={mergedOnOpenChange}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}

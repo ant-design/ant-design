@@ -62,7 +62,7 @@ Try to highlight the primary information by placing it first on a screen. Limit 
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ym8CSoOMN1EAAAAAAAAAAABkARQnAQ" alt="Do">
 </ImagePreview>
 
-Make good use of filtering capability. Let users observe the overview and check the detailed data at the same time. This way users can explore data quickly whenever they have questions. [text](vscode-file://vscode-app/Applications/VSCodium.app/Contents/Resources/app/out/vs/code/electron-sandbox/workbench/workbench.html)
+Make good use of filtering capability. Let users observe the overview and check the detailed data at the same time. This way users can explore data quickly whenever they have questions.
 
 ## Typical Templates
 

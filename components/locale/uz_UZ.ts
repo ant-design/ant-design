@@ -100,6 +100,10 @@ const localeValues: Locale = {
     expand: 'Ochib qoyish',
     collapse: 'Yiqilish',
   },
+  Carousel: {
+    prevSlide: 'Oldingi slayd',
+    nextSlide: 'Keyingi slayd',
+  },
   Form: {
     optional: '(shart emas)',
     defaultValidateMessages: {

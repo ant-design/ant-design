@@ -137,7 +137,7 @@
     "@rc-component/mutate-observer": "^2.0.1",
     "@rc-component/notification": "~2.0.8",
     "@rc-component/pagination": "~1.4.0",
-    "@rc-component/picker": "~1.14.0",
+    "@rc-component/picker": "~1.15.0",
     "@rc-component/progress": "~1.0.3",
     "@rc-component/qrcode": "~2.0.0",
     "@rc-component/rate": "~1.0.1",
@@ -316,7 +316,7 @@
     "runes2": "^1.1.4",
     "semver": "^7.7.4",
     "sharp": "^0.35.1",
-    "simple-git": "^3.36.0",
+    "simple-git": "^4.0.0",
     "size-limit": "^14.0.0",
     "spinnies": "^0.5.1",
     "swr": "^2.4.1",
@@ -338,12 +338,12 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "446 KiB",
+      "limit": "447 KiB",
       "gzip": true
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "536 KiB",
+      "limit": "538 KiB",
       "gzip": true
     }
   ],

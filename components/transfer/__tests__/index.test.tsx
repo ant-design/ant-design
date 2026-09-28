@@ -289,6 +289,168 @@ describe('Transfer', () => {
     expect(handleSelectChange).toHaveBeenLastCalledWith([], ['a']);
   });
 
+  it.each(['left', 'right'] as const)(
+    'should only shift select and transfer matching items in the %s list',
+    (direction) => {
+      const onSelectChange = jest.fn();
+      const onChange = jest.fn();
+      const isLeft = direction === 'left';
+      const dataSource = [
+        { key: 'a', title: 'Apple 1' },
+        { key: 'b', title: 'Banana' },
+        { key: 'c', title: 'Apple 2', disabled: true },
+        { key: 'd', title: 'Apple 3' },
+      ];
+      const { container, getByText, queryByText } = render(
+        <Transfer
+          showSearch
+          dataSource={dataSource}
+          targetKeys={isLeft ? [] : dataSource.map((item) => item.key)}
+          render={(item) => item.title}
+          onSelectChange={onSelectChange}
+          onChange={onChange}
+        />,
+      );
+      const search = container.querySelectorAll('.ant-transfer-list-search input')[isLeft ? 0 : 1];
+
+      fireEvent.change(search, { target: { value: 'Apple' } });
+      expect(queryByText('Banana')).not.toBeInTheDocument();
+      fireEvent.click(getByText('Apple 1'));
+      fireEvent.click(getByText('Apple 3'), { shiftKey: true });
+
+      expect(onSelectChange).toHaveBeenLastCalledWith(
+        isLeft ? ['a', 'd'] : [],
+        isLeft ? [] : ['a', 'd'],
+      );
+
+      fireEvent.change(search, { target: { value: '' } });
+      expect(
+        getByText('Banana').closest('li')?.querySelector('input[type="checkbox"]'),
+      ).not.toBeChecked();
+      fireEvent.click(container.querySelectorAll('.ant-transfer-actions button')[isLeft ? 0 : 1]);
+      expect(onChange).toHaveBeenLastCalledWith(
+        isLeft ? ['a', 'd'] : ['b', 'c'],
+        isLeft ? 'right' : 'left',
+        ['a', 'd'],
+      );
+    },
+  );
+
+  it.each(['left', 'right'] as const)(
+    'should reset the shift selection range when searching and clearing the %s list',
+    (direction) => {
+      const onSelectChange = jest.fn();
+      const isLeft = direction === 'left';
+      const dataSource = [
+        { key: 'a', title: 'Banana' },
+        { key: 'b', title: 'Apple 1' },
+        { key: 'c', title: 'Apple 2' },
+        { key: 'd', title: 'Apple 3' },
+      ];
+      const { container, getByText } = render(
+        <Transfer
+          showSearch
+          dataSource={dataSource}
+          targetKeys={isLeft ? [] : dataSource.map((item) => item.key)}
+          render={(item) => item.title}
+          onSelectChange={onSelectChange}
+        />,
+      );
+      const section = container.querySelectorAll('.ant-transfer-section')[isLeft ? 0 : 1];
+
+      fireEvent.click(getByText('Banana'));
+      fireEvent.change(section.querySelector('.ant-transfer-list-search input')!, {
+        target: { value: 'Apple' },
+      });
+      fireEvent.click(getByText('Apple 3'), { shiftKey: true });
+      expect(onSelectChange).toHaveBeenLastCalledWith(
+        isLeft ? ['a', 'd'] : [],
+        isLeft ? [] : ['a', 'd'],
+      );
+
+      fireEvent.click(section.querySelector('.ant-input-clear-icon')!);
+      fireEvent.click(getByText('Apple 1'), { shiftKey: true });
+      expect(onSelectChange).toHaveBeenLastCalledWith(
+        isLeft ? ['a', 'd', 'b'] : [],
+        isLeft ? [] : ['a', 'd', 'b'],
+      );
+    },
+  );
+
+  describe.each(['left', 'right'] as const)('shift selection in the %s list', (direction) => {
+    it.each(['filterOption', 'dataSource'] as const)(
+      'should reset the range when %s changes the matching items',
+      (prop) => {
+        const onSelectChange = jest.fn();
+        const isLeft = direction === 'left';
+        const dataSource = ['a', 'b', 'c', 'd'].map((key) => ({
+          key,
+          title: key,
+          description: key === 'b' ? 'other' : 'match',
+        }));
+        const props: TransferProps<(typeof dataSource)[number]> = {
+          dataSource,
+          showSearch: { defaultValue: 'match' },
+          targetKeys: isLeft ? [] : dataSource.map((item) => item.key),
+          filterOption: (value, item) => item.description === value,
+          render: (item) => item.title,
+          onSelectChange,
+        };
+        const { getByText, queryByText, rerender } = render(<Transfer {...props} />);
+
+        expect(queryByText('b')).not.toBeInTheDocument();
+        fireEvent.click(getByText('c'));
+        rerender(
+          <Transfer
+            {...props}
+            {...(prop === 'filterOption'
+              ? { filterOption: () => true }
+              : { dataSource: dataSource.map((item) => ({ ...item, description: 'match' })) })}
+          />,
+        );
+        expect(getByText('b')).toBeInTheDocument();
+        fireEvent.click(getByText('d'), { shiftKey: true });
+
+        expect(onSelectChange).toHaveBeenLastCalledWith(
+          isLeft ? ['c', 'd'] : [],
+          isLeft ? [] : ['c', 'd'],
+        );
+      },
+    );
+  });
+
+  it('should shift deselect only matching items with a custom filter and default search', () => {
+    const onSelectChange = jest.fn();
+    const Demo = () => {
+      const [selectedKeys, setSelectedKeys] = useState(['b']);
+      return (
+        <Transfer
+          showSearch={{ defaultValue: 'match' }}
+          dataSource={[
+            { key: 'a', title: 'First', description: 'match' },
+            { key: 'b', title: 'Hidden', description: 'other' },
+            { key: 'c', title: 'Last', description: 'match' },
+          ]}
+          selectedKeys={selectedKeys}
+          filterOption={(value, item) => item.description === value}
+          render={(item) => item.title}
+          onSelectChange={(sourceKeys, targetKeys) => {
+            setSelectedKeys(sourceKeys as string[]);
+            onSelectChange(sourceKeys, targetKeys);
+          }}
+        />
+      );
+    };
+    const { getByText, queryByText } = render(<Demo />);
+
+    expect(queryByText('Hidden')).not.toBeInTheDocument();
+    fireEvent.click(getByText('First'));
+    fireEvent.click(getByText('Last'), { shiftKey: true });
+    expect(onSelectChange).toHaveBeenLastCalledWith(['b', 'a', 'c'], []);
+    fireEvent.click(getByText('First'), { shiftKey: true });
+    expect(onSelectChange).toHaveBeenLastCalledWith(['b'], []);
+  });
+
   it('reset last select key after deselect', () => {
     const handleSelectChange = jest.fn();
     const { getByText } = render(

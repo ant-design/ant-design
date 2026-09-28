@@ -95,6 +95,10 @@ const localeValues: Locale = {
     expand: 'Разгарнуць',
     collapse: 'Згарнуць',
   },
+  Carousel: {
+    prevSlide: 'Папярэдні слайд',
+    nextSlide: 'Наступны слайд',
+  },
   Form: {
     optional: '(не абавязкова)',
     defaultValidateMessages: {

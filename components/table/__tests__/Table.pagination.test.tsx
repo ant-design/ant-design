@@ -5,6 +5,7 @@ import Table from '..';
 import scrollTo from '../../_util/scrollTo';
 import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 jest.mock('../../_util/scrollTo');
 
@@ -151,6 +152,20 @@ describe('Table.pagination', () => {
       createTable({ scroll: { y: 20 }, pagination: { showSizeChanger: true, pageSize: 2 } }),
     );
     fireEvent.click(container.querySelector('.ant-pagination-next')!);
+  });
+
+  it('should scroll to first row when page change with scroll from ConfigProvider', () => {
+    (scrollTo as any).mockClear();
+
+    const { container } = render(
+      <ConfigProvider table={{ scroll: { y: 20 } }}>
+        {createTable({ pagination: { pageSize: 2 } })}
+      </ConfigProvider>,
+    );
+    expect(scrollTo).toHaveBeenCalledTimes(0);
+
+    fireEvent.click(container.querySelector('.ant-pagination-next')!);
+    expect(scrollTo).toHaveBeenCalledTimes(1);
   });
 
   it('fires change event', () => {

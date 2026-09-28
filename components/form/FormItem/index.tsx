@@ -35,7 +35,7 @@ const _ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as c
 export type ValidateStatus = (typeof _ValidateStatuses)[number];
 
 type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
-type RcFieldProps<Values = any> = Omit<FieldProps<Values>, 'children'>;
+type RcFieldProps<Values = any> = Omit<FieldProps<Values>, 'children' | 'onMetaChange'>;
 type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode;
 
 export type FeedbackIcons = (itemStatus: {

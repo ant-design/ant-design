@@ -95,6 +95,10 @@ const localeValues: Locale = {
     expand: 'Өргөтгөх',
     collapse: 'Нурах',
   },
+  Carousel: {
+    prevSlide: 'Өмнөх слайд',
+    nextSlide: 'Дараагийн слайд',
+  },
   Form: {
     optional: '(сонголттой)',
     defaultValidateMessages: {
