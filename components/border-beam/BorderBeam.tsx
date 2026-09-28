@@ -64,13 +64,14 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const beamGradient = useMemo(() => getBorderBeamGradient(color), [color]);
   const mergedCount =
     isNumber(count) && Number.isFinite(count) && count >= 1 ? Math.floor(count) : 1;
-  const mergedDuration =
-    isNumber(duration) && duration > 0 ? duration : DEFAULT_BORDER_BEAM_DURATION;
+  const hasValidDuration = isNumber(duration) && duration > 0;
+  const mergedDuration = hasValidDuration ? duration : DEFAULT_BORDER_BEAM_DURATION;
 
   // ============================ Border ============================
   const insetOffset = useMemo<string>(() => {
     return isNonNullable(outset) ? getInset(outset) : borderWidth.map<string>(getInset).join(' ');
   }, [borderWidth, outset]);
+  const beamClassName = clsx(contextClassName, className, hashId, cssVarCls);
 
   // ============================ Render ============================
   return (
@@ -81,12 +82,12 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
           key={index}
           prefixCls={prefixCls}
           hostDom={childDomNode}
-          className={clsx(contextClassName, className, hashId, cssVarCls)}
+          className={beamClassName}
           style={{
             ...contextStyle,
             ...style,
             ...(beamGradient && { [varName('beam-gradient')]: beamGradient }),
-            ...(isNumber(duration) && duration > 0 && { [varName('duration')]: `${duration}s` }),
+            ...(hasValidDuration && { [varName('duration')]: `${duration}s` }),
             ...(isNonNullable(lineWidth) && { [varName('line-width')]: unit(lineWidth) }),
             ...(isNonNullable(size) && { [varName('size')]: unit(size) }),
             ...(index > 0 && {
