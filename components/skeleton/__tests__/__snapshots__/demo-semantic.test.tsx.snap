@@ -24,6 +24,7 @@ exports[`renders components/skeleton/demo/_semantic.tsx correctly 1`] = `
           class="semantic-mark-section ant-skeleton-section"
         >
           <h3
+            aria-hidden="true"
             class="ant-skeleton-title semantic-mark-title"
             style="width: 50%;"
           />

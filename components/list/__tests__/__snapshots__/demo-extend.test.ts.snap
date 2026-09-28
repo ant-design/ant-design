@@ -2939,6 +2939,7 @@ exports[`renders components/list/demo/infinite-load.tsx extend context correctly
           class="ant-skeleton-section"
         >
           <h3
+            aria-hidden="true"
             class="ant-skeleton-title"
             style="width: 50%;"
           />
