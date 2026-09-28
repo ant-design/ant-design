@@ -225,78 +225,77 @@ exports[`renders components/spin/demo/fullscreen.tsx extend context correctly 2`
 
 exports[`renders components/spin/demo/list-debug.tsx extend context correctly 1`] = `
 <div
-  class="ant-listy css-var-test-id ant-listy-css-var"
-  style="overflow-anchor: none;"
+  aria-busy="false"
+  aria-live="polite"
+  class="ant-spin css-var-test-id"
 >
   <div
-    class="ant-listy-item"
-    data-key="item:Apple"
+    class="ant-spin-container"
   >
     <div
-      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
+      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
     >
-      Apple
       <div
-        aria-busy="true"
-        aria-live="polite"
-        class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-section css-var-test-id"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
       >
-        <span
-          class="ant-spin-dot-holder"
+        Apple
+        <div
+          aria-busy="true"
+          aria-live="polite"
+          class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-section css-var-test-id"
         >
           <span
-            class="ant-spin-dot ant-spin-dot-spin"
+            class="ant-spin-dot-holder"
           >
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
+            <span
+              class="ant-spin-dot ant-spin-dot-spin"
+            >
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+            </span>
           </span>
-        </span>
+        </div>
       </div>
-    </div>
-  </div>
-  <div
-    class="ant-listy-item"
-    data-key="item:Banana"
-  >
-    <div
-      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
-    >
-      Banana
       <div
-        aria-busy="true"
-        aria-live="polite"
-        class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-section css-var-test-id"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
       >
-        <span
-          class="ant-spin-dot-holder"
+        Banana
+        <div
+          aria-busy="true"
+          aria-live="polite"
+          class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-section css-var-test-id"
         >
           <span
-            class="ant-spin-dot ant-spin-dot-spin"
+            class="ant-spin-dot-holder"
           >
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
+            <span
+              class="ant-spin-dot ant-spin-dot-spin"
+            >
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+            </span>
           </span>
-        </span>
+        </div>
       </div>
     </div>
   </div>
