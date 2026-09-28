@@ -7,7 +7,7 @@ title: 可视化
 
 同时，这是一份动态更新的设计文档，你的阅读和互动正是我们不断前进的动力，[GitHub 反馈地址](https://github.com/antvis/site/issues)。
 
-## 前端实现
+## 前端实现 {#front-end-implementation}
 
 [AntV](https://antv.vision/zh) 是基于原生 JavaScript 封装的可视化组件库，包含高交互基础图表库 G2Plot，流程与关系分析的图表库 G6，专注解决地理空间数据可视分析的 L7，适用于移动端的高性能图表库 F2，欢迎社区贡献其他框架的实现版本。
 
@@ -18,26 +18,26 @@ title: 可视化
 - [F2 移动端可视化方案](https://f2.antv.vision/zh)
 - [AntV React 版](https://charts.ant.design)
 
-## 如何设计
+## 如何设计 {#how-to-design}
 
-### 了解用户
+### 了解用户 {#understanding-the-users}
 
 用户是谁？他们要从可视化作品上获取什么信息？在企业级产品中，用户可能是公司高层、BI 分析师、运营、数据开发等不同角色。不同角色在使用可视化作品时，其目的以及使用路径会有所不同。建议在设计开始前对使用者进行充分剖析，以便完整地讲述你的数据故事，准确呈现你的数据见解。
 
-### 设计原则
+### 设计原则 {#design-principles}
 
 - 准确：从数据转化到可视表达时不歪曲、不误导、不遗漏，忠实反映数据里包含的信息；
 - 有效：信息传达有重点，克制而不冗余，避免信息过载，用最适量的数据-油墨比（Data-ink Ratio）表达对用户最有用的信息；
 - 清晰：表现方式清楚易读，具条理性，可以帮助用户快速达成目标，在最少的时间内获取更多的信息；
 - 美：对数据的完美表达，合理利用视觉元素进行艺术创作，不过度修饰，给用户优雅的体验。
 
-## 图表用法
+## 图表用法 {#chart-usage}
 
-### 选择正确的图表类型
+### 选择正确的图表类型 {#choosing-the-right-chart-type}
 
 我们提供了完整的图表用法说明，帮助您更合理地选择图表类型。
 
-#### 时间类
+#### 时间类 {#time-series}
 
 <ImagePreview>
 <img class="preview-img no-padding" description="代表类型：折线图、面积图等" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*z0ZSRabgdpQAAAAAAAAAAABkARQnAQ" />
@@ -45,7 +45,7 @@ title: 可视化
 
 通常用于表现数据在时间维度上的趋势和变化。
 
-#### 比较类
+#### 比较类 {#comparison}
 
 <ImagePreview>
 <img class="preview-img no-padding" description="代表类型：柱状图、气泡图等" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mvE4T6jti5QAAAAAAAAAAABkARQnAQ" />
@@ -53,7 +53,7 @@ title: 可视化
 
 使用图形的长度、宽度、位置、面积、角度和颜色来比较数值的大小，通常用于展示不同分类间的数值对比。
 
-#### 分布类
+#### 分布类 {#distribution}
 
 <ImagePreview>
 <img class="preview-img no-padding" description="代表类型：散点图、箱形图等" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_ft8Soe5p6EAAAAAAAAAAABkARQnAQ" />
@@ -61,7 +61,7 @@ title: 可视化
 
 通常用于展示连续数据上数值的分布情况。
 
-#### 流程类
+#### 流程类 {#process}
 
 <ImagePreview>
 <img class="preview-img no-padding" description="代表类型：漏斗图等" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*kJj6Qo3-UFIAAAAAAAAAAABkARQnAQ" />
@@ -69,7 +69,7 @@ title: 可视化
 
 通常用于表示流程流转、流量关系。
 
-#### 占比类
+#### 占比类 {#proportion}
 
 <ImagePreview>
 <img class="preview-img no-padding" description="代表类型：环图、饼图、百分比堆叠类型图表等" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*52XJRK9B0KUAAAAAAAAAAABkARQnAQ" />
@@ -79,7 +79,7 @@ title: 可视化
 
 获取更多图表用法内容，请前往 [AntV 图表用法](https://antv-2018.alipay.com/zh-cn/vis/chart/index.html)
 
-### 色板
+### 色板 {#colour-swatches}
 
 <ImagePreview>
 <img class="preview-img no-padding" description="AntV 官方默认色板示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Skn6TZsQ7ksAAAAAAAAAAABkARQnAQ" />
@@ -89,13 +89,13 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 获取更多色板，请前往 [AntV - 设计语言 - 视觉](https://antv.vision/specification/language/palette)
 
-### 组件使用建议
+### 组件使用建议 {#component-usage-recommendations}
 
-#### 标题与注释
+#### 标题与注释 {#title-and-notes}
 
 标题是对图表的主题进行阐述的一段话；注释是表明数据来源，让图表看起来来源清晰、可靠。
 
-#### 轴
+#### 轴 {#axle}
 
 <ImagePreview>
 <img class="preview-img no-padding" description="轴的元素" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*i4tXQZkMGrMAAAAAAAAAAABkARQnAQ" />
@@ -107,7 +107,7 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 用来定义坐标系中数据在方向和值的映射关系。
 
-#### 图例
+#### 图例 {#legend}
 
 <ImagePreview>
 <img class="preview-img no-padding" description="图例的元素" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8oYwRJbGmhMAAAAAAAAAAABkARQnAQ" />
@@ -119,7 +119,7 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 用来解释图表区域中包含的所有视觉元素的含义。
 
-#### 标签
+#### 标签 {#labels}
 
 <ImagePreview>
 <img class="preview-img no-padding" description="标签的分类" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*j2gNQ4E-wAoAAAAAAAAAAABkARQnAQ" />
@@ -127,7 +127,7 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 对当前的一组数据进行的内容标注。
 
-#### 提示信息
+#### 提示信息 {#alerts-message}
 
 <ImagePreview>
 <img class="preview-img no-padding" description="提示信息的元素" src="https://gw.alipayobjects.com/zos/basement_prod/f9683e72-81a4-47cc-a208-6570187cce11.svg" />
@@ -135,7 +135,7 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 指当鼠标悬停在图表上或者手指点按移动设备的某个数据点时，以交互提示信息的形式展示该点的数据，比如该点的值，数据单位等。
 
-#### 图形
+#### 图形 {#graphics}
 
 <ImagePreview>
 <img class="preview-img no-padding" description="图形的分类" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*itDLQb2fXpkAAAAAAAAAAABkARQnAQ" />
@@ -145,7 +145,7 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 获取组件使用建议，请前往 [AntV - 设计语言 - 图表组件设计指引](https://antv.vision/zh/docs/specification/components/titlenotes)
 
-### 图表布局适应
+### 图表布局适应 {#chart-layout-adaptation}
 
 <ImagePreview>
 <img class="preview-img no-padding" description="图表响应式示意" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0vfXTIlbSXwAAAAAAAAAAABkARQnAQ" />
@@ -159,7 +159,7 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 在 Ant Design 的可视化体系中，我们发展出一套适用于全量图表的布局适应规则，从整体图表、图表内原子组件梳理了适用于所有图表的布局适应体系。以右侧动图为例，图中横轴的轴标签跟随具体尺寸发生了旋转。更多内容即将发布，敬请期待。
 
-### 交互
+### 交互 {#interaction}
 
 <ImagePreview>
   <img alt="动态交互" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QXtKSIMgaOUAAAAAAAAAAABkARQnAQ" />
@@ -171,7 +171,7 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 更多交互式图表内容请前往 [AntV -- 设计语言 -- 交互](https://antv.vision/zh/docs/specification/language/interact)
 
-## 设计资源
+## 设计资源 {#design-resources}
 
 - 最新的图表资产已登陆 「AntDesign 官网 -- 资源 -- AntDesign Chart 资源包」
 - 也可以访问 [Kitchen](https://kitchen.alipay.com/) 官网下载 Sketch 插件，除了可以直接使用源文件之外，还可以使用 Kitchen「📈 图表生成器」，用保真数据动态生成图表。

@@ -15,7 +15,7 @@ title: 即时反应
 
 ---
 
-## 查询模式
+## 查询模式 {#lookup-patterns}
 
 <ImagePreview>
 <img class="preview-img" alt="确定类目示例" description="用户所查询的关键词，只会在「话题」、「问题」、「文章」这 3 种类目中出现。" src="https://gw.alipayobjects.com/zos/rmsportal/czfJRLltwXcsTLlTpytV.png">
@@ -39,7 +39,7 @@ title: 即时反应
 
 ---
 
-## 反馈模式
+## 反馈模式 {#live-suggest}
 
 <ImagePreview>
 <img class="preview-img" alt="实时预览示例" description="根据用户的输入，提供关于密码强度和有效性的实时反馈。" src="https://gw.alipayobjects.com/zos/rmsportal/koYsOzKwTcHvjpZULpov.png">
@@ -51,7 +51,7 @@ title: 即时反应
 
 <br>
 
-渐进式展现：在必要的时候提供必要的提示，而不是一股脑儿显示所有提示，导致界面混乱，增加认知负担。案例详见[「足不出户／渐进式展现」](/docs/spec/stay#流程处理)。
+渐进式展现：在必要的时候提供必要的提示，而不是一股脑儿显示所有提示，导致界面混乱，增加认知负担。案例详见[「足不出户／渐进式展现」](/docs/spec/stay#process-flows)。
 
 <br>
 
