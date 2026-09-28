@@ -7,13 +7,13 @@ title: 数据可视化页
 
 数据可视化类的页面通过一系列图表展现及辅助解读，用户通过浏览和操作数据图表，来实现特定分析目的，制定数据驱动型决策。
 
-## 设计目标
+## 设计目标 {#design-goals}
 
 让使用者快速、清晰地理解数据意义，快速分析趋势，驱动决策。
 
 ---
 
-## 设计原则
+## 设计原则 {#design-principles}
 
 <div class="design-inline-cards">
   <div>
@@ -64,9 +64,9 @@ title: 数据可视化页
 
 善于使用筛选、过滤功能，让用户在观察全局的同时，还可以查看数据细节，从而让用户在有疑问时能够快速找到方向。
 
-## 典型模板
+## 典型模板 {#typical-templates}
 
-### 概览
+### 概览 {#presentation-dashboards}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*wM0lTJPh4tcAAAAAAAAAAABkARQnAQ">
@@ -74,7 +74,7 @@ title: 数据可视化页
 
 将全局视角中最关键的指标，以平铺的方式展现在整个页面中，帮助决策者做决策。当指标重要性平均时采用左图布局，需要强调主题时采用右图布局
 
-#### 模板 - 指标大盘
+#### 模板 - 指标大盘 {#indicator-dashboards}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3penRKSd5AkAAAAAAAAAAABkARQnAQ">
@@ -88,7 +88,7 @@ title: 数据可视化页
 
 核心数据；指标卡模块；筛选器；图表区；
 
-#### [模板 - 监控](https://preview.pro.ant.design/dashboard/monitor)
+#### [模板 - 监控](https://preview.pro.ant.design/dashboard/monitor) {#template-monitor}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*gbuDRaK1whcAAAAAAAAAAABkARQnAQ">
@@ -102,7 +102,7 @@ title: 数据可视化页
 
 核心数据；指标卡模块；图表区；地图；仪表盘；
 
-### 分析
+### 分析 {#analytics-dashboards}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FSvoSbvL89YAAAAAAAAAAABkARQnAQ">
@@ -110,7 +110,7 @@ title: 数据可视化页
 
 将数据分析类型页面拆解为多个部分，通常为“总 - 分”的结构，多维度地展示数据的全貌，帮助使用者发现当前问题。
 
-#### 模板 - 多维分析
+#### 模板 - 多维分析 {#multi-dimension-analytics}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*IljpTbaOEOoAAAAAAAAAAABkARQnAQ">
@@ -124,7 +124,7 @@ title: 数据可视化页
 
 核心数据；指标卡模块；筛选器；图表区；
 
-### 明细
+### 明细 {#detail-templates}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ihooQ69yX18AAAAAAAAAAABkARQnAQ">
@@ -132,7 +132,7 @@ title: 数据可视化页
 
 数据明细用来展示单个指标总览和明细。常用于数据报表细节信息的展示，根据业务诉求可配置文本、列表、可视化图表等。
 
-#### 模板 - 数据明细
+#### 模板 - 数据明细 {#data-details}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DjmzQKHxa9AAAAAAAAAAAABkARQnAQ">
@@ -146,9 +146,9 @@ title: 数据可视化页
 
 筛选器；图表区；数据明细表；
 
-### 设计建议
+### 设计建议 {#design-suggestions}
 
-#### 串联分析思路
+#### 串联分析思路 {#connect-analysis-steps}
 
 - 明确此类页面的使用者身份，以及分析目的，从而选择对应的页面类型.  划分用户。不同业务线间，关注的核心指标不同，常见的指标类型有：宏观的大盘数据，具体的业务指标。
 
@@ -163,7 +163,7 @@ title: 数据可视化页
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PbVhQo0Jyo4AAAAAAAAAAABkARQnAQ">
 </div>
 
-#### 卡片的组合方式
+#### 卡片的组合方式 {#combination-methods-of-cards}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0UoySagZKGsAAAAAAAAAAABkARQnAQ">
@@ -179,7 +179,7 @@ title: 数据可视化页
 
 2、也可将相关性高的数据组合呈现在一个卡片中，并使用通栏分割线区隔。
 
-#### 选择正确的可视化组件
+#### 选择正确的可视化组件 {#use-suitable-charts}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*J1P7TbuZ5O8AAAAAAAAAAABkARQnAQ">
@@ -187,20 +187,20 @@ title: 数据可视化页
 
 当设计者对页面的结构有初步的思路之后，可根据信息粒度的大小来选择不同的可视化组件。信息粒度从大到小对应：指标卡和排行榜、图表、文本明细。
 
-#### 选择正确的色板
+#### 选择正确的色板 {#color-palette}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Skn6TZsQ7ksAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-## 延伸阅读
+## 延伸阅读 {#read-more}
 
-### 会用到哪些全局规则
+### 会用到哪些全局规则 {#relative-rules}
 
 - [AntV 可视化设计原则](https://www.yuque.com/mo-college/vis-design/pwh679)
 - [AntV 可视化色彩体系](https://www.yuque.com/mo-college/vis-design/ugbofr)
 - [AntV 可视化交互设计指引](https://www.yuque.com/mo-college/vis-design/yygtlg)
 
-### 会用到哪些模块或组件
+### 会用到哪些模块或组件 {#relative-modules-or-components}
 
 - [AntV 图表示例](https://g2plot.antv.vision/zh/examples/gallery)

@@ -9,7 +9,7 @@ tag: New
 
 This page provides a ready-to-use prompt that lets any AI coding agent work with Ant Design effectively.
 
-## Copy this prompt
+## Copy this prompt {#copy-prompt}
 
 Copy into your agent conversation or automation runner.
 
@@ -22,7 +22,7 @@ npx skills add ant-design/ant-design-cli
 
 ## What the agent gets
 
-### CLI — offline knowledge and project tools
+### CLI — offline knowledge and project tools {#cli}
 
 [`@ant-design/cli`](https://github.com/ant-design/ant-design-cli) ships all metadata locally — every prop, token, demo, and changelog entry for antd v3 / v4 / v5 / v6 — queryable in milliseconds, fully offline.
 
@@ -52,13 +52,13 @@ antd upgrade                        # Upgrade CLI to latest version
 
 Full reference: [CLI](/docs/react/cli)
 
-### design.md — design-language context
+### design.md — design-language context {#design-md}
 
 [design.md](https://ant.design/design.md) is built for AI design tools. It describes the visual language, component archetypes, and theme tokens of Ant Design's default light theme.
 
 Full reference: [design.md](/docs/react/design-md)
 
-### MCP Server — IDE integration
+### MCP Server — IDE integration {#mcp}
 
 The CLI also runs as an MCP server with 8 tools and 2 prompts for IDE integration (Claude Code, Cursor, VS Code, etc.).
 
@@ -75,7 +75,7 @@ The CLI also runs as an MCP server with 8 tools and 2 prompts for IDE integratio
 
 Full reference: [MCP Server](/docs/react/mcp)
 
-### LLMs.txt — structured docs for LLMs
+### LLMs.txt — structured docs for LLMs {#llms-txt}
 
 Feed complete component documentation directly into AI context:
 

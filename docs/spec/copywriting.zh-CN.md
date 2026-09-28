@@ -15,11 +15,11 @@ title: 文案
 
 ---
 
-## 语言
+## 语言 {#language}
 
 在界面中，文案是我们与用户沟通的基础，语言文字的表述也需要精心推敲，仔细设计。清晰、准确、简洁的文案设计能够让界面拥有更好的可用性，同时让用户体验更加友好。
 
-### 明确表述立足点
+### 明确表述立足点 {#articulate-foothold}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/uBzzoUAMupDWPXFUeRIn.png" alt="正确示范">
@@ -32,7 +32,7 @@ title: 文案
 
 > 注：当用户向后台反馈问题、提出建议或申诉时，使用「我们」是合理的语境，例如「我们将会审核你的申诉」。
 
-### 精简语句
+### 精简语句 {#concise-statement}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/dAcEgVUcAcUqbMjaEydw.png" alt="正确示范">
@@ -43,7 +43,7 @@ title: 文案
 
 尽量提供简短、易于快速获取的内容。
 
-### 使用用户熟悉的语言
+### 使用用户熟悉的语言 {#use-words-familiar-to-the-user}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/FOcLNnbiaZOTMRHAyeVZ.png" alt="正确示范">
@@ -54,7 +54,7 @@ title: 文案
 
 间接、暧昧模糊的说法，生僻和过于「文雅」的用词，会增加用户的认知负荷，所以应当尽量避免使用这类用户无法识别的词汇。
 
-### 表述一致
+### 表述一致 {#express-consistently}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/ToMaEybHQCrcAfcYRbxF.png" alt="正确示范" description="备注描述使用相同的介词。">
@@ -74,7 +74,7 @@ title: 文案
 - 上下文的语法、语种、语序要保持统一；
 - 操作的名称和目标页面标题的名称保持一致。
 
-### 重要的信息放在显著位置
+### 重要的信息放在显著位置 {#info-in-prominent-place}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/clWcgMqBypLAAosLQHes.png" alt="正确示范" description="在有限的空间内将重要的信息放在最前面（或通过高亮、留白等方式突出重要信息）。">
@@ -85,7 +85,7 @@ title: 文案
 
 > 注：如考虑安全性问题时，隐私信息也可调整为「点击后可见」的方式。
 
-### 完整、直接地阐述信息
+### 完整、直接地阐述信息 {#express-completely-and-directly}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/ioBKvBqCNzUwQDyjMiIa.png" alt="正确示范" description="用户可以从中了解了设置后会有什么好处。">
@@ -103,7 +103,7 @@ title: 文案
 
 报错是 UI 中常见的功能，它同样是用户体验中不可小视的组成部分。当用户填写的内容出错的时候，你的报错信息应当符合用户的认知，用易于理解的方式表述出来。
 
-### 用词精准完整
+### 用词精准完整 {#use-words-precisely}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/mCusyeTfzbyDCYxvwEPM.png" alt="正确示范" description="完整的表达。">
@@ -166,11 +166,11 @@ title: 文案
 
 ---
 
-## 语气
+## 语气 {#tone}
 
 语言定义的是内容，而情绪和气氛更多地是通过语气来表达，并且同样的内容面对不同的用户我们可以使用不同的语气来表达；例如，我们对应专业的运维人员和小白用户应有不同的表达方式。
 
-### 拉近彼此的距离
+### 拉近彼此的距离 {#bring-each-other-closer}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/LXVkAEabvRXwOTYkewzV.png" alt="正确示范">
@@ -188,7 +188,7 @@ title: 文案
 
 > 注：不要在同一个句式中混用「你」和「我」，交互中指代混乱会让用户相当纠结。
 
-### 友好、尊重用户
+### 友好、尊重用户 {#be-friendly-and-respectful}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/SiyDiAnuljqDrZgcFiXn.png" alt="正确示范" description="引导用户正确输入内容。">
@@ -199,7 +199,7 @@ title: 文案
 
 如果你想留住你的用户，当出错的时候就不要责怪用户。专注于解决问题，而不是指责。
 
-### 表述不应过于极端
+### 表述不应过于极端 {#do-not-be-too-extreme}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/zXLrYMCesvdZXdSoJEcP.png" alt="正确示范">
@@ -208,9 +208,9 @@ title: 文案
 
 不要使用过于绝对的表述，这样会让用户觉得不适。
 
-## 大小写和标点符号
+## 大小写和标点符号 {#capitalization-and-punctuation}
 
-### 英文名词大小写规范
+### 英文名词大小写规范 {#uppercase-and-lowercase}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/ruuIBHvkqfJrCNuWrGZZ.png" alt="正确示范">
@@ -239,7 +239,7 @@ title: 文案
 
 全英文的标题，标签，菜单项等等都要遵循英文句式中首字母大写的规范。
 
-### 统计数据使用阿拉伯数字
+### 统计数据使用阿拉伯数字 {#arabic-numbers}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/WOtjvzMQnfuAHJXcifgW.png" alt="正确示范" description="阿拉伯数字的信息传递效率更高">
@@ -248,7 +248,7 @@ title: 文案
 
 这也是常见问题，用户对于数字的感知速度更快，使用数字而非文字表述会更加有效。
 
-### 省略不必要的标点
+### 省略不必要的标点 {#omit-unnecessary-punctuation}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/QGpLpUFgZnTDzYJCeuun.png" alt="正确示范">
@@ -275,7 +275,7 @@ title: 文案
 - 多句或多段的文案和列表内容。
 - 任何文字链前的句子。
 
-### 谨慎使用感叹号
+### 谨慎使用感叹号 {#use-exclamation-marks-with-care}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/CJAEXjDelaghIOHZAxgh.png" alt="正确示范">
@@ -286,7 +286,7 @@ title: 文案
 
 > 注：当向用户表达问候或祝贺时，使用「！」是合理的语境，例如「欢迎回到社区！」。
 
-### 基本标点规范
+### 基本标点规范 {#punctuation-rules}
 
 <ImagePreview className="markdown" pure="true">
 <table style="font-size:12px;">

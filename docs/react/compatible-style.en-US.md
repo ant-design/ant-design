@@ -248,7 +248,7 @@ root.render(
 );
 ```
 
-## Compatible with Third-party Style Libraries
+## Compatible with Third-party Style Libraries {#third-party-style-libraries}
 
 In some cases, you may need antd to coexist with other style libraries, such as `Tailwind CSS`, `Emotion`, `styled-components`, etc. Unlike traditional CSS solutions, these third-party libraries are often not easy to override antd styles by increasing CSS selector priority. You can configure `@layer` for antd to lower its CSS selector weight, and arrange `@layer` order to solve style override problems:
 
@@ -325,7 +325,7 @@ After configuring `@layer` for antd, you don't need to do any additional configu
 
 When using SSR, styles are often rendered inline in HTML through `<style />`. At this time, please make sure that the styles with the specified `@layer` priority order are loaded before `@layer` is used.
 
-#### ❌ Wrong
+#### ❌ Wrong {#wrong}
 
 ```html
 <head>
@@ -345,7 +345,7 @@ When using SSR, styles are often rendered inline in HTML through `<style />`. At
 </head>
 ```
 
-#### ✅ Correct
+#### ✅ Correct {#correct}
 
 ```html
 <head>
