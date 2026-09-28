@@ -158,7 +158,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   // ========================= MISC =========================
   // Get `noStyle` required info
   const listContext = React.useContext(ListContext);
-  const fieldKeyPathRef = React.useRef<InternalNamePath>(null);
+  const reportedMetaRef = React.useRef<{ meta: Meta; namePath: InternalNamePath }>(null);
 
   // ======================== Errors ========================
   // >>>>> Collect sub field errors
@@ -178,18 +178,31 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
     // Bump to parent since noStyle
     if (noStyle && help !== false && notifyParentMetaChange) {
-      let namePath = nextMeta.name;
+      const reported = reportedMetaRef.current;
 
-      if (!nextMeta.destroy) {
-        if (keyInfo !== undefined) {
-          const [fieldKey, restPath] = keyInfo;
-          namePath = [fieldKey, ...restPath];
-          fieldKeyPathRef.current = namePath;
-        }
-      } else {
+      if (nextMeta.destroy) {
         // Use origin cache data
-        namePath = fieldKeyPathRef.current || namePath;
+        notifyParentMetaChange(
+          reported ? { ...nextMeta, name: reported.meta.name } : nextMeta,
+          reported?.namePath || nextMeta.name,
+        );
+        return;
       }
+
+      let namePath = nextMeta.name;
+      if (keyInfo !== undefined) {
+        const [fieldKey, restPath] = keyInfo;
+        namePath = [fieldKey, ...restPath];
+      }
+
+      // Removing an earlier Form.List row re-indexes this field without unmounting it,
+      // so the parent still holds the meta reported under the old name
+      if (reported && reported.meta.name.join(NAME_SPLIT) !== nextMeta.name.join(NAME_SPLIT)) {
+        const staleMeta: Meta & { destroy: boolean } = { ...reported.meta, destroy: true };
+        notifyParentMetaChange(staleMeta, reported.namePath);
+      }
+
+      reportedMetaRef.current = { meta: nextMeta, namePath };
       notifyParentMetaChange(nextMeta, namePath);
     }
   };
