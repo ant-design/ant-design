@@ -143,7 +143,7 @@ Breadcrumb、Collapse、Segmented、Tabs、Tag 等组件会对相应图标位置
 
 ## `antd` 可以像 `React` 那样使用单文件引入吗？ {#standalone-files-like-react}
 
-可以，[你可以用 script 标签引入](https://ant.design/docs/react/introduce-cn#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%95%E5%85%A5)。但是我们推荐使用 `npm` 来引入 `antd`，这样维护起来更简单方便。
+可以，[你可以用 script 标签引入](https://ant.design/docs/react/introduce-cn#import-in-browser)。但是我们推荐使用 `npm` 来引入 `antd`，这样维护起来更简单方便。
 
 ## 在我的网络环境下没法获取到 `icon` 文件。 {#cannot-fetch-icon-assets}
 
