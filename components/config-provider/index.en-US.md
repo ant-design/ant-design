@@ -205,7 +205,7 @@ See [&lt;Adding new language&gt;](/docs/react/i18n#adding-new-language).
 
 ### Date-related components locale is not working? {#faq-locale-not-work}
 
-See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
+See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-locale-not-working)
 
 ### Modal throw error when setting `getPopupContainer`? {#faq-get-popup-container}
 
