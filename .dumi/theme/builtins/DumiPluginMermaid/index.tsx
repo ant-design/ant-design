@@ -1,7 +1,8 @@
 import React from 'react';
 import { Image, Segmented } from 'antd';
 import { createStyles } from 'antd-style';
-import { Mermaid, MermaidSource, type MermaidProps } from 'dumi-plugin-mermaid/component';
+import { Mermaid, MermaidSource } from 'dumi-plugin-mermaid/component';
+import type { MermaidProps } from 'dumi-plugin-mermaid/component';
 
 type MermaidView = 'preview' | 'code';
 
