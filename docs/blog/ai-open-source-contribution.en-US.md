@@ -35,28 +35,28 @@ Implementation, testing, local review, commit preparation, and PR creation can a
 
 ```mermaid
 flowchart LR
-	subgraph P1["Phase 1: Reproduce and fix"]
+	subgraph P1["Phase 1: Reproduce and Fix"]
 		direction TB
-		ISSUE["Issue link"] --> ANALYZE["Codex reproduces and analyzes"]
-		ANALYZE --> CONFIRM_FIX["Human confirms the fix direction"]
-		CONFIRM_FIX --> IMPLEMENT["Codex fixes and verifies"]
+		ISSUE["Issue link"] --> ANALYZE["Codex reproduces and<br/>analyzes"]
+		ANALYZE --> CONFIRM_FIX{"Human confirms the fix<br/>direction"}
+		CONFIRM_FIX -->|"Pass"| IMPLEMENT["Codex fixes and adds<br/>verification"]
 	end
 
-	subgraph P2["Phase 2: Review and confirm"]
+	subgraph P2["Phase 2: Review and Confirmation"]
 		direction TB
-		REVIEW["Codex reviews implementation, tests, and scope"] --> TEST_REVIEW["test-review<br/>Focused test review"]
-		TEST_REVIEW --> AI_PASS{"AI review passes?"}
-		AI_PASS -->|"Yes"| HUMAN_PASS{"Human confirmation passes?"}
-		AI_PASS -->|"No"| RETURN["Return to Phase 1,<br/>fix and verify again"]
+		REVIEW["Codex full review<br/>Implementation · tests · scope"] --> AI_PASS{"Does the AI review fully<br/>pass?"}
+		REVIEW -.->|"Including: test-specific<br/>check"| TEST_REVIEW["test-review"]
+		AI_PASS -->|"Yes"| HUMAN_PASS{"Does human confirmation<br/>pass?"}
+		AI_PASS -->|"No"| RETURN["Return to Phase 1<br/>Fix and verify again"]
 		HUMAN_PASS -->|"No"| RETURN
-		RETURN --> REVIEW
+		RETURN -->|"After fixing,<br/>review again"| REVIEW
 	end
 
-	subgraph P3["Phase 3: Commit and create PR"]
+	subgraph P3["Phase 3: Create and Submit"]
 		direction TB
-		COMMIT_MSG["commit-msg<br/>Generates the commit message"] --> COMMIT["Create commit"]
-		COMMIT --> CREATE_PR["create-pr<br/>Prepares the PR from the full diff"]
-		CREATE_PR --> CONFIRM_PR["Human confirms the PR content"]
+		COMMIT_MSG["commit-msg<br/>Generate commit<br/>message"] --> COMMIT["Create commit"]
+		COMMIT --> CREATE_PR["create-pr<br/>Prepare PR from full diff"]
+		CREATE_PR --> CONFIRM_PR{"Human confirms PR<br/>content"}
 		CONFIRM_PR --> PR["Create PR"]
 	end
 
@@ -67,10 +67,14 @@ flowchart LR
 	classDef skill fill:#f9f0ff,stroke:#722ed1,color:#531dab;
 	classDef human fill:#fff7e6,stroke:#fa8c16,color:#ad4e00;
 	classDef neutral fill:#ffffff,stroke:#8c8c8c,color:#262626;
-	class ANALYZE,IMPLEMENT,REVIEW codex;
+	classDef success fill:#f6ffed,stroke:#52c41a,color:#237804;
+	classDef failure fill:#fff1f0,stroke:#ff4d4f,color:#a8071a;
+	class ANALYZE,IMPLEMENT,REVIEW,AI_PASS codex;
 	class TEST_REVIEW,COMMIT_MSG,CREATE_PR skill;
-	class CONFIRM_FIX,AI_PASS,HUMAN_PASS,CONFIRM_PR human;
-	class ISSUE,RETURN,COMMIT,PR neutral;
+	class CONFIRM_FIX,HUMAN_PASS,CONFIRM_PR human;
+	class ISSUE neutral;
+	class COMMIT,PR success;
+	class RETURN failure;
 ```
 
 The three dashed boxes show reproduction and repair, review and confirmation, and creation and submission. Blue nodes are handled by Codex, purple nodes are repository Skills, and orange nodes need human confirmation. Review is the main task in phase two; `test-review` is only the test-specific check within it. If either the AI review or human confirmation fails, the change returns to repair and enters review again when ready.
