@@ -58,7 +58,7 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
             let mergedLabel: React.ReactNode = label ?? title;
 
             if (path) {
-              mergedLabel = <a href={`${href}${path}`}>{mergedLabel}</a>;
+              mergedLabel = <a href={`${href ?? ''}${path}`}>{mergedLabel}</a>;
             }
 
             return {
