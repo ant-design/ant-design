@@ -44,12 +44,11 @@ flowchart LR
 
 	subgraph P2["阶段二：CR 和确认"]
 		direction TB
-		REVIEW["Codex 完整 CR<br/>实现 · 测试 · 改动范围"] --> AI_PASS{"AI CR 是否全部通过？"}
-		REVIEW -.->|"其中：测试专项检查"| TEST_REVIEW["test-review"]
-		AI_PASS -->|"是"| HUMAN_PASS{"人工确认是否通过？"}
-		AI_PASS -->|"否"| RETURN["回到阶段一<br/>重新修复并验证"]
-		HUMAN_PASS -->|"否"| RETURN
-		RETURN -->|"修复完成，再次 CR"| REVIEW
+		REVIEW["Codex 完整 CR<br/>实现 · 改动范围 · 测试（test-review）"]
+		REVIEW -->|"CR 通过"| HUMAN_PASS{"人工确认是否通过？"}
+		REVIEW -->|"CR 未通过"| REWORK["Codex 修复并验证"]
+		HUMAN_PASS -->|"否"| REWORK
+		REWORK -->|"重新 CR"| REVIEW
 	end
 
 	subgraph P3["阶段三：创建和提交"]
@@ -60,8 +59,8 @@ flowchart LR
 		CONFIRM_PR --> PR["创建 PR"]
 	end
 
-	IMPLEMENT --> REVIEW
-	HUMAN_PASS -->|"是"| COMMIT_MSG
+	P1 -->|"修复并验证完成"| P2
+	P2 -->|"人工确认通过"| P3
 
 	style P1 fill:transparent,stroke:#8c8c8c,stroke-width:2px,stroke-dasharray:8 6;
 	style P2 fill:transparent,stroke:#8c8c8c,stroke-width:2px,stroke-dasharray:8 6;
@@ -72,12 +71,12 @@ flowchart LR
 	classDef neutral fill:#ffffff,stroke:#8c8c8c,color:#262626;
 	classDef success fill:#f6ffed,stroke:#52c41a,color:#237804;
 	classDef failure fill:#fff1f0,stroke:#ff4d4f,color:#a8071a;
-	class ANALYZE,IMPLEMENT,REVIEW,AI_PASS codex;
-	class TEST_REVIEW,COMMIT_MSG,CREATE_PR skill;
+	class ANALYZE,IMPLEMENT,REVIEW codex;
+	class COMMIT_MSG,CREATE_PR skill;
 	class CONFIRM_FIX,HUMAN_PASS,CONFIRM_PR human;
 	class ISSUE neutral;
 	class COMMIT,PR success;
-	class RETURN failure;
+	class REWORK failure;
 ```
 
 三个虚线框分别是复现和修复、CR 和确认、创建和提交。蓝色节点由 Codex 执行，紫色节点是仓库 Skills，橙色节点需要人工确认。CR 是第二阶段的主任务，`test-review` 只是其中的测试专项检查；AI CR 或人工确认没有通过，都会返回修复，完成后重新进入 CR。
