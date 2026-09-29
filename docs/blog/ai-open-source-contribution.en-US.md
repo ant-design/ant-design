@@ -44,12 +44,11 @@ flowchart LR
 
 	subgraph P2["Phase 2: Review and Confirmation"]
 		direction TB
-		REVIEW["Codex full review<br/>Implementation · tests · scope"] --> AI_PASS{"Does the AI review fully<br/>pass?"}
-		REVIEW -.->|"Including: test-specific<br/>check"| TEST_REVIEW["test-review"]
-		AI_PASS -->|"Yes"| HUMAN_PASS{"Does human confirmation<br/>pass?"}
-		AI_PASS -->|"No"| RETURN["Return to Phase 1<br/>Fix and verify again"]
-		HUMAN_PASS -->|"No"| RETURN
-		RETURN -->|"After fixing,<br/>review again"| REVIEW
+		REVIEW["Codex full review<br/>Implementation · scope · tests (test-review)"]
+		REVIEW -->|"Review passes"| HUMAN_PASS{"Does human confirmation<br/>pass?"}
+		REVIEW -->|"Review fails"| REWORK["Codex fixes and<br/>verifies"]
+		HUMAN_PASS -->|"No"| REWORK
+		REWORK -->|"Review again"| REVIEW
 	end
 
 	subgraph P3["Phase 3: Create and Submit"]
@@ -60,8 +59,8 @@ flowchart LR
 		CONFIRM_PR --> PR["Create PR"]
 	end
 
-	IMPLEMENT --> REVIEW
-	HUMAN_PASS -->|"Yes"| COMMIT_MSG
+	P1 -->|"Fix and verification done"| P2
+	P2 -->|"Human confirmation passes"| P3
 
 	style P1 fill:transparent,stroke:#8c8c8c,stroke-width:2px,stroke-dasharray:8 6;
 	style P2 fill:transparent,stroke:#8c8c8c,stroke-width:2px,stroke-dasharray:8 6;
@@ -72,12 +71,12 @@ flowchart LR
 	classDef neutral fill:#ffffff,stroke:#8c8c8c,color:#262626;
 	classDef success fill:#f6ffed,stroke:#52c41a,color:#237804;
 	classDef failure fill:#fff1f0,stroke:#ff4d4f,color:#a8071a;
-	class ANALYZE,IMPLEMENT,REVIEW,AI_PASS codex;
-	class TEST_REVIEW,COMMIT_MSG,CREATE_PR skill;
+	class ANALYZE,IMPLEMENT,REVIEW codex;
+	class COMMIT_MSG,CREATE_PR skill;
 	class CONFIRM_FIX,HUMAN_PASS,CONFIRM_PR human;
 	class ISSUE neutral;
 	class COMMIT,PR success;
-	class RETURN failure;
+	class REWORK failure;
 ```
 
 The three dashed boxes show reproduction and repair, review and confirmation, and creation and submission. Blue nodes are handled by Codex, purple nodes are repository Skills, and orange nodes need human confirmation. Review is the main task in phase two; `test-review` is only the test-specific check within it. If either the AI review or human confirmation fails, the change returns to repair and enters review again when ready.
