@@ -79,7 +79,7 @@ describe('Drawer.Semantic', () => {
     expect(rootElement).toHaveStyle({ 'font-size': '24px' });
     expect(maskElement).toHaveStyle({ 'background-color': 'rgba(0, 0, 0, 0.5)' });
     expect(headerElement).toHaveStyle({ 'border-bottom': '1px solid rgb(232, 232, 232)' });
-    expect(titleElement).toHaveStyle({ 'font-weight': 'bold' });
+    expect(titleElement).toHaveProperty('style.fontWeight', 'bold');
     expect(extraElement).toHaveStyle({ color: 'rgb(255, 0, 0)' });
     expect(sectionElement).toHaveStyle({ padding: '24px' });
     expect(bodyElement).toHaveStyle({ color: 'rgb(0, 255, 0)' });
@@ -181,7 +181,7 @@ describe('Drawer.Semantic', () => {
     expect(rootElement).toHaveStyle({ padding: '20px' });
     expect(maskElement).toHaveStyle({ 'background-color': 'rgba(0, 0, 0, 0.8)' });
     expect(headerElement).toHaveStyle({ 'border-bottom': '1px solid rgb(250, 250, 250)' });
-    expect(titleElement).toHaveStyle({ 'font-weight': 'normal' });
+    expect(titleElement).toHaveProperty('style.fontWeight', 'normal');
     expect(extraElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
     expect(sectionElement).toHaveStyle({ padding: '18px' });
     expect(bodyElement).toHaveStyle({ color: 'rgb(0, 200, 0)' });
@@ -219,7 +219,7 @@ describe('Drawer.Semantic', () => {
     expect(rootElement).toHaveStyle({ padding: '24px' });
     expect(maskElement).toHaveStyle({ 'background-color': 'rgba(0, 0, 0, 0.5)' });
     expect(headerElement).toHaveStyle({ 'border-bottom': '1px solid rgb(232, 232, 232)' });
-    expect(titleElement).toHaveStyle({ 'font-weight': 'bold' });
+    expect(titleElement).toHaveProperty('style.fontWeight', 'bold');
     expect(extraElement).toHaveStyle({ color: 'rgb(255, 0, 0)' });
     expect(sectionElement).toHaveStyle({ padding: '22px' });
     expect(bodyElement).toHaveStyle({ color: 'rgb(0, 255, 0)' });

@@ -101,7 +101,7 @@ describe('Collapse.Semantic', () => {
     // check function-based styles
     expect(rootElement).toHaveStyle({ borderWidth: '0px' });
     expect(headerElement).toHaveStyle({ fontSize: '18px' });
-    expect(titleElement).toHaveStyle({ fontWeight: 'bold' });
+    expect(titleElement).toHaveProperty('style.fontWeight', 'bold');
     expect(bodyElement).toHaveStyle({ padding: '16px' });
     expect(iconElement).toHaveStyle({ transform: 'rotate(90deg)' });
   });
