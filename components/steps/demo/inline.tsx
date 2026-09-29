@@ -1,8 +1,14 @@
 import React from 'react';
 import type { StepsProps } from 'antd';
-import { Avatar, List, Steps } from 'antd';
+import { Avatar, Flex, Listy, Steps, Typography } from 'antd';
 
-const data = [
+interface DataType {
+  title: string;
+  current: number;
+  status?: StepsProps['status'];
+}
+
+const data: DataType[] = [
   {
     title: 'Ant Design Title 1',
     current: 0,
@@ -38,24 +44,26 @@ const items = [
 ];
 
 const App: React.FC = () => (
-  <List
-    itemLayout="horizontal"
-    dataSource={data}
-    renderItem={(item, index) => (
-      <List.Item>
-        <List.Item.Meta
-          avatar={<Avatar src={`https://api.dicebear.com/10.x/lorelei/svg?seed=${index}`} />}
-          title={<a href="https://ant.design">{item.title}</a>}
-          description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-        />
-        <Steps
-          style={{ marginTop: 8 }}
-          type="inline"
-          current={item.current}
-          status={item.status as StepsProps['status']}
-          items={items}
-        />
-      </List.Item>
+  <Listy<DataType>
+    items={data}
+    rowKey="title"
+    itemRender={(item, index) => (
+      <Flex gap="middle" align="flex-start">
+        <Avatar src={`https://api.dicebear.com/10.x/lorelei/svg?seed=${index}`} />
+        <Flex vertical flex="auto" style={{ minWidth: 0 }}>
+          <a href="https://ant.design">{item.title}</a>
+          <Typography.Text type="secondary">
+            Ant Design, a design language for background applications, is refined by Ant UED Team
+          </Typography.Text>
+          <Steps
+            style={{ marginTop: 8 }}
+            type="inline"
+            current={item.current}
+            status={item.status}
+            items={items}
+          />
+        </Flex>
+      </Flex>
     )}
   />
 );
