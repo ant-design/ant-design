@@ -33,6 +33,10 @@ updates:
       - dependency-name: "@ant-design*"
       - dependency-name: dayjs
         versions: [1.x]
+      - dependency-name: typescript
+        versions: [7.0.x]
+      - dependency-name: vitest
+        versions: [5.0.x]
 
   - package-ecosystem: github-actions
     directory: /

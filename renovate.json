@@ -12,6 +12,14 @@
   "timezone": "UTC",
   "packageRules": [
     {
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<7.0.0 || >=7.1.0"
+    },
+    {
+      "matchPackageNames": ["vitest"],
+      "allowedVersions": "<5.0.0 || >=5.1.0"
+    },
+    {
       "groupName": "self-maintained",
       "matchPackageNames": ["@rc-component/*", "rc-*", "@ant-design/*"],
       "enabled": false
