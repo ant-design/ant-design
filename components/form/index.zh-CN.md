@@ -80,7 +80,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | labelAlign | label 标签的文本对齐方式 | `left` \| `right` | `right` |  | 6.4.0 |
 | labelWrap | label 标签的文本换行方式 | boolean | false | 4.18.0 | × |
 | labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](/components/grid#col) | - |  | × |
-| layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |  | × |
+| layout | 表单布局。`horizontal` 布局默认在视口宽度不超过 `575px` 时将标签和控件上下排列，可通过 `labelCol` 和 `wrapperCol` 的 `xs` 配置自定义窄屏下的列宽 | `horizontal` \| `vertical` \| `inline` | `horizontal` |  | × |
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |  | × |
 | preserve | 当字段被删除时保留字段值。你可以通过 `getFieldsValue(true)` 来获取保留字段值 | boolean | true | 4.4.0 | × |
 | requiredMark | 必选样式，可以切换为必选或者可选展示样式。此为 Form 配置，Form.Item 无法单独配置 | boolean \| `optional` \| ((label: ReactNode, info: { required: boolean }) => ReactNode) | true | `renderProps`: 5.9.0 | 4.8.0 |
