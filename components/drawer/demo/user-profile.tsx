@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
-import { Avatar, Col, Divider, Drawer, List, Row } from 'antd';
+import { Avatar, Col, Divider, Drawer, Flex, Listy, Row, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles((props) => {
-  const { css, cssVar } = props;
+  const { css, cssVar, prefixCls } = props;
   return {
+    list: css`
+      border: ${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorBorder};
+      border-radius: ${cssVar.borderRadiusLG};
+      overflow: hidden;
+      .${prefixCls}-listy-item:last-child {
+        border-bottom: none;
+      }
+    `,
     descriptionItem: css`
       margin-bottom: ${cssVar.marginXS};
       color: ${cssVar.colorTextLabel};
@@ -56,29 +64,22 @@ const App: React.FC = () => {
 
   return (
     <>
-      <List
-        bordered
-        dataSource={[
+      <Listy
+        items={[
           { id: 1, name: 'Lily' },
           { id: 2, name: 'Lily' },
         ]}
-        renderItem={(item) => (
-          <List.Item
-            key={item.id}
-            actions={[
-              <a onClick={showDrawer} key={`a-${item.id}`}>
-                View Profile
-              </a>,
-            ]}
-          >
-            <List.Item.Meta
-              avatar={
-                <Avatar src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />
-              }
-              title={<a href="https://ant.design/index-cn">{item.name}</a>}
-              description="Progresser XTech"
-            />
-          </List.Item>
+        rowKey="id"
+        className={styles.list}
+        itemRender={(item) => (
+          <Flex gap="middle" align="center">
+            <Avatar src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />
+            <Flex vertical flex="auto">
+              <a href="https://ant.design/index-cn">{item.name}</a>
+              <Typography.Text type="secondary">Progresser XTech</Typography.Text>
+            </Flex>
+            <a onClick={showDrawer}>View Profile</a>
+          </Flex>
         )}
       />
       <Drawer size={640} placement="right" closable={false} onClose={onClose} open={open}>

@@ -152,7 +152,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     });
     useImperativeHandle(ref, () => innerRef.current!);
 
-    const [contextLocale] = useLocale('Calendar', enUS);
+    const [contextLocale] = useLocale('DatePicker', enUS);
 
     const locale = merge(contextLocale, props.locale || {}) as PickerLocale;
 

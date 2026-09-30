@@ -59,7 +59,7 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
 
     // Expanded keys
     if (defaultExpandAll) {
-      initExpandedKeys = Object.keys(keyEntities);
+      initExpandedKeys = Object.values(keyEntities).map(({ key }) => key);
     } else if (defaultExpandParent) {
       initExpandedKeys = conductExpandParent(mergedExpandedKeys, keyEntities);
     } else {

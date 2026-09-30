@@ -8,9 +8,9 @@ title: 实践案例
 
 Ant Design 目前在外部也有许多产品实践，如果你的公司和产品从中受益，[欢迎留言](https://github.com/ant-design/ant-design/issues/477)。
 
-## 最佳实践
+## 最佳实践 {#best-practices}
 
-### 蚂蚁金融科技
+### 蚂蚁金融科技 {#ant-financial-technology}
 
 金融云是面向金融机构深度定制的行业云计算服务；助力金融机构向新金融转型升级，推动平台、数据和技术方面的能力全面对外开放。
 
@@ -18,7 +18,7 @@ Ant Design 目前在外部也有许多产品实践，如果你的公司和产品
 
 ![蚂蚁金融科技](https://gw.alipayobjects.com/zos/rmsportal/zQMWTCnhWwYNzEURbDUn.png)
 
-### OceanBase 云平台
+### OceanBase 云平台 {#oceanbase-cloud-platform}
 
 OceanBase 是一款真正意义上的云端分布式关系型数据库，而 OceanBase Cloud Platform（云平台）是以 OceanBase 数据库为基础的云服务，可以帮助用户快速创建、使用 OB 服务。
 
@@ -26,7 +26,7 @@ OceanBase 是一款真正意义上的云端分布式关系型数据库，而 Oce
 
 ![OceanBase 云平台](https://gw.alipayobjects.com/zos/rmsportal/OYGCAlMwSWkdaKfxIDtz.png)
 
-### 语雀
+### 语雀 {#yuque}
 
 与团队一起编写文档，极致体验，高效协同。在微笑中构建专属知识库。
 
@@ -42,7 +42,7 @@ Ant Design Pro 是一个企业级中后台前端/设计解决方案，秉承 Ant
 
 ![Ant Design Pro](https://gw.alipayobjects.com/zos/rmsportal/KZIUjJJZTEqMOgBHQkCb.png)
 
-### 阿里云流计算
+### 阿里云流计算 {#alibaba-cloud-streamcompute}
 
 阿里云流计算(Alibaba Cloud StreamCompute)是运行在阿里云平台上的流式大数据分析平台，提供给用户在云上进行流式数据实时化分析工具。
 

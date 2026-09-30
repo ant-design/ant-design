@@ -114,7 +114,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | locale | Localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  | × |
 | minDate | The minimum date, which also limits the range of panel switching | dayjs | - | 5.14.0 | × |
 | maxDate | The maximum date, which also limits the range of panel switching | dayjs | - | 5.14.0 | × |
-| mode | The picker panel mode（ [Cannot select year or month anymore?](/docs/react/faq#when-set-mode-to-datepickerrangepicker-cannot-select-year-or-month-anymore) ) | `time` \| `date` \| `month` \| `year` \| `decade` | - |  | × |
+| mode | The picker panel mode（ [Cannot select year or month anymore?](/docs/react/faq#mode-cannot-select-year-month) ) | `time` \| `date` \| `month` \| `year` \| `decade` | - |  | × |
 | needConfirm | Need click confirm button to trigger value change. Default `false` when `multiple` | boolean | - | 5.14.0 | × |
 | nextIcon | The custom next icon | ReactNode | - | 4.17.0 | × |
 | open | The open state of picker | boolean | - |  | × |
@@ -278,7 +278,7 @@ Note: `type` is added in `5.14.0`.
 
 ### When set mode to DatePicker/RangePicker, cannot select year or month anymore? {#faq-mode-cannot-select}
 
-Please refer [FAQ](/docs/react/faq#when-set-mode-to-datepickerrangepicker-cannot-select-year-or-month-anymore)
+Please refer [FAQ](/docs/react/faq#mode-cannot-select-year-month)
 
 ### Why does the date picker switch to the date panel after selecting the year instead of the month panel? {#faq-year-to-date-panel}
 
@@ -292,9 +292,8 @@ Please refer [Use custom date library](/docs/react/use-custom-date-library#datep
 
 DatePicker default set `locale` as `en` in v4. You can config DatePicker `locale` prop or [ConfigProvider `locale`](/components/config-provider) prop instead.
 
-#### Date-related components locale is not working?
 
-See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
+See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-locale-not-working)
 
 ### How to modify start day of week? {#faq-week-start-day}
 

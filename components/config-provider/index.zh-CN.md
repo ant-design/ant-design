@@ -203,11 +203,11 @@ const {
 
 ### 如何增加一个新的语言包？ {#faq-add-locale}
 
-参考[《增加语言包》](/docs/react/i18n#%E5%A2%9E%E5%8A%A0%E8%AF%AD%E8%A8%80%E5%8C%85)。
+参考[《增加语言包》](/docs/react/i18n#adding-new-language)。
 
 ### 为什么时间类组件的国际化 locale 设置不生效？ {#faq-locale-not-work}
 
-参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效)。
+参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#date-locale-not-working)。
 
 ### 配置 `getPopupContainer` 导致 Modal 报错？ {#faq-get-popup-container}
 
