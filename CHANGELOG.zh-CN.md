@@ -15,6 +15,47 @@ tag: vVERSION
 
 ---
 
+## 6.6.5
+
+`2026-09-20`
+
+- 🐞 修复 Result、message、notification、Avatar、Modal、Descriptions 和 Form.Item 无法正确渲染数值 `0` 内容的问题。[#59153](https://github.com/ant-design/ant-design/pull/59153) [#59125](https://github.com/ant-design/ant-design/pull/59125) [#59289](https://github.com/ant-design/ant-design/pull/59289) [@bhumin18](https://github.com/bhumin18) [@nrps9909](https://github.com/nrps9909) [@QDyanbing](https://github.com/QDyanbing)
+- Upload
+  - 🐞 修复 Upload.Dragger 未设置 `height` 属性时自定义 `style.height` 被覆盖的问题。[#59319](https://github.com/ant-design/ant-design/pull/59319) [@dogledogle](https://github.com/dogledogle)
+  - ♿ 修复 Upload 没有可用预览操作时文件名仍可作为按钮聚焦的问题。[#59295](https://github.com/ant-design/ant-design/pull/59295) [@QDyanbing](https://github.com/QDyanbing)
+- Transfer
+  - 🐞 修复 Transfer 在替换或移除 `onSelectChange` 后仍调用旧回调的问题。[#59307](https://github.com/ant-design/ant-design/pull/59307) [@yunfeizhu](https://github.com/yunfeizhu)
+  - 🐞 修复 Transfer 使用剩余参数的 `footer` 回调无法获取 `direction` 的问题。[#59303](https://github.com/ant-design/ant-design/pull/59303) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Avatar 图片加载失败后更新 `srcSet` 无法重新加载的问题。[#59297](https://github.com/ant-design/ant-design/pull/59297) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Anchor 滚动及 Table 和 Transfer 范围选择在更新后仍使用旧值的问题。[#59308](https://github.com/ant-design/ant-design/pull/59308) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Select 自定义全局 `fontSize` 或 `lineHeight` 后单选与多选高度不一致的问题。[#59298](https://github.com/ant-design/ant-design/pull/59298) [@zombieJ](https://github.com/zombieJ)
+- 🤖 修正 Tooltip、Popover、Popconfirm 和 Slider 的 TypeScript 类型定义，避免接受实际无效的 rc Tooltip 属性。[#59288](https://github.com/ant-design/ant-design/pull/59288) [@QDyanbing](https://github.com/QDyanbing)
+- 🛎 修复 Drawer 未提示 `destroyOnClose` 已废弃的问题。[#59299](https://github.com/ant-design/ant-design/pull/59299) [@dogledogle](https://github.com/dogledogle)
+
+## 6.6.4
+
+`2026-09-14`
+
+- 🗑 废弃 Avatar `GroupProps`、BackTop 和 FloatButton `BackTopProps`、Input `GroupProps`、Mentions `OptionProps` 与 Select `OptionProps` 旧类型，建议改用 `GetProps` 或从选项推导的类型。[#58949](https://github.com/ant-design/ant-design/pull/58949) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 AutoComplete 缺失清除按钮 `classNames.clear` 和 `styles.clear` 语义化配置的问题。[#59245](https://github.com/ant-design/ant-design/pull/59245) [@lazerg](https://github.com/lazerg)
+- Table
+  - 🐞 修复 Table 响应式列隐藏后 `filteredValue` 失效的问题。[#59198](https://github.com/ant-design/ant-design/pull/59198) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 修复 Table 忽略 `pagination.classNames` 和 `pagination.styles` 语义化配置的问题。[#59267](https://github.com/ant-design/ant-design/pull/59267) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 修复 Table 虚拟滚动单元格内容未垂直居中的问题。[#59260](https://github.com/ant-design/ant-design/pull/59260) [@QDyanbing](https://github.com/QDyanbing)
+- Modal
+  - 🐞 修复 Modal 的 `okText` 和 `cancelText` 为假值 `ReactNode` 时被默认文案覆盖的问题。[#59254](https://github.com/ant-design/ant-design/pull/59254) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 修复 Modal 配置 `cancelButtonProps.onClick` 时不触发 `onCancel` 的问题。[#59255](https://github.com/ant-design/ant-design/pull/59255) [@QDyanbing](https://github.com/QDyanbing)
+- ColorPicker
+  - 🐞 修复 ColorPicker 禁用时清除控件仍可交互并显示悬浮样式的问题。[#59164](https://github.com/ant-design/ant-design/pull/59164) [@dogledogle](https://github.com/dogledogle)
+  - 🐞 修复 ColorPicker 修改 `presets` 并在预设项被冻结时崩溃的问题。[#59272](https://github.com/ant-design/ant-design/pull/59272) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Splitter 容器尺寸变化时面板尺寸超出 `min` 和 `max` 约束的问题。[#59084](https://github.com/ant-design/ant-design/pull/59084) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Segmented 使用自定义 `itemSelectedBg` 和 `itemSelectedColor` Token 时，选中项文字颜色滞后于滑块动画的问题。[#59046](https://github.com/ant-design/ant-design/pull/59046) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 修复 Transfer 的 `dataSource` 项 `key` 类型变化后恢复旧选中状态的问题。[#59166](https://github.com/ant-design/ant-design/pull/59166) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 FloatButton.Group 使用 `trigger="hover"` 时鼠标从触发按钮移向菜单出现闪烁的问题。[#59246](https://github.com/ant-design/ant-design/pull/59246) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Form 在水平布局中嵌套的垂直 Form.Item 控件高度被压缩的问题。[#59263](https://github.com/ant-design/ant-design/pull/59263) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Tabs 折叠下拉菜单未应用 `styles.popup.root` 的问题。[#59221](https://github.com/ant-design/ant-design/pull/59221) [@giaBaoJS](https://github.com/giaBaoJS)
+- 🐞 修复 ConfigProvider 在嵌套主题中 `inherit` 为 `false` 时未继承 `zeroRuntime` 的问题。[#59250](https://github.com/ant-design/ant-design/pull/59250) [@QDyanbing](https://github.com/QDyanbing)
+
 ## 6.6.3
 
 `2026-09-07`

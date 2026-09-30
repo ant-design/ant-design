@@ -46,6 +46,7 @@ type RawValue = string | number;
 export type {
   BaseOptionType,
   DefaultOptionType,
+  /** @deprecated Please use `GetProps<typeof Select.Option>` instead. */
   OptionProps,
   BaseSelectRef as RefSelectProps,
   SearchConfig,
@@ -137,15 +138,15 @@ export interface SelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
-    InternalSelectProps<ValueType, OptionType>,
-    | 'mode'
-    | 'getInputElement'
-    | 'getRawInputElement'
-    | 'backfill'
-    | 'placement'
-    | 'dropdownClassName'
-    | 'dropdownStyle'
-  > {
+  InternalSelectProps<ValueType, OptionType>,
+  | 'mode'
+  | 'getInputElement'
+  | 'getRawInputElement'
+  | 'backfill'
+  | 'placement'
+  | 'dropdownClassName'
+  | 'dropdownStyle'
+> {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;

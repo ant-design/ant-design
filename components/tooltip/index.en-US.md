@@ -12,7 +12,7 @@ demo:
 ## When To Use
 
 - The tip is shown on mouse enter, and is hidden on mouse leave. The Tooltip doesn't support complex text or operations.
-- To provide an explanation of a `button/text/operation`. It's often used instead of the html `title` attribute.
+- To provide an explanation of a `button/text/operation`. It's often used instead of the HTML `title` attribute.
 
 ## Examples
 
@@ -23,6 +23,7 @@ demo:
 <code src="./demo/arrow.tsx">Arrow</code>
 <code src="./demo/shift.tsx" iframe="300">Auto Shift</code>
 <code src="./demo/auto-adjust-overflow.tsx" debug>Adjust placement automatically</code>
+<code src="./demo/force-align.tsx">Realign after layout changes</code>
 <code src="./demo/destroy-on-close.tsx" debug>Destroy tooltip when hidden</code>
 <code src="./demo/colorful.tsx">Colorful Tooltip</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -112,6 +113,10 @@ If need update content when close, you can set `fresh` property ([#44830](https:
 <div>
 <img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rUbsR4xWpMsAAAAAAAAAAAAADrJ8AQ/original" />
 </div>
+
+### Why doesn't Tooltip realign after a layout change? {#faq-force-align}
+
+Tooltip does not continuously monitor all external layout changes by default, avoiding extra overhead for every open Tooltip. When async data loading, list refreshes, or expanding and collapsing regions changes the trigger element's position, get the `TooltipRef` through `ref` and call `forceAlign` after the layout update (see [#57809](https://github.com/ant-design/ant-design/issues/57809)). See the “Realign after layout changes” demo above for a complete example.
 
 ---
 

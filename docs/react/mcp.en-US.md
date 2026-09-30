@@ -129,7 +129,7 @@ Configuration:
 }
 ```
 
-## Alternative: Using LLMs.txt
+## Alternative: Using LLMs.txt {#alternative-llms-txt}
 
 If your AI tool doesn't support MCP, you can use our [LLMs.txt](/docs/react/llms) support instead. We provide:
 

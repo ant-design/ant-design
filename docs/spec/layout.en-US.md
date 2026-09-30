@@ -24,13 +24,13 @@ In the design process, the designer also needs to establish the concept of adapt
 
 Ant Design's two typical adaptation type:
 
-### 1. Left-Right Layout
+### 1. Left-Right Layout {#left-right-layout}
 
 Commonly used in design schemes for left and right layouts, the common practice is to fix the left navigation bar and dynamically scale the right work area.
 
 ![Left-Right Layout](https://gw.alipayobjects.com/zos/rmsportal/vSqMhPolCtINKLvVVdLt.png)
 
-### 2. Top-Bottom Layout
+### 2. Top-Bottom Layout {#top-bottom-layout}
 
 Common used in design schemes for top and bottom layouts. The practice is to define the minimum value for the marginal areas on both sides. After the blanking area reaches the limit value, the intermediate main content area is dynamically scaled.
 

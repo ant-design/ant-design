@@ -1,5 +1,6 @@
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import { isReactRenderable } from '@rc-component/util';
 
 import fallbackProp from '../_util/fallbackProp';
 import { isFunction } from '../_util/is';
@@ -15,7 +16,11 @@ import { getConfirmLocale } from './locale';
 export function renderCloseIcon(prefixCls: string, closeIcon?: React.ReactNode) {
   return (
     <span className={`${prefixCls}-close-x`}>
-      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
+      {isReactRenderable(closeIcon) ? (
+        closeIcon
+      ) : (
+        <CloseOutlined className={`${prefixCls}-close-icon`} />
+      )}
     </span>
   );
 }

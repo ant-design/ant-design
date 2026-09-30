@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { JSX } from 'react';
-import { get, set, useLayoutEffect } from '@rc-component/util';
+import { get, isReactRenderable, set, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isPlainObject } from '../_util/is';
@@ -102,13 +102,14 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
 
   const extraRef = React.useRef<HTMLDivElement>(null);
   const [extraHeight, setExtraHeight] = React.useState<number>(0);
+  const hasExtra = isReactRenderable(extra);
   useLayoutEffect(() => {
-    if (extra && extraRef.current) {
+    if (hasExtra && extraRef.current) {
       setExtraHeight(extraRef.current.clientHeight);
     } else {
       setExtraHeight(0);
     }
-  }, [extra]);
+  }, [extra, hasExtra]);
 
   const inputDom: React.ReactNode = (
     <div className={`${baseClassName}-control-input`}>
@@ -142,9 +143,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     extraProps.id = `${fieldId}_extra`;
   }
 
-  // If extra = 0, && will goes wrong
-  // 0&&error -> 0
-  const extraDom: React.ReactNode = extra ? (
+  const extraDom: React.ReactNode = hasExtra ? (
     <div
       {...extraProps}
       className={clsx(`${baseClassName}-extra`, contextClassNames?.extra)}

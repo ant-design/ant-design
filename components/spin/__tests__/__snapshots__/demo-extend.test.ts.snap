@@ -225,92 +225,84 @@ exports[`renders components/spin/demo/fullscreen.tsx extend context correctly 2`
 
 exports[`renders components/spin/demo/list-debug.tsx extend context correctly 1`] = `
 <div
-  class="ant-list ant-list-split css-var-test-id"
+  aria-busy="false"
+  aria-live="polite"
+  class="ant-spin css-var-test-id"
 >
   <div
-    aria-busy="false"
-    aria-live="polite"
-    class="ant-spin css-var-test-id"
+    class="ant-spin-container"
   >
     <div
-      class="ant-spin-container"
+      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
     >
-      <ul
-        class="ant-list-items ant-list-container css-var-test-id"
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
       >
-        <li
-          class="ant-list-item"
+        Apple
+        <div
+          aria-busy="true"
+          aria-live="polite"
+          class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-section css-var-test-id"
         >
-          Apple
-          <div
-            aria-busy="true"
-            aria-live="polite"
-            class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-section css-var-test-id"
+          <span
+            class="ant-spin-dot-holder"
           >
             <span
-              class="ant-spin-dot-holder"
+              class="ant-spin-dot ant-spin-dot-spin"
             >
-              <span
-                class="ant-spin-dot ant-spin-dot-spin"
-              >
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-              </span>
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
             </span>
-          </div>
-        </li>
-        <li
-          class="ant-list-item"
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
+      >
+        Banana
+        <div
+          aria-busy="true"
+          aria-live="polite"
+          class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-section css-var-test-id"
         >
-          Banana
-          <div
-            aria-busy="true"
-            aria-live="polite"
-            class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-section css-var-test-id"
+          <span
+            class="ant-spin-dot-holder"
           >
             <span
-              class="ant-spin-dot-holder"
+              class="ant-spin-dot ant-spin-dot-spin"
             >
-              <span
-                class="ant-spin-dot ant-spin-dot-spin"
-              >
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-              </span>
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
             </span>
-          </div>
-        </li>
-      </ul>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`renders components/spin/demo/list-debug.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
-]
-`;
+exports[`renders components/spin/demo/list-debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/spin/demo/nested.tsx extend context correctly 1`] = `
 <div

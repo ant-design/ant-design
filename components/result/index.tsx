@@ -119,7 +119,7 @@ const Icon: React.FC<IconProps> = ({ icon, status, className, style }) => {
 
   return (
     <div className={className} style={style}>
-      {icon || iconNode}
+      {isReactRenderable(icon) ? icon : iconNode}
     </div>
   );
 };

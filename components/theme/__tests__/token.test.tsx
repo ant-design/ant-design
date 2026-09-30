@@ -277,6 +277,26 @@ describe('Theme', () => {
       expect(token.colorPrimary).toBe('#189cff');
     });
 
+    it('fontHeight should follow fontSize and lineHeight', () => {
+      const config: ThemeConfig = {
+        token: {
+          lineHeight: 2,
+          fontSizeSM: 12,
+          lineHeightSM: 1.5,
+          fontSizeLG: 20,
+          lineHeightLG: 1.6,
+        },
+      };
+      const expected = {
+        fontHeight: 28,
+        fontHeightSM: 18,
+        fontHeightLG: 32,
+      };
+
+      expect(theme.getDesignToken(config)).toEqual(expect.objectContaining(expected));
+      expect(getHookToken(config).token).toEqual(expect.objectContaining(expected));
+    });
+
     it('with custom algorithm', () => {
       const config: ThemeConfig = {
         token: {

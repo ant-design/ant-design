@@ -146,6 +146,59 @@ describe('Directory Tree', () => {
     expect(leaf3).not.toHaveClass('ant-tree-node-selected');
   });
 
+  it.each([false, true])('skip unselectable nodes in shift selection (reverse: %s)', (reverse) => {
+    const onSelect = jest.fn();
+    const treeData = [
+      { title: 'A', key: 'a' },
+      {
+        title: 'B',
+        key: 'b',
+        selectable: false,
+        children: [{ title: 'B child', key: 'b-child' }],
+      },
+      {
+        title: 'D',
+        key: 'd',
+        disabled: true,
+        children: [{ title: 'D child', key: 'd-child' }],
+      },
+      { title: 'C', key: 'c' },
+    ];
+    const { container, getByText } = render(
+      <DirectoryTree
+        multiple
+        defaultExpandAll
+        expandAction={false}
+        treeData={treeData}
+        onSelect={onSelect}
+      />,
+    );
+
+    fireEvent.click(getByText('B'));
+    fireEvent.click(getByText('D'));
+    expect(onSelect).not.toHaveBeenCalled();
+
+    fireEvent.click(getByText(reverse ? 'C' : 'A'));
+    fireEvent.click(getByText(reverse ? 'A' : 'C'), { shiftKey: true });
+
+    expect(onSelect).toHaveBeenLastCalledWith(
+      reverse ? ['c', 'a', 'b-child', 'd-child'] : ['a', 'b-child', 'd-child', 'c'],
+      expect.objectContaining({
+        selectedNodes: [
+          treeData[0],
+          treeData[1].children![0],
+          treeData[2].children![0],
+          treeData[3],
+        ],
+      }),
+    );
+    expect(
+      Array.from(container.querySelectorAll('.ant-tree-node-selected .ant-tree-title')).map(
+        (node) => node.textContent,
+      ),
+    ).toEqual(['A', 'B child', 'D child', 'C']);
+  });
+
   it('select range when the first selected key is 0', () => {
     const onSelect = jest.fn();
     const treeData = [

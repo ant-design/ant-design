@@ -77,6 +77,7 @@ export default defineConfig({
       'components/_util/__tests__/wave.test.tsx',
       'components/_util/__tests__/wave-util.test.tsx',
       'components/anchor/__tests__/Anchor.test.tsx',
+      'components/app/__tests__/legacy.test.tsx',
       'components/auto-complete/__tests__/index.test.tsx',
       'components/auto-complete/__tests__/semantic.test.tsx',
       'components/avatar/__tests__/Avatar.test.tsx',

@@ -2,7 +2,7 @@
 
 exports[`renders components/listy/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-listy css-var-test-id ant-listy-css-var"
+  class="ant-listy ant-listy-hoverable css-var-test-id ant-listy-css-var"
   style="max-height: 400px; overflow-y: auto; overflow-anchor: none;"
 >
   <div
@@ -133,7 +133,7 @@ exports[`renders components/listy/demo/basic.tsx extend context correctly 2`] = 
 exports[`renders components/listy/demo/drag-sorting.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-listy css-var-test-id ant-listy-css-var"
+    class="ant-listy ant-listy-hoverable css-var-test-id ant-listy-css-var"
     style="max-height: 400px; overflow-y: auto; overflow-anchor: none;"
   >
     <div
@@ -1039,7 +1039,7 @@ exports[`renders components/listy/demo/drag-sorting.tsx extend context correctly
 
 exports[`renders components/listy/demo/group.tsx extend context correctly 1`] = `
 <div
-  class="ant-listy css-var-test-id ant-listy-css-var"
+  class="ant-listy ant-listy-hoverable css-var-test-id ant-listy-css-var"
   style="max-height: 400px; overflow-y: auto; overflow-anchor: none;"
 >
   <div
@@ -1569,7 +1569,7 @@ exports[`renders components/listy/demo/group.tsx extend context correctly 2`] = 
 
 exports[`renders components/listy/demo/rich.tsx extend context correctly 1`] = `
 <div
-  class="ant-listy css-var-test-id ant-listy-css-var"
+  class="ant-listy ant-listy-hoverable css-var-test-id ant-listy-css-var"
   style="max-height: 400px; overflow-y: auto; overflow-anchor: none;"
 >
   <div
@@ -2129,6 +2129,87 @@ exports[`renders components/listy/demo/rich.tsx extend context correctly 1`] = `
 
 exports[`renders components/listy/demo/rich.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/listy/demo/row-hoverable-debug.tsx extend context correctly 1`] = `
+<div
+  style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;"
+>
+  <section>
+    <h5
+      class="ant-typography css-var-test-id"
+    >
+      Default
+    </h5>
+    <div
+      class="ant-listy ant-listy-hoverable css-var-test-id ant-listy-css-var"
+      style="overflow-anchor: none;"
+    >
+      <div
+        class="ant-listy-item"
+        data-key="item:0"
+      >
+        Item 0
+      </div>
+      <div
+        class="ant-listy-item"
+        data-key="item:1"
+      >
+        Item 1
+      </div>
+      <div
+        class="ant-listy-item"
+        data-key="item:2"
+      >
+        Item 2
+      </div>
+      <div
+        class="ant-listy-item"
+        data-key="item:3"
+      >
+        Item 3
+      </div>
+    </div>
+  </section>
+  <section>
+    <h5
+      class="ant-typography css-var-test-id"
+    >
+      rowHoverable=false
+    </h5>
+    <div
+      class="ant-listy css-var-test-id ant-listy-css-var"
+      style="overflow-anchor: none;"
+    >
+      <div
+        class="ant-listy-item"
+        data-key="item:0"
+      >
+        Item 0
+      </div>
+      <div
+        class="ant-listy-item"
+        data-key="item:1"
+      >
+        Item 1
+      </div>
+      <div
+        class="ant-listy-item"
+        data-key="item:2"
+      >
+        Item 2
+      </div>
+      <div
+        class="ant-listy-item"
+        data-key="item:3"
+      >
+        Item 3
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`renders components/listy/demo/row-hoverable-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/listy/demo/scroll-to.tsx extend context correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
@@ -2497,7 +2578,7 @@ exports[`renders components/listy/demo/scroll-to.tsx extend context correctly 1`
     </button>
   </div>
   <div
-    class="ant-listy css-var-test-id ant-listy-css-var"
+    class="ant-listy ant-listy-hoverable css-var-test-id ant-listy-css-var"
     style="max-height: 400px; overflow-y: auto; overflow-anchor: none;"
   >
     <div
@@ -2933,7 +3014,7 @@ exports[`renders components/listy/demo/scroll-to.tsx extend context correctly 2`
 
 exports[`renders components/listy/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-listy acss-1hnaman css-var-test-id ant-listy-css-var"
+  class="ant-listy acss-1hnaman ant-listy-hoverable css-var-test-id ant-listy-css-var"
   style="max-height: 260px; overflow-y: auto; overflow-anchor: none;"
 >
   <div
