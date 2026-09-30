@@ -8,7 +8,7 @@ function useBreakpoint() {
 }
 
 export type { ColProps, ColSize } from './col';
-export type { RowProps } from './row';
+export type { AreasType, ColumnsType, RowProps } from './row';
 export { Col, Row };
 
 export default { useBreakpoint };
