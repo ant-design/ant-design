@@ -378,7 +378,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
           if (help || mergedErrors.length > 0 || mergedWarnings.length > 0 || hasExtra) {
             const describedbyArr: string[] = [];
-            if (help || mergedErrors.length > 0) {
+            if (help || mergedErrors.length > 0 || mergedWarnings.length > 0) {
               describedbyArr.push(`${fieldId}_help`);
             }
             if (hasExtra) {
