@@ -117,7 +117,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const { children, initialSlide = 0 } = props;
   const childNodes: React.ReactNode[] = toArray(children);
   const count = childNodes.length;
-  const isRTL = (rtl ?? direction === 'rtl') && !vertical;
+  const isRTL = (rtl ?? direction === 'rtl') && !mergedVertical;
 
   React.useEffect(() => {
     if (count > 0) {
