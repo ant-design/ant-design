@@ -10,7 +10,7 @@ author: zombieJ
 
 Button 过去的代码通过 `setTimeout` 进行重置与清理，切换为 Hook 后，理论上时序并没有发生变化。但是仍然需要排查这个问题是否由 PR 引起。
 
-## 是 Hook 吗？
+## 是 Hook 吗？ {#was-it-the-hook}
 
 Button 支持通过 `loading.delay` 延迟 Loading 状态。原先每个组件各自管理 timer，重构后则交给 `useDelayState` 统一处理：
 
@@ -30,7 +30,7 @@ useLayoutEffect(() => {
 
 不过把这里临时恢复成原来的调用方式后，跳动依旧存在。看来只是刚好在这个 PR 里发现了问题，和 Hook 本身没有关系。
 
-## 多了一个 div
+## 多了一个 div {#an-extra-div}
 
 继续看 DOM，点击 Button 后，它的第一个子节点会多出一个空的 `div`：
 
@@ -55,7 +55,7 @@ target.insertBefore(holder, target.firstChild);
 
 但是该 `div` 是通过绝对定位，本来就脱离了正常布局，自然也不会创建新的 `gap`。临时去除 Wave 后，发现问题依旧。
 
-## 14px 和 8px
+## 14px 和 8px {#size-14px-and-8px}
 
 既然不是凭空多出的 gap，那就回到 Loading icon 自己。
 
@@ -95,7 +95,7 @@ Loading icon 出现时会从 `width: 0` 展开。虽然此时宽度为零，但�
 
 这就和截图对上了。Motion 使用的并不是图标稳定的自然宽度，而是旋转过程中读取到的 `7px` 到 `8px`。等 Motion 结束、内联 `width` 被移除后，容器恢复到自然宽度 `14px`。剩余约 `6px` 到 `7px` 没有动画，于是直接跳了出来。
 
-## 破案
+## 破案 {#case-closed}
 
 去掉旋转后，`7px` 这个数字很扎眼：它正好是图标自然宽度 `14px` 的一半。
 
@@ -125,7 +125,7 @@ Loading icon 出现时会从 `width: 0` 展开。虽然此时宽度为零，但�
 
 这样 Loading icon 和普通 icon 重新使用相同的布局逻辑，`scrollWidth` 也恢复到了完整宽度，最后的跳动自然消失了。
 
-## 最后
+## 最后 {#finally}
 
 这次排查里，Hook 和额外的 DOM 都是很合理的怀疑对象，但是它们始终无法解释 Performance 截图中 icon 尺寸的变化。直到 `14px` 与 `7px`、`22px` 与 `11px` 两组数字出现，线索才真正落到了零宽度下的水平居中。
 
