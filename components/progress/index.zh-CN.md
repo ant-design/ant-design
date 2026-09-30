@@ -22,6 +22,7 @@ demo:
 <!-- prettier-ignore -->
 <code src="./demo/line.tsx">进度条</code>
 <code src="./demo/circle.tsx">进度圈</code>
+<code src="./demo/circle-start-position.tsx" version="6.7.0">自定义起点位置</code>
 <code src="./demo/line-mini.tsx">小型进度条</code>
 <code src="./demo/circle-micro.tsx">响应式进度圈</code>
 <code src="./demo/circle-mini.tsx">小型进度圈</code>
@@ -72,6 +73,7 @@ demo:
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| startPosition | 起点位置，以 12 点钟方向为 0，按顺时针方向取 0 到 100 之间的百分比 | number | 0 | 6.7.0 |
 | steps | 进度条总共步数，传入 object 时，count 指步数，gap 指间隔大小。传 number 类型时，gap 默认为 2。 | number \| { count: number, gap: number } | - | 5.16.0 |
 | strokeColor | 圆形进度条线的色彩，传入 object 时为渐变 | string \| { number%: string } | - | - |
 | strokeWidth | 圆形进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 | - |
