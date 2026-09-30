@@ -297,6 +297,11 @@ describe('Locale Provider', () => {
     expect(zhTW.ColorPicker?.gradientColor).toBe('漸層色');
   });
 
+  it('should define Pagination page_size in every locale', () => {
+    const missing = locales.filter((locale) => !locale.Pagination?.page_size);
+    expect(missing.map((locale) => locale.locale)).toEqual([]);
+  });
+
   locales.forEach((locale) => {
     it(`should display the text as ${locale.locale}`, () => {
       const { container } = render(
