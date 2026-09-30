@@ -5,7 +5,7 @@ import { INTERNAL_COL_DEFINE } from '@rc-component/table';
 import type { FixedType } from '@rc-component/table';
 import { arrAdd, arrDel, conductCheck, convertDataToEntities } from '@rc-component/tree';
 import type { DataNode } from '@rc-component/tree';
-import { useControlledState } from '@rc-component/util';
+import { isEqual, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMultipleSelect } from '../../_util/hooks';
@@ -115,6 +115,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   const [multipleSelect, updatePrevSelectedIndex] = useMultipleSelect<React.Key, React.Key>(
     (item) => item,
   );
+  const prevRecordKeysRef = React.useRef<Key[]>([]);
 
   // ========================= Keys =========================
   const [mergedSelectedKeys, setMergedSelectedKeys] = useControlledState(
@@ -597,8 +598,12 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
                   const isMultiple =
                     derivedSelectedKeySet.size > 0 &&
                     recordKeys.some((key) => derivedSelectedKeySet.has(key));
+                  // The last selected index points into `recordKeys`, so it is stale once
+                  // the rows change (page, sort, filter)
+                  const isSameData = isEqual(recordKeys, prevRecordKeysRef.current, true);
+                  prevRecordKeysRef.current = recordKeys;
 
-                  if (shiftKey && checkStrictly && isMultiple) {
+                  if (shiftKey && checkStrictly && isMultiple && isSameData) {
                     const changedKeys = multipleSelect(currentSelectedIndex, recordKeys, keySet);
                     const keys = Array.from(keySet);
 
