@@ -397,6 +397,46 @@ describe('Typography', () => {
       testStep({ name: 'trigger by text', triggerType: ['text'] });
       testStep({ name: 'trigger by both icon and text', triggerType: ['icon', 'text'] });
 
+      it.each<{ triggerType: ('icon' | 'text')[] }>([
+        { triggerType: ['text'] },
+        { triggerType: ['icon', 'text'] },
+      ])('should start editing and call onClick with $triggerType triggers', ({ triggerType }) => {
+        const onClick = jest.fn();
+        const onStart = jest.fn();
+        const { getByText, getByRole } = render(
+          <Paragraph editable={{ triggerType, onStart }} onClick={onClick}>
+            Bamboo
+          </Paragraph>,
+        );
+        const text = getByText('Bamboo');
+
+        fireEvent.click(text);
+
+        expect(onClick).toHaveBeenCalledTimes(1);
+        expect(onClick).toHaveBeenCalledWith(expect.objectContaining({ target: text }));
+        expect(onStart).toHaveBeenCalledTimes(1);
+        expect(getByRole('textbox')).toHaveValue('Bamboo');
+      });
+
+      it.each<{ editable: React.ComponentProps<typeof Paragraph>['editable'] }>([
+        { editable: undefined },
+        { editable: false },
+        { editable: true },
+        { editable: { triggerType: [] } },
+      ])('should preserve onClick without text editing for $editable', ({ editable }) => {
+        const onClick = jest.fn();
+        const { getByText, queryByRole } = render(
+          <Paragraph editable={editable} onClick={onClick}>
+            Bamboo
+          </Paragraph>,
+        );
+
+        fireEvent.click(getByText('Bamboo'));
+
+        expect(onClick).toHaveBeenCalledTimes(1);
+        expect(queryByRole('textbox')).not.toBeInTheDocument();
+      });
+
       it('should trigger onEnd when type Enter', () => {
         const onEnd = jest.fn();
         const { container: wrapper } = render(<Paragraph editable={{ onEnd }}>Bamboo</Paragraph>);

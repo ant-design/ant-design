@@ -16,7 +16,8 @@ export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPlacement = 'top' | 'bottom' | 'start' | 'end';
 
 // Carousel
-export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass' | 'autoplay'> {
+export interface CarouselProps
+  extends Omit<Settings, 'dots' | 'dotsClass' | 'autoplay' | 'verticalSwiping'> {
   effect?: CarouselEffect;
   style?: React.CSSProperties;
   prefixCls?: string;

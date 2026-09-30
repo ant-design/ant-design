@@ -7,7 +7,7 @@ title: 在 Rsbuild 中使用
 
 [Rsbuild](https://rsbuild.dev/zh) 由 Rspack 驱动的构建工具，本文会尝试使用 `Rsbuild` 创建一个项目，并引入 antd。
 
-## 安装和初始化
+## 安装和初始化 {#install-and-initialization}
 
 在开始之前，你可能需要安装 [yarn](https://github.com/yarnpkg/yarn) 或者 [pnpm](https://pnpm.io/zh) 或者 [bun](https://bun.sh)。
 
@@ -26,7 +26,7 @@ $ npm run dev
 
 此时访问浏览器 http://localhost:3000 ，看到 `Rsbuild with React` 的界面就算成功了。
 
-## 引入 antd
+## 引入 antd {#import-antd}
 
 现在从 yarn 或 npm 或 pnpm 或 bun 安装并引入 antd。
 
@@ -49,7 +49,7 @@ export default App;
 
 好了，现在你应该能看到页面上已经有了 antd 的蓝色按钮组件，接下来就可以继续选用其他组件开发应用了。其它开发流程你可以参考 Rsbuild 的[官方文档](https://rsbuild.dev/zh)。
 
-### 自定义主题
+### 自定义主题 {#customize-theme}
 
 参考 [配置主题](/docs/react/customize-theme)，通过 ConfigProvider 进行主题配置：
 

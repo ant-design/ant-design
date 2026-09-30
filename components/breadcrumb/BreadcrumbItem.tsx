@@ -43,22 +43,18 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
   const { prefixCls, separator = '/', children, menu, dropdownProps, href, dropdownIcon } = props;
   const breadcrumbContext = React.useContext(BreadcrumbContext);
   const { classNames: mergedClassNames, styles: mergedStyles } = breadcrumbContext;
-  /** If overlay is have Wrap a Dropdown */
   const renderBreadcrumbNode = (breadcrumbItem: React.ReactNode) => {
     if (menu) {
+      const { items, ...menuProps } = menu;
       const mergeDropDownProps: DropdownProps = {
         ...dropdownProps,
-      };
-
-      if (menu) {
-        const { items, ...menuProps } = menu || {};
-        mergeDropDownProps.menu = {
+        menu: {
           ...menuProps,
           items: items?.map(({ key, title, label, path, ...itemProps }, index) => {
             let mergedLabel: React.ReactNode = label ?? title;
 
             if (path) {
-              mergedLabel = <a href={`${href}${path}`}>{mergedLabel}</a>;
+              mergedLabel = <a href={`${href ?? ''}${path}`}>{mergedLabel}</a>;
             }
 
             return {
@@ -67,8 +63,8 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
               label: mergedLabel,
             };
           }),
-        };
-      }
+        },
+      };
 
       return (
         <Dropdown placement="bottom" {...mergeDropDownProps}>

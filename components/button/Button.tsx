@@ -431,7 +431,7 @@ const InternalCompoundedButton = React.forwardRef<
   let iconNode: React.ReactNode;
   if (icon && !innerLoading) {
     iconNode = iconWrapperElement(icon);
-  } else if (loading && mergedLoadingIcon) {
+  } else if (innerLoading && mergedLoadingIcon) {
     iconNode = iconWrapperElement(mergedLoadingIcon);
   } else {
     iconNode = defaultLoadingIconElement;

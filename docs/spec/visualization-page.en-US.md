@@ -62,7 +62,7 @@ Try to highlight the primary information by placing it first on a screen. Limit 
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ym8CSoOMN1EAAAAAAAAAAABkARQnAQ" alt="Do">
 </ImagePreview>
 
-Make good use of filtering capability. Let users observe the overview and check the detailed data at the same time. This way users can explore data quickly whenever they have questions. [text](vscode-file://vscode-app/Applications/VSCodium.app/Contents/Resources/app/out/vs/code/electron-sandbox/workbench/workbench.html)
+Make good use of filtering capability. Let users observe the overview and check the detailed data at the same time. This way users can explore data quickly whenever they have questions.
 
 ## Typical Templates
 
@@ -88,7 +88,7 @@ When decision-makers need an overview and the option to gain further insights vi
 
 Key indicator, scorecard, filter, chart.
 
-#### [Monitor Dashboards](https://preview.pro.ant.design/dashboard/monitor)
+#### [Monitor Dashboards](https://preview.pro.ant.design/dashboard/monitor) {#template-monitor}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/antfincdn/Ls0j%26N%24i4A/4fcb4e43-5b33-4f3e-83ee-07b308c192ff.png">
@@ -110,7 +110,7 @@ Key indicator, scorecard, chart, map.
 
 Analytics dashboards separate the data-analysis interface into several parts. Usually their layouts are "summary and description" structure, showing overviews of the whole information with different aspects. These dashboards can assist the users to discover the current problems.
 
-#### Multi-dimension Analytics Dashboards
+#### Multi-dimension Analytics Dashboards {#multi-dimension-analytics}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/antfincdn/crg34dVGk%26/fc54e283-8748-45a0-b65f-e41336fdbd0d.png">

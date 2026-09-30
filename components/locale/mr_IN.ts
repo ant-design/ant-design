@@ -86,6 +86,10 @@ const localeValues: Locale = {
     expand: 'वाढवा',
     collapse: 'संकुचित करा',
   },
+  Carousel: {
+    prevSlide: 'मागील स्लाइड',
+    nextSlide: 'पुढील स्लाइड',
+  },
   Form: {
     optional: '(ऐच्छिक)',
     defaultValidateMessages: {

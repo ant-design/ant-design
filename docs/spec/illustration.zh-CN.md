@@ -7,7 +7,7 @@ title: 图形化
   <img alt="General" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*WzMpTIP8R6gAAAAAAAAAAABkARQnAQ" />
 </div>
 
-## 项目背景
+## 项目背景 {#background-information}
 
 图形化是品牌识别度的关键核心元素，在互联网产品、线下物料中无处不在。与单纯的文案信息不同，图形化在直观描述固有信息的同时塑造情感背景，使用户更具沉浸感和共情性。提升产品用户体验的同时来完成商业目标。图形化的风格缤纷复杂，插画师的个人风格明显，不同的设计师在图形化的工作协同中，风格很难复现，而单纯由一名插画师去完成整体业务的图形化也存在一定风险。所以图形化体系在保持品牌一致性和提升工作效率、规避风险上显得尤为重要。
 
@@ -15,7 +15,7 @@ title: 图形化
   <img alt="Background" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*rSUBTL8hv9sAAAAAAAAAAABkARQnAQ" />
 </div>
 
-## 设计原则
+## 设计原则 {#design-principles}
 
 从最底层的设计价值观到最顶层的设计方法，HiTu 沿袭了 Ant Design 的 ETCG 的设计思路，将图形化资产组件化，分可形成模板，合则可拼搭成案例。为设计值提供强大的灵活性和定制性。
 
@@ -23,7 +23,7 @@ title: 图形化
   <img alt="Design principle" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*WKEzS5-_zYAAAAAAAAAAAABkARQnAQ" />
 </div>
 
-#### HiTu 金字塔模型
+#### HiTu 金字塔模型 {#hitu-pyramid-model}
 
 基于科技、确定、自然、未来的四层品牌策略，我们将抽象的概念具象化。代表的技术底层的科技能力为产品、体验和未来提供技术支撑和可能性。所以图例一一对应，我们具象化了人物和产品，体验及未来之间的关系。他们之间不同的组合方式可以满足不同的业务场景诉求。
 
@@ -31,9 +31,9 @@ title: 图形化
   <img alt="Pyramid model" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*gCoSS5DaCNEAAAAAAAAAAABkARQnAQ" />
 </div>
 
-## 颜色
+## 颜色 {#colors}
 
-### 海兔色板
+### 海兔色板 {#sea-hare-swatch}
 
 <ImagePreview>
 <img class="preview-img no-padding" description="海兔色板" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5ZE6RrjW-jQAAAAAAAAAAABkARQnAQ" />
@@ -41,7 +41,7 @@ title: 图形化
 
 海兔的色彩配色体系是基于 Ant Design 色板的场景应用，与 UI 色彩体系的应用会有所不同。图形化的配色体系会相对更加的灵活可变。基于 Ant Design 的基础色板我们进行了明度的调整，扩大图形化设计的宽容度，使用选择时候更加高效易用，由于是出自 Ant Design 的色彩体系，和其他 UI 资产完美兼容。
 
-### 海兔默认资产颜色
+### 海兔默认资产颜色 {#default-asset-colors-of-sea-hare}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0Dv9Rrp7GtMAAAAAAAAAAAAAARQnAQ" />
@@ -59,9 +59,9 @@ title: 图形化
 
 <br />
 
-# 设计资产
+# 设计资产 {#design-assets}
 
-### 人物组件
+### 人物组件 {#illustrations-of-people}
 
 <ImagePreview>
 <img class="preview-img" alt="基于自然的人物头身比例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*rm9JRIqTmPgAAAAAAAAAAABkARQnAQ" />
@@ -95,7 +95,7 @@ title: 图形化
 
 <br />
 
-### 元素组件
+### 元素组件 {#elementary-components}
 
 <ImagePreview>
 <img class="preview-img" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ph0YSZmq-ekAAAAAAAAAAABkARQnAQ" />
@@ -109,7 +109,7 @@ title: 图形化
 
 <br />
 
-# 设计应用
+# 设计应用 {#usage}
 
 <ImagePreview>
 <img class="preview-img" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*puHVQJEe-oIAAAAAAAAAAABkARQnAQ" />

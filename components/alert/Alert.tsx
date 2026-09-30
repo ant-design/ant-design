@@ -76,8 +76,8 @@ export interface AlertProps {
    * @deprecated please use `closable.onClose` instead.
    */
   onClose?: React.MouseEventHandler<HTMLButtonElement>;
-  /** Trigger when animation ending of Alert */
   /**
+   * Trigger when animation ending of Alert
    * @deprecated please use `closable.afterClose` instead.
    */
   afterClose?: () => void;
@@ -108,8 +108,6 @@ export interface AlertProps {
 interface IconNodeProps {
   type: AlertProps['type'];
   icon: AlertProps['icon'];
-  prefixCls: AlertProps['prefixCls'];
-  description: AlertProps['description'];
   className?: string;
   style?: React.CSSProperties;
   successIcon?: React.ReactNode;
@@ -152,7 +150,6 @@ const CloseIconNode: React.FC<CloseIconProps> = (props) => {
       type="button"
       onClick={handleClose}
       className={clsx(`${prefixCls}-close-icon`, className)}
-      tabIndex={0}
       style={style}
       {...ariaProps}
     >
@@ -361,9 +358,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
             <IconNode
               className={clsx(`${prefixCls}-icon`, mergedClassNames.icon)}
               style={mergedStyles.icon}
-              description={description}
               icon={props.icon}
-              prefixCls={prefixCls}
               type={type}
               successIcon={successIcon}
               infoIcon={infoIcon}

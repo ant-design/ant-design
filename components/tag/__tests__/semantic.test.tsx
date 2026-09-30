@@ -235,10 +235,8 @@ describe('Tag.Semantic', () => {
 
     itemElements.forEach((item) => {
       expect(item).toHaveClass('item-enabled');
-      expect(item).toHaveStyle({
-        borderRadius: '4px',
-        fontWeight: 'bold',
-      });
+      expect(item).toHaveStyle({ borderRadius: '4px' });
+      expect(item).toHaveProperty('style.fontWeight', 'bold');
     });
   });
   it('checkableTagGroup should follow root style priority', () => {
