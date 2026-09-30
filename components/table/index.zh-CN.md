@@ -111,6 +111,7 @@ const columns = [
 <code src="./demo/pagination.tsx">分页设置</code>
 <code src="./demo/row-selection-custom-debug.tsx" debug>自定义选择项组</code>
 <code src="./demo/sticky.tsx">随页面滚动的固定表头和滚动条</code>
+<code src="./demo/sticky-pagination.tsx">随页面滚动的固定分页</code>
 <code src="./demo/dynamic-settings.tsx">动态控制表格属性</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/selections-debug.tsx" debug>带下拉箭头的表头</code>
@@ -146,7 +147,7 @@ const columns = [
 | showSorterTooltip | 表头是否显示下一次排序的 tooltip 提示。当参数类型为对象时，将被设置为 Tooltip 的属性 | boolean \| [Tooltip props](/components/tooltip) & `{target?: 'full-header' \| 'sorter-icon' }` | { target: 'full-header' } | 5.16.0 | × |
 | size | 表格大小 | `large` \| `medium` \| `small` | `large` |  | × |
 | sortDirections | 支持的排序方式，取值为 `ascend` `descend` | Array | \[`ascend`, `descend`] |  | × |
-| sticky | 设置粘性头部和滚动条 | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | 4.6.0 (getContainer: 4.7.0) | × |
+| sticky | 设置粘性头部和滚动条（`pagination` 为 true 时分页将在滚动时固定于表格底部） | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement, pagination?: boolean}` | - | 4.6.0 (getContainer: 4.7.0) | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.1 |
 | summary | 总结栏 | (currentData) => ReactNode | - |  | × |
 | tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| `auto` \| `fixed` | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` |  | × |
