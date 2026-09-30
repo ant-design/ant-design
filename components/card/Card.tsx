@@ -208,7 +208,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     ...tabProps,
     [hasActiveTabKey ? 'activeKey' : 'defaultActiveKey']: hasActiveTabKey
       ? activeTabKey
-      : defaultActiveTabKey,
+      : (defaultActiveTabKey ?? tabProps.defaultActiveKey),
     tabBarExtraContent,
   };
 
