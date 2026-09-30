@@ -6,11 +6,11 @@ author: zombieJ
 
 在 antd 中，DatePicker 的 issue 非常多。一来是由于日期选择需求的常见性，另一来是针对业务的需求会有各种各样的禁用选择组合。今天，我们就来聊聊 `disabledDate` 这个 API。
 
-### disabledDate 不能控制时间
+### disabledDate 不能控制时间 {#disabledate-cannot-control-time}
 
 如其名，`disabledDate` 用于对日期进行禁用。所以当使用 DateTimePicker 时，时间部分并不会被 `disabledDate` 进行控制。而是需要通过 `disabledTime` 方法进行控制。这似乎有点反直觉，为什么需要用两个 API 管理呢？
 
-#### 如何确定日期能选？
+#### 如何确定日期能选？ {#check-if-date-is-selectable}
 
 从直觉上看，一个日期是否禁用我们只需要将当前日期执行一次 `disabledDate` 即可知道。但是，如果当我们把面板切换成月份面板的时候，我们怎么知道当前月份是否可选呢？我们必须要对该月下的每个日期进行一次 `disabledDate` 才能确定该月下有可选日期，因此该月才能选择。
 
@@ -41,11 +41,11 @@ type DisabledTime = (now: Dayjs) => {
 
 （时间选择面板的每个单位都相当于日期面板的 Panel，后者通过前者单位的信息来推出当前禁用单位）
 
-### 一些例子
+### 一些例子 {#some-examples}
 
 在了解了上下文后，我们会发现 `disabledDate` 和 `disabledTime` 虽然设计是合理的，但是却有些偏底层。在业务中进行使用会比较麻烦，我们来看几个例子（当然，在业务中你需要考虑通过 HOC 来进行封装）：
 
-#### 工作时间
+#### 工作时间 {#working-hours}
 
 暂时不考虑节假日的情况，我们选择工作日的 9:00 ~ 17:00 为可选时间：
 
@@ -64,7 +64,7 @@ const disabledTime = () => ({
 });
 ```
 
-#### 时间日期范围
+#### 时间日期范围 {#date-and-time-range}
 
 在 DatePicker 中有 `minDate` 和 `maxDate` 用于限制日期的选择范围，但是如果它们仅限于日期的限制。现在，假设我们有种场景需要带有时间的日期范围选择，比如 `2024-01-01 09:00:00` ~ `2024-01-02 17:00:00`，那么我们可以这样做：
 
@@ -94,6 +94,6 @@ const disabledTime = (date) => {
 };
 ```
 
-### 总结
+### 总结 {#summary}
 
 通过 `disabledDate` 和 `disabledTime`，我们可以对日期和时间进行更细粒度的控制，以实现不同的业务需求。通过以上示例，相信你已经对这两个 API 有了更深入的了解。在实际业务中，你可以根据具体需求，结合这两个 API 来实现更多的功能。

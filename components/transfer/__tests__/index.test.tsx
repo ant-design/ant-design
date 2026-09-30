@@ -1095,17 +1095,62 @@ describe('Transfer', () => {
 
   it('should use the component locale for one-way item removal', () => {
     const onChange = jest.fn();
+    const onSelectChange = jest.fn();
     const { getByRole } = render(
       <Transfer
         {...listCommonProps}
         locale={{ remove: 'Remove target item' }}
         onChange={onChange}
+        onSelectChange={onSelectChange}
         oneWay
       />,
     );
 
     fireEvent.click(getByRole('button', { name: 'Remove target item' }));
     expect(onChange).toHaveBeenCalledWith([], 'left', ['b']);
+    expect(onSelectChange).not.toHaveBeenCalled();
+  });
+
+  it('should clear controlled target selection when removing a one-way item', () => {
+    const onChange = jest.fn();
+    const onSelectChange = jest.fn();
+
+    const App = () => {
+      const [targetKeys, setTargetKeys] = useState<React.Key[]>(['b']);
+      const [selectedKeys, setSelectedKeys] = useState<React.Key[]>(['a', 'b']);
+
+      return (
+        <Transfer
+          dataSource={[
+            { key: 'a', title: 'a' },
+            { key: 'b', title: 'b' },
+          ]}
+          targetKeys={targetKeys}
+          selectedKeys={selectedKeys}
+          oneWay
+          locale={{ remove: 'Remove target item' }}
+          render={(item) => item.title}
+          onChange={(nextTargetKeys, direction, moveKeys) => {
+            onChange(nextTargetKeys, direction, moveKeys);
+            setTargetKeys(nextTargetKeys);
+          }}
+          onSelectChange={(sourceSelectedKeys, targetSelectedKeys) => {
+            onSelectChange(sourceSelectedKeys, targetSelectedKeys);
+            setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
+          }}
+        />
+      );
+    };
+
+    const { getByRole, getByText } = render(<App />);
+    fireEvent.click(getByRole('button', { name: 'Remove target item' }));
+
+    expect(onChange).toHaveBeenCalledWith([], 'left', ['b']);
+    expect(onSelectChange).toHaveBeenCalledWith(['a'], []);
+    expect(onSelectChange).toHaveBeenCalledTimes(1);
+    expect(
+      getByText('b').closest('.ant-transfer-list-content-item')?.querySelector('input'),
+    ).not.toBeChecked();
   });
 
   it('control mode select all should not throw warning', () => {

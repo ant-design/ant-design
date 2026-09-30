@@ -8,7 +8,7 @@ yuque_url: https://www.yuque.com/ant-design/ant-design/as5hro5edxcslweh
 
 大家好，我是[黑雨](https://github.com/heiyu4585)。关于 Ant Design，相信大家都非常熟悉，我在很多后台管理系统项目使用过 Ant Design，给我最大的感觉就是好用、好看、简单、稳定。现在 `v5` 版本已经发布，强烈推荐大家试使用，我也有幸开发了 `v5` 版本的 `Tour` 组件和 `App` 组件，以及一些其他维护工作。下面给大家分享一下 Ant Design 的 PR 流程，希望能给有兴趣为社区共建的同学提供一份参考。
 
-## 一. 阅读相关文章熟悉相关概念
+## 一. 阅读相关文章熟悉相关概念 {#read-related-articles}
 
 [贡献指南](https://ant.design/docs/react/contributing-cn)
 
@@ -20,9 +20,9 @@ yuque_url: https://www.yuque.com/ant-design/ant-design/as5hro5edxcslweh
 
 [使用 git 创建 PR 的一些建议](https://github.com/ant-design/ant-design/discussions/37051)
 
-## 二. 拉取 Ant Design 代码到本地
+## 二. 拉取 Ant Design 代码到本地 {#pull-ant-design-code-to-local}
 
-### 1. Fork 项目
+### 1. Fork 项目 {#fork-project}
 
 - 首先需要 fork 项目，进入[项目页面](https://github.com/ant-design/ant-design)，点击右上角的 [Fork 按钮](https://github.com/ant-design/ant-design/fork)
 - 你的 github 帐号中会出现 Ant Design 链接是 https://github.com/heiyu4585/ant-design 这个项目
@@ -34,7 +34,7 @@ git clone https://github.com/[yourGithubAccount]/ant-design.git
 
 注意： `[yourGithubAccount]` 改为自己的 github 用户名
 
-### 2. 添加远端分支地址
+### 2. 添加远端分支地址 {#add-remote-branch-address}
 
 - 进入 Ant Design 文件夹，添加 Ant Design 的远程地址
 
@@ -51,11 +51,11 @@ git pull upstream master
 
 现在我们在 fork 来的 master 分支上，这个 master 留作跟踪 upstream 的远程代码
 
-### 3. 在 github 上创建新 fix 分支
+### 3. 在 github 上创建新 fix 分支 {#create-a-new-fix-branch}
 
 ![image-20221211130607684](https://user-images.githubusercontent.com/10607168/208016775-623abfe7-fa7f-438d-abc3-be445e52d8c5.png)
 
-### 4. 在本地拉取新分支
+### 4. 在本地拉取新分支 {#pull-the-new-branch-locally}
 
 ```bash
 git pull
@@ -64,24 +64,24 @@ git checkout fix-branch
 
 现在我们可以在分支上更改代码了
 
-## 三. 在[Ant Design 的 issue](https://github.com/ant-design/ant-design/issues)页找到 issue 并分析选择
+## 三. 在[Ant Design 的 issue](https://github.com/ant-design/ant-design/issues)页找到 issue 并分析选择 {#find-and-analyze-the-issue}
 
 为了能帮助你开始你的第一次尝试，我们用 [good first issues](https://github.com/ant-design/ant-design/issues?q=is%3Aissue+is%3Aopen+label%3A"good+first+issue") 标记了一些比较容易修复的 bug 和小功能，这些 issue 可以很好地作为你的首次尝试。[help wanted](https://github.com/ant-design/ant-design/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) 是作为开发者比较容易接手的一些问题。
 
 ![image-20221216111126983](https://user-images.githubusercontent.com/10607168/208016864-fd72d378-a5db-4c20-9a34-b136d5e7c446.png)
 
-## 四. 开发流程
+## 四. 开发流程 {#development-process}
 
 1. `npm start` 在本地运行 Ant Design 的网站
 2. 按照 issue 描述调试、修复问题或者开发新的 feature
 
-## 五. 运行测试用例及规范检查
+## 五. 运行测试用例及规范检查 {#run-tests-and-lint-checks}
 
 1. 在添加 issue 相关测试用例同时，确认所有的测试都是通过的 `npm run test`。 小贴士：开发过程中可以用 `npm test -- --watch TestName` 来运行指定的测试。
 2. 运行 `npm test -- -u` 来更新 [jest snapshot](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) 并且把这些更新也提交上来（如果有的话）。
 3. 确保你的代码通过了 lint 检查 `npm run lint`。
 
-## 六. 合并修改
+## 六. 合并修改 {#merge-changes}
 
 - 一个常见的问题是远程的 upstream (ant-design/master) 有了新的更新，从而会导致我们提交的 Pull Request 时会导致冲突，因此我们可以在提交前先把远程其他开发者的 commit 和我们的 commit 合并。
 
@@ -115,7 +115,7 @@ git rebase master
 git push origin fix-branch
 ```
 
-## 七. 提交 Pull Request
+## 七. 提交 Pull Request {#submit-a-pull-request}
 
 你可以在你的 github 代码仓库页面切换到 branches 页面点击 fix-branch 分支后点击 `New pull request` 按钮，添加相关注释后提交. 或者切换到 fix-branch 分支的代码仓库点击 `Compare & pull request` 按钮，添加相关注释后提交.
 
@@ -125,11 +125,11 @@ git push origin fix-branch
 
 ![image-20221210233540659](https://user-images.githubusercontent.com/10607168/208016178-5edb30af-7191-4ca0-a2d1-17c833f9ed92.png)
 
-## 八. 接受维护者的 review 并修改，合格后等待维护者 merge
+## 八. 接受维护者的 review 并修改，合格后等待维护者 merge {#accept-review-and-merge}
 
 ![image-20221216104628528](https://user-images.githubusercontent.com/10607168/208016926-f8ec6cf3-a599-481f-9611-d894975ab5f5.png)
 
-## 九. 常见错误
+## 九. 常见错误 {#common-errors}
 
 - PR 描述未按要求填写
 
@@ -150,17 +150,17 @@ npm run install-react-16
 npm run test component/XXX
 ```
 
-## 十. 成为 Collaborator
+## 十. 成为 Collaborator {#to-be-collaborator}
 
 当持续维护一段时候后，Collaborator 会启动邀请机制，在 [#3222](https://github.com/ant-design/ant-design/issues/3222) 中发起投票。当满足足够票数后，会正式邀请你成为 Collaborator。
 
 ![Collaborators](https://user-images.githubusercontent.com/5378891/209089697-4fe3f3b3-ef44-4d63-94c2-d93d082c9951.png)
 
-## 不要怕犯错误，勇敢地去做，开源世界欢迎大家。
+## 不要怕犯错误，勇敢地去做，开源世界欢迎大家。 {#dont-be-afraid-to-make-mistakes}
 
 ![giphy](https://user-images.githubusercontent.com/10607168/208015974-04c3f09b-b5e8-4ef7-af00-0bb5652ec619.gif)
 
-## 相关资源
+## 相关资源 {#related-resources}
 
 了解更多 Ant Design 的开发流程和和注意事项，可以参考：
 
