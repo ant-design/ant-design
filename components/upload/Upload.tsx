@@ -49,6 +49,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     fileList,
     defaultFileList,
     onRemove,
+    onRetry,
     showUploadList = true,
     listType = 'text',
     onPreview,
@@ -325,6 +326,30 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     });
   };
 
+  const handleRetry = (file: UploadFile) => {
+    const retryItem: UploadFile = {
+      ...file,
+      status: 'uploading',
+      percent: 0,
+    };
+
+    // Update file status to uploading first
+    const nextFileList = updateFileList(retryItem, mergedFileList);
+    onInternalChange(retryItem, nextFileList);
+
+    // Call the retry method from rc-component/upload
+    if (uploadRef.current?.retry && file.originFileObj) {
+      const retryFile = file.originFileObj as RcFile;
+      retryFile.uid = file.uid;
+      uploadRef.current.retry(retryFile);
+    }
+
+    // Call user's onRetry callback if provided
+    if (onRetry) {
+      onRetry(retryItem);
+    }
+  };
+
   const onFileDrop = (e: React.DragEvent<HTMLDivElement>) => {
     setDragState(e.type);
 
@@ -418,15 +443,20 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     showRemoveIcon,
     showPreviewIcon,
     showDownloadIcon,
+    showRetryIcon,
     removeIcon,
     previewIcon,
     downloadIcon,
+    retryIcon,
     extra,
   } = typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
 
   // use showRemoveIcon if it is specified explicitly
   const realShowRemoveIcon =
     typeof showRemoveIcon === 'undefined' ? !mergedDisabled : showRemoveIcon;
+
+  // use showRetryIcon if it is specified explicitly (default to false)
+  const realShowRetryIcon = typeof showRetryIcon === 'undefined' ? false : showRetryIcon;
 
   const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) => {
     if (!showUploadList) {
@@ -443,12 +473,15 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
         onPreview={onPreview}
         onDownload={onDownload}
         onRemove={handleRemove}
+        onRetry={handleRetry}
         showRemoveIcon={realShowRemoveIcon}
         showPreviewIcon={showPreviewIcon}
         showDownloadIcon={showDownloadIcon}
+        showRetryIcon={realShowRetryIcon}
         removeIcon={removeIcon}
         previewIcon={previewIcon}
         downloadIcon={downloadIcon}
+        retryIcon={retryIcon}
         iconRender={iconRender}
         extra={extra}
         locale={{ ...contextLocale, ...propLocale }}

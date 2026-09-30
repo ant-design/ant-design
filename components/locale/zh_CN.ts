@@ -81,6 +81,7 @@ const localeValues: Locale = {
     uploadError: '上传错误',
     previewFile: '预览文件',
     downloadFile: '下载文件',
+    retryFile: '重试',
   },
   Empty: {
     description: '暂无数据',

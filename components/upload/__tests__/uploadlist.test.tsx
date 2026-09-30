@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { UploadFile, UploadProps } from '..';
+import type { RcFile, UploadFile, UploadProps } from '..';
 import Upload from '..';
 import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
@@ -415,8 +415,7 @@ describe('Upload List', () => {
   });
 
   it('should support no onDownload', async () => {
-    const url =
-      'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
+    const url = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
     open.mockClear();
 
     const { container: wrapper, unmount } = render(
@@ -1812,6 +1811,308 @@ describe('Upload List', () => {
         width: 'var(--ant-upload-picture-card-size)',
         height: 'var(--ant-upload-picture-card-size)',
       });
+    });
+  });
+
+  describe('retry', () => {
+    it('should show retry icon when file status is error', () => {
+      const file = {
+        status: 'error',
+        uid: 'file',
+        name: 'test.png',
+        originFileObj: new File([], 'test.png'),
+      };
+      const { container, unmount } = render(
+        <Upload
+          listType="picture"
+          fileList={[file] as UploadProps['fileList']}
+          showUploadList={{ showRetryIcon: true }}
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      expect(container.querySelector('.anticon-redo')).toBeTruthy();
+
+      unmount();
+    });
+
+    it('should not show retry icon when prerequisites are not met', () => {
+      const assertNoRetryIcon = (file: UploadFile, showRetryIcon: boolean) => {
+        const { container, unmount } = render(
+          <Upload
+            listType="picture"
+            fileList={[file] as UploadProps['fileList']}
+            showUploadList={{ showRetryIcon }}
+          >
+            <button type="button">upload</button>
+          </Upload>,
+        );
+        expect(container.querySelector('.anticon-redo')).toBeFalsy();
+        unmount();
+      };
+
+      // showRetryIcon is false
+      assertNoRetryIcon(
+        {
+          status: 'error',
+          uid: 'file1',
+          name: 'test1.png',
+          originFileObj: new File([], 'test1.png') as RcFile,
+        },
+        false,
+      );
+      // no originFileObj
+      assertNoRetryIcon({ status: 'error', uid: 'file2', name: 'test2.png' }, true);
+      // done status
+      assertNoRetryIcon(
+        {
+          status: 'done',
+          uid: 'file3',
+          name: 'test3.png',
+          originFileObj: new File([], 'test3.png') as RcFile,
+        },
+        true,
+      );
+      // uploading status
+      assertNoRetryIcon(
+        { status: 'uploading', uid: 'file4', name: 'test4.png', percent: 50 },
+        true,
+      );
+    });
+
+    it('should support onRetry callback', async () => {
+      const handleRetry = jest.fn();
+      const file = {
+        status: 'error',
+        uid: 'file',
+        name: 'test.png',
+        originFileObj: new File([], 'test.png'),
+      };
+      const { container, unmount } = render(
+        <Upload
+          listType="picture"
+          fileList={[file] as UploadProps['fileList']}
+          showUploadList={{ showRetryIcon: true }}
+          onRetry={handleRetry}
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      fireEvent.click(container.querySelector('.anticon-redo')!);
+      expect(handleRetry).toHaveBeenCalled();
+
+      unmount();
+    });
+
+    it('should support custom retryIcon (ReactNode and function)', () => {
+      const handleRetry = jest.fn();
+      const file = {
+        status: 'error',
+        uid: 'file',
+        name: 'test.png',
+        originFileObj: new File([], 'test.png'),
+      };
+      const { container, unmount } = render(
+        <Upload
+          listType="picture"
+          fileList={[file] as UploadProps['fileList']}
+          showUploadList={{
+            showRetryIcon: true,
+            retryIcon: (f) => <i className="custom-retry">{f.name}</i>,
+          }}
+          onRetry={handleRetry}
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      // Function form - receive file as parameter
+      expect(container.querySelector('.custom-retry')).toBeTruthy();
+      expect(container.querySelector('.custom-retry')?.textContent).toBe('test.png');
+      fireEvent.click(container.querySelector('.custom-retry')!);
+      expect(handleRetry).toHaveBeenCalledWith(expect.objectContaining({ name: 'test.png' }));
+
+      unmount();
+    });
+
+    it('should support showRetryIcon as function', () => {
+      const file = {
+        status: 'error',
+        uid: 'file',
+        name: 'test.png',
+        originFileObj: new File([], 'test.png'),
+      };
+      const { container, unmount } = render(
+        <Upload
+          listType="picture"
+          fileList={[file] as UploadProps['fileList']}
+          showUploadList={{
+            showRetryIcon: (f) => f.uid === 'file',
+          }}
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      expect(container.querySelector('.anticon-redo')).toBeTruthy();
+
+      unmount();
+    });
+
+    it('should show retry icon in picture-card listType when status is error', () => {
+      const file = {
+        status: 'error',
+        uid: 'file',
+        name: 'test.png',
+        originFileObj: new File([], 'test.png'),
+      };
+      const { container, unmount } = render(
+        <Upload
+          listType="picture-card"
+          fileList={[file] as UploadProps['fileList']}
+          showUploadList={{ showRetryIcon: true }}
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      // In picture-card, retry icon should be in the actions span
+      expect(container.querySelector('.ant-upload-list-item-actions .anticon-redo')).toBeTruthy();
+
+      unmount();
+    });
+
+    it('itemRender should support retry action', () => {
+      const onRetry = jest.fn();
+      const onRemove = jest.fn();
+      const onPreview = jest.fn();
+      const onDownload = jest.fn();
+      const itemRender: UploadListProps['itemRender'] = (_, _file, _currFileList, actions) => (
+        <div className="custom-item-render">
+          <span onClick={actions.retry} className="custom-item-render-action-retry">
+            retry
+          </span>
+          <span onClick={actions.remove} className="custom-item-render-action-remove">
+            remove
+          </span>
+          <span onClick={actions.download} className="custom-item-render-action-download">
+            download
+          </span>
+          <span onClick={actions.preview} className="custom-item-render-action-preview">
+            preview
+          </span>
+        </div>
+      );
+      const { container, unmount } = render(
+        <UploadList
+          onDownload={onDownload}
+          onPreview={onPreview}
+          onRemove={onRemove}
+          onRetry={onRetry}
+          locale={{}}
+          items={
+            [
+              {
+                status: 'error',
+                uid: 'file',
+                name: 'test.png',
+                originFileObj: new File([], 'test.png'),
+              },
+            ] as UploadListProps['items']
+          }
+          itemRender={itemRender}
+        />,
+      );
+
+      fireEvent.click(container.querySelector('.custom-item-render-action-retry')!);
+      expect(onRetry).toHaveBeenCalled();
+
+      fireEvent.click(container.querySelector('.custom-item-render-action-remove')!);
+      expect(onRemove).toHaveBeenCalled();
+
+      fireEvent.click(container.querySelector('.custom-item-render-action-download')!);
+      expect(onDownload).toHaveBeenCalled();
+
+      fireEvent.click(container.querySelector('.custom-item-render-action-preview')!);
+      expect(onPreview).toHaveBeenCalled();
+
+      unmount();
+    });
+
+    it('should use default retry logic when onRetry is not provided', async () => {
+      const onChange = jest.fn();
+      const file = {
+        status: 'error',
+        uid: 'file',
+        name: 'test.png',
+        originFileObj: new File([], 'test.png'),
+      };
+      const uploadRef = React.createRef<any>();
+      const { container, unmount } = render(
+        <Upload
+          ref={uploadRef}
+          listType="picture"
+          fileList={[file] as UploadProps['fileList']}
+          showUploadList={{ showRetryIcon: true }}
+          onChange={onChange}
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      fireEvent.click(container.querySelector('.anticon-redo')!);
+
+      await waitFakeTimer();
+
+      // Default retry logic should change status to uploading
+      expect(onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          file: expect.objectContaining({ status: 'uploading' }),
+        }),
+      );
+
+      unmount();
+    });
+
+    it('should re-send the upload request when retry is triggered', async () => {
+      const onChange = jest.fn();
+      // First upload fails, retry succeeds — proving retry fires a new request.
+      const customRequest = jest.fn(({ onSuccess, onError, file }) => {
+        if (customRequest.mock.calls.length === 1) {
+          setTimeout(() => onError?.(new Error('test error'), undefined, file));
+        } else {
+          setTimeout(() => onSuccess?.(null, file));
+        }
+      });
+      const { container, unmount } = render(
+        <Upload
+          listType="picture"
+          onChange={onChange}
+          customRequest={customRequest}
+          showUploadList={{ showRetryIcon: true }}
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      // Upload a file → first request fails → file becomes error.
+      fireEvent.change(container.querySelector('input')!, {
+        target: { files: [{ name: 'retry.png' }] },
+      });
+      await waitFakeTimer();
+
+      expect(customRequest).toHaveBeenCalledTimes(1);
+      expect(container.querySelector('.anticon-redo')).toBeTruthy();
+
+      // Click retry → rc-upload should be invoked again (second request).
+      fireEvent.click(container.querySelector('.anticon-redo')!);
+      await waitFakeTimer();
+
+      expect(customRequest).toHaveBeenCalledTimes(2);
+
+      unmount();
     });
   });
 });
