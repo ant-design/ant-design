@@ -262,6 +262,7 @@ const genNotificationListStyle = <Token extends NotificationToken>(
         [`&:not(${componentCls}-stack-expanded)`]: {
           [noticeCls]: {
             '--notification-scale': 'calc(1 - min(var(--notification-index, 0), 2) * 0.06)',
+            '--notification-opacity': 'calc(1 - min(var(--notification-index, 0), 2) * 0.12)',
           } as CSSObject,
 
           [`${noticeCls}:not(${noticeCls}-stack-in-threshold)`]: {
