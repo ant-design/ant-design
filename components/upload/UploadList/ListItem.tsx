@@ -210,7 +210,9 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         href={file.url}
         onClick={(e) => {
           linkProps?.onClick?.(e);
-          onPreview(file, e);
+          if (!e.defaultPrevented) {
+            onPreview(file, e);
+          }
         }}
       >
         {file.name}
