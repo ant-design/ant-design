@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Řadit',
     expand: 'Rozbalit řádek',
     collapse: 'Zabalit řádek',
+    expandAll: 'Rozbalit všechny řádky',
+    collapseAll: 'Zabalit všechny řádky',
     triggerDesc: 'Klikni pro sestupné řazení',
     triggerAsc: 'Klikni pro vzestupné řazení',
     cancelSort: 'Klikni pro zrušení řazení',

@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'မျိုးတူစု',
     expand: 'အတန်းချဲ့ပါ။',
     collapse: 'အတန်းကို ခေါက်သိမ်းပါ။',
+    expandAll: 'အတန်းအားလုံးကို ချဲ့ပါ။',
+    collapseAll: 'အတန်းအားလုံးကို ခေါက်သိမ်းပါ။',
     cancelSort: 'အမျိုးအစားခွဲခြင်းကို ပယ်ဖျက်ရန် နှိပ်ပါ။',
     emptyText: 'ဒေတာမရှိပါ။',
     triggerDesc: 'ကြီးစဉ်ငယ်လိုက် စီရန် နှိပ်ပါ။',

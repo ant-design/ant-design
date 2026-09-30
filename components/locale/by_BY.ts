@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Сартаванне',
     expand: 'Разгарнуць радок',
     collapse: 'Згарнуць радок',
+    expandAll: 'Разгарнуць усе радкі',
+    collapseAll: 'Згарнуць усе радкі',
     triggerDesc: 'Націсніце для сартавання па ўбыванні',
     triggerAsc: 'Націсніце для сартавання па ўзрастанні',
     cancelSort: 'Націсніце, каб адмяніць сартаванне',

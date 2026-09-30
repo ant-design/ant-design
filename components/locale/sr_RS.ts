@@ -36,6 +36,8 @@ const localeValues: Locale = {
     sortTitle: 'Sortiraj',
     expand: 'Proširi red',
     collapse: 'Skupi red',
+    expandAll: 'Proširi sve redove',
+    collapseAll: 'Skupi sve redove',
     triggerDesc: 'Klikni da sortiraš po padajućem redosledu',
     triggerAsc: 'Klikni da sortiraš po rastućem redosledu',
     cancelSort: 'Klikni da otkažeš sortiranje',
