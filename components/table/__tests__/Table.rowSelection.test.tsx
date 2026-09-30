@@ -435,6 +435,31 @@ describe('Table.rowSelection', () => {
     jest.useRealTimers();
   });
 
+  it('reset last select key after page change', () => {
+    const onChange = jest.fn();
+
+    const { container } = render(
+      createTable({
+        pagination: { pageSize: 3 },
+        rowSelection: { onChange: (keys) => onChange(keys) },
+      }),
+    );
+
+    const checkboxes = () => container.querySelectorAll('td input');
+
+    fireEvent.click(checkboxes()[1]);
+    fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
+    fireEvent.click(checkboxes()[0]);
+    expect(onChange).toHaveBeenLastCalledWith([1, 3]);
+
+    // Last select key is from page 2, so shift click on page 1 only selects the clicked row
+    fireEvent.click(container.querySelector('.ant-pagination-item-1')!);
+    fireEvent.click(checkboxes()[2], {
+      shiftKey: true,
+    });
+    expect(onChange).toHaveBeenLastCalledWith([1, 3, 2]);
+  });
+
   it('fires selectAll event', () => {
     const order: string[] = [];
     const handleSelectAll = jest.fn().mockImplementation(() => {
