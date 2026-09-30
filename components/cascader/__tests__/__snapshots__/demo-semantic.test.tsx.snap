@@ -135,6 +135,7 @@ exports[`renders components/cascader/demo/_semantic.tsx correctly 1`] = `
           </div>
           <div
             class="ant-select-suffix semantic-mark-suffix"
+            style="margin-inline-end: 24px;"
           >
             <span
               aria-label="down"
@@ -159,6 +160,7 @@ exports[`renders components/cascader/demo/_semantic.tsx correctly 1`] = `
           <button
             aria-label="Clear"
             class="ant-select-clear semantic-mark-clear"
+            style="opacity: 1;"
             type="button"
           >
             <span

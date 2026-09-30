@@ -52,6 +52,20 @@ describe('AutoComplete.Semantic', () => {
     );
   });
 
+  it('should support clear classNames and styles', () => {
+    const { container } = render(
+      <AutoComplete
+        options={[{ label: '123', value: '123' }]}
+        classNames={{ clear: 'custom-clear' }}
+        styles={{ clear: { opacity: 1 } }}
+        defaultValue="123"
+        allowClear
+      />,
+    );
+
+    expect(container.querySelector('.custom-clear')).toHaveStyle({ opacity: 1 });
+  });
+
   it('should support function classNames and styles', () => {
     const classNamesFn = (info: { props: any }) => {
       if (info.props.status === 'error') {

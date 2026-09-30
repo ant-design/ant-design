@@ -14,6 +14,7 @@ import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useStyle from './style';
 
+/** @deprecated Please use `GetProps<typeof FloatButton.BackTop>` instead. */
 export interface BackTopProps {
   visibilityHeight?: number;
   onClick?: React.MouseEventHandler<HTMLElement>;

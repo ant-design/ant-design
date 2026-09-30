@@ -1,7 +1,8 @@
-import type { ReactNode } from 'react';
+import type { FragmentInstance, ReactNode } from 'react';
 import React, { useContext } from 'react';
 import { clsx } from 'clsx';
 
+import getReactVersion from '../_util/getReactVersionCanDelMe';
 import type { AnyObject, CustomComponent } from '../_util/type';
 import { useDevWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -12,6 +13,14 @@ import type { AppConfig, useAppProps } from './context';
 import AppContext, { AppConfigContext } from './context';
 import useStyle from './style';
 
+const [reactMajor, reactMinor] = getReactVersion();
+
+/**
+ * @description 自 React 19.3.0 版本开始，Fragment 组件支持接收 ref
+ * @link https://react.dev/blog/2026/09/09/react-19-3#fragment-refs
+ */
+const supportFragmentRef = (reactMajor === 19 && reactMinor >= 3) || reactMajor > 19;
+
 export interface AppProps<P = AnyObject> extends AppConfig {
   style?: React.CSSProperties;
   className?: string;
@@ -21,7 +30,7 @@ export interface AppProps<P = AnyObject> extends AppConfig {
   component?: CustomComponent<P> | false;
 }
 
-const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
+const App = React.forwardRef<HTMLElement | FragmentInstance, AppProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     children,
@@ -88,7 +97,7 @@ const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
   );
 
   devWarning(
-    !ref || component !== false,
+    supportFragmentRef || !ref || component !== false,
     'usage',
     '`ref` is not supported when `component` is `false`. Please provide a valid `component` instead.',
   );
@@ -101,10 +110,18 @@ const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
     style: { ...contextStyle, ...style },
   };
 
+  const componentRef = ref as React.Ref<HTMLElement & FragmentInstance>;
+
   return (
     <AppContext.Provider value={memoizedContextValue}>
       <AppConfigContext.Provider value={mergedAppConfig}>
-        <Component {...(component === false ? undefined : { ...rootProps, ref })}>
+        <Component
+          {...(component === false
+            ? supportFragmentRef
+              ? { ref: componentRef }
+              : undefined
+            : { ...rootProps, ref: componentRef })}
+        >
           {ModalContextHolder}
           {messageContextHolder}
           {notificationContextHolder}

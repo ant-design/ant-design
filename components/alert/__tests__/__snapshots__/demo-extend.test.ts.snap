@@ -53,7 +53,6 @@ Array [
     </div>
     <button
       class="ant-alert-close-icon"
-      tabindex="0"
       type="button"
     >
       <span
@@ -164,7 +163,6 @@ Array [
     </div>
     <button
       class="ant-alert-close-icon"
-      tabindex="0"
       type="button"
     >
       <span
@@ -236,7 +234,6 @@ Array [
     </div>
     <button
       class="ant-alert-close-icon"
-      tabindex="0"
       type="button"
     >
       <span
@@ -346,7 +343,6 @@ Array [
     </div>
     <button
       class="ant-alert-close-icon"
-      tabindex="0"
       type="button"
     >
       <span
@@ -471,7 +467,6 @@ Array [
     <button
       aria-label="close"
       class="ant-alert-close-icon"
-      tabindex="0"
       type="button"
     >
       <span
@@ -514,7 +509,6 @@ Array [
     <button
       aria-label="close"
       class="ant-alert-close-icon"
-      tabindex="0"
       type="button"
     >
       <span
@@ -557,7 +551,6 @@ Array [
     <button
       aria-label="close"
       class="ant-alert-close-icon"
-      tabindex="0"
       type="button"
     >
       <span
@@ -600,7 +593,6 @@ Array [
     <button
       aria-label="close"
       class="ant-alert-close-icon"
-      tabindex="0"
       type="button"
     >
       <span
@@ -1031,7 +1023,6 @@ exports[`renders components/alert/demo/custom-title-alignment.tsx extend context
     <button
       class="ant-alert-close-icon"
       style="margin-block-start: 5px;"
-      tabindex="0"
       type="button"
     >
       <span
@@ -1111,7 +1102,6 @@ exports[`renders components/alert/demo/custom-title-alignment.tsx extend context
     <button
       class="ant-alert-close-icon"
       style="margin-block-start: 5px;"
-      tabindex="0"
       type="button"
     >
       <span
@@ -1383,7 +1373,6 @@ Array [
     </div>
     <button
       class="ant-alert-close-icon"
-      tabindex="0"
       type="button"
     >
       <span
@@ -1581,7 +1570,6 @@ Array [
     </div>
     <button
       class="ant-alert-close-icon"
-      tabindex="0"
       type="button"
     >
       <span
@@ -1674,7 +1662,6 @@ Array [
     </div>
     <button
       class="ant-alert-close-icon"
-      tabindex="0"
       type="button"
     >
       <span

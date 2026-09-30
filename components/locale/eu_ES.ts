@@ -93,6 +93,10 @@ const localeValues: Locale = {
     expand: 'Zabaldu',
     collapse: 'Tolestu',
   },
+  Carousel: {
+    prevSlide: 'Aurreko diapositiba',
+    nextSlide: 'Hurrengo diapositiba',
+  },
   Form: {
     optional: '(aukerakoa)',
     defaultValidateMessages: {

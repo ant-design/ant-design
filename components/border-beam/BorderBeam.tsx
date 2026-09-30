@@ -75,8 +75,8 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const mergedCount =
     items?.length ??
     (isNumber(count) && Number.isFinite(count) && count >= 1 ? Math.floor(count) : 1);
-  const mergedDuration =
-    isNumber(duration) && duration > 0 ? duration : DEFAULT_BORDER_BEAM_DURATION;
+  const hasValidDuration = isNumber(duration) && duration > 0;
+  const mergedDuration = hasValidDuration ? duration : DEFAULT_BORDER_BEAM_DURATION;
 
   // ============================ Warning ============================
   if (process.env.NODE_ENV !== 'production') {
@@ -92,6 +92,8 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const insetOffset = useMemo<string>(() => {
     return isNonNullable(outset) ? getInset(outset) : borderWidth.map<string>(getInset).join(' ');
   }, [borderWidth, outset]);
+
+  const beamClassName = clsx(contextClassName, className, hashId, cssVarCls);
 
   // ============================ Render ============================
   return (
@@ -111,15 +113,12 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
             key={beamKey}
             prefixCls={prefixCls}
             hostDom={childDomNode}
-            className={clsx(contextClassName, className, hashId, cssVarCls)}
+            className={beamClassName}
             style={{
               ...contextStyle,
               ...style,
               ...(itemBeamGradient && { [varName('beam-gradient')]: itemBeamGradient }),
-              ...(isNumber(duration) &&
-                duration > 0 && {
-                  [varName('duration')]: `${duration}s`,
-                }),
+              ...(hasValidDuration && { [varName('duration')]: `${duration}s` }),
               ...(isNonNullable(itemLineWidth) && {
                 [varName('line-width')]: unit(itemLineWidth),
               }),

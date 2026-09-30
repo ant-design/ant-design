@@ -13,13 +13,13 @@ Ant Design is MIT licensed and free to use. The effort required to maintain and 
 
 We'd like to thank the following companies and individuals for their generous sponsorship and support!
 
-## Sponsors [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design/contribute/sponsors-218)
+## Sponsors [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design/contribute/sponsors-218) {#sponsors}
 
 <a href="https://youmind.com?utm_source=ant-design"><img src="https://mdn.alipayobjects.com/huamei_vmgq1x/afts/img/A*SXcuQYBZ6oQAAAAAQJAAAAgAeh6VAQ/original" width="128" height="128" alt="YouMind"></a><a href="https://tractian.com?utm_source=ant-design"><img src="https://mdn.alipayobjects.com/huamei_vmgq1x/afts/img/A*Z4-4Q67SG5UAAAAAQLAAAAgAeh6VAQ/original" width="128" height="128" alt="TRACTIAN"></a><a href="https://lobehub.com?utm_source=ant-design"><img src="https://unpkg.com/@lobehub/icons-static-svg@1.79.0/icons/lobehub-color.svg" width="128" height="128" alt="LobeHub"></a><a href="https://coderabbit.ai?utm_source=ant-design"><img src="https://mdn.alipayobjects.com/huamei_vmgq1x/afts/img/A*yHnhRL4x1DEAAAAAQBAAAAgAeh6VAQ/original" width="128" height="128" alt="CodeRabbit"></a>
 
 [View all Sponsors ❤️](https://opencollective.com/ant-design/contribute/sponsors-218)
 
-## Backers [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design/contribute/backers-217)
+## Backers [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design/contribute/backers-217) {#backers}
 
 [![](https://opencollective.com/ant-design/tiers/backers.svg?avatarHeight=72)](https://opencollective.com/ant-design/contribute/backers-217)
 

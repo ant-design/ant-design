@@ -47,6 +47,7 @@ export interface ListItemProps {
   ) => React.ReactNode;
   itemRender?: ItemRender;
   onPreview: (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => void;
+  hasPreview?: boolean;
   onClose: (file: UploadFile) => void;
   onDownload: (file: UploadFile) => void;
   progress?: UploadListProgressProps;
@@ -77,6 +78,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       downloadIcon: customDownloadIcon,
       extra: customExtra,
       onPreview,
+      hasPreview,
       onDownload,
       onClose,
     },
@@ -189,6 +191,14 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         onPreview(file, e);
       }
     };
+    const spanProps: React.HTMLAttributes<HTMLSpanElement> = hasPreview
+      ? {
+          role: 'button',
+          tabIndex: 0,
+          onClick: (e) => onPreview(file, e),
+          onKeyDown: onPreviewKeyDown,
+        }
+      : {};
     const fileName = file.url ? (
       <a
         key="view"
@@ -204,15 +214,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         {extra}
       </a>
     ) : (
-      <span
-        key="view"
-        role="button"
-        tabIndex={0}
-        className={listItemNameClass}
-        onClick={(e) => onPreview(file, e)}
-        onKeyDown={onPreviewKeyDown}
-        title={file.name}
-      >
+      <span key="view" className={listItemNameClass} {...spanProps} title={file.name}>
         {file.name}
         {extra}
       </span>

@@ -183,6 +183,36 @@ describe('Button', () => {
     expect(wrapper.container.firstChild).not.toHaveClass('ant-btn-loading');
   });
 
+  it.each(['prop', 'context'])('should delay the custom loading icon from %s', (source) => {
+    jest.useFakeTimers();
+    const loadingIcon = <span>Loading icon</span>;
+    const renderButton = (loading: ButtonProps['loading']) => (
+      <ConfigProvider button={{ loadingIcon: source === 'context' ? loadingIcon : undefined }}>
+        <Button loading={loading}>Button</Button>
+      </ConfigProvider>
+    );
+    const { container, queryByText, rerender } = render(renderButton(false));
+
+    rerender(renderButton({ delay: 1000, icon: source === 'prop' ? loadingIcon : undefined }));
+    expect(queryByText('Loading icon')).toBeNull();
+
+    act(() => {
+      jest.advanceTimersByTime(999);
+    });
+    expect(container.querySelector('button')).not.toHaveClass('ant-btn-loading');
+    expect(queryByText('Loading icon')).toBeNull();
+
+    act(() => {
+      jest.advanceTimersByTime(1);
+    });
+    expect(container.querySelector('button')).toHaveClass('ant-btn-loading');
+    expect(queryByText('Loading icon')).toBeVisible();
+
+    rerender(renderButton(false));
+    expect(queryByText('Loading icon')).toBeNull();
+    jest.useRealTimers();
+  });
+
   it('should support custom icon className', () => {
     const { container } = render(
       <Button type="primary" icon={<SearchOutlined />} classNames={{ icon: 'custom-icon' }} />,

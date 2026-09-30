@@ -30,6 +30,7 @@ export interface ListyProps<T = AnyObject, K extends React.Key = React.Key>
   rootClassName?: string;
   className?: string;
   style?: React.CSSProperties;
+  rowHoverable?: boolean;
   classNames?: ListySemanticAllType['classNamesAndFn'];
   styles?: ListySemanticAllType['stylesAndFn'];
 }
@@ -45,6 +46,7 @@ const InternalListy = <T, K extends React.Key = React.Key>(
     style,
     classNames,
     styles,
+    rowHoverable = true,
     virtual,
     ...restProps
   } = props;
@@ -85,6 +87,9 @@ const InternalListy = <T, K extends React.Key = React.Key>(
     mergedClassNames.root,
     rootClassName,
     className,
+    {
+      [`${prefixCls}-hoverable`]: rowHoverable,
+    },
     hashId,
     cssVarCls,
     rootCls,

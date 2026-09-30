@@ -246,7 +246,7 @@ const Drawer: React.FC<DrawerProps> & {
       ['contentWrapperStyle', 'styles.wrapper'],
       ['maskStyle', 'styles.mask'],
       ['drawerStyle', 'styles.section'],
-      ['destroyInactivePanel', 'destroyOnHidden'],
+      ['destroyOnClose', 'destroyOnHidden'],
       ['width', 'size'],
       ['height', 'size'],
     ].forEach(([deprecatedName, newName]) => {
