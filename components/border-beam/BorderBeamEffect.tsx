@@ -21,7 +21,7 @@ const BorderBeamEffectElement: React.FC<BorderBeamEffectElementProps> = (props) 
 const BorderBeamEffect: React.FC<BorderBeamEffectProps> = (props) => {
   const { prefixCls, hostDom, ...rest } = props;
 
-  if (!hostDom || !isHTMLElement(hostDom)) {
+  if (!isHTMLElement(hostDom)) {
     return null;
   }
 
