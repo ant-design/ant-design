@@ -157,6 +157,7 @@ const localeValues: Locale = {
     transparent: 'Мөлдір',
     singleColor: 'Бір түсті',
     gradientColor: 'Градиент түсі',
+    clear: 'Түсті өшіру',
   },
 };
 

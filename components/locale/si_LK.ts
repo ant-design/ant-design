@@ -157,6 +157,7 @@ const localeValues: Locale = {
     transparent: 'විනිවිද පෙනෙන',
     singleColor: 'තනි වර්ණය',
     gradientColor: 'Gradient වර්ණය',
+    clear: 'වර්ණය මකන්න',
   },
 };
 

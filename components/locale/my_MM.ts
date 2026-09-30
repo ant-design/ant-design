@@ -158,6 +158,7 @@ const localeValues: Locale = {
     transparent: 'ပွင့်လင်းသည်။',
     singleColor: 'တစ်ရောင်တည်း',
     gradientColor: 'Gradient အရောင်',
+    clear: 'အရောင် ဖျက်ရန်',
   },
 };
 
