@@ -23,6 +23,7 @@ Ant Design has 3 types of Tabs for different situations.
 <code src="./demo/centered.tsx">Centered</code>
 <code src="./demo/icon.tsx">Icon</code>
 <code src="./demo/custom-indicator.tsx">Indicator</code>
+<code src="./demo/scroll-position.tsx" version="6.7.0">Scroll Position</code>
 <code src="./demo/slide.tsx">Slide</code>
 <code src="./demo/extra.tsx">Extra content</code>
 <code src="./demo/size.tsx">Size</code>
@@ -61,6 +62,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | removeIcon | The custom icon of remove, only works with `type="editable-card"` | ReactNode | `<CloseOutlined />` | 5.15.0 | 5.15.0 |
 | ~~popupClassName~~ | `className` for more dropdown, please use `classNames.popup` instead | string | - | 4.21.0 | × |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  | × |
+| scrollPosition | Scroll alignment of the active tab when switching. `auto` scrolls only when the active tab overflows and aligns it to the nearest edge | `auto` \| `start` \| `center` \| `end` \| number | `auto` | 6.7.0 | 6.7.0 |
 | size | Preset tab bar size | `large` \| `medium` \| `small` | `medium` |  | × |
 | styles |  Customize inline style for each semantic structure inside the component. Supports object or function.  | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | tabBarExtraContent | Extra content in tab bar | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | object: 4.6.0 | × |

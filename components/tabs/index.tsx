@@ -87,6 +87,8 @@ export interface BaseTabsProps {
   /** @deprecated please use `tabPlacement` instead */
   tabPosition?: TabPosition;
   tabPlacement?: TabPlacement;
+  /** Scroll alignment of the active tab when switching. `auto` keeps the legacy edge-aligned behavior. */
+  scrollPosition?: RcTabsProps['scrollPosition'];
   onEdit?: (e: React.MouseEvent | React.KeyboardEvent | string, action: 'add' | 'remove') => void;
   children?: React.ReactNode;
   /** @deprecated Please use `indicator={{ size: ... }}` instead */
@@ -126,6 +128,7 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
     style,
     indicatorSize,
     indicator,
+    scrollPosition,
     classNames,
     styles,
     destroyInactiveTabPane,
@@ -220,6 +223,9 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
     size: indicator?.size ?? indicatorSize ?? tabs?.indicator?.size ?? tabs?.indicatorSize,
   };
 
+  // component prop takes precedence over global config
+  const mergedScrollPosition: TabsProps['scrollPosition'] = scrollPosition ?? tabs?.scrollPosition;
+
   const {
     visible: moreVisible,
     onVisibleChange: moreOnVisibleChange,
@@ -313,6 +319,7 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
       prefixCls={prefixCls}
       animated={mergedAnimated}
       indicator={mergedIndicator}
+      scrollPosition={mergedScrollPosition}
       destroyOnHidden={destroyOnHidden ?? destroyInactiveTabPane}
       tabPosition={mergedPlacement}
     />
