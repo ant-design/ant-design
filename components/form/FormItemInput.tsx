@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type { JSX } from 'react';
+import ResizeObserver from '@rc-component/resize-observer';
 import { get, isReactRenderable, set, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -144,14 +145,22 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   }
 
   const extraDom: React.ReactNode = hasExtra ? (
-    <div
-      {...extraProps}
-      className={clsx(`${baseClassName}-extra`, contextClassNames?.extra)}
-      style={contextStyles?.extra}
-      ref={extraRef}
+    <ResizeObserver
+      onResize={() => {
+        if (extraRef.current) {
+          setExtraHeight(extraRef.current.clientHeight);
+        }
+      }}
     >
-      {extra}
-    </div>
+      <div
+        {...extraProps}
+        className={clsx(`${baseClassName}-extra`, contextClassNames?.extra)}
+        style={contextStyles?.extra}
+        ref={extraRef}
+      >
+        {extra}
+      </div>
+    </ResizeObserver>
   ) : null;
 
   const additionalDom: React.ReactNode =
