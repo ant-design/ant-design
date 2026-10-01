@@ -88,6 +88,12 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 <InstallDependencies npm='$ npm test' yarn='$ yarn test'></InstallDependencies>
 
+> **提示：** 在日常开发中，无需运行完整的测试套件。每个组件的源码和测试用例都位于 `components/<组件名称>/` 目录下。你可以通过指定组件路径仅运行该组件的测试：
+>
+> ```bash
+> npm test -- components/button
+> ```
+
 ### 编译 {#compile}
 
 编译 TypeScript 代码到 lib 和 es 目录。
