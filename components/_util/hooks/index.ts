@@ -1,5 +1,6 @@
 export * from './useAllowClear';
 export * from './useClosable';
+export * from './useFluidHover';
 export * from './useForceUpdate';
 export * from './useMergedMask';
 export * from './useMultipleSelect';

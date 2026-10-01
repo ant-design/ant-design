@@ -24,6 +24,7 @@ This component is available since `antd@4.20.0`.
 <code src="./demo/block.tsx">Block Segmented</code>
 <code src="./demo/shape.tsx" version="5.24.0">Round shape</code>
 <code src="./demo/disabled.tsx">Disabled</code>
+<code src="./demo/fluid-hover.tsx" version="6.7.0">Fluid hover highlight</code>
 <code src="./demo/controlled.tsx">Controlled mode</code>
 <code src="./demo/custom.tsx">Custom Render</code>
 <code src="./demo/dynamic.tsx">Dynamic</code>
@@ -50,6 +51,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | classNames | Customize class for each semantic structure inside the Segmented component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | defaultValue | Default selected value | string \| number | Value of first item in `options` |  | × |
 | disabled | Disable all segments | boolean | false |  | × |
+| hoverMotion | Hover highlight motion, `fluid` lets the highlight glide between adjacent items | `fluid` | - | 6.7.0 | × |
 | onChange | The callback function that is triggered when the state changes | function(value: string \| number) |  |  | × |
 | options | Set children optional | string\[] \| number\[] \| SegmentedItemType\[] | [] |  | × |
 | orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  | × |
