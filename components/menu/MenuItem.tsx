@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { MenuItemProps as RcMenuItemProps } from '@rc-component/menu';
 import { Item } from '@rc-component/menu';
-import { omit, toArray } from '@rc-component/util';
+import { composeRef, omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isFunction } from '../_util/is';
@@ -55,14 +55,36 @@ const MenuItem: GenericComponent = (props) => {
   // ref: https://github.com/ant-design/ant-design/issues/56528
   const [tooltipOpen, setTooltipOpen] = React.useState(false);
 
+  const linkRef = React.useRef<HTMLAnchorElement>(null);
+  const contentRef = React.useRef<HTMLSpanElement>(null);
+
   React.useEffect(() => {
     setTooltipOpen(false);
   }, [mergedCollapsed]);
 
+  const onInternalKeyDown: React.KeyboardEventHandler<HTMLLIElement> = (e) => {
+    props.onKeyDown?.(e);
+    if (e.key === 'Enter') {
+      const link =
+        linkRef.current || contentRef.current?.querySelector<HTMLAnchorElement>('a[href]');
+      if (link && (link.hasAttribute('href') || link.getAttribute('href'))) {
+        link.click();
+        e.preventDefault();
+      }
+    }
+  };
+
   const renderItemChildren = (inlineCollapsed: boolean) => {
     const label = (children as React.ReactNode[])?.[0];
+    let childNode = children;
+    if (React.isValidElement(children) && children.type === 'a') {
+      childNode = cloneElement(children, (oriProps: any) => ({
+        ref: composeRef(linkRef, oriProps.ref),
+      }));
+    }
     const wrapNode = (
       <span
+        ref={contentRef}
         className={clsx(
           `${prefixCls}-title-content`,
           firstLevel ? classNames?.itemContent : classNames?.subMenu?.itemContent,
@@ -72,7 +94,7 @@ const MenuItem: GenericComponent = (props) => {
         )}
         style={firstLevel ? styles?.itemContent : styles?.subMenu?.itemContent}
       >
-        {children}
+        {childNode}
       </span>
     );
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
@@ -122,6 +144,7 @@ const MenuItem: GenericComponent = (props) => {
   let returnNode = (
     <Item
       {...omit(props, ['title', 'icon', 'danger'])}
+      onKeyDown={onInternalKeyDown}
       className={clsx(
         firstLevel ? classNames?.item : classNames?.subMenu?.item,
         {
