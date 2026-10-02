@@ -8,6 +8,7 @@ import type { ConfigProviderProps } from '../../config-provider';
 import Input from '../../input';
 import zhCN from '../../locale/zh_CN';
 import type { ModalFunc } from '../confirm';
+import destroyFns from '../destroyFns';
 
 jest.mock('@rc-component/util/lib/Portal');
 
@@ -147,6 +148,55 @@ describe('Modal.hook', () => {
       Modal.destroyAll();
     });
     expect(document.body.querySelectorAll('.ant-modal')).toHaveLength(0);
+  });
+
+  it('destroyFns should reduce when hook modal is closed', async () => {
+    jest.useFakeTimers();
+
+    let instance: ReturnType<ModalFunc>;
+
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+
+      return (
+        <ConfigWarp>
+          {contextHolder}
+          <div
+            className="open-hook-modal-btn"
+            onClick={() => {
+              instance = modal.confirm({ title: 'title' });
+            }}
+          >
+            confirm
+          </div>
+        </ConfigWarp>
+      );
+    };
+
+    const { container } = render(<Demo />);
+    const { length } = destroyFns;
+
+    // Close by OK
+    fireEvent.click(container.querySelector('.open-hook-modal-btn')!);
+    await waitFakeTimer();
+    expect(destroyFns).toHaveLength(length + 1);
+
+    fireEvent.click(document.body.querySelector('.ant-modal-confirm-btns .ant-btn-primary')!);
+    await waitFakeTimer();
+    expect(destroyFns).toHaveLength(length);
+
+    // Close by instance.destroy
+    fireEvent.click(container.querySelector('.open-hook-modal-btn')!);
+    await waitFakeTimer();
+    expect(destroyFns).toHaveLength(length + 1);
+
+    act(() => {
+      instance.destroy();
+    });
+    await waitFakeTimer();
+    expect(destroyFns).toHaveLength(length);
+
+    jest.useRealTimers();
   });
 
   it('context support config direction', () => {
