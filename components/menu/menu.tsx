@@ -23,6 +23,7 @@ import MenuContext from './MenuContext';
 import Divider from './MenuDivider';
 import MenuItem from './MenuItem';
 import OverrideContext from './OverrideContext';
+import getMenuPopupPlacements from './placements';
 import useStyle from './style';
 import SubMenu from './SubMenu';
 
@@ -316,6 +317,9 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
           selectable={mergedSelectable}
           onClick={onItemClick}
           {...passedProps}
+          builtinPlacements={
+            passedProps.builtinPlacements ?? getMenuPopupPlacements(direction === 'rtl')
+          }
           inlineCollapsed={mergedInlineCollapsed}
           style={mergedStyles.root}
           className={menuClassName}
