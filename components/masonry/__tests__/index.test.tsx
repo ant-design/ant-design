@@ -1,11 +1,13 @@
 import React from 'react';
+import { Provider as MotionProvider } from '@rc-component/motion';
 import { spyElementPrototypes } from '@rc-component/util';
+import { renderToString } from 'react-dom/server';
 
 import Masonry from '..';
 import type { MasonryProps } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
+import { fireEvent, render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import { defaultPrefixCls } from '../../config-provider';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 
@@ -147,6 +149,59 @@ describe('Masonry', () => {
         }),
       ),
     );
+  });
+
+  it('should hydrate server-rendered items and arrange their layout', async () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const onLayoutChange = jest.fn();
+    const demo = <DemoMasonry columns={3} onLayoutChange={onLayoutChange} />;
+    const container = document.createElement('div');
+    // Match Node.js rendering, where CSS transitions are unavailable.
+    container.innerHTML = renderToString(<MotionProvider motion={false}>{demo}</MotionProvider>);
+    document.body.appendChild(container);
+
+    const serverItems = Array.from(container.querySelectorAll('.ant-masonry-item'));
+    expect(serverItems).toHaveLength(heights.length);
+
+    render(demo, { container, hydrate: true });
+    await resizeMasonry();
+
+    const hydratedItems = Array.from(container.querySelectorAll('.ant-masonry-item'));
+    expect(hydratedItems).toHaveLength(serverItems.length);
+    hydratedItems.forEach((item, index) => {
+      expect(item).toBe(serverItems[index]);
+    });
+    expect(container.querySelector('.ant-masonry')).toHaveStyle({ height: '480px' });
+    expect(onLayoutChange).toHaveBeenCalled();
+    expect(errorSpy).not.toHaveBeenCalled();
+  });
+
+  it('should animate items added and removed after mounting', async () => {
+    const items = [{ key: '1', data: 'Item 1' }];
+    const renderMasonry = (nextItems: typeof items) => (
+      <Masonry items={nextItems} itemRender={({ data }) => <div>{data}</div>} />
+    );
+    const { container, rerender } = render(renderMasonry(items));
+    await resizeMasonry();
+
+    expect(container.querySelector('.ant-masonry-item')).not.toHaveClass(
+      'ant-masonry-item-fade-appear',
+    );
+
+    rerender(renderMasonry([...items, { key: '2', data: 'Item 2' }]));
+    await resizeMasonry();
+
+    const addedItem = container.querySelectorAll('.ant-masonry-item')[1];
+    expect(addedItem).toHaveTextContent('Item 2');
+    expect(addedItem).toHaveClass('ant-masonry-item-fade-appear');
+    fireEvent.transitionEnd(addedItem);
+
+    rerender(renderMasonry(items));
+    await resizeMasonry();
+
+    expect(addedItem).toHaveClass('ant-masonry-item-fade-leave');
+    fireEvent.transitionEnd(addedItem);
+    expect(container.querySelectorAll('.ant-masonry-item')).toHaveLength(1);
   });
 
   it('should handle responsive columns', async () => {
