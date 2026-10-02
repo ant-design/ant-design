@@ -4,7 +4,7 @@ import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
 import { AggregationColor } from '../../color-picker/color';
-import { isBright } from '../../color-picker/components/ColorPresets';
+import { isBright } from '../../color-picker/util';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
