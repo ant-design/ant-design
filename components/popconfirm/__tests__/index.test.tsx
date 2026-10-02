@@ -322,7 +322,9 @@ describe('Popconfirm', () => {
     fireEvent.click(triggerNode);
     await waitFakeTimer();
     fireEvent.click(popconfirm.container.querySelector('.bamboo')!);
-    expect(onPopupClick).toHaveBeenCalled();
+    expect(onPopupClick).toHaveBeenCalledTimes(1);
+    fireEvent.click(popconfirm.container.querySelector('.ant-popover-container')!);
+    expect(onPopupClick).toHaveBeenCalledTimes(2);
   });
 
   it('okText & cancelText could be empty', () => {
