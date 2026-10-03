@@ -113,7 +113,7 @@ export interface BadgeToken extends FullToken<'Badge'> {
 }
 
 const antStatusProcessing = new Keyframes('antStatusProcessing', {
-  '0%': { transform: 'scale(0.8)', opacity: 0.5 },
+  '0%': { transform: 'scale(0.8)', opacity: 'var(--badge-processing-opacity, 0.5)' },
   '100%': { transform: 'scale(2.4)', opacity: 0 },
 });
 
@@ -272,6 +272,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken, CSSObject> = (token) => {
           backgroundColor: token.colorInfo,
           borderColor: 'currentcolor',
 
+          // 亮色模式默认透明度
+          '--badge-processing-opacity': '0.5',
+
           '&::after': {
             position: 'absolute',
             top: 0,
@@ -287,6 +290,10 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken, CSSObject> = (token) => {
             animationIterationCount: 'infinite',
             animationTimingFunction: 'ease-in-out',
             content: '""',
+          },
+          // 暗色模式覆盖透明度变量
+          '.ant-dark &': {
+            '--badge-processing-opacity': '0.85',
           },
         },
         [`${componentCls}-status-default`]: {
