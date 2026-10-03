@@ -136,6 +136,34 @@ describe('Avatar Render', () => {
     expect(container.querySelector('img')).toHaveAttribute('srcset', `${LOAD_SUCCESS_SRC} 1x`);
   });
 
+  it('should recalculate scale when numeric size decreases', () => {
+    const { container, rerender } = render(<Avatar size={64}>Ant Design</Avatar>);
+    const avatar = container.querySelector<HTMLElement>('.ant-avatar')!;
+
+    Object.defineProperty(avatar, 'offsetWidth', {
+      configurable: true,
+      get: () => 24,
+    });
+
+    rerender(<Avatar size={24}>Ant Design</Avatar>);
+
+    expect(container.querySelector('.ant-avatar-string')).toHaveStyle('transform: scale(0.16)');
+  });
+
+  it('should reset scale when size leaves no content space', () => {
+    const { container, rerender } = render(<Avatar size={64}>Ant Design</Avatar>);
+    const avatar = container.querySelector<HTMLElement>('.ant-avatar')!;
+
+    Object.defineProperty(avatar, 'offsetWidth', {
+      configurable: true,
+      get: () => 8,
+    });
+
+    rerender(<Avatar size={8}>Ant Design</Avatar>);
+
+    expect(container.querySelector('.ant-avatar-string')).toHaveStyle('transform: scale(1)');
+  });
+
   it('should calculate scale of avatar children correctly', () => {
     const { container, rerender } = render(<Avatar>Avatar</Avatar>);
     expect(container.querySelector('.ant-avatar-string')).toMatchSnapshot();
