@@ -437,33 +437,28 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             [`${componentCls}-presets`]: {
               display: 'flex',
               flexDirection: 'column',
+              gap: marginXS,
               minWidth: presetsWidth,
               maxWidth: presetsMaxWidth,
+              padding: paddingXS,
+              borderInlineEnd: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
 
-              ul: {
-                height: 0,
-                flex: 'auto',
-                listStyle: 'none',
-                overflow: 'auto',
-                margin: 0,
-                padding: paddingXS,
-                borderInlineEnd: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+              button: {
+                ...textEllipsis,
+                borderRadius: borderRadiusSM,
+                paddingInline: paddingXS,
+                paddingBlock: token.calc(controlHeightSM).sub(fontHeight).div(2).equal(),
+                textAlign: 'start',
+                cursor: 'pointer',
+                transition: `all ${motionDurationSlow}`,
 
-                li: {
-                  ...textEllipsis,
-                  borderRadius: borderRadiusSM,
-                  paddingInline: paddingXS,
-                  paddingBlock: token.calc(controlHeightSM).sub(fontHeight).div(2).equal(),
-                  cursor: 'pointer',
-                  transition: `all ${motionDurationSlow}`,
+                '&:hover': {
+                  background: cellHoverBg,
+                },
 
-                  '+ li': {
-                    marginTop: marginXS,
-                  },
-
-                  '&:hover': {
-                    background: cellHoverBg,
-                  },
+                '&:focus-visible': {
+                  background: cellHoverBg,
+                  ...genFocusOutline(token),
                 },
               },
             },
