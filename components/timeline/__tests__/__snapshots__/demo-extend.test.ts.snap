@@ -2103,6 +2103,7 @@ Array [
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
+          aria-label="Start"
           checked=""
           class="ant-radio-input"
           name="test-id"
@@ -2111,6 +2112,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Start
@@ -2123,6 +2125,7 @@ Array [
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="End"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -2130,6 +2133,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         End
@@ -2142,6 +2146,7 @@ Array [
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="Alternate"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -2149,6 +2154,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Alternate

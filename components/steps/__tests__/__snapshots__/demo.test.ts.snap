@@ -5706,6 +5706,7 @@ Array [
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="Small"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -5713,6 +5714,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Small
@@ -5725,6 +5727,7 @@ Array [
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
+          aria-label="Medium"
           checked=""
           class="ant-radio-input"
           name="test-id"
@@ -5733,6 +5736,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Medium
