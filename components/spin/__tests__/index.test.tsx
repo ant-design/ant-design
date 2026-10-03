@@ -79,6 +79,11 @@ describe('Spin', () => {
     expect(container.querySelector('.ant-spin-container')?.textContent).toBe('0');
   });
 
+  it('should render numeric zero descriptions', () => {
+    const { container } = render(<Spin description={0} />);
+    expect(container.querySelector('.ant-spin-description')).toHaveTextContent('0');
+  });
+
   it('right style when fullscreen', () => {
     const { container } = render(<Spin fullscreen spinning />);
     const element = container.querySelector<HTMLDivElement>('.ant-spin-fullscreen');

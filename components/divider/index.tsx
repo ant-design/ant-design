@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
@@ -102,7 +103,7 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
 
   const sizeFullName = useSize(customSize);
 
-  const hasChildren = !!children;
+  const hasChildren = isReactRenderable(children);
 
   const validTitlePlacement = titlePlacementList.includes(orientation || '');
 
@@ -159,8 +160,8 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
       [`${prefixCls}-no-default-orientation-margin-end`]: hasMarginEnd,
       [`${prefixCls}-md`]: sizeFullName === 'medium' || sizeFullName === 'middle',
       [`${prefixCls}-sm`]: sizeFullName === 'small',
-      [railCls]: !children,
-      [mergedClassNames.rail as string]: mergedClassNames.rail && !children,
+      [railCls]: !hasChildren,
+      [mergedClassNames.rail as string]: mergedClassNames.rail && !hasChildren,
     },
     className,
     rootClassName,
@@ -192,7 +193,7 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Divider');
 
-    warning(!children || !mergedVertical, 'usage', '`children` not working in `vertical` mode.');
+    warning(!hasChildren || !mergedVertical, 'usage', '`children` not working in `vertical` mode.');
     warning(
       !validTitlePlacement,
       'usage',
@@ -212,13 +213,13 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
       className={classString}
       style={{
         ...mergedStyles.root,
-        ...(children ? {} : mergedStyles.rail),
+        ...(hasChildren ? {} : mergedStyles.rail),
         ...style,
       }}
       {...restProps}
       role="separator"
     >
-      {children && !mergedVertical && (
+      {hasChildren && !mergedVertical && (
         <>
           <div
             className={clsx(railCls, `${railCls}-start`, mergedClassNames.rail)}
