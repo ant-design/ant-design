@@ -13,6 +13,7 @@ const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => 
 interface AffixProps {
   offsetTop?: number;
   offsetBottom?: number;
+  stackable?: boolean;
   style?: React.CSSProperties;
   onChange?: () => void;
   onTestUpdatePosition?: () => void;
@@ -107,6 +108,106 @@ describe('Affix Render', () => {
 
     await movePlaceholder(300);
     expect(container.querySelector('.ant-affix')).toBeTruthy();
+  });
+
+  it('stacks top Affix components without overlapping', async () => {
+    classRect['stack-top-first'] = {
+      top: -100,
+      width: 100,
+      height: 20,
+    } as DOMRect;
+    classRect['stack-top-second'] = {
+      top: -80,
+      width: 100,
+      height: 30,
+    } as DOMRect;
+
+    const { container, rerender } = render(
+      <>
+        <Affix className="stack-top-first" offsetTop={10} stackable>
+          <div>first</div>
+        </Affix>
+        <Affix className="stack-top-second" offsetTop={10} stackable>
+          <div>second</div>
+        </Affix>
+      </>,
+    );
+
+    await waitFakeTimer();
+
+    expect(container.querySelector('.stack-top-first .ant-affix')).toHaveStyle({ top: '10px' });
+    expect(container.querySelector('.stack-top-second .ant-affix')).toHaveStyle({ top: '30px' });
+
+    classRect['stack-top-first'] = {
+      ...classRect['stack-top-first'],
+      height: 50,
+    } as DOMRect;
+    triggerResize(container.querySelector('.stack-top-first')!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('.stack-top-second .ant-affix')).toHaveStyle({ top: '60px' });
+
+    rerender(
+      <>
+        <Affix className="stack-top-first" offsetTop={10}>
+          <div>first</div>
+        </Affix>
+        <Affix className="stack-top-second" offsetTop={10} stackable>
+          <div>second</div>
+        </Affix>
+      </>,
+    );
+    await waitFakeTimer();
+
+    expect(container.querySelector('.stack-top-second .ant-affix')).toHaveStyle({ top: '10px' });
+
+    rerender(
+      <>
+        <Affix className="stack-top-first" offsetTop={10} stackable>
+          <div>first</div>
+        </Affix>
+        <Affix className="stack-top-second" offsetTop={10} stackable>
+          <div>second</div>
+        </Affix>
+      </>,
+    );
+    await waitFakeTimer();
+
+    expect(container.querySelector('.stack-top-first .ant-affix')).toHaveStyle({ top: '10px' });
+    expect(container.querySelector('.stack-top-second .ant-affix')).toHaveStyle({ top: '60px' });
+  });
+
+  it('stacks bottom Affix components in reverse DOM order', async () => {
+    classRect['stack-bottom-first'] = {
+      bottom: 820,
+      width: 100,
+      height: 20,
+    } as DOMRect;
+    classRect['stack-bottom-second'] = {
+      bottom: 860,
+      width: 100,
+      height: 30,
+    } as DOMRect;
+
+    const { container } = render(
+      <>
+        <Affix className="stack-bottom-first" offsetBottom={10} stackable>
+          <div>first</div>
+        </Affix>
+        <Affix className="stack-bottom-second" offsetBottom={10} stackable>
+          <div>second</div>
+        </Affix>
+      </>,
+    );
+
+    await waitFakeTimer();
+
+    expect(container.querySelector('.stack-bottom-first .ant-affix')).toHaveStyle({
+      bottom: '40px',
+    });
+    expect(container.querySelector('.stack-bottom-second .ant-affix')).toHaveStyle({
+      bottom: '10px',
+    });
   });
 
   it('updatePosition when offsetTop changed', async () => {
