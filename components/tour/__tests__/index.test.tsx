@@ -5,6 +5,7 @@ import Tour from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { TourProps } from '../interface';
 
 const mockBtnRect = (
@@ -854,5 +855,49 @@ describe('Tour', () => {
       'aria-label',
       'Custom Close Button',
     );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/47439
+  it('should use getPopupContainer from ConfigProvider', () => {
+    const popupContainer = document.createElement('div');
+    document.body.appendChild(popupContainer);
+    const getPopupContainer = jest.fn(() => popupContainer);
+
+    const { unmount } = render(
+      <ConfigProvider getPopupContainer={getPopupContainer}>
+        <Tour open steps={[{ title: 'test', description: 'test' }]} />
+      </ConfigProvider>,
+    );
+
+    expect(getPopupContainer).toHaveBeenCalledWith(document.body);
+    expect(popupContainer.querySelector('.ant-tour-mask')).toBeTruthy();
+    expect(popupContainer.querySelector('.ant-tour-target-placeholder')).toBeTruthy();
+
+    unmount();
+    document.body.removeChild(popupContainer);
+  });
+
+  it('getPopupContainer prop should take priority over ConfigProvider', () => {
+    const contextContainer = document.createElement('div');
+    const propContainer = document.createElement('div');
+    document.body.appendChild(contextContainer);
+    document.body.appendChild(propContainer);
+
+    const { unmount } = render(
+      <ConfigProvider getPopupContainer={() => contextContainer}>
+        <Tour
+          open
+          getPopupContainer={() => propContainer}
+          steps={[{ title: 'test', description: 'test' }]}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(propContainer.querySelector('.ant-tour-mask')).toBeTruthy();
+    expect(contextContainer.querySelector('.ant-tour-mask')).toBeFalsy();
+
+    unmount();
+    document.body.removeChild(contextContainer);
+    document.body.removeChild(propContainer);
   });
 });
