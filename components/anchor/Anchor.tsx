@@ -101,17 +101,6 @@ export interface AnchorProps {
   replace?: boolean;
 }
 
-export interface AnchorState {
-  activeLink: null | string;
-}
-
-export interface AnchorDefaultProps extends AnchorProps {
-  prefixCls: string;
-  affix: boolean;
-  showInkInFixed: boolean;
-  getContainer: () => AnchorContainer;
-}
-
 export type AnchorDirection = 'vertical' | 'horizontal';
 
 export interface AntAnchor {
