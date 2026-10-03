@@ -19,6 +19,7 @@ exports[`List > renders empty list 1`] = `
           class="css-var-root ant-empty ant-empty-normal"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg

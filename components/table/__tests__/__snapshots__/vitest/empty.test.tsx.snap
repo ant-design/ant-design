@@ -92,6 +92,7 @@ exports[`Table > renders empty table 1`] = `
                       class="css-var-root ant-empty ant-empty-normal"
                     >
                       <div
+                        aria-hidden="true"
                         class="ant-empty-image"
                       >
                         <svg
@@ -590,6 +591,7 @@ exports[`Table > renders empty table with fixed columns > should work 1`] = `
                         class="css-var-root ant-empty ant-empty-normal"
                       >
                         <div
+                          aria-hidden="true"
                           class="ant-empty-image"
                         >
                           <svg
@@ -763,6 +765,7 @@ exports[`Table > renders empty table without emptyText when loading 1`] = `
                       class="css-var-root ant-empty ant-empty-normal"
                     >
                       <div
+                        aria-hidden="true"
                         class="ant-empty-image"
                       >
                         <svg
