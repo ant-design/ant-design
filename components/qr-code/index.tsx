@@ -95,12 +95,22 @@ const QRCode = React.forwardRef<QRCodeRef, QRCodeProps>((props, ref) => {
     crossOrigin: 'anonymous',
   };
 
-  const a11yProps = pickAttrs(rest, true);
+  const a11yProps: React.AriaAttributes = pickAttrs(rest, true);
 
   const restProps = omit<React.HTMLAttributes<HTMLDivElement>, keyof React.AriaAttributes>(
     rest,
     Object.keys(a11yProps) as (keyof React.AriaAttributes)[],
   );
+
+  // `value` also accepts several segments, which are encoded as one concatenated payload.
+  const encodedText = Array.isArray(value) ? value.join('') : value;
+
+  // The code itself is rendered with `role="img"`, which requires an accessible name.
+  // Fall back to the encoded text when the caller supplies neither `aria-label` nor
+  // `aria-labelledby`, so a QRCode is never announced as an unnamed image.
+  // `pickAttrs` keeps an ARIA key even when its value is `undefined`, which is a common
+  // shape for an optional prop, so check the resolved value instead of the key.
+  const hasA11yLabel = !!(a11yProps['aria-label'] || a11yProps['aria-labelledby']);
 
   const qrCodeProps = {
     value,
@@ -113,6 +123,8 @@ const QRCode = React.forwardRef<QRCodeRef, QRCodeProps>((props, ref) => {
     marginSize,
     boostLevel,
     ...a11yProps,
+    // Applied last so it also wins over an `aria-label` that was explicitly `undefined`.
+    ...(hasA11yLabel ? undefined : { 'aria-label': encodedText }),
   };
 
   const [locale] = useLocale('QRCode');
@@ -120,7 +132,7 @@ const QRCode = React.forwardRef<QRCodeRef, QRCodeProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('QRCode');
 
-    warning(!!value, 'usage', 'need to receive `value` props');
+    warning(!!encodedText, 'usage', 'need to receive `value` props');
 
     warning(
       !(icon && errorLevel === 'L'),
@@ -135,7 +147,10 @@ const QRCode = React.forwardRef<QRCodeRef, QRCodeProps>((props, ref) => {
     nativeElement: nativeElementRef.current!,
   }));
 
-  if (!value) {
+  // An empty payload cannot carry an accessible name, and `value=""` already renders
+  // nothing, so treat `[]` and `['']` the same way instead of emitting a nameless
+  // `role="img"` element.
+  if (!encodedText) {
     return null;
   }
 
