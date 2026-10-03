@@ -354,4 +354,21 @@ describe('TimeLine', () => {
     expect(contentElements[0]).toHaveClass('custom-timeline-item-content');
     expect(railElements[0]).toHaveClass('custom-timeline-item-rail');
   });
+
+  it('should render numeric 0 for pending, title, and icon', () => {
+    const { container } = render(
+      <TimeLine
+        pending={0}
+        items={[
+          { title: 0, content: 'item 1', icon: 0, loading: true },
+          { title: 'title 2', content: 'item 2' },
+        ]}
+      />,
+    );
+    expect(container.querySelector('.ant-timeline')).toHaveClass('ant-timeline-layout-alternate');
+    expect(container.querySelectorAll('.ant-timeline-item')).toHaveLength(3);
+    expect(container.querySelectorAll('.ant-timeline-item-title')[0]?.textContent).toBe('0');
+    expect(container.querySelectorAll('.ant-timeline-item-icon')[0]?.textContent).toBe('0');
+    expect(container.querySelectorAll('.ant-timeline-item-content')[2]?.textContent).toBe('0');
+  });
 });
