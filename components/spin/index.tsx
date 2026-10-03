@@ -62,6 +62,8 @@ export interface SpinProps {
   description?: React.ReactNode;
   /** Specifies a delay in milliseconds for loading state (prevent flush) */
   delay?: number;
+  /** Specifies how long the loading state remains visible after it appears, in milliseconds */
+  minDuration?: number;
   /** The className of wrapper when Spin has children */
   /** @deprecated Please use `classNames.root` instead */
   wrapperClassName?: string;
@@ -95,6 +97,7 @@ const Spin = React.forwardRef<SpinRef, SpinProps>((props, ref) => {
     prefixCls: customizePrefixCls,
     spinning: customSpinning = true,
     delay = 0,
+    minDuration = 0,
     className,
     rootClassName,
     size,
@@ -131,19 +134,49 @@ const Spin = React.forwardRef<SpinRef, SpinProps>((props, ref) => {
 
   const mergedPercent = usePercent(spinning, percent);
 
+  const displayStartRef = React.useRef<number | null>(null);
+
   React.useEffect(() => {
-    if (customSpinning) {
-      const showSpinning = debounce(delay, () => {
-        setSpinning(true);
-      });
-      showSpinning();
-      return () => {
-        showSpinning?.cancel?.();
-      };
+    if (spinning && displayStartRef.current === null) {
+      displayStartRef.current = Date.now();
+    }
+  }, [spinning]);
+
+  React.useEffect(() => {
+    if (!customSpinning) {
+      return;
     }
 
-    setSpinning(false);
+    const showSpinning = debounce(delay, () => {
+      setSpinning(true);
+    });
+    showSpinning();
+
+    return () => {
+      showSpinning?.cancel?.();
+    };
   }, [delay, customSpinning]);
+
+  React.useEffect(() => {
+    if (customSpinning) {
+      return;
+    }
+
+    const remainingDuration =
+      displayStartRef.current === null ? 0 : minDuration - (Date.now() - displayStartRef.current);
+
+    if (remainingDuration > 0) {
+      const hideSpinning = setTimeout(() => {
+        displayStartRef.current = null;
+        setSpinning(false);
+      }, remainingDuration);
+
+      return () => clearTimeout(hideSpinning);
+    }
+
+    displayStartRef.current = null;
+    setSpinning(false);
+  }, [customSpinning, minDuration]);
 
   // ======================= Size ======================
   const mergedSize = useSize((ctx) => size ?? ctx);
