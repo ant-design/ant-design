@@ -15,6 +15,7 @@ import { clsx } from 'clsx';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
+import type { Variant } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -41,6 +42,10 @@ export type PaginationSemanticType = {
 
 export type PaginationSemanticAllType = GenerateSemantic<PaginationSemanticType, PaginationProps>;
 
+export type PaginationVariant = Variant;
+
+export type PaginationShape = 'default' | 'round';
+
 export interface PaginationProps
   extends Omit<
     RcPaginationProps,
@@ -65,6 +70,8 @@ export interface PaginationProps
   selectComponentClass?: any;
   /** `string` type will be removed in next major version. */
   pageSizeOptions?: (string | number)[];
+  variant?: PaginationVariant;
+  shape?: PaginationShape;
   classNames?: PaginationSemanticAllType['classNamesAndFn'];
   styles?: PaginationSemanticAllType['stylesAndFn'];
 }
@@ -94,6 +101,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     pageSizeOptions,
     styles,
     classNames,
+    variant,
+    shape,
     ...restProps
   } = props;
   const { xs } = useBreakpoint(responsive);
@@ -108,6 +117,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     classNames: contextClassNames,
     styles: contextStyles,
     totalBoundaryShowSizeChanger: contextTotalBoundaryShowSizeChanger,
+    variant: contextVariant,
+    shape: contextShape,
   } = useComponentConfig('pagination');
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
@@ -120,10 +131,23 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const isSmall = mergedSize === 'small' || !!(xs && !mergedSize && responsive);
   const [inputVariant, enableInputVariantCls] = useVariant('input');
 
+  // ============================ Variant =============================
+  const hasPaginationVariant = variant !== undefined || contextVariant !== undefined;
+  const mergedVariant = variant ?? contextVariant ?? 'outlined';
+  const mergedShape = shape ?? contextShape ?? 'default';
+
+  // Nested Input (quick jumper / simple): pagination variant > ConfigProvider input variant
+  const nestedInputVariant = hasPaginationVariant ? mergedVariant : inputVariant;
+  const enableNestedInputCls = hasPaginationVariant
+    ? nestedInputVariant !== 'outlined'
+    : enableInputVariantCls && inputVariant !== 'outlined';
+
   // =========== Merged Props for Semantic ==========
   const mergedProps: PaginationProps = {
     ...props,
     size: mergedSize,
+    variant: mergedVariant,
+    shape: mergedShape,
   };
 
   // ========================= Style ==========================
@@ -202,6 +226,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         getPopupContainer={(triggerNode) => triggerNode.parentNode}
         aria-label={ariaLabel}
         options={options}
+        {...(hasPaginationVariant ? { variant: mergedVariant } : {})}
         {...mergedShowSizeChangerSelectProps}
         value={selectedValue}
         onChange={(nextSize, option) => {
@@ -280,11 +305,13 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     {
       [`${prefixCls}-${align}`]: !!align,
       [`${prefixCls}-${mergedSize}`]: mergedSize,
-      [`${prefixCls}-${inputVariant}`]: enableInputVariantCls && inputVariant !== 'outlined',
+      [`${prefixCls}-${nestedInputVariant}`]: enableNestedInputCls,
       /** @deprecated Should be removed in v7 */
       [`${prefixCls}-mini`]: isSmall,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-bordered`]: token.wireframe,
+      [`${prefixCls}-variant-${mergedVariant}`]: mergedVariant,
+      [`${prefixCls}-${mergedShape}`]: mergedShape !== 'default',
     },
     contextClassName,
     className,
