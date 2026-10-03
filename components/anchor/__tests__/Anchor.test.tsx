@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { warning } from '@rc-component/util';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
@@ -950,6 +951,35 @@ describe('Anchor Render', () => {
         </Anchor>,
       );
       expect(container.querySelectorAll('.ant-anchor-link').length).toBe(3);
+    });
+  });
+
+  describe('showInkInFixed', () => {
+    const items = [
+      { key: 'part-1', href: '#part-1', title: 'Part 1' },
+      { key: 'part-2', href: '#part-2', title: 'Part 2' },
+    ];
+
+    it('should hide ink indicator when affix is false and showInkInFixed is false', () => {
+      const cache = createCache();
+      const { container } = render(
+        <StyleProvider cache={cache}>
+          <Anchor affix={false} items={items} />
+        </StyleProvider>,
+      );
+
+      expect(container.querySelector('.ant-anchor.ant-anchor-fixed')).toBeTruthy();
+
+      // The hide rule must outrank the `-ink-visible` display rule.
+      expect(extractStyle(cache, { plain: true })).toContain(
+        '.ant-anchor.ant-anchor-fixed .ant-anchor-ink.ant-anchor-ink-visible{display:none;}',
+      );
+    });
+
+    it('should show ink indicator when affix is false and showInkInFixed is true', () => {
+      const { container } = render(<Anchor affix={false} showInkInFixed items={items} />);
+
+      expect(container.querySelector('.ant-anchor.ant-anchor-fixed')).toBeFalsy();
     });
   });
 
