@@ -304,30 +304,29 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     tempOpen = false;
   }
 
+  // Call the hook at the top level (not inside useLayoutEffect)
+  // Pass refs that may not be ready yet; the hook guards against this
+  const bestPlacement = useSmartPlacement(
+    placement,
+    triggerRef,
+    { current: tooltipRef.current?.popupElement } as React.RefObject<HTMLElement>,
+    {
+      arrowWidth: mergedShowArrow ? token.sizePopupArrow : 0,
+      offset: token.marginXXS,
+    },
+  );
+
   // Measure and update placement after render if smartPlacement is enabled
   React.useLayoutEffect(() => {
-    if (!smartPlacement || !tempOpen || !triggerRef?.current || !tooltipRef?.current?.popupElement) {
+    if (!smartPlacement || !tempOpen || bestPlacement === calculatedPlacement) {
       return;
     }
 
-    // Get the measured placement from the hook
-    const bestPlacement = useSmartPlacement(
-      placement,
-      triggerRef,
-      { current: tooltipRef.current.popupElement } as React.RefObject<HTMLElement>,
-      {
-        arrowWidth: mergedShowArrow ? token.sizePopupArrow : 0,
-        offset: token.marginXXS,
-      },
-    );
-
     // Only update if placement changed
-    if (bestPlacement !== calculatedPlacement) {
-      setCalculatedPlacement(bestPlacement);
-      // Trigger re-alignment
-      tooltipRef.current?.forceAlign();
-    }
-  }, [smartPlacement, tempOpen, placement, calculatedPlacement, mergedShowArrow, token.sizePopupArrow, token.marginXXS]);
+    setCalculatedPlacement(bestPlacement);
+    // Trigger re-alignment
+    tooltipRef.current?.forceAlign();
+  }, [smartPlacement, tempOpen, bestPlacement, calculatedPlacement]);
 
   // Calculate smart placement if enabled and tooltip is visible
   const smartPlacementResult = React.useMemo(() => {
@@ -335,9 +334,9 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       return placement;
     }
 
-    // Use the calculated placement from useLayoutEffect if available, otherwise use original
-    return calculatedPlacement || placement;
-  }, [smartPlacement, tempOpen, placement, calculatedPlacement]);
+    // Use the calculated placement from the hook if available, otherwise use original
+    return bestPlacement !== placement ? bestPlacement : placement;
+  }, [smartPlacement, tempOpen, placement, bestPlacement]);
 
   const memoOverlay = React.useMemo<TooltipProps['overlay']>(() => {
     if (title === 0) {

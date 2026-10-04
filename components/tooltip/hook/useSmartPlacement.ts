@@ -143,8 +143,13 @@ export function useSmartPlacement(
       return placement;
     }
 
-    // If refs are not available, return original placement
+    // If refs are not available or elements not mounted, return original placement
     if (!triggerRef?.current || !tooltipRef?.current) {
+      return placement;
+    }
+
+    // If tooltip hasn't been rendered/positioned yet, return original placement
+    if (tooltipRef.current.offsetHeight === 0 || tooltipRef.current.offsetWidth === 0) {
       return placement;
     }
 
