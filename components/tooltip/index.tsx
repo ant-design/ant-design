@@ -23,6 +23,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import TableMeasureRowContext from '../table/TableMeasureRowContext';
 import { useToken } from '../theme/internal';
 import useMergedArrow from './hook/useMergedArrow';
+import useSmartPlacement from './hook/useSmartPlacement';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 import UniqueProvider from './UniqueProvider';
@@ -239,6 +240,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const warning = devUseWarning('Tooltip');
 
   const tooltipRef = React.useRef<RcTooltipRef>(null);
+  const triggerRef = React.useRef<HTMLElement>(null);
+  const [calculatedPlacement, setCalculatedPlacement] = React.useState<TooltipPlacement | null>(null);
 
   const forceAlign = () => {
     tooltipRef.current?.forceAlign();
@@ -294,17 +297,47 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     );
   }, [mergedArrow, builtinPlacements, token, mergedShowArrow, autoAdjustOverflow]);
 
+  // Determine tempOpen early so it can be used in memoized values
+  let tempOpen = open;
+  // Hide tooltip when there is no title or in table measure row
+  if ((!('open' in props) && noTitle) || inTableMeasureRow) {
+    tempOpen = false;
+  }
+
+  // Measure and update placement after render if smartPlacement is enabled
+  React.useLayoutEffect(() => {
+    if (!smartPlacement || !tempOpen || !triggerRef?.current || !tooltipRef?.current?.popupElement) {
+      return;
+    }
+
+    // Get the measured placement from the hook
+    const bestPlacement = useSmartPlacement(
+      placement,
+      triggerRef,
+      { current: tooltipRef.current.popupElement } as React.RefObject<HTMLElement>,
+      {
+        arrowWidth: mergedShowArrow ? token.sizePopupArrow : 0,
+        offset: token.marginXXS,
+      },
+    );
+
+    // Only update if placement changed
+    if (bestPlacement !== calculatedPlacement) {
+      setCalculatedPlacement(bestPlacement);
+      // Trigger re-alignment
+      tooltipRef.current?.forceAlign();
+    }
+  }, [smartPlacement, tempOpen, placement, calculatedPlacement, mergedShowArrow, token.sizePopupArrow, token.marginXXS]);
+
   // Calculate smart placement if enabled and tooltip is visible
-  // Note: The smartPlacement prop works with autoAdjustOverflow which is enabled by default.
-  // When smartPlacement is true, we ensure placement adjustment is enabled and active.
   const smartPlacementResult = React.useMemo(() => {
     if (!smartPlacement || !tempOpen) {
       return placement;
     }
 
-    // Return the original placement and let autoAdjustOverflow handle fallbacks
-    return placement;
-  }, [smartPlacement, tempOpen, placement]);
+    // Use the calculated placement from useLayoutEffect if available, otherwise use original
+    return calculatedPlacement || placement;
+  }, [smartPlacement, tempOpen, placement, calculatedPlacement]);
 
   const memoOverlay = React.useMemo<TooltipProps['overlay']>(() => {
     if (title === 0) {
@@ -344,12 +377,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
 
   const rootPrefixCls = getPrefixCls();
-
-  let tempOpen = open;
-  // Hide tooltip when there is no title or in table measure row
-  if ((!('open' in props) && noTitle) || inTableMeasureRow) {
-    tempOpen = false;
-  }
 
   // ============================= Render =============================
   const child =
@@ -433,7 +460,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       getTooltipContainer={mergedGetPopupContainer}
       destroyOnHidden={mergedDestroyOnHidden}
     >
-      {tempOpen && !restProps.disabled ? cloneElement(child, { className: childCls }) : child}
+      {tempOpen && !restProps.disabled ? cloneElement(child, { className: childCls, ref: triggerRef }) : cloneElement(child, { ref: triggerRef })}
     </RcTooltip>
   );
 

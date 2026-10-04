@@ -1,7 +1,31 @@
 {
   "verdict": "CHANGES_REQUESTED",
   "findings": [
-    "Inverted drag direction — dragging the handle left widens the menu, dragging right narrows it. Reverse the sign of deltaX or flip the calculation so dragging matches visual direction. The handle is on the left edge of a right-anchored container, so as the user drags left (negative deltaX), the menu should shrink (decreasing width), not grow."
+    {
+      "severity": "BLOCKING",
+      "issue": "Temporal dependency: tempOpen used before definition",
+      "description": "The smartPlacementResult memo at line 300 references tempOpen in its dependency array and conditional check, but tempOpen is not defined until line 347. This will cause a ReferenceError at runtime when smartPlacement is true."
+    },
+    {
+      "severity": "BLOCKING",
+      "issue": "useSmartPlacement hook never imported",
+      "description": "The hook is defined in hook/useSmartPlacement.ts but is never imported into index.tsx. The feature cannot function without it."
+    },
+    {
+      "severity": "BLOCKING",
+      "issue": "smartPlacementResult doesn't call useSmartPlacement",
+      "description": "The memoized calculation always returns the original placement without calling the hook or performing any collision detection logic. The memo should invoke useSmartPlacement and return its result."
+    },
+    {
+      "severity": "BLOCKING",
+      "issue": "SSR safety missing in useSmartPlacement",
+      "description": "The hook calls window.innerWidth and window.innerHeight without checking if window exists, which will cause a ReferenceError in SSR contexts. Add typeof window === 'undefined' guard."
+    },
+    {
+      "severity": "BLOCKING",
+      "issue": "No measurements before placement calculation",
+      "description": "The smartPlacementResult memo runs during render before the tooltip has mounted and measured. tooltipRef.current will be null, so the hook's early-exit check always returns the original placement. Either call the hook later in the lifecycle or measure asynchronously after render."
+    }
   ],
-  "reviewDoc": "/Users/aryandixit/ant-design/.agents/tasks/anchor-review.md"
+  "reviewDoc": "/Users/aryandixit/ant-design/.agents/tasks/tooltip-review.md"
 }

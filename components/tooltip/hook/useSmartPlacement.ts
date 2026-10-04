@@ -138,6 +138,11 @@ export function useSmartPlacement(
   options?: SmartPlacementOptions,
 ): TooltipPlacement {
   return React.useMemo(() => {
+    // Guard against SSR or undefined window
+    if (typeof window === 'undefined') {
+      return placement;
+    }
+
     // If refs are not available, return original placement
     if (!triggerRef?.current || !tooltipRef?.current) {
       return placement;
