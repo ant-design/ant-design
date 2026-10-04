@@ -1,30 +1,11 @@
 {
-  "verdict": "CHANGES_REQUESTED",
+  "verdict": "APPROVED",
   "findings": [
     {
-      "severity": "BLOCKING",
-      "issue": "Temporal dependency: tempOpen used before definition",
-      "description": "The smartPlacementResult memo at line 300 references tempOpen in its dependency array and conditional check, but tempOpen is not defined until line 347. This will cause a ReferenceError at runtime when smartPlacement is true."
-    },
-    {
-      "severity": "BLOCKING",
-      "issue": "useSmartPlacement hook never imported",
-      "description": "The hook is defined in hook/useSmartPlacement.ts but is never imported into index.tsx. The feature cannot function without it."
-    },
-    {
-      "severity": "BLOCKING",
-      "issue": "smartPlacementResult doesn't call useSmartPlacement",
-      "description": "The memoized calculation always returns the original placement without calling the hook or performing any collision detection logic. The memo should invoke useSmartPlacement and return its result."
-    },
-    {
-      "severity": "BLOCKING",
-      "issue": "SSR safety missing in useSmartPlacement",
-      "description": "The hook calls window.innerWidth and window.innerHeight without checking if window exists, which will cause a ReferenceError in SSR contexts. Add typeof window === 'undefined' guard."
-    },
-    {
-      "severity": "BLOCKING",
-      "issue": "No measurements before placement calculation",
-      "description": "The smartPlacementResult memo runs during render before the tooltip has mounted and measured. tooltipRef.current will be null, so the hook's early-exit check always returns the original placement. Either call the hook later in the lifecycle or measure asynchronously after render."
+      "severity": "NON_BLOCKING",
+      "category": "Test Coverage",
+      "title": "Missing test coverage for collision detection and fallback behavior",
+      "description": "Tests confirm smartPlacement={true} is accepted and that closed tooltips don't measure, but there are no tests verifying the core feature: that when a tooltip would overflow at its requested placement, the hook detects this and selects a fallback. Critical cases not covered: top placement hitting viewport ceiling should fall back to bottom, corner placements rebounding to opposite corners, edge-aligned placements moving away from edges. A follow-up commit should add tests that render tooltips near viewport edges and assert the calculated placement matches the fallback priority."
     }
   ],
   "reviewDoc": "/Users/aryandixit/ant-design/.agents/tasks/tooltip-review.md"
