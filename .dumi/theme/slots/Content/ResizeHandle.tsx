@@ -57,7 +57,7 @@ const ResizeHandle: React.FC<ResizeHandleProps> = ({ onWidthChange }) => {
 
     const handleMouseMove = (e: MouseEvent) => {
       // Calculate the change in X position
-      const deltaX = startXRef.current - e.clientX;
+      const deltaX = e.clientX - startXRef.current;
       const newWidth = startWidthRef.current + deltaX;
 
       // Apply constraints (min 148px, max 400px)
@@ -87,7 +87,7 @@ const ResizeHandle: React.FC<ResizeHandleProps> = ({ onWidthChange }) => {
       onMouseDown={handleMouseDown}
       role="separator"
       aria-label="Resize anchor menu"
-      aria-orientation="vertical"
+      aria-orientation="horizontal"
     />
   );
 };
