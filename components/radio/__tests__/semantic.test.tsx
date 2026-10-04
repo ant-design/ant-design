@@ -123,7 +123,7 @@ describe('Radio.Semantic', () => {
       });
       labels.forEach((label) => {
         expect(label).toHaveClass('custom-group-item-label');
-        expect(label).toHaveStyle({ fontWeight: 'bold' });
+        expect(label).toHaveProperty('style.fontWeight', 'bold');
       });
     });
 
@@ -180,7 +180,7 @@ describe('Radio.Semantic', () => {
         expect(item).toHaveClass('item-default-horizontal');
       });
       container.querySelectorAll('.ant-radio-label').forEach((label) => {
-        expect(label).toHaveStyle({ fontWeight: 'bold' });
+        expect(label).toHaveProperty('style.fontWeight', 'bold');
       });
     });
 
