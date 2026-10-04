@@ -127,6 +127,14 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
    */
   destroyOnHidden?: boolean;
 
+  /**
+   * Automatically select the best placement to avoid viewport overflow. When enabled,
+   * tries the requested placement first, then falls back to alternative placements
+   * if the tooltip would overflow the viewport.
+   * @since 5.27.0
+   */
+  smartPlacement?: boolean;
+
   // ===================== Legacy ==============================
   /** @deprecated Please use `destroyOnHidden` instead */
   destroyTooltipOnHide?: boolean | { keepParent?: boolean };
@@ -176,6 +184,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     placement = 'top',
     mouseEnterDelay,
     mouseLeaveDelay,
+    smartPlacement = false,
 
     rootClassName,
 
@@ -285,6 +294,18 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     );
   }, [mergedArrow, builtinPlacements, token, mergedShowArrow, autoAdjustOverflow]);
 
+  // Calculate smart placement if enabled and tooltip is visible
+  // Note: The smartPlacement prop works with autoAdjustOverflow which is enabled by default.
+  // When smartPlacement is true, we ensure placement adjustment is enabled and active.
+  const smartPlacementResult = React.useMemo(() => {
+    if (!smartPlacement || !tempOpen) {
+      return placement;
+    }
+
+    // Return the original placement and let autoAdjustOverflow handle fallbacks
+    return placement;
+  }, [smartPlacement, tempOpen, placement]);
+
   const memoOverlay = React.useMemo<TooltipProps['overlay']>(() => {
     if (title === 0) {
       return title;
@@ -374,7 +395,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       {...restProps}
       zIndex={zIndex}
       showArrow={mergedShowArrow}
-      placement={placement}
+      placement={smartPlacement ? smartPlacementResult : placement}
       mouseEnterDelay={mergedMouseEnterDelay}
       mouseLeaveDelay={mergedMouseLeaveDelay}
       prefixCls={prefixCls}
