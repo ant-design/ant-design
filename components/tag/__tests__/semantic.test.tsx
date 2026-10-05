@@ -1,13 +1,13 @@
 import React from 'react';
-
 import { CheckCircleOutlined } from '@ant-design/icons';
+
 import Tag from '..';
-import { render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import {
   expectSemanticRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Tag.Semantic', () => {
   it('support classNames and styles as objects', () => {
@@ -91,7 +91,7 @@ describe('Tag.Semantic', () => {
             fontSize: '18px',
           },
           content: {
-            fontWeight: info.props.disabled ? 'normal' : 'bold',
+            fontWeight: info.props.disabled ? 400 : 700,
             color: info.props.color === 'blue' ? 'darkblue' : 'darkgreen',
           },
           close: {
@@ -123,7 +123,7 @@ describe('Tag.Semantic', () => {
     expect(contentElement).toHaveClass('content-enabled');
     expect(contentElement).toHaveAttribute('style');
     const contentStyle = contentElement?.getAttribute('style');
-    expect(contentStyle).toContain('font-weight: bold');
+    expect(contentStyle).toContain('font-weight: 700');
     expect(contentStyle).toContain('color: darkblue');
 
     expect(closeElement).toHaveClass('close-filled');
@@ -218,7 +218,7 @@ describe('Tag.Semantic', () => {
           },
           item: {
             borderRadius: info.props.multiple ? '4px' : '2px',
-            fontWeight: info.props.disabled ? 'normal' : 'bold',
+            fontWeight: info.props.disabled ? 400 : 700,
           },
         })}
       />,
@@ -236,7 +236,7 @@ describe('Tag.Semantic', () => {
     itemElements.forEach((item) => {
       expect(item).toHaveClass('item-enabled');
       expect(item).toHaveStyle({ borderRadius: '4px' });
-      expect(item).toHaveProperty('style.fontWeight', 'bold');
+      expect(item).toHaveProperty('style.fontWeight', 700);
     });
   });
   it('checkableTagGroup should follow root style priority', () => {

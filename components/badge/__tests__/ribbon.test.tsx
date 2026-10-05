@@ -6,11 +6,11 @@ import Badge from '..';
 import type { GetProp } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import ConfigProvider from '../../config-provider';
 import {
   expectSemanticRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import ConfigProvider from '../../config-provider';
 
 describe('Ribbon', () => {
   mountTest(Badge.Ribbon);
@@ -149,7 +149,7 @@ describe('Ribbon', () => {
               props.placement === 'start' ? '1px solid rgb(255, 0, 0)' : '1px solid rgb(0, 0, 255)',
           },
           indicator: { opacity: '0.8' },
-          content: { fontWeight: 'bold' },
+          content: { fontWeight: 700 },
         })}
       >
         <div>Test content</div>
@@ -168,7 +168,7 @@ describe('Ribbon', () => {
     // check function-based styles
     expect(rootElement).toHaveStyle({ border: '1px solid rgb(255, 0, 0)' });
     expect(indicatorElement).toHaveStyle({ opacity: '0.8' });
-    expect(contentElement).toHaveProperty('style.fontWeight', 'bold');
+    expect(contentElement).toHaveProperty('style.fontWeight', 700);
   });
 
   it('should follow ribbon style priority', () => {

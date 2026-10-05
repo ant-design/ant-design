@@ -27,7 +27,7 @@ const classNamesFn: ResultProps['classNames'] = (
 const stylesObject: ResultProps['styles'] = {
   root: { borderWidth: 2, borderStyle: 'dashed', padding: 16 },
   title: { fontStyle: 'italic', color: '#1890ff' },
-  subTitle: { fontWeight: 'bold' },
+  subTitle: { fontWeight: 700 },
   icon: { opacity: 0.8 },
   extra: { backgroundColor: '#f0f0f0', padding: 8 },
   body: { backgroundColor: '#fafafa', padding: 12 },
