@@ -146,6 +146,20 @@ describe('Progress', () => {
     );
   });
 
+  it('get correct line-gradient in vertical mode', () => {
+    expect(handleGradient({ from: 'test', to: 'test' }, undefined, true).background).toBe(
+      'linear-gradient(to top, test, test)',
+    );
+    expect(handleGradient({}, undefined, true).background).toBe(
+      'linear-gradient(to top, #1677FF, #1677FF)',
+    );
+    // Explicit `direction` should not be overridden by vertical
+    expect(
+      handleGradient({ from: 'test', to: 'test', direction: 'to bottom' }, undefined, true)
+        .background,
+    ).toBe('linear-gradient(to bottom, test, test)');
+  });
+
   it('sort gradients correctly', () => {
     expect(sortGradient({ '10%': 'test10', '30%': 'test30', '20%': 'test20' })).toBe(
       'test10 10%, test20 20%, test30 30%',
@@ -174,6 +188,93 @@ describe('Progress', () => {
     );
     expect(wrapper.querySelectorAll('.ant-progress-status-success')).toHaveLength(1);
     errorSpy.mockRestore();
+  });
+
+  it('should support orientation', () => {
+    const { container: wrapper, rerender } = render(
+      <Progress percent={60} orientation="vertical" />,
+    );
+    expect(wrapper.querySelector('.ant-progress-line-vertical')).toBeTruthy();
+    expect(wrapper.querySelector('.ant-progress-body-vertical')).toBeTruthy();
+    expect(wrapper.firstChild).toMatchSnapshot();
+
+    rerender(<Progress percent={80} orientation="vertical" status="exception" />);
+    expect(wrapper.querySelector('.ant-progress-status-exception')).toBeTruthy();
+    expect(wrapper.firstChild).toMatchSnapshot();
+
+    rerender(<Progress percent={100} orientation="vertical" status="success" />);
+    expect(wrapper.querySelector('.ant-progress-status-success')).toBeTruthy();
+    expect(wrapper.firstChild).toMatchSnapshot();
+  });
+
+  it('should support vertical as syntactic sugar of orientation', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<Progress percent={60} vertical />);
+    // `vertical` is kept as syntactic sugar, not a deprecated API
+    expect(errorSpy).not.toHaveBeenCalled();
+    expect(container.querySelector('.ant-progress-line-vertical')).toBeTruthy();
+    expect(container.querySelector('.ant-progress-body-vertical')).toBeTruthy();
+    errorSpy.mockRestore();
+  });
+
+  it('orientation should take priority over vertical', () => {
+    const { container } = render(<Progress percent={60} vertical orientation="horizontal" />);
+    expect(container.querySelector('.ant-progress-line-vertical')).toBeFalsy();
+  });
+
+  it('should support orientation with strokeColor', () => {
+    const { container } = render(
+      <Progress percent={60} orientation="vertical" strokeColor="#52c41a" />,
+    );
+    const track = container.querySelector('.ant-progress-track');
+    expect(track).toHaveStyle({ background: '#52c41a' });
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should support orientation with object strokeColor gradient', () => {
+    const { container } = render(
+      <Progress percent={60} orientation="vertical" strokeColor={{ from: '#aaa', to: '#bbb' }} />,
+    );
+    const track = container.querySelector('.ant-progress-track');
+    expect(track).toHaveStyle({ background: 'linear-gradient(to top, #aaa, #bbb)' });
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should support orientation with success', () => {
+    const { container } = render(
+      <Progress
+        percent={80}
+        orientation="vertical"
+        success={{ percent: 30, strokeColor: '#fff' }}
+      />,
+    );
+    const track = container.querySelector('.ant-progress-track-success');
+    expect(track).toHaveStyle({ backgroundColor: '#fff' });
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should support orientation with strokeWidth', () => {
+    const { container } = render(<Progress percent={60} orientation="vertical" strokeWidth={20} />);
+    const rail = container.querySelector('.ant-progress-rail');
+    expect(rail).toHaveStyle({ width: '20px' });
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should support orientation with active status', () => {
+    const { container } = render(<Progress percent={50} orientation="vertical" status="active" />);
+    expect(container.querySelector('.ant-progress-status-active')).toBeTruthy();
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should support orientation with showInfo', () => {
+    const { container, rerender } = render(
+      <Progress percent={60} orientation="vertical" showInfo />,
+    );
+    expect(container.querySelector('.ant-progress-indicator')).toBeTruthy();
+
+    rerender(<Progress percent={60} orientation="vertical" showInfo={false} />);
+    expect(container.querySelector('.ant-progress-indicator')).toBeFalsy();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should support steps', () => {
@@ -218,6 +319,15 @@ describe('Progress', () => {
   it('steps should have default percent 0', () => {
     const { container } = render(<Progress steps={1} />);
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should warning if use `steps` with vertical orientation', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Progress steps={5} orientation="vertical" />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] `steps` does not support vertical orientation. The `orientation="vertical"` and `vertical` props are ignored when `steps` is set.',
+    );
+    errorSpy.mockRestore();
   });
 
   it('should warnning if use `width` prop', () => {
