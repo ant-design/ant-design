@@ -14,15 +14,13 @@ const normalizeValue = (val: string) => {
 const useBorderSize = (domNode: Element | null) => {
   const [borderWidth, setBorderWidth] = React.useState<BorderWidth>(DEFAULT_BORDER_WIDTH);
 
+  const setIfChanged = (next: BorderWidth) => {
+    setBorderWidth((prev) => (isSameBorderWidth(prev, next) ? prev : next));
+  };
+
   React.useEffect(() => {
     if (!domNode) {
-      setBorderWidth((prev) => {
-        if (isSameBorderWidth(prev, DEFAULT_BORDER_WIDTH)) {
-          return prev;
-        } else {
-          return DEFAULT_BORDER_WIDTH;
-        }
-      });
+      setIfChanged(DEFAULT_BORDER_WIDTH);
       return;
     }
 
@@ -36,13 +34,7 @@ const useBorderSize = (domNode: Element | null) => {
       normalizeValue(borderLeftWidth),
     ];
 
-    setBorderWidth((prev) => {
-      if (isSameBorderWidth(prev, nextBorderWidth)) {
-        return prev;
-      } else {
-        return nextBorderWidth;
-      }
-    });
+    setIfChanged(nextBorderWidth);
   }, [domNode]);
 
   return borderWidth;

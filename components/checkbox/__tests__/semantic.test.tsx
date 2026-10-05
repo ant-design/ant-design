@@ -165,7 +165,7 @@ describe('Checkbox.Semantic', () => {
       });
       labels.forEach((label) => {
         expect(label).toHaveClass('custom-group-item-label');
-        expect(label).toHaveStyle({ fontWeight: 'bold' });
+        expect(label).toHaveProperty('style.fontWeight', 'bold');
       });
     });
 
@@ -192,7 +192,7 @@ describe('Checkbox.Semantic', () => {
         expect(item).toHaveClass('item-checked');
       });
       container.querySelectorAll('.ant-checkbox-label').forEach((label) => {
-        expect(label).toHaveStyle({ fontWeight: 'bold' });
+        expect(label).toHaveProperty('style.fontWeight', 'bold');
       });
     });
 
