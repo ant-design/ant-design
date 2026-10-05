@@ -3,12 +3,12 @@ import { warning } from '@rc-component/util';
 
 import Drawer from '..';
 import type { DrawerProps } from '..';
-import { render } from '../../../tests/utils';
 import {
   expectSemanticRootStylePriority,
   expectSemanticRootStyleWithRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 const { resetWarned } = warning;
@@ -79,7 +79,7 @@ describe('Drawer.Semantic', () => {
     expect(rootElement).toHaveStyle({ 'font-size': '24px' });
     expect(maskElement).toHaveStyle({ 'background-color': 'rgba(0, 0, 0, 0.5)' });
     expect(headerElement).toHaveStyle({ 'border-bottom': '1px solid rgb(232, 232, 232)' });
-    expect(titleElement).toHaveProperty('style.fontWeight', '700');
+    expect(titleElement).toHaveStyle({ fontWeight: 700 });
     expect(extraElement).toHaveStyle({ color: 'rgb(255, 0, 0)' });
     expect(sectionElement).toHaveStyle({ padding: '24px' });
     expect(bodyElement).toHaveStyle({ color: 'rgb(0, 255, 0)' });
@@ -181,7 +181,7 @@ describe('Drawer.Semantic', () => {
     expect(rootElement).toHaveStyle({ padding: '20px' });
     expect(maskElement).toHaveStyle({ 'background-color': 'rgba(0, 0, 0, 0.8)' });
     expect(headerElement).toHaveStyle({ 'border-bottom': '1px solid rgb(250, 250, 250)' });
-    expect(titleElement).toHaveProperty('style.fontWeight', '400');
+    expect(titleElement).toHaveStyle({ fontWeight: 400 });
     expect(extraElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
     expect(sectionElement).toHaveStyle({ padding: '18px' });
     expect(bodyElement).toHaveStyle({ color: 'rgb(0, 200, 0)' });
@@ -219,7 +219,7 @@ describe('Drawer.Semantic', () => {
     expect(rootElement).toHaveStyle({ padding: '24px' });
     expect(maskElement).toHaveStyle({ 'background-color': 'rgba(0, 0, 0, 0.5)' });
     expect(headerElement).toHaveStyle({ 'border-bottom': '1px solid rgb(232, 232, 232)' });
-    expect(titleElement).toHaveProperty('style.fontWeight', '700');
+    expect(titleElement).toHaveStyle({ fontWeight: 700 });
     expect(extraElement).toHaveStyle({ color: 'rgb(255, 0, 0)' });
     expect(sectionElement).toHaveStyle({ padding: '22px' });
     expect(bodyElement).toHaveStyle({ color: 'rgb(0, 255, 0)' });

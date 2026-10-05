@@ -232,11 +232,9 @@ describe('Tag.Semantic', () => {
     const rootStyle = groupElement?.getAttribute('style');
     expect(rootStyle).toContain('padding: 8px');
     expect(rootStyle).toContain('background-color: transparent');
-
     itemElements.forEach((item) => {
       expect(item).toHaveClass('item-enabled');
-      expect(item).toHaveStyle({ borderRadius: '4px' });
-      expect(item).toHaveProperty('style.fontWeight', 700);
+      expect(item).toHaveStyle({ borderRadius: '4px', fontWeight: 700 });
     });
   });
   it('checkableTagGroup should follow root style priority', () => {

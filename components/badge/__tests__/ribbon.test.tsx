@@ -168,7 +168,7 @@ describe('Ribbon', () => {
     // check function-based styles
     expect(rootElement).toHaveStyle({ border: '1px solid rgb(255, 0, 0)' });
     expect(indicatorElement).toHaveStyle({ opacity: '0.8' });
-    expect(contentElement).toHaveProperty('style.fontWeight', 700);
+    expect(contentElement).toHaveStyle({ fontWeight: 700 });
   });
 
   it('should follow ribbon style priority', () => {

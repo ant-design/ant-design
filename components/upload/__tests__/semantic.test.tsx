@@ -174,8 +174,7 @@ describe('Upload.Semantic', () => {
 
     const rootElement = container.querySelector('.ant-upload-wrapper');
     expect(rootElement).toBeTruthy();
-    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
-    expect(rootElement).toHaveProperty('style.borderWidth', '2px');
+    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)', borderWidth: '2px' });
 
     const listElement = container.querySelector('.ant-upload-list');
     expect(listElement).toBeTruthy();
