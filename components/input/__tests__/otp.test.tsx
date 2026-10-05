@@ -40,6 +40,16 @@ describe('Input.OTP', () => {
     expect(onChange).toHaveBeenCalledWith('123456');
   });
 
+  it('paste partial code should move focus after the pasted cells', () => {
+    const { container } = render(<OTP />);
+
+    const inputList = Array.from(container.querySelectorAll('input'));
+    fireEvent.input(inputList[0], { target: { value: '123' } });
+
+    expect(getText(container)).toBe('123');
+    expect(document.activeElement).toBe(inputList[3]);
+  });
+
   it('fill step by step', () => {
     const CODE = 'BAMBOO';
     const onChange = jest.fn();
