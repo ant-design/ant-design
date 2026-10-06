@@ -50,6 +50,26 @@ describe('Input.OTP', () => {
     expect(document.activeElement).toBe(inputList[3]);
   });
 
+  it('paste partial code from a middle cell should focus the next empty cell', () => {
+    const { container } = render(<OTP defaultValue="12" />);
+    const inputs = Array.from(container.querySelectorAll('input'));
+    inputs[2].focus();
+    fireEvent.input(inputs[2], { target: { value: '34' } });
+    expect(getText(container)).toBe('1234');
+    expect(document.activeElement).toBe(inputs[4]);
+  });
+
+  it('paste with filtered characters should focus the first empty cell', () => {
+    const { container } = render(
+      <OTP defaultValue="12" formatter={(text) => text.replace(/\D/g, '')} />,
+    );
+    const inputs = Array.from(container.querySelectorAll('input'));
+    inputs[2].focus();
+    fireEvent.input(inputs[2], { target: { value: '3a4' } });
+    expect(getText(container)).toBe('1234');
+    expect(document.activeElement).toBe(inputs[4]);
+  });
+
   it('fill step by step', () => {
     const CODE = 'BAMBOO';
     const onChange = jest.fn();
