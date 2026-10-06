@@ -130,4 +130,30 @@ describe('Test ScrollTo function', () => {
     expect(callbackMock).toHaveBeenCalledTimes(1);
     expect(cancel()).toBeUndefined();
   });
+
+  it.each([450, 0])(
+    'preserves the target window horizontal offset (duration %s)',
+    async (duration) => {
+      const iframe = document.createElement('iframe');
+      document.body.appendChild(iframe);
+      const target = iframe.contentWindow!;
+      const hostOffset = window.pageXOffset;
+      window.pageXOffset = 23;
+      const targetOffset = jest.replaceProperty(target, 'pageXOffset', 137);
+      const scrollToSpy = jest.spyOn(target, 'scrollTo').mockImplementation(() => {});
+
+      try {
+        scrollTo(1000, { getContainer: () => target, duration });
+        await waitFakeTimer();
+        expect(scrollToSpy).toHaveBeenCalledWith(137, 1000);
+        expect(target.pageXOffset).toBe(137);
+        expect(window.pageXOffset).toBe(23);
+      } finally {
+        scrollToSpy.mockRestore();
+        targetOffset.restore();
+        window.pageXOffset = hostOffset;
+        iframe.remove();
+      }
+    },
+  );
 });
