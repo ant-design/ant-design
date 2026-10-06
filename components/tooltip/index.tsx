@@ -455,7 +455,44 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       getTooltipContainer={mergedGetPopupContainer}
       destroyOnHidden={mergedDestroyOnHidden}
     >
-      {tempOpen && !restProps.disabled ? cloneElement(child, { className: childCls, ref: triggerRef }) : cloneElement(child, { ref: triggerRef })}
+      {tempOpen && !restProps.disabled
+        ? cloneElement(child, (originProps: any) => ({
+            className: childCls,
+            ref: (node: any) => {
+              // Set our triggerRef
+              if (typeof triggerRef === 'function') {
+                triggerRef(node);
+              } else if (triggerRef) {
+                triggerRef.current = node;
+              }
+              // Also call the child's original ref if it exists
+              if (originProps.ref) {
+                if (typeof originProps.ref === 'function') {
+                  originProps.ref(node);
+                } else if (originProps.ref && 'current' in originProps.ref) {
+                  originProps.ref.current = node;
+                }
+              }
+            },
+          }))
+        : cloneElement(child, (originProps: any) => ({
+            ref: (node: any) => {
+              // Set our triggerRef
+              if (typeof triggerRef === 'function') {
+                triggerRef(node);
+              } else if (triggerRef) {
+                triggerRef.current = node;
+              }
+              // Also call the child's original ref if it exists
+              if (originProps.ref) {
+                if (typeof originProps.ref === 'function') {
+                  originProps.ref(node);
+                } else if (originProps.ref && 'current' in originProps.ref) {
+                  originProps.ref.current = node;
+                }
+              }
+            },
+          }))
     </RcTooltip>
   );
 
