@@ -103,6 +103,9 @@ function checkPlacementFits(
 
 /**
  * Get fallback placements for a given base placement.
+ * For corner placements, tries opposite corners first, then cardinal directions.
+ * For edge-corner placements, tries opposite corners, then cardinal directions,
+ * then perpendicular cardinal directions as final fallback.
  */
 function getFallbackPlacements(placement: TooltipPlacement): TooltipPlacement[] {
   const fallbacks: Record<TooltipPlacement, TooltipPlacement[]> = {
@@ -110,14 +113,16 @@ function getFallbackPlacements(placement: TooltipPlacement): TooltipPlacement[] 
     bottom: ['bottom', 'top', 'left', 'right'],
     left: ['left', 'right', 'top', 'bottom'],
     right: ['right', 'left', 'top', 'bottom'],
-    topLeft: ['topLeft', 'topRight', 'bottomLeft', 'bottomRight', 'top', 'bottom'],
-    topRight: ['topRight', 'topLeft', 'bottomRight', 'bottomLeft', 'top', 'bottom'],
-    bottomLeft: ['bottomLeft', 'bottomRight', 'topLeft', 'topRight', 'bottom', 'top'],
-    bottomRight: ['bottomRight', 'bottomLeft', 'topRight', 'topLeft', 'bottom', 'top'],
-    leftTop: ['leftTop', 'leftBottom', 'rightTop', 'rightBottom', 'left', 'right'],
-    leftBottom: ['leftBottom', 'leftTop', 'rightBottom', 'rightTop', 'left', 'right'],
-    rightTop: ['rightTop', 'rightBottom', 'leftTop', 'leftBottom', 'right', 'left'],
-    rightBottom: ['rightBottom', 'rightTop', 'leftBottom', 'leftTop', 'right', 'left'],
+    // For top corners: try same side, opposite side, then sides, then opposite sides
+    topLeft: ['topLeft', 'topRight', 'bottomLeft', 'bottomRight', 'top', 'bottom', 'left', 'right'],
+    topRight: ['topRight', 'topLeft', 'bottomRight', 'bottomLeft', 'top', 'bottom', 'right', 'left'],
+    bottomLeft: ['bottomLeft', 'bottomRight', 'topLeft', 'topRight', 'bottom', 'top', 'left', 'right'],
+    bottomRight: ['bottomRight', 'bottomLeft', 'topRight', 'topLeft', 'bottom', 'top', 'right', 'left'],
+    // For side corners: try same side, opposite side, then cardinal directions, then perpendicular cardinals
+    leftTop: ['leftTop', 'leftBottom', 'rightTop', 'rightBottom', 'left', 'right', 'top', 'bottom'],
+    leftBottom: ['leftBottom', 'leftTop', 'rightBottom', 'rightTop', 'left', 'right', 'bottom', 'top'],
+    rightTop: ['rightTop', 'rightBottom', 'leftTop', 'leftBottom', 'right', 'left', 'top', 'bottom'],
+    rightBottom: ['rightBottom', 'rightTop', 'leftBottom', 'leftTop', 'right', 'left', 'bottom', 'top'],
   };
 
   return fallbacks[placement] || [placement];
