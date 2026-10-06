@@ -142,20 +142,22 @@ export function useSmartPlacement(
   tooltipRef: React.RefObject<HTMLElement>,
   options?: SmartPlacementOptions,
 ): TooltipPlacement {
-  return React.useMemo(() => {
+  const [bestPlacement, setBestPlacement] = React.useState<TooltipPlacement>(placement);
+
+  React.useLayoutEffect(() => {
     // Guard against SSR or undefined window
     if (typeof window === 'undefined') {
-      return placement;
+      return;
     }
 
-    // If refs are not available or elements not mounted, return original placement
+    // If refs are not available or elements not mounted, skip calculation
     if (!triggerRef?.current || !tooltipRef?.current) {
-      return placement;
+      return;
     }
 
-    // If tooltip hasn't been rendered/positioned yet, return original placement
+    // If tooltip hasn't been rendered/positioned yet, skip
     if (tooltipRef.current.offsetHeight === 0 || tooltipRef.current.offsetWidth === 0) {
-      return placement;
+      return;
     }
 
     const triggerRect = triggerRef.current.getBoundingClientRect();
@@ -179,13 +181,16 @@ export function useSmartPlacement(
           options,
         )
       ) {
-        return fallbackPlacement;
+        setBestPlacement(fallbackPlacement);
+        return;
       }
     }
 
-    // If none fit, return original placement
-    return placement;
+    // If none fit, use original placement
+    setBestPlacement(placement);
   }, [placement, triggerRef, tooltipRef, options]);
+
+  return bestPlacement;
 }
 
 export default useSmartPlacement;

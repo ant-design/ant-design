@@ -241,7 +241,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
 
   const tooltipRef = React.useRef<RcTooltipRef>(null);
   const triggerRef = React.useRef<HTMLElement>(null);
-  const [calculatedPlacement, setCalculatedPlacement] = React.useState<TooltipPlacement | null>(null);
 
   const forceAlign = () => {
     tooltipRef.current?.forceAlign();
@@ -304,39 +303,36 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     tempOpen = false;
   }
 
-  // Call the hook at the top level (not inside useLayoutEffect)
-  // Pass refs that may not be ready yet; the hook guards against this
+  // Get the best placement considering viewport collision when smartPlacement is enabled
   const bestPlacement = useSmartPlacement(
-    placement,
-    triggerRef,
-    { current: tooltipRef.current?.popupElement } as React.RefObject<HTMLElement>,
-    {
-      arrowWidth: mergedShowArrow ? token.sizePopupArrow : 0,
-      offset: token.marginXXS,
-    },
+    smartPlacement ? placement : placement, // Only use smart placement if enabled
+    smartPlacement ? triggerRef : { current: null },
+    smartPlacement ? ({ current: tooltipRef.current?.popupElement } as React.RefObject<HTMLElement>) : { current: null },
+    smartPlacement
+      ? {
+          arrowWidth: mergedShowArrow ? token.sizePopupArrow : 0,
+          offset: token.marginXXS,
+        }
+      : undefined,
   );
 
-  // Measure and update placement after render if smartPlacement is enabled
-  React.useLayoutEffect(() => {
-    if (!smartPlacement || !tempOpen || bestPlacement === calculatedPlacement) {
-      return;
-    }
-
-    // Only update if placement changed
-    setCalculatedPlacement(bestPlacement);
-    // Trigger re-alignment
-    tooltipRef.current?.forceAlign();
-  }, [smartPlacement, tempOpen, bestPlacement, calculatedPlacement]);
-
-  // Calculate smart placement if enabled and tooltip is visible
-  const smartPlacementResult = React.useMemo(() => {
+  // Determine final placement based on smartPlacement setting and tooltip visibility
+  const finalPlacement = React.useMemo(() => {
     if (!smartPlacement || !tempOpen) {
       return placement;
     }
-
-    // Use the calculated placement from the hook if available, otherwise use original
-    return bestPlacement !== placement ? bestPlacement : placement;
+    // Use smart placement result if available, otherwise use requested placement
+    return bestPlacement || placement;
   }, [smartPlacement, tempOpen, placement, bestPlacement]);
+
+  // Re-align tooltip when placement changes
+  React.useLayoutEffect(() => {
+    if (!smartPlacement || !tempOpen || bestPlacement === placement) {
+      return;
+    }
+    // Trigger re-alignment when smartPlacement calculated a different placement
+    tooltipRef.current?.forceAlign();
+  }, [smartPlacement, tempOpen, bestPlacement, placement]);
 
   const memoOverlay = React.useMemo<TooltipProps['overlay']>(() => {
     if (title === 0) {
@@ -421,7 +417,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       {...restProps}
       zIndex={zIndex}
       showArrow={mergedShowArrow}
-      placement={smartPlacement ? smartPlacementResult : placement}
+      placement={finalPlacement}
       mouseEnterDelay={mergedMouseEnterDelay}
       mouseLeaveDelay={mergedMouseLeaveDelay}
       prefixCls={prefixCls}
