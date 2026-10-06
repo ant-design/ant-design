@@ -37,6 +37,14 @@ const ResizeHandle: React.FC<ResizeHandleProps> = ({ onWidthChange }) => {
   const startXRef = useRef<number>(0);
   const startWidthRef = useRef<number>(0);
 
+  const adjustWidth = useCallback((deltaX: number) => {
+    // Calculate new width based on delta
+    const newWidth = startWidthRef.current + deltaX;
+    // Apply constraints (min 148px, max 400px)
+    const clampedWidth = Math.min(Math.max(newWidth, 148), 400);
+    onWidthChange(clampedWidth);
+  }, [onWidthChange]);
+
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
     setIsDragging(true);
@@ -58,11 +66,7 @@ const ResizeHandle: React.FC<ResizeHandleProps> = ({ onWidthChange }) => {
     const handleMouseMove = (e: MouseEvent) => {
       // Calculate the change in X position
       const deltaX = e.clientX - startXRef.current;
-      const newWidth = startWidthRef.current + deltaX;
-
-      // Apply constraints (min 148px, max 400px)
-      const clampedWidth = Math.min(Math.max(newWidth, 148), 400);
-      onWidthChange(clampedWidth);
+      adjustWidth(deltaX);
     };
 
     const handleMouseUp = () => {
@@ -79,15 +83,29 @@ const ResizeHandle: React.FC<ResizeHandleProps> = ({ onWidthChange }) => {
       document.removeEventListener('mouseup', handleMouseUp);
       document.body.style.userSelect = '';
     };
-  }, [isDragging, onWidthChange]);
+  }, [isDragging, adjustWidth]);
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    // Arrow keys to adjust width (reuse existing logic)
+    const step = 10; // pixels per key press
+    if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      adjustWidth(step);
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      adjustWidth(-step);
+    }
+  }, [adjustWidth]);
 
   return (
     <div
       className={`${styles.resizeHandle} ${isDragging ? 'dragging' : ''}`}
       onMouseDown={handleMouseDown}
+      onKeyDown={handleKeyDown}
       role="separator"
       aria-label="Resize anchor menu"
-      aria-orientation="horizontal"
+      aria-orientation="vertical"
+      tabIndex={0}
     />
   );
 };
