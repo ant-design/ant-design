@@ -317,7 +317,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   );
 
   const getSelectAllLabel = (selectedCount: number, totalCount: number): React.ReactNode => {
-    if (selectAllLabel) {
+    if (selectAllLabel || selectAllLabel === 0) {
       return isFunction(selectAllLabel)
         ? selectAllLabel({ selectedCount, totalCount })
         : selectAllLabel;
