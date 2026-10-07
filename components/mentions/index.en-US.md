@@ -54,7 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | split | Set split string before and after selected mention | string | ` ` |  | × |
 | size | The size of the input box | `large` \| `medium` \| `small` | - |  | × |
 | status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 | × |
-| validateSearch | Customize whether the search text should trigger suggestions. Return false to prevent suggestions | (text: string, split?: string) => boolean | - |  | × |
+| validateSearch | Custom validation for search text. Return false to hide suggestions. | (text: string, split?: string) => boolean | - |  | × |
 | value | Set value of mentions | string | - |  | × |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onBlur | Trigger when mentions lose focus | () => void | - |  | × |

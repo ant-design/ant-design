@@ -55,7 +55,7 @@ demo:
 | split | 设置选中项前后分隔符 | string | ` ` |  | × |
 | size | 控件大小 | `large` \| `medium` \| `small` | - |  | × |
 | status | 设置校验状态 | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 | × |
-| validateSearch | 自定义搜索文本是否触发建议，返回 false 时不触发建议 | (text: string, split?: string) => boolean | - |  | × |
+| validateSearch | 自定义搜索文本的校验逻辑，返回 false 时不显示建议列表 | (text: string, split?: string) => boolean | - |  | × |
 | value | 设置值 | string | - |  | × |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onBlur | 失去焦点时触发 | () => void | - |  | × |
