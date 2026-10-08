@@ -1,6 +1,6 @@
 import * as React from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import { toArray } from '@rc-component/util';
+import { isReactRenderable, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { genCssVar } from '../theme/util/genStyleUtils';
@@ -69,7 +69,7 @@ const useItems = (
 
       // Icon
       let mergedIcon = icon ?? dot;
-      if (!mergedIcon && loading) {
+      if (!isReactRenderable(mergedIcon) && loading) {
         mergedIcon = <LoadingOutlined />;
       }
 
@@ -84,7 +84,7 @@ const useItems = (
       };
     });
 
-    if (pending) {
+    if (isReactRenderable(pending)) {
       mergedItems.push({
         icon: pendingDot ?? <LoadingOutlined />,
         content: pending,
