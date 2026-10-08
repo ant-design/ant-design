@@ -348,6 +348,8 @@
     }
   ],
   "overrides": {
+    "@typescript-eslint/eslint-plugin": "8.71.2",
+    "@typescript-eslint/parser": "8.71.2",
     "jest-environment-node": "30.5.2"
   },
   "title": "Ant Design",
