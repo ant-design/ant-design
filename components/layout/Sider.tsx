@@ -3,7 +3,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import BarsOutlined from '@ant-design/icons/BarsOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
-import { omit } from '@rc-component/util';
+import { omit, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
@@ -104,21 +104,11 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   } = props;
   const { siderHook } = useContext(LayoutContext);
 
-  const [collapsed, setCollapsed] = useState(
-    'collapsed' in props ? props.collapsed : defaultCollapsed,
-  );
+  const [collapsed, setCollapsed] = useControlledState(defaultCollapsed, props.collapsed);
   const [below, setBelow] = useState(false);
 
-  useEffect(() => {
-    if ('collapsed' in props) {
-      setCollapsed(props.collapsed);
-    }
-  }, [props.collapsed]);
-
   const handleSetCollapsed = (value: boolean, type: CollapseType) => {
-    if (!('collapsed' in props)) {
-      setCollapsed(value);
-    }
+    setCollapsed(value);
     onCollapse?.(value, type);
   };
 

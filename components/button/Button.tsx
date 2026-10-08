@@ -1,10 +1,17 @@
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { omit, toArray, useComposeRef, useDelayState, useLayoutEffect } from '@rc-component/util';
+import {
+  isReactRenderable,
+  omit,
+  toArray,
+  useComposeRef,
+  useDelayState,
+  useLayoutEffect,
+} from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNumber, isPlainObject, isReactRenderable } from '../_util/is';
+import { isNumber, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
@@ -424,7 +431,7 @@ const InternalCompoundedButton = React.forwardRef<
   let iconNode: React.ReactNode;
   if (icon && !innerLoading) {
     iconNode = iconWrapperElement(icon);
-  } else if (loading && mergedLoadingIcon) {
+  } else if (innerLoading && mergedLoadingIcon) {
     iconNode = iconWrapperElement(mergedLoadingIcon);
   } else {
     iconNode = defaultLoadingIconElement;

@@ -232,6 +232,15 @@ describe('Skeleton', () => {
       const { asFragment } = genSkeletonImage({});
       expect(asFragment().firstChild).toMatchSnapshot();
     });
+
+    it('should hide the placeholder illustration from assistive technology', () => {
+      const { container } = genSkeletonImage({});
+      const illustration = container.querySelector('.ant-skeleton-image-svg');
+
+      expect(illustration).toHaveAttribute('aria-hidden', 'true');
+      expect(illustration).toHaveAttribute('focusable', 'false');
+      expect(illustration).not.toHaveAccessibleName();
+    });
   });
 
   describe('custom node element', () => {

@@ -13,6 +13,7 @@ const locale: PickerLocale = {
     rangePlaceholder: ['Begin datum', 'Eind datum'],
     rangeWeekPlaceholder: ['Begin week', 'Eind week'],
     rangeYearPlaceholder: ['Begin jaar', 'Eind jaar'],
+    rangeQuarterPlaceholder: ['Begin kwartaal', 'Eind kwartaal'],
     weekPlaceholder: 'Selecteer week',
     yearPlaceholder: 'Selecteer jaar',
     ...CalendarLocale,

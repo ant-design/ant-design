@@ -98,9 +98,9 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     );
   }
 
-  const settingOpen: PopoverProps['onOpenChange'] = (value) => {
-    setOpen(value);
-    onOpenChange?.(value);
+  const settingOpen: PopoverProps['onOpenChange'] = (nextOpen) => {
+    setOpen(nextOpen);
+    onOpenChange?.(nextOpen);
   };
 
   const close = () => {
@@ -114,11 +114,11 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     props.onCancel?.call(this, e);
   };
 
-  const onInternalOpenChange: PopoverProps['onOpenChange'] = (value) => {
+  const onInternalOpenChange: PopoverProps['onOpenChange'] = (nextOpen) => {
     if (disabled) {
       return;
     }
-    settingOpen(value);
+    settingOpen(nextOpen);
   };
 
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);

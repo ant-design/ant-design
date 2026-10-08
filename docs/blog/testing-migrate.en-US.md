@@ -7,7 +7,7 @@ yuque_url: https://www.yuque.com/ant-design/ant-design/bunxvp7nz4y7bbhi
 juejin_url: https://juejin.cn/post/7179115861176188983
 ---
 
-Hello, I am **[@li-jia-nan](https://github.com/li-jia-nan)**. It is also a new Collaborator who joined antd in the past few months. Fortunately, as one of the Collaborators, I developed the **[FloatButton component](/components/float-button)** and **[QRCode component](/components/qrcode)**, as well as some other maintenance work. Let me share the migration of the antd test library son~
+Hello, I am **[@li-jia-nan](https://github.com/li-jia-nan)**. It is also a new Collaborator who joined antd in the past few months. Fortunately, as one of the Collaborators, I developed the **[FloatButton component](/components/float-button)** and **[QRCode component](/components/qr-code)**, as well as some other maintenance work. Let me share the migration of the antd test library son~
 
 ## introduction
 
@@ -33,7 +33,7 @@ Of course, this is only one of the reasons to drop `enzyme`. More importantly it
 
 ## migrate
 
-### 1. render
+### 1. render {#render}
 
 `enzyme` supports rendering in three ways:
 
@@ -57,7 +57,7 @@ In order to be close to the real scene of the browser, `antd@4.x` uses `mount` f
     );
 ```
 
-### 2. interact & event
+### 2. interact & event {#interact-event}
 
 `enzyme` provides `simulate(event)` method to simulate event triggering and user interaction, `event` is the name of the event, and the corresponding `fireEvent` method in `@testing-library`:
 
@@ -68,7 +68,7 @@ In order to be close to the real scene of the browser, `antd@4.x` uses `mount` f
 ++  fireEvent.click(container.querySelector('.ant-handle'));
 ```
 
-### 3. DOM element
+### 3. DOM element {#dom-element}
 
 In `enzyme`, some built-in APIs are provided to manipulate dom, or find components:
 
@@ -95,7 +95,7 @@ In `testing-library`, these APIs are not provided (as mentioned above - `testing
 ++  expect(container.querySelector('.ant-popover-inner-content')).toBeTruthy();
 ```
 
-### 4. compatibility test
+### 4. compatibility test {#compatibility-test}
 
 While the major version is being upgraded, some components are discarded, but they are not removed in antd. For example, the BackTop component needs to add warning to the component to ensure compatibility, so it is also necessary to write a special unit test for warning:
 

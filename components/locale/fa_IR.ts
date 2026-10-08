@@ -86,6 +86,10 @@ const localeValues: Locale = {
     expand: 'توسعه',
     collapse: 'بستن',
   },
+  Carousel: {
+    prevSlide: 'اسلاید قبلی',
+    nextSlide: 'اسلاید بعدی',
+  },
   Form: {
     optional: '(اختیاری)',
     defaultValidateMessages: {

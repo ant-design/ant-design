@@ -1158,6 +1158,17 @@ describe('Upload List', () => {
     unmount();
   });
 
+  it('should not leave a canvas after generating a GIF preview', async () => {
+    const mockFile = new File([''], 'foo.gif', {
+      type: 'image/gif',
+    });
+    const canvasCount = document.body.querySelectorAll('canvas').length;
+
+    await previewImage(mockFile);
+
+    expect(document.body.querySelectorAll('canvas')).toHaveLength(canvasCount);
+  });
+
   it("upload non image file shouldn't be converted to the base64", async () => {
     const mockFile = new File([''], 'foo.7z', {
       type: 'application/x-7z-compressed',

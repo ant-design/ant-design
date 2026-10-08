@@ -100,7 +100,12 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
   const containerNode = useMemo<React.ReactNode>(
     () =>
       color.cleared ? (
-        <ColorClear prefixCls={prefixCls} className={classNames.body} style={styles.body} />
+        <ColorClear
+          prefixCls={prefixCls}
+          className={classNames.body}
+          style={styles.body}
+          disabled={disabled}
+        />
       ) : (
         <ColorBlock
           prefixCls={prefixCls}
@@ -111,7 +116,7 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
           innerStyle={styles.content}
         />
       ),
-    [color, prefixCls, classNames.body, classNames.content, styles.body, styles.content],
+    [color, prefixCls, disabled, classNames.body, classNames.content, styles.body, styles.content],
   );
 
   return (

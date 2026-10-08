@@ -13,6 +13,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'सप्ताह चुनें',
     rangePlaceholder: ['प्रारंभ तिथि', 'समाप्ति तिथि'],
     rangeYearPlaceholder: ['आरंभिक वर्ष', 'अंत वर्ष'],
+    rangeQuarterPlaceholder: ['आरंभिक तिमाही', 'अंत तिमाही'],
     rangeMonthPlaceholder: ['आरंभिक महीना', 'अंत महीना'],
     rangeWeekPlaceholder: ['आरंभिक सप्ताह', 'अंत सप्ताह'],
     ...CalendarLocale,

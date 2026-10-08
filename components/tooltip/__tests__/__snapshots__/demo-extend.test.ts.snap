@@ -14,7 +14,7 @@ Array [
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1697,6 +1697,44 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
 `;
 
 exports[`renders components/tooltip/demo/disabled-children.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/tooltip/demo/force-align.tsx extend context correctly 1`] = `
+<div
+  style="min-height: 160px; padding-top: 16px;"
+>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-tooltip-open"
+    type="button"
+  >
+    <span>
+      Trigger
+    </span>
+  </button>
+  <div
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div
+      class="ant-tooltip-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    >
+      <span
+        class="ant-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      Tooltip stays aligned
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/tooltip/demo/force-align.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tooltip/demo/placement.tsx extend context correctly 1`] = `
 <div

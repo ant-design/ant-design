@@ -2,13 +2,13 @@ import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import Dialog from '@rc-component/dialog';
 import type { DialogProps } from '@rc-component/dialog';
-import { composeRef, omit } from '@rc-component/util';
+import { composeRef, isNonNullable, omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import { pickClosable, useClosable, useMergedMask, useZIndex } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
-import { isNonNullable, isNumber, isPlainObject } from '../_util/is';
+import { isNumber, isPlainObject } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { canUseDocElement } from '../_util/styleChecker';

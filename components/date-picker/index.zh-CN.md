@@ -93,7 +93,7 @@ dayjs.locale('zh-cn');
 
 以下 API 为 DatePicker、 RangePicker 共享的 API。
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 | 6.4.0 |
 | ~~bordered~~ | 是否带边框，请使用 `variant` 替代 | boolean | true | - | × |
@@ -115,7 +115,7 @@ dayjs.locale('zh-cn');
 | locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  | × |
 | minDate | 最小日期，同样会限制面板的切换范围 | dayjs | - | 5.14.0 | × |
 | maxDate | 最大日期，同样会限制面板的切换范围 | dayjs | - | 5.14.0 | × |
-| mode | 日期面板的状态（[设置后无法选择年份/月份？](/docs/react/faq#当我指定了-datepickerrangepicker-的-mode-属性后点击后无法选择年份月份)） | `time` \| `date` \| `month` \| `year` \| `decade` | - |  | × |
+| mode | 日期面板的状态（[设置后无法选择年份/月份？](/docs/react/faq#mode-cannot-select-year-month)） | `time` \| `date` \| `month` \| `year` \| `decade` | - |  | × |
 | needConfirm | 是否需要确认按钮，为 `false` 时失去焦点即代表选择。当设置 `multiple` 时默认为 `false` | boolean | - | 5.14.0 | × |
 | nextIcon | 自定义下一个图标 | ReactNode | - | 4.17.0 | × |
 | open | 控制弹层是否展开 | boolean | - |  | × |
@@ -161,7 +161,7 @@ dayjs.locale('zh-cn');
 | pickerValue | 面板日期，可以用于受控切换面板所在日期。配合 `onPanelChange` 使用。 | [dayjs](https://day.js.org/) | - | 5.14.0 |
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
 | showNow | 显示当前日期时间的快捷选择 | boolean | - | 4.4.0 |
-| showTime | 增加时间选择功能 | Object \| boolean | [TimePicker Options](/components/time-picker-cn#api) |  |
+| showTime | 增加时间选择功能 | Object \| boolean | [TimePicker Options](/components/time-picker#api) |  |
 | ~~showTime.defaultValue~~ | 请使用 `showTime.defaultOpenValue` | [dayjs](https://day.js.org/) | dayjs() | 5.27.3 |
 | showTime.defaultOpenValue | 设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
 | showWeek | DatePicker 下展示当前周 | boolean | false | 5.14.0 |
@@ -223,7 +223,7 @@ dayjs.locale('zh-cn');
 
 ### RangePicker
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | allowEmpty | 允许起始项部分为空 | \[boolean, boolean] | \[false, false] |  | × |
 | cellRender | 自定义单元格的内容。 | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
@@ -238,7 +238,7 @@ dayjs.locale('zh-cn');
 | presets | 预设时间范围快捷选择，自 `5.8.0` 起 value 支持函数返回值 | { label: React.ReactNode, value: \[(Dayjs \| (() => Dayjs)), (Dayjs \| (() => Dayjs))] }\[] | - |  | × |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  | × |
 | separator | 设置分隔符 | React.ReactNode | `<SwapRightOutlined />` |  | 6.3.0 |
-| showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker-cn#api) |  | × |
+| showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker#api) |  | × |
 | ~~showTime.defaultValue~~ | 请使用 `showTime.defaultOpenValue` | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | \[dayjs(), dayjs()] | 5.27.3 | × |
 | showTime.defaultOpenValue | 设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date) | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | \[dayjs(), dayjs()] |  | × |
 | value | 日期 | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  | × |
@@ -279,7 +279,7 @@ export type FormatType =
 
 ### 当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？ {#faq-mode-cannot-select}
 
-请参考[常见问答](/docs/react/faq#当我指定了-datepickerrangepicker-的-mode-属性后点击后无法选择年份月份)
+请参考[常见问答](/docs/react/faq#mode-cannot-select-year-month)
 
 ### 为何日期选择年份后返回的是日期面板而不是月份面板？ {#faq-year-to-date-panel}
 
@@ -291,11 +291,11 @@ export type FormatType =
 
 ### 为什么时间类组件的国际化 locale 设置不生效？ {#faq-locale-not-work}
 
-参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效)。
+参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#date-locale-not-working)。
 
 ### 如何修改周的起始日？ {#faq-week-start-day}
 
-请使用正确的[语言包](/docs/react/i18n-cn)（[#5605](https://github.com/ant-design/ant-design/issues/5605)），或者修改 dayjs 的 `locale` 配置：<https://codesandbox.io/s/dayjs-day-of-week-x9tuj2?file=/demo.tsx>
+请使用正确的[语言包](/docs/react/i18n)（[#5605](https://github.com/ant-design/ant-design/issues/5605)），或者修改 dayjs 的 `locale` 配置：<https://codesandbox.io/s/dayjs-day-of-week-x9tuj2?file=/demo.tsx>
 
 ```js
 import dayjs from 'dayjs';
@@ -316,4 +316,4 @@ dayjs.updateLocale('zh-cn', {
 
 ### 如何理解禁用时间日期？ {#faq-disabled-date-time}
 
-欢迎阅读博客[《为什么禁用日期这么难？》](/docs/blog/picker-cn)了解如何使用。
+欢迎阅读博客[《为什么禁用日期这么难？》](/docs/blog/picker)了解如何使用。

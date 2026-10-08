@@ -292,6 +292,11 @@ describe('Locale Provider', () => {
     MockDate.reset();
   });
 
+  it('uses Taiwan terminology for picker controls', () => {
+    expect(zhTW.DatePicker?.lang.ok).toBe('確定');
+    expect(zhTW.ColorPicker?.gradientColor).toBe('漸層色');
+  });
+
   locales.forEach((locale) => {
     it(`should display the text as ${locale.locale}`, () => {
       const { container } = render(

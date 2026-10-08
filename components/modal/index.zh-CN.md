@@ -14,7 +14,7 @@ demo:
 
 需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 `Modal` 在当前页面正中打开一个浮层，承载相应的操作。
 
-另外当需要一个简洁的确认框询问用户时，可以使用 [`App.useApp`](/components/app-cn/) 封装的语法糖方法。
+另外当需要一个简洁的确认框询问用户时，可以使用 [`App.useApp`](/components/app/) 封装的语法糖方法。
 
 ## 代码演示 {#examples}
 
@@ -47,10 +47,10 @@ demo:
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | afterClose | Modal 完全关闭后的回调 | function | - |  | × |
-| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  | 6.0.0 |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button#api) | - |  | 6.0.0 |
 | cancelText | 取消按钮文字 | ReactNode | `取消` |  | × |
 | centered | 垂直居中展示 Modal | boolean | false |  | 5.24.0 |
 | classNames | 用于自定义 Modal 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.10.0 |
@@ -65,10 +65,10 @@ demo:
 | focusable | 对话框内焦点管理的配置 | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 | 6.4.0 |
 | getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  | × |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  | × |
-| mask | 遮罩效果 | boolean \| `{enabled: boolean, blur: boolean, closable?: boolean}` | true | mask.closable: 6.3.0 | 6.0.0，mask.closable: 6.3.0 |
+| mask | 遮罩效果 | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true | mask.closable: 6.3.0 | 6.0.0，mask.closable: 6.3.0 |
 | ~~maskClosable~~ | 点击蒙层是否允许关闭。请使用 `mask.closable` 替代。 | boolean | true | - | × |
 | modalRender | 自定义渲染对话框 | (node: ReactNode) => ReactNode | - | 4.7.0 | × |
-| okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  | 6.0.0 |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button#api) | - |  | 6.0.0 |
 | okText | 确认按钮文字 | ReactNode | `确定` |  | × |
 | okType | 确认按钮类型 | string | `primary` |  | × |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  | 5.7.0 |
@@ -76,8 +76,8 @@ demo:
 | loading | 显示骨架屏 | boolean |  | 5.18.0 | × |
 | scrollLock | 弹窗打开时是否锁定body滚动 | boolean | true | 6.5.0 | × |
 | title | 标题 | ReactNode | - |  | × |
-| open | 对话框是否可见 | boolean | - |  | × |
-| width | 宽度 | string \| number \| [Breakpoint](/components/grid-cn#col) | 520 | Breakpoint: 5.23.0 | × |
+| open | 对话框是否可见 | boolean | false |  | × |
+| width | 宽度 | string \| number \| [Breakpoint](/components/grid#col) | 520 | Breakpoint: 5.23.0 | × |
 | wrapClassName | 对话框外层容器的类名 | string | - |  | × |
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |  | × |
 | onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | - |  | × |
@@ -106,7 +106,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | afterClose | Modal 完全关闭后的回调 | function | - | 4.9.0 |
 | ~~autoFocusButton~~ | 指定自动获得焦点的按钮。请使用 `focusable.autoFocusButton` 替代 | null \| `ok` \| `cancel` | `ok` |  |
-| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button#api) | - |  |
 | cancelText | 设置 Modal.confirm 取消按钮文字 | string | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
 | className | 容器类名 | string | - |  |
@@ -121,7 +121,7 @@ demo:
 | mask | 遮罩效果 | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true |  |
 | ~~maskClosable~~ | 点击蒙层是否允许关闭。请使用 `mask.closable` 替代。 | boolean | false | - |
 | scrollLock | 弹窗打开时是否锁定body滚动 | boolean | true | 6.5.0 |
-| okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button#api) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
@@ -236,8 +236,8 @@ return (
 
 **异同**：通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
 
-> 可通过 [App 包裹组件](/components/app-cn) 简化 `useModal` 等方法需要手动植入 contextHolder 的问题。
+> 可通过 [App 包裹组件](/components/app) 简化 `useModal` 等方法需要手动植入 contextHolder 的问题。
 
 ### 静态方法如何设置 prefixCls ？ {#faq-set-prefix-cls}
 
-你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#configproviderconfig-4130) 进行设置。
+你可以通过 [`ConfigProvider.config`](/components/config-provider#config) 进行设置。

@@ -73,6 +73,16 @@ describe('Dropdown', () => {
     expect(Array.from(asFragment().childNodes)).toMatchSnapshot();
   });
 
+  it.each([null, 'Custom popup'])('should support popupRender returning %p', (popup) => {
+    expect(() =>
+      render(
+        <Dropdown open menu={{ items }} popupRender={() => popup}>
+          <button type="button">button</button>
+        </Dropdown>,
+      ),
+    ).not.toThrow();
+  });
+
   it('support Menu expandIcon', async () => {
     jest.useFakeTimers();
     const props: DropDownProps = {

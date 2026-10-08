@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { isNonNullable } from '@rc-component/util';
 
 import type { UploadProps } from './interface';
 import type { UploadRef } from './Upload';
@@ -12,7 +13,10 @@ type DraggerType = (<T = any>(
 
 const Dragger = React.forwardRef<UploadRef, DraggerProps<any>>((props, ref) => {
   const { style, height, hasControlInside = false, children, ...restProps } = props;
-  const mergedStyle: React.CSSProperties = { ...style, height };
+  const mergedStyle: React.CSSProperties = {
+    ...style,
+    ...(isNonNullable(height) && { height }),
+  };
   return (
     <Upload
       ref={ref}

@@ -13,6 +13,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'រើសសប្តាហ៍',
     rangePlaceholder: ['ថ្ងៃចាប់ផ្ដើម', 'ថ្ងៃបញ្ចប់'],
     rangeYearPlaceholder: ['ឆ្នាំចាប់ផ្ដើម', 'ឆ្នាំបញ្ចប់'],
+    rangeQuarterPlaceholder: ['ត្រីមាសចាប់ផ្ដើម', 'ត្រីមាសបញ្ចប់'],
     rangeMonthPlaceholder: ['ខែចាប់ផ្ដើម', 'ខែបញ្ចប់'],
     rangeWeekPlaceholder: ['សប្ដាហ៍ចាប់ផ្ដើម', 'សប្ដាហ៍បញ្ចប់'],
     ...CalendarLocale,

@@ -7,7 +7,7 @@ yuque_url: https://www.yuque.com/ant-design/ant-design/gyacdbtixle9bbm4
 juejin_url: https://juejin.cn/post/7322352551088603163
 ---
 
-传统的 js + css 网站，SSR 一般只需要处理好首次渲染的注水问题。而当 CSS-in-JS 技术的引入，开发者则需要额外关注如何将样式导出到 HTML 中，以保证首次渲染的正确性。我们提供了非常多的实现方式，也正好在此聊聊其中的思路。如果你需要完整的文档或者示例欢迎查阅[《定制主题》](/docs/react/customize-theme-cn)。
+传统的 js + css 网站，SSR 一般只需要处理好首次渲染的注水问题。而当 CSS-in-JS 技术的引入，开发者则需要额外关注如何将样式导出到 HTML 中，以保证首次渲染的正确性。我们提供了非常多的实现方式，也正好在此聊聊其中的思路。如果你需要完整的文档或者示例欢迎查阅[《定制主题》](/docs/react/customize-theme)。
 
 ### Inline Style
 
@@ -159,6 +159,6 @@ if (!fs.existsSync(cssFileName)) {
 
 对于不同的用户访问相同的页面所需的样式不同或者说自定义主题不同，都可以通过该 Hash 作区分。
 
-## 总结
+## 总结 {#finally}
 
 对于不复杂的应用而言，我们更推荐使用前者 Static Extract Style。它已经足够简单，但是对于想更细粒度控制 SSR 样式渲染以获得更好的访问速度体验的开发者，则可以试试部分静态化的能力。以上。

@@ -556,6 +556,7 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
     <button
       aria-label="Close"
       class="ant-notification-notice-close"
+      type="button"
     >
       <span
         aria-label="Close"

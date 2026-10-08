@@ -1,13 +1,13 @@
 import React from 'react';
-
 import { CheckCircleOutlined } from '@ant-design/icons';
+
 import Tag from '..';
-import { render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import {
   expectSemanticRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Tag.Semantic', () => {
   it('support classNames and styles as objects', () => {
@@ -91,7 +91,7 @@ describe('Tag.Semantic', () => {
             fontSize: '18px',
           },
           content: {
-            fontWeight: info.props.disabled ? 'normal' : 'bold',
+            fontWeight: info.props.disabled ? 400 : 700,
             color: info.props.color === 'blue' ? 'darkblue' : 'darkgreen',
           },
           close: {
@@ -123,7 +123,7 @@ describe('Tag.Semantic', () => {
     expect(contentElement).toHaveClass('content-enabled');
     expect(contentElement).toHaveAttribute('style');
     const contentStyle = contentElement?.getAttribute('style');
-    expect(contentStyle).toContain('font-weight: bold');
+    expect(contentStyle).toContain('font-weight: 700');
     expect(contentStyle).toContain('color: darkblue');
 
     expect(closeElement).toHaveClass('close-filled');
@@ -144,6 +144,19 @@ describe('Tag.Semantic', () => {
     );
 
     expectSemanticRootStylePriority(container.querySelector('.ant-tag'));
+  });
+  it('checkableTag should prioritize local style over context style', () => {
+    const { container } = render(
+      <ConfigProvider tag={{ style: { color: 'rgb(255, 0, 0)' } }}>
+        <Tag.CheckableTag checked style={{ color: 'rgb(0, 0, 255)' }}>
+          Bamboo
+        </Tag.CheckableTag>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-tag-checkable')).toHaveStyle({
+      color: 'rgb(0, 0, 255)',
+    });
   });
   it('checkableTagGroup support classNames and styles as objects', () => {
     const { container } = render(
@@ -170,6 +183,23 @@ describe('Tag.Semantic', () => {
       color: 'rgb(255, 0, 0)',
     });
   });
+  it('checkableTagGroup should prioritize item styles over context style', () => {
+    const { container } = render(
+      <ConfigProvider tag={{ style: { color: 'rgb(255, 0, 0)' } }}>
+        <Tag.CheckableTagGroup
+          styles={{ item: { color: 'rgb(0, 128, 0)' } }}
+          options={[
+            { label: 'Bamboo', value: 'bamboo' },
+            { label: 'Little', value: 'little', style: { color: 'rgb(0, 0, 255)' } },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+
+    const items = container.querySelectorAll('.ant-tag-checkable');
+    expect(items[0]).toHaveStyle({ color: 'rgb(0, 128, 0)' });
+    expect(items[1]).toHaveStyle({ color: 'rgb(0, 0, 255)' });
+  });
   it('checkableTagGroup support classNames and styles as functions', () => {
     const { container } = render(
       <Tag.CheckableTagGroup
@@ -188,7 +218,7 @@ describe('Tag.Semantic', () => {
           },
           item: {
             borderRadius: info.props.multiple ? '4px' : '2px',
-            fontWeight: info.props.disabled ? 'normal' : 'bold',
+            fontWeight: info.props.disabled ? 400 : 700,
           },
         })}
       />,
@@ -202,13 +232,9 @@ describe('Tag.Semantic', () => {
     const rootStyle = groupElement?.getAttribute('style');
     expect(rootStyle).toContain('padding: 8px');
     expect(rootStyle).toContain('background-color: transparent');
-
     itemElements.forEach((item) => {
       expect(item).toHaveClass('item-enabled');
-      expect(item).toHaveStyle({
-        borderRadius: '4px',
-        fontWeight: 'bold',
-      });
+      expect(item).toHaveStyle({ borderRadius: '4px', fontWeight: 700 });
     });
   });
   it('checkableTagGroup should follow root style priority', () => {

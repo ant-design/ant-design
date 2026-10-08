@@ -93,6 +93,44 @@ describe('Card', () => {
     expect(container.querySelectorAll('.ant-tabs-small').length === 0).toBeFalsy();
   });
 
+  it('should use tabProps.defaultActiveKey and allow switching tabs', async () => {
+    const onTabChange = jest.fn();
+    render(
+      <Card
+        tabList={[
+          { key: 'tab1', label: 'Tab 1' },
+          { key: 'tab2', label: 'Tab 2' },
+        ]}
+        tabProps={{ defaultActiveKey: 'tab2' }}
+        onTabChange={onTabChange}
+      />,
+    );
+
+    expect(screen.getByRole('tab', { name: 'Tab 2' })).toHaveAttribute('aria-selected', 'true');
+
+    await userEvent.setup({ delay: null }).click(screen.getByRole('tab', { name: 'Tab 1' }));
+    expect(screen.getByRole('tab', { name: 'Tab 1' })).toHaveAttribute('aria-selected', 'true');
+    expect(onTabChange).toHaveBeenCalledWith('tab1');
+  });
+
+  it.each(['tab2', ''])(
+    'should prioritize defaultActiveTabKey %j over tabProps.defaultActiveKey',
+    (defaultActiveTabKey) => {
+      render(
+        <Card
+          tabList={[
+            { key: 'tab1', label: 'Tab 1' },
+            { key: defaultActiveTabKey, label: 'Tab 2' },
+          ]}
+          defaultActiveTabKey={defaultActiveTabKey}
+          tabProps={{ defaultActiveKey: 'tab1' }}
+        />,
+      );
+
+      expect(screen.getByRole('tab', { name: 'Tab 2' })).toHaveAttribute('aria-selected', 'true');
+    },
+  );
+
   it('tab size extend card size', () => {
     const { container: largeContainer } = render(
       <Card
@@ -359,5 +397,20 @@ describe('Card', () => {
     );
 
     expect(container).toMatchSnapshot();
+  });
+
+  it('should render numeric 0 for title, extra, and Card.Meta', () => {
+    const { container } = render(
+      <Card title={0} extra={0} cover={0}>
+        <Card.Meta avatar={0} title={0} description={0} />
+      </Card>,
+    );
+
+    expect(container.querySelector('.ant-card-head-title')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-card-extra')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-card-cover')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-card-meta-avatar')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-card-meta-title')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-card-meta-description')?.textContent).toBe('0');
   });
 });

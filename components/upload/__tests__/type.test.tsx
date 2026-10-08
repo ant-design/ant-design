@@ -224,6 +224,31 @@ describe('Upload.typescript', () => {
     expect(<Upload {...uploadProps} />).toBeTruthy();
   });
 
+  it('customRequest can return an abort handle', () => {
+    const uploadProps: UploadProps = {
+      customRequest(options, { defaultRequest }) {
+        const request = defaultRequest(options);
+        if (request) {
+          return { abort: () => request.abort() };
+        }
+      },
+    };
+
+    const request: ReturnType<NonNullable<UploadProps['customRequest']>> = {
+      abort: () => {},
+    };
+    expect(uploadProps.customRequest).toBeTruthy();
+    expect(request.abort).toBeTruthy();
+  });
+
+  it('customRequest accepts callbacks with unused return values', () => {
+    const uploadProps: UploadProps = {
+      customRequest: () => window.setTimeout(() => {}, 0),
+    };
+
+    expect(uploadProps.customRequest).toBeTruthy();
+  });
+
   it('UploadListProps type', () => {
     const uploadListProps: UploadListProps<number | string> = {
       locale: {},

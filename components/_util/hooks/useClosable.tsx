@@ -2,12 +2,12 @@ import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { DialogProps } from '@rc-component/dialog';
-import { mergeProps, pickAttrs } from '@rc-component/util';
+import { isNonNullable, mergeProps, pickAttrs } from '@rc-component/util';
 
 import { useLocale } from '../../locale';
 import defaultLocale from '../../locale/en_US';
 import type { HTMLAriaDataAttributes } from '../aria-data-attrs';
-import { isNonNullable, isPlainObject } from '../is';
+import { isPlainObject } from '../is';
 
 export type ClosableType = DialogProps['closable'] | null;
 export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };

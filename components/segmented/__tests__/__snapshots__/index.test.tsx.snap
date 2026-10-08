@@ -26,7 +26,7 @@ exports[`Segmented render label with ReactNode 1`] = `
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -93,7 +93,7 @@ exports[`Segmented render segmented ok 1`] = `
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -154,7 +154,7 @@ exports[`Segmented render segmented with \`block\` 1`] = `
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -215,7 +215,7 @@ exports[`Segmented render segmented with \`size#large\` 1`] = `
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -276,7 +276,7 @@ exports[`Segmented render segmented with \`size#small\` 1`] = `
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -337,7 +337,7 @@ exports[`Segmented render segmented with mixed options 1`] = `
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -398,7 +398,7 @@ exports[`Segmented render segmented with numeric options 1`] = `
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -488,7 +488,7 @@ exports[`Segmented render segmented with options null/undefined 1`] = `
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-disabled"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text ant-segmented-item-disabled"
     >
       <input
         checked=""
@@ -544,7 +544,7 @@ exports[`Segmented render segmented with options: disabled 1`] = `
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -606,7 +606,7 @@ exports[`Segmented render segmented with string options 1`] = `
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -667,7 +667,7 @@ exports[`Segmented render segmented with thumb 1`] = `
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -727,7 +727,7 @@ exports[`Segmented render segmented: disabled 1`] = `
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-disabled"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text ant-segmented-item-disabled"
     >
       <input
         checked=""
@@ -791,7 +791,7 @@ exports[`Segmented render with icons 1`] = `
     class="ant-segmented-group"
   >
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""

@@ -999,6 +999,20 @@ describe('Table.sorter', () => {
     expect(onClick).toHaveBeenCalled();
   });
 
+  it('should trigger onHeaderCell onKeyDown for every key in sort column', () => {
+    const onKeyDown = jest.fn();
+    const { container } = render(createTable({}, { onHeaderCell: () => ({ onKeyDown }) }));
+    const headerCell = container.querySelector('th')!;
+
+    fireEvent.keyDown(headerCell, { key: 'Escape' });
+    expect(onKeyDown).toHaveBeenCalledTimes(1);
+    expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+
+    fireEvent.keyDown(headerCell, { key: 'Enter', keyCode: 13 });
+    expect(onKeyDown).toHaveBeenCalledTimes(2);
+    expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+  });
+
   it('could sort data with children', () => {
     const { container } = render(
       createTable(

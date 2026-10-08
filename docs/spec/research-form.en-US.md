@@ -91,7 +91,7 @@ Lay out all the information that needs to be filled in. Suitable for forms with 
 
 When a simple and quick task needs to be completed, e.g., creating with minimal information input.
 
-### Task Decomposition and Arrangement
+### Task Decomposition and Arrangement {#task-decomposition}
 
 Decompose large, complex tasks into multiple parts and group them by relevance to reduce user input burden. Although each part is handled individually, they are ultimately submitted together. Suitable for large, complex forms. Proper task segmentation can reduce user error rates.
 
@@ -115,7 +115,7 @@ Organize the information users need to fill and confirm in a linear process, usi
 
 When the form page requires a lot of content to be filled in a single task, and different content can be classified and summarized.
 
-#### Template - Editable List (In Development)
+#### Template - Editable List (In Development) {#template-editable-list}
 
 **When to Use**
 
@@ -184,7 +184,7 @@ Determine whether to group according to the number of settings items:
 > - Number 7~15, grouping is recommended;
 > - Number >15, tab grouping is recommended.
 
-#### [Template - Login](https://preview.pro.ant.design/user/login)
+#### [Template - Login](https://preview.pro.ant.design/user/login) {#template-login}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ba6DR5U23nAAAAAAAAAAAABkARQnAQ" />
@@ -192,7 +192,7 @@ Determine whether to group according to the number of settings items:
 
 Ant Design standard login template
 
-#### [Template - Register](https://preview.pro.ant.design/user/register)
+#### [Template - Register](https://preview.pro.ant.design/user/register) {#template-register}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6U_gQ6MbrSYAAAAAAAAAAABkARQnAQ" />
@@ -253,16 +253,16 @@ When there is a lot of content on a page (usually more than two screens) that ca
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DoKmSYGaYtYAAAAAAAAAAABkARQnAQ" />
 </ImagePreview>
 
-The determination of which layout method to use is similar to the [Detail Page](/docs/spec/detail-page#%E8%AE%BE%E8%AE%A1%E5%BB%BA%E8%AE%AE), and should be sorted out from the two dimensions of information complexity and relevance. Then choose the appropriate template to quickly build the page.
+The determination of which layout method to use is similar to the [Detail Page](/docs/spec/detail-page#design-suggestions), and should be sorted out from the two dimensions of information complexity and relevance. Then choose the appropriate template to quickly build the page.
 
 <br>
 
 ## Further Reading
 
-### Which Modules or Components to Use
+### Which Modules or Components to Use {#modules-or-components-to-use}
 
-- [Form](/components/form-cn#header)
-- [Steps](/components/steps-cn#header)
+- [Form](/components/form)
+- [Steps](/components/steps)
 
 ### External Reference
 

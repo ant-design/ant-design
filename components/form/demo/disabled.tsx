@@ -107,6 +107,7 @@ const FormDisabledDemo: React.FC = () => {
             <button
               style={{ color: 'inherit', cursor: 'inherit', border: 0, background: 'none' }}
               type="button"
+              disabled={componentDisabled}
             >
               <PlusOutlined />
               <div style={{ marginTop: 8 }}>Upload</div>

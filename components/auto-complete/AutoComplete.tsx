@@ -27,6 +27,7 @@ export type AutoCompleteSemanticType = {
     input?: string;
     placeholder?: string;
     content?: string;
+    clear?: string;
     popup?: NonNullable<SelectSemanticAllType['classNames']>['popup'];
   };
   styles?: {
@@ -35,6 +36,7 @@ export type AutoCompleteSemanticType = {
     input?: React.CSSProperties;
     placeholder?: React.CSSProperties;
     content?: React.CSSProperties;
+    clear?: React.CSSProperties;
     popup?: NonNullable<SelectSemanticAllType['styles']>['popup'];
   };
 };
@@ -58,7 +60,15 @@ export interface AutoCompleteProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'loading' | 'mode' | 'optionLabelProp' | 'labelInValue' | 'styles' | 'classNames' | 'showSearch' | 'optionFilterProp' | 'filterSort'
+    | 'loading'
+    | 'mode'
+    | 'optionLabelProp'
+    | 'labelInValue'
+    | 'styles'
+    | 'classNames'
+    | 'showSearch'
+    | 'optionFilterProp'
+    | 'filterSort'
   > {
   /** @deprecated Please use `options` instead */
   dataSource?: DataSourceItemType[];
@@ -73,14 +83,19 @@ export interface AutoCompleteProps<
   classNames?: AutoCompleteSemanticAllType['classNamesAndFn'];
   styles?: AutoCompleteSemanticAllType['stylesAndFn'];
   /** @deprecated Please use `popupRender` instead */
-  dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
-  popupRender?: (menu: React.ReactElement) => React.ReactElement;
+  dropdownRender?: (menu: React.ReactElement) => React.ReactNode;
+  popupRender?: (menu: React.ReactElement) => React.ReactNode;
   /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `onOpenChange` instead */
   onDropdownVisibleChange?: (visible: boolean) => void;
-  onOpenChange?: (visible: boolean) => void;
-  showSearch?: boolean | Pick<SearchConfig<OptionType> & { searchIcon?: React.ReactNode }, 'filterOption' | 'onSearch' | 'searchIcon'>;
+  onOpenChange?: (open: boolean) => void;
+  showSearch?:
+    | boolean
+    | Pick<
+        SearchConfig<OptionType> & { searchIcon?: React.ReactNode },
+        'filterOption' | 'onSearch' | 'searchIcon'
+      >;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): boolean {
@@ -222,6 +237,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       input: mergedClassNames.input,
       placeholder: mergedClassNames.placeholder,
       content: mergedClassNames.content,
+      clear: mergedClassNames.clear,
       popup: {
         root: clsx(popupClassName, dropdownClassName, mergedClassNames.popup.root),
         list: mergedClassNames.popup.list,
@@ -238,6 +254,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       prefix: mergedStyles.prefix,
       placeholder: mergedStyles.placeholder,
       content: mergedStyles.content,
+      clear: mergedStyles.clear,
       popup: {
         root: { ...dropdownStyle, ...mergedStyles.popup.root },
         list: mergedStyles.popup.list,
@@ -251,13 +268,19 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     <Select
       ref={ref}
       suffixIcon={null}
-      {...omit(props, ['dataSource', 'dropdownClassName', 'popupClassName'])}
+      {...omit(props, [
+        'dataSource',
+        'dropdownClassName',
+        'popupClassName',
+        'onDropdownVisibleChange',
+        'onOpenChange',
+      ])}
       prefixCls={prefixCls}
       classNames={finalClassNames}
       styles={finalStyles}
       mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       popupRender={mergedPopupRender}
-      onPopupVisibleChange={mergedOnOpenChange}
+      onOpenChange={mergedOnOpenChange}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       {...{
         // Internal api

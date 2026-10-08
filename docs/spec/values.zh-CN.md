@@ -12,7 +12,7 @@ Ant Design 设计价值观为设计者提供评价设计好坏的内在标准，
 
 在「设计价值观」的坚持上，Ant Design 有四点与众不同：
 
-## 自然
+## 自然 {#natural}
 
 <div>
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ" alt="自然" />
@@ -25,7 +25,7 @@ Ant Design 设计价值观为设计者提供评价设计好坏的内在标准，
 
 > 想了解自然价值观的前世今生，[请移步至专栏](https://zhuanlan.zhihu.com/p/44809866)。
 
-## 确定性
+## 确定性 {#certain}
 
 <div>
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*yHjSQKAhF5kAAAAAAAAAAABkARQnAQ" alt="确定性"/>
@@ -39,7 +39,7 @@ Ant Design 设计价值观为设计者提供评价设计好坏的内在标准，
   - 模块化设计： 将复杂或者重复出现的局部封装成模块，提供有限接口与其他模块互动，最终全面减少系统的复杂度，进而增进可靠性以及可维护性。设计者可运用现有的组件/模板或者自行抽象可复用的组件/模板，节约无谓的设计且保持系统一致性，让「设计者」把创造力专注在最需要的地方。
 - **用户确定**：用户日常工作是通过诸多企业级产品的协同来完成的，除了考虑单一产品的设计一致性，更应当在跨产品、跨终端、跨系统间保持良好的确定性。一致的外观和交互，保持面向用户的熟悉感，能提升易学性，降低认知和操作成本，提升工作效率。
 
-## 意义感
+## 意义感 {#meaningful}
 
 <div>
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xOYlR4e8ihIAAAAAAAAAAABkARQnAQ" alt="意义感" />
@@ -50,7 +50,7 @@ Ant Design 设计价值观为设计者提供评价设计好坏的内在标准，
 - **结果的意义：明确目标，即时反馈**。洞悉工作目标，根据使用流程拆解明确的子目标，让每个交互行为都围绕着主目标的达成；为每个行为，辅以恰当、即时的反馈，让用户对操作结果了然于胸。此外，可通过情感化设计，适度安抚用户负面情感，强化用户正面情感。
 - **过程的意义：挑战适中，全情投入**。调整不同场景下的工作难度，让功能适时适地触发，以匹配用户能力；如无必要，勿增实体，不分散用户注意力，让用户专注于任务达成，而非界面。让当下的工作既不过于简单，亦不过于复杂，挑战适中，并随着用户能力的成长提出更高的挑战，能让用户持续沉浸在工作的心流中，获得富有成就感的工作体验。
 
-## 生长性
+## 生长性 {#growing}
 
 <div>
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*pKz3TabovrEAAAAAAAAAAABkARQnAQ" alt="Growth" />

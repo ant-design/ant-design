@@ -6,7 +6,7 @@ import type {
   SegmentedRawOption,
 } from '@rc-component/segmented';
 import RcSegmented from '@rc-component/segmented';
-import { useId } from '@rc-component/util';
+import { isReactRenderable, useId } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
@@ -153,7 +153,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
                 >
                   {icon}
                 </span>
-                {label && <span>{label}</span>}
+                {isReactRenderable(label) && <span>{label}</span>}
               </>
             ),
           };

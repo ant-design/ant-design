@@ -8,7 +8,7 @@ tag: Updated
 
 [Next.js](https://nextjs.org/) 是目前世界上最流行的 React 服务端同构框架，本文会尝试在 Next.js 创建的工程中使用 `antd` 组件。
 
-## 安装和初始化
+## 安装和初始化 {#install-and-initialization}
 
 在开始之前，你可能需要安装 [yarn](https://github.com/yarnpkg/yarn/) 或者 [pnpm](https://pnpm.io/zh/) 或者 [bun](https://bun.sh/)。
 
@@ -25,7 +25,7 @@ $ npm run dev
 
 此时使用浏览器访问 http://localhost:3000/ ，看到 NEXT 的 logo 就算成功了。
 
-## 引入 antd
+## 引入 antd {#import-antd}
 
 现在从 yarn 或 npm 或 pnpm 或 bun 安装并引入 antd。
 
@@ -50,7 +50,7 @@ export default Home;
 
 细心的朋友可以发现这时引入的 antd 组件在首屏并没有样式，下面就需要根据 Next.js 的模式来选择不同的 SSR 样式处理方式。
 
-## 使用 App Router <Badge>Updated</Badge>
+## 使用 App Router <Badge>Updated</Badge> {#using-app-router}
 
 如果你在 Next.js 当中使用了 App Router, 并使用 antd 作为页面组件库，为了让 antd 组件库在你的 Next.js 应用中能够更好的工作，提供更好的用户体验，你可以尝试使用下面的方式将 antd 首屏样式按需抽离并植入到 HTML 中，以避免页面闪动的情况。
 
@@ -82,7 +82,7 @@ export default RootLayout;
 
 更多详细的细节可以参考 [with-nextjs-app-router-inline-style](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-app-router-inline-style)。
 
-## 使用 Pages Router
+## 使用 Pages Router {#using-pages-router}
 
 如果你在 Next.js 当中使用了 Pages Router, 并使用 antd 作为页面组件库，为了让 antd 组件库在你的 Next.js 应用中能够更好的工作，提供更好的用户体验，你可以尝试使用下面的方式将 antd 首屏样式按需抽离并植入到 HTML 中，以避免页面闪动的情况。
 

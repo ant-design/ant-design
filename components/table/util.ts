@@ -1,4 +1,5 @@
-import { isFunction, isNonNullable, isPlainObject } from '../_util/is';
+import { isNonNullable } from '@rc-component/util';
+import { isFunction, isPlainObject } from '../_util/is';
 import type { AnyObject } from '../_util/type';
 import type { SizeType } from '../config-provider/SizeContext';
 import type {

@@ -11,7 +11,7 @@ title: 对比
 
 ---
 
-## 主次关系对比
+## 主次关系对比 {#major-minor-contrast}
 
 <ImagePreview>
 <img class="preview-img good" alt="正确示例" src="https://gw.alipayobjects.com/zos/rmsportal/DXDSNzVmrVwVRJCTyaTH.png">
@@ -32,7 +32,7 @@ title: 对比
 
 ---
 
-## 总分关系对比
+## 总分关系对比 {#contrast-of-whole-and-part}
 
 <ImagePreview>
 <img class="preview-img" alt="总分关系示例 1" src="https://gw.alipayobjects.com/zos/rmsportal/mGCufzQKHZvViwxAVPPY.png">
@@ -46,7 +46,7 @@ title: 对比
 
 ---
 
-## 状态关系对比
+## 状态关系对比 {#contrast-of-the-state-relation}
 
 <ImagePreview>
 <img class="preview-img" alt="静态对比示例" description="用不同颜色点，来表明不同状态。" src="https://gw.alipayobjects.com/zos/rmsportal/PMVYKxaLBApJFyXAxkHy.png">

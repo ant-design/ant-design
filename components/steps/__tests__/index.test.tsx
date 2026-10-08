@@ -8,6 +8,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import zhTW from '../../locale/zh_TW';
 
 describe('Steps', () => {
   mountTest(Steps);
@@ -21,6 +22,54 @@ describe('Steps', () => {
   afterEach(() => {
     jest.clearAllTimers();
     jest.useRealTimers();
+  });
+
+  it('should hide decorative panel arrows from assistive technology', () => {
+    const { container } = render(
+      <Steps
+        type="panel"
+        items={[{ title: 'Account' }, { title: 'Verification' }, { title: 'Done' }]}
+      />,
+    );
+    const arrows = container.querySelectorAll('.ant-steps-panel-arrow');
+
+    expect(arrows).toHaveLength(3);
+    arrows.forEach((arrow) => {
+      expect(arrow).not.toHaveAccessibleName();
+      expect(arrow).toHaveAttribute('aria-hidden', 'true');
+    });
+  });
+
+  it('should expose the progress icon as a progressbar', () => {
+    const { container } = render(
+      <Steps
+        current={1}
+        percent={60}
+        items={[{ title: 'Finished' }, { title: 'In Progress' }, { title: 'Waiting' }]}
+      />,
+    );
+    const svg = container.querySelector<SVGSVGElement>('.ant-steps-item-progress-icon-svg')!;
+    expect(svg).toBeTruthy();
+    // `aria-valuenow` and friends are only allowed on a widget role.
+    expect(svg.getAttribute('role')).toBe('progressbar');
+    expect(svg.getAttribute('aria-valuenow')).toBe('60');
+  });
+
+  it('should not give the progressbar a hardcoded English name', () => {
+    const { container } = render(
+      <ConfigProvider locale={zhTW}>
+        <Steps
+          current={1}
+          percent={60}
+          items={[{ title: '已完成' }, { title: '進行中' }, { title: '待處理' }]}
+        />
+      </ConfigProvider>,
+    );
+    const svg = container.querySelector<SVGSVGElement>('.ant-steps-item-progress-icon-svg')!;
+    expect(svg.getAttribute('role')).toBe('progressbar');
+    // The circle is decorative: no untranslatable string may become its accessible name.
+    expect(svg.querySelector('title')).toBeNull();
+    expect(svg).not.toHaveAccessibleName();
   });
 
   const description = 'This is a description.';

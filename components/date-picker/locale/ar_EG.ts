@@ -7,7 +7,15 @@ import type { PickerLocale } from '../generatePicker';
 const locale: PickerLocale = {
   lang: {
     placeholder: 'اختيار التاريخ',
+    yearPlaceholder: 'اختيار السنة',
+    quarterPlaceholder: 'اختيار ربع السنة',
+    monthPlaceholder: 'اختيار الشهر',
+    weekPlaceholder: 'اختيار الأسبوع',
     rangePlaceholder: ['البداية', 'النهاية'],
+    rangeYearPlaceholder: ['سنة البداية', 'سنة النهاية'],
+    rangeQuarterPlaceholder: ['ربع سنة البداية', 'ربع سنة النهاية'],
+    rangeMonthPlaceholder: ['شهر البداية', 'شهر النهاية'],
+    rangeWeekPlaceholder: ['أسبوع البداية', 'أسبوع النهاية'],
     yearFormat: 'YYYY',
     monthFormat: 'MMMM',
     monthBeforeYear: true,

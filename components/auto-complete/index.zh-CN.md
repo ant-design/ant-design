@@ -60,8 +60,8 @@ demo:
 | disabled | 是否禁用 | boolean | false |  |
 | ~~dropdownClassName~~ | 下拉菜单的 className 属性，请使用 `classNames.popup.root` 替代 | string | - | - |
 | ~~dropdownMatchSelectWidth~~ | 下拉菜单和输入框是否同宽，请使用 `popupMatchSelectWidth` 替代 | boolean \| number | true | - |
-| ~~dropdownRender~~ | 自定义下拉框内容，使用 `popupRender` 替换 | (originNode: ReactNode) => ReactNode | - | 4.24.0 |
-| popupRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
+| ~~dropdownRender~~ | 自定义下拉框内容，使用 `popupRender` 替换 | (originNode: ReactElement) => ReactNode | - | 4.24.0 |
+| popupRender | 自定义下拉框内容 | (originNode: ReactElement) => ReactNode | - |  |
 | ~~popupClassName~~ | 下拉菜单的 className 属性，使用 `classNames.popup.root` 替换 | string | - | 4.23.0 |
 | ~~dropdownStyle~~ | 下拉菜单的 style 属性，使用 `styles.popup.root` 替换 | CSSProperties | - |  |
 | popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true |  |
@@ -113,12 +113,12 @@ demo:
 
 ## FAQ
 
-### 为何受控状态下使用 onSearch 无法输入中文？ {#faq-controlled-onsearch-composition}
+### 为何受控状态下使用 onSearch 无法输入中文？ {#faq-onsearch-composition}
 
 请使用 `onChange` 进行受控管理。`onSearch` 触发于搜索输入，与 `onChange` 时机不同。此外，点击选项时也不会触发 `onSearch` 事件。
 
 相关 issue：[#18230](https://github.com/ant-design/ant-design/issues/18230) [#17916](https://github.com/ant-design/ant-design/issues/17916)
 
-### 为何 options 为空时，受控 open 展开不会显示下拉菜单？ {#faq-empty-options-controlled-open}
+### 为何 options 为空时，受控 open 展开不会显示下拉菜单？ {#faq-empty-options-open}
 
 AutoComplete 组件本质上是 Input 输入框的一种扩展，当 `options` 为空时，显示空文本会让用户误以为该组件不可操作，实际上它仍然可以进行文本输入操作。因此，为了避免给用户带来困惑，当 `options` 为空时，`open` 属性为 `true` 也不会展示下拉菜单，需要与 `options` 属性配合使用。

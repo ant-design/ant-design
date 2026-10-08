@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { PickerMode } from '@rc-component/picker/interface';
+import { isNonNullable } from '@rc-component/util';
 
-import { isNonNullable } from '../_util/is';
 import useSelectIcons from '../select/useIcons';
 import type { PickerLocale, PickerProps } from './generatePicker';
 

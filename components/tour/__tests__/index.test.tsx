@@ -173,6 +173,33 @@ describe('Tour', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
+  it.each([
+    ['Next', 'nextButtonProps', 0],
+    ['Previous', 'prevButtonProps', 1],
+    ['Finish', 'nextButtonProps', 1],
+  ] as const)('passes the click event to the %s button callback', (name, buttonProps, current) => {
+    const onClick = jest.fn((event: React.MouseEvent<HTMLElement>) => event?.currentTarget);
+    render(
+      <Tour
+        open
+        current={current}
+        steps={[
+          { title: 'First', [buttonProps]: { onClick } },
+          { title: 'Second', [buttonProps]: { onClick } },
+        ]}
+      />,
+    );
+
+    const button = screen.getByRole('button', { name });
+    fireEvent.click(button, { ctrlKey: true });
+
+    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(onClick).toHaveBeenCalledWith(
+      expect.objectContaining({ type: 'click', ctrlKey: true, button: 0 }),
+    );
+    expect(onClick).toHaveReturnedWith(button);
+  });
+
   it('Primary', () => {
     const App: React.FC = () => {
       const coverBtnRef = useRef<HTMLButtonElement>(null);

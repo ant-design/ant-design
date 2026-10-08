@@ -36,7 +36,7 @@ demo:
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.23.0 |
 | content | 卡片内容 | ReactNode \| () => ReactNode | - |  | × |
@@ -63,4 +63,4 @@ demo:
 
 <embed src="../tooltip/shared/sharedFAQ.zh-CN.md"></embed>
 
-更多问题，请参考 [Tooltip FAQ](/components/tooltip-cn#faq)。
+更多问题，请参考 [Tooltip FAQ](/components/tooltip#faq)。

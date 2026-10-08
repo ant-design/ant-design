@@ -19,10 +19,10 @@ interface ColorPresetsProps {
 }
 
 const genPresetColor = (list: PresetsItem[]) =>
-  list.map((value) => {
-    value.colors = value.colors.map(generateColor);
-    return value;
-  });
+  list.map((value) => ({
+    ...value,
+    colors: value.colors.map(generateColor),
+  }));
 
 export const isBright = (value: AggregationColor, bgColorToken: string) => {
   const { r, g, b, a } = value.toRgb();

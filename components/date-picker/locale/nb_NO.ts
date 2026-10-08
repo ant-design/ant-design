@@ -13,6 +13,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'Velg uke',
     rangePlaceholder: ['Startdato', 'Sluttdato'],
     rangeYearPlaceholder: ['Startår', 'Sluttår'],
+    rangeQuarterPlaceholder: ['Startkvartal', 'Sluttkvartal'],
     rangeMonthPlaceholder: ['Startmåned', 'Sluttmåned'],
     rangeWeekPlaceholder: ['Start uke', 'Sluttuke'],
     ...CalendarLocale,

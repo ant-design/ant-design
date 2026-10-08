@@ -15,6 +15,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'Выберите неделю',
     rangePlaceholder: ['Начальная дата', 'Конечная дата'],
     rangeYearPlaceholder: ['Начальный год', 'Год окончания'],
+    rangeQuarterPlaceholder: ['Начальный квартал', 'Конечный квартал'],
     rangeMonthPlaceholder: ['Начальный месяц', 'Конечный месяц'],
     rangeWeekPlaceholder: ['Начальная неделя', 'Конечная неделя'],
     shortWeekDays: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],

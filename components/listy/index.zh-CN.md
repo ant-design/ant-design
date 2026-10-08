@@ -33,7 +33,7 @@ tag: 6.6.0
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classNames | 语义化结构 class | `{ root?, item?, groupHeader? }` | - | 6.6.0 | 6.6.0 |
 | group | 分组配置，见下方 [Group](#group) | `Group<T, K>` | - | 6.6.0 | × |

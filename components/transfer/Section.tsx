@@ -1,9 +1,9 @@
 import React, { useMemo, useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import { omit } from '@rc-component/util';
+import { isNonNullable, omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isFunction, isNonNullable, isNumber, isPlainObject, isString } from '../_util/is';
+import { isFunction, isNumber, isPlainObject, isString } from '../_util/is';
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
@@ -82,6 +82,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
     key: TransferKey,
     check: boolean,
     e?: React.MouseEvent<Element, MouseEvent>,
+    filteredItems?: RecordType[],
   ) => void;
   onItemSelectAll: (dataSource: TransferKey[], checkAll: boolean | 'replace') => void;
   onItemRemove?: (keys: TransferKey[]) => void;
@@ -304,7 +305,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
 
   const checkBox = (
     <Checkbox
-      disabled={!dataSource.some((d) => !d.disabled) || disabled}
+      disabled={!filteredItems.some((d) => !d.disabled) || disabled}
       checked={checkStatus === 'all'}
       indeterminate={checkStatus === 'part'}
       className={`${listPrefixCls}-checkbox`}
@@ -330,7 +331,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   };
 
   // Custom Layout
-  const footerDom = footer && (footer.length < 2 ? footer(props) : footer(props, { direction }));
+  const footerDom = footer?.(props, { direction });
 
   // Get filtered, checked item list
   const listFooter = footerDom ? (

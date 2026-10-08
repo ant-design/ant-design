@@ -1564,822 +1564,781 @@ exports[`renders components/steps/demo/icon.tsx extend context correctly 2`] = `
 
 exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] = `
 <div
-  class="ant-list ant-list-split css-var-test-id"
+  class="ant-listy css-var-test-id ant-listy-css-var"
+  style="overflow-anchor: none;"
 >
   <div
-    aria-busy="false"
-    aria-live="polite"
-    class="ant-spin css-var-test-id"
+    class="ant-listy-item"
+    data-key="item:Ant Design Title 1"
   >
     <div
-      class="ant-spin-container"
+      class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-middle"
     >
-      <ul
-        class="ant-list-items ant-list-container css-var-test-id"
+      <span
+        class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
       >
-        <li
-          class="ant-list-item"
+        <img
+          src="https://api.dicebear.com/10.x/lorelei/svg?seed=0"
+        />
+      </span>
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+        style="min-width: 0; flex: 1 1 auto;"
+      >
+        <a
+          href="https://ant.design"
+        >
+          Ant Design Title 1
+        </a>
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Ant Design, a design language for background applications, is refined by Ant UED Team
+        </span>
+        <div
+          class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-inline ant-steps-dot css-var-test-id"
+          style="--ant-cmp-steps-items-offset: 0; margin-top: 8px;"
         >
           <div
-            class="ant-list-item-meta"
+            aria-describedby="test-id"
+            class="ant-steps-item ant-steps-item-process ant-steps-item-active"
           >
             <div
-              class="ant-list-item-meta-avatar"
+              class="ant-steps-item-wrapper"
             >
-              <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
-              >
-                <img
-                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=0"
-                />
-              </span>
-            </div>
-            <div
-              class="ant-list-item-meta-content"
-            >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="https://ant.design"
-                >
-                  Ant Design Title 1
-                </a>
-              </h4>
               <div
-                class="ant-list-item-meta-description"
+                class="ant-steps-item-icon ant-wave-target"
+              />
+              <div
+                class="ant-steps-item-section"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team
+                <div
+                  class="ant-steps-item-header"
+                >
+                  <div
+                    class="ant-steps-item-title"
+                  >
+                    Step 1
+                  </div>
+                  <div
+                    class="ant-steps-item-rail ant-steps-item-rail-wait"
+                  />
+                </div>
+                <div
+                  class="ant-steps-item-content"
+                >
+                  This is Step 1
+                </div>
               </div>
             </div>
           </div>
           <div
-            class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-inline ant-steps-dot css-var-test-id"
-            style="--ant-cmp-steps-items-offset: 0; margin-top: 8px;"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
-              aria-describedby="test-id"
-              class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+              class="ant-tooltip-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            >
+              This is Step 1
+            </div>
+          </div>
+          <div
+            aria-describedby="test-id"
+            class="ant-steps-item ant-steps-item-wait"
+          >
+            <div
+              class="ant-steps-item-wrapper"
             >
               <div
-                class="ant-steps-item-wrapper"
+                class="ant-steps-item-icon ant-wave-target"
+              />
+              <div
+                class="ant-steps-item-section"
               >
                 <div
-                  class="ant-steps-item-icon ant-wave-target"
-                />
-                <div
-                  class="ant-steps-item-section"
+                  class="ant-steps-item-header"
                 >
                   <div
-                    class="ant-steps-item-header"
+                    class="ant-steps-item-title"
                   >
-                    <div
-                      class="ant-steps-item-title"
-                    >
-                      Step 1
-                    </div>
-                    <div
-                      class="ant-steps-item-rail ant-steps-item-rail-wait"
-                    />
+                    Step 2
                   </div>
                   <div
-                    class="ant-steps-item-content"
-                  >
-                    This is Step 1
-                  </div>
+                    class="ant-steps-item-rail ant-steps-item-rail-wait"
+                  />
                 </div>
-              </div>
-            </div>
-            <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position: absolute; bottom: 0px; left: 0px;"
-              >
-                <span
-                  class="ant-tooltip-arrow-content"
-                />
-              </div>
-              <div
-                class="ant-tooltip-container"
-                id="test-id"
-                role="tooltip"
-              >
-                This is Step 1
-              </div>
-            </div>
-            <div
-              aria-describedby="test-id"
-              class="ant-steps-item ant-steps-item-wait"
-            >
-              <div
-                class="ant-steps-item-wrapper"
-              >
                 <div
-                  class="ant-steps-item-icon ant-wave-target"
-                />
-                <div
-                  class="ant-steps-item-section"
+                  class="ant-steps-item-content"
                 >
-                  <div
-                    class="ant-steps-item-header"
-                  >
-                    <div
-                      class="ant-steps-item-title"
-                    >
-                      Step 2
-                    </div>
-                    <div
-                      class="ant-steps-item-rail ant-steps-item-rail-wait"
-                    />
-                  </div>
-                  <div
-                    class="ant-steps-item-content"
-                  >
-                    This is Step 2
-                  </div>
+                  This is Step 2
                 </div>
-              </div>
-            </div>
-            <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position: absolute; bottom: 0px; left: 0px;"
-              >
-                <span
-                  class="ant-tooltip-arrow-content"
-                />
-              </div>
-              <div
-                class="ant-tooltip-container"
-                id="test-id"
-                role="tooltip"
-              >
-                This is Step 2
-              </div>
-            </div>
-            <div
-              aria-describedby="test-id"
-              class="ant-steps-item ant-steps-item-wait"
-            >
-              <div
-                class="ant-steps-item-wrapper"
-              >
-                <div
-                  class="ant-steps-item-icon ant-wave-target"
-                />
-                <div
-                  class="ant-steps-item-section"
-                >
-                  <div
-                    class="ant-steps-item-header"
-                  >
-                    <div
-                      class="ant-steps-item-title"
-                    >
-                      Step 3
-                    </div>
-                  </div>
-                  <div
-                    class="ant-steps-item-content"
-                  >
-                    This is Step 3
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position: absolute; bottom: 0px; left: 0px;"
-              >
-                <span
-                  class="ant-tooltip-arrow-content"
-                />
-              </div>
-              <div
-                class="ant-tooltip-container"
-                id="test-id"
-                role="tooltip"
-              >
-                This is Step 3
               </div>
             </div>
           </div>
-        </li>
-        <li
-          class="ant-list-item"
+          <div
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+          >
+            <div
+              class="ant-tooltip-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            >
+              This is Step 2
+            </div>
+          </div>
+          <div
+            aria-describedby="test-id"
+            class="ant-steps-item ant-steps-item-wait"
+          >
+            <div
+              class="ant-steps-item-wrapper"
+            >
+              <div
+                class="ant-steps-item-icon ant-wave-target"
+              />
+              <div
+                class="ant-steps-item-section"
+              >
+                <div
+                  class="ant-steps-item-header"
+                >
+                  <div
+                    class="ant-steps-item-title"
+                  >
+                    Step 3
+                  </div>
+                </div>
+                <div
+                  class="ant-steps-item-content"
+                >
+                  This is Step 3
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+          >
+            <div
+              class="ant-tooltip-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            >
+              This is Step 3
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:Ant Design Title 2"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-middle"
+    >
+      <span
+        class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+      >
+        <img
+          src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
+        />
+      </span>
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+        style="min-width: 0; flex: 1 1 auto;"
+      >
+        <a
+          href="https://ant.design"
+        >
+          Ant Design Title 2
+        </a>
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Ant Design, a design language for background applications, is refined by Ant UED Team
+        </span>
+        <div
+          class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-inline ant-steps-dot css-var-test-id"
+          style="--ant-cmp-steps-items-offset: 0; margin-top: 8px;"
         >
           <div
-            class="ant-list-item-meta"
+            aria-describedby="test-id"
+            class="ant-steps-item ant-steps-item-finish"
           >
             <div
-              class="ant-list-item-meta-avatar"
+              class="ant-steps-item-wrapper"
             >
-              <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
-              >
-                <img
-                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=1"
-                />
-              </span>
-            </div>
-            <div
-              class="ant-list-item-meta-content"
-            >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="https://ant.design"
-                >
-                  Ant Design Title 2
-                </a>
-              </h4>
               <div
-                class="ant-list-item-meta-description"
+                class="ant-steps-item-icon ant-wave-target"
+              />
+              <div
+                class="ant-steps-item-section"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team
+                <div
+                  class="ant-steps-item-header"
+                >
+                  <div
+                    class="ant-steps-item-title"
+                  >
+                    Step 1
+                  </div>
+                  <div
+                    class="ant-steps-item-rail ant-steps-item-rail-error"
+                  />
+                </div>
+                <div
+                  class="ant-steps-item-content"
+                >
+                  This is Step 1
+                </div>
               </div>
             </div>
           </div>
           <div
-            class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-inline ant-steps-dot css-var-test-id"
-            style="--ant-cmp-steps-items-offset: 0; margin-top: 8px;"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
-              aria-describedby="test-id"
-              class="ant-steps-item ant-steps-item-finish"
+              class="ant-tooltip-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            >
+              This is Step 1
+            </div>
+          </div>
+          <div
+            aria-describedby="test-id"
+            class="ant-steps-item ant-steps-item-error ant-steps-item-active"
+          >
+            <div
+              class="ant-steps-item-wrapper"
             >
               <div
-                class="ant-steps-item-wrapper"
+                class="ant-steps-item-icon ant-wave-target"
+              />
+              <div
+                class="ant-steps-item-section"
               >
                 <div
-                  class="ant-steps-item-icon ant-wave-target"
-                />
-                <div
-                  class="ant-steps-item-section"
+                  class="ant-steps-item-header"
                 >
                   <div
-                    class="ant-steps-item-header"
+                    class="ant-steps-item-title"
                   >
-                    <div
-                      class="ant-steps-item-title"
-                    >
-                      Step 1
-                    </div>
-                    <div
-                      class="ant-steps-item-rail ant-steps-item-rail-error"
-                    />
+                    Step 2
                   </div>
                   <div
-                    class="ant-steps-item-content"
-                  >
-                    This is Step 1
-                  </div>
+                    class="ant-steps-item-rail ant-steps-item-rail-wait"
+                  />
                 </div>
-              </div>
-            </div>
-            <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position: absolute; bottom: 0px; left: 0px;"
-              >
-                <span
-                  class="ant-tooltip-arrow-content"
-                />
-              </div>
-              <div
-                class="ant-tooltip-container"
-                id="test-id"
-                role="tooltip"
-              >
-                This is Step 1
-              </div>
-            </div>
-            <div
-              aria-describedby="test-id"
-              class="ant-steps-item ant-steps-item-error ant-steps-item-active"
-            >
-              <div
-                class="ant-steps-item-wrapper"
-              >
                 <div
-                  class="ant-steps-item-icon ant-wave-target"
-                />
-                <div
-                  class="ant-steps-item-section"
+                  class="ant-steps-item-content"
                 >
-                  <div
-                    class="ant-steps-item-header"
-                  >
-                    <div
-                      class="ant-steps-item-title"
-                    >
-                      Step 2
-                    </div>
-                    <div
-                      class="ant-steps-item-rail ant-steps-item-rail-wait"
-                    />
-                  </div>
-                  <div
-                    class="ant-steps-item-content"
-                  >
-                    This is Step 2
-                  </div>
+                  This is Step 2
                 </div>
-              </div>
-            </div>
-            <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position: absolute; bottom: 0px; left: 0px;"
-              >
-                <span
-                  class="ant-tooltip-arrow-content"
-                />
-              </div>
-              <div
-                class="ant-tooltip-container"
-                id="test-id"
-                role="tooltip"
-              >
-                This is Step 2
-              </div>
-            </div>
-            <div
-              aria-describedby="test-id"
-              class="ant-steps-item ant-steps-item-wait"
-            >
-              <div
-                class="ant-steps-item-wrapper"
-              >
-                <div
-                  class="ant-steps-item-icon ant-wave-target"
-                />
-                <div
-                  class="ant-steps-item-section"
-                >
-                  <div
-                    class="ant-steps-item-header"
-                  >
-                    <div
-                      class="ant-steps-item-title"
-                    >
-                      Step 3
-                    </div>
-                  </div>
-                  <div
-                    class="ant-steps-item-content"
-                  >
-                    This is Step 3
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position: absolute; bottom: 0px; left: 0px;"
-              >
-                <span
-                  class="ant-tooltip-arrow-content"
-                />
-              </div>
-              <div
-                class="ant-tooltip-container"
-                id="test-id"
-                role="tooltip"
-              >
-                This is Step 3
               </div>
             </div>
           </div>
-        </li>
-        <li
-          class="ant-list-item"
+          <div
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+          >
+            <div
+              class="ant-tooltip-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            >
+              This is Step 2
+            </div>
+          </div>
+          <div
+            aria-describedby="test-id"
+            class="ant-steps-item ant-steps-item-wait"
+          >
+            <div
+              class="ant-steps-item-wrapper"
+            >
+              <div
+                class="ant-steps-item-icon ant-wave-target"
+              />
+              <div
+                class="ant-steps-item-section"
+              >
+                <div
+                  class="ant-steps-item-header"
+                >
+                  <div
+                    class="ant-steps-item-title"
+                  >
+                    Step 3
+                  </div>
+                </div>
+                <div
+                  class="ant-steps-item-content"
+                >
+                  This is Step 3
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+          >
+            <div
+              class="ant-tooltip-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            >
+              This is Step 3
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:Ant Design Title 3"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-middle"
+    >
+      <span
+        class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+      >
+        <img
+          src="https://api.dicebear.com/10.x/lorelei/svg?seed=2"
+        />
+      </span>
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+        style="min-width: 0; flex: 1 1 auto;"
+      >
+        <a
+          href="https://ant.design"
+        >
+          Ant Design Title 3
+        </a>
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Ant Design, a design language for background applications, is refined by Ant UED Team
+        </span>
+        <div
+          class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-inline ant-steps-dot css-var-test-id"
+          style="--ant-cmp-steps-items-offset: 0; margin-top: 8px;"
         >
           <div
-            class="ant-list-item-meta"
+            aria-describedby="test-id"
+            class="ant-steps-item ant-steps-item-finish"
           >
             <div
-              class="ant-list-item-meta-avatar"
+              class="ant-steps-item-wrapper"
             >
-              <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
-              >
-                <img
-                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=2"
-                />
-              </span>
-            </div>
-            <div
-              class="ant-list-item-meta-content"
-            >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="https://ant.design"
-                >
-                  Ant Design Title 3
-                </a>
-              </h4>
               <div
-                class="ant-list-item-meta-description"
+                class="ant-steps-item-icon ant-wave-target"
+              />
+              <div
+                class="ant-steps-item-section"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team
+                <div
+                  class="ant-steps-item-header"
+                >
+                  <div
+                    class="ant-steps-item-title"
+                  >
+                    Step 1
+                  </div>
+                  <div
+                    class="ant-steps-item-rail ant-steps-item-rail-finish"
+                  />
+                </div>
+                <div
+                  class="ant-steps-item-content"
+                >
+                  This is Step 1
+                </div>
               </div>
             </div>
           </div>
           <div
-            class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-inline ant-steps-dot css-var-test-id"
-            style="--ant-cmp-steps-items-offset: 0; margin-top: 8px;"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
-              aria-describedby="test-id"
-              class="ant-steps-item ant-steps-item-finish"
+              class="ant-tooltip-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            >
+              This is Step 1
+            </div>
+          </div>
+          <div
+            aria-describedby="test-id"
+            class="ant-steps-item ant-steps-item-finish"
+          >
+            <div
+              class="ant-steps-item-wrapper"
             >
               <div
-                class="ant-steps-item-wrapper"
+                class="ant-steps-item-icon ant-wave-target"
+              />
+              <div
+                class="ant-steps-item-section"
               >
                 <div
-                  class="ant-steps-item-icon ant-wave-target"
-                />
-                <div
-                  class="ant-steps-item-section"
+                  class="ant-steps-item-header"
                 >
                   <div
-                    class="ant-steps-item-header"
+                    class="ant-steps-item-title"
                   >
-                    <div
-                      class="ant-steps-item-title"
-                    >
-                      Step 1
-                    </div>
-                    <div
-                      class="ant-steps-item-rail ant-steps-item-rail-finish"
-                    />
+                    Step 2
                   </div>
                   <div
-                    class="ant-steps-item-content"
-                  >
-                    This is Step 1
-                  </div>
+                    class="ant-steps-item-rail ant-steps-item-rail-process"
+                  />
                 </div>
-              </div>
-            </div>
-            <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position: absolute; bottom: 0px; left: 0px;"
-              >
-                <span
-                  class="ant-tooltip-arrow-content"
-                />
-              </div>
-              <div
-                class="ant-tooltip-container"
-                id="test-id"
-                role="tooltip"
-              >
-                This is Step 1
-              </div>
-            </div>
-            <div
-              aria-describedby="test-id"
-              class="ant-steps-item ant-steps-item-finish"
-            >
-              <div
-                class="ant-steps-item-wrapper"
-              >
                 <div
-                  class="ant-steps-item-icon ant-wave-target"
-                />
-                <div
-                  class="ant-steps-item-section"
+                  class="ant-steps-item-content"
                 >
-                  <div
-                    class="ant-steps-item-header"
-                  >
-                    <div
-                      class="ant-steps-item-title"
-                    >
-                      Step 2
-                    </div>
-                    <div
-                      class="ant-steps-item-rail ant-steps-item-rail-process"
-                    />
-                  </div>
-                  <div
-                    class="ant-steps-item-content"
-                  >
-                    This is Step 2
-                  </div>
+                  This is Step 2
                 </div>
-              </div>
-            </div>
-            <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position: absolute; bottom: 0px; left: 0px;"
-              >
-                <span
-                  class="ant-tooltip-arrow-content"
-                />
-              </div>
-              <div
-                class="ant-tooltip-container"
-                id="test-id"
-                role="tooltip"
-              >
-                This is Step 2
-              </div>
-            </div>
-            <div
-              aria-describedby="test-id"
-              class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-            >
-              <div
-                class="ant-steps-item-wrapper"
-              >
-                <div
-                  class="ant-steps-item-icon ant-wave-target"
-                />
-                <div
-                  class="ant-steps-item-section"
-                >
-                  <div
-                    class="ant-steps-item-header"
-                  >
-                    <div
-                      class="ant-steps-item-title"
-                    >
-                      Step 3
-                    </div>
-                  </div>
-                  <div
-                    class="ant-steps-item-content"
-                  >
-                    This is Step 3
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position: absolute; bottom: 0px; left: 0px;"
-              >
-                <span
-                  class="ant-tooltip-arrow-content"
-                />
-              </div>
-              <div
-                class="ant-tooltip-container"
-                id="test-id"
-                role="tooltip"
-              >
-                This is Step 3
               </div>
             </div>
           </div>
-        </li>
-        <li
-          class="ant-list-item"
+          <div
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+          >
+            <div
+              class="ant-tooltip-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            >
+              This is Step 2
+            </div>
+          </div>
+          <div
+            aria-describedby="test-id"
+            class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+          >
+            <div
+              class="ant-steps-item-wrapper"
+            >
+              <div
+                class="ant-steps-item-icon ant-wave-target"
+              />
+              <div
+                class="ant-steps-item-section"
+              >
+                <div
+                  class="ant-steps-item-header"
+                >
+                  <div
+                    class="ant-steps-item-title"
+                  >
+                    Step 3
+                  </div>
+                </div>
+                <div
+                  class="ant-steps-item-content"
+                >
+                  This is Step 3
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+          >
+            <div
+              class="ant-tooltip-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            >
+              This is Step 3
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:Ant Design Title 4"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-middle"
+    >
+      <span
+        class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+      >
+        <img
+          src="https://api.dicebear.com/10.x/lorelei/svg?seed=3"
+        />
+      </span>
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+        style="min-width: 0; flex: 1 1 auto;"
+      >
+        <a
+          href="https://ant.design"
+        >
+          Ant Design Title 4
+        </a>
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Ant Design, a design language for background applications, is refined by Ant UED Team
+        </span>
+        <div
+          class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-inline ant-steps-dot css-var-test-id"
+          style="--ant-cmp-steps-items-offset: 0; margin-top: 8px;"
         >
           <div
-            class="ant-list-item-meta"
+            aria-describedby="test-id"
+            class="ant-steps-item ant-steps-item-finish"
           >
             <div
-              class="ant-list-item-meta-avatar"
+              class="ant-steps-item-wrapper"
             >
-              <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
-              >
-                <img
-                  src="https://api.dicebear.com/10.x/lorelei/svg?seed=3"
-                />
-              </span>
-            </div>
-            <div
-              class="ant-list-item-meta-content"
-            >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="https://ant.design"
-                >
-                  Ant Design Title 4
-                </a>
-              </h4>
               <div
-                class="ant-list-item-meta-description"
+                class="ant-steps-item-icon ant-wave-target"
+              />
+              <div
+                class="ant-steps-item-section"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team
+                <div
+                  class="ant-steps-item-header"
+                >
+                  <div
+                    class="ant-steps-item-title"
+                  >
+                    Step 1
+                  </div>
+                  <div
+                    class="ant-steps-item-rail ant-steps-item-rail-process"
+                  />
+                </div>
+                <div
+                  class="ant-steps-item-content"
+                >
+                  This is Step 1
+                </div>
               </div>
             </div>
           </div>
           <div
-            class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-inline ant-steps-dot css-var-test-id"
-            style="--ant-cmp-steps-items-offset: 0; margin-top: 8px;"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
-              aria-describedby="test-id"
-              class="ant-steps-item ant-steps-item-finish"
+              class="ant-tooltip-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            >
+              This is Step 1
+            </div>
+          </div>
+          <div
+            aria-describedby="test-id"
+            class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+          >
+            <div
+              class="ant-steps-item-wrapper"
             >
               <div
-                class="ant-steps-item-wrapper"
+                class="ant-steps-item-icon ant-wave-target"
+              />
+              <div
+                class="ant-steps-item-section"
               >
                 <div
-                  class="ant-steps-item-icon ant-wave-target"
-                />
-                <div
-                  class="ant-steps-item-section"
+                  class="ant-steps-item-header"
                 >
                   <div
-                    class="ant-steps-item-header"
+                    class="ant-steps-item-title"
                   >
-                    <div
-                      class="ant-steps-item-title"
-                    >
-                      Step 1
-                    </div>
-                    <div
-                      class="ant-steps-item-rail ant-steps-item-rail-process"
-                    />
+                    Step 2
                   </div>
                   <div
-                    class="ant-steps-item-content"
-                  >
-                    This is Step 1
-                  </div>
+                    class="ant-steps-item-rail ant-steps-item-rail-wait"
+                  />
                 </div>
-              </div>
-            </div>
-            <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position: absolute; bottom: 0px; left: 0px;"
-              >
-                <span
-                  class="ant-tooltip-arrow-content"
-                />
-              </div>
-              <div
-                class="ant-tooltip-container"
-                id="test-id"
-                role="tooltip"
-              >
-                This is Step 1
-              </div>
-            </div>
-            <div
-              aria-describedby="test-id"
-              class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-            >
-              <div
-                class="ant-steps-item-wrapper"
-              >
                 <div
-                  class="ant-steps-item-icon ant-wave-target"
-                />
-                <div
-                  class="ant-steps-item-section"
+                  class="ant-steps-item-content"
                 >
-                  <div
-                    class="ant-steps-item-header"
-                  >
-                    <div
-                      class="ant-steps-item-title"
-                    >
-                      Step 2
-                    </div>
-                    <div
-                      class="ant-steps-item-rail ant-steps-item-rail-wait"
-                    />
-                  </div>
-                  <div
-                    class="ant-steps-item-content"
-                  >
-                    This is Step 2
-                  </div>
+                  This is Step 2
                 </div>
-              </div>
-            </div>
-            <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position: absolute; bottom: 0px; left: 0px;"
-              >
-                <span
-                  class="ant-tooltip-arrow-content"
-                />
-              </div>
-              <div
-                class="ant-tooltip-container"
-                id="test-id"
-                role="tooltip"
-              >
-                This is Step 2
-              </div>
-            </div>
-            <div
-              aria-describedby="test-id"
-              class="ant-steps-item ant-steps-item-wait"
-            >
-              <div
-                class="ant-steps-item-wrapper"
-              >
-                <div
-                  class="ant-steps-item-icon ant-wave-target"
-                />
-                <div
-                  class="ant-steps-item-section"
-                >
-                  <div
-                    class="ant-steps-item-header"
-                  >
-                    <div
-                      class="ant-steps-item-title"
-                    >
-                      Step 3
-                    </div>
-                  </div>
-                  <div
-                    class="ant-steps-item-content"
-                  >
-                    This is Step 3
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position: absolute; bottom: 0px; left: 0px;"
-              >
-                <span
-                  class="ant-tooltip-arrow-content"
-                />
-              </div>
-              <div
-                class="ant-tooltip-container"
-                id="test-id"
-                role="tooltip"
-              >
-                This is Step 3
               </div>
             </div>
           </div>
-        </li>
-      </ul>
+          <div
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+          >
+            <div
+              class="ant-tooltip-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            >
+              This is Step 2
+            </div>
+          </div>
+          <div
+            aria-describedby="test-id"
+            class="ant-steps-item ant-steps-item-wait"
+          >
+            <div
+              class="ant-steps-item-wrapper"
+            >
+              <div
+                class="ant-steps-item-icon ant-wave-target"
+              />
+              <div
+                class="ant-steps-item-section"
+              >
+                <div
+                  class="ant-steps-item-header"
+                >
+                  <div
+                    class="ant-steps-item-title"
+                  >
+                    Step 3
+                  </div>
+                </div>
+                <div
+                  class="ant-steps-item-content"
+                >
+                  This is Step 3
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+          >
+            <div
+              class="ant-tooltip-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-container"
+              id="test-id"
+              role="tooltip"
+            >
+              This is Step 3
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`renders components/steps/demo/inline.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
-]
-`;
+exports[`renders components/steps/demo/inline.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/inline-variant.tsx extend context correctly 1`] = `
 <div
@@ -4152,14 +4111,12 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
         </div>
       </div>
       <svg
+        aria-hidden="true"
         class="ant-steps-panel-arrow"
         preserveAspectRatio="none"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <title>
-          Arrow
-        </title>
         <path
           d="M 0 0 L 100 50 L 0 100"
         />
@@ -4220,14 +4177,12 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
         </div>
       </div>
       <svg
+        aria-hidden="true"
         class="ant-steps-panel-arrow"
         preserveAspectRatio="none"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <title>
-          Arrow
-        </title>
         <path
           d="M 0 0 L 100 50 L 0 100"
         />
@@ -4270,14 +4225,12 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
         </div>
       </div>
       <svg
+        aria-hidden="true"
         class="ant-steps-panel-arrow"
         preserveAspectRatio="none"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <title>
-          Arrow
-        </title>
         <path
           d="M 0 0 L 100 50 L 0 100"
         />
@@ -4334,14 +4287,12 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
         </div>
       </div>
       <svg
+        aria-hidden="true"
         class="ant-steps-panel-arrow"
         preserveAspectRatio="none"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <title>
-          Arrow
-        </title>
         <path
           d="M 0 0 L 100 50 L 0 100"
         />
@@ -4402,14 +4353,12 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
         </div>
       </div>
       <svg
+        aria-hidden="true"
         class="ant-steps-panel-arrow"
         preserveAspectRatio="none"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <title>
-          Arrow
-        </title>
         <path
           d="M 0 0 L 100 50 L 0 100"
         />
@@ -4452,14 +4401,12 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
         </div>
       </div>
       <svg
+        aria-hidden="true"
         class="ant-steps-panel-arrow"
         preserveAspectRatio="none"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <title>
-          Arrow
-        </title>
         <path
           d="M 0 0 L 100 50 L 0 100"
         />
@@ -4543,13 +4490,11 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
           aria-valuenow="60"
           class="ant-steps-item-progress-icon-svg"
           height="100%"
+          role="progressbar"
           viewBox="0 0 100 100"
           width="100%"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <title>
-            Progress
-          </title>
           <circle
             class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
           />
@@ -4768,13 +4713,11 @@ Array [
             aria-valuenow="0"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -4926,13 +4869,11 @@ Array [
             aria-valuenow="0"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -5084,13 +5025,11 @@ Array [
             aria-valuenow="0"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -5242,13 +5181,11 @@ Array [
             aria-valuenow="0"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -7192,13 +7129,11 @@ Array [
             aria-valuenow="60"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -7345,13 +7280,11 @@ Array [
             aria-valuenow="80"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -7963,13 +7896,11 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
             aria-valuenow="60"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -8124,13 +8055,11 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
               aria-valuenow="60"
               class="ant-steps-item-progress-icon-svg"
               height="100%"
+              role="progressbar"
               viewBox="0 0 100 100"
               width="100%"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>
-                Progress
-              </title>
               <circle
                 class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
               />
@@ -8282,13 +8211,11 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
               aria-valuenow="60"
               class="ant-steps-item-progress-icon-svg"
               height="100%"
+              role="progressbar"
               viewBox="0 0 100 100"
               width="100%"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>
-                Progress
-              </title>
               <circle
                 class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
               />

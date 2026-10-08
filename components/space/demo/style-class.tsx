@@ -25,7 +25,7 @@ const classNamesFn: SpaceProps['classNames'] = (
 const stylesObject: SpaceProps['styles'] = {
   root: { borderWidth: 2, borderStyle: 'dashed', padding: 8, marginBottom: 10 },
   item: { backgroundColor: '#f0f0f0', padding: 4 },
-  separator: { color: 'red', fontWeight: 'bold' },
+  separator: { color: 'red', fontWeight: 700 },
 };
 
 const stylesFn: SpaceProps['styles'] = (info): GetProp<SpaceProps, 'styles', 'Return'> => {

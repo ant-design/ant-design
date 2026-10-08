@@ -86,6 +86,10 @@ const localeValues: Locale = {
     expand: '展開',
     collapse: '收合',
   },
+  Carousel: {
+    prevSlide: '上一張投影片',
+    nextSlide: '下一張投影片',
+  },
   Form: {
     optional: '（選填）',
     defaultValidateMessages: {
@@ -145,7 +149,7 @@ const localeValues: Locale = {
     presetEmpty: '暫無',
     transparent: '透明',
     singleColor: '單色',
-    gradientColor: '漸變色',
+    gradientColor: '漸層色',
   },
 };
 

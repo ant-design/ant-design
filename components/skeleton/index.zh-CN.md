@@ -37,7 +37,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 
 ### Skeleton
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | active | 是否展示动画效果 | boolean | false |  | × |
 | avatar | 是否显示头像占位图 | boolean \| [SkeletonAvatar](#skeletonavatar) | false |  | × |

@@ -440,6 +440,35 @@ describe('Table.filter', () => {
     expect(container.querySelectorAll('tbody tr').length).toBe(4);
   });
 
+  it('controlled filteredValue still applies when column is hidden by responsive', () => {
+    const columns: ColumnType<any>[] = [
+      { title: 'Name', dataIndex: 'name' },
+      {
+        title: 'Status',
+        dataIndex: 'status',
+        responsive: ['md'],
+        filteredValue: ['enabled'],
+        filters: [
+          { text: 'Enabled', value: 'enabled' },
+          { text: 'Disabled', value: 'disabled' },
+        ],
+        onFilter: (value, record) => record.status === value,
+      },
+    ];
+    const dataSource = [
+      { key: '1', name: 'Alice', status: 'enabled' },
+      { key: '2', name: 'Bob', status: 'disabled' },
+      { key: '3', name: 'Carol', status: 'enabled' },
+    ];
+
+    const { container } = render(
+      <Table columns={columns} dataSource={dataSource} pagination={false} />,
+    );
+
+    expect(container.querySelectorAll('thead th')).toHaveLength(1);
+    expect(renderedNames(container)).toEqual(['Alice', 'Carol']);
+  });
+
   it('should handle filteredValue and non-array filterValue as expected', () => {
     let filterKeys = new Set();
 
@@ -2462,6 +2491,46 @@ describe('Table.filter', () => {
     expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
   });
 
+  it('filterMultiple is false - supports empty string value in tree mode', () => {
+    const { container } = render(
+      createTable({
+        dataSource: [
+          { key: 'blank', status: '', name: 'Blank row' },
+          { key: 'filled', status: 'filled', name: 'Filled row' },
+        ],
+        columns: [
+          { title: 'Name', dataIndex: 'name' },
+          {
+            title: 'Status',
+            dataIndex: 'status',
+            filterMode: 'tree',
+            filterMultiple: false,
+            filters: [
+              { text: 'Empty value', value: '' },
+              { text: 'Filled value', value: 'filled' },
+            ],
+            onFilter: (value, record) => record.status === value,
+          },
+        ],
+      }),
+    );
+
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
+    act(() => {
+      jest.runAllTimers();
+    });
+    fireEvent.click(container.querySelectorAll('.ant-tree-checkbox')[0]);
+
+    expect(container.querySelectorAll('.ant-tree-checkbox-checked')).toHaveLength(1);
+
+    fireEvent.click(
+      container.querySelector(
+        '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
+      )!,
+    );
+    expect(renderedNames(container)).toEqual(['Blank row']);
+  });
+
   it('filterMultiple is false - select item', () => {
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
     const { container } = render(
@@ -3149,6 +3218,33 @@ describe('Table.filter', () => {
       fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
       expect(dropdownRender).toHaveBeenCalled();
       expect(React.isValidElement<any>(dropdownRender.mock.calls[0][0])).toBeTruthy();
+      expect(getByText('Foo')).toBeTruthy();
+    });
+
+    it('popupRender', () => {
+      const popupRender = jest.fn((node) => (
+        <>
+          {node}
+          <span>Foo</span>
+        </>
+      ));
+
+      const { container, getByText } = render(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterDropdownProps: {
+                popupRender,
+              },
+            },
+          ],
+        }),
+      );
+
+      fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+      expect(popupRender).toHaveBeenCalled();
+      expect(React.isValidElement<any>(popupRender.mock.calls[0][0])).toBeTruthy();
       expect(getByText('Foo')).toBeTruthy();
     });
 

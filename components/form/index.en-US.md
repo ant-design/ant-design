@@ -79,7 +79,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | labelAlign | The text align of label of all items | `left` \| `right` | `right` |  | 6.4.0 |
 | labelWrap | whether label can be wrap | boolean | false | 4.18.0 | × |
 | labelCol | Label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](/components/grid/#col) | - |  | × |
-| layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |  | × |
+| layout | Form layout. By default, `horizontal` stacks labels above controls when the viewport width is `575px` or less. Use the `xs` settings in `labelCol` and `wrapperCol` to customize column widths on narrow screens | `horizontal` \| `vertical` \| `inline` | `horizontal` |  | × |
 | name | Form name. Will be the prefix of Field `id` | string | - |  | × |
 | preserve | Keep field value even when field removed. You can get the preserve field value by `getFieldsValue(true)` | boolean | true | 4.4.0 | × |
 | requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | boolean \| `optional` \| ((label: ReactNode, info: { required: boolean }) => ReactNode) | true | `renderProps`: 5.9.0 | 4.8.0 |
@@ -170,7 +170,7 @@ After wrapped by `Form.Item` with `name` property, `value`(or other property def
 
 ### dependencies
 
-Used when there are dependencies between fields. If a field has the `dependencies` prop, this field will automatically trigger updates and validations when upstream is updated. A common scenario is a user registration form with "password" and "confirm password" fields. The "Confirm Password" validation depends on the "Password" field. After setting `dependencies`, the "Password" field update will re-trigger the validation of "Check Password". You can refer [examples](#form-demo-dependencies).
+Used when there are dependencies between fields. If a field has the `dependencies` prop, this field will automatically trigger updates and validations when upstream is updated. A common scenario is a user registration form with "password" and "confirm password" fields. The "Confirm Password" validation depends on the "Password" field. After setting `dependencies`, the "Password" field update will re-trigger the validation of "Check Password". You can refer [examples](#form-demo-form-dependencies).
 
 `dependencies` shouldn't be used together with `shouldUpdate`, since it may result in conflicting update logic.
 
@@ -327,7 +327,7 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | setFields | Set fields status | (fields: [FieldData](#fielddata)\[]) => void |  |
 | setFieldValue | Set fields value(Will directly pass to form store and **reset validation message**. If you do not want to modify passed object, please clone first) | (name: [NamePath](#namepath), value: any) => void | 4.22.0 |
 | setFieldsValue | Set fields value(Will directly pass to form store and **reset validation message**. If you do not want to modify passed object, please clone first). Use `setFieldValue` instead if you want to only config single value in Form.List | (values) => void |  |
-| submit | Submit the form. It's same as click `submit` button | () => void |  |
+| submit | Submit the form. It's the same as clicking the `submit` button | () => void |  |
 | validateFields | Validate fields. Use `recursive` to validate all the field in the path | (nameList?: [NamePath](#namepath)\[], config?: [ValidateConfig](#validatefields)) => Promise |  |
 
 #### validateFields

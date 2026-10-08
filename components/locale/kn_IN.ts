@@ -88,6 +88,10 @@ const localeValues: Locale = {
     expand: 'ಶ್ರೇಣಿಯನ್ನು ವಿಸ್ತರಿಸಿ',
     collapse: 'ಸಾಲುಗಳನ್ನು ಸಂಕುಚಿಸಿ',
   },
+  Carousel: {
+    prevSlide: 'ಹಿಂದಿನ ಸ್ಲೈಡ್',
+    nextSlide: 'ಮುಂದಿನ ಸ್ಲೈಡ್',
+  },
   Form: {
     optional: '(ಐಚ್ಛಿಕ)',
     defaultValidateMessages: {

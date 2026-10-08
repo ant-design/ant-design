@@ -8,6 +8,7 @@ import type {
   NotificationAPI,
   NotificationConfig as RcNotificationConfig,
 } from '@rc-component/notification';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { computeClosable, pickClosable } from '../_util/hooks';
@@ -16,7 +17,7 @@ import {
   useMergeSemantic,
   useSemanticRootStyle,
 } from '../_util/hooks/useMergeSemantic';
-import { isNumber, isPlainObject, isReactRenderable } from '../_util/is';
+import { isNumber, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -228,8 +229,9 @@ export function useInternalNotification(
 
       const semanticClassNames = resolveStyleOrClass(configClassNames, { props: config });
       const semanticStyles = resolveStyleOrClass(styles, { props: config });
-      const iconNode = icon || (type ? TypeIcon[type] : null);
-      const typeIconCls = !icon && type ? `${noticePrefixCls}-icon-${type}` : undefined;
+      const isCustomIcon = isReactRenderable(icon);
+      const iconNode = isCustomIcon ? icon : (type ? TypeIcon[type] : null);
+      const typeIconCls = !isCustomIcon && type ? `${noticePrefixCls}-icon-${type}` : undefined;
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"

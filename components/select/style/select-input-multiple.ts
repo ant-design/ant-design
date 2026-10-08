@@ -117,7 +117,7 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken, CSSObject> = (toke
             display: 'inline-flex',
             alignItems: 'center',
             color: colorIcon,
-            fontWeight: 'bold',
+            fontWeight: 700,
             fontSize: 10,
             lineHeight: 'inherit',
             cursor: 'pointer',

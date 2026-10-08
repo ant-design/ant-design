@@ -51,7 +51,7 @@ demo:
 <Cascader options={options} onChange={onChange} />
 ```
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | allowClear | 支持清除 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象形式 | `clearIcon`: 6.4.0 |
 | ~~autoClearSearchValue~~ | 是否在选中项后清空搜索框，只在 `multiple` 为 `true` 时有效 | boolean | true | 5.9.0 | × |
@@ -65,8 +65,8 @@ demo:
 | tagRender | 自定义 tag 内容 render，仅在多选时生效 | ({ label: string, onClose: function, value: string }) => ReactNode | - |  | × |
 | ~~popupClassName~~ | 自定义浮层类名，使用 `classNames.popup.root` 替换 | string | - | 4.23.0 | × |
 | ~~dropdownClassName~~ | 自定义浮层类名，请使用 `classNames.popup.root` 替代 | string | - | - | × |
-| ~~dropdownRender~~ | 自定义下拉框内容，请使用 `popupRender` 替换 | (menus: ReactNode) => ReactNode | - | 4.4.0 | × |
-| popupRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - |  | × |
+| ~~dropdownRender~~ | 自定义下拉框内容，请使用 `popupRender` 替换 | (menus: ReactElement) => ReactNode | - | 4.4.0 | × |
+| popupRender | 自定义下拉框内容 | (menus: ReactElement) => ReactNode | - |  | × |
 | ~~dropdownStyle~~ | 下拉菜单的 style 属性，使用 `styles.popup.root` 替换 | CSSProperties | - |  | × |
 | expandIcon | 自定义次级菜单展开图标 | ReactNode | - | 4.4.0 | 6.3.0 |
 | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` |  | × |
@@ -94,7 +94,7 @@ demo:
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  | × |
 | onClear | 清除内容时回调 | () => void | - | - | × |
 | ~~onDropdownVisibleChange~~ | 显示/隐藏浮层的回调，请使用 `onOpenChange` 替换 | (value) => void | - | 4.17.0 | × |
-| onOpenChange | 显示/隐藏浮层的回调 | (value) => void | - |  | × |
+| onOpenChange | 显示/隐藏浮层的回调 | (open: boolean) => void | - |  | × |
 | ~~onPopupVisibleChange~~ | 显示或隐藏浮层的回调，请使用 `onOpenChange` 替代 | (value) => void | - | - | × |
 | multiple | 支持多选节点 | boolean | - | 4.17.0 | × |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  | 6.4.0 |

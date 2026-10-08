@@ -83,7 +83,7 @@ describe('Watermark', () => {
       render(
         <Watermark
           content={[
-            { text: 'Ant Design', font: { fontSize: 20, fontWeight: 'bold' } },
+            { text: 'Ant Design', font: { fontSize: 20, fontWeight: 700 } },
             {
               text: 'Happy Working',
               font: { fontFamily: 'serif', fontSize: 12, fontStyle: 'italic' },
@@ -99,9 +99,9 @@ describe('Watermark', () => {
 
       expect(fonts).toEqual(
         expect.arrayContaining([
-          'normal normal bold 20px sans-serif',
-          'italic normal normal 12px serif',
-          'normal normal normal 16px monospace',
+          'normal normal 700 20px sans-serif',
+          'italic normal 400 12px serif',
+          'normal normal 400 16px monospace',
         ]),
       );
       const textCalls = fillText.mock.calls.filter(([text]) =>
@@ -251,6 +251,19 @@ describe('Watermark', () => {
     expect(spy).not.toHaveBeenCalledWith(expect.anything(), -0, 0);
     expect(spy).not.toHaveBeenCalledWith(expect.anything(), -0, -0);
     expect(spy).not.toHaveBeenCalledWith(expect.anything(), 0, -0);
+    spy.mockRestore();
+  });
+
+  it('should not draw a zero-sized canvas if content is undefined', async () => {
+    const spy = jest.spyOn(CanvasRenderingContext2D.prototype, 'drawImage');
+    render(<Watermark className="watermark" />);
+    await waitFakeTimer();
+
+    expect(
+      spy.mock.calls.some(
+        ([image]) => image instanceof HTMLCanvasElement && (!image.width || !image.height),
+      ),
+    ).toBe(false);
     spy.mockRestore();
   });
 

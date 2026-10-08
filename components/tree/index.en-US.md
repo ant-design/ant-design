@@ -142,8 +142,12 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 
 Provides Tree data utilities. `getPath(key)` returns the node entities from the root to the target node, which can be used to update `expandedKeys` in controlled mode.
 
+`getPath` has a stable function identity and reads the latest `treeData` when called. If you memoize a value derived from `getPath`, include `treeData` and the lookup key in the dependency list because dependency tracking cannot observe the data captured inside `getPath`.
+
 ```tsx
 const { getPath } = Tree.useTree(treeData, {});
+
+const path = useMemo(() => getPath(selectedKey), [getPath, selectedKey, treeData]);
 ```
 
 ## Semantic DOM

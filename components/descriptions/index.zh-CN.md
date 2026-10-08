@@ -81,7 +81,7 @@ const items: DescriptionsProps['items'] = [
 
 ### Descriptions
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | bordered | 是否展示边框 | boolean | false |  | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.23.0 |
@@ -103,7 +103,7 @@ const items: DescriptionsProps['items'] = [
 | ~~contentStyle~~ | 自定义内容样式，请使用 `styles.content` 替换 | CSSProperties | - | 4.9.0 |
 | label | 内容的描述 | ReactNode | - |  |
 | ~~labelStyle~~ | 自定义标签样式，请使用 `styles.label` 替换 | CSSProperties | - | 4.9.0 |
-| span | 包含列的数量（`filled` 铺满当前行剩余部分） | number\| `filled` \| [Screens](/components/grid-cn#col) | 1 | `screens: 5.9.0`，`filled: 5.22.0` |
+| span | 包含列的数量（`filled` 铺满当前行剩余部分） | number\| `filled` \| [Screens](/components/grid#col) | 1 | `screens: 5.9.0`，`filled: 5.22.0` |
 
 > span 是 Description.Item 的数量。 span={2} 会占用两个 DescriptionItem 的宽度。当同时配置 `style` 和 `labelStyle`（或 `contentStyle`）时，两者会同时作用。样式冲突时，后者会覆盖前者。
 

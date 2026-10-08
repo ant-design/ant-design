@@ -3819,7 +3819,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       </div>
                     </label>
                     <label
-                      class="ant-segmented-item ant-segmented-item-selected"
+                      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
                     >
                       <input
                         checked=""
