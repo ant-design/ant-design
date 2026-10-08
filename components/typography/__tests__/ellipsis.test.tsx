@@ -254,9 +254,7 @@ describe('Typography.Ellipsis', () => {
     triggerResize(ref.current!);
     await waitFakeTimer();
 
-    expect(wrapper.querySelector('p')?.textContent).toBe(
-      '...--The information is very important',
-    );
+    expect(wrapper.querySelector('p')?.textContent).toBe('...--The information is very important');
 
     rerender(
       <Base ellipsis={{ rows: 2, suffix }} component="p">
@@ -561,6 +559,21 @@ describe('Typography.Ellipsis', () => {
       it('should not show', async () => {
         containerRect.right = 48.52;
         measureRect.left = 48.52;
+
+        const { container, baseElement } = await getWrapper({
+          title: true,
+        });
+        fireEvent.mouseEnter(container.firstChild!);
+
+        await waitFakeTimer();
+
+        expect(baseElement.querySelector('.ant-tooltip-open')).toBeFalsy();
+      });
+
+      // https://github.com/ant-design/ant-design/issues/59488
+      it('should not show when browser zoom adds float error', async () => {
+        containerRect.right = 1011.09377;
+        measureRect.left = 1011.09381;
 
         const { container, baseElement } = await getWrapper({
           title: true,

@@ -14,11 +14,15 @@ export function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, need
   return dom || (needDom && defaultNode);
 }
 
+// Browser zoom can leave tiny float errors in DOMRect values
+const RECT_PRECISION = 0.001;
+
 /**
  * Check for element is native ellipsis
  * ref:
  * - https://github.com/ant-design/ant-design/issues/50143
  * - https://github.com/ant-design/ant-design/issues/50414
+ * - https://github.com/ant-design/ant-design/issues/59488
  */
 export function isEleEllipsis(ele: HTMLElement): boolean {
   // Create a new div to get the size
@@ -39,11 +43,11 @@ export function isEleEllipsis(ele: HTMLElement): boolean {
   // Range checker
   return (
     // Horizontal out of range
-    rect.left > childRect.left ||
-    childRect.right > rect.right ||
+    rect.left - childRect.left > RECT_PRECISION ||
+    childRect.right - rect.right > RECT_PRECISION ||
     // Vertical out of range
-    rect.top > childRect.top ||
-    childRect.bottom > rect.bottom
+    rect.top - childRect.top > RECT_PRECISION ||
+    childRect.bottom - rect.bottom > RECT_PRECISION
   );
 }
 
