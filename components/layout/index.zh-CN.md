@@ -69,6 +69,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 <code src="./demo/responsive.tsx" compact background="grey">响应式布局</code>
 <code src="./demo/fixed.tsx" iframe="360">固定头部</code>
 <code src="./demo/fixed-sider.tsx" iframe="360">固定侧边栏</code>
+<code src="./demo/sider-bottom-menu.tsx" iframe="420" version="6.5.0">侧边栏底部菜单</code>
 <code src="./demo/custom-trigger-debug.tsx" compact background="grey" debug>自定义触发器 Debug</code>
 <code src="./demo/component-token.tsx" compact background="grey" debug>组件 Token</code>
 
