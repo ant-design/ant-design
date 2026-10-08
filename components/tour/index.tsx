@@ -36,12 +36,14 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     styles,
     className,
     style,
+    getPopupContainer,
     ...restProps
   } = props;
 
   const {
     getPrefixCls,
     direction,
+    getPopupContainer: getContextPopupContainer,
     closeIcon: contextCloseIcon,
     className: contextClassName,
     style: contextStyle,
@@ -125,6 +127,13 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     />
   );
 
+  // ======================= Popup Container ========================
+  // `getPopupContainer` can be `false` (inline mode), so only fall back on `undefined`
+  const mergedGetPopupContainer =
+    getPopupContainer === undefined && getContextPopupContainer
+      ? () => getContextPopupContainer(document.body)
+      : getPopupContainer;
+
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tour', restProps.zIndex);
 
@@ -137,6 +146,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
         closeIcon={closeIcon ?? contextCloseIcon}
         keyboard={keyboard}
         zIndex={zIndex}
+        getPopupContainer={mergedGetPopupContainer}
         rootClassName={mergedRootClassName}
         prefixCls={prefixCls}
         animated
