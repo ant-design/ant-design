@@ -96,6 +96,56 @@ describe('Select', () => {
     expect(container.querySelector('.anticon-search')).toBeTruthy();
   });
 
+  // https://github.com/ant-design/ant-design/issues/11818
+  describe('tags mode with filterOption', () => {
+    const tagOptions: SelectProps['options'] = [
+      { value: 0, label: 'a10' },
+      { value: 1, label: 'a11' },
+      { value: 2, label: 'b2' },
+    ];
+
+    const filterOption: SelectProps['filterOption'] = (input, option) =>
+      String(option?.label).includes(input);
+
+    it('should create the typed tag on Enter', () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <Select mode="tags" options={tagOptions} filterOption={filterOption} onChange={onChange} />,
+      );
+      toggleOpen(container);
+
+      const input = container.querySelector('input')!;
+      fireEvent.change(input, { target: { value: 'a1' } });
+
+      expect(
+        Array.from(container.querySelectorAll('.ant-select-item-option')).map((node) =>
+          node.getAttribute('title'),
+        ),
+      ).toEqual(['a1', 'a10', 'a11']);
+      expect(container.querySelector('.ant-select-item-option-active')).toHaveAttribute(
+        'title',
+        'a1',
+      );
+
+      fireEvent.keyDown(input, { key: 'Enter', keyCode: 13 });
+      expect(onChange).toHaveBeenLastCalledWith(['a1'], expect.anything());
+    });
+
+    it('should still select a filtered option with keyboard', () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <Select mode="tags" options={tagOptions} filterOption={filterOption} onChange={onChange} />,
+      );
+      toggleOpen(container);
+
+      const input = container.querySelector('input')!;
+      fireEvent.change(input, { target: { value: 'a1' } });
+      fireEvent.keyDown(input, { key: 'ArrowDown', keyCode: 40 });
+      fireEvent.keyDown(input, { key: 'Enter', keyCode: 13 });
+      expect(onChange).toHaveBeenLastCalledWith([0], expect.anything());
+    });
+  });
+
   describe('Select Custom Icons', () => {
     it('should support customized icons', () => {
       const { rerender, asFragment } = render(
