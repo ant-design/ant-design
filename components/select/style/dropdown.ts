@@ -21,7 +21,7 @@ const genItemStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
     minHeight: optionHeight,
     padding: optionPadding,
     color: token.colorText,
-    fontWeight: 'normal',
+    fontWeight: 400,
     fontSize: optionFontSize,
     lineHeight: optionLineHeight,
     boxSizing: 'border-box',

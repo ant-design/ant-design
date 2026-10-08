@@ -18902,7 +18902,7 @@ exports[`renders components/space/demo/style-class.tsx extend context correctly 
     </div>
     <span
       class="ant-space-item-separator demo-space-separator"
-      style="color: red; font-weight: bold;"
+      style="color: red; font-weight: 700;"
     >
       •
     </span>
@@ -18921,7 +18921,7 @@ exports[`renders components/space/demo/style-class.tsx extend context correctly 
     </div>
     <span
       class="ant-space-item-separator demo-space-separator"
-      style="color: red; font-weight: bold;"
+      style="color: red; font-weight: 700;"
     >
       •
     </span>
