@@ -296,6 +296,48 @@ describe('Menu', () => {
     instance.rerender(<Demo openKeys={['1']} />);
   });
 
+  // https://github.com/ant-design/ant-design/issues/10938
+  it('should toggle horizontal submenu by touch', () => {
+    const onOpenChange = jest.fn();
+    const { container } = render(
+      <Menu
+        mode="horizontal"
+        onOpenChange={onOpenChange}
+        items={[
+          { key: 'sub', label: 'Submenu', children: [{ key: 'option', label: 'Option' }] },
+          { key: 'item', label: 'Item' },
+        ]}
+      />,
+    );
+
+    const title = container.querySelector('.ant-menu-submenu-title')!;
+    const expectOpen = (open: boolean) => {
+      triggerAllTimer();
+      expect(onOpenChange).toHaveBeenLastCalledWith(open ? ['sub'] : []);
+      if (open) {
+        expect(container.querySelector('li.ant-menu-submenu')).toHaveClass('ant-menu-submenu-open');
+      } else {
+        expect(container.querySelector('li.ant-menu-submenu')).not.toHaveClass(
+          'ant-menu-submenu-open',
+        );
+      }
+    };
+
+    // Tap opens, tapping the title again closes
+    fireEvent.touchStart(title);
+    expectOpen(true);
+    fireEvent.touchStart(title);
+    expectOpen(false);
+
+    // Tap outside closes and the next tap opens it again
+    fireEvent.touchStart(title);
+    expectOpen(true);
+    fireEvent.mouseDown(document.body);
+    expectOpen(false);
+    fireEvent.touchStart(title);
+    expectOpen(true);
+  });
+
   it('test submenu in mode inline', () => {
     const defaultTestProps: MenuProps = { mode: 'inline' };
     const Demo: React.FC<MenuProps> = (props) => (
