@@ -112,6 +112,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     styles,
     size: customSize,
     popupRender,
+    getPopupContainer,
     ...restProps
   } = props;
   const [focused, setFocused] = React.useState(false);
@@ -136,7 +137,8 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     classNames: contextClassNames,
     styles: contextStyles,
   } = useComponentConfig('mentions');
-  const { renderEmpty } = React.useContext(ConfigContext);
+  const { renderEmpty, getPopupContainer: getContextPopupContainer } =
+    React.useContext(ConfigContext);
   const {
     status: contextStatus,
     hasFeedback,
@@ -258,6 +260,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       style={mergedStyles.root}
       popupRender={mergedPopupRender}
       {...restProps}
+      getPopupContainer={getPopupContainer || getContextPopupContainer}
       filterOption={mentionsfilterOption}
       onFocus={onFocus}
       onBlur={onBlur}
