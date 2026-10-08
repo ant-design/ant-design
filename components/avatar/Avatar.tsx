@@ -114,7 +114,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
 
   const size = useSize((ctxSize) => customSize ?? avatarCtx?.size ?? ctxSize ?? 'medium');
 
-  const needResponsive = Object.keys(isPlainObject(size) ? size || {} : {}).some((key) =>
+  const needResponsive = Object.keys(isPlainObject(size) ? size : {}).some((key) =>
     responsiveArray.includes(key as Breakpoint),
   );
   const hasIcon = isReactRenderable(icon);
@@ -132,7 +132,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
       ? {
           width: currentSize,
           height: currentSize,
-          fontSize: currentSize && (hasIcon || isReactRenderable(children)) ? currentSize / 2 : 18,
+          fontSize: hasIcon || isReactRenderable(children) ? currentSize / 2 : 18,
         }
       : {};
   }, [screens, size, hasIcon, children]);
