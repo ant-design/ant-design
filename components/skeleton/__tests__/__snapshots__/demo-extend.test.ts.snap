@@ -433,6 +433,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         class="ant-radio-button"
                       >
                         <input
+                          aria-label="Large"
                           class="ant-radio-button-input"
                           name="test-id"
                           type="radio"
@@ -440,6 +441,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         />
                       </span>
                       <span
+                        aria-hidden="true"
                         class="ant-radio-button-label"
                       >
                         Large
@@ -452,6 +454,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         class="ant-radio-button ant-radio-button-checked"
                       >
                         <input
+                          aria-label="Medium"
                           checked=""
                           class="ant-radio-button-input"
                           name="test-id"
@@ -460,6 +463,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         />
                       </span>
                       <span
+                        aria-hidden="true"
                         class="ant-radio-button-label"
                       >
                         Medium
@@ -472,6 +476,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         class="ant-radio-button"
                       >
                         <input
+                          aria-label="Small"
                           class="ant-radio-button-input"
                           name="test-id"
                           type="radio"
@@ -479,6 +484,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         />
                       </span>
                       <span
+                        aria-hidden="true"
                         class="ant-radio-button-label"
                       >
                         Small
@@ -530,6 +536,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         class="ant-radio-button ant-radio-button-checked"
                       >
                         <input
+                          aria-label="Default"
                           checked=""
                           class="ant-radio-button-input"
                           name="test-id"
@@ -538,6 +545,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         />
                       </span>
                       <span
+                        aria-hidden="true"
                         class="ant-radio-button-label"
                       >
                         Default
@@ -550,6 +558,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         class="ant-radio-button"
                       >
                         <input
+                          aria-label="Square"
                           class="ant-radio-button-input"
                           name="test-id"
                           type="radio"
@@ -557,6 +566,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         />
                       </span>
                       <span
+                        aria-hidden="true"
                         class="ant-radio-button-label"
                       >
                         Square
@@ -569,6 +579,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         class="ant-radio-button"
                       >
                         <input
+                          aria-label="Round"
                           class="ant-radio-button-input"
                           name="test-id"
                           type="radio"
@@ -576,6 +587,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         />
                       </span>
                       <span
+                        aria-hidden="true"
                         class="ant-radio-button-label"
                       >
                         Round
@@ -588,6 +600,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         class="ant-radio-button"
                       >
                         <input
+                          aria-label="Circle"
                           class="ant-radio-button-input"
                           name="test-id"
                           type="radio"
@@ -595,6 +608,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         />
                       </span>
                       <span
+                        aria-hidden="true"
                         class="ant-radio-button-label"
                       >
                         Circle
@@ -646,6 +660,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         class="ant-radio-button"
                       >
                         <input
+                          aria-label="Square"
                           class="ant-radio-button-input"
                           name="test-id"
                           type="radio"
@@ -653,6 +668,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         />
                       </span>
                       <span
+                        aria-hidden="true"
                         class="ant-radio-button-label"
                       >
                         Square
@@ -665,6 +681,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         class="ant-radio-button ant-radio-button-checked"
                       >
                         <input
+                          aria-label="Circle"
                           checked=""
                           class="ant-radio-button-input"
                           name="test-id"
@@ -673,6 +690,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         />
                       </span>
                       <span
+                        aria-hidden="true"
                         class="ant-radio-button-label"
                       >
                         Circle

@@ -117,6 +117,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                 class="ant-radio-button ant-radio-button-checked"
               >
                 <input
+                  aria-label="Month"
                   checked=""
                   class="ant-radio-button-input"
                   name="test-id"
@@ -125,6 +126,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                 />
               </span>
               <span
+                aria-hidden="true"
                 class="ant-radio-button-label"
               >
                 Month
@@ -137,6 +139,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                 class="ant-radio-button"
               >
                 <input
+                  aria-label="Year"
                   class="ant-radio-button-input"
                   name="test-id"
                   type="radio"
@@ -144,6 +147,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                 />
               </span>
               <span
+                aria-hidden="true"
                 class="ant-radio-button-label"
               >
                 Year
