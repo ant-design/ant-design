@@ -74,5 +74,4 @@ title: 空状态
 ### 外部参考文章
 
 - [Salesforce 空状态设计准则](https://www.lightningdesignsystem.com/guidelines/empty-state/#Message)
-- [PREDIX 空状态设计准则](https://www.predix-ui.com/#/design/communication/empty-states)
 - [Material Design 空状态设计准则](https://material.io/design/communication/empty-states.html#content)
