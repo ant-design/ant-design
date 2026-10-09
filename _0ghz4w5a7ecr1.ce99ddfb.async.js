@@ -1,0 +1,4 @@
+(()=>{"use strict";(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,636768,e=>{var o=e.i(391398),l=e.i(185830),r=e.i(504909),t=e.i(183056);let i=(0,e.i(827830).createStaticStyles)(({css:e})=>({root:e`
+    border-radius: 8px;
+    width: 300px;
+  `})),a=[{value:"GuangZhou",label:"GuangZhou"},{value:"ShenZhen",label:"ShenZhen"}],f={prefix:{color:"#1890ff"},suffix:{color:"#1890ff"}},u=({props:e})=>"filled"===e.variant?{prefix:{color:"#722ed1"},suffix:{color:"#722ed1"},popup:{root:{border:"1px solid #722ed1"}}}:{};e.s(["default",0,()=>{let e={options:a,classNames:i,prefix:(0,o.jsx)(l.f,{})};return(0,o.jsxs)(r.f,{vertical:!0,gap:"medium",children:[(0,o.jsx)(t.f,{...e,styles:f,placeholder:"Object"}),(0,o.jsx)(t.f,{...e,styles:u,placeholder:"Function",variant:"filled"})]})}])},183056,e=>{var o=e.i(184229);e.s(["f",()=>o.f])},185830,e=>{var o=e.i(525244);e.s(["f",()=>o.f])}])})();
