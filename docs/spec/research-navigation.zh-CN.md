@@ -278,7 +278,6 @@ title: 导航
 
 - [阿里云-控制台导内容区导航系统](https://xconsole.aliyun-inc.com/spec/hxzewz)
 - [Material Design Navigation](https://material.io/design/navigation/understanding-navigation.html#)
-- [Predix Navigation](https://www.predix-ui.com/#/design/foundation/navigation)
 - [Windows-UWP 应用的导航设计基础知识](https://docs.microsoft.com/zh-cn/windows/uwp/design/basics/navigation-basics)
 - [When You Should Use a Breadcrumb Navigation?](https://uxmovement.com/navigation/when-you-should-use-a-breadcrumb-navigation/)
 - 书籍：《web 信息架构》— 导航系统

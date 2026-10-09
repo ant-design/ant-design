@@ -117,4 +117,3 @@ title: 结果页
 - [Fiori 消息反馈类组件规则](https://experience.sap.com/fiori-design-web/message-box/)
 - [阿里云结果页设计](https://xconsole.aliyun-inc.com/scenes/resultpage)
 - [CANVAS 消息反馈类组件规则](https://canvas.hubspot.com/components/alerts-messaging)
-- [PREDIX 通知提醒框和警告组件规则](https://www.predix-ui.com/#/design/communication/notifications)
