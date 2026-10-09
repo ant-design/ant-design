@@ -75,6 +75,24 @@ describe('Divider', () => {
     expect(container.querySelector<HTMLSpanElement>('.ant-divider-sm')).toBeTruthy();
   });
 
+  it('render numeric zero children as separator text', () => {
+    const { container } = render(<Divider>{0}</Divider>);
+
+    const divider = container.querySelector<HTMLDivElement>('.ant-divider')!;
+    expect(divider).toHaveClass('ant-divider-with-text');
+    expect(divider).not.toHaveClass('ant-divider-rail');
+    expect(container.querySelector<HTMLSpanElement>('.ant-divider-inner-text')).toHaveTextContent('0');
+  });
+
+  it('keep empty children as a plain divider', () => {
+    const { container } = render(<Divider />);
+
+    const divider = container.querySelector<HTMLDivElement>('.ant-divider')!;
+    expect(divider).not.toHaveClass('ant-divider-with-text');
+    expect(divider).toHaveClass('ant-divider-rail');
+    expect(container.querySelector<HTMLSpanElement>('.ant-divider-inner-text')).toBeFalsy();
+  });
+
   describe('orientation and placement attribute', () => {
     jest.spyOn(console, 'error').mockImplementation(() => {});
     const testCases: Array<
