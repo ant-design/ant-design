@@ -17,7 +17,7 @@ const ColorBlock: React.FC<ColorBlockProps> = (props) => {
     return {
       background: color,
       color: index > 5 ? lastColor : firstColor,
-      fontWeight: index === 6 ? 'bold' : 'normal',
+      fontWeight: index === 6 ? 700 : 400,
     };
   }, [color, dark, index]);
 
