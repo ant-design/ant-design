@@ -7,11 +7,11 @@ title: 表单页
 
 表单页是一种用于信息添加、录入的页面类型。用来确保用户按照要求录入信息提交给系统使用或引导用户进行应用设置。
 
-## 设计目标
+## 设计目标 {#design-goals}
 
 帮助用户明确当前页面任务，快速查找和定位修改目标，轻松准确地理解表单项含义及生效后果，同时简化填写流程，确保用户准确、轻松、快速地完成任务。
 
-## 设计原则
+## 设计原则 {#design-principles}
 
 <div class="design-inline-cards">
   <div>
@@ -68,7 +68,7 @@ title: 表单页
 
 <br>
 
-## 如何设计
+## 如何设计 {#how-to-design}
 
 表单类页面模板聚焦于提交一次表单的过程体验。按照任务的复杂度，提供四种解决问题的布局方式：
 
@@ -76,11 +76,11 @@ title: 表单页
 - 任务拆解和编排
 - 特定场景
 
-### 普通布局
+### 普通布局 {#normal-layout}
 
 平铺所有需要填写的信息，适合内容项较少、内容项无法按照相关性分组的表单。
 
-#### 模板 - 基础表单
+#### 模板 - 基础表单 {#template---basic-form}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*c7b6TpKWl-cAAAAAAAAAAABkARQnAQ" />
@@ -90,11 +90,11 @@ title: 表单页
 
 当需要完成一个简单快速的任务，例如输入少量信息即可完成创建。
 
-### 任务拆解和编排
+### 任务拆解和编排 {#task-decomposition}
 
 将大型、复杂任务拆解为多个部分，并按照相关性分组，减轻用户输入负担。尽管每部分内容单独处理，但最终一起完成提交。适用于大型、复杂表单。通过适当的任务分割，可以降低用户出错率。
 
-#### 模板 - 基础分步表单
+#### 模板 - 基础分步表单 {#template---basic-step-form}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*E8wRRpLbdyoAAAAAAAAAAABkARQnAQ" />
@@ -104,7 +104,7 @@ title: 表单页
 
 将用户需要填写和确认的信息按照线性流程组织，利用步骤条告知用户完整流程和进度，常常在最后提交前让用户再次确认信息，并在流程结束给与明确的结果反馈。适用于具有明确的线性逻辑的任务。
 
-#### 模板 - 分组表单
+#### 模板 - 分组表单 {#template---grouped-form}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*k6kGSLGZsT0AAAAAAAAAAABkARQnAQ" />
@@ -114,7 +114,7 @@ title: 表单页
 
 单次任务的表单页中需要填写内容众多，且不同内容之中存在一定可分类归纳性。
 
-#### 模板 - 可编辑列表（开发中）
+#### 模板 - 可编辑列表（开发中） {#template-editable-list}
 
 **什么时候用**
 
@@ -158,9 +158,9 @@ title: 表单页
 
 适用于页面中需要添加一个或多个对象，且每个对象都需要添加或编辑多组数据的情况。
 
-### 特定场景模板
+### 特定场景模板 {#specific-scenario-templates}
 
-#### 模板 - 设置
+#### 模板 - 设置 {#template---settings}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*n9zkSKrDU8MAAAAAAAAAAABkARQnAQ" />
@@ -183,7 +183,7 @@ title: 表单页
 > - 数量 7~ 15 个建议分组；
 > - 数量 >15 个建议使用页签分组。
 
-#### [模板 - 登录](https://preview.pro.ant.design/user/login)
+#### [模板 - 登录](https://preview.pro.ant.design/user/login) {#template-login}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ba6DR5U23nAAAAAAAAAAAABkARQnAQ" />
@@ -191,7 +191,7 @@ title: 表单页
 
 Ant Design 标准登录模板
 
-#### [模板 - 注册](https://preview.pro.ant.design/user/register)
+#### [模板 - 注册](https://preview.pro.ant.design/user/register) {#template-register}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6U_gQ6MbrSYAAAAAAAAAAABkARQnAQ" />
@@ -199,18 +199,18 @@ Ant Design 标准登录模板
 
 Ant Design 标准注册模板
 
-## 设计建议
+## 设计建议 {#design-suggestions}
 
-### 前期准备
+### 前期准备 {#preparation}
 
 - 表单页的核心由表单项组成，设计前建议先熟悉[表单基础规则](/components/form/)；
 - 梳理用户当前信息录入任务中所涉及的信息类型，[并根据 Ant Design 数据录入规则](/docs/spec/data-entry/) 确定所使用的组件。
 
-### 布局方式
+### 布局方式 {#layout-methods}
 
 在单个表单页中需要根据内容量进行合理地布局，以兼顾页面展示和用户效率。表单页布局可由简到繁划分为 4 个梯度，每一级梯度都兼容前一种布局方式。
 
-#### 基础布局
+#### 基础布局 {#basic-layout}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lacoSZduvVQAAAAAAAAAAABkARQnAQ" />
@@ -218,7 +218,7 @@ Ant Design 标准注册模板
 
 在一个区域内从上到下单列布局，引导用户纵向阅读，据[研究](https://www.uxmatters.com/mt/archives/2006/07/label-placement-in-forms.php)这是能够最高效完成任务的布局方式。
 
-#### 弱分组
+#### 弱分组 {#weak-grouping}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*E7YuRo094e0AAAAAAAAAAABkARQnAQ" />
@@ -230,7 +230,7 @@ Ant Design 标准注册模板
 
 在空间有限时，较短宽度且具有相关性的表单项可多个组合在一行中，形成分组的暗示。
 
-#### 区域内分组
+#### 区域内分组 {#in-area-grouping}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*eU8dRZUTEM8AAAAAAAAAAABkARQnAQ" />
@@ -238,7 +238,7 @@ Ant Design 标准注册模板
 
 当一个区域中内容较多且可被分类归纳时，可通过区分标题来进行区域内分组。
 
-#### 卡片分组
+#### 卡片分组 {#card-grouping}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*VPEZRLBm1zwAAAAAAAAAAABkARQnAQ" />
@@ -246,23 +246,23 @@ Ant Design 标准注册模板
 
 当一个页面中内容众多（通常大于两屏）且可被分类归纳时，可通过卡片分组来承载，每个卡片需要包含一个大标题。
 
-#### 判断布局方式
+#### 判断布局方式 {#determine-layout-method}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DoKmSYGaYtYAAAAAAAAAAABkARQnAQ" />
 </ImagePreview>
 
-关于使用何种布局方式的判断，和[详情页](/docs/spec/detail-page#%E8%AE%BE%E8%AE%A1%E5%BB%BA%E8%AE%AE)类似，应从信息的复杂度和关联性两个维度去梳理。随后可选择相匹配的模板，进行页面快速搭建。
+关于使用何种布局方式的判断，和[详情页](/docs/spec/detail-page#design-suggestions)类似，应从信息的复杂度和关联性两个维度去梳理。随后可选择相匹配的模板，进行页面快速搭建。
 
 <br>
 
-## 扩展阅读
+## 扩展阅读 {#further-reading}
 
-### 会用到哪些模块或组件
+### 会用到哪些模块或组件 {#modules-or-components-to-use}
 
-- [表单](/components/form-cn)
-- [步骤条](/components/steps-cn)
+- [表单](/components/form)
+- [步骤条](/components/steps)
 
-### 外部参考文章
+### 外部参考文章 {#external-reference}
 
 - [Label Placement in Forms](https://www.uxmatters.com/mt/archives/2006/07/label-placement-in-forms.php)

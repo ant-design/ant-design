@@ -50,7 +50,7 @@ demo:
 
 config 参数如下：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | actions | 自定义按钮组 | ReactNode | - | 5.24.0 | × |
 | ~~btn~~ | 自定义按钮组，请使用 `actions` 替换 | ReactNode | - | - | × |
@@ -78,7 +78,7 @@ config 参数如下：
 
 config 参数如下：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 |  | × |
 | closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 | 5.14.0 |
@@ -165,11 +165,11 @@ return (
 
 **异同**：通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
 
-> 可通过 [App 包裹组件](/components/app-cn) 简化 `useNotification` 等方法需要手动植入 contextHolder 的问题。
+> 可通过 [App 包裹组件](/components/app) 简化 `useNotification` 等方法需要手动植入 contextHolder 的问题。
 
 ### 静态方法如何设置 prefixCls ？ {#faq-set-prefix-cls}
 
-你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#config) 进行设置。
+你可以通过 [`ConfigProvider.config`](/components/config-provider#config) 进行设置。
 
 ### 为什么 `style={{ width: 'max-content' }}` 在 Notification 上不生效？ {#faq-notification-width}
 

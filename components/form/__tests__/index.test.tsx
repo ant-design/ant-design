@@ -374,6 +374,21 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item-extra')?.id).toBe('test_extra');
   });
 
+  it('renders numeric zero as extra content and links it with aria-describedby', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="test" extra={0}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const extra = container.querySelector('.ant-form-item-extra');
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe('test_extra');
+    expect(extra).toHaveAttribute('id', 'test_extra');
+    expect(extra).toHaveTextContent('0');
+  });
+
   it('input element should not have the prop aria-describedby pointing to the extra id when there is a extra message and name is not defined', () => {
     const { container } = render(
       <Form>

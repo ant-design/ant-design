@@ -27,7 +27,7 @@ const App: React.FC = () => (
       showSearch
     />
     <Select
-      suffixIcon={smileIcon}
+      suffix={smileIcon}
       defaultValue="lucy"
       placeholder="Select"
       style={{ width: 120 }}
@@ -40,7 +40,7 @@ const App: React.FC = () => (
       ]}
     />
     <Select
-      suffixIcon={mehIcon}
+      suffix={mehIcon}
       defaultValue="lucy"
       placeholder="Select"
       style={{ width: 120 }}
@@ -63,7 +63,7 @@ const App: React.FC = () => (
       ]}
     />
     <Select
-      suffixIcon={smileIcon}
+      suffix={smileIcon}
       defaultValue={['lucy']}
       placeholder="Select"
       mode="multiple"
@@ -77,7 +77,7 @@ const App: React.FC = () => (
       ]}
     />
     <Select
-      suffixIcon={mehIcon}
+      suffix={mehIcon}
       defaultValue={['lucy']}
       placeholder="Select"
       mode="multiple"

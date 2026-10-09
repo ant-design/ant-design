@@ -9,11 +9,11 @@ title: 详情页
 
 ---
 
-## 设计目标
+## 设计目标 {#design-goals}
 
 提高信息浏览和搜寻效率，便捷执行操作。
 
-## 设计原则
+## 设计原则 {#design-principles}
 
 <div class="design-inline-cards">
   <div>
@@ -39,9 +39,9 @@ title: 详情页
   </div>
 </div>
 
-## 如何设计
+## 如何设计 {#typical-templates}
 
-### 基础布局
+### 基础布局 {#basic-layouts}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tKooSqMRdTEAAAAAAAAAAABkARQnAQ">
@@ -49,7 +49,7 @@ title: 详情页
 
 基础详情单页直接平铺所有需要展示的信息，推荐使用这种详情展示方式。
 
-#### [模板 -  基础详情](https://preview.pro.ant.design/profile/basic)
+#### [模板 -  基础详情](https://preview.pro.ant.design/profile/basic) {#basic-detail-template}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Z78YSLlHYFUAAAAAAAAAAABkARQnAQ">
@@ -61,7 +61,7 @@ title: 详情页
 
 需要展示内容量少、复杂度低的信息。
 
-#### 模板 - 单据详情
+#### 模板 - 单据详情 {#document-detail-templates}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*51LGQopcBQgAAAAAAAAAAABkARQnAQ">
@@ -77,7 +77,7 @@ title: 详情页
 
 通过、驳回、转交、加签、挂起、撤回。
 
-### 复杂布局
+### 复杂布局 {#complex-layouts}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*BBAlT7zwS0gAAAAAAAAAAABkARQnAQ">
@@ -85,7 +85,7 @@ title: 详情页
 
 将信息复杂度较高、相关性较弱的信息拆分为多个部分，并通过 页签 、分步、卡片分区、卡片内分组等形式按照相关性分组，用来处理复杂度较高的详情内容。
 
-#### [模板 -  高级详情](https://preview.pro.ant.design/profile/advanced)
+#### [模板 -  高级详情](https://preview.pro.ant.design/profile/advanced) {#advanced-detail-template}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*772pTpKDNkwAAAAAAAAAAABkARQnAQ">
@@ -99,7 +99,7 @@ title: 详情页
 
 当详情页内容量大、复杂度高时，不得不拆分为多个页签，作为辅助导航引导用户浏览信息。
 
-#### 模板 - 发布流程
+#### 模板 - 发布流程 {#publish-process-templates}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0IGLSaqstRoAAAAAAAAAAABkARQnAQ">
@@ -111,9 +111,9 @@ title: 详情页
 
 适用于开发协作流程。
 
-## 设计建议
+## 设计建议 {#design-suggestions}
 
-### 选择模板
+### 选择模板 {#how-to-choose-template}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*kC5tQbp8A60AAAAAAAAAAABkARQnAQ">
@@ -121,7 +121,7 @@ title: 详情页
 
 根据信息的复杂度和相关性模型，选用相应的信息呈现方式，选用合理的布局方案来承载详情页的内容。
 
-### 区隔方式
+### 区隔方式 {#separation-methods}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3jPZSa8n2g4AAAAAAAAAAABkARQnAQ">
@@ -134,7 +134,7 @@ title: 详情页
 - 卡片：放置一个主题；
 - 页签：对象描述信息最顶层组织方式，如按版本组织、按意图组织、按阶段组织；
 
-### 内容组件
+### 内容组件 {#content-components}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ZRvkTYUMKLQAAAAAAAAAAABkARQnAQ">
@@ -142,20 +142,20 @@ title: 详情页
 
 根据不同的信息类型和复杂度选用对应的信息呈现方式。按复杂度由低至高，提供以下组件供选择：
 
-## 扩展阅读
+## 扩展阅读 {#read-more}
 
-### 会用到哪些全局规则
+### 会用到哪些全局规则 {#related-global-rules}
 
 - [数据格式](/docs/spec/data-format)
 - [按钮](/docs/spec/buttons)
 
-### 会用到哪些模块或组件
+### 会用到哪些模块或组件 {#related-modules-or-components}
 
-- [描述列表](/components/descriptions-cn)
-- [折叠面板](/components/collapse-cn/)
-- [表格](/components/table-cn/)
+- [描述列表](/components/descriptions)
+- [折叠面板](/components/collapse/)
+- [表格](/components/table/)
 
-### 外部参考文章
+### 外部参考文章 {#reference}
 
 - [Fiori – How to Design an Object Page](https://blogs.sap.com/2017/08/06/fiori-elements-how-to-design-an-object-page/)
 - [SAP Fiori 2.0: The Object Page —— Part 1: It's History](https://experience.sap.com/skillup/sap-fiori-2-0-the-object-page-part-1-its-history/)

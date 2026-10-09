@@ -23,6 +23,7 @@ export default function useTheme(
           ...defaultConfig,
           hashed: parentTheme?.hashed ?? defaultConfig.hashed,
           cssVar: parentTheme?.cssVar,
+          zeroRuntime: parentTheme?.zeroRuntime,
         }
       : parentTheme;
 

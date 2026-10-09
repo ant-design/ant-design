@@ -16992,7 +16992,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
               <tr>
                 <td
                   class="ant-picker-cell"
-                  title="2017-08-28"
+                  title="28.08.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17009,7 +17009,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell"
-                  title="2017-08-29"
+                  title="29.08.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17026,7 +17026,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell"
-                  title="2017-08-30"
+                  title="30.08.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17043,7 +17043,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell"
-                  title="2017-08-31"
+                  title="31.08.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17060,7 +17060,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-01"
+                  title="01.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17077,7 +17077,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-02"
+                  title="02.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17094,7 +17094,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-03"
+                  title="03.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17113,7 +17113,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
               <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-04"
+                  title="04.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17130,7 +17130,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-05"
+                  title="05.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17147,7 +17147,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-06"
+                  title="06.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17164,7 +17164,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-07"
+                  title="07.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17181,7 +17181,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-08"
+                  title="08.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17198,7 +17198,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-09"
+                  title="09.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17215,7 +17215,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-10"
+                  title="10.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17234,7 +17234,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
               <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-11"
+                  title="11.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17251,7 +17251,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-12"
+                  title="12.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17268,7 +17268,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-13"
+                  title="13.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17285,7 +17285,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-14"
+                  title="14.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17302,7 +17302,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-15"
+                  title="15.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17319,7 +17319,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-16"
+                  title="16.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17336,7 +17336,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-17"
+                  title="17.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17355,7 +17355,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
               <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
-                  title="2017-09-18"
+                  title="18.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
@@ -17372,7 +17372,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-19"
+                  title="19.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17389,7 +17389,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-20"
+                  title="20.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17406,7 +17406,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-21"
+                  title="21.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17423,7 +17423,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-22"
+                  title="22.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17440,7 +17440,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-23"
+                  title="23.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17457,7 +17457,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-24"
+                  title="24.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17476,7 +17476,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
               <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-25"
+                  title="25.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17493,7 +17493,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-26"
+                  title="26.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17510,7 +17510,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-27"
+                  title="27.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17527,7 +17527,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-28"
+                  title="28.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17544,7 +17544,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-29"
+                  title="29.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17561,7 +17561,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
-                  title="2017-09-30"
+                  title="30.09.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17578,7 +17578,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell"
-                  title="2017-10-01"
+                  title="01.10.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17597,7 +17597,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
               <tr>
                 <td
                   class="ant-picker-cell"
-                  title="2017-10-02"
+                  title="02.10.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17614,7 +17614,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell"
-                  title="2017-10-03"
+                  title="03.10.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17631,7 +17631,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell"
-                  title="2017-10-04"
+                  title="04.10.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17648,7 +17648,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell"
-                  title="2017-10-05"
+                  title="05.10.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17665,7 +17665,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell"
-                  title="2017-10-06"
+                  title="06.10.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17682,7 +17682,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell"
-                  title="2017-10-07"
+                  title="07.10.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"
@@ -17699,7 +17699,7 @@ exports[`Locale Provider > should display the text as de 1`] = `
                 </td>
                 <td
                   class="ant-picker-cell"
-                  title="2017-10-08"
+                  title="08.10.2017"
                 >
                   <div
                     class="ant-picker-cell-inner ant-picker-calendar-date"

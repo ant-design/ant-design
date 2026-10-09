@@ -440,6 +440,35 @@ describe('Table.filter', () => {
     expect(container.querySelectorAll('tbody tr').length).toBe(4);
   });
 
+  it('controlled filteredValue still applies when column is hidden by responsive', () => {
+    const columns: ColumnType<any>[] = [
+      { title: 'Name', dataIndex: 'name' },
+      {
+        title: 'Status',
+        dataIndex: 'status',
+        responsive: ['md'],
+        filteredValue: ['enabled'],
+        filters: [
+          { text: 'Enabled', value: 'enabled' },
+          { text: 'Disabled', value: 'disabled' },
+        ],
+        onFilter: (value, record) => record.status === value,
+      },
+    ];
+    const dataSource = [
+      { key: '1', name: 'Alice', status: 'enabled' },
+      { key: '2', name: 'Bob', status: 'disabled' },
+      { key: '3', name: 'Carol', status: 'enabled' },
+    ];
+
+    const { container } = render(
+      <Table columns={columns} dataSource={dataSource} pagination={false} />,
+    );
+
+    expect(container.querySelectorAll('thead th')).toHaveLength(1);
+    expect(renderedNames(container)).toEqual(['Alice', 'Carol']);
+  });
+
   it('should handle filteredValue and non-array filterValue as expected', () => {
     let filterKeys = new Set();
 
@@ -3189,6 +3218,33 @@ describe('Table.filter', () => {
       fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
       expect(dropdownRender).toHaveBeenCalled();
       expect(React.isValidElement<any>(dropdownRender.mock.calls[0][0])).toBeTruthy();
+      expect(getByText('Foo')).toBeTruthy();
+    });
+
+    it('popupRender', () => {
+      const popupRender = jest.fn((node) => (
+        <>
+          {node}
+          <span>Foo</span>
+        </>
+      ));
+
+      const { container, getByText } = render(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterDropdownProps: {
+                popupRender,
+              },
+            },
+          ],
+        }),
+      );
+
+      fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+      expect(popupRender).toHaveBeenCalled();
+      expect(React.isValidElement<any>(popupRender.mock.calls[0][0])).toBeTruthy();
       expect(getByText('Foo')).toBeTruthy();
     });
 

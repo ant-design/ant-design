@@ -5,18 +5,18 @@ import type { PickerMode } from '@rc-component/picker/interface';
 
 import { TIME } from './constant';
 
-interface UseSuffixIconProps {
+interface UseSuffixProps {
   picker?: PickerMode;
   hasFeedback?: boolean;
   feedbackIcon?: React.ReactNode;
-  suffixIcon?: React.ReactNode;
+  suffix?: React.ReactNode;
 }
 
-const useSuffixIcon = ({ picker, hasFeedback, feedbackIcon, suffixIcon }: UseSuffixIconProps) => {
-  if (suffixIcon === null || suffixIcon === false) {
+const useSuffix = ({ picker, hasFeedback, feedbackIcon, suffix }: UseSuffixProps) => {
+  if (suffix === null || suffix === false) {
     return null;
   }
-  if (suffixIcon === true || suffixIcon === undefined) {
+  if (suffix === true || suffix === undefined) {
     return (
       <>
         {picker === TIME ? (
@@ -29,7 +29,7 @@ const useSuffixIcon = ({ picker, hasFeedback, feedbackIcon, suffixIcon }: UseSuf
     );
   }
 
-  return suffixIcon;
+  return suffix;
 };
 
-export default useSuffixIcon;
+export default useSuffix;

@@ -400,7 +400,7 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
         class="ant-segmented-group"
       >
         <label
-          class="ant-segmented-item ant-segmented-item-selected"
+          class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
         >
           <input
             checked=""
@@ -491,7 +491,7 @@ Array [
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""

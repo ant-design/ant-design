@@ -23,6 +23,7 @@ const Markers: React.FC<MarkersProps> = (props) => {
 
   // ======================== Effect =========================
   React.useEffect(() => {
+    const canObserve = typeof IntersectionObserver !== 'undefined';
     const allElements = targetClassName
       ? Array.from(containerRef.current?.querySelectorAll<HTMLElement>(`.${targetClassName}`) || [])
       : [];
@@ -56,7 +57,7 @@ const Markers: React.FC<MarkersProps> = (props) => {
         top: rect.top - (containerRect.top || 0),
         width: rect.width,
         height: rect.height,
-        visible: isVisible(targetElement),
+        visible: !canObserve && isVisible(targetElement),
       };
     });
 
@@ -75,6 +76,48 @@ const Markers: React.FC<MarkersProps> = (props) => {
         },
       );
     });
+
+    if (!canObserve) {
+      return;
+    }
+
+    let destroyed = false;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (destroyed) {
+          return;
+        }
+
+        setRectList((prev) => {
+          const next = [...prev];
+
+          entries.forEach((entry) => {
+            const index = targetElements.indexOf(entry.target as HTMLElement);
+            if (index !== -1 && next[index]) {
+              next[index] = {
+                ...next[index],
+                visible:
+                  entry.isIntersecting &&
+                  entry.intersectionRatio > 0 &&
+                  isVisible(entry.target as HTMLElement),
+              };
+            }
+          });
+
+          return next;
+        });
+      },
+      { root: containerRef.current },
+    );
+
+    targetElements.forEach((element) => {
+      observer.observe(element);
+    });
+
+    return () => {
+      destroyed = true;
+      observer.disconnect();
+    };
   }, [containerRef, targetClassName]);
 
   // ======================== Render =========================

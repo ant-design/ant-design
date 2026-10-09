@@ -31,6 +31,10 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
             display: 'flex',
             boxSizing: 'border-box',
             width: '100%',
+
+            [`> ${componentCls}-cell`]: {
+              alignContent: 'center',
+            },
           },
         },
 

@@ -13,6 +13,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'വാരം തിരഞ്ഞെടുക്കുക',
     rangePlaceholder: ['ആരംഭ ദിനം', 'അവസാന ദിനം'],
     rangeYearPlaceholder: ['ആരംഭ വർഷം', 'അവസാന വർഷം'],
+    rangeQuarterPlaceholder: ['ആരംഭ ത്രൈമാസം', 'അവസാന ത്രൈമാസം'],
     rangeMonthPlaceholder: ['ആരംഭ മാസം', 'അവസാന മാസം'],
     rangeWeekPlaceholder: ['ആരംഭ വാരം', 'അവസാന വാരം'],
     ...CalendarLocale,

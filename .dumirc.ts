@@ -73,6 +73,9 @@ export default defineConfig({
   mfsu: false,
   mako: isCloudflarePages && ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
   utoopack: {
+    devServer: {
+      dynamicHmrChunkLists: true,
+    },
     watch: {
       nodeModulesRegexes: ['rc-.*', '.*cssinjs.*', '@rc-component/.*'],
     },

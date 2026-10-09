@@ -210,7 +210,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   };
 
   const renderFooter = () => {
-    if (!footer) {
+    if (!isReactRenderable(footer)) {
       return null;
     }
     return (

@@ -209,6 +209,69 @@ describe('Table', () => {
     });
   });
 
+  it('should merge pagination classNames and styles', () => {
+    const { container } = render(
+      <Table
+        columns={[{ dataIndex: 'name' }]}
+        dataSource={[
+          { key: '1', name: 'Bamboo' },
+          { key: '2', name: 'Little' },
+        ]}
+        classNames={{
+          pagination: {
+            root: 'table-pagination-root',
+            item: 'table-pagination-item',
+          },
+        }}
+        styles={{
+          pagination: {
+            root: {
+              backgroundColor: 'rgb(0, 0, 255)',
+              color: 'rgb(0, 0, 0)',
+            },
+            item: {
+              backgroundColor: 'rgb(0, 255, 0)',
+              color: 'rgb(0, 0, 0)',
+            },
+          },
+        }}
+        pagination={{
+          pageSize: 1,
+          classNames: {
+            root: 'pagination-root',
+            item: 'pagination-item',
+          },
+          styles: {
+            root: {
+              color: 'rgb(255, 0, 0)',
+              borderTopWidth: '1px',
+            },
+            item: {
+              color: 'rgb(255, 165, 0)',
+              borderLeftWidth: '2px',
+            },
+          },
+        }}
+      />,
+    );
+
+    const paginationRoot = container.querySelector('.ant-pagination');
+    const paginationItem = container.querySelector('.ant-pagination-item');
+
+    expect(paginationRoot).toHaveClass('table-pagination-root', 'pagination-root');
+    expect(paginationRoot).toHaveStyle({
+      backgroundColor: 'rgb(0, 0, 255)',
+      color: 'rgb(0, 0, 0)',
+      borderTopWidth: '1px',
+    });
+    expect(paginationItem).toHaveClass('table-pagination-item', 'pagination-item');
+    expect(paginationItem).toHaveStyle({
+      backgroundColor: 'rgb(0, 255, 0)',
+      color: 'rgb(0, 0, 0)',
+      borderLeftWidth: '2px',
+    });
+  });
+
   it('should work with function classNames and styles', () => {
     const columns = [
       {

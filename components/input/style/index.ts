@@ -156,7 +156,7 @@ export const genInputGroupStyle: GenerateStyle<InputToken, CSSObject> = (token) 
         position: 'relative',
         padding: `0 ${unit(token.paddingInline)}`,
         color: token.colorText,
-        fontWeight: 'normal',
+        fontWeight: 400,
         fontSize: token.inputFontSize,
         textAlign: 'center',
         borderRadius: token.borderRadius,
@@ -388,7 +388,7 @@ export const genInputStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   };
 };
 
-const genAllowClearStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
+export const genAllowClearStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     // ========================= Input =========================

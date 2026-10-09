@@ -104,7 +104,7 @@ It's used to switch the state of a single option. The inline label of "Switch" s
 <img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/zos/rmsportal/gLJCJDtOquBTRdBSoGYe.png" alt="Incorrect Sample" description="'Switch' doesn't need to work with buttons because the toggle will take effect immediately.">
 </ImagePreview>
 
-> Note: It will trigger the state change directly when a user toggle the "Switch".
+> Note: It will trigger the state change directly when a user toggles the "Switch".
 
 ### Dropdown
 
@@ -155,7 +155,7 @@ DatePicker provides a visual way to browse and select a date or date range for u
 
 ## Upload
 
-Upload is the process of publishing information (from local or cloud storage) to a remote server via a web page or a upload tool.
+Upload is the process of publishing information (from local or cloud storage) to a remote server via a web page or an upload tool.
 
 ### Upload by simple clicks
 

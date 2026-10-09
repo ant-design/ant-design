@@ -72,9 +72,11 @@ demo:
 | options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | { label, value }\[] | - |  |
 | placeholder | 输入框提示 | string | - |  |
 | showSearch | 搜索配置 | true \| [Object](#showsearch) | true |  |
-| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | size | 控件大小 | `large` \| `medium` \| `small` | - |  |
+| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| suffix | 自定义后缀 | ReactNode \| (props) => ReactNode | - | 6.7.0 |
+| ~~suffixIcon~~ | 自定义后缀图标，请使用 `suffix` 替代 | ReactNode | - | - |
 | value | 指定当前选中的条目 | string | - |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
@@ -113,12 +115,12 @@ demo:
 
 ## FAQ
 
-### 为何受控状态下使用 onSearch 无法输入中文？ {#faq-controlled-onsearch-composition}
+### 为何受控状态下使用 onSearch 无法输入中文？ {#faq-onsearch-composition}
 
 请使用 `onChange` 进行受控管理。`onSearch` 触发于搜索输入，与 `onChange` 时机不同。此外，点击选项时也不会触发 `onSearch` 事件。
 
 相关 issue：[#18230](https://github.com/ant-design/ant-design/issues/18230) [#17916](https://github.com/ant-design/ant-design/issues/17916)
 
-### 为何 options 为空时，受控 open 展开不会显示下拉菜单？ {#faq-empty-options-controlled-open}
+### 为何 options 为空时，受控 open 展开不会显示下拉菜单？ {#faq-empty-options-open}
 
 AutoComplete 组件本质上是 Input 输入框的一种扩展，当 `options` 为空时，显示空文本会让用户误以为该组件不可操作，实际上它仍然可以进行文本输入操作。因此，为了避免给用户带来困惑，当 `options` 为空时，`open` 属性为 `true` 也不会展示下拉菜单，需要与 `options` 属性配合使用。

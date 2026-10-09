@@ -121,9 +121,9 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
 
   const [open, setOpen] = useControlledState(props.defaultOpen ?? false, props.open);
 
-  const settingOpen = (value: boolean) => {
-    setOpen(value);
-    onOpenChange?.(value);
+  const settingOpen = (nextOpen: boolean) => {
+    setOpen(nextOpen);
+    onOpenChange?.(nextOpen);
   };
 
   const titleNode = getRenderPropValue(title);

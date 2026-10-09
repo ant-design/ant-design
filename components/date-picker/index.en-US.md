@@ -44,10 +44,10 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/mode.tsx" debug>Controlled Panels</code>
 <code src="./demo/start-end.tsx" debug>Customized Range Picker</code>
-<code src="./demo/suffix.tsx">Prefix and Suffix</code>
+<code src="./demo/suffix.tsx" version="6.7.0">Prefix and Suffix</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
-<code src="./demo/suffixIcon-debug.tsx" debug>suffixIcon</code>
+<code src="./demo/suffix-debug.tsx" debug>suffix</code>
 
 ## API
 
@@ -114,7 +114,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | locale | Localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  | × |
 | minDate | The minimum date, which also limits the range of panel switching | dayjs | - | 5.14.0 | × |
 | maxDate | The maximum date, which also limits the range of panel switching | dayjs | - | 5.14.0 | × |
-| mode | The picker panel mode（ [Cannot select year or month anymore?](/docs/react/faq#when-set-mode-to-datepickerrangepicker-cannot-select-year-or-month-anymore) ) | `time` \| `date` \| `month` \| `year` \| `decade` | - |  | × |
+| mode | The picker panel mode（ [Cannot select year or month anymore?](/docs/react/faq#mode-cannot-select-year-month) ) | `time` \| `date` \| `month` \| `year` \| `decade` | - |  | × |
 | needConfirm | Need click confirm button to trigger value change. Default `false` when `multiple` | boolean | - | 5.14.0 | × |
 | nextIcon | The custom next icon | ReactNode | - | 4.17.0 | × |
 | open | The open state of picker | boolean | - |  | × |
@@ -131,7 +131,8 @@ The following APIs are shared by DatePicker, RangePicker.
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 | × |
 | style | To customize the style of the input box | CSSProperties | {} |  | DatePicker: 5.7.0, RangePicker: 5.11.0 |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | DatePicker: 5.25.0, RangePicker: 5.25.0 |
-| suffixIcon | The custom suffix icon | ReactNode | - |  | DatePicker: 6.3.0, RangePicker: 6.4.0 |
+| suffix | The custom suffix | ReactNode | - | 6.7.0 | 6.7.0 |
+| ~~suffixIcon~~ | The custom suffix icon, please use `suffix` instead | ReactNode | - |  | DatePicker: 6.3.0, RangePicker: 6.4.0 |
 | superNextIcon | The custom super next icon | ReactNode | - | 4.17.0 | × |
 | superPrevIcon | The custom super prev icon | ReactNode | - | 4.17.0 | × |
 | clearIcon | (Only supports global configuration) Custom clear icon | ReactNode | - | × | 6.4.0 |
@@ -278,13 +279,13 @@ Note: `type` is added in `5.14.0`.
 
 ### When set mode to DatePicker/RangePicker, cannot select year or month anymore? {#faq-mode-cannot-select}
 
-Please refer [FAQ](/docs/react/faq#when-set-mode-to-datepickerrangepicker-cannot-select-year-or-month-anymore)
+Please refer [FAQ](/docs/react/faq#mode-cannot-select-year-month)
 
 ### Why does the date picker switch to the date panel after selecting the year instead of the month panel? {#faq-year-to-date-panel}
 
 After selecting the year, the system directly switches to the date panel instead of month panel. This design is intended to reduce the user's operational burden by allowing them to complete the year modification with just one click, without having to enter the month selection interface again. At the same time, it also avoids additional cognitive burden of remembering the month.
 
-### How to use DatePicker with customize date library like dayjs? {#faq-custom-date-library}
+### How to use DatePicker with customize date library like Moment.js? {#faq-custom-date-library}
 
 Please refer [Use custom date library](/docs/react/use-custom-date-library#datepicker)
 
@@ -292,9 +293,7 @@ Please refer [Use custom date library](/docs/react/use-custom-date-library#datep
 
 DatePicker default set `locale` as `en` in v4. You can config DatePicker `locale` prop or [ConfigProvider `locale`](/components/config-provider) prop instead.
 
-#### Date-related components locale is not working?
-
-See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
+See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-locale-not-working)
 
 ### How to modify start day of week? {#faq-week-start-day}
 

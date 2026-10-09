@@ -12,12 +12,24 @@ jobs:
   pr-check-ci:
     if: github.repository == 'ant-design/ant-design'
     permissions:
+      actions: write  # for dispatching the visual regression snapshot workflow
       checks: read  # for actions-cool/check-pr-ci to get check reference
       contents: write  # for actions-cool/check-pr-ci to merge PRs
       issues: write  # for actions-cool/check-pr-ci to update issues
       pull-requests: write  # for actions-cool/check-pr-ci to update PRs
     runs-on: ubuntu-latest
     steps:
+      - name: Get visual regression refs before auto merge
+        id: refs-before
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          for branch in master feature next; do
+            sha=$(gh api repos/$GH_REPO/git/matching-refs/heads/$branch --jq ".[] | select(.ref == \"refs/heads/$branch\") | .object.sha")
+            echo "$branch=$sha" >> "$GITHUB_OUTPUT"
+          done
+
       - uses: actions-cool/check-pr-ci@0ae0a449b0b4a24d792befccee14931cc91caff9 # v1
         with:
           filter-label: BranchAutoMerge
@@ -30,3 +42,24 @@ jobs:
           success-merge: true
           merge-method: merge
           merge-title: 'chore: auto merge branches (#${number})'
+
+      - name: Persist snapshots after auto merge
+        env:
+          MASTER_SHA_BEFORE: ${{ steps.refs-before.outputs.master }}
+          FEATURE_SHA_BEFORE: ${{ steps.refs-before.outputs.feature }}
+          NEXT_SHA_BEFORE: ${{ steps.refs-before.outputs.next }}
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          persist_if_changed() {
+            branch=$1
+            sha_before=$2
+            sha=$(gh api repos/$GH_REPO/git/matching-refs/heads/$branch --jq ".[] | select(.ref == \"refs/heads/$branch\") | .object.sha")
+            if [[ -n "$sha_before" && -n "$sha" && "$sha" != "$sha_before" ]]; then
+              gh workflow run visual-regression-persist-start.yml --repo "$GH_REPO" --ref "$branch"
+            fi
+          }
+
+          persist_if_changed master "$MASTER_SHA_BEFORE"
+          persist_if_changed feature "$FEATURE_SHA_BEFORE"
+          persist_if_changed next "$NEXT_SHA_BEFORE"

@@ -71,10 +71,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | options | Select options. Will get better perf than jsx definition | { label, value }\[] | - |  |
 | placeholder | The placeholder of input | string | - |  |
 | showSearch | search for configuration | true \| [Object](#showsearch) | true |  |
-| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | size | The size of the input box | `large` \| `medium` \| `small` | - |  |
-| value | Selected option | string | - |  |
+| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| suffix | The custom suffix | ReactNode \| (props) => ReactNode | - | 6.7.0 |
+| ~~suffixIcon~~ | The custom suffix icon. Please use `suffix` instead | ReactNode | - | - |
+| value | Selected option | string | - |  |
 | variant | Variants of input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when leaving the component | function() | - |  |
@@ -112,12 +114,12 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## FAQ
 
-### Why doesn't the text composition system work well with onSearch in controlled mode? {#faq-controlled-onsearch-composition}
+### Why doesn't the text composition system work well with onSearch in controlled mode? {#faq-onsearch-composition}
 
 Please use `onChange` to manage control state. `onSearch` is used for searching input which is not the same as `onChange`. Besides, clicking on the option will not trigger the `onSearch` event.
 
 Related issue: [#18230](https://github.com/ant-design/ant-design/issues/18230) [#17916](https://github.com/ant-design/ant-design/issues/17916)
 
-### Why won't a controlled open AutoComplete display a drop-down menu when options are empty? {#faq-empty-options-controlled-open}
+### Why won't a controlled open AutoComplete display a drop-down menu when options are empty? {#faq-empty-options-open}
 
 The AutoComplete component is essentially an extension of the Input form element. When the `options` property is empty, displaying empty text could mislead the user into believing the component is not operational, when in fact they are still able to input text. To avoid confusion, the `open` property will not display the drop-down menu when set to `true` and in combination with an empty `options` property. The `open` property must be used in conjunction with the `options` property.

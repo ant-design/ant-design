@@ -151,6 +151,30 @@ describe('Tabs', () => {
     );
     errorSpy.mockRestore();
   });
+
+  it('support deprecated visible props in more', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const onVisibleChange = jest.fn();
+    const { container } = render(
+      <Tabs
+        items={[{ key: '1', label: 'Tab' }]}
+        more={{ visible: true, onVisibleChange, trigger: ['click'] }}
+      />,
+    );
+
+    expect(document.querySelector('.ant-tabs-dropdown')).toBeTruthy();
+    fireEvent.click(container.querySelector('.ant-tabs-nav-more')!);
+    expect(onVisibleChange).toHaveBeenCalledWith(false);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tabs] `more.visible` is deprecated. Please use `more.open` instead.',
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tabs] `more.onVisibleChange` is deprecated. Please use `more.onOpenChange` instead.',
+    );
+    errorSpy.mockRestore();
+  });
+
   it('support classnames and styles', () => {
     const customClassnames = {
       root: 'test-class',

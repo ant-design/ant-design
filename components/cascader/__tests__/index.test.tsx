@@ -10,6 +10,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 import Input from '../../input';
 import deDE from '../../locale/de_DE';
 import zhCN from '../../locale/zh_CN';
@@ -910,12 +911,78 @@ describe('Cascader', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<Cascader showArrow />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Cascader] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+      'Warning: [antd: Cascader] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffix` to null.',
     );
     expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
     errSpy.mockRestore();
   });
+
+  describe('suffix', () => {
+    it('should support suffix prop', () => {
+      const { container } = render(<Cascader suffix="suffix" />);
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('suffix');
+    });
+
+    it('should prefer suffix prop over suffixIcon prop', () => {
+      const { container } = render(<Cascader suffix="suffix" suffixIcon={null} />);
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('suffix');
+    });
+
+    it('should support suffix prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider cascader={{ suffix: 'suffix' }}>
+          <Cascader />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('suffix');
+    });
+
+    it('should preserve suffixIcon config provider compatibility', () => {
+      const { container } = render(
+        <ConfigProvider cascader={{ suffixIcon: 'legacy' }}>
+          <Cascader />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('legacy');
+    });
+
+    it('should prefer suffix over suffixIcon in config provider', () => {
+      const { container } = render(
+        <ConfigProvider cascader={{ suffix: 'suffix', suffixIcon: 'legacy' }}>
+          <Cascader />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('suffix');
+    });
+
+    it.each([
+      ['custom', 'suffix'],
+      ['null', null],
+    ])('should keep feedback icon with %s suffix', (_, suffix) => {
+      const { container } = render(
+        <Form>
+          <Form.Item hasFeedback validateStatus="error">
+            <Cascader suffix={suffix} />
+          </Form.Item>
+        </Form>,
+      );
+      expect(container.querySelector('.ant-form-item-feedback-icon-error')).toBeTruthy();
+    });
+
+    it('should warn when using deprecated suffixIcon prop', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Cascader suffixIcon="suffix" />);
+      expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('suffix');
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `suffixIcon` is deprecated. Please use `suffix` instead.',
+      );
+      errSpy.mockRestore();
+    });
+  });
+
   it('Support aria-* and data-* in options', () => {
     const { container } = render(
       <Cascader options={options} open defaultValue={['zhejiang', 'hangzhou']} />,

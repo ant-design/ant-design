@@ -7,7 +7,7 @@ title: 使用自定义日期库
 
 Ant Design 默认使用 [Day.js](https://day.js.org) 来处理时间日期问题。Day.js 相比于 moment 使用了不可变数据结构，性能更快，体积仅 2KB，API 设计完全一致。你可以很方便的改用其他自定义日期库如（[moment](http://momentjs.com/)、[date-fns](https://date-fns.org)、[luxon](https://moment.github.io/luxon/)）。在这里我们提供了两种方式来实现替换:
 
-## 自定义组件
+## 自定义组件 {#custom-component}
 
 第一种方法是使用 `generatePicker`（或 `generateCalendar`）辅助创建 Picker 组件。
 
@@ -69,7 +69,7 @@ const MyCalendar = Calendar.generateCalendar<Moment>(momentGenerateConfig);
 export default MyCalendar;
 ```
 
-#### 导出自定义组件
+### 导出自定义组件 {#export-custom-component}
 
 新建 `src/components/index.tsx`。
 
@@ -81,7 +81,7 @@ export { default as DatePicker } from './DatePicker';
 export { default as TimePicker } from './TimePicker';
 ```
 
-### 使用自定义组件
+### 使用自定义组件 {#use-custom-component}
 
 修改 `src/App.tsx`，引入 `moment` 和自定义的组件。
 
@@ -107,7 +107,7 @@ module.exports = {
 };
 ```
 
-## 使用 date-fns
+## 使用 date-fns {#use-date-fns}
 
 [date-fns](https://date-fns.org/) 目前支持和 dayjs 类似的自定义组件方法，区别在于使用的参数类型不同，在 antd 4.5.0 以上版本提供支持。
 
@@ -128,11 +128,11 @@ const MyDatePicker = DatePicker.generatePicker<Date>(dateFnsGenerateConfig);
 export default MyDatePicker;
 ```
 
-## 使用 luxon
+## 使用 luxon {#use-luxon}
 
 自 `antd 5.4.0` 起，可以使用 [luxon](https://moment.github.io/luxon/) 代替 dayjs 并支持同样的功能，但它与 dayjs 有一些差异，我们将在下面解释：
 
-### 执行
+### 执行 {#implementation}
 
 创建一个 `DatePicker.tsx` 文件，并定义一个基于 luxon 的 DatePicker 组件：
 
@@ -146,7 +146,7 @@ const MyDatePicker = DatePicker.generatePicker<DateTime>(luxonGenerateConfig);
 export default MyDatePicker;
 ```
 
-### 与 dayjs 的差异
+### 与 dayjs 的差异 {#notable-differences-with-dayjs}
 
 luxon 用户应该悉知，它本身没有 local 的实现。相反，它依赖于原生浏览器的 [Intl](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl)。
 

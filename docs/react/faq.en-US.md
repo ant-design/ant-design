@@ -9,7 +9,7 @@ Here are the frequently asked questions about Ant Design and antd that you shoul
 
 ---
 
-## Is there a difference between `undefined` and `null` in the controlled components of `antd`?
+## Is there a difference between `undefined` and `null` in the controlled components of `antd`? {#undefined-vs-null}
 
 **Yes. antd will treat `undefined` as uncontrolled but `null` as controlled component which means empty value of it.**
 
@@ -34,15 +34,15 @@ antd uses `isReactRenderable` from `@rc-component/util` to determine whether a c
 
 Here, `false` is treated as an explicit no-content marker, while `true` means that content was provided. Although `true` itself produces no text node, the wrapper DOM is still created. Similarly, an empty array, an empty Fragment, or a React element that eventually returns `null` passes the check. The number `0` is not mistaken for empty content and is rendered normally.
 
-## Can I use internal API which is not documented on the site?
+## Can I use internal API which is not documented on the site? {#use-undocumented-internal-api}
 
 NOT RECOMMENDED. Internal API is not guaranteed to be compatible with future versions. It may be removed or changed in some versions. If you really need to use it, you should make sure these APIs are still valid when upgrading to a new version or just lock version for usage.
 
-## Why API request should be strict discussion?
+## Why API request should be strict discussion? {#why-api-changes-need-discussion}
 
 We are cautious when adding APIs because some APIs may not be abstract enough to become historical debt. For example, when there is a need to change the way of interaction, these poor abstractions may cause breaking changes. To avoid such problems, we recommend that new features be implemented through HOCs first.
 
-## `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappears when I click another popup component inside it. How do I resolve this?
+## `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappears when I click another popup component inside it. How do I resolve this? {#popup-disappears-inside-another}
 
 This is an old bug that has been fixed since `v3.11.x`. If you're using an older version, you can use `<Select getPopupContainer={trigger => trigger.parentElement}>` to render a component inside Popover. (Or other `getXxxxContainer` props)
 
@@ -50,7 +50,7 @@ https://ant.design/components/select/#Select-props
 
 Related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
-## How do I prevent `Select Dropdown DatePicker TimePicker Popover Popconfirm` scrolling with the page?
+## How do I prevent `Select Dropdown DatePicker TimePicker Popover Popconfirm` scrolling with the page? {#popup-scrolls-with-the-page}
 
 Use `<Select getPopupContainer={trigger => trigger.parentElement}>` ([API reference](/components/select/#select-props)) to render a component inside the scroll area. If you need to config this globally in your application, try `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>` ([API reference](/components/config-provider/#api))
 
@@ -58,15 +58,15 @@ And make sure that parentElement is `position: relative` or `position: absolute`
 
 Related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
-## How do I modify the default theme of Ant Design?
+## How do I modify the default theme of Ant Design? {#modify-the-default-theme}
 
 See: [customize-theme](/docs/react/customize-theme).
 
-## How do I modify `Menu`/`Button`(etc.)'s style?
+## How do I modify `Menu`/`Button`(etc.)'s style? {#modify-component-default-style}
 
 While you can override a component's style, we don't recommend doing so. antd is not only a set of React components, but also a design specification as well.
 
-## How to avoid breaking change when update version?
+## How to avoid breaking change when update version? {#avoid-breaking-changes}
 
 antd will avoid breaking change in minor & patch version. You can safely do the following things:
 
@@ -78,15 +78,15 @@ And which you should avoid doing:
 - Bug as feature. It will break in any other case (e.g. Use div as Tabs children)
 - Use magic code to realize requirement but which can be realized with normal API
 
-## How to use other date-time lib like Moment.js?
+## How to use other date-time lib like Moment.js? {#use-other-date-library}
 
 Please refer to [Use custom date library](/docs/react/use-custom-date-library).
 
-## It doesn't work when I change `defaultValue` dynamically.
+## It doesn't work when I change `defaultValue` dynamically. {#defaultvalue-not-working}
 
 The `defaultXxxx` (e.g. `defaultValue`) of `Input`/`Select`(etc...) only works on the first render. It is a specification of React. Please read [React's documentation](https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable).
 
-## Why does modifying props in mutable way not trigger a component update?
+## Why does modifying props in mutable way not trigger a component update? {#mutable-props-no-rerender}
 
 antd use shallow compare of props to optimize performance. You should always pass the new object when updating the state. Please ref [React's document](https://react.dev/learn/thinking-in-react)
 
@@ -102,13 +102,23 @@ Yes, you can visit https://ant-design.antgroup.com.
 | Ant Design Mini   | https://ant-design-mini.antgroup.com      |
 | Ant Design Charts | https://ant-design-charts.antgroup.com    |
 
-## After I set the `value` of an `Input`/`Select`(etc.) component, the value cannot be changed by user's action.
+## After I set the `value` of an `Input`/`Select`(etc.) component, the value cannot be changed by user's action. {#value-cannot-be-changed}
 
 Try `onChange` to change `value`, and please read [React's documentation](https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable).
 
-## Components are not vertically aligned when placed in single row.
+## Components are not vertically aligned when placed in single row. {#not-vertically-aligned}
 
 Try [Space](https://ant.design/components/space/) component to make them aligned.
+
+## Why do third-party SVG icons have margin-block-end? {#faq-icon-margin-block-end}
+
+Components such as Breadcrumb, Collapse, Segmented, Tabs, and Tag apply `display: inline-block`, `vertical-align: middle`, and `margin-block-end: 0.2em` to SVGs rendered directly in the corresponding icon slots to adjust their visual alignment with text.
+
+In inline layout, an SVG has no text baseline, so its bottom edge participates in baseline alignment by default, which can make it appear too high next to text. `display: inline-block` keeps the icon in the inline flow, while `vertical-align: middle` aligns the center of its margin box to the parent's baseline plus half its x-height (the height of a lowercase x), making the alignment independent of the icon's height.
+
+However, the center of the x-height is usually lower than the center of capital letters, so a small upward optical adjustment is needed. `margin-block-end: 0.2em` adds a margin below the icon. Once the margin box is centered, the icon itself moves up by about `0.1em`, bringing it closer to the center of capital letters in common fonts. The `0.2em` value approximates the difference between cap height and x-height in common fonts, and using `em` makes the adjustment scale with the font size.
+
+These styles target directly rendered SVGs. Icons from `@ant-design/icons` wrap their SVG in an extra container and use their own alignment styles. Different fonts, internal icon whitespace, or an icon's own `vertical-align` can affect the result. If an icon already handles its own alignment, or an icon-only use case does not need text alignment compensation, you can locally override the corresponding SVG with `margin-block-end: 0` and adjust its own styles as needed.
 
 ## antd overrides my global styles
 
@@ -116,15 +126,15 @@ Yes, antd is designed to help you develop a complete background application. To 
 
 Alternatively, follow the instructions in [How to avoid modifying global styles?](/docs/react/customize-theme#how-to-avoid-modifying-global-styles)
 
-## I cannot install `antd` and `antd`'s dependencies in mainland China.
+## I cannot install `antd` and `antd`'s dependencies in mainland China. {#install-antd-in-mainland-china}
 
 To potentially solve this, try [npm mirror china](https://npmmirror.com) and [cnpm](https://github.com/cnpm/cnpm).
 
-## I set `dependencies.antd` as the git repository in `package.json`, but it doesn't work.
+## I set `dependencies.antd` as the git repository in `package.json`, but it doesn't work. {#dependencies-antd-git-repo}
 
 Please install `antd` with either npm or yarn.
 
-## `message` and `notification` is lower case, but other components are capitalized. Is this a typo?
+## `message` and `notification` is lower case, but other components are capitalized. Is this a typo? {#lowercase-message-notification}
 
 No, `message` is just a function, not a React Component, thus it is not a typo that it is in lower case.
 
@@ -132,7 +142,7 @@ No, `message` is just a function, not a React Component, thus it is not a typo t
 
 Please check [Ant Design Mobile](http://mobile.ant.design) as a possible solution, as `antd` has not been optimized to work well on mobile. You can also try the [react-component](https://github.com/react-component/) repositories which start with 'm-' 'rn-', which are also designed for mobile.
 
-## Does `antd` supply standalone files like 'React'?
+## Does `antd` supply standalone files like 'React'? {#standalone-files-like-react}
 
 Yes, you can [import `antd` with script tag](https://ant.design/docs/react/introduce#import-in-browser), but we recommend using `npm` to import `antd`, as it is simple and easy to maintain.
 
@@ -142,7 +152,7 @@ If you need some features which should not be included in antd, try to extend an
 
 antd will have a strict discussion on the demand for new components to prevent API corruption and become [historical debt](/docs/blog/historical-debt). And it is also more inclined to provide atomic capabilities for APIs so that developers can customize the features they need more flexibly.
 
-## How to get the definition which is not export?
+## How to get the definition which is not export? {#get-unexported-definition}
 
 antd expose the basic component definitions. For the unexposed props, you can get them via the utility types provided by antd. For example:
 
@@ -159,7 +169,7 @@ type CheckboxValue = GetProp<CheckboxProps, 'value'>;
 type InputRef = GetRef<typeof Input>;
 ```
 
-## Date-related components locale is not working?
+## Date-related components locale is not working? {#date-locale-not-working}
 
 Please check whether you have imported dayjs locale correctly.
 
@@ -179,11 +189,11 @@ npm ls dayjs
 
 If you are using a mismatched version of dayjs with [antd's dayjs](https://github.com/ant-design/ant-design/blob/7dfc80504a36cf8952cd732a1d0c137a16d56fd4/package.json#L125) in your project. That would be a problem cause locale not working.
 
-## How do I fix dynamic styles while using a Content Security Policy (CSP)?
+## How do I fix dynamic styles while using a Content Security Policy (CSP)? {#fix-dynamic-styles-with-csp}
 
 You can configure `nonce` by [ConfigProvider](/components/config-provider#csp).
 
-## When I set `mode` to `DatePicker`/`RangePicker`, why can I not select a year or month anymore?
+## When I set `mode` to `DatePicker`/`RangePicker`, why can I not select a year or month anymore? {#mode-cannot-select-year-month}
 
 In a real world development, you may need a `YearPicker`, `MonthRangePicker` or `WeekRangePicker`. You are trying to add `mode` to `DatePicker`/`RangePicker` expected to implement those pickers. However, the `DatePicker`/`RangePicker` cannot be selected and the panels won't close now.
 
@@ -198,7 +208,7 @@ Likewise, `disabledDate` [cannot work on year/month panels](https://github.com/a
 
 Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we [added more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) to meet those requirements, and `disabledDate` could be effect on those pickers too. :::
 
-## message/notification/Modal.confirm lost styles when set `prefixCls` on ConfigProvider?
+## message/notification/Modal.confirm lost styles when set `prefixCls` on ConfigProvider? {#prefixcls-lost-styles}
 
 Static methods like message/notification/Modal.confirm are not using the same render tree as `<Button />`, but rendered to independent DOM node created by `ReactDOM.render`, which cannot access React context from ConfigProvider. Consider two solutions here:
 
@@ -206,25 +216,25 @@ Static methods like message/notification/Modal.confirm are not using the same re
 
 2. Use [App.useApp](/components/app#basic-usage) to get message/notification/modal instance.
 
-## Why shouldn't I use component internal props or state with ref?
+## Why shouldn't I use component internal props or state with ref? {#avoid-internal-props-with-ref}
 
 You should only access the API by official doc with ref. Directly access internal `props` or `state` is not recommended which will make your code strong coupling with current version. Any refactor will break your code like refactor with [Hooks](https://react.dev/reference/react/hooks) version, delete or rename internal `props` or `state`, adjust internal node constructor, etc.
 
 <div id="why-open"></div>
 
-## Why we need align pop component with `open` prop?
+## Why we need align pop component with `open` prop? {#align-pop-component-with-open}
 
 For historical reasons, the display names of the pop components are not uniform, and both `open` and `visible` are used. This makes the memory cost that non-tsx users encounter when developing. It also leads to ambiguity about what name to choose when adding a feature. So we want to unify the attribute name, you can still use the original `visible` and it will still be backward compatible, but we will remove this attribute from the documentation as of v5.
 
-## Dynamic style using `:where` selector which not support old browser.
+## Dynamic style using `:where` selector which not support old browser. {#where-selector-old-browser}
 
 Please ref dynamic theme document [Legacy Browser Compatible](/docs/react/compatible-style) part.
 
-## CSS-in-JS css priority conflict with tailwindcss?
+## CSS-in-JS css priority conflict with tailwindcss? {#cssinjs-tailwind-conflict}
 
 Same as above. You can adjust antd css priority to override. Related issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
 
-## How to let CSS-in-JS work with shadow DOM?
+## How to let CSS-in-JS work with shadow DOM? {#cssinjs-with-shadow-dom}
 
 Please ref document [Shadow Dom Usage](/docs/react/compatible-style#shadow-dom-usage).
 
@@ -244,11 +254,11 @@ import { ConfigProvider } from 'antd';
 
 Please ref dynamic theme document [SSR](/docs/react/server-side-rendering) part.
 
-## What is the relationship between colorPrimary and colorInfo and colorLink in V5?
+## What is the relationship between colorPrimary and colorInfo and colorLink in V5? {#colorprimary-colorlink-relation}
 
 In the Ant Design Token system, `colorPrimary` and `colorInfo` are both [Seed Token](../react/customize-theme.en-US.md#seed-token), so they are independent of each other. `colorLink` is an [Alias Token](../react/customize-theme.en-US.md#alias-token), inherits `colorInfo` by default, and is independent of `colorPrimary`.
 
-## How to spell Ant Design correctly?
+## How to spell Ant Design correctly? {#spell-ant-design-correctly}
 
 | Spelt | Usage | Pronunciation |
 | --- | --- | --- |
@@ -266,11 +276,11 @@ Here are some typical wrong examples:
 - ❌ antdesign
 - ❌ Antdesign
 
-## Do you guys have any channel or website for submitting monetary donations, like through PayPal or Alipay?
+## Do you guys have any channel or website for submitting monetary donations, like through PayPal or Alipay? {#donation-channels}
 
 [https://opencollective.com/ant-design](https://opencollective.com/ant-design)
 
-## Use Form's `setFieldsValue` method to report an error if the object type contains `null`
+## Use Form's `setFieldsValue` method to report an error if the object type contains `null` {#setfieldsvalue-null-type-error}
 
 When we try to set the form value using the `setFieldsValue` method in the form instance of the form component, if the passed object contains the type null, such as:
 
@@ -301,11 +311,11 @@ If you encounter the above error, please check the current project `tsconfig.jso
 
 The above problem occurs if `strictNullChecks` is set to `true`, If you can determine the project don't need this configuration (see [strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks) to judge whether need the configuration). You can try changing to `false` to turn off the control strict check. However, if you do need to enable this feature, you can avoid this situation by using other types instead of `null` when defining types
 
-## Why doesn't antd handle precision issues encountered with browser zoom?
+## Why doesn't antd handle precision issues encountered with browser zoom? {#browser-zoom-precision-issue}
 
 Different browsers have different rendering behaviors when zooming. Fixing a precision issue in one browser often leads to issues in others. Additionally, zoom-related precision issues typically occur at extreme zoom levels, which are uncommon in regular use. The inconsistency in rendering arises from how browsers calculate and render elements during zoom operations, including subpixel rendering, rounding differences, and layout recalculations. Addressing these issues requires a significant amount of browser-specific code, which can negatively impact performance and maintainability, and may also be broken by iterations in the browsers themselves.
 
-## The antd component reported an error when using the App Router of Next.js
+## The antd component reported an error when using the App Router of Next.js {#nextjs-app-router-error}
 
 If you are using the App Router of Next.js, when you use the sub-components provided by some antd components, such as `Select.Option `, `Form.Item`, `Typography.Title`, etc., you may get the following error:
 

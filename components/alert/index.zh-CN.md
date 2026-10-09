@@ -40,7 +40,7 @@ group:
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | action | 自定义操作项 | ReactNode | - |  | × |
 | ~~afterClose~~ | 关闭动画结束后触发的回调函数，请使用 `closable.afterClose` 替换 | () => void | - |  | × |
@@ -70,6 +70,7 @@ group:
 | ---------- | ---------------------------- | ----------------------- | ------ | ---- |
 | afterClose | 关闭动画结束后触发的回调函数 | function                | -      | -    |
 | closeIcon  | 自定义关闭图标               | ReactNode               | -      | -    |
+| disabled   | 是否禁用关闭按钮             | boolean                 | false  | -    |
 | onClose    | 关闭时触发的回调函数         | (e: MouseEvent) => void | -      | -    |
 
 ### Alert.ErrorBoundary

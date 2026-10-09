@@ -7078,7 +7078,7 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-transfer-list-header acss-r4s437"
-        style="font-weight:bold"
+        style="font-weight:700"
       >
         <label
           class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
@@ -7441,7 +7441,7 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-transfer-list-header acss-r4s437"
-        style="font-weight:bold"
+        style="font-weight:700"
       >
         <label
           class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
@@ -7703,7 +7703,7 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-transfer-list-header acss-r4s437"
-        style="color:#8DBCC7;font-weight:normal"
+        style="color:#8DBCC7;font-weight:400"
       >
         <label
           class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
@@ -8067,7 +8067,7 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-transfer-list-header acss-r4s437"
-        style="color:#8DBCC7;font-weight:normal"
+        style="color:#8DBCC7;font-weight:400"
       >
         <label
           class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
