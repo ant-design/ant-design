@@ -101,6 +101,7 @@ export default defineConfig({
     'antd/lib': path.join(__dirname, 'components'),
     'antd/es': path.join(__dirname, 'components'),
     'antd/locale': path.join(__dirname, 'components/locale'),
+    'antd/cssinjs': path.join(__dirname, 'components/cssinjs'),
     antd: path.join(__dirname, 'components'),
   },
   extraRehypePlugins: [rehypeAntd, rehypeChangelog],

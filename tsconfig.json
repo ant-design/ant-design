@@ -13,7 +13,8 @@
       "antd": ["./components/index.ts"],
       "antd/es/*": ["./components/*"],
       "antd/lib/*": ["./components/*"],
-      "antd/locale/*": ["./components/locale/*"]
+      "antd/locale/*": ["./components/locale/*"],
+      "antd/cssinjs": ["./components/cssinjs"]
     },
     "resolvePackageJsonExports": true,
     "strict": true,
