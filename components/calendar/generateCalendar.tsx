@@ -3,6 +3,7 @@ import type { BasePickerPanelProps as RcBasePickerPanelProps } from '@rc-compone
 import { PickerPanel as RCPickerPanel } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/generate';
 import type { CellRenderInfo } from '@rc-component/picker/interface';
+import { getShortMonths } from '@rc-component/picker/locale/util';
 import { merge, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -310,8 +311,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           return monthFullCellRender(date);
         }
 
-        const months =
-          info.locale!.shortMonths || generateConfig.locale.getShortMonths!(info.locale!.locale);
+        const months = getShortMonths(info.locale!, generateConfig);
 
         return (
           <div
