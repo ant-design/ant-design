@@ -9,6 +9,7 @@ import { waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
+import zhTW from '../../locale/zh_TW';
 import theme from '../../theme';
 import { AggregationColor } from '../color';
 import ColorPicker from '../ColorPicker';
@@ -70,6 +71,98 @@ describe('ColorPicker', () => {
     expect(container.querySelector('.ant-color-picker-trigger')).toBeTruthy();
   });
 
+  it('Should make the default trigger keyboard accessible', async () => {
+    const { container } = render(<ColorPicker />);
+    const trigger = container.querySelector('.ant-color-picker-trigger')!;
+
+    expect(trigger).toHaveAttribute('role', 'button');
+    expect(trigger).toHaveAttribute('tabindex', '0');
+    expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    expect(trigger).toHaveAccessibleName('Transparent');
+
+    fireEvent.keyDown(trigger, { key: 'Enter', repeat: true });
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker')).toBeFalsy();
+    expect(trigger).toHaveAttribute('aria-expanded', 'false');
+
+    fireEvent.keyDown(trigger, { key: 'Enter' });
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker')).toBeTruthy();
+    expect(trigger).toHaveAttribute('aria-expanded', 'true');
+
+    fireEvent.keyDown(trigger, { key: ' ' });
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker')).toHaveClass('ant-popover-hidden');
+    expect(trigger).toHaveAttribute('aria-expanded', 'false');
+  });
+
+  it('uses a localized color type name without nesting an interactive clear marker', () => {
+    const { container, rerender } = render(
+      <ConfigProvider locale={zhTW}>
+        <ColorPicker value="#1677ff" />
+      </ConfigProvider>,
+    );
+    const trigger = container.querySelector('.ant-color-picker-trigger')!;
+
+    expect(trigger).toHaveAccessibleName('單色');
+
+    rerender(
+      <ConfigProvider locale={zhTW}>
+        <ColorPicker value="#ff0000" />
+      </ConfigProvider>,
+    );
+    expect(trigger).toHaveAccessibleName('單色');
+
+    rerender(
+      <ConfigProvider locale={zhTW}>
+        <ColorPicker
+          value={[
+            { color: '#1677ff', percent: 0 },
+            { color: '#ff0000', percent: 100 },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+    expect(trigger).toHaveAccessibleName('漸層色');
+
+    rerender(
+      <ConfigProvider locale={zhTW}>
+        <ColorPicker value={null} />
+      </ConfigProvider>,
+    );
+    expect(trigger).toHaveAccessibleName('透明');
+    expect(trigger.querySelector('.ant-color-picker-clear')).not.toHaveAttribute('role');
+    expect(trigger.querySelector('.ant-color-picker-clear')).not.toHaveAttribute('tabindex');
+  });
+
+  it('Should keep the disabled default trigger out of keyboard navigation', async () => {
+    const { container } = render(<ColorPicker disabled />);
+    const trigger = container.querySelector('.ant-color-picker-trigger')!;
+
+    expect(trigger).toHaveAttribute('role', 'button');
+    expect(trigger).toHaveAttribute('aria-disabled', 'true');
+    expect(trigger).toHaveAttribute('tabindex', '-1');
+
+    fireEvent.keyDown(trigger, { key: 'Enter' });
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker')).toBeFalsy();
+  });
+
+  it('Should operate a hover trigger with the keyboard', async () => {
+    const { container } = render(<ColorPicker trigger="hover" />);
+    const trigger = container.querySelector('.ant-color-picker-trigger')!;
+
+    fireEvent.keyDown(trigger, { key: 'Enter' });
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker')).toBeTruthy();
+    expect(trigger).toHaveAttribute('aria-expanded', 'true');
+
+    fireEvent.keyDown(trigger, { key: ' ' });
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker')).toHaveClass('ant-popover-hidden');
+    expect(trigger).toHaveAttribute('aria-expanded', 'false');
+  });
+
   it('Should component defaultValue work', () => {
     const { container } = render(<ColorPicker defaultValue="#000000" />);
     expect(
@@ -123,8 +216,9 @@ describe('ColorPicker', () => {
     expect(container.querySelector('.ant-color-picker-trigger-disabled')).toBeTruthy();
     const clear = container.querySelector<HTMLElement>('.ant-color-picker-clear')!;
     expect(clear).toHaveClass('ant-color-picker-clear-disabled');
-    expect(clear).toHaveAttribute('aria-disabled', 'true');
-    expect(clear).toHaveAttribute('tabindex', '-1');
+    expect(clear).not.toHaveAttribute('role');
+    expect(clear).not.toHaveAttribute('aria-disabled');
+    expect(clear).not.toHaveAttribute('tabindex');
     expect(container).toMatchSnapshot();
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
@@ -135,12 +229,14 @@ describe('ColorPicker', () => {
     const { container, rerender } = render(<ColorPicker defaultValue={null} />);
     const clear = container.querySelector<HTMLElement>('.ant-color-picker-clear')!;
 
-    expect(clear).toHaveAttribute('tabindex', '0');
+    expect(clear).not.toHaveAttribute('role');
+    expect(clear).not.toHaveAttribute('tabindex');
     expect(clear).not.toHaveClass('ant-color-picker-clear-disabled');
 
     rerender(<ColorPicker defaultValue={null} disabled />);
 
-    expect(clear).toHaveAttribute('tabindex', '-1');
+    expect(clear).not.toHaveAttribute('role');
+    expect(clear).not.toHaveAttribute('tabindex');
     expect(clear).toHaveClass('ant-color-picker-clear-disabled');
   });
 
@@ -162,6 +258,12 @@ describe('ColorPicker', () => {
     expect(
       container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
     ).toBeTruthy();
+    expect(
+      container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
+    ).not.toHaveAttribute('role');
+    expect(
+      container.querySelector('.ant-color-picker-trigger .ant-color-picker-clear'),
+    ).not.toHaveAttribute('tabindex');
 
     fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
       target: { value: '#273B57' },
@@ -180,6 +282,9 @@ describe('ColorPicker', () => {
 
       fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
       await waitFakeTimer();
+      fireEvent.keyDown(container.querySelector('.ant-color-picker-clear')!, { key, repeat: true });
+      expect(onClear).not.toHaveBeenCalled();
+
       fireEvent.keyDown(container.querySelector('.ant-color-picker-clear')!, { key });
       expect(onClear).toHaveBeenCalledTimes(1);
 
