@@ -232,6 +232,26 @@ describe('Transfer', () => {
     expect(onSelectChange).not.toHaveBeenCalled();
   });
 
+  it('should update both lists when render changes', () => {
+    const props = {
+      dataSource: listCommonProps.dataSource,
+      targetKeys: listCommonProps.targetKeys,
+    };
+    const { getByText, queryByText, rerender } = render(
+      <Transfer {...props} render={(item) => item.title} />,
+    );
+
+    expect(getByText('a')).toBeInTheDocument();
+    expect(getByText('b')).toBeInTheDocument();
+
+    rerender(<Transfer {...props} render={(item) => `updated-${item.title}`} />);
+
+    expect(getByText('updated-a')).toBeInTheDocument();
+    expect(getByText('updated-b')).toBeInTheDocument();
+    expect(queryByText('a')).not.toBeInTheDocument();
+    expect(queryByText('b')).not.toBeInTheDocument();
+  });
+
   it('multiple select/deselect by hold down the shift key', () => {
     const handleSelectChange = jest.fn();
     const { getByText } = render(
