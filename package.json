@@ -240,6 +240,7 @@
     "dotenv": "^18.0.0",
     "dumi": "^2.4.30",
     "dumi-plugin-color-chunk": "^2.1.0",
+    "dumi-plugin-mermaid": "^1.2.0",
     "env-paths": "^4.0.0",
     "eslint": "^10.8.1",
     "eslint-plugin-compat": "^7.0.2",
