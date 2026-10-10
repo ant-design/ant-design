@@ -124,6 +124,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     inputMode,
     classNames,
     styles,
+    rootClassName,
     className,
     style,
     ...restProps
@@ -329,6 +330,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       ref={containerRef}
       className={clsx(
         className,
+        rootClassName,
         prefixCls,
         {
           [`${prefixCls}-sm`]: mergedSize === 'small',

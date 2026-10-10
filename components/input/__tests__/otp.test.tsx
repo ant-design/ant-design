@@ -365,4 +365,9 @@ describe('Input.OTP', () => {
     expect(input).toHaveStyle('color: rgb(255, 0, 0)');
     expect(separator).toHaveStyle('color: rgb(0, 0, 255)');
   });
+
+  it('should apply rootClassName to the root element', () => {
+    const { container } = render(<OTP rootClassName="bamboo" />);
+    expect(container.querySelector('.ant-otp')).toHaveClass('bamboo');
+  });
 });
