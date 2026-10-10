@@ -1,6 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
+import ConfigProvider from '../../config-provider';
+import zhTW from '../../locale/zh_TW';
 import Collapse from '..';
 
 describe('Collapse accessibility', () => {
@@ -41,15 +43,38 @@ describe('Collapse accessibility', () => {
       const iconControl = container.querySelector('.ant-collapse-expand-icon');
       const icon = container.querySelector('.ant-collapse-arrow');
 
-      expect(iconControl).toHaveAccessibleName('expanded');
-      expect(icon).toHaveAttribute('aria-label', 'expanded');
+      expect(iconControl).toHaveAccessibleName('Collapse');
+      expect(icon).toHaveAttribute('aria-label', 'Collapse');
       expect(icon).not.toHaveAttribute('aria-hidden');
 
       rerender(<Collapse collapsible={collapsible} items={items} />);
 
-      expect(iconControl).toHaveAccessibleName('collapsed');
-      expect(icon).toHaveAttribute('aria-label', 'collapsed');
+      expect(iconControl).toHaveAccessibleName('Expand');
+      expect(icon).toHaveAttribute('aria-label', 'Expand');
       expect(icon).not.toHaveAttribute('aria-hidden');
+    },
+  );
+
+  it.each(['header', 'icon'] as const)(
+    'localizes the interactive default icon for collapsible="%s"',
+    (collapsible) => {
+      const items = [{ key: '1', label: 'Header' }];
+      const { container, rerender } = render(
+        <ConfigProvider locale={zhTW}>
+          <Collapse activeKey="1" collapsible={collapsible} items={items} />
+        </ConfigProvider>,
+      );
+      const iconControl = container.querySelector('.ant-collapse-expand-icon');
+
+      expect(iconControl).toHaveAccessibleName('收合');
+
+      rerender(
+        <ConfigProvider locale={zhTW}>
+          <Collapse collapsible={collapsible} items={items} />
+        </ConfigProvider>,
+      );
+
+      expect(iconControl).toHaveAccessibleName('展開');
     },
   );
 });
