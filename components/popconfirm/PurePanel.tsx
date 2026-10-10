@@ -31,7 +31,6 @@ export interface OverlayProps
     | 'showCancel'
     | 'title'
     | 'description'
-    | 'onPopupClick'
   > {
   prefixCls: string;
   close?: (...args: any[]) => void;
@@ -56,7 +55,6 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
     close,
     onConfirm,
     onCancel,
-    onPopupClick,
     classNames,
     styles,
   } = props;
@@ -69,7 +67,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
   const descriptionNode = getRenderPropValue(description);
 
   return (
-    <div className={`${prefixCls}-inner-content`} onClick={onPopupClick}>
+    <div className={`${prefixCls}-inner-content`}>
       <div className={`${prefixCls}-message`}>
         {icon && (
           <span
