@@ -61,7 +61,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  | × |
 | disabled | Whether disabled select | boolean | false |  | × |
 | displayRender | The render function of displaying selected options | (label, selectedOptions) => ReactNode | label => label.join(`/`) | `multiple`: 4.18.0 | × |
-| tagRender | Custom render function for tags in `multiple` mode | (label: string, onClose: function, value: string) => ReactNode | - |  | × |
+| tagRender | Custom render function for tags in `multiple` mode | ({ label: string, onClose: function, value: string }) => ReactNode | - |  | × |
 | ~~popupClassName~~ | The additional className of popup overlay, use `classNames.popup.root` instead | string | - | 4.23.0 | × |
 | ~~dropdownClassName~~ | The additional className of popup overlay, please use `classNames.popup.root` instead | string | - | - | × |
 | ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (menus: ReactElement) => ReactNode | - | 4.4.0 | × |
@@ -83,7 +83,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 | × |
 | prefix | The custom prefix | ReactNode | - | 5.22.0 | × |
 | ~~showArrow~~ | Whether to show the arrow icon, please use `suffixIcon={null}` instead | boolean | true | - | × |
-| showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false |  | `searchIcon`: 6.4.0 |
+| showSearch | Whether show search input | boolean \| [Object](#showsearch) | false |  | `searchIcon`: 6.4.0 |
 | size | The input size | `large` \| `medium` \| `small` | `medium` |  | × |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |
