@@ -58,8 +58,8 @@ const App: React.FC = () => {
     <Flex vertical gap="small" align="flex-start">
       <Switch
         checked={disabled}
-        checkedChildren="Enabled"
-        unCheckedChildren="Disabled"
+        checkedChildren="Disabled"
+        unCheckedChildren="Enabled"
         onChange={setDisabled}
         aria-label="disabled switch"
       />
