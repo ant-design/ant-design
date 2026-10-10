@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { pickAttrs, useEvent } from '@rc-component/util';
+import { isReactRenderable, pickAttrs, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../../_util/hooks/useMergeSemantic';
@@ -92,7 +92,7 @@ interface SeparatorProps {
 const Separator: React.FC<Readonly<SeparatorProps>> = (props) => {
   const { index, prefixCls, separator, className: semanticClassName, style: semanticStyle } = props;
   const separatorNode = isFunction(separator) ? separator(index) : separator;
-  if (!separatorNode) {
+  if (!isReactRenderable(separatorNode)) {
     return null;
   }
   return (
