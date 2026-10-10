@@ -104,7 +104,7 @@ const Icon: React.FC<IconProps> = ({ icon, status, className, style }) => {
     const SVGComponent = ExceptionMap[status as ExceptionStatusType];
     return (
       <div className={className} style={style}>
-        <SVGComponent />
+        <SVGComponent aria-hidden focusable="false" />
       </div>
     );
   }
@@ -143,9 +143,9 @@ const Extra: React.FC<ExtraProps> = ({ className, extra, style }) => {
 
 export interface ResultType
   extends React.ForwardRefExoticComponent<ResultProps & React.RefAttributes<ResultRef>> {
-  PRESENTED_IMAGE_404: React.FC;
-  PRESENTED_IMAGE_403: React.FC;
-  PRESENTED_IMAGE_500: React.FC;
+  PRESENTED_IMAGE_404: React.FC<React.SVGProps<SVGSVGElement>>;
+  PRESENTED_IMAGE_403: React.FC<React.SVGProps<SVGSVGElement>>;
+  PRESENTED_IMAGE_500: React.FC<React.SVGProps<SVGSVGElement>>;
 }
 
 const Result = React.forwardRef<ResultRef, ResultProps>((props, ref) => {
