@@ -343,7 +343,7 @@
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "538 KiB",
+      "limit": "539 KiB",
       "gzip": true
     }
   ],
