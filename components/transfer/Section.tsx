@@ -1,6 +1,6 @@
 import React, { useMemo, useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import { isNonNullable, omit } from '@rc-component/util';
+import { isNonNullable, isReactRenderable, omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isFunction, isNumber, isPlainObject, isString } from '../_util/is';
@@ -317,7 +317,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   );
 
   const getSelectAllLabel = (selectedCount: number, totalCount: number): React.ReactNode => {
-    if (selectAllLabel) {
+    if (isReactRenderable(selectAllLabel)) {
       return isFunction(selectAllLabel)
         ? selectAllLabel({ selectedCount, totalCount })
         : selectAllLabel;
