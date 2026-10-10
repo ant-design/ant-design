@@ -36,6 +36,8 @@ const localeValues: Locale = {
     sortTitle: 'সাজান',
     expand: 'সারি প্রসারিত করুন',
     collapse: 'সারি সঙ্কুচিত করুন',
+    expandAll: 'সমস্ত সারি প্রসারিত করুন',
+    collapseAll: 'সমস্ত সারি সঙ্কুচিত করুন',
     triggerDesc: 'অবতরণকে সাজানোর জন্য ক্লিক করুন',
     triggerAsc: 'আরোহী বাছাই করতে ক্লিক করুন',
     cancelSort: 'বাছাই বাতিল করতে ক্লিক করুন',

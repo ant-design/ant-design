@@ -33,7 +33,7 @@ import type { PaginationSemanticType } from '../pagination/Pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import { useToken } from '../theme/internal';
-import renderExpandIcon from './ExpandIcon';
+import useExpandIcon from './ExpandIcon';
 import useColumnTitleProps from './hooks/useColumnTitleProps';
 import useContainerWidth from './hooks/useContainerWidth';
 import useFilledColumns from './hooks/useFilledColumns';
@@ -145,18 +145,19 @@ interface ChangeEventInfo<RecordType = AnyObject> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-export interface TableProps<RecordType = AnyObject> extends Omit<
-  RcTableProps<RecordType>,
-  | 'transformColumns'
-  | 'internalHooks'
-  | 'internalRefs'
-  | 'data'
-  | 'columns'
-  | 'scroll'
-  | 'emptyText'
-  | 'classNames'
-  | 'styles'
-> {
+export interface TableProps<RecordType = AnyObject>
+  extends Omit<
+    RcTableProps<RecordType>,
+    | 'transformColumns'
+    | 'internalHooks'
+    | 'internalRefs'
+    | 'data'
+    | 'columns'
+    | 'scroll'
+    | 'emptyText'
+    | 'classNames'
+    | 'styles'
+  > {
   classNames?: TableSemanticAllType<RecordType>['classNamesAndFn'];
   styles?: TableSemanticAllType<RecordType>['stylesAndFn'];
   dropdownPrefixCls?: string;
@@ -269,22 +270,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     }),
     [ariaProps, components?.header?.table],
   );
-  const mergedComponents = React.useMemo<RcTableProps<RecordType>['components']>(() => {
-    if (!hasAriaProps) {
-      return components;
-    }
 
-    return {
-      ...components,
-      header: {
-        ...components?.header,
-        table: HeaderTable,
-      },
-    };
-  }, [components, hasAriaProps]);
-
-  const { locale: contextLocale = defaultLocale, table } =
-    React.useContext<ConfigConsumerProps>(ConfigContext);
+  const { locale: contextLocale, table } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const {
     getPrefixCls,
@@ -332,7 +319,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     },
   );
 
-  const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };
+  const tableLocale: TableLocale = { ...defaultLocale.Table, ...contextLocale?.Table, ...locale };
   const [globalLocale] = useLocale('global', defaultLocale.global);
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
@@ -350,11 +337,13 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
+  // Expandable configuration
   const mergedExpandable: ExpandableConfig<RecordType> = {
     childrenColumnName: legacyChildrenColumnName,
     expandIconColumnIndex,
     ...expandable,
-    expandIcon: expandable?.expandIcon ?? table?.expandable?.expandIcon,
+    // Remove legacy expand icon to use the merged one from useExpandIcon
+    expandIcon: undefined,
   };
   const { childrenColumnName = 'children' } = mergedExpandable;
 
@@ -614,12 +603,23 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // ========================== Expandable ==========================
 
-  // Pass origin render status into `@rc-component/table`, this can be removed when refactor with `@rc-component/table`
-  (mergedExpandable as any).__PARENT_RENDER_ICON__ = mergedExpandable.expandIcon;
+  if (process.env.NODE_ENV !== 'production') {
+    warning.deprecated(!expandable?.expandIcon, 'expandable.expandIcon', 'components.ExpandIcon');
+  }
 
-  // Customize expandable icon
-  mergedExpandable.expandIcon =
-    mergedExpandable.expandIcon || expandIcon || renderExpandIcon(tableLocale);
+  // Pass origin render status into `@rc-component/table`,
+  // this can be removed when refactor with `@rc-component/table`
+  // We only check when origin props use the expand icon,
+  // so DO NOT use `mergedExpandable.expandIcon` directly!
+  (mergedExpandable as any).__PARENT_RENDER_ICON__ = expandable?.expandIcon;
+
+  const MergedExpandIcon = useExpandIcon(
+    tableLocale,
+    components?.ExpandIcon,
+    expandable?.expandIcon,
+    table?.expandable?.expandIcon,
+    expandIcon,
+  );
 
   // Adjust expand icon index, no overwrite expandIconColumnIndex if set.
   if (expandType === 'nest' && mergedExpandable.expandIconColumnIndex === undefined) {
@@ -632,6 +632,26 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   if (!isNumber(mergedExpandable.indentSize)) {
     mergedExpandable.indentSize = isNumber(indentSize) ? indentSize : 15;
   }
+
+  // ========================== Components ==========================
+  const mergedComponents = React.useMemo<RcTableProps<RecordType>['components']>(() => {
+    let nextComponents = components;
+
+    if (hasAriaProps) {
+      nextComponents = {
+        ...nextComponents,
+        header: {
+          ...nextComponents?.header,
+          table: HeaderTable,
+        },
+      };
+    }
+
+    return {
+      ...nextComponents,
+      ExpandIcon: MergedExpandIcon,
+    };
+  }, [components, hasAriaProps, MergedExpandIcon]);
 
   // ============================ Render ============================
   const transformColumns = React.useCallback(

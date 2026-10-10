@@ -80,6 +80,7 @@ const columns = [
 <code src="./demo/narrow.tsx" debug>紧凑型</code>
 <code src="./demo/bordered.tsx">带边框</code>
 <code src="./demo/expand.tsx">可展开</code>
+<code src="./demo/expand-all.tsx" version="6.7.0">展开全部行</code>
 <code src="./demo/expand-sticky.tsx" debug>可自定义展开位置</code>
 <code src="./demo/order-column.tsx">特殊列排序</code>
 <code src="./demo/colspan-rowspan.tsx">表格行/列合并</code>
@@ -129,7 +130,7 @@ const columns = [
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.1 |
 | column | 统一列配置，仅在单列未声明同名属性时生效 | Partial<[ColumnType](#column)> | - | 6.4.0 | × |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#column)\[] | - |  | × |
-| components | 覆盖默认的 table 元素 | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  | × |
+| components | 覆盖默认的 table 元素，包括通过 `ExpandIcon` 自定义行展开和全部展开图标 | [TableComponents](https://github.com/react-component/table/blob/7977f2b45a501728dddf0853466c1a013a7190dc/src/interface.ts#L180-L196) | - | `ExpandIcon`: 6.7.0 | × |
 | dataSource | 数据数组 | object\[] | - |  | × |
 | expandable | 配置展开属性 | [expandable](#expandable) | - |  | `expandable.expandIcon`: 5.14.0 |
 | footer | 表格尾部 | function(currentPageData) | - |  | × |
@@ -254,21 +255,23 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | childrenColumnName | 指定树形结构的列名 | string | children |  |
-| columnTitle | 自定义展开列表头 | ReactNode | - | 4.23.0 |
+| columnTitle | 自定义展开列表头 | ReactNode \| ({ expandIcon }) => ReactNode | - | 4.23.0, function: 6.7.0 |
 | columnWidth | 自定义展开列宽度 | string \| number | - |  |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |  |
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |  |
 | expandedRowClassName | 展开行的 className | string \| (record, index, indent) => string | - | string: 5.22.0 |
 | expandedRowKeys | 展开的行，控制属性 | string\[] | - |  |
 | expandedRowRender | 额外的展开行 | function(record, index, indent, expanded): ReactNode | - |  |
-| expandIcon | 自定义展开图标，参考[示例](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |
+| ~~expandIcon~~ | 已废弃，请使用 `components.ExpandIcon`。此配置仅作为行展开图标的后备方案保留 | function(props): ReactNode | - |  |
 | expandRowByClick | 通过点击行来展开子行 | boolean | false |  |
 | fixed | 控制展开图标是否固定，可选 `true` `'left'` `'right'` | boolean \| string | false | 4.16.0 |
 | forceRender | 在展开前强制渲染展开行内容。虚拟模式下，仅强制渲染虚拟列表当前挂载的行；屏幕外的行仍可能被卸载 | boolean | false | 6.6.0 |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |  |
 | rowExpandable | 设置是否允许行展开（`dataSource` 若存在 `children` 字段将不生效） | (record) => boolean | - |  |
+| showExpandAll | 是否显示当前页可展开行的全部展开控件，仅在使用 `expandedRowRender` 时可用 | boolean | false | 6.7.0 |
 | showExpandColumn | 是否显示展开图标列 | boolean | true | 4.18.0 |
 | onExpand | 点击展开图标时触发 | function(expanded, record) | - |  |
+| onExpandAll | 点击全部展开图标时触发 | (expanded: boolean) => void | - | 6.7.0 |
 | onExpandedRowsChange | 展开的行变化时触发 | function(expandedRows) | - |  |
 | ~~expandedRowOffset~~ | 废弃：展开行的偏移列数，设置后会强制将其前面的列设为固定列。请改用 `Table.EXPAND_COLUMN` 并通过列顺序控制位置 | number | - | 5.26.0 |
 

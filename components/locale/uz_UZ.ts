@@ -43,6 +43,8 @@ const localeValues: Locale = {
     sortTitle: 'Tartiblash',
     expand: 'Satirni yozish',
     collapse: "Satirni yig'ish",
+    expandAll: 'Barcha satrlarni yozish',
+    collapseAll: "Barcha satrlarni yig'ish",
     triggerDesc: 'Kamayish tartibida tartiblash uchun bosing',
     triggerAsc: "O'sish tartibida tartiblash uchun bosing",
     cancelSort: 'Tartiblshni rad etish uchun bosing',
