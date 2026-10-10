@@ -265,21 +265,27 @@ describe('Table.rowSelection', () => {
     );
   });
 
-  it('should fall back to English accessible names for a custom locale', () => {
-    const { container } = render(
-      <ConfigProvider locale={{ locale: 'custom' }}>
-        {createTable({ rowSelection: { defaultSelectedRowKeys: [0], selections: true } })}
-      </ConfigProvider>,
-    );
-    const checkboxes = container.querySelectorAll<HTMLInputElement>('tbody input');
+  it.each([
+    ['missing', undefined],
+    ['undefined', { selectRow: undefined, selectedRow: undefined, selectionMenu: undefined }],
+  ] as const)(
+    'should fall back to English accessible names when custom locale labels are %s',
+    (_, tableLocale) => {
+      const { container } = render(
+        <ConfigProvider locale={{ locale: 'custom', Table: tableLocale }}>
+          {createTable({ rowSelection: { defaultSelectedRowKeys: [0], selections: true } })}
+        </ConfigProvider>,
+      );
+      const checkboxes = container.querySelectorAll<HTMLInputElement>('tbody input');
 
-    expect(checkboxes[0]).toHaveAttribute('aria-label', 'Row selected');
-    expect(checkboxes[1]).toHaveAttribute('aria-label', 'Select row');
-    expect(container.querySelector('.ant-table-selection-extra [role="button"]')).toHaveAttribute(
-      'aria-label',
-      'Selection menu',
-    );
-  });
+      expect(checkboxes[0]).toHaveAttribute('aria-label', 'Row selected');
+      expect(checkboxes[1]).toHaveAttribute('aria-label', 'Select row');
+      expect(container.querySelector('.ant-table-selection-extra [role="button"]')).toHaveAttribute(
+        'aria-label',
+        'Selection menu',
+      );
+    },
+  );
 
   it('should fall back when selectAll is not a string', () => {
     const locale = {
