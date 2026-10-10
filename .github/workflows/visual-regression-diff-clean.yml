@@ -1,0 +1,43 @@
+# Clean up the visual-diff image branch (`visual-diff/pr-<id>`) when a PR is
+# closed. The branch only mirrors the diff images embedded in the PR comment;
+# the full visual regression report is hosted on OSS and is not affected.
+
+name: 👀 Visual Regression Diff Clean
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  clean-image-branch:
+    name: remove visual diff image branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Delete visual-diff branch
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        with:
+          script: |
+            const ref = `heads/visual-diff/pr-${context.payload.pull_request.number}`;
+
+            try {
+              await github.rest.git.deleteRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref,
+              });
+              core.notice(`Deleted ${ref}`);
+            } catch (error) {
+              if (error.status === 404 || error.status === 422) {
+                core.notice(`${ref} does not exist, skip.`);
+              } else {
+                throw error;
+              }
+            }

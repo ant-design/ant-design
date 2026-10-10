@@ -85,6 +85,7 @@ jobs:
     name: download visual-regression report
     permissions:
       actions: read # for dawidd6/action-download-artifact to query and download artifacts
+      contents: write  # for pushing visual-diff comment images to the `visual-diff/*` branch
       issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
       pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
       statuses: write
@@ -133,6 +134,7 @@ jobs:
         env:
           ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
           ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_ID: ${{ steps.pr.outputs.id }}
         run: |
           mkdir ./visualRegressionReport
@@ -146,6 +148,18 @@ jobs:
           echo "🤖 Uploading"
           node scripts/visual-regression/upload.js ./visualRegressionReport --ref=pr-$PR_ID
           echo "✅ Uploaded"
+
+          # GitHub camo cannot fetch images from Aliyun domains (404 "Cannot
+          # proxy the given URL"), so images embedded in the PR comment are
+          # additionally published to a dedicated git branch. raw.githubusercontent
+          # URLs are rendered by GitHub directly without the camo proxy. Keep the
+          # OSS URLs as fallback when publishing fails.
+          if bash scripts/visual-regression/publish-comment-images.sh ./visualRegressionReport "pr-$PR_ID"; then
+            OSS_IMG_PREFIX="https://antd-visual-diff.oss-accelerate.aliyuncs.com/pr-${PR_ID}/visualRegressionReport/images/"
+            RAW_IMG_PREFIX="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/visual-diff/pr-${PR_ID}/images/"
+            sed -i "s|${OSS_IMG_PREFIX}|${RAW_IMG_PREFIX}|g" ./visualRegressionReport/report.md
+            echo "✅ Comment images rewritten to raw.githubusercontent.com"
+          fi
 
           delimiter="$(openssl rand -hex 8)"
           echo "content<<${delimiter}" >> "${GITHUB_OUTPUT}"
