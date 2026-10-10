@@ -12,7 +12,7 @@ import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { RowProps } from '../grid';
+import type { Gutter } from '../grid/row';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import useGutter from '../grid/hooks/useGutter';
 import { genCssVar } from '../theme/util/genStyleUtils';
@@ -41,6 +41,8 @@ export type MasonrySemanticType = {
 
 export type MasonrySemanticAllType = GenerateSemantic<MasonrySemanticType, MasonryProps>;
 
+type MasonryGutter = Exclude<Gutter, string>;
+
 export interface MasonryProps<ItemDataType = any> {
   // Style
   prefixCls?: string;
@@ -52,7 +54,7 @@ export interface MasonryProps<ItemDataType = any> {
   styles?: MasonrySemanticAllType['stylesAndFn'];
 
   /** Spacing between items */
-  gutter?: RowProps['gutter'];
+  gutter?: MasonryGutter | [MasonryGutter, MasonryGutter];
 
   // Data
   items?: MasonryItemType<ItemDataType>[];
