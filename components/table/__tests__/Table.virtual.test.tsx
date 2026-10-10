@@ -1,10 +1,33 @@
 import React from 'react';
 
+import type { TableRef } from '..';
 import Table from '..';
-import { render } from '../../../tests/utils';
+import { act, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('Table.Virtual', () => {
+  it('support reference scrollTo', () => {
+    const tblRef = React.createRef<TableRef>();
+    const { container } = render(
+      <Table
+        ref={tblRef}
+        virtual
+        pagination={false}
+        scroll={{ x: 100, y: 100 }}
+        columns={[{ dataIndex: 'key' }]}
+        dataSource={Array.from({ length: 20 }, (_, key) => ({ key }))}
+      />,
+    );
+
+    expect(tblRef.current?.nativeElement).toBe(container.querySelector('.ant-table-wrapper'));
+
+    act(() => {
+      tblRef.current?.scrollTo({ top: 100 });
+    });
+
+    expect(container.querySelector('.ant-table-tbody-virtual-holder')?.scrollTop).toBe(100);
+  });
+
   it('should work', () => {
     const { container } = render(
       <Table
