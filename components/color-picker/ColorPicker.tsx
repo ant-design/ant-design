@@ -52,6 +52,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     placement = 'bottomLeft',
     arrow,
     panelRender,
+    showGradientAngle = false,
     showText,
     style,
     className,
@@ -101,6 +102,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     allowClear,
     autoAdjustOverflow,
     disabledAlpha,
+    showGradientAngle,
     arrow: mergedArrow,
     placement,
     disabled: mergedDisabled,
@@ -298,6 +300,7 @@ const ColorPicker: CompoundedComponent = (props) => {
             disabledAlpha={disabledAlpha}
             presets={presets}
             panelRender={panelRender}
+            showGradientAngle={showGradientAngle}
             format={formatValue}
             onFormatChange={triggerFormatChange}
             onChange={onInternalChange}
