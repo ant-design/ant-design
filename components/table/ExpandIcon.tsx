@@ -1,26 +1,22 @@
-import * as React from 'react';
-import type { ExpandableConfig, ExpandIconProps } from '@rc-component/table';
+import React from 'react';
+import type { ExpandIconProps, TableProps } from '@rc-component/table';
+import { useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { AnyObject } from '../_util/type';
+import type { AnyObject, GetProp } from '../_util/type';
 import type { TableLocale } from './interface';
 
-interface ExpandIconLocale
-  extends Pick<TableLocale, 'collapse' | 'collapseAll' | 'expand' | 'expandAll'> {}
+type ExpandIconComponent<RecordType extends AnyObject = AnyObject> = GetProp<
+  TableProps<RecordType>,
+  'components'
+>['ExpandIcon'];
 
-type ExpandIconComponent<RecordType> = React.ComponentType<ExpandIconProps<RecordType>>;
-type RenderExpandIcon<RecordType> = NonNullable<ExpandableConfig<RecordType>['expandIcon']>;
-
-interface DefaultExpandIconProps
-  extends Pick<
-    ExpandIconProps<unknown>,
-    'prefixCls' | 'type' | 'expanded' | 'expandable' | 'onClick'
-  > {
-  locale: ExpandIconLocale;
-}
-
-const DefaultExpandIcon = (props: DefaultExpandIconProps) => {
-  const { prefixCls, type, expanded, expandable, locale, onClick } = props;
+const InternalExpandIcon = <RecordType extends AnyObject = AnyObject>(
+  props: ExpandIconProps<RecordType> & {
+    locale: TableLocale;
+  },
+) => {
+  const { prefixCls, type, expanded, expandable, onClick, locale } = props;
   const iconPrefix = `${prefixCls}-row-expand-icon`;
 
   if (type === 'all' && !expandable) {
@@ -51,45 +47,35 @@ const DefaultExpandIcon = (props: DefaultExpandIconProps) => {
   );
 };
 
-function renderExpandIcon<RecordType extends AnyObject = AnyObject>(
-  locale: ExpandIconLocale,
-): RenderExpandIcon<RecordType> {
-  return (props) => {
-    const { prefixCls, onExpand, record, expanded, expandable } = props;
-    return (
-      <DefaultExpandIcon
-        type="row"
-        prefixCls={prefixCls}
-        expanded={expanded}
-        expandable={expandable}
-        locale={locale}
-        onClick={(e) => {
-          onExpand(record, e!);
-          e.stopPropagation();
-        }}
-      />
-    );
-  };
-}
-
-export function renderExpandIconComponent<RecordType extends AnyObject = AnyObject>(
-  locale: ExpandIconLocale,
-  rowExpandIcon: RenderExpandIcon<RecordType>,
+export default function useExpandIcon<RecordType extends AnyObject = AnyObject>(
+  locale: TableLocale,
+  ExpandIcon: ExpandIconComponent<RecordType> | undefined,
+  ...legacyRenderExpandIcon: (TableProps<RecordType>['expandIcon'] | undefined)[]
 ): ExpandIconComponent<RecordType> {
-  return (props) => {
-    if (props.type === 'row') {
-      const { prefixCls, record, expanded, expandable, onClick } = props;
-      return rowExpandIcon({
-        prefixCls,
-        record,
-        expanded,
-        expandable,
-        onExpand: (_record, event) => onClick(event),
-      });
+  const MergedExpandIcon = useEvent((props: ExpandIconProps<RecordType>) => {
+    if (ExpandIcon) {
+      return <ExpandIcon {...props} />;
     }
 
-    return <DefaultExpandIcon {...props} locale={locale} />;
-  };
-}
+    for (const renderExpandIcon of legacyRenderExpandIcon) {
+      if (renderExpandIcon) {
+        if (props.type === 'row') {
+          const { prefixCls, record, expanded, expandable, onClick } = props;
+          return renderExpandIcon({
+            prefixCls,
+            record,
+            expanded,
+            expandable,
+            onExpand: (_record, event) => onClick(event),
+          });
+        }
 
-export default renderExpandIcon;
+        return <InternalExpandIcon {...props} locale={locale} />;
+      }
+    }
+
+    return <InternalExpandIcon {...props} locale={locale} />;
+  });
+
+  return MergedExpandIcon;
+}
