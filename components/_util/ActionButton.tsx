@@ -36,6 +36,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     quitOnNullishReturnValue,
     actionFn,
   } = props;
+  const { onClick: buttonOnClick, ...restButtonProps } = buttonProps || {};
 
   const clickedRef = React.useRef<boolean>(false);
   const buttonRef = React.useRef<HTMLButtonElement | HTMLAnchorElement>(null);
@@ -92,6 +93,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     clickedRef.current = true;
     if (!actionFn) {
       onInternalClose();
+      buttonOnClick?.(e);
       return;
     }
     let returnValueOfOnOk: PromiseLike<any>;
@@ -100,6 +102,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
       if (quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
         clickedRef.current = false;
         onInternalClose(e);
+        buttonOnClick?.(e);
         return;
       }
     } else if (actionFn.length) {
@@ -110,9 +113,11 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
       returnValueOfOnOk = actionFn();
       if (!isThenable(returnValueOfOnOk)) {
         onInternalClose();
+        buttonOnClick?.(e);
         return;
       }
     }
+    buttonOnClick?.(e);
     handlePromiseOnOk(returnValueOfOnOk);
   };
 
@@ -122,7 +127,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
       onClick={onClick}
       loading={loading}
       prefixCls={prefixCls}
-      {...buttonProps}
+      {...restButtonProps}
       ref={buttonRef}
     >
       {children}
