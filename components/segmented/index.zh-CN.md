@@ -25,6 +25,7 @@ demo:
 <code src="./demo/block.tsx">Block 分段选择器</code>
 <code src="./demo/shape.tsx" version="5.24.0">胶囊形状</code>
 <code src="./demo/disabled.tsx">不可用</code>
+<code src="./demo/fluid-hover.tsx" version="6.7.0">流体悬浮高亮</code>
 <code src="./demo/controlled.tsx">受控模式</code>
 <code src="./demo/custom.tsx">自定义渲染</code>
 <code src="./demo/dynamic.tsx">动态数据</code>
@@ -51,6 +52,7 @@ demo:
 | classNames | 用于自定义 Segmented 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | defaultValue | 默认选中的值 | string \| number | `options` 首项的值 |  | × |
 | disabled | 是否禁用 | boolean | false |  | × |
+| hoverMotion | 悬浮高亮动效，设为 `fluid` 时高亮在相邻选项间连续滑动 | `fluid` | - | 6.7.0 | × |
 | onChange | 选项变化时的回调函数 | function(value: string \| number) |  |  | × |
 | options | 数据化配置选项内容 | string\[] \| number\[] \| SegmentedItemType\[] | [] |  | × |
 | orientation | 排列方向 | `horizontal` \| `vertical` | `horizontal` |  | × |
