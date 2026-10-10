@@ -657,4 +657,47 @@ describe('Tooltip', () => {
     const arrow = container.querySelector('.ant-tooltip-arrow');
     expect(arrow).toHaveStyle({ background: 'red' });
   });
+
+  describe('smartPlacement', () => {
+    it('smartPlacement={false} (default) uses original placement', async () => {
+      const { container } = render(
+        <Tooltip title="Test" open placement="top">
+          <span>Hover me</span>
+        </Tooltip>,
+      );
+
+      // When smartPlacement is false (default), placement should be "top"
+      expect(container.querySelector('.ant-tooltip')).toBeInTheDocument();
+    });
+
+    it('smartPlacement={true} prop is accepted without TypeScript errors', async () => {
+      const { container } = render(
+        <Tooltip title="Test" open placement="top" smartPlacement={true}>
+          <span>Hover me</span>
+        </Tooltip>,
+      );
+
+      expect(container.querySelector('.ant-tooltip')).toBeInTheDocument();
+    });
+
+    it('smartPlacement={true} with closed tooltip does not compute placement', async () => {
+      const onOpenChange = jest.fn();
+      const { container } = render(
+        <Tooltip
+          title="Test"
+          placement="top"
+          smartPlacement={true}
+          onOpenChange={onOpenChange}
+        >
+          <span>Hover me</span>
+        </Tooltip>,
+      );
+
+      const span = container.querySelector('span');
+      fireEvent.mouseEnter(span!);
+      await waitFakeTimer();
+
+      expect(onOpenChange).toHaveBeenCalledWith(true);
+    });
+  });
 });

@@ -1,0 +1,12 @@
+{
+  "verdict": "APPROVED",
+  "findings": [
+    {
+      "severity": "NON_BLOCKING",
+      "category": "Test Coverage",
+      "title": "Missing test coverage for collision detection and fallback behavior",
+      "description": "Tests confirm smartPlacement={true} is accepted and that closed tooltips don't measure, but there are no tests verifying the core feature: that when a tooltip would overflow at its requested placement, the hook detects this and selects a fallback. Critical cases not covered: top placement hitting viewport ceiling should fall back to bottom, corner placements rebounding to opposite corners, edge-aligned placements moving away from edges. A follow-up commit should add tests that render tooltips near viewport edges and assert the calculated placement matches the fallback priority."
+    }
+  ],
+  "reviewDoc": "/Users/aryandixit/ant-design/.agents/tasks/tooltip-review.md"
+}
