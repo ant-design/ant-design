@@ -50,6 +50,65 @@ OK, you should now see a blue primary button displayed on the page. Next you can
 
 You could find that components of antd do not have styles in the first screen. Next, you need to choose different SSR style processing methods according to the mode of Next.js.
 
+## Using Zero Runtime Styles
+
+Starting with Ant Design 6, you can use the precompiled stylesheet instead of extracting styles during SSR. Import the stylesheet in your top-level entry and enable `zeroRuntime` in `ConfigProvider`.
+
+For the App Router, create a client component for `ConfigProvider`:
+
+```tsx
+// app/antd-provider.tsx
+'use client';
+
+import React from 'react';
+import { ConfigProvider } from 'antd';
+
+const AntdProvider = ({ children }: React.PropsWithChildren) => (
+  <ConfigProvider theme={{ zeroRuntime: true }}>{children}</ConfigProvider>
+);
+
+export default AntdProvider;
+```
+
+Then use it in the root layout:
+
+```tsx
+// app/layout.tsx
+import 'antd/dist/antd.css';
+import React from 'react';
+
+import AntdProvider from './antd-provider';
+
+const RootLayout = ({ children }: React.PropsWithChildren) => (
+  <html lang="en">
+    <body>
+      <AntdProvider>{children}</AntdProvider>
+    </body>
+  </html>
+);
+
+export default RootLayout;
+```
+
+For the Pages Router, import the stylesheet and configure `ConfigProvider` in `pages/_app.tsx`:
+
+```tsx
+import 'antd/dist/antd.css';
+import React from 'react';
+import { ConfigProvider } from 'antd';
+import type { AppProps } from 'next/app';
+
+const App = ({ Component, pageProps }: AppProps) => (
+  <ConfigProvider theme={{ zeroRuntime: true }}>
+    <Component {...pageProps} />
+  </ConfigProvider>
+);
+
+export default App;
+```
+
+The precompiled stylesheet uses the default theme and prefix. To generate static styles for a custom theme or prefix, refer to [Customize Theme - Zero Runtime](/docs/react/customize-theme#zero-runtime).
+
 ## Using App Router <Badge>Updated</Badge> {#using-app-router}
 
 If you are using the App Router in Next.js and using antd as your component library, to make the antd component library work better in your Next.js application and provide a better user experience, you can try using the following method to extract and inject antd's first-screen styles into HTML to avoid page flicker.
