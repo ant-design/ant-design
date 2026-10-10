@@ -68,6 +68,7 @@ export interface Locale {
     transparent: string;
     singleColor: string;
     gradientColor: string;
+    clear: string;
   };
 }
 
