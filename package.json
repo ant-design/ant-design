@@ -281,7 +281,7 @@
     "mockdate": "^3.0.5",
     "motion": "^14.0.0",
     "node-fetch": "^3.3.2",
-    "node-notifier": "^10.0.1",
+    "node-notifier": "^11.0.0",
     "open": "^11.0.0",
     "ora": "^9.4.0",
     "p-all": "^5.0.1",
