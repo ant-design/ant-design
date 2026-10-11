@@ -203,7 +203,6 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   } else if (mounted || scale !== 1) {
     const transformString = `scale(${scale})`;
     const childrenStyle: React.CSSProperties = {
-      msTransform: transformString,
       WebkitTransform: transformString,
       transform: transformString,
     };
