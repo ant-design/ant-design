@@ -7,6 +7,7 @@ import { useDelayState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isFunction } from '../../_util/is';
+import warning from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import Progress from '../../progress';
 import Tooltip from '../../tooltip';
@@ -140,8 +141,15 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       `${prefixCls}-list-item-${mergedStatus}`,
       itemClassNames?.item,
     );
-    const linkProps =
-      typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
+    let linkProps = file.linkProps;
+    if (typeof linkProps === 'string') {
+      try {
+        linkProps = JSON.parse(linkProps);
+      } catch {
+        linkProps = {};
+        warning(false, 'Upload', '`linkProps` is not a valid JSON string. It will be ignored.');
+      }
+    }
 
     const removeIcon = (isFunction(showRemoveIcon) ? showRemoveIcon(file) : showRemoveIcon)
       ? actionIconRender(
