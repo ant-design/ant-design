@@ -88,6 +88,36 @@ describe('Table.sorter', () => {
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
 
+  it('controlled sortOrder updates when column is hidden by responsive', () => {
+    const columns: ColumnType<any>[] = [
+      { title: 'Name', dataIndex: 'name', key: 'name' },
+      {
+        ...column,
+        title: 'NameSorted',
+        key: 'name-sorted',
+        sortOrder: 'descend',
+        responsive: ['md'],
+      },
+    ];
+    const { container, rerender } = render(
+      <Table columns={columns} dataSource={data} pagination={false} />,
+    );
+
+    expect(container.querySelectorAll('thead th')).toHaveLength(1);
+    expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+
+    rerender(
+      <Table
+        columns={[columns[0], { ...columns[1], sortOrder: 'ascend' }]}
+        dataSource={data}
+        pagination={false}
+      />,
+    );
+
+    expect(container.querySelectorAll('thead th')).toHaveLength(1);
+    expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+  });
+
   it('sort will work when column with children', () => {
     const onChange = jest.fn();
     const tableData = [
