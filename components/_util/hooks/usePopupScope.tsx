@@ -1,6 +1,5 @@
 import React from 'react';
-import useId from '@rc-component/util/lib/hooks/useId';
-import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import { useId, useLayoutEffect } from '@rc-component/util';
 
 import ConfigProvider from '../../config-provider';
 import ContextIsolator from '../ContextIsolator';
@@ -105,14 +104,12 @@ export const usePopupScope = <T extends [React.ReactElement, ...unknown[]]>(
     return portalRef.current;
   }, [portalId]);
 
-  // Child popups (DatePicker etc.) use ConfigProvider.getPopupContainer → same portal div. Form/Space isolated.
+  // Child popups (DatePicker etc.) use ConfigProvider.getPopupContainer → same portal div.
   const wrappedPopupRender = React.useMemo(() => {
     if (!renderFn) return undefined;
     return (...args: T) => (
       <ConfigProvider getPopupContainer={getPortalContainer}>
-        <ContextIsolator form space>
-          {renderFn(...args)}
-        </ContextIsolator>
+        <ContextIsolator space>{renderFn(...args)}</ContextIsolator>
       </ConfigProvider>
     );
   }, [renderFn, getPortalContainer]);
