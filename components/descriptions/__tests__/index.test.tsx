@@ -535,7 +535,21 @@ describe('Descriptions', () => {
             return Object.fromEntries(properties.map((property) => [property, style[property]]));
           });
         };
-        expect(readStyles(getByTestId('nested'))).toEqual(readStyles(getByTestId('reference')));
+        const nestedStyles = readStyles(getByTestId('nested'));
+        expect(nestedStyles).toEqual(readStyles(getByTestId('reference')));
+        expect(nestedStyles[1]).toMatchObject(
+          innerBordered
+            ? {
+                display: 'table-cell',
+                paddingBottom: 'var(--ant-descriptions-item-padding-bottom)',
+              }
+            : { display: 'table-cell' },
+        );
+        expect(nestedStyles[2]).toMatchObject({
+          display: innerBordered ? 'table-cell' : 'inline-flex',
+          backgroundColor: innerBordered ? 'var(--ant-descriptions-label-bg)' : 'rgba(0, 0, 0, 0)',
+        });
+        expect(nestedStyles[3].display).toBe(innerBordered ? 'table-cell' : 'inline-flex');
       },
     );
   });
