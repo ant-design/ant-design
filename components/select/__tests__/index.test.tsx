@@ -1,5 +1,6 @@
 import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
+import userEvent from '@testing-library/user-event';
 
 import type { SelectProps } from '..';
 import Select from '..';
@@ -7,9 +8,11 @@ import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
 import { act, fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
+import DatePicker from '../../date-picker';
 import Form from '../../form';
 import Input from '../../input';
 import Space from '../../space';
@@ -382,6 +385,60 @@ describe('Select', () => {
     const input = popupElement!.querySelector('input');
     expect(button!.className.includes('compact')).toBeFalsy();
     expect(input!.className.includes('compact')).toBeFalsy();
+  });
+
+  it('should keep the Select open when interacting with a child popup', async () => {
+    jest.useRealTimers();
+    const user = userEvent.setup();
+    const { container, unmount } = render(
+      <TriggerMockContext.Provider value={{ mock: false }}>
+        <Select
+          defaultValue="value"
+          options={[{ value: 'value', label: 'Value' }]}
+          popupRender={(menu) => (
+            <>
+              {menu}
+              <DatePicker.RangePicker />
+            </>
+          )}
+        />
+      </TriggerMockContext.Provider>,
+    );
+
+    const waitForPopupEvents = () =>
+      act(async () => {
+        await new Promise((resolve) => setTimeout(resolve, 50));
+      });
+
+    await user.click(container.querySelector('.ant-select')!);
+    await waitForPopupEvents();
+
+    const rangeInputs = document.querySelectorAll<HTMLInputElement>('.ant-picker-input input');
+    await user.click(rangeInputs[0]);
+    await waitForPopupEvents();
+
+    const datePickerDropdown = document.querySelector('.ant-picker-dropdown')!;
+    const selectDropdown = document.querySelector('.ant-select-dropdown');
+    const startCell = datePickerDropdown.querySelectorAll('.ant-picker-cell-in-view')[10];
+    // The parent Select must stay open after the start date so the end date can be selected.
+    await user.click(startCell);
+    await waitForPopupEvents();
+    fireEvent.animationEnd(selectDropdown!);
+    await waitForPopupEvents();
+
+    expect(rangeInputs[0].value).not.toBe('');
+    expect(rangeInputs[1].value).toBe('');
+    expect(selectDropdown).not.toHaveClass('ant-select-dropdown-hidden');
+    const endCell = datePickerDropdown.querySelectorAll('.ant-picker-cell-in-view')[11];
+    await user.click(endCell);
+    await waitForPopupEvents();
+
+    expect(rangeInputs[0].value).not.toBe('');
+    expect(rangeInputs[1].value).not.toBe('');
+    expect(rangeInputs[0].value).not.toBe(rangeInputs[1].value);
+    expect(selectDropdown).not.toHaveClass('ant-select-dropdown-hidden');
+
+    unmount();
   });
 
   describe('clearIcon', () => {
