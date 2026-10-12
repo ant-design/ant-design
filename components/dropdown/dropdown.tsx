@@ -247,6 +247,14 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
 
   // =========================== Open ============================
   const [mergedOpen, setOpen] = useControlledState(false, open);
+  const [keyboardOpen, setKeyboardOpen] = React.useState(false);
+  const keyboardTriggerRef = React.useRef(false);
+
+  React.useEffect(() => {
+    if (!mergedOpen) {
+      setKeyboardOpen(false);
+    }
+  }, [mergedOpen]);
 
   const triggerAriaProps: React.AriaAttributes & { role?: React.AriaRole } = {
     ...pickAttrs(props, true),
@@ -266,6 +274,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
   }
 
   const onInnerOpenChange = useEvent((nextOpen: boolean) => {
+    setKeyboardOpen(nextOpen && keyboardTriggerRef.current);
     onOpenChange?.(nextOpen, { source: 'trigger' });
     setOpen(nextOpen);
   });
@@ -273,6 +282,9 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
   const triggerActions = disabled ? [] : trigger;
   const alignPoint = !!triggerActions?.includes('contextMenu');
   const mergedDisabled = child.props.disabled ?? disabled;
+  if (menu?.items && !isNativeInteractive) {
+    triggerAriaProps['aria-disabled'] ??= disabled || mergedDisabled;
+  }
   const onTriggerKeyDown: React.KeyboardEventHandler<HTMLElement> = (event) => {
     child.props.onKeyDown?.(event);
     if (
@@ -284,10 +296,15 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
       (event.key === 'Enter' || event.key === ' ')
     ) {
       event.preventDefault();
-      if (triggerActions?.includes('click')) {
-        event.currentTarget.click();
-      } else {
-        onInnerOpenChange(!mergedOpen);
+      keyboardTriggerRef.current = true;
+      try {
+        if (triggerActions?.includes('click')) {
+          event.currentTarget.click();
+        } else {
+          onInnerOpenChange(!mergedOpen);
+        }
+      } finally {
+        keyboardTriggerRef.current = false;
       }
     }
   };
@@ -413,6 +430,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       transitionName={memoTransitionName}
       trigger={triggerActions}
+      autoFocus={props.autoFocus ?? keyboardOpen}
       overlay={renderOverlay}
       placement={memoPlacement as React.ComponentProps<typeof RcDropdown>['placement']}
       onVisibleChange={onInnerOpenChange}

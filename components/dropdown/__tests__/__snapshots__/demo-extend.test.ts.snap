@@ -2908,6 +2908,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         </span>
       </button>
       <button
+        aria-disabled="true"
         aria-expanded="false"
         aria-haspopup="menu"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"

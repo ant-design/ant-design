@@ -70,6 +70,8 @@ Please ensure that the child node of `Dropdown` accepts `onMouseEnter`, `onMouse
 
 When `menu.items` is provided, non-native triggers without an explicit role default to `role="button"`, while native controls and links with `href` retain their native semantics. The trigger defaults to `tabIndex={0}`, supports Enter and Space activation, and receives `aria-haspopup="menu"` and `aria-expanded` follows the open state. ARIA attributes passed to `Dropdown`, such as `aria-label` and `aria-describedby`, are forwarded to the trigger. Attributes already set on the child take precedence, except `aria-expanded`, which reflects the actual menu state. Use a `Button` with `trigger={['click']}` for a keyboard-operable menu trigger.
 
+Keyboard activation focuses the menu unless `autoFocus` is explicitly set to `false`. Non-native menu triggers also receive `aria-disabled` based on their disabled state, unless an ARIA value has already been supplied.
+
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
