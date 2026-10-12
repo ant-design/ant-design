@@ -6,6 +6,7 @@ import type { MenuProps as RcMenuProps } from '@rc-component/menu';
 import type { AlignType } from '@rc-component/trigger';
 import {
   getNodeRef,
+  isNonNullable,
   omit,
   pickAttrs,
   useComposeRef,
@@ -251,8 +252,15 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
     ...pickAttrs(props, true),
     ...pickAttrs(child.props, true),
   };
+  const isNativeInteractive =
+    isString(child.type) &&
+    (['button', 'input', 'select', 'textarea'].includes(child.type) ||
+      (child.type === 'a' && 'href' in child.props && isNonNullable(child.props.href)));
+
   if (menu?.items) {
-    triggerAriaProps.role ??= 'button';
+    if (!isNativeInteractive) {
+      triggerAriaProps.role ??= 'button';
+    }
     triggerAriaProps['aria-haspopup'] ??= 'menu';
     triggerAriaProps['aria-expanded'] = mergedOpen;
   }

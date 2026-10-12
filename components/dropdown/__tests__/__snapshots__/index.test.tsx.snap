@@ -16,7 +16,6 @@ Array [
     aria-expanded="true"
     aria-haspopup="menu"
     class="ant-dropdown-trigger ant-dropdown-open"
-    role="button"
     tabindex="0"
     type="button"
   >
@@ -66,7 +65,6 @@ Array [
     aria-expanded="true"
     aria-haspopup="menu"
     class="ant-dropdown-trigger ant-dropdown-open"
-    role="button"
     tabindex="0"
     type="button"
   >

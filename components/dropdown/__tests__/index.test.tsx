@@ -171,6 +171,71 @@ describe('Dropdown', () => {
       expect(trigger).toHaveAttribute('aria-expanded', 'true');
     });
 
+    it.each([
+      { name: 'button', node: <button type="button">Actions</button>, role: 'button' },
+      { name: 'input', node: <input aria-label="Actions" />, role: 'textbox' },
+      {
+        name: 'select',
+        node: (
+          <select aria-label="Actions">
+            <option value="edit">Edit</option>
+          </select>
+        ),
+        role: 'combobox',
+      },
+      { name: 'textarea', node: <textarea aria-label="Actions" />, role: 'textbox' },
+      { name: 'link', node: <a href="/actions">Actions</a>, role: 'link' },
+    ])('preserves the native semantics of $name triggers', ({ node, role }) => {
+      const { getByRole, rerender } = render(
+        <Dropdown menu={{ items }} open={false}>
+          {node}
+        </Dropdown>,
+      );
+      const trigger = getByRole(role);
+      expect(trigger).not.toHaveAttribute('role');
+      expect(trigger).toHaveAttribute('aria-haspopup', 'menu');
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+
+      rerender(
+        <Dropdown menu={{ items }} open>
+          {node}
+        </Dropdown>,
+      );
+      expect(trigger).not.toHaveAttribute('role');
+      expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('preserves an empty href without adding a button role', () => {
+      const { container } = render(
+        <Dropdown menu={{ items }}>
+          <a href="">Actions</a>
+        </Dropdown>,
+      );
+      const trigger = container.querySelector('a')!;
+      expect(trigger).toHaveAttribute('href', '');
+      expect(trigger).not.toHaveAttribute('role');
+      expect(trigger).toHaveAttribute('aria-haspopup', 'menu');
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    it.each([
+      { name: 'div', node: <div>Actions</div> },
+      { name: 'span', node: <span>Actions</span> },
+      { name: 'anchor without href', node: <a>Actions</a> },
+    ])('provides button semantics for $name triggers', ({ node }) => {
+      const { getByRole } = render(<Dropdown menu={{ items }}>{node}</Dropdown>);
+      expect(getByRole('button')).toHaveAttribute('role', 'button');
+    });
+
+    it('preserves an explicit role on a native trigger', () => {
+      const { getByRole } = render(
+        <Dropdown menu={{ items }}>
+          <input aria-label="Actions" role="searchbox" />
+        </Dropdown>,
+      );
+      expect(getByRole('searchbox')).toHaveAttribute('role', 'searchbox');
+    });
+
     it('preserves explicit trigger roles, tab order and popup types', () => {
       const { container } = render(
         <Dropdown menu={{ items }}>
