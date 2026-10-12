@@ -200,12 +200,19 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                         class="ant-picker-content semantic-mark-popup-content"
                       >
                         <ul
+                          aria-label="Select an hour"
                           class="ant-picker-time-panel-column"
                           data-type="hour"
+                          role="listbox"
                         >
                           <li
+                            aria-disabled="false"
+                            aria-label="0 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="0"
+                            role="option"
+                            tabindex="0"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -214,8 +221,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="1 hour"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="1"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -224,8 +236,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="2 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="2"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -234,8 +251,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="3 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="3"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -244,8 +266,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="4 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="4"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -254,8 +281,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="5 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="5"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -264,8 +296,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="6 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="6"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -274,8 +311,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="7 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="7"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -284,8 +326,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="8 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="8"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -294,8 +341,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="9 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="9"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -304,8 +356,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="10 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="10"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -314,8 +371,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="11 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="11"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -324,8 +386,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="12 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="12"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -334,8 +401,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="13 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="13"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -344,8 +416,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="14 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="14"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -354,8 +431,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="15 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="15"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -364,8 +446,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="16 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="16"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -374,8 +461,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="17 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="17"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -384,8 +476,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="18 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="18"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -394,8 +491,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="19 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="19"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -404,8 +506,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="20 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="20"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -414,8 +521,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="21 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="21"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -424,8 +536,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="22 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="22"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -434,8 +551,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="23 hours"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="23"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -445,12 +567,19 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                           </li>
                         </ul>
                         <ul
+                          aria-label="Select a minute"
                           class="ant-picker-time-panel-column"
                           data-type="minute"
+                          role="listbox"
                         >
                           <li
+                            aria-disabled="false"
+                            aria-label="0 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="0"
+                            role="option"
+                            tabindex="0"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -459,8 +588,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="1 minute"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="1"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -469,8 +603,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="2 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="2"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -479,8 +618,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="3 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="3"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -489,8 +633,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="4 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="4"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -499,8 +648,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="5 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="5"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -509,8 +663,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="6 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="6"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -519,8 +678,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="7 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="7"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -529,8 +693,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="8 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="8"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -539,8 +708,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="9 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="9"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -549,8 +723,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="10 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="10"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -559,8 +738,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="11 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="11"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -569,8 +753,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="12 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="12"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -579,8 +768,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="13 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="13"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -589,8 +783,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="14 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="14"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -599,8 +798,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="15 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="15"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -609,8 +813,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="16 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="16"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -619,8 +828,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="17 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="17"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -629,8 +843,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="18 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="18"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -639,8 +858,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="19 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="19"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -649,8 +873,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="20 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="20"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -659,8 +888,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="21 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="21"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -669,8 +903,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="22 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="22"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -679,8 +918,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="23 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="23"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -689,8 +933,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="24 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="24"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -699,8 +948,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="25 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="25"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -709,8 +963,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="26 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="26"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -719,8 +978,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="27 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="27"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -729,8 +993,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="28 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="28"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -739,8 +1008,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="29 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="29"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -749,8 +1023,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="30 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="30"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -759,8 +1038,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="31 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="31"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -769,8 +1053,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="32 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="32"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -779,8 +1068,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="33 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="33"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -789,8 +1083,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="34 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="34"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -799,8 +1098,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="35 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="35"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -809,8 +1113,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="36 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="36"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -819,8 +1128,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="37 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="37"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -829,8 +1143,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="38 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="38"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -839,8 +1158,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="39 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="39"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -849,8 +1173,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="40 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="40"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -859,8 +1188,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="41 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="41"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -869,8 +1203,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="42 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="42"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -879,8 +1218,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="43 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="43"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -889,8 +1233,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="44 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="44"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -899,8 +1248,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="45 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="45"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -909,8 +1263,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="46 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="46"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -919,8 +1278,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="47 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="47"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -929,8 +1293,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="48 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="48"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -939,8 +1308,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="49 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="49"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -949,8 +1323,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="50 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="50"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -959,8 +1338,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="51 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="51"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -969,8 +1353,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="52 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="52"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -979,8 +1368,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="53 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="53"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -989,8 +1383,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="54 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="54"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -999,8 +1398,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="55 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="55"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1009,8 +1413,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="56 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="56"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1019,8 +1428,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="57 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="57"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1029,8 +1443,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="58 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="58"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1039,8 +1458,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="59 minutes"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="59"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1050,12 +1474,19 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                           </li>
                         </ul>
                         <ul
+                          aria-label="Select a second"
                           class="ant-picker-time-panel-column"
                           data-type="second"
+                          role="listbox"
                         >
                           <li
+                            aria-disabled="false"
+                            aria-label="0 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="0"
+                            role="option"
+                            tabindex="0"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1064,8 +1495,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="1 second"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="1"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1074,8 +1510,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="2 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="2"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1084,8 +1525,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="3 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="3"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1094,8 +1540,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="4 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="4"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1104,8 +1555,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="5 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="5"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1114,8 +1570,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="6 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="6"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1124,8 +1585,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="7 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="7"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1134,8 +1600,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="8 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="8"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1144,8 +1615,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="9 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="9"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1154,8 +1630,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="10 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="10"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1164,8 +1645,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="11 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="11"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1174,8 +1660,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="12 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="12"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1184,8 +1675,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="13 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="13"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1194,8 +1690,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="14 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="14"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1204,8 +1705,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="15 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="15"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1214,8 +1720,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="16 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="16"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1224,8 +1735,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="17 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="17"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1234,8 +1750,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="18 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="18"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1244,8 +1765,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="19 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="19"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1254,8 +1780,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="20 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="20"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1264,8 +1795,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="21 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="21"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1274,8 +1810,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="22 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="22"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1284,8 +1825,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="23 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="23"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1294,8 +1840,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="24 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="24"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1304,8 +1855,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="25 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="25"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1314,8 +1870,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="26 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="26"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1324,8 +1885,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="27 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="27"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1334,8 +1900,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="28 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="28"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1344,8 +1915,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="29 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="29"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1354,8 +1930,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="30 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="30"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1364,8 +1945,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="31 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="31"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1374,8 +1960,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="32 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="32"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1384,8 +1975,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="33 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="33"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1394,8 +1990,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="34 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="34"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1404,8 +2005,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="35 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="35"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1414,8 +2020,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="36 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="36"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1424,8 +2035,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="37 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="37"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1434,8 +2050,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="38 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="38"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1444,8 +2065,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="39 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="39"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1454,8 +2080,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="40 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="40"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1464,8 +2095,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="41 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="41"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1474,8 +2110,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="42 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="42"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1484,8 +2125,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="43 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="43"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1494,8 +2140,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="44 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="44"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1504,8 +2155,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="45 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="45"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1514,8 +2170,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="46 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="46"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1524,8 +2185,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="47 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="47"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1534,8 +2200,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="48 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="48"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1544,8 +2215,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="49 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="49"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1554,8 +2230,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="50 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="50"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1564,8 +2245,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="51 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="51"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1574,8 +2260,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="52 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="52"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1584,8 +2275,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="53 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="53"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1594,8 +2290,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="54 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="54"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1604,8 +2305,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="55 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="55"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1614,8 +2320,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="56 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="56"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1624,8 +2335,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="57 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="57"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1634,8 +2350,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="58 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="58"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"
@@ -1644,8 +2365,13 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                             </div>
                           </li>
                           <li
+                            aria-disabled="false"
+                            aria-label="59 seconds"
+                            aria-selected="false"
                             class="ant-picker-time-panel-cell semantic-mark-popup-item"
                             data-value="59"
+                            role="option"
+                            tabindex="-1"
                           >
                             <div
                               class="ant-picker-time-panel-cell-inner"

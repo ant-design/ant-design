@@ -916,112 +916,75 @@ exports[`renders components/drawer/demo/style-class.tsx correctly 1`] = `
 
 exports[`renders components/drawer/demo/user-profile.tsx correctly 1`] = `
 <div
-  class="ant-list ant-list-split ant-list-bordered css-var-test-id"
+  class="ant-listy acss-12oadjh ant-listy-hoverable css-var-test-id ant-listy-css-var"
+  style="overflow-anchor:none"
 >
   <div
-    aria-busy="false"
-    aria-live="polite"
-    class="ant-spin css-var-test-id"
+    class="ant-listy-item"
+    data-key="item:1"
   >
     <div
-      class="ant-spin-container"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-middle"
     >
-      <ul
-        class="ant-list-items ant-list-container css-var-test-id"
+      <span
+        class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
       >
-        <li
-          class="ant-list-item"
+        <img
+          src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
+        />
+      </span>
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+        style="flex:auto"
+      >
+        <a
+          href="https://ant.design/index-cn"
         >
-          <div
-            class="ant-list-item-meta"
-          >
-            <div
-              class="ant-list-item-meta-avatar"
-            >
-              <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
-              >
-                <img
-                  src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
-                />
-              </span>
-            </div>
-            <div
-              class="ant-list-item-meta-content"
-            >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="https://ant.design/index-cn"
-                >
-                  Lily
-                </a>
-              </h4>
-              <div
-                class="ant-list-item-meta-description"
-              >
-                Progresser XTech
-              </div>
-            </div>
-          </div>
-          <ul
-            class="ant-list-item-action"
-          >
-            <li>
-              <a>
-                View Profile
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li
-          class="ant-list-item"
+          Lily
+        </a>
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
         >
-          <div
-            class="ant-list-item-meta"
-          >
-            <div
-              class="ant-list-item-meta-avatar"
-            >
-              <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
-              >
-                <img
-                  src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
-                />
-              </span>
-            </div>
-            <div
-              class="ant-list-item-meta-content"
-            >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="https://ant.design/index-cn"
-                >
-                  Lily
-                </a>
-              </h4>
-              <div
-                class="ant-list-item-meta-description"
-              >
-                Progresser XTech
-              </div>
-            </div>
-          </div>
-          <ul
-            class="ant-list-item-action"
-          >
-            <li>
-              <a>
-                View Profile
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
+          Progresser XTech
+        </span>
+      </div>
+      <a>
+        View Profile
+      </a>
+    </div>
+  </div>
+  <div
+    class="ant-listy-item"
+    data-key="item:2"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-middle"
+    >
+      <span
+        class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+      >
+        <img
+          src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
+        />
+      </span>
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+        style="flex:auto"
+      >
+        <a
+          href="https://ant.design/index-cn"
+        >
+          Lily
+        </a>
+        <span
+          class="ant-typography ant-typography-secondary css-var-test-id"
+        >
+          Progresser XTech
+        </span>
+      </div>
+      <a>
+        View Profile
+      </a>
     </div>
   </div>
 </div>

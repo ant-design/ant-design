@@ -18,6 +18,8 @@ import useIllustrationTheme from './illustrationTheme';
 import illustrationThemeSource from './illustrationTheme.ts?raw';
 import useLarkTheme from './larkTheme';
 import larkThemeSource from './larkTheme.ts?raw';
+import useLobeTheme from './lobeTheme';
+import lobeThemeSource from './lobeTheme.ts?raw';
 import useMuiTheme from './muiTheme';
 import muiThemeSource from './muiTheme.ts?raw';
 import useSereneTheme from './sereneTheme';
@@ -50,6 +52,7 @@ const locales = {
     cartoon: '卡通',
     illustration: '插画',
     lark: '知识协作',
+    lobe: 'LobeHub',
     blossom: '桃花缘',
     v4: 'Ant Design V4',
     serene: '静谧',
@@ -65,6 +68,7 @@ const locales = {
     cartoon: 'Cartoon',
     illustration: 'Illustration',
     lark: 'Document',
+    lobe: 'LobeHub',
     blossom: 'Blossom',
     v4: 'Ant Design V4',
     serene: 'Serene',
@@ -182,6 +186,7 @@ const usePreviewThemes = () => {
   const [locale] = useLocale(locales);
 
   const larkTheme = useLarkTheme();
+  const lobeTheme = useLobeTheme();
   const blossomTheme = useBlossomTheme();
   const v4Theme = useV4Theme();
   const cartoonTheme = useCartoonTheme();
@@ -268,6 +273,13 @@ const usePreviewThemes = () => {
         copyCode: geekThemeSource,
       },
       {
+        key: 'lobe',
+        icon: 'https://unpkg.com/@lobehub/icons-static-svg@1.79.0/icons/lobehub-color.svg',
+        name: locale.lobe,
+        props: lobeTheme,
+        copyCode: lobeThemeSource,
+      },
+      {
         icon: 'https://gw.alipayobjects.com/zos/bmw-prod/3e899b2b-4eb4-4771-a7fc-14c7ff078aed.svg',
         name: locale.lark,
         bgImg:
@@ -304,6 +316,7 @@ const usePreviewThemes = () => {
     glassTheme,
     illustrationTheme,
     larkTheme,
+    lobeTheme,
     locale.blossom,
     locale.bootstrap,
     locale.cartoon,
@@ -313,6 +326,7 @@ const usePreviewThemes = () => {
     locale.glass,
     locale.illustration,
     locale.lark,
+    locale.lobe,
     locale.mui,
     locale.serene,
     locale.shadcn,

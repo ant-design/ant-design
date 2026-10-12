@@ -2039,9 +2039,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
       >
         <label
           class=""
-          title="添加 Input.Group 正常"
+          title="添加 Space.Compact 正常"
         >
-          添加 Input.Group 正常
+          添加 Space.Compact 正常
         </label>
       </div>
       <div
@@ -2054,10 +2054,10 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+              class="ant-space-compact ant-space-compact-block"
             >
               <div
-                class="ant-select ant-tree-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
+                class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
                 style="width: 30%;"
               >
                 <div
@@ -2164,7 +2164,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </div>
               </div>
               <div
-                class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
+                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-compact-last-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
               >
                 <div
                   class="ant-select-content"
@@ -2302,9 +2302,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
       >
         <label
           class=""
-          title="同时有 Input.Group 和图标发生移位"
+          title="同时有 Space.Compact 和图标发生移位"
         >
-          同时有 Input.Group 和图标发生移位
+          同时有 Space.Compact 和图标发生移位
         </label>
       </div>
       <div
@@ -2317,10 +2317,10 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+              class="ant-space-compact ant-space-compact-block"
             >
               <div
-                class="ant-select ant-tree-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
+                class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
                 style="width: 30%;"
               >
                 <div
@@ -2427,7 +2427,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </div>
               </div>
               <div
-                class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-compact-last-item ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
               >
                 <div
                   class="ant-select-content"
@@ -2501,9 +2501,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
       >
         <label
           class=""
-          title="同时有 Input.Group 和 Search 组件发生移位"
+          title="同时有 Space.Compact 和 Search 组件发生移位"
         >
-          同时有 Input.Group 和 Search 组件发生移位
+          同时有 Space.Compact 和 Search 组件发生移位
         </label>
       </div>
       <div
@@ -2516,10 +2516,10 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+              class="ant-space-compact ant-space-compact-block"
             >
               <div
-                class="ant-select ant-tree-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
+                class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
                 style="width: 30%;"
               >
                 <div
@@ -2626,7 +2626,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </div>
               </div>
               <div
-                class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-compact-last-item ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
               >
                 <div
                   class="ant-select-content"
@@ -2705,9 +2705,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
       >
         <label
           class=""
-          title="Input Group 和 Button 结合"
+          title="Space.Compact 和 Button 结合"
         >
-          Input Group 和 Button 结合
+          Space.Compact 和 Button 结合
         </label>
       </div>
       <div
@@ -2720,10 +2720,10 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space-compact ant-input-group css-var-test-id ant-input-group-compact"
+              class="ant-space-compact ant-space-compact-block"
             >
               <div
-                class="ant-select ant-tree-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
+                class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
                 style="width: 20%;"
               >
                 <div
@@ -2830,7 +2830,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </div>
               </div>
               <div
-                class="ant-select ant-select-outlined ant-select-compact-item ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
               >
                 <div
                   class="ant-select-content"
@@ -2932,11 +2932,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
 </form>
 `;
 
-exports[`renders components/auto-complete/demo/form-debug.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Input.Group] \`Input.Group\` is deprecated. Please use \`Space.Compact\` instead.",
-]
-`;
+exports[`renders components/auto-complete/demo/form-debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend context correctly 1`] = `
 Array [

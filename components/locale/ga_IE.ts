@@ -93,6 +93,10 @@ const localeValues: Locale = {
     expand: 'Expand',
     collapse: 'Laghdaigh',
   },
+  Carousel: {
+    prevSlide: 'An sleamhnán roimhe seo',
+    nextSlide: 'An chéad sleamhnán eile',
+  },
   Form: {
     optional: '(roghnach)',
     defaultValidateMessages: {

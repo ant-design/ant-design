@@ -12,6 +12,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'აირჩიეთ კვირა',
     rangePlaceholder: ['საწყისი თარიღი', 'საბოლოო თარიღი'],
     rangeYearPlaceholder: ['საწყისი წელი', 'საბოლოო წელი'],
+    rangeQuarterPlaceholder: ['საწყისი მეოთხედი', 'საბოლოო მეოთხედი'],
     rangeMonthPlaceholder: ['საწყისი თვე', 'საბოლოო თვე'],
     rangeWeekPlaceholder: ['საწყისი კვირა', 'საბოლოო კვირა'],
     ...CalendarLocale,

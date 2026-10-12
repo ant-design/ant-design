@@ -13,6 +13,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'সপ্তাহ নির্বাচন',
     rangePlaceholder: ['শুরুর তারিখ', 'শেষ তারিখ'],
     rangeYearPlaceholder: ['শুরুর বছর', 'শেষ বছর'],
+    rangeQuarterPlaceholder: ['শুরুর কোয়ার্টার', 'শেষ কোয়ার্টার'],
     rangeMonthPlaceholder: ['শুরুর মাস', 'শেষ মাস'],
     rangeWeekPlaceholder: ['শুরুর সপ্তাহ', 'শেষ সপ্তাহ'],
     ...CalendarLocale,

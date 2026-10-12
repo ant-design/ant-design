@@ -9,7 +9,7 @@ tag: New
 
 This guide explains how to use Ant Design's `design.md` to help AI design tools understand Ant Design's visual language.
 
-## What is design.md?
+## What is design.md? {#what-is-design-md}
 
 [`design.md`](https://ant.design/design.md) is a design-language description file for AI design tools, conformant with the [google-labs-code/design.md](https://github.com/google-labs-code/design.md) format.
 
@@ -29,7 +29,7 @@ You can use this prompt in AI design tools:
 Read https://ant.design/design.md and generate UI following Ant Design's visual language.
 ```
 
-## Use the CLI
+## Use the CLI {#cli}
 
 If a tool cannot read URLs directly, you can get the same content through [`@ant-design/cli`](/docs/react/cli):
 
@@ -44,7 +44,7 @@ antd design.md --format json  # JSON format output
 antd design.md --lang zh      # Chinese descriptions
 ```
 
-## What's Included
+## What's Included {#content}
 
 `design.md` includes:
 

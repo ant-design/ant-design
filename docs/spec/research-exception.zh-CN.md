@@ -7,13 +7,13 @@ title: 异常页
 
 用于展示页面异常状态。
 
-## 设计目标
+## 设计目标 {#design-goals}
 
 解释发生了什么异常，为用户提供相应建议或操作，避免用户感到迷失和困惑。
 
 ---
 
-## 设计原则
+## 设计原则 {#design-principles}
 
 <div class="design-inline-cards">
   <div>
@@ -34,9 +34,9 @@ title: 异常页
 
 ---
 
-## 类型
+## 类型 {#types}
 
-### 异常页
+### 异常页 {#error-page}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*OIo9TYjVhAEAAAAAAAAAAABkARQnAQ">
@@ -52,7 +52,7 @@ title: 异常页
 
 4.建议操作：协助用户处理异常，或把用户引导回正确的路径上。
 
-#### 模板 - 404
+#### 模板 - 404 {#template---404}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tVUkTr052wUAAAAAAAAAAABkARQnAQ">
@@ -62,7 +62,7 @@ title: 异常页
 
 当用户请求访问的页面、项目、资源等未找到时可使用。
 
-#### 模板 - 403
+#### 模板 - 403 {#template---403}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*j5LCQabCiz8AAAAAAAAAAABkARQnAQ">
@@ -72,7 +72,7 @@ title: 异常页
 
 无权限，可能包括无应用权限或无数据权限，根据实际情况向用户反馈。
 
-#### 模板 - 500
+#### 模板 - 500 {#template---500}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PRRMRY9cMPIAAAAAAAAAAABkARQnAQ">
@@ -82,7 +82,7 @@ title: 异常页
 
 当服务器出错，无法向用户提供服务时。
 
-#### 模板 - 浏览器不兼容
+#### 模板 - 浏览器不兼容 {#template-browser-incompatibility}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*bowLQ7DhaKsAAAAAAAAAAABkARQnAQ">
@@ -102,11 +102,11 @@ title: 异常页
 
 当浏览器不兼容，对操作影响程度不同，当并不严重影响使用时，可使用全局提示，允许用户继续使用。
 
-### 空状态
+### 空状态 {#empty-state}
 
 当没有内容/数据显示给用户时，展示空状态。空状态也属于一种特定的异常页，具体内容请前往查看[空状态](/docs/spec/research-empty)文档。
 
-### 加载失败
+### 加载失败 {#load-failure}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NfSZSb3jGl8AAAAAAAAAAABkARQnAQ">
@@ -116,7 +116,7 @@ title: 异常页
 
 当页面因为网络等各种原因加载内容失败时展示，一般结合重试操作。
 
-### 设计建议
+### 设计建议 {#design-recommendations}
 
 页面的整体交互流程可能是由不同状态构成的，设计者在设计页面时不能只关注理想状态，应完整考虑各类突发场景，防止用户在使用时体验中断。
 
@@ -132,13 +132,13 @@ title: 异常页
 
 ---
 
-## 扩展阅读
+## 扩展阅读 {#further-reading}
 
-### 会用到哪些模板文档
+### 会用到哪些模板文档 {#related-template-documents}
 
 - [空状态](/docs/spec/research-empty)
 
-### 外部参考文章
+### 外部参考文章 {#external-reference}
 
 - [Avoid Being Embarrassed by Your Error Messages](https://www.uxmatters.com/mt/archives/2010/08/avoid-being-embarrassed-by-your-error-messages.php)
 - [How to fix a bad user interface](https://www.scotthurff.com/posts/why-your-user-interface-is-awkward-youre-ignoring-the-ui-stack/#partial)

@@ -1,6 +1,6 @@
 import React, { useMemo, useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import { isNonNullable, omit } from '@rc-component/util';
+import { isNonNullable, isReactRenderable, omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isFunction, isNumber, isPlainObject, isString } from '../_util/is';
@@ -82,6 +82,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
     key: TransferKey,
     check: boolean,
     e?: React.MouseEvent<Element, MouseEvent>,
+    filteredItems?: RecordType[],
   ) => void;
   onItemSelectAll: (dataSource: TransferKey[], checkAll: boolean | 'replace') => void;
   onItemRemove?: (keys: TransferKey[]) => void;
@@ -316,7 +317,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   );
 
   const getSelectAllLabel = (selectedCount: number, totalCount: number): React.ReactNode => {
-    if (selectAllLabel) {
+    if (isReactRenderable(selectAllLabel)) {
       return isFunction(selectAllLabel)
         ? selectAllLabel({ selectedCount, totalCount })
         : selectAllLabel;

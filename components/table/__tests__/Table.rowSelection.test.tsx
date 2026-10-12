@@ -1883,6 +1883,56 @@ describe('Table.rowSelection', () => {
       );
     });
 
+    it('cache with preserveSelectedRowKeys in select events', () => {
+      const onSelect = jest.fn();
+      const onSelectMultiple = jest.fn();
+      const onSelectAll = jest.fn();
+      const rowSelection = {
+        onSelect,
+        onSelectMultiple,
+        onSelectAll,
+        preserveSelectedRowKeys: true,
+      };
+      const { container, rerender } = render(
+        <Table
+          dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
+          rowSelection={rowSelection}
+          rowKey="name"
+        />,
+      );
+
+      fireEvent.click(container.querySelector('tbody input')!);
+
+      rerender(
+        <Table
+          dataSource={[{ name: 'bamboo' }, { name: 'moon' }]}
+          rowSelection={rowSelection}
+          rowKey="name"
+        />,
+      );
+      fireEvent.click(container.querySelectorAll('tbody input')[0]);
+      expect(onSelect).toHaveBeenLastCalledWith(
+        { name: 'bamboo' },
+        true,
+        [{ name: 'light' }, { name: 'bamboo' }],
+        expect.anything(),
+      );
+
+      fireEvent.click(container.querySelectorAll('tbody input')[1], { shiftKey: true });
+      expect(onSelectMultiple).toHaveBeenCalledWith(
+        true,
+        [{ name: 'light' }, { name: 'bamboo' }, { name: 'moon' }],
+        [{ name: 'moon' }],
+      );
+
+      fireEvent.click(container.querySelector('th input')!);
+      expect(onSelectAll).toHaveBeenCalledWith(
+        false,
+        [{ name: 'light' }],
+        [{ name: 'bamboo' }, { name: 'moon' }],
+      );
+    });
+
     it('cache with preserveSelectedRowKeys and checkStrictly false', () => {
       const onChange = jest.fn();
       const { container, rerender } = render(

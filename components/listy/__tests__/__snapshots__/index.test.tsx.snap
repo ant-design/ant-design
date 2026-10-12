@@ -2,7 +2,7 @@
 
 exports[`Listy rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-listy ant-listy-rtl css-var-root ant-listy-css-var"
+  class="ant-listy ant-listy-rtl ant-listy-hoverable css-var-root ant-listy-css-var"
   dir="rtl"
   style="max-height: 200px; overflow-y: auto; overflow-anchor: none;"
 >

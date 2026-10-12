@@ -156,7 +156,7 @@ export const genInputGroupStyle: GenerateStyle<InputToken, CSSObject> = (token) 
         position: 'relative',
         padding: `0 ${unit(token.paddingInline)}`,
         color: token.colorText,
-        fontWeight: 'normal',
+        fontWeight: 400,
         fontSize: token.inputFontSize,
         textAlign: 'center',
         borderRadius: token.borderRadius,

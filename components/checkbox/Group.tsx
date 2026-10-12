@@ -161,7 +161,7 @@ const CheckboxGroup = React.forwardRef(
     const domProps = omit(restProps, ['value', 'disabled']);
 
     const childrenNode =
-      Array.isArray(memoizedOptions) && memoizedOptions.length > 0
+      memoizedOptions.length > 0
         ? memoizedOptions.map((option) => (
             <Checkbox
               prefixCls={prefixCls}

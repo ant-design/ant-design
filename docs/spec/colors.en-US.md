@@ -89,6 +89,6 @@ Neutral color is mainly used in a large part of the text interface, in addition 
 
 ---
 
-## Color Application In Enterprise Product Design
+## Color Application In Enterprise Product Design {#color-in-enterprise-products}
 
 In the design of background applications of Ant Financial, our attitude towards color is restrained. Color is used more based on information delivery, operational guidance and interactive feedback purposes. Above these principles that do not undermine operational efficiency and affect the clear communication of information, a rational choice of color is key. Of course, with illustrations and display page can be properly broken this idea.

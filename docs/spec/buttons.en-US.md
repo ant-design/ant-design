@@ -18,26 +18,26 @@ title: Button
   <img alt="buttons" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*wsXrT7yQH2MAAAAAAAAAAABkARQnAQ">
 </div>
 
-#### ① Default Button
+#### ① Default Button {#default-button}
 
 Default buttons are used for non-primary actions. If not sure which button type to choose from, the default button is always a safe bet.
 
-#### ② Primary Button
+#### ② Primary Button {#primary-button}
 
 Emphasize on "complete" or "recommend" action. There is at most one primary button per a button group.
 
-#### ③ Text Button
+#### ③ Text Button {#text-button}
 
 Low emphasis and light-weight button type, such as actions in a table.
 
-#### ④ Icon Button
+#### ④ Icon Button {#icon-button}
 
 Icon provides a visual clue.
 
 - It could fit more buttons in a small space.
 - Buttons with icon only need to provide Tooltip to indicate the meaning of the button.
 
-#### ⑤ Text Button with Icon
+#### ⑤ Text Button with Icon {#text-button-with-icon}
 
 Provides supplementary meaning to the button.
 
@@ -113,7 +113,7 @@ Place buttons in the users' reading pattern for the ease of discovery, such as t
 
 ### How to Decide Button Placement?
 
-#### Page/Card/Section presents a subject, where it could be broken into 3 areas:
+#### Page/Card/Section presents a subject, where it could be broken into 3 areas: {#page-card-section-areas}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*iVZpRpdN_2AAAAAAAAAAAABkARQnAQ">
@@ -125,7 +125,7 @@ Place buttons in the users' reading pattern for the ease of discovery, such as t
 
 Place buttons in different areas could have different meanings.
 
-### When to Put Buttons in the Footer?
+### When to Put Buttons in the Footer? {#buttons-in-the-footer}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KGGWQLCBfm0AAAAAAAAAAABkARQnAQ">

@@ -118,7 +118,7 @@ Use when you need to jump to the page to view the complete list.
   <img alt="mainly" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*nSsBTZlxihsAAAAAAAAAAABkARQnAQ">
 </div>
 
-#### By default, click on the title to navigate to the details, and you can judge how to open the details from the following angles:
+#### By default, click on the title to navigate to the details, and you can judge how to open the details from the following angles: {#navigate-to-details-by-title}
 
 - From the perspective of natural interaction, **Expand the list on the same page** is more natural, and it should be noted that the height of the expanded content area should not exceed one screen;
 - From the perspective of the amount of information in the details, if the information display exceeds one screen, it is not convenient for the user to use the unfolding method. At this time, it is better to use **Drawer Expand**;
@@ -135,7 +135,7 @@ When the user checks the item, the batch operation mode is triggered, and the li
 
 ### New
 
-#### New button in the upper right corner
+#### New button in the upper right corner {#new-button-in-upper-right}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*HeQwR4Dc5aEAAAAAAAAAAABkARQnAQ">

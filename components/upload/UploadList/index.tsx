@@ -211,6 +211,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
             actionIconRender={actionIconRender}
             itemRender={itemRender}
             onPreview={onInternalPreview}
+            hasPreview={!!onPreview}
             onDownload={onInternalDownload}
             onClose={onInternalClose}
           />

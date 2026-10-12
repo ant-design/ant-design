@@ -115,7 +115,7 @@ dayjs.locale('zh-cn');
 | locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  | × |
 | minDate | 最小日期，同样会限制面板的切换范围 | dayjs | - | 5.14.0 | × |
 | maxDate | 最大日期，同样会限制面板的切换范围 | dayjs | - | 5.14.0 | × |
-| mode | 日期面板的状态（[设置后无法选择年份/月份？](/docs/react/faq#当我指定了-datepickerrangepicker-的-mode-属性后点击后无法选择年份月份)） | `time` \| `date` \| `month` \| `year` \| `decade` | - |  | × |
+| mode | 日期面板的状态（[设置后无法选择年份/月份？](/docs/react/faq#mode-cannot-select-year-month)） | `time` \| `date` \| `month` \| `year` \| `decade` | - |  | × |
 | needConfirm | 是否需要确认按钮，为 `false` 时失去焦点即代表选择。当设置 `multiple` 时默认为 `false` | boolean | - | 5.14.0 | × |
 | nextIcon | 自定义下一个图标 | ReactNode | - | 4.17.0 | × |
 | open | 控制弹层是否展开 | boolean | - |  | × |
@@ -280,7 +280,7 @@ export type FormatType =
 
 ### 当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？ {#faq-mode-cannot-select}
 
-请参考[常见问答](/docs/react/faq#当我指定了-datepickerrangepicker-的-mode-属性后点击后无法选择年份月份)
+请参考[常见问答](/docs/react/faq#mode-cannot-select-year-month)
 
 ### 为何日期选择年份后返回的是日期面板而不是月份面板？ {#faq-year-to-date-panel}
 
@@ -292,7 +292,7 @@ export type FormatType =
 
 ### 为什么时间类组件的国际化 locale 设置不生效？ {#faq-locale-not-work}
 
-参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效)。
+参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#date-locale-not-working)。
 
 ### 如何修改周的起始日？ {#faq-week-start-day}
 

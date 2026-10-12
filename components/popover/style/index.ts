@@ -103,7 +103,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
           value: 0,
         },
         zIndex: zIndexPopup,
-        fontWeight: 'normal',
+        fontWeight: 400,
         whiteSpace: 'normal',
         textAlign: 'start',
         cursor: 'auto',

@@ -102,6 +102,10 @@ const localeValues: Locale = {
     expand: 'Zgjero',
     collapse: 'Mblidh',
   },
+  Carousel: {
+    prevSlide: 'Slajdi i mëparshëm',
+    nextSlide: 'Slajdi tjetër',
+  },
   Form: {
     optional: '(opsionale)',
     defaultValidateMessages: {

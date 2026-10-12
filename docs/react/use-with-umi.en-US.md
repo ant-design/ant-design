@@ -124,7 +124,7 @@ Open http://localhost:8000/products and if it goes well, you will see the follow
 
 ![](https://img.alicdn.com/imgextra/i2/O1CN01aNdyVG1bEMV7WEmBv_!!6000000003433-2-tps-712-276.png)
 
-## Implementing Product UI components
+## Implementing Product UI components {#product-ui-components}
 
 As your application grows, you'll need to share UI elements across multiple pages (or use them multiple times on a single page), and in Umi you can abstract this out into components. Let's write a ProductList component so that we can display the product list in different places.
 

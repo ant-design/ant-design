@@ -13,7 +13,7 @@ Our gray matter is wired to react to dynamic things like movement, shape change 
 
 ---
 
-## Maintain Context While Changing Views
+## Maintain Context While Changing Views {#maintain-context-when-switching}
 
 <video class="transition-video-player" alt="example of Slide In and Slide Out
 " src="https://os.alipayobjects.com/rmsportal/EejaUGsyExkXyXr.mp4"></video>

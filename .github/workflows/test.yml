@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version: 24
       - uses: utooland/setup-utoo@e7aa4d726a17f79f68aed736476ea5bd68f8ba52 # v1
@@ -35,7 +35,7 @@ jobs:
     continue-on-error: true
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version: 24
       - uses: utooland/setup-utoo@e7aa4d726a17f79f68aed736476ea5bd68f8ba52 # v1
@@ -147,7 +147,7 @@ jobs:
       - uses: utooland/setup-utoo@e7aa4d726a17f79f68aed736476ea5bd68f8ba52 # v1
       - run: ut
 
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
         with:
           pattern: coverage-artifacts-*
           merge-multiple: true
@@ -158,7 +158,7 @@ jobs:
           utx nyc report --reporter text -t coverage --report-dir coverage
           rm -rf persist-coverage
       - name: Upload coverage to codecov
-        uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7
+        uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7
         with:
           # use own token to upload coverage reports
           token: ${{ secrets.CODECOV_TOKEN }}

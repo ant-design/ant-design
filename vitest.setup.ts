@@ -9,7 +9,7 @@ import React from 'react';
 import { toHaveNoViolations } from 'jest-axe';
 import type { DOMWindow } from 'jsdom';
 import format, { plugins } from 'pretty-format';
-import { expect, vi } from 'vitest';
+import { afterAll, expect, vi } from 'vitest';
 
 // 关闭动态 hash，避免版本变化影响 snapshot
 import { defaultConfig } from './components/theme/internal';
@@ -100,6 +100,7 @@ const jestShim: any = {
   runAllTimers: vi.runAllTimers,
   runOnlyPendingTimers: vi.runOnlyPendingTimers,
   clearAllTimers: vi.clearAllTimers,
+  getTimerCount: vi.getTimerCount,
   setSystemTime: vi.setSystemTime,
   getRealSystemTime: vi.getRealSystemTime,
   requireActual,
@@ -208,8 +209,26 @@ if (typeof window !== 'undefined') {
 global.requestAnimationFrame = global.requestAnimationFrame || (global.setTimeout as any);
 global.cancelAnimationFrame = global.cancelAnimationFrame || (global.clearTimeout as any);
 
-if (typeof MessageChannel === 'undefined') {
-  (global as any).MessageChannel = class {
+// jsdom 的 window.close() 无法清理 Vitest 保留的 Node 定时器，补齐文件结束时的清理。
+const realSetTimeout = globalThis.setTimeout;
+const realClearTimeout = globalThis.clearTimeout;
+const timeouts = new Set<ReturnType<typeof setTimeout>>();
+vi.stubGlobal('setTimeout', (...args: Parameters<typeof setTimeout>) => {
+  const timeout = realSetTimeout(...args);
+  timeouts.add(timeout);
+  return timeout;
+});
+afterAll(() => {
+  timeouts.forEach((timeout) => {
+    realClearTimeout(timeout);
+  });
+  timeouts.clear();
+});
+
+// Vitest 保留 Node 的原生 MessageChannel；使用定时器替身以便随测试环境一起清理。
+vi.stubGlobal(
+  'MessageChannel',
+  class {
     port1: any;
     port2: any;
     constructor() {
@@ -233,8 +252,8 @@ if (typeof MessageChannel === 'undefined') {
       this.port1 = port1;
       this.port2 = port2;
     }
-  };
-}
+  },
+);
 
 // Mock useId 返回稳定 id（snapshot 稳定）
 vi.mock('react', async () => {

@@ -316,7 +316,7 @@ describe('TimeLine', () => {
           },
           itemTitle: {
             color: '#1890ff',
-            fontWeight: 'bold',
+            fontWeight: 700,
           },
           itemContent: {
             color: '#666',

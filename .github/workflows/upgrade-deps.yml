@@ -2,7 +2,7 @@ name: Upgrade Dependencies
 
 on:
   schedule:
-    - cron: "0 18 * * *" # every day at 18:00 UTC
+    - cron: "0 0 * * *" # every day at 08:00 Beijing time (UTC+8)
     # - timezone: Asia/Shanghai # not supported yet https://github.com/orgs/community/discussions/13454
 
 jobs:
