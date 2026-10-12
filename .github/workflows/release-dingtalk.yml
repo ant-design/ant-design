@@ -4,29 +4,87 @@
 # 3. antd-tools `run pub` will trigger `npm publish` at the same time
 # 4. Then the new tag will trigger this current action
 # 5. The action will generate a new release, and publish DingDing notification at the same time
+#
+# Note: `create` runs the workflow file from the tagged commit (not default branch).
+# If a release tag was created before workflow fixes landed, delete the tag and recreate it
+# on a commit that contains the fixed workflow, or run this workflow manually (workflow_dispatch).
 
 name: DingTalk Release Notification
 
 on:
-  create
+  create:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Re-point an existing release tag to the current default-branch commit and re-trigger notification'
+        required: true
+        type: string
 
 permissions:
   contents: read
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.ref_type }}-${{ github.event.ref }}
+  group: ${{ github.workflow }}-${{ github.event.ref_type }}-${{ github.event.ref }}-${{ github.event_name }}
   cancel-in-progress: true
 
 jobs:
+  retag-for-notify:
+    if: github.event_name == 'workflow_dispatch'
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Re-point release tag
+        uses: actions/github-script@ed597411d8f32442ea28df23d5e7a25eafb8b504 # v8
+        with:
+          script: |
+            const tag = context.payload.inputs.tag;
+            if (!tag) {
+              core.setFailed('Input `tag` is required.');
+              return;
+            }
+            const sha = context.sha;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            try {
+              await github.rest.git.deleteRef({
+                owner,
+                repo,
+                ref: `tags/${tag}`,
+              });
+              core.info(`Deleted tag ${tag}`);
+            } catch (error) {
+              if (error.status !== 404) {
+                throw error;
+              }
+              core.info(`Tag ${tag} did not exist, creating it on ${sha}`);
+            }
+            await github.rest.git.createRef({
+              owner,
+              repo,
+              ref: `refs/tags/${tag}`,
+              sha,
+            });
+            core.info(`Created tag ${tag} on ${sha}`);
+
   release-helper:
     permissions:
-      contents: write  # for actions-cool/release-helper to create releases
+      contents: write # for release-helper to create releases
     if: github.event.ref_type == 'tag'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
+      - name: Checkout release-helper action
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: actions-cool/release-helper-backup
+          ref: a04df78cd48267248fa46673d018e3569b036046
+          path: .github/actions/release-helper
+          persist-credentials: false
+
       - name: Send to Ant Design DingGroup
-        uses: actions-cool/release-helper-backup@a04df78cd48267248fa46673d018e3569b036046
+        uses: ./.github/actions/release-helper
         with:
           trigger: tag
           changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'
@@ -42,7 +100,7 @@ jobs:
           prerelease-filter: '-, a, b, A, B'
 
       - name: Send to Bigfish DingGroup
-        uses: actions-cool/release-helper-backup@a04df78cd48267248fa46673d018e3569b036046
+        uses: ./.github/actions/release-helper
         with:
           trigger: tag
           changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'
@@ -60,4 +118,3 @@ jobs:
           msg-footer: '💬 前往 [**Ant Design Releases**]({{url}}) 查看更新日志'
           prettier: true
           prerelease-filter: '-, a, b, A, B'
-
