@@ -288,6 +288,8 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
   const onTriggerKeyDown: React.KeyboardEventHandler<HTMLElement> = (event) => {
     child.props.onKeyDown?.(event);
     const target = event.target as HTMLElement;
+    const nativeControl = target.closest('button, input');
+    const isNestedNativeControl = nativeControl && nativeControl !== event.currentTarget;
     const isEditableTarget =
       target.isContentEditable ||
       target.tagName === 'TEXTAREA' ||
@@ -299,6 +301,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
     if (
       menu?.items &&
       !isEditableTarget &&
+      !isNestedNativeControl &&
       !disabled &&
       !mergedDisabled &&
       !event.defaultPrevented &&

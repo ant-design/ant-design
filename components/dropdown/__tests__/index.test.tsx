@@ -434,6 +434,38 @@ describe('Dropdown', () => {
       expect(onOpenChange).not.toHaveBeenCalled();
     });
 
+    describe.each(['Enter', ' '])('nested native button activation with %s', (key) => {
+      it.each(['button', 'submit', 'reset', 'image', 'native button'])(
+        'preserves the native click for %s',
+        (type) => {
+          const onClick = jest.fn();
+          const onOpenChange = jest.fn();
+          const { getByTestId } = render(
+            <Dropdown menu={{ items }} trigger={['click']} onOpenChange={onOpenChange}>
+              <div data-testid="trigger">
+                {type === 'native button' ? (
+                  <button type="button" onClick={onClick}>
+                    <span data-testid="target">Actions</span>
+                  </button>
+                ) : (
+                  <input type={type} data-testid="target" onClick={onClick} alt="Actions" />
+                )}
+              </div>
+            </Dropdown>,
+          );
+          const target = getByTestId('target');
+          expect(fireEvent.keyDown(target, { key })).toBe(true);
+          expect(onClick).not.toHaveBeenCalled();
+          expect(onOpenChange).not.toHaveBeenCalled();
+          // jsdom does not synthesize the browser's native keyboard click.
+          fireEvent.click(target);
+          expect(onClick).toHaveBeenCalledTimes(1);
+          expect(onOpenChange).toHaveBeenCalledWith(true, { source: 'trigger' });
+          expect(getByTestId('trigger')).toHaveAttribute('aria-expanded', 'true');
+        },
+      );
+    });
+
     it('keeps keyboard activation available for native input buttons', () => {
       const { getByRole } = render(
         <Dropdown menu={{ items }} trigger={['click']}>
