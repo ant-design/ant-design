@@ -464,6 +464,82 @@ describe('Descriptions', () => {
     expect(view).toHaveStyle({ border: '' });
   });
 
+  describe.each(['horizontal', 'vertical'] as const)('nested %s descriptions', (layout) => {
+    it.each([
+      { outerBordered: true, innerBordered: false, outerSize: 'small' as const },
+      { outerBordered: true, innerBordered: false, outerSize: 'medium' as const },
+      { outerBordered: false, innerBordered: true, outerSize: 'small' as const },
+      { outerBordered: false, innerBordered: true, outerSize: 'medium' as const },
+      { outerBordered: true, innerBordered: true, outerSize: 'small' as const },
+      { outerBordered: true, innerBordered: true, outerSize: 'medium' as const },
+    ])(
+      'preserves inner styles (outer bordered: $outerBordered, inner bordered: $innerBordered, outer size: $outerSize)',
+      ({ outerBordered, innerBordered, outerSize }) => {
+        const items = [
+          { key: 'name', label: 'Name', children: 'Alice' },
+          { key: 'phone', label: 'Phone', children: '12345' },
+        ];
+        const { getByTestId } = render(
+          <>
+            <Descriptions
+              data-testid="reference"
+              bordered={innerBordered}
+              size="large"
+              layout={layout}
+              column={1}
+              items={items}
+            />
+            <Descriptions
+              bordered={outerBordered}
+              size={outerSize}
+              column={1}
+              items={[
+                {
+                  key: 'nested',
+                  label: 'Nested',
+                  children: (
+                    <Descriptions
+                      data-testid="nested"
+                      bordered={innerBordered}
+                      size="large"
+                      layout={layout}
+                      column={1}
+                      items={items}
+                    />
+                  ),
+                },
+              ]}
+            />
+          </>,
+        );
+        const readStyles = (root: HTMLElement) => {
+          const selectors = [
+            '.ant-descriptions-row',
+            'td',
+            '.ant-descriptions-item-label',
+            '.ant-descriptions-item-content',
+          ];
+          const properties = [
+            'paddingTop',
+            'paddingRight',
+            'paddingBottom',
+            'paddingLeft',
+            'borderBottomStyle',
+            'borderBottomWidth',
+            'borderInlineEndStyle',
+            'display',
+            'backgroundColor',
+          ] as const;
+          return selectors.map((selector) => {
+            const style = getComputedStyle(root.querySelector(selector)!);
+            return Object.fromEntries(properties.map((property) => [property, style[property]]));
+          });
+        };
+        expect(readStyles(getByTestId('nested'))).toEqual(readStyles(getByTestId('reference')));
+      },
+    );
+  });
+
   it('Should Descriptions not throw react key prop error in jsx mode', () => {
     render(
       <Descriptions title="User Info">
