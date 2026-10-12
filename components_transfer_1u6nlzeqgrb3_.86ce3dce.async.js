@@ -1,0 +1,5 @@
+(()=>{"use strict";(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,591651,t=>{var e=t.i(391398),r=t.i(504909),o=t.i(400271);let a=(0,t.i(827830).createStyles)(({token:t,css:e})=>({section:{backgroundColor:"rgba(250,250,250, 0.5)"},header:{color:t.colorPrimary},actions:e`
+    & button {
+      background-color: rgba(255, 242, 232, 0.6);
+    }
+  `})),s=Array.from({length:20}).map((t,e)=>({key:e.toString(),title:`content${e+1}`,description:`description of content${e+1}`})),n=s.filter(t=>Number(t.key)>10).map(t=>t.key),i={header:{fontWeight:700}},l=t=>"warning"===t.props.status?{section:{backgroundColor:"rgba(246,255,237, 0.6)",borderColor:"#b7eb8f"},header:{color:"#8DBCC7",fontWeight:400}}:{};t.s(["default",0,()=>{let{styles:t}=a(),c={dataSource:s,targetKeys:n,render:t=>t.title,classNames:t};return(0,e.jsxs)(r.f,{vertical:!0,gap:"large",style:{width:"100%"},children:[(0,e.jsx)(o.f,{...c,status:"error",styles:i}),(0,e.jsx)(o.f,{...c,status:"warning",styles:l})]})}])},400271,t=>{var e=t.i(558424);t.s(["f",()=>e.f])}])})();

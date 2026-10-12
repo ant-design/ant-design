@@ -1,0 +1,23 @@
+(()=>{"use strict";(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,528147,e=>{var i=e.i(940149);e.s(["f",()=>i.f])},360945,e=>{var i=e.i(415052);e.s(["f",()=>i.f])},77809,e=>{var i=e.i(391398),n=e.i(191788),t=e.i(528147),s=e.i(844678),l=e.i(360945),r=e.i(767372),o=e.i(504909),a=e.i(321365),c=e.i(69017),d=e.i(974398);let h=(0,e.i(827830).createStyles)(e=>{let{css:i,cssVar:n,prefixCls:t}=e;return{list:i`
+      border: ${n.lineWidth} ${n.lineType} ${n.colorBorder};
+      border-radius: ${n.borderRadiusLG};
+      overflow: hidden;
+      .${t}-listy-item:last-child {
+        border-bottom: none;
+      }
+    `,descriptionItem:i`
+      margin-bottom: ${n.marginXS};
+      color: ${n.colorTextLabel};
+      font-size: ${n.fontSize};
+      line-height: ${n.lineHeight};
+    `,profileTitle:i`
+      display: block;
+      margin-bottom: ${n.margin};
+      color: ${n.colorTextHeading};
+      font-size: ${n.fontSizeLG};
+      line-height: ${n.lineHeight};
+    `,label:i`
+      display: inline-block;
+      margin-inline-end: ${n.marginXS};
+      color: ${n.colorTextHeading};
+    `}}),x=e=>{let{title:n,content:t}=e,{styles:s}=h();return(0,i.jsxs)("div",{className:s.descriptionItem,children:[(0,i.jsxs)("p",{className:s.label,children:[n,":"]}),t]})};e.s(["default",0,()=>{let{styles:e}=h(),[f,j]=(0,n.useState)(!1),p=()=>{j(!0)};return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(a.f,{items:[{id:1,name:"Lily"},{id:2,name:"Lily"}],rowKey:"id",className:e.list,itemRender:e=>(0,i.jsxs)(o.f,{gap:"middle",align:"center",children:[(0,i.jsx)(t.f,{src:"https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"}),(0,i.jsxs)(o.f,{vertical:!0,flex:"auto",children:[(0,i.jsx)("a",{href:"https://ant.design/index-cn",children:e.name}),(0,i.jsx)(d.f.Text,{type:"secondary",children:"Progresser XTech"})]}),(0,i.jsx)("a",{onClick:p,children:"View Profile"})]})}),(0,i.jsxs)(r.f,{size:640,placement:"right",closable:!1,onClose:()=>{j(!1)},open:f,children:[(0,i.jsx)("p",{className:e.profileTitle,style:{marginBottom:24},children:"User Profile"}),(0,i.jsx)("p",{className:e.profileTitle,children:"Personal"}),(0,i.jsxs)(c.f,{children:[(0,i.jsx)(s.f,{span:12,children:(0,i.jsx)(x,{title:"Full Name",content:"Lily"})}),(0,i.jsx)(s.f,{span:12,children:(0,i.jsx)(x,{title:"Account",content:"AntDesign@example.com"})})]}),(0,i.jsxs)(c.f,{children:[(0,i.jsx)(s.f,{span:12,children:(0,i.jsx)(x,{title:"City",content:"HangZhou"})}),(0,i.jsx)(s.f,{span:12,children:(0,i.jsx)(x,{title:"Country",content:"China🇨🇳"})})]}),(0,i.jsxs)(c.f,{children:[(0,i.jsx)(s.f,{span:12,children:(0,i.jsx)(x,{title:"Birthday",content:"February 2,1900"})}),(0,i.jsx)(s.f,{span:12,children:(0,i.jsx)(x,{title:"Website",content:"-"})})]}),(0,i.jsx)(c.f,{children:(0,i.jsx)(s.f,{span:24,children:(0,i.jsx)(x,{title:"Message",content:"Make things as simple as possible but no simpler."})})}),(0,i.jsx)(l.f,{}),(0,i.jsx)("p",{className:e.profileTitle,children:"Company"}),(0,i.jsxs)(c.f,{children:[(0,i.jsx)(s.f,{span:12,children:(0,i.jsx)(x,{title:"Position",content:"Programmer"})}),(0,i.jsx)(s.f,{span:12,children:(0,i.jsx)(x,{title:"Responsibilities",content:"Coding"})})]}),(0,i.jsxs)(c.f,{children:[(0,i.jsx)(s.f,{span:12,children:(0,i.jsx)(x,{title:"Department",content:"XTech"})}),(0,i.jsx)(s.f,{span:12,children:(0,i.jsx)(x,{title:"Supervisor",content:(0,i.jsx)("a",{children:"Lin"})})})]}),(0,i.jsx)(c.f,{children:(0,i.jsx)(s.f,{span:24,children:(0,i.jsx)(x,{title:"Skills",content:"C / C + +, data structures, software engineering, operating systems, computer networks, databases, compiler theory, computer architecture, Microcomputer Principle and Interface Technology, Computer English, Java, ASP, etc."})})}),(0,i.jsx)(l.f,{}),(0,i.jsx)("p",{className:e.profileTitle,children:"Contacts"}),(0,i.jsxs)(c.f,{children:[(0,i.jsx)(s.f,{span:12,children:(0,i.jsx)(x,{title:"Email",content:"AntDesign@example.com"})}),(0,i.jsx)(s.f,{span:12,children:(0,i.jsx)(x,{title:"Phone Number",content:"+86 181 0000 0000"})})]}),(0,i.jsx)(c.f,{children:(0,i.jsx)(s.f,{span:24,children:(0,i.jsx)(x,{title:"GitHub",content:(0,i.jsx)("a",{href:"https://github.com/ant-design/ant-design",target:"_blank",rel:"noopener noreferrer",children:"github.com/ant-design/ant-design"})})})})]})]})}])},767372,e=>{var i=e.i(199346);e.s(["f",()=>i.f])},321365,e=>{var i=e.i(296459);e.s(["f",()=>i.f])}])})();

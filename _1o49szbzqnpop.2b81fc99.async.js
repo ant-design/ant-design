@@ -1,0 +1,4 @@
+(()=>{"use strict";(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,68313,t=>{var e=t.i(391398),s=t.i(635421),i=t.i(241859),a=t.i(997643);let r=(0,t.i(827830).createStyles)(t=>{let{css:e}=t;return{mask:e`
+      opacity: 1;
+      font-size: 20px;
+    `}});t.s(["default",0,()=>{let{styles:t}=r();return(0,e.jsx)(i.f,{width:96,alt:"basic image",src:"https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",classNames:{popup:{mask:t.mask}},preview:{cover:(0,e.jsxs)(a.f,{vertical:!0,align:"center",children:[(0,e.jsx)(s.f,{}),"Preview"]})}})}])},241859,t=>{var e=t.i(541030);t.s(["f",()=>e.f])},997643,t=>{var e=t.i(640440);t.s(["f",()=>e.f])},635421,t=>{var e=t.i(40867);t.s(["f",()=>e.f])}])})();
