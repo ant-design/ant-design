@@ -549,6 +549,30 @@ describe('Table', () => {
     expect(typeof tblRef.current?.scrollTo === 'function').toBeTruthy();
   });
 
+  it('support reference scrollTo', () => {
+    const tblRef = React.createRef<TableRef>();
+    const { container } = render(
+      <Table
+        ref={tblRef}
+        scroll={{ y: 100 }}
+        columns={[{ dataIndex: 'key' }]}
+        dataSource={[{ key: 'bamboo' }]}
+      />,
+    );
+    const body = container.querySelector<HTMLDivElement>('.ant-table-body')!;
+    body.scrollTo = jest.fn();
+
+    tblRef.current?.scrollTo({ top: 100 });
+    expect(body.scrollTo).toHaveBeenCalledWith({ top: 100 });
+
+    const row = container.querySelector<HTMLElement>('[data-row-key="bamboo"]')!;
+    const scrollIntoView = jest.spyOn(row, 'scrollIntoView');
+
+    tblRef.current?.scrollTo({ key: 'bamboo' });
+    expect(scrollIntoView).toHaveBeenCalledWith({ block: 'nearest' });
+    scrollIntoView.mockRestore();
+  });
+
   it('support hidden columns', () => {
     const columns = [
       {
