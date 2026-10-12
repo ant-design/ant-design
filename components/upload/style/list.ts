@@ -104,6 +104,14 @@ const genListStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
               opacity: 1,
             },
           },
+
+          [`${itemCls}-error-message`]: {
+            flex: 'auto',
+            padding: `0 ${unit(token.paddingXS)}`,
+            fontSize,
+            lineHeight: 1.5,
+            color: token.colorError,
+          },
         },
 
         [`${componentCls}-list-item-container`]: {
