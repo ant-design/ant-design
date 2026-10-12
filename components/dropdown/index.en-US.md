@@ -68,6 +68,8 @@ Common props ref：[Common props](/docs/react/common-props)
 
 Please ensure that the child node of `Dropdown` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.
 
+When `menu.items` is provided, the trigger defaults to `role="button"` and `tabIndex={0}`, supports Enter and Space activation, and receives `aria-haspopup="menu"` and `aria-expanded` follows the open state. ARIA attributes passed to `Dropdown`, such as `aria-label` and `aria-describedby`, are forwarded to the trigger. Attributes already set on the child take precedence, except `aria-expanded`, which reflects the actual menu state. Use a `Button` with `trigger={['click']}` for a keyboard-operable menu trigger.
+
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>

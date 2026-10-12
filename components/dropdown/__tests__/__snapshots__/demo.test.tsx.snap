@@ -15,7 +15,11 @@ exports[`renders components/dropdown/demo/arrow.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -27,7 +31,11 @@ exports[`renders components/dropdown/demo/arrow.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -39,7 +47,11 @@ exports[`renders components/dropdown/demo/arrow.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -60,7 +72,11 @@ exports[`renders components/dropdown/demo/arrow.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -72,7 +88,11 @@ exports[`renders components/dropdown/demo/arrow.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -84,7 +104,11 @@ exports[`renders components/dropdown/demo/arrow.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -112,7 +136,11 @@ exports[`renders components/dropdown/demo/arrow-center.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -124,7 +152,11 @@ exports[`renders components/dropdown/demo/arrow-center.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -136,7 +168,11 @@ exports[`renders components/dropdown/demo/arrow-center.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -157,7 +193,11 @@ exports[`renders components/dropdown/demo/arrow-center.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -169,7 +209,11 @@ exports[`renders components/dropdown/demo/arrow-center.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -181,7 +225,11 @@ exports[`renders components/dropdown/demo/arrow-center.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -196,7 +244,11 @@ exports[`renders components/dropdown/demo/arrow-center.tsx correctly 1`] = `
 
 exports[`renders components/dropdown/demo/basic.tsx correctly 1`] = `
 <a
+  aria-expanded="false"
+  aria-haspopup="menu"
   class="ant-dropdown-trigger"
+  role="button"
+  tabindex="0"
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -235,8 +287,12 @@ exports[`renders components/dropdown/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/dropdown/demo/context-menu.tsx correctly 1`] = `
 <div
+  aria-expanded="false"
+  aria-haspopup="menu"
   class="ant-dropdown-trigger"
+  role="button"
   style="color:rgba(0,0,0,0.45);background:#f5f5f5;height:200px;text-align:center;line-height:200px"
+  tabindex="0"
 >
   Right Click on here
 </div>
@@ -244,7 +300,11 @@ exports[`renders components/dropdown/demo/context-menu.tsx correctly 1`] = `
 
 exports[`renders components/dropdown/demo/custom-dropdown.tsx correctly 1`] = `
 <a
+  aria-expanded="false"
+  aria-haspopup="menu"
   class="ant-dropdown-trigger"
+  role="button"
+  tabindex="0"
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -301,7 +361,11 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx correctly 1`] = `
         </span>
       </button>
       <button
+        aria-expanded="false"
+        aria-haspopup="menu"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -345,7 +409,11 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx correctly 1`] = `
         </span>
       </button>
       <button
+        aria-expanded="false"
+        aria-haspopup="menu"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -390,8 +458,12 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx correctly 1`] = `
         </span>
       </button>
       <button
+        aria-expanded="false"
+        aria-haspopup="menu"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         disabled=""
+        role="button"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -435,7 +507,11 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx correctly 1`] = `
         </span>
       </button>
       <button
+        aria-expanded="false"
+        aria-haspopup="menu"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-loading ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -468,7 +544,11 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
+      aria-expanded="false"
+      aria-haspopup="menu"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-end ant-dropdown-trigger"
+      role="button"
+      tabindex="0"
       type="button"
     >
       <span
@@ -514,7 +594,11 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx correctly 1`] = `
         </span>
       </button>
       <button
+        aria-expanded="false"
+        aria-haspopup="menu"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -548,7 +632,11 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx correctly 1`] = `
 
 exports[`renders components/dropdown/demo/event.tsx correctly 1`] = `
 <a
+  aria-expanded="false"
+  aria-haspopup="menu"
   class="ant-dropdown-trigger"
+  role="button"
+  tabindex="0"
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -587,7 +675,11 @@ exports[`renders components/dropdown/demo/event.tsx correctly 1`] = `
 
 exports[`renders components/dropdown/demo/extra.tsx correctly 1`] = `
 <a
+  aria-expanded="false"
+  aria-haspopup="menu"
   class="ant-dropdown-trigger"
+  role="button"
+  tabindex="0"
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -643,7 +735,11 @@ exports[`renders components/dropdown/demo/icon-debug.tsx correctly 1`] = `
         </span>
       </button>
       <button
+        aria-expanded="false"
+        aria-haspopup="menu"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -687,7 +783,11 @@ exports[`renders components/dropdown/demo/icon-debug.tsx correctly 1`] = `
         </span>
       </button>
       <button
+        aria-expanded="false"
+        aria-haspopup="menu"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -731,7 +831,11 @@ exports[`renders components/dropdown/demo/icon-debug.tsx correctly 1`] = `
         </span>
       </button>
       <button
+        aria-expanded="false"
+        aria-haspopup="menu"
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -775,7 +879,11 @@ exports[`renders components/dropdown/demo/icon-debug.tsx correctly 1`] = `
         </span>
       </button>
       <button
+        aria-expanded="false"
+        aria-haspopup="menu"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -809,7 +917,11 @@ exports[`renders components/dropdown/demo/icon-debug.tsx correctly 1`] = `
 
 exports[`renders components/dropdown/demo/item.tsx correctly 1`] = `
 <a
+  aria-expanded="false"
+  aria-haspopup="menu"
   class="ant-dropdown-trigger"
+  role="button"
+  tabindex="0"
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -888,7 +1000,11 @@ exports[`renders components/dropdown/demo/loading.tsx correctly 1`] = `
         </span>
       </button>
       <button
+        aria-expanded="false"
+        aria-haspopup="menu"
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -955,7 +1071,11 @@ exports[`renders components/dropdown/demo/loading.tsx correctly 1`] = `
         </span>
       </button>
       <button
+        aria-expanded="false"
+        aria-haspopup="menu"
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -999,7 +1119,11 @@ exports[`renders components/dropdown/demo/loading.tsx correctly 1`] = `
         </span>
       </button>
       <button
+        aria-expanded="false"
+        aria-haspopup="menu"
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -1043,7 +1167,11 @@ exports[`renders components/dropdown/demo/loading.tsx correctly 1`] = `
         </span>
       </button>
       <button
+        aria-expanded="false"
+        aria-haspopup="menu"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -1077,7 +1205,11 @@ exports[`renders components/dropdown/demo/loading.tsx correctly 1`] = `
 
 exports[`renders components/dropdown/demo/menu-full.tsx correctly 1`] = `
 <a
+  aria-expanded="false"
+  aria-haspopup="menu"
   class="ant-dropdown-trigger"
+  role="button"
+  tabindex="0"
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -1116,7 +1248,11 @@ exports[`renders components/dropdown/demo/menu-full.tsx correctly 1`] = `
 
 exports[`renders components/dropdown/demo/overlay-open.tsx correctly 1`] = `
 <a
+  aria-expanded="false"
+  aria-haspopup="menu"
   class="ant-dropdown-trigger"
+  role="button"
+  tabindex="0"
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -1168,7 +1304,11 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -1180,7 +1320,11 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -1192,7 +1336,11 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -1213,7 +1361,11 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -1225,7 +1377,11 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -1237,7 +1393,11 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -1258,7 +1418,11 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -1270,7 +1434,11 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -1282,7 +1450,11 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -1303,7 +1475,11 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -1315,7 +1491,11 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -1327,7 +1507,11 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <button
+          aria-expanded="false"
+          aria-haspopup="menu"
           class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+          role="button"
+          tabindex="0"
           type="button"
         >
           <span>
@@ -1345,14 +1529,23 @@ exports[`renders components/dropdown/demo/render-panel.tsx correctly 1`] = `
   style="padding-bottom:0;position:relative;min-width:0"
 >
   <span
+    aria-expanded="false"
+    aria-haspopup="menu"
+    aria-hidden="true"
     class="ant-dropdown-trigger"
+    role="button"
+    tabindex="-1"
   />
 </div>
 `;
 
 exports[`renders components/dropdown/demo/selectable.tsx correctly 1`] = `
 <a
+  aria-expanded="false"
+  aria-haspopup="menu"
   class="ant-typography ant-typography-link ant-dropdown-trigger css-var-test-id"
+  role="button"
+  tabindex="0"
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -1392,9 +1585,13 @@ exports[`renders components/dropdown/demo/selectable.tsx correctly 1`] = `
 exports[`renders components/dropdown/demo/selection.tsx correctly 1`] = `
 Array [
   <span
+    aria-expanded="false"
+    aria-haspopup="menu"
     aria-hidden="true"
     class="ant-dropdown-trigger acss-1iewsaa"
+    role="button"
     style="left:-9999px;top:-9999px"
+    tabindex="0"
   />,
   <div
     class="acss-18r2uqq"
@@ -1415,7 +1612,11 @@ exports[`renders components/dropdown/demo/style-class.tsx correctly 1`] = `
       class="ant-space-item"
     >
       <button
+        aria-expanded="false"
+        aria-haspopup="menu"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <div
@@ -1456,7 +1657,11 @@ exports[`renders components/dropdown/demo/style-class.tsx correctly 1`] = `
       class="ant-space-item"
     >
       <button
+        aria-expanded="false"
+        aria-haspopup="menu"
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-dropdown-trigger"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <div
@@ -1499,7 +1704,11 @@ exports[`renders components/dropdown/demo/style-class.tsx correctly 1`] = `
 
 exports[`renders components/dropdown/demo/sub-menu.tsx correctly 1`] = `
 <a
+  aria-expanded="false"
+  aria-haspopup="menu"
   class="ant-dropdown-trigger"
+  role="button"
+  tabindex="0"
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -1538,7 +1747,11 @@ exports[`renders components/dropdown/demo/sub-menu.tsx correctly 1`] = `
 
 exports[`renders components/dropdown/demo/trigger.tsx correctly 1`] = `
 <a
+  aria-expanded="false"
+  aria-haspopup="menu"
   class="ant-dropdown-trigger"
+  role="button"
+  tabindex="0"
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"

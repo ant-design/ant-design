@@ -46,6 +46,157 @@ describe('Dropdown', () => {
     </Dropdown>
   ));
 
+  describe('menu trigger accessibility', () => {
+    it('keeps aria-expanded in sync with controlled open state', () => {
+      const { container, rerender } = render(
+        <Dropdown menu={{ items }} open={false}>
+          <button type="button">Actions</button>
+        </Dropdown>,
+      );
+      const button = container.querySelector('button')!;
+      expect(button).toHaveAttribute('aria-haspopup', 'menu');
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+
+      rerender(
+        <Dropdown menu={{ items }} open>
+          <button type="button">Actions</button>
+        </Dropdown>,
+      );
+      expect(button).toHaveAttribute('aria-expanded', 'true');
+      expect(container.querySelector('[role="menu"]')).toBeTruthy();
+
+      rerender(
+        <Dropdown menu={{ items }} open={false}>
+          <button type="button">Actions</button>
+        </Dropdown>,
+      );
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    it('updates aria-expanded after opening and selecting an item', () => {
+      const { container } = render(
+        <Dropdown menu={{ items }} trigger={['click']}>
+          <button type="button">Actions</button>
+        </Dropdown>,
+      );
+      const button = container.querySelector('button')!;
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+      fireEvent.click(button);
+      expect(button).toHaveAttribute('aria-expanded', 'true');
+      fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    it('forwards aria attributes to the trigger and preserves child attributes', () => {
+      const { container } = render(
+        <Dropdown menu={{ items }} aria-label="Actions" aria-describedby="description">
+          <button type="button" aria-label="More actions" aria-controls="actions-menu" />
+        </Dropdown>,
+      );
+      const button = container.querySelector('button')!;
+      expect(button).toHaveAttribute('aria-label', 'More actions');
+      expect(button).toHaveAttribute('aria-describedby', 'description');
+      expect(button).toHaveAttribute('aria-controls', 'actions-menu');
+    });
+
+    it('uses the Dropdown label when the trigger has no label', () => {
+      const { container } = render(
+        <Dropdown menu={{ items }} aria-label="Actions">
+          <button type="button" />
+        </Dropdown>,
+      );
+      expect(container.querySelector('button')).toHaveAttribute('aria-label', 'Actions');
+    });
+
+    it.each(['Enter', ' '])('opens a non-native trigger with %p', (key) => {
+      const { container } = render(
+        <Dropdown menu={{ items }}>
+          <span>Actions</span>
+        </Dropdown>,
+      );
+      const trigger = container.querySelector('.ant-dropdown-trigger')!;
+      expect(trigger).toHaveAttribute('role', 'button');
+      expect(trigger).toHaveAttribute('tabindex', '0');
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+      fireEvent.keyDown(trigger, { key });
+      expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('preserves click callbacks when activating a click trigger by keyboard', () => {
+      const onClick = jest.fn();
+      const { container } = render(
+        <Dropdown menu={{ items }} trigger={['click']}>
+          <button type="button" onClick={onClick}>
+            Actions
+          </button>
+        </Dropdown>,
+      );
+      const button = container.querySelector('button')!;
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+      fireEvent.keyDown(button, { key: 'Enter' });
+      expect(button).toHaveAttribute('aria-expanded', 'true');
+      expect(onClick).toHaveBeenCalledTimes(1);
+    });
+
+    it('allows the child keyboard handler to prevent activation', () => {
+      const onKeyDown = jest.fn((event: React.KeyboardEvent) => event.preventDefault());
+      const { container } = render(
+        <Dropdown menu={{ items }}>
+          <span onKeyDown={onKeyDown}>Actions</span>
+        </Dropdown>,
+      );
+      const trigger = container.querySelector('.ant-dropdown-trigger')!;
+      fireEvent.keyDown(trigger, { key: 'Enter' });
+      expect(onKeyDown).toHaveBeenCalledTimes(1);
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    it('does not activate disabled or repeated keyboard events', () => {
+      const { container, rerender } = render(
+        <Dropdown menu={{ items }} disabled>
+          <span>Actions</span>
+        </Dropdown>,
+      );
+      const trigger = container.querySelector('.ant-dropdown-trigger')!;
+      fireEvent.keyDown(trigger, { key: 'Enter' });
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+      rerender(
+        <Dropdown menu={{ items }}>
+          <span>Actions</span>
+        </Dropdown>,
+      );
+      fireEvent.keyDown(trigger, { key: 'Enter', repeat: true });
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+      fireEvent.keyDown(trigger, { key: 'Enter' });
+      expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('preserves explicit trigger roles, tab order and popup types', () => {
+      const { container } = render(
+        <Dropdown menu={{ items }}>
+          <span role="link" tabIndex={-1} aria-haspopup="true">
+            Actions
+          </span>
+        </Dropdown>,
+      );
+      const trigger = container.querySelector('span')!;
+      expect(trigger).toHaveAttribute('role', 'link');
+      expect(trigger).toHaveAttribute('tabindex', '-1');
+      expect(trigger).toHaveAttribute('aria-haspopup', 'true');
+    });
+
+    it('does not assign menu semantics to a custom popup without menu items', () => {
+      const { container } = render(
+        <Dropdown popupRender={() => <div>Custom content</div>}>
+          <button type="button">Open</button>
+        </Dropdown>,
+      );
+      const button = container.querySelector('button')!;
+      expect(button).not.toHaveAttribute('aria-haspopup');
+      expect(button).not.toHaveAttribute('aria-expanded');
+    });
+  });
+
   it('support custom transitionName', () => {
     const { asFragment } = render(
       <Dropdown menu={{ items }} transitionName="move-up" open>

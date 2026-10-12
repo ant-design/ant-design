@@ -4,7 +4,14 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import RcDropdown from '@rc-component/dropdown';
 import type { MenuProps as RcMenuProps } from '@rc-component/menu';
 import type { AlignType } from '@rc-component/trigger';
-import { getNodeRef, omit, useComposeRef, useControlledState, useEvent } from '@rc-component/util';
+import {
+  getNodeRef,
+  omit,
+  pickAttrs,
+  useComposeRef,
+  useControlledState,
+  useEvent,
+} from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useZIndex } from '../_util/hooks';
@@ -68,7 +75,7 @@ export type DropdownSemanticType = {
 
 export type DropdownSemanticAllType = GenerateSemantic<DropdownSemanticType, DropdownProps>;
 
-export interface DropdownProps {
+export interface DropdownProps extends React.AriaAttributes {
   classNames?: DropdownSemanticAllType['classNamesAndFn'];
   styles?: DropdownSemanticAllType['stylesAndFn'];
   menu?: MenuProps & { activeKey?: RcMenuProps['activeKey'] };
@@ -233,30 +240,62 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
 
   const child = React.Children.only(
     isPrimitive(children) ? <span>{children}</span> : children,
-  ) as React.ReactElement<{ className?: string; disabled?: boolean }>;
+  ) as React.ReactElement<React.HTMLAttributes<HTMLElement> & { disabled?: boolean }>;
 
   const composedRef = useComposeRef(ref, getNodeRef(child));
 
-  const popupTrigger = cloneElement(child, {
-    className: clsx(
-      `${prefixCls}-trigger`,
-      { [`${prefixCls}-rtl`]: direction === 'rtl' },
-      child.props.className,
-    ),
-    disabled: child.props.disabled ?? disabled,
-    ref: composedRef,
-  });
-  const triggerActions = disabled ? [] : trigger;
-  const alignPoint = !!triggerActions?.includes('contextMenu');
-
   // =========================== Open ============================
   const [mergedOpen, setOpen] = useControlledState(false, open);
+
+  const triggerAriaProps: React.AriaAttributes & { role?: React.AriaRole } = {
+    ...pickAttrs(props, true),
+    ...pickAttrs(child.props, true),
+  };
+  if (menu?.items) {
+    triggerAriaProps.role ??= 'button';
+    triggerAriaProps['aria-haspopup'] ??= 'menu';
+    triggerAriaProps['aria-expanded'] = mergedOpen;
+  }
 
   const onInnerOpenChange = useEvent((nextOpen: boolean) => {
     onOpenChange?.(nextOpen, { source: 'trigger' });
     setOpen(nextOpen);
   });
 
+  const triggerActions = disabled ? [] : trigger;
+  const alignPoint = !!triggerActions?.includes('contextMenu');
+  const mergedDisabled = child.props.disabled ?? disabled;
+  const onTriggerKeyDown: React.KeyboardEventHandler<HTMLElement> = (event) => {
+    child.props.onKeyDown?.(event);
+    if (
+      menu?.items &&
+      !disabled &&
+      !mergedDisabled &&
+      !event.defaultPrevented &&
+      !event.repeat &&
+      (event.key === 'Enter' || event.key === ' ')
+    ) {
+      event.preventDefault();
+      if (triggerActions?.includes('click')) {
+        event.currentTarget.click();
+      } else {
+        onInnerOpenChange(!mergedOpen);
+      }
+    }
+  };
+
+  const popupTrigger = cloneElement(child, {
+    ...triggerAriaProps,
+    className: clsx(
+      `${prefixCls}-trigger`,
+      { [`${prefixCls}-rtl`]: direction === 'rtl' },
+      child.props.className,
+    ),
+    disabled: mergedDisabled,
+    tabIndex: child.props.tabIndex ?? (menu?.items ? (mergedDisabled ? -1 : 0) : undefined),
+    onKeyDown: onTriggerKeyDown,
+    ref: composedRef,
+  });
   // =========================== Overlay ============================
   const overlayClassNameCustomized = clsx(
     overlayClassName,
@@ -391,7 +430,7 @@ const PurePanel = genPurePanel(Dropdown, 'align', undefined, 'dropdown', (prefix
 /* istanbul ignore next */
 const WrapPurePanel: React.FC<DropdownProps> = (props) => (
   <PurePanel {...props}>
-    <span />
+    <span aria-hidden tabIndex={-1} />
   </PurePanel>
 );
 
