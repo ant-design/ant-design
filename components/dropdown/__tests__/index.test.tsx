@@ -9,6 +9,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import Input from '../../input';
 
 let triggerProps: TriggerProps;
 
@@ -331,6 +332,61 @@ describe('Dropdown', () => {
         expect(getByRole('menuitem')).toHaveFocus();
       });
 
+      it('does not autofocus an independent controlled open without a keyboard request', async () => {
+        const { getByRole, rerender } = render(
+          <Dropdown menu={{ items }} open={false}>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        const trigger = getByRole('button');
+        act(() => trigger.focus());
+        expect(trigger).toHaveFocus();
+        rerender(
+          <Dropdown menu={{ items }} open>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        await waitFakeTimer();
+        expect(getByRole('menuitem')).toBeTruthy();
+        expect(trigger).toHaveFocus();
+      });
+
+      it('clears keyboard autofocus after controlled close before an external reopen', async () => {
+        const onOpenChange = jest.fn();
+        const { getByRole, rerender } = render(
+          <Dropdown menu={{ items }} open={false} onOpenChange={onOpenChange}>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        const trigger = getByRole('button');
+        act(() => trigger.focus());
+        fireEvent.keyDown(trigger, { key: 'Enter' });
+        rerender(
+          <Dropdown menu={{ items }} open onOpenChange={onOpenChange}>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        await waitFakeTimer();
+        expect(getByRole('menuitem')).toHaveFocus();
+        rerender(
+          <Dropdown menu={{ items }} open={false} onOpenChange={onOpenChange}>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        await waitFakeTimer();
+        expect(trigger).toHaveAttribute('aria-expanded', 'false');
+        act(() => trigger.focus());
+        expect(trigger).toHaveFocus();
+        rerender(
+          <Dropdown menu={{ items }} open onOpenChange={onOpenChange}>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        await waitFakeTimer();
+        expect(getByRole('menuitem')).toBeTruthy();
+        expect(trigger).toHaveFocus();
+      });
+
       it('preserves explicit autoFocus=true for pointer opens', async () => {
         const { getByRole } = render(
           <Dropdown menu={{ items }} trigger={['click']} autoFocus>
@@ -344,6 +400,50 @@ describe('Dropdown', () => {
         await waitFakeTimer();
         expect(getByRole('menuitem')).toHaveFocus();
       });
+    });
+
+    it.each([
+      { name: 'text input', node: <input aria-label="Editor" />, key: ' ' },
+      { name: 'text input Enter', node: <input aria-label="Editor" />, key: 'Enter' },
+      { name: 'textarea', node: <textarea aria-label="Editor" />, key: ' ' },
+      { name: 'textarea Enter', node: <textarea aria-label="Editor" />, key: 'Enter' },
+      { name: 'Ant Design input', node: <Input aria-label="Editor" />, key: ' ' },
+    ])('preserves editing keys in $name', ({ node, key }) => {
+      const onOpenChange = jest.fn();
+      const { getByLabelText } = render(
+        <Dropdown menu={{ items }} trigger={['click']} onOpenChange={onOpenChange}>
+          {node}
+        </Dropdown>,
+      );
+      const input = getByLabelText('Editor');
+      expect(fireEvent.keyDown(input, { key })).toBe(true);
+      expect(input).toHaveAttribute('aria-expanded', 'false');
+      expect(onOpenChange).not.toHaveBeenCalled();
+    });
+
+    it('preserves editing keys bubbling from a nested input inside a trigger', () => {
+      const onOpenChange = jest.fn();
+      const { getByLabelText } = render(
+        <Dropdown menu={{ items }} trigger={['click']} onOpenChange={onOpenChange}>
+          <div>
+            <input aria-label="Nested editor" />
+          </div>
+        </Dropdown>,
+      );
+      expect(fireEvent.keyDown(getByLabelText('Nested editor'), { key: ' ' })).toBe(true);
+      expect(onOpenChange).not.toHaveBeenCalled();
+    });
+
+    it('keeps keyboard activation available for native input buttons', () => {
+      const { getByRole } = render(
+        <Dropdown menu={{ items }} trigger={['click']}>
+          <input type="button" value="Actions" />
+        </Dropdown>,
+      );
+      const button = getByRole('button');
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+      fireEvent.keyDown(button, { key: ' ' });
+      expect(button).toHaveAttribute('aria-expanded', 'true');
     });
 
     it('reports a non-native trigger disabled state and updates it when re-enabled', () => {

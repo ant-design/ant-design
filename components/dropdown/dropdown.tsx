@@ -287,8 +287,18 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
   }
   const onTriggerKeyDown: React.KeyboardEventHandler<HTMLElement> = (event) => {
     child.props.onKeyDown?.(event);
+    const target = event.target as HTMLElement;
+    const isEditableTarget =
+      target.isContentEditable ||
+      target.tagName === 'TEXTAREA' ||
+      target.tagName === 'SELECT' ||
+      (target.tagName === 'INPUT' &&
+        !['button', 'submit', 'reset', 'image'].includes(
+          target.getAttribute('type')?.toLowerCase() ?? 'text',
+        ));
     if (
       menu?.items &&
+      !isEditableTarget &&
       !disabled &&
       !mergedDisabled &&
       !event.defaultPrevented &&
