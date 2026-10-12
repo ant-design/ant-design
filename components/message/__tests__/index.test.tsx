@@ -250,11 +250,12 @@ describe('message', () => {
 
   it('should render numeric 0 custom icon', async () => {
     message.open({
-      content: 'Message with 0 icon',
+      content: 'Message',
       icon: 0,
       duration: 0,
     });
     await awaitPromise();
-    expect(document.querySelector('.ant-message-notice')?.textContent).toContain('0');
+    expect(document.querySelector('.ant-message-notice-icon')?.textContent).toBe('0');
+    expect(document.querySelector('.ant-message-notice')?.textContent).toBe('0Message');
   });
 });

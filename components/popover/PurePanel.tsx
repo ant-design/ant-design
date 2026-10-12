@@ -92,7 +92,9 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
         classNames={mergedClassNames}
         styles={mergedStyles}
       >
-        {children || (
+        {isReactRenderable(children) ? (
+          children
+        ) : (
           <Overlay
             prefixCls={prefixCls}
             title={titleNode}

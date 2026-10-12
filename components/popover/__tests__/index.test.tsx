@@ -256,4 +256,12 @@ describe('Popover', () => {
     const arrow = container.querySelector('.ant-popover-arrow');
     expect(arrow).not.toHaveStyle({ background: 'red' });
   });
+
+  it('should render numeric 0 children in InternalPanel', () => {
+    const { container } = render(
+      <InternalPanelDoNotUseOrYouWillBeFired>{0}</InternalPanelDoNotUseOrYouWillBeFired>,
+    );
+
+    expect(container.querySelector('.ant-popover-pure')?.textContent).toBe('0');
+  });
 });
