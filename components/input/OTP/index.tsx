@@ -4,6 +4,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
+import { useSyncState } from '../../_util/hooks';
 import { isFunction } from '../../_util/is';
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
@@ -213,9 +214,10 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const internalFormatter = (txt: string) => (formatter ? formatter(txt) : txt);
 
   // ======================== Values ========================
-  const [valueCells, setValueCells] = React.useState<string[]>(() =>
+  const [getValueCells, setValueCells] = useSyncState<string[]>(
     strToArr(internalFormatter(defaultValue || '')),
   );
+  const valueCells = getValueCells();
 
   React.useEffect(() => {
     if (value !== undefined) {
@@ -224,6 +226,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   }, [value]);
 
   const triggerValueCellsChange = useEvent((nextValueCells: string[]) => {
+    const prevCells = getValueCells();
     setValueCells(nextValueCells);
 
     if (onInput) {
@@ -235,7 +238,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       onChange &&
       nextValueCells.length === length &&
       nextValueCells.every((c) => c) &&
-      nextValueCells.some((c, index) => valueCells[index] !== c)
+      nextValueCells.some((c, index) => prevCells[index] !== c)
     ) {
       onChange(nextValueCells.join(''));
     }
@@ -283,11 +286,13 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     const nextCells = patchValue(index, txt);
 
     const nextIndex = Math.min(index + txt.length, length - 1);
+
+    // Update cells before moving focus so that the focus guard reads fresh values.
+    triggerValueCellsChange(nextCells);
+
     if (nextIndex !== index && nextCells[index] !== undefined) {
       inputsRef.current[nextIndex]?.focus();
     }
-
-    triggerValueCellsChange(nextCells);
   };
 
   const onInputActiveChange: OTPInputProps['onActiveChange'] = (nextIndex) => {
@@ -298,7 +303,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const onInputFocus = (event: React.FocusEvent<HTMLInputElement>, index: number) => {
     // keep focus on the first empty cell
     for (let i = 0; i < index; i += 1) {
-      if (!inputsRef.current[i]?.input?.value) {
+      if (!getValueCells()[i]) {
         inputsRef.current[i]?.focus();
         break;
       }

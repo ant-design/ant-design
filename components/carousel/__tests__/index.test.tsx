@@ -448,5 +448,21 @@ describe('Carousel', () => {
       fireEvent.click(nextArrow!);
       expect(container.querySelector('.slick-active')?.textContent).toBe('Slide 2');
     });
+
+    it('should not mirror vertical carousel from dotPlacement in RTL', () => {
+      const { container } = render(
+        <ConfigProvider direction="rtl">
+          <Carousel dotPlacement="start">
+            <div>Slide 1</div>
+            <div>Slide 2</div>
+            <div>Slide 3</div>
+          </Carousel>
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-carousel-vertical')).toBeTruthy();
+      expect(container.querySelector('.ant-carousel-rtl')).toBeFalsy();
+      expect(container.querySelectorAll('.slick-dots li')[0]).toHaveClass('slick-active');
+    });
   });
 });

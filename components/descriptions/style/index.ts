@@ -183,7 +183,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken, CSSObject> = (token
       },
       [`${componentCls}-item-label`]: {
         color: token.labelColor,
-        fontWeight: 'normal',
+        fontWeight: 400,
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
         textAlign: 'start',

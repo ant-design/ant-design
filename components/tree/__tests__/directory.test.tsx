@@ -221,6 +221,39 @@ describe('Directory Tree', () => {
     );
   });
 
+  it('selects a range of numeric keys with defaultExpandAll', () => {
+    const onSelect = jest.fn();
+    const treeData = [
+      {
+        key: 1,
+        title: 'Folder',
+        children: [
+          { key: 2, title: 'File A' },
+          { key: 3, title: 'File B' },
+          { key: 4, title: 'File C' },
+        ],
+      },
+    ];
+    const { getByText, container } = render(
+      <DirectoryTree
+        multiple
+        defaultExpandAll
+        expandAction="doubleClick"
+        treeData={treeData}
+        onSelect={onSelect}
+      />,
+    );
+
+    fireEvent.click(getByText('File A'));
+    fireEvent.click(getByText('File C'), { shiftKey: true });
+
+    expect(container.querySelectorAll('.ant-tree-node-selected')).toHaveLength(3);
+    expect(onSelect).toHaveBeenLastCalledWith(
+      [2, 3, 4],
+      expect.objectContaining({ selectedNodes: treeData[0].children }),
+    );
+  });
+
   it('DirectoryTree should expend all when use treeData and defaultExpandAll is true', () => {
     const treeData = [
       {

@@ -133,6 +133,7 @@ const IconNode: React.FC<IconNodeProps> = (props) => {
 
 type CloseIconProps = {
   isClosable: boolean;
+  disabled?: boolean;
   prefixCls: AlertProps['prefixCls'];
   closeIcon: AlertProps['closeIcon'];
   handleClose: AlertProps['onClose'];
@@ -142,12 +143,14 @@ type CloseIconProps = {
 };
 
 const CloseIconNode: React.FC<CloseIconProps> = (props) => {
-  const { isClosable, prefixCls, closeIcon, handleClose, ariaProps, className, style } = props;
+  const { isClosable, disabled, prefixCls, closeIcon, handleClose, ariaProps, className, style } =
+    props;
   const mergedCloseIcon =
     closeIcon === true || closeIcon === undefined ? <CloseOutlined /> : closeIcon;
   return isClosable ? (
     <button
       type="button"
+      disabled={disabled}
       onClick={handleClose}
       className={clsx(`${prefixCls}-close-icon`, className)}
       style={style}
@@ -223,9 +226,11 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const { onClose: closableOnClose, afterClose: closableAfterClose } = isPlainObject(closable)
-    ? closable
-    : {};
+  const {
+    onClose: closableOnClose,
+    afterClose: closableAfterClose,
+    disabled: closeBtnIsDisabled,
+  } = isPlainObject(closable) ? closable : {};
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClosed(true);
@@ -399,6 +404,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
             className={mergedClassNames.close}
             style={mergedStyles.close}
             isClosable={isClosable}
+            disabled={closeBtnIsDisabled}
             prefixCls={prefixCls}
             closeIcon={mergedCloseIcon}
             handleClose={handleClose}

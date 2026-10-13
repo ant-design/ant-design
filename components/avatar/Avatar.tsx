@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 
 import { isNumber, isPlainObject } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
-import { responsiveArray } from '../_util/responsiveObserver';
+import { matchScreen, responsiveArray } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -124,9 +124,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
       return {};
     }
 
-    const currentBreakpoint: Breakpoint = responsiveArray.find((screen) => screens[screen])!;
-
-    const currentSize = size[currentBreakpoint];
+    const currentSize = matchScreen(screens, size);
 
     return currentSize
       ? {
@@ -203,7 +201,6 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   } else if (mounted || scale !== 1) {
     const transformString = `scale(${scale})`;
     const childrenStyle: React.CSSProperties = {
-      msTransform: transformString,
       WebkitTransform: transformString,
       transform: transformString,
     };

@@ -111,7 +111,7 @@ const Line: React.FC<LineProps> = (props) => {
   }
 
   // ========================= Size =========================
-  const mergedSize = size ?? [-1, strokeWidth || (size === 'small' ? 6 : 8)];
+  const mergedSize = size ?? [-1, strokeWidth || 8];
 
   const [extent, thickness] = getSize(mergedSize, 'line', { strokeWidth });
 
