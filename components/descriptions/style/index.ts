@@ -64,7 +64,7 @@ interface DescriptionsToken extends FullToken<'Descriptions'> {}
 
 const genBorderedStyle: GenerateStyle<DescriptionsToken, CSSObject> = (token) => {
   const { componentCls, labelBg } = token;
-  const rowSelector = `> :where(${componentCls}-view) > :where(table) > :where(tbody) > ${componentCls}-row`;
+  const rowSelector = `> ${componentCls}-view > table > tbody > ${componentCls}-row`;
   return {
     [`&${componentCls}-bordered`]: {
       [`> ${componentCls}-view`]: {
@@ -72,7 +72,7 @@ const genBorderedStyle: GenerateStyle<DescriptionsToken, CSSObject> = (token) =>
         '> table': {
           tableLayout: 'auto',
         },
-        [`> :where(table) > :where(tbody) > ${componentCls}-row`]: {
+        [`> table > tbody > ${componentCls}-row`]: {
           borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
           '&:first-child': {
             '> th:first-child, > td:first-child': {
@@ -129,8 +129,8 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken, CSSObject> = (token
     colonMarginLeft,
     titleMarginBottom,
   } = token;
-  // Scope rows to this table without increasing selector specificity.
-  const rowSelector = `> :where(${componentCls}-view) > :where(table) > :where(tbody) > ${componentCls}-row`;
+  // Scope rows to this table so nested descriptions keep their own styles.
+  const rowSelector = `> ${componentCls}-view > table > tbody > ${componentCls}-row`;
   return {
     [componentCls]: {
       ...resetComponent(token),

@@ -1,4 +1,5 @@
 import React from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import MockDate from 'mockdate';
 
 import Descriptions from '..';
@@ -462,6 +463,24 @@ describe('Descriptions', () => {
     const nestDesc = container.querySelectorAll('.ant-descriptions')[1];
     const view = nestDesc.querySelector('.ant-descriptions-view');
     expect(view).toHaveStyle({ border: '' });
+  });
+
+  it('keeps static styles compatible with the distribution CSS check', () => {
+    const cache = createCache();
+    render(
+      <StyleProvider cache={cache}>
+        <ConfigProvider theme={{ hashed: false }}>
+          <Descriptions
+            bordered
+            size="small"
+            items={[{ key: 'name', label: 'Name', children: 'Alice' }]}
+          />
+        </ConfigProvider>
+      </StyleProvider>,
+    );
+    const css = extractStyle(cache, { plain: true, types: 'style' });
+    expect(css).toContain('.ant-descriptions-row');
+    expect(css).not.toContain(':where(');
   });
 
   describe.each(['horizontal', 'vertical'] as const)('nested %s descriptions', (layout) => {
