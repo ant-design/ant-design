@@ -180,7 +180,7 @@ const genColorStyle: GenerateStyle<PopoverToken, CSSObject> = (token) => {
       return {
         [`&${componentCls}-${colorKey}`]: {
           [varName('arrow-background-color')]: lightColor,
-          [`${componentCls}-inner`]: {
+          [`${componentCls}-container`]: {
             backgroundColor: lightColor,
           },
           [`${componentCls}-arrow`]: {
