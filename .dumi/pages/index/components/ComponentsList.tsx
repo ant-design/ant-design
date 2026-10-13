@@ -126,7 +126,7 @@ const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index 
 
       {/* Title */}
       <Flex align="center" gap="small">
-        <Typography.Title level={4} style={{ fontWeight: 'normal', margin: 0 }}>
+        <Typography.Title level={4} style={{ fontWeight: 400, margin: 0 }}>
           {title}
         </Typography.Title>
         <Tag color={tagColor}>{tagText}</Tag>

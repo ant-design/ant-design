@@ -3,12 +3,12 @@ import React from 'react';
 import type { CheckboxProps } from '..';
 import Checkbox from '..';
 import type { GetProp } from '../../_util/type';
-import { render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import {
   expectSemanticRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Checkbox.Semantic', () => {
   it('should support custom styles', () => {
@@ -142,7 +142,7 @@ describe('Checkbox.Semantic', () => {
             root: { backgroundColor: 'rgb(0, 255, 0)' },
             item: { color: 'rgb(255, 0, 0)' },
             itemIcon: { borderColor: 'rgb(0, 0, 255)' },
-            itemLabel: { fontWeight: 'bold' },
+            itemLabel: { fontWeight: 700 },
           }}
         />,
       );
@@ -165,7 +165,7 @@ describe('Checkbox.Semantic', () => {
       });
       labels.forEach((label) => {
         expect(label).toHaveClass('custom-group-item-label');
-        expect(label).toHaveProperty('style.fontWeight', 'bold');
+        expect(label).toHaveStyle({ fontWeight: 700 });
       });
     });
 
@@ -179,7 +179,7 @@ describe('Checkbox.Semantic', () => {
           })}
           styles={({ props }) => ({
             root: { padding: props.disabled ? '4px' : '8px' },
-            itemLabel: { fontWeight: props.options?.length === 2 ? 'bold' : 'normal' },
+            itemLabel: { fontWeight: props.options?.length === 2 ? 700 : 400 },
           })}
           value={['apple']}
         />,
@@ -192,7 +192,7 @@ describe('Checkbox.Semantic', () => {
         expect(item).toHaveClass('item-checked');
       });
       container.querySelectorAll('.ant-checkbox-label').forEach((label) => {
-        expect(label).toHaveProperty('style.fontWeight', 'bold');
+        expect(label).toHaveStyle({ fontWeight: 700 });
       });
     });
 

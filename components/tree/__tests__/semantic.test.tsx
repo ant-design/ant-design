@@ -31,7 +31,7 @@ describe('Tree.Semantic', () => {
       root: { color: 'rgb(255, 0, 0)' },
       item: { color: 'blue' },
       itemIcon: { fontSize: '16px' },
-      itemTitle: { fontWeight: 'bold' },
+      itemTitle: { fontWeight: 700 },
       itemSwitcher: { width: '32px' },
     };
 

@@ -179,14 +179,18 @@ const genPlacementStyle = (token: NotificationToken, config: PlacementStyleConfi
         transform: baseTransform,
       },
 
-      [`${noticeMotionCls}-leave-start`]: {
-        opacity: 1,
-        transform: baseTransform,
-      },
+      [`${noticeMotionCls}-leave`]: {
+        pointerEvents: 'none',
 
-      [`${noticeMotionCls}-leave-active`]: {
-        opacity: 0,
-        transform: enterTransform,
+        '&-start': {
+          opacity: 1,
+          transform: baseTransform,
+        },
+
+        '&-active': {
+          opacity: 0,
+          transform: enterTransform,
+        },
       },
 
       [`&${componentCls}-stack:not(${componentCls}-stack-expanded)`]: {

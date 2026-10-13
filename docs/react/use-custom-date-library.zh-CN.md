@@ -13,7 +13,7 @@ Ant Design 默认使用 [Day.js](https://day.js.org) 来处理时间日期问题
 
 我们先初始化一个 antd demo，你可以参考 [脚手架指南](https://u.ant.design/guide) 进行构建，也可以直接从这里开始[init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
 
-### DatePicker.tsx
+### DatePicker.tsx {#datepicker}
 
 新建 `src/components/DatePicker.tsx`。
 
@@ -29,7 +29,7 @@ const MyDatePicker = DatePicker.generatePicker<Moment>(momentGenerateConfig);
 export default MyDatePicker;
 ```
 
-### TimePicker.tsx
+### TimePicker.tsx {#timepicker}
 
 新建 `src/components/TimePicker.tsx`。
 
@@ -53,7 +53,7 @@ TimePicker.displayName = 'TimePicker';
 export default TimePicker;
 ```
 
-### Calendar.tsx
+### Calendar.tsx {#calendar}
 
 新建 `src/components/Calendar.tsx`。
 
