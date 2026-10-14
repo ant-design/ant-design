@@ -29,6 +29,7 @@ report.html
 /lib
 /es
 /locale
+/cssinjs
 elasticsearch-*
 config/base.yaml
 /.vscode/
