@@ -95,7 +95,7 @@ dayjs.locale('zh-cn');
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 | 6.4.0 |
+| allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | true | - | 6.4.0 |
 | ~~bordered~~ | 是否带边框，请使用 `variant` 替代 | boolean | true | - | × |
 | className | 选择器 className | string | - |  | DatePicker: 5.7.0，RangePicker: 5.11.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | DatePicker: 5.25.0，RangePicker: 5.25.0 |
@@ -142,6 +142,17 @@ dayjs.locale('zh-cn');
 | onOpenChange | 弹出日历和关闭日历的回调 | function(open) | - |  | × |
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  | × |
 | ~~onSelect~~ | 选中日期时的回调，请使用 `onCalendarChange` 替代 | function(value) | - | - | × |
+
+### AllowClearConfig
+
+支持全局配置的字段按组件配置、全局配置、默认值的顺序取值。`allowClear={true}` 继承全局配置；`disabled: false` 和 `tabIndex: 0` 可覆盖全局值。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | 自定义清除图标 | ReactNode | - | - | 6.4.0 |
+| disabled | `true` 时等同于 `allowClear={false}` | boolean | false | 6.7.0 | 6.7.0 |
+| label | 清除按钮的无障碍名称 | string | 组件的本地化文案 | 6.7.0 | 6.7.0 |
+| tabIndex | 清除按钮的 Tab 键顺序。`-1` 表示不参与 Tab 键导航 | number | 0 | 6.7.0 | 6.7.0 |
 
 ### 共同的方法 {#common-methods}
 
