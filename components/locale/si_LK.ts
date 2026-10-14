@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'පෙළගැසීම',
     expand: 'පේළිය දිගහරින්න',
     collapse: 'පේළිය හකුළන්න',
+    expandAll: 'සියලු පේළි දිගහරින්න',
+    collapseAll: 'සියලු පේළි හකුළන්න',
     triggerDesc: 'අවරෝහණව පෙළගැසීමට ඔබන්න',
     triggerAsc: 'ආරෝහණව පෙළගැසීමට ඔබන්න',
     cancelSort: 'පෙළගැසීම අවලංගු කිරීමට ඔබන්න',

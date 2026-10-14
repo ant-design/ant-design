@@ -36,6 +36,8 @@ const localeValues: Locale = {
     sortTitle: 'Ordonează',
     expand: 'Extinde rândul',
     collapse: 'Restrânge rândul',
+    expandAll: 'Extinde toate rândurile',
+    collapseAll: 'Restrânge toate rândurile',
     triggerDesc: 'Apasă pentru ordonare descrescătoare',
     triggerAsc: 'Apasă pentru ordonare crescătoare',
     cancelSort: 'Apasă pentru a anula ordonarea',

@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Ταξινόμηση',
     expand: 'Ανάπτυξη σειράς',
     collapse: 'Σύμπτυξη σειράς',
+    expandAll: 'Ανάπτυξη όλων των σειρών',
+    collapseAll: 'Σύμπτυξη όλων των σειρών',
     triggerDesc: 'Κλικ για φθίνουσα ταξινόμηση',
     triggerAsc: 'Κλικ για αύξουσα ταξινόμηση',
     cancelSort: 'Κλικ για ακύρωση ταξινόμησης',

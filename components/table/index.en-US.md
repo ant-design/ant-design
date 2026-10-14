@@ -79,6 +79,7 @@ const columns = [
 <code src="./demo/narrow.tsx" debug>size</code>
 <code src="./demo/bordered.tsx">border, title and footer</code>
 <code src="./demo/expand.tsx">Expandable Row</code>
+<code src="./demo/expand-all.tsx" version="6.7.0">Expand all rows</code>
 <code src="./demo/expand-sticky.tsx" debug>Customizable expansion position</code>
 <code src="./demo/order-column.tsx">Order Specific Column</code>
 <code src="./demo/colspan-rowspan.tsx">colSpan and rowSpan</code>
@@ -127,7 +128,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.1 |
 | column | Shared props applied to columns when the same property is not defined on the column itself | Partial<[ColumnType](#column)> | - | 6.4.0 | × |
 | columns | Columns of table | [ColumnsType](#column)\[] | - |  | × |
-| components | Override default table elements | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  | × |
+| components | Override default table elements, including row and expand-all icons through `ExpandIcon` | [TableComponents](https://github.com/react-component/table/blob/7977f2b45a501728dddf0853466c1a013a7190dc/src/interface.ts#L180-L196) | - | `ExpandIcon`: 6.7.0 | × |
 | dataSource | Data record array to be displayed | object\[] | - |  | × |
 | expandable | Config expandable content | [expandable](#expandable) | - |  | `expandable.expandIcon`: 5.14.0 |
 | footer | Table footer renderer | function(currentPageData) | - |  | × |
@@ -252,21 +253,23 @@ Properties for expandable.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | childrenColumnName | The column contains children to display | string | children |  |
-| columnTitle | Set the title of the expand column | ReactNode | - | 4.23.0 |
+| columnTitle | Set the title of the expand column | ReactNode \| ({ expandIcon }) => ReactNode | - | 4.23.0, function: 6.7.0 |
 | columnWidth | Set the width of the expand column | string \| number | - |  |
 | defaultExpandAllRows | Expand all rows initially | boolean | false |  |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |  |
 | expandedRowClassName | Expanded row's className | string \| (record, index, indent) => string | - | string: 5.22.0 |
 | expandedRowKeys | Current expanded row keys | string\[] | - |  |
 | expandedRowRender | Expanded container render for each row | function(record, index, indent, expanded): ReactNode | - |  |
-| expandIcon | Customize row expand Icon. Ref [example](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |
+| ~~expandIcon~~ | Deprecated. Use `components.ExpandIcon` instead. This remains a row-only fallback | function(props): ReactNode | - |  |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | false |  |
 | fixed | Whether the expansion icon is fixed. Optional true `left` `right` | boolean \| string | false | 4.16.0 |
 | forceRender | Force render expanded row content before expansion. In virtual mode, only rows currently mounted by the virtual list are force-rendered; off-screen rows may still be unmounted | boolean | false | 6.6.0 |
 | indentSize | Indent size in pixels of tree data | number | 15 |  |
 | rowExpandable | Enable row can be expandable | (record) => boolean | - |  |
+| showExpandAll | Show an expand-all control for expandable rows on the current page. Only available with `expandedRowRender` | boolean | false | 6.7.0 |
 | showExpandColumn | Show expand column | boolean | true | 4.18.0 |
 | onExpand | Callback executed when the row expand icon is clicked | function(expanded, record) | - |  |
+| onExpandAll | Callback executed when the expand-all icon is clicked | (expanded: boolean) => void | - | 6.7.0 |
 | onExpandedRowsChange | Callback executed when the expanded rows change | function(expandedRows) | - |  |
 | ~~expandedRowOffset~~ | Deprecated: Expand the number of offset columns of the row. After setting, it will force the columns in front of it to be fixed columns. Please use'Table. EXPAND_COLUMN 'instead and control the position through column order | number | - | 5.26.0 |
 

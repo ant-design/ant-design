@@ -81,7 +81,9 @@ describe('Divider', () => {
     const divider = container.querySelector<HTMLDivElement>('.ant-divider')!;
     expect(divider).toHaveClass('ant-divider-with-text');
     expect(divider).not.toHaveClass('ant-divider-rail');
-    expect(container.querySelector<HTMLSpanElement>('.ant-divider-inner-text')).toHaveTextContent('0');
+    expect(container.querySelector<HTMLSpanElement>('.ant-divider-inner-text')).toHaveTextContent(
+      '0',
+    );
   });
 
   it('keep empty children as a plain divider', () => {

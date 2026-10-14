@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Sortowanie',
     expand: 'Rozwiń wiersz',
     collapse: 'Zwiń wiersz',
+    expandAll: 'Rozwiń wszystkie wiersze',
+    collapseAll: 'Zwiń wszystkie wiersze',
     triggerDesc: 'Sortuj malejąco',
     triggerAsc: 'Sortuj rosnąco',
     cancelSort: 'Usuń sortowanie',
