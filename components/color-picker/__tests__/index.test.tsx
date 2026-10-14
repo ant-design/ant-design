@@ -1062,4 +1062,26 @@ describe('ColorPicker', () => {
     expect(root).toHaveStyle(testStyles.root);
     expect(popup).toHaveStyle(testStyles.popup.root);
   });
+
+  it('should only add rtl className when direction is rtl', () => {
+    const { container, rerender } = render(
+      <ConfigProvider direction="ltr">
+        <ColorPicker open />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-color-picker-trigger')).not.toHaveClass(
+      'ant-color-picker-rtl',
+    );
+    expect(container.querySelector('.ant-popover')).not.toHaveClass('ant-color-picker-rtl');
+
+    rerender(
+      <ConfigProvider direction="rtl">
+        <ColorPicker open />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-color-picker-trigger')).toHaveClass(
+      'ant-color-picker-rtl',
+    );
+    expect(container.querySelector('.ant-popover')).toHaveClass('ant-color-picker-rtl');
+  });
 });
