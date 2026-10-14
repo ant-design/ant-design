@@ -186,7 +186,11 @@ describe('List.pagination', () => {
 
     fireEvent.mouseDown(wrapper.querySelector('.ant-select')!);
     fireEvent.click(wrapper.querySelectorAll('.ant-select-item-option')[1]);
-    expect(handlePaginationChange).toHaveBeenCalledWith(1, 10);
+    expect(handlePaginationChange).toHaveBeenCalledWith(
+      1,
+      10,
+      expect.objectContaining({ recommendPage: 1 }),
+    );
   });
 
   it('should default work', () => {
