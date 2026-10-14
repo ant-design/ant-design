@@ -319,7 +319,7 @@ describe('TextArea allowClear', () => {
     const { container, rerender } = render(
       <TextArea allowClear={{ clearIcon: 'clear', disabled: true }} defaultValue="111" />,
     );
-    expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
+    expect(container.querySelector('.ant-input-clear-icon')).not.toBeInTheDocument();
 
     rerender(<TextArea allowClear={{ clearIcon: 'clear', disabled: false }} defaultValue="111" />);
     expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeFalsy();

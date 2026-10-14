@@ -20,6 +20,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
+import { useLocale } from '../locale';
 import { useCompactItemContext } from '../space/Compact';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import useStyle, { useSharedStyle } from './style';
@@ -190,8 +191,17 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
+  const [locale] = useLocale('global');
+  const mergedAllowClear = useAllowClear({
+    allowClear,
+    contextAllowClear,
+    defaultLabel: locale.clear,
+    componentName: 'Input',
+  });
+
   // ===================== Focus warning =====================
-  const inputHasPrefixSuffix = hasPrefixSuffix(props) || !!hasFeedback;
+  const inputHasPrefixSuffix =
+    hasPrefixSuffix({ ...props, allowClear: mergedAllowClear }) || !!hasFeedback;
   const prevHasPrefixSuffixRef = useRef<boolean>(inputHasPrefixSuffix);
 
   if (process.env.NODE_ENV !== 'production') {
@@ -233,8 +243,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       {hasFeedback && feedbackIcon}
     </>
   );
-
-  const mergedAllowClear = useAllowClear({ allowClear, contextAllowClear, componentName: 'Input' });
 
   const [variant, enableVariantCls] = useVariant('input', customVariant, bordered);
 

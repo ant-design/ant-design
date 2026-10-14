@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Sorteeri',
     expand: 'Laienda rida',
     collapse: 'Ahenda rida',
+    expandAll: 'Laienda kõik read',
+    collapseAll: 'Ahenda kõik read',
     triggerDesc: 'Klõpsa kahanevalt sortimiseks',
     triggerAsc: 'Klõpsa kasvavalt sortimiseks',
     cancelSort: 'Klõpsa sortimise tühistamiseks',

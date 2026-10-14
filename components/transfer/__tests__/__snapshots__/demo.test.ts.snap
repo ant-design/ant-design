@@ -728,6 +728,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
             class="ant-input-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
               type="button"
             >
@@ -983,6 +984,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
             class="ant-input-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
               type="button"
             >
@@ -2717,6 +2719,7 @@ Array [
               class="ant-input-suffix"
             >
               <button
+                aria-label="Clear"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -2952,6 +2955,7 @@ Array [
               class="ant-input-suffix"
             >
               <button
+                aria-label="Clear"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -6029,6 +6033,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
             class="ant-input-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
               type="button"
             >
@@ -6264,6 +6269,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
             class="ant-input-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
               type="button"
             >
@@ -6727,6 +6733,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
               class="ant-input-suffix"
             >
               <button
+                aria-label="Clear"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -6962,6 +6969,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
               class="ant-input-suffix"
             >
               <button
+                aria-label="Clear"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -8373,6 +8381,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
               class="ant-input-suffix"
             >
               <button
+                aria-label="Clear"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -9149,6 +9158,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
               class="ant-input-suffix"
             >
               <button
+                aria-label="Clear"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
