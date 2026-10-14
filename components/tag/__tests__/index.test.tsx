@@ -502,6 +502,51 @@ describe('Tag', () => {
       expect(onChange).toHaveBeenCalledWith(['foo', 'bar']);
     });
 
+    it('should preserve the selected value when switching to multiple mode', () => {
+      const onChange = jest.fn();
+      const { container, rerender } = render(
+        <Tag.CheckableTagGroup defaultValue={1} options={[1, 2]} />,
+      );
+
+      rerender(<Tag.CheckableTagGroup multiple options={[1, 2]} onChange={onChange} />);
+
+      expect(container.querySelectorAll('.ant-tag-checkable')[0]).toHaveAttribute(
+        'aria-checked',
+        'true',
+      );
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith([1, 2]);
+    });
+
+    it('should preserve the first selected value when switching to single mode', () => {
+      const onChange = jest.fn();
+      const { container, rerender } = render(
+        <Tag.CheckableTagGroup multiple defaultValue={[1, 2]} options={[1, 2, 3]} />,
+      );
+
+      rerender(<Tag.CheckableTagGroup options={[1, 2, 3]} onChange={onChange} />);
+
+      const tags = container.querySelectorAll('.ant-tag-checkable');
+      expect(tags[0]).toHaveAttribute('aria-checked', 'true');
+      expect(tags[1]).toHaveAttribute('aria-checked', 'false');
+      fireEvent.click(tags[2]);
+      expect(onChange).toHaveBeenCalledWith(3);
+    });
+
+    it('should warn when value is not an array in multiple mode', () => {
+      const mockWarn = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      render(
+        // @ts-expect-error: `value` should be an array when `multiple` is true
+        <Tag.CheckableTagGroup multiple value={1} options={[1, 2]} />,
+      );
+
+      expect(mockWarn).toHaveBeenCalledWith(
+        'Warning: [antd: Tag.CheckableTagGroup] `value` should be an array when `multiple` is true.',
+      );
+      mockWarn.mockRestore();
+    });
+
     it('should apply option className and style in single mode', () => {
       const { container } = render(
         <Tag.CheckableTagGroup
