@@ -1,7 +1,7 @@
 import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
-import { AlertFilled } from '@ant-design/icons';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { AlertFilled } from '@ant-design/icons';
 import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
@@ -12,7 +12,15 @@ import { responsiveArrayReversed } from '../../_util/responsiveObserver';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, pureRender, render, screen, waitFakeTimer } from '../../../tests/utils';
+import {
+  act,
+  fireEvent,
+  pureRender,
+  render,
+  screen,
+  triggerResize,
+  waitFakeTimer,
+} from '../../../tests/utils';
 import Button from '../../button';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
@@ -32,6 +40,7 @@ import Segmented from '../../segmented';
 import Select from '../../select';
 import Slider from '../../slider';
 import Switch from '../../switch';
+import Tabs from '../../tabs';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 import type { NamePath } from '../interface';
@@ -2218,6 +2227,67 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item-margin-offset')).toHaveStyle({
       marginBottom: -24,
     });
+  });
+
+  it('reserves extra content height after a force-rendered tab becomes visible', async () => {
+    // Keep the element's height consistent with triggerResize's mocked geometry.
+    const getHeight = function (this: HTMLElement) {
+      return this.classList.contains('ant-form-item-extra') &&
+        this.closest('[role="tabpanel"]')?.getAttribute('aria-hidden') !== 'true'
+        ? 903
+        : 0;
+    };
+    const heightSpy = jest
+      .spyOn(HTMLElement.prototype, 'clientHeight', 'get')
+      .mockImplementation(getHeight);
+    const offsetHeightSpy = jest
+      .spyOn(HTMLElement.prototype, 'offsetHeight', 'get')
+      .mockImplementation(getHeight);
+
+    try {
+      const { container } = render(
+        <Tabs
+          items={[
+            { key: 'first', label: 'First', children: 'First tab' },
+            {
+              key: 'second',
+              label: 'Second',
+              forceRender: true,
+              children: (
+                <Form>
+                  <Form.Item
+                    name="required"
+                    initialValue="bamboo"
+                    rules={[{ required: true }]}
+                    extra="Extra content"
+                    style={{ marginBottom: 24 }}
+                  >
+                    <Input />
+                  </Form.Item>
+                </Form>
+              ),
+            },
+          ]}
+        />,
+      );
+      const extra = container.querySelector('.ant-form-item-extra')!;
+      expect(extra).not.toBeVisible();
+
+      fireEvent.click(screen.getByRole('tab', { name: 'Second' }));
+      expect(extra).toBeVisible();
+      triggerResize(extra);
+      await changeValue(0, '');
+
+      expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent(
+        "'required' is required",
+      );
+      expect(container.querySelector('.ant-form-item-additional')).toHaveStyle({
+        minHeight: '927px',
+      });
+    } finally {
+      heightSpy.mockRestore();
+      offsetHeightSpy.mockRestore();
+    }
   });
 
   it('form child components should be given priority to own disabled props when it in a disabled form', () => {
