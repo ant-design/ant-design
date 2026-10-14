@@ -88,31 +88,30 @@ describe('InputNumber allowClear', () => {
     expect(onChange).toHaveBeenCalledWith(null);
   });
 
-  it.each<InputNumberProps>([
-    { disabled: true },
-    { readOnly: true },
-    { allowClear: { disabled: true } },
-  ])('keeps the clear action disabled with %j', (props) => {
-    const onChange = jest.fn();
-    const onClear = jest.fn();
-    const { getByRole } = render(
-      <InputNumber
-        allowClear
-        defaultValue={1}
-        styles={{ clear: { visibility: 'visible' } }}
-        onChange={onChange}
-        onClear={onClear}
-        {...props}
-      />,
-    );
-    const clear = getByRole('button', { name: 'Clear' });
+  it.each<InputNumberProps>([{ disabled: true }, { readOnly: true }])(
+    'keeps the clear action disabled with %j',
+    (props) => {
+      const onChange = jest.fn();
+      const onClear = jest.fn();
+      const { getByRole } = render(
+        <InputNumber
+          allowClear
+          defaultValue={1}
+          styles={{ clear: { visibility: 'visible' } }}
+          onChange={onChange}
+          onClear={onClear}
+          {...props}
+        />,
+      );
+      const clear = getByRole('button', { name: 'Clear' });
 
-    expect(clear).toBeDisabled();
-    fireEvent.click(clear);
-    expect(getByRole('spinbutton')).toHaveValue('1');
-    expect(onChange).not.toHaveBeenCalled();
-    expect(onClear).not.toHaveBeenCalled();
-  });
+      expect(clear).toBeDisabled();
+      fireEvent.click(clear);
+      expect(getByRole('spinbutton')).toHaveValue('1');
+      expect(onChange).not.toHaveBeenCalled();
+      expect(onClear).not.toHaveBeenCalled();
+    },
+  );
 
   it('inherits the disabled state from ConfigProvider', () => {
     const { container } = render(
@@ -185,7 +184,7 @@ describe('InputNumber allowClear', () => {
       </ConfigProvider>
     );
     const { container, getByRole, rerender } = render(<Demo />);
-    expect(container.querySelector('.ant-input-number-clear-icon')).toBeDisabled();
+    expect(container.querySelector('.ant-input-number-clear-icon')).not.toBeInTheDocument();
 
     rerender(<Demo allowClear={{ disabled: false }} />);
     expect(getByRole('button', { name: 'Context clear' })).toHaveTextContent('context icon');
