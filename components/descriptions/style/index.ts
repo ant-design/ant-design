@@ -199,12 +199,6 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken, CSSObject> = (token
           content: '""',
         },
       },
-      [`${componentCls}-item-no-label`]: {
-        '&::after': {
-          margin: 0,
-          content: '""',
-        },
-      },
       [`${componentCls}-item-content`]: {
         display: 'table-cell',
         flex: 1,
