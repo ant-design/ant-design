@@ -1136,7 +1136,7 @@ exports[`renders components/empty/demo/style-class.tsx extend context correctly 
     </div>
     <div
       class="ant-empty-description"
-      style="color: rgb(24, 144, 255); font-weight: bold;"
+      style="color: rgb(24, 144, 255); font-weight: 700;"
     >
       Object styles
     </div>
@@ -1200,7 +1200,7 @@ exports[`renders components/empty/demo/style-class.tsx extend context correctly 
     </div>
     <div
       class="ant-empty-description"
-      style="color: rgb(24, 144, 255); font-weight: bold;"
+      style="color: rgb(24, 144, 255); font-weight: 700;"
     >
       Function styles
     </div>

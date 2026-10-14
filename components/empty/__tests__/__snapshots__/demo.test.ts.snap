@@ -843,7 +843,7 @@ exports[`renders components/empty/demo/style-class.tsx correctly 1`] = `
     </div>
     <div
       class="ant-empty-description"
-      style="color:#1890ff;font-weight:bold"
+      style="color:#1890ff;font-weight:700"
     >
       Object styles
     </div>
@@ -907,7 +907,7 @@ exports[`renders components/empty/demo/style-class.tsx correctly 1`] = `
     </div>
     <div
       class="ant-empty-description"
-      style="color:#1890ff;font-weight:bold"
+      style="color:#1890ff;font-weight:700"
     >
       Function styles
     </div>
