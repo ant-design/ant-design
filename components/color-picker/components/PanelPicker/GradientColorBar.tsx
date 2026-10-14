@@ -2,7 +2,6 @@ import * as React from 'react';
 import type { UnstableContext } from '@rc-component/slider';
 
 import type { GetProp } from '../../../_util/type';
-import { AggregationColor } from '../../color';
 import type { GradientColor } from '../../color';
 import type { PanelPickerContextProps } from '../../context';
 import { getGradientPercentColor } from '../../util';
@@ -29,6 +28,7 @@ const GradientColorBar = (props: GradientColorBarProps) => {
     activeIndex,
     onGradientDragging,
     colors,
+    value,
   } = props;
 
   const isGradient = mode === 'gradient';
@@ -69,7 +69,7 @@ const GradientColorBar = (props: GradientColorBarProps) => {
     }
 
     onGradientDragging(true);
-    onChange(new AggregationColor(sortColors(colorsRef.current)), true);
+    onChange(value.setColors(sortColors(colorsRef.current)), true);
   };
 
   // Adjust color when dragging
@@ -91,7 +91,7 @@ const GradientColorBar = (props: GradientColorBarProps) => {
       nextColors = sortColors(nextColors);
     }
 
-    onChange(new AggregationColor(nextColors), true);
+    onChange(value.setColors(nextColors), true);
   };
 
   // ============================== Key ===============================
@@ -99,7 +99,7 @@ const GradientColorBar = (props: GradientColorBarProps) => {
     const nextColors = [...colorList];
     nextColors.splice(index, 1);
 
-    const nextColor = new AggregationColor(nextColors);
+    const nextColor = value.setColors(nextColors);
 
     onChange(nextColor);
     onChangeComplete(nextColor);
@@ -107,7 +107,7 @@ const GradientColorBar = (props: GradientColorBarProps) => {
 
   // ============================= Change =============================
   const onInternalChangeComplete = (nextValues: number[]) => {
-    onChangeComplete(new AggregationColor(colorList));
+    onChangeComplete(value.setColors(colorList));
 
     // Reset `activeIndex` if out of range
     if (activeIndex >= nextValues.length) {
