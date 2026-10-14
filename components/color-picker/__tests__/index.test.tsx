@@ -118,6 +118,22 @@ describe('ColorPicker', () => {
     expect(container.querySelector('.ant-popover-hidden')).toBeTruthy();
   });
 
+  it('Should default trigger work with keyboard', async () => {
+    const { container } = render(<ColorPicker defaultValue="#1677ff" />);
+    const trigger = container.querySelector<HTMLElement>('.ant-color-picker-trigger')!;
+
+    expect(trigger).toHaveAttribute('role', 'button');
+    expect(trigger).toHaveAttribute('tabindex', '0');
+    trigger.focus();
+    expect(trigger).toHaveFocus();
+
+    const clickSpy = jest.spyOn(trigger, 'click');
+    fireEvent.keyDown(trigger, { key: 'Enter' });
+    fireEvent.keyDown(trigger, { key: ' ' });
+    expect(clickSpy).toHaveBeenCalledTimes(2);
+    clickSpy.mockRestore();
+  });
+
   it('Should disabled work', async () => {
     const { container } = render(<ColorPicker disabled />);
     expect(container.querySelector('.ant-color-picker-trigger-disabled')).toBeTruthy();
