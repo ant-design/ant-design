@@ -359,6 +359,8 @@ TypeScript 里使用 Table 的 [CodeSandbox 实例](https://codesandbox.io/s/ser
 
 ## Semantic DOM
 
+`content` 对应默认布局中包裹表头和表体的容器。设置 `scroll.y` 或 `sticky` 后，表头和表体使用独立的容器：通过 `header.holder` 定制表头外层容器，通过 `body.holder` 定制表体滚动容器。`body.holder` 同样适用于虚拟表格的滚动容器，包括空数据状态。这两个语义节点不改变 `header.wrapper` 和 `body.wrapper` 的含义，也不作用于固定汇总栏容器。
+
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）{#design-token}
