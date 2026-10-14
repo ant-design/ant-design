@@ -48,7 +48,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support Object type |
+| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | false | - |
 | backfill | If backfill selected item the input when using keyboard | boolean | false |  |
 | children | Customize input element | HTMLInputElement \| HTMLTextAreaElement \| React.ReactElement&lt;InputProps> | &lt;Input /> |  |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
@@ -89,6 +89,15 @@ Common props ref：[Common props](/docs/react/common-props)
 | onClear | Called when clear | function | - | 4.6.0 |
 | onInputKeyDown | Called when key pressed | (event: KeyboardEvent) => void | - |  |
 | onPopupScroll | Called when dropdown scrolls | (event: UIEvent) => void | - |  |
+
+### AllowClearConfig
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | Custom clear icon | ReactNode | - | - | × |
+| disabled | When `true`, equivalent to `allowClear={false}` | boolean | false | 6.7.0 | × |
+| label | Accessible name of the clear button | string | Component locale text | 6.6.0 | × |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 6.7.0 | × |
 
 ### showSearch
 

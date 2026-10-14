@@ -52,7 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type | `clearIcon`: 6.4.0 |
+| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | true | - | `clearIcon`: 6.4.0 |
 | ~~autoClearSearchValue~~ | Whether the current search will be cleared on selecting an item. Only applies when `multiple` is `true` | boolean | true | 5.9.0 | × |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - | × |
 | changeOnSelect | Change value on each selection if set to true, see above demo for details | boolean | false |  | × |
@@ -104,6 +104,15 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~dropdownMenuColumnStyle~~ | The style of the drop-down menu column, use `styles.popup.listItem` instead | CSSProperties | - |  | × |
 | ~~popupMenuColumnStyle~~ | The style of the drop-down menu column, use `styles.popup.listItem` instead | CSSProperties | - |  | × |
 | optionRender | Customize the rendering dropdown options | (option: Option) => React.ReactNode | - | 5.16.0 | × |
+
+### AllowClearConfig
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | Custom clear icon | ReactNode | - | - | 6.4.0 (`cascader.clearIcon`) |
+| disabled | When `true`, equivalent to `allowClear={false}` | boolean | false | 6.7.0 | × |
+| label | Accessible name of the clear button | string | Component locale text | 6.6.0 | × |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 6.7.0 | × |
 
 ### showSearch
 
