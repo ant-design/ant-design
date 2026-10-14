@@ -61,7 +61,7 @@ describe('notification semantic styles and classNames', () => {
           styles: {
             root: { color: 'rgb(255, 0, 0)' },
             title: { fontSize: 23 },
-            description: { fontWeight: 'bold' },
+            description: { fontWeight: 700 },
             actions: { background: 'rgb(0, 255, 0)' },
             icon: { color: 'rgb(0, 0, 255)' },
           },
@@ -90,7 +90,7 @@ describe('notification semantic styles and classNames', () => {
 
     expect(document.querySelector('.root-class')).toHaveStyle({ color: 'rgb(255, 0, 0)' });
     expect(document.querySelector('.title-class')).toHaveStyle({ fontSize: '23px' });
-    expect(document.querySelector('.description-class')).toHaveStyle({ fontWeight: 'bold' });
+    expect(document.querySelector('.description-class')).toHaveStyle({ fontWeight: 700 });
     expect(document.querySelector('.actions-class')).toHaveStyle({ background: 'rgb(0, 255, 0)' });
     expect(document.querySelector('.icon-class')).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
@@ -253,7 +253,7 @@ describe('notification semantic styles and classNames', () => {
             },
             styles: {
               root: { backgroundColor: 'rgb(0, 255, 0)' },
-              title: { fontWeight: 'bold' },
+              title: { fontWeight: 700 },
             },
           }}
         >
@@ -285,7 +285,7 @@ describe('notification semantic styles and classNames', () => {
     expect(titleEl).toHaveClass('config-title');
     expect(titleEl).toHaveClass('component-title');
     expect(titleEl).toHaveStyle({
-      fontWeight: 'bold', // config level
+      fontWeight: 700, // config level
       fontSize: '16px', // component level
     });
   });
@@ -351,7 +351,7 @@ describe('notification semantic styles and classNames', () => {
           notification={{
             styles: {
               root: { backgroundColor: 'rgb(0, 0, 255)' },
-              title: { fontWeight: 'bold' },
+              title: { fontWeight: 700 },
               description: { color: 'rgb(128, 128, 128)' },
             },
             classNames: {
@@ -387,7 +387,7 @@ describe('notification semantic styles and classNames', () => {
     expect(titleEl).toHaveClass('config-title');
     expect(titleEl).toHaveClass('override-title');
     expect(titleEl).toHaveStyle({
-      fontWeight: 'bold', // from config
+      fontWeight: 700, // from config
       fontSize: '14px', // from props
     });
 
