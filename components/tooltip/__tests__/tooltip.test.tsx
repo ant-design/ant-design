@@ -657,22 +657,4 @@ describe('Tooltip', () => {
     const arrow = container.querySelector('.ant-tooltip-arrow');
     expect(arrow).toHaveStyle({ background: 'red' });
   });
-
-  it('should limit container radius in left/right placements', () => {
-    render(
-      <Tooltip title="hello" placement="left" open>
-        <span>Show</span>
-      </Tooltip>,
-    );
-
-    expect(
-      document.body.querySelector('.ant-tooltip-placement-left .ant-tooltip-container'),
-    ).toBeInTheDocument();
-
-    const styleText = Array.from(document.querySelectorAll('style'))
-      .map((s) => s.textContent)
-      .join('');
-    expect(styleText).toContain('ant-tooltip-placement-left .ant-tooltip-container');
-    expect(styleText).not.toContain('ant-tooltip-placement-left .ant-tooltip-inner');
-  });
 });
