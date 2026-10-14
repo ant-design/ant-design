@@ -6278,6 +6278,7 @@ exports[`renders components/tabs/demo/popupRender-Search.tsx extend context corr
                 class="ant-input-suffix"
               >
                 <button
+                  aria-label="Clear"
                   class="ant-input-clear-icon ant-input-clear-icon-hidden"
                   type="button"
                 >

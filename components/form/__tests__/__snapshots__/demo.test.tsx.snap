@@ -1539,6 +1539,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
                 class="ant-mentions-suffix"
               >
                 <button
+                  aria-label="Clear"
                   class="ant-mentions-clear-icon ant-mentions-clear-icon-has-suffix"
                   type="button"
                 >
@@ -13507,6 +13508,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 class="ant-input-suffix"
               >
                 <button
+                  aria-label="Clear"
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
                   type="button"
                 >
@@ -13697,6 +13699,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 class="ant-input-suffix"
               >
                 <button
+                  aria-label="Clear"
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
                   type="button"
                 >
@@ -14206,6 +14209,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 class="ant-input-suffix"
               >
                 <button
+                  aria-label="Clear"
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
                   type="button"
                 >
