@@ -139,7 +139,8 @@ describe('Test ScrollTo function', () => {
       const target = iframe.contentWindow!;
       const hostOffset = window.pageXOffset;
       window.pageXOffset = 23;
-      const targetOffset = jest.replaceProperty(target, 'pageXOffset', 137);
+      const targetOffset = target.pageXOffset;
+      Object.defineProperty(target, 'pageXOffset', { value: 137 });
       const scrollToSpy = jest.spyOn(target, 'scrollTo').mockImplementation(() => {});
 
       try {
@@ -150,7 +151,7 @@ describe('Test ScrollTo function', () => {
         expect(window.pageXOffset).toBe(23);
       } finally {
         scrollToSpy.mockRestore();
-        targetOffset.restore();
+        Object.defineProperty(target, 'pageXOffset', { value: targetOffset });
         window.pageXOffset = hostOffset;
         iframe.remove();
       }
