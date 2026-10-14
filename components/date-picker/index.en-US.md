@@ -94,7 +94,7 @@ The following APIs are shared by DatePicker, RangePicker.
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | Customize clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type | 6.4.0 |
+| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | true | - | 6.4.0 |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - | × |
 | className | The picker className | string | - |  | DatePicker: 5.7.0, RangePicker: 5.11.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | DatePicker: 5.25.0, RangePicker: 5.25.0 |
@@ -141,6 +141,17 @@ The following APIs are shared by DatePicker, RangePicker.
 | onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  | × |
 | onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  | × |
 | ~~onSelect~~ | Callback when a date is selected, please use `onCalendarChange` instead | function(value) | - | - | × |
+
+### AllowClearConfig
+
+Fields that support global configuration use component values first, then global values, then defaults. `allowClear={true}` inherits global configuration; `disabled: false` and `tabIndex: 0` override global values.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | Custom clear icon | ReactNode | - | - | 6.4.0 |
+| disabled | When `true`, equivalent to `allowClear={false}` | boolean | false | 6.7.0 | 6.7.0 |
+| label | Accessible name of the clear button | string | Component locale text | 6.7.0 | 6.7.0 |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 6.7.0 | 6.7.0 |
 
 ### Common Methods
 

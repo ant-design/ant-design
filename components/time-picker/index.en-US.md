@@ -51,7 +51,7 @@ dayjs.extend(customParseFormat)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type | 6.4.0 |
+| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | true | - | 6.4.0 |
 | ~~addon~~ | Called from time picker panel to render an addon to its bottom, please use `renderExtraFooter` instead | () => ReactNode | - | - | × |
 | cellRender | Custom rendering function for picker cells | (current: number, info: { originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
 | changeOnScroll | Trigger selection when scroll the column | boolean | false | 5.14.0 | × |
@@ -88,6 +88,17 @@ dayjs.extend(customParseFormat)
 | onChange | A callback function, can be executed when the selected time is changing | function(time: dayjs, timeString: string): void | - |  | × |
 | onClear | Callback when click the clear button | () => void | - | 6.5.0 | × |
 | onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  | × |
+
+### AllowClearConfig
+
+Fields that support global configuration use component values first, then global values, then defaults. `allowClear={true}` inherits global configuration; `disabled: false` and `tabIndex: 0` override global values.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | Custom clear icon | ReactNode | - | - | 6.4.0 |
+| disabled | When `true`, equivalent to `allowClear={false}` | boolean | false | 6.7.0 | 6.7.0 |
+| label | Accessible name of the clear button | string | Component locale text | 6.7.0 | 6.7.0 |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 6.7.0 | 6.7.0 |
 
 #### DisabledTime
 

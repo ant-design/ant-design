@@ -108,6 +108,10 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
 
     const mergedRootClassName = clsx(hashId, cssVarCls, rootCls, rootClassName);
 
+    const [contextLocale] = useLocale('DatePicker', enUS);
+
+    const locale = merge(contextLocale, props.locale || {}) as PickerLocale;
+
     // ===================== Icon =====================
     const mergedAllowClear = useAllowClear({
       componentName: 'RangePicker',
@@ -116,6 +120,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       contextAllowClear,
       contextClearIcon,
       defaultAllowClear: true,
+      defaultLabel: locale.lang.clear,
     });
 
     // ================== components ==================
@@ -157,10 +162,6 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       suffix: fallbackProp(customSuffix, customSuffixIcon, contextSuffix, contextSuffixIcon),
     });
     useImperativeHandle(ref, () => innerRef.current!);
-
-    const [contextLocale] = useLocale('DatePicker', enUS);
-
-    const locale = merge(contextLocale, props.locale || {}) as PickerLocale;
 
     // ============================ zIndex ============================
     const [zIndex] = useZIndex('DatePicker', mergedStyles?.popup?.root?.zIndex as number);
