@@ -143,7 +143,7 @@ const genCardHeadStyle: GenerateStyle<CardToken, CSSObject> = (token) => {
       clear: 'both',
       marginBottom: tabsMarginBottom,
       color: token.colorText,
-      fontWeight: 'normal',
+      fontWeight: 400,
       fontSize: token.fontSize,
 
       '&-bar': {
@@ -336,7 +336,7 @@ const genCardStyle: GenerateStyle<CardToken, CSSObject> = (token) => {
         // https://stackoverflow.com/a/22429853/3040605
         marginInlineStart: 'auto',
         color: extraColor,
-        fontWeight: 'normal',
+        fontWeight: 400,
         fontSize: token.fontSize,
       },
 

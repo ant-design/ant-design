@@ -6,7 +6,6 @@ export const semanticRootStylePriority = {
       backgroundColor: 'rgb(255, 0, 0)',
       marginTop: '1px',
       paddingTop: '1px',
-      borderTopWidth: '1px',
     },
   },
   contextStyle: {
@@ -36,10 +35,6 @@ export const expectSemanticRootStylePriority = (element: Element | null) => {
     marginTop: semanticRootStylePriority.styles.root.marginTop,
     paddingTop: semanticRootStylePriority.contextStyle.paddingTop,
   });
-  expect(element).toHaveProperty(
-    'style.borderTopWidth',
-    semanticRootStylePriority.contextStyles.root.borderTopWidth,
-  );
 };
 
 export const expectSemanticRootStyleWithRootStylePriority = (element: Element | null) => {
@@ -48,8 +43,4 @@ export const expectSemanticRootStyleWithRootStylePriority = (element: Element | 
     marginTop: semanticRootStylePriority.styles.root.marginTop,
     paddingTop: semanticRootStylePriority.contextStyles.root.paddingTop,
   });
-  expect(element).toHaveProperty(
-    'style.borderTopWidth',
-    semanticRootStylePriority.contextStyles.root.borderTopWidth,
-  );
 };

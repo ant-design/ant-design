@@ -47,7 +47,7 @@ const ribbonStylesFn: RibbonProps['styles'] = (info): GetProp<RibbonProps, 'styl
   if (info.props.color === '#696FC7') {
     return {
       content: {
-        fontWeight: 'bold',
+        fontWeight: 700,
       },
       indicator: {
         boxShadow: '0 2px 4px rgba(0,0,0,0.1)',

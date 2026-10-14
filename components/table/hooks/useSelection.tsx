@@ -152,6 +152,15 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     updatePreserveRecordsCache(mergedSelectedKeyList);
   }, [mergedSelectedKeyList, updatePreserveRecordsCache]);
 
+  // Preserved keys may no longer exist in `data`, so fall back to their cached records
+  const getSelectedRecord = useCallback(
+    (key: Key) => {
+      const record = getRecordByKey(key);
+      return !record && preserveSelectedRowKeys ? preserveRecordsRef.current.get(key)! : record;
+    },
+    [getRecordByKey, preserveSelectedRowKeys],
+  );
+
   // Get flatten data
   const flattedData = useMemo(
     () => flattenData(childrenColumnName, pageData),
@@ -276,13 +285,13 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   const triggerSingleSelection = useCallback(
     (key: Key, selected: boolean, keys: Key[], event: Event) => {
       if (onSelect) {
-        const rows = keys.map<RecordType>(getRecordByKey);
+        const rows = keys.map<RecordType>(getSelectedRecord);
         onSelect(getRecordByKey(key), selected, rows, event);
       }
 
       setSelectedKeys(keys, 'single');
     },
-    [onSelect, getRecordByKey, setSelectedKeys],
+    [onSelect, getRecordByKey, getSelectedRecord, setSelectedKeys],
   );
 
   const mergedSelections = useMemo<SelectionItem[] | null>(() => {
@@ -302,7 +311,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           text: tableLocale.selectionAll,
           onSelect() {
             setSelectedKeys(
-              data.reduce<Key[]>((keys, record, index) => {
+              flattenData(childrenColumnName, data).reduce<Key[]>((keys, record, index) => {
                 const key = getRowKey(record, index);
                 if (!isCheckboxDisabled(record) || derivedSelectedKeySet.has(key)) {
                   keys.push(key);
@@ -378,6 +387,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     isCheckboxDisabled,
     derivedSelectedKeySet,
     data,
+    childrenColumnName,
     pageData,
     getRowKey,
     onSelectInvert,
@@ -434,7 +444,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
         onSelectAll?.(
           !checkedCurrentAll,
-          keys.map<RecordType>(getRecordByKey),
+          keys.map<RecordType>(getSelectedRecord),
           changeKeys.map<RecordType>(getRecordByKey),
         );
 
@@ -604,7 +614,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
                     onSelectMultiple?.(
                       !checked,
-                      keys.map<RecordType>(getRecordByKey),
+                      keys.map<RecordType>(getSelectedRecord),
                       changedKeys.map<RecordType>(getRecordByKey),
                     );
 

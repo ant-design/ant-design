@@ -103,7 +103,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
           value: 0,
         },
         zIndex: zIndexPopup,
-        fontWeight: 'normal',
+        fontWeight: 400,
         whiteSpace: 'normal',
         textAlign: 'start',
         cursor: 'auto',
@@ -180,7 +180,7 @@ const genColorStyle: GenerateStyle<PopoverToken, CSSObject> = (token) => {
       return {
         [`&${componentCls}-${colorKey}`]: {
           [varName('arrow-background-color')]: lightColor,
-          [`${componentCls}-inner`]: {
+          [`${componentCls}-container`]: {
             backgroundColor: lightColor,
           },
           [`${componentCls}-arrow`]: {

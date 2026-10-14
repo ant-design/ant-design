@@ -1994,12 +1994,12 @@ exports[`renders components/cascader/demo/panel.tsx extend context correctly 1`]
       <span
         class="ant-switch-inner-checked"
       >
-        Enabled
+        Disabled
       </span>
       <span
         class="ant-switch-inner-unchecked"
       >
-        Disabled
+        Enabled
       </span>
     </span>
   </button>
