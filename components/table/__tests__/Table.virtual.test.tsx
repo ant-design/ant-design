@@ -172,4 +172,71 @@ describe('Table.Virtual', () => {
     );
     expect(container.querySelector('.ant-table-selection-col')).toHaveStyle({ width: '50px' });
   });
+
+  // https://github.com/ant-design/ant-design/issues/56681
+  describe('selection column width', () => {
+    const columns = [
+      { dataIndex: 'name', width: 150, fixed: 'start' as const },
+      { dataIndex: 'age', width: 150, fixed: 'start' as const },
+    ];
+    const dataSource = [{ key: '0', name: 'bamboo', age: 1 }];
+
+    const getSelectionCell = (container: HTMLElement) =>
+      container.querySelector<HTMLElement>(
+        '.ant-table-tbody-virtual-holder .ant-table-cell.ant-table-selection-column',
+      );
+
+    it('should not be squeezed when other columns fill the scroll width', () => {
+      const { container } = render(
+        <Table
+          columns={columns}
+          dataSource={dataSource}
+          virtual
+          scroll={{ x: 300, y: 100 }}
+          rowSelection={{}}
+        />,
+      );
+      expect(getSelectionCell(container)).toHaveStyle({ width: '32px' });
+    });
+
+    it('should include the selections dropdown width', () => {
+      const { container } = render(
+        <Table
+          columns={columns}
+          dataSource={dataSource}
+          virtual
+          scroll={{ x: 300, y: 100 }}
+          rowSelection={{ type: 'checkbox', selections: true }}
+        />,
+      );
+      expect(getSelectionCell(container)).toHaveStyle({ width: '48px' });
+    });
+
+    it('should include the bordered padding', () => {
+      const { container } = render(
+        <Table
+          columns={columns}
+          dataSource={dataSource}
+          bordered
+          virtual
+          scroll={{ x: 300, y: 100 }}
+          rowSelection={{}}
+        />,
+      );
+      expect(getSelectionCell(container)).toHaveStyle({ width: '48px' });
+    });
+
+    it('should keep custom columnWidth', () => {
+      const { container } = render(
+        <Table
+          columns={columns}
+          dataSource={dataSource}
+          virtual
+          scroll={{ x: 300, y: 100 }}
+          rowSelection={{ columnWidth: 60 }}
+        />,
+      );
+      expect(getSelectionCell(container)).toHaveStyle({ width: '60px' });
+    });
+  });
 });
