@@ -1181,6 +1181,43 @@ describe('Upload List', () => {
     expect(document.body.querySelectorAll('canvas')).toHaveLength(canvasCount);
   });
 
+  it('should resolve empty string and clean up when image fails to decode', async () => {
+    const revokeObjectURL = jest.fn();
+    const originalImage = window.Image;
+    const originalCreateObjectURL = window.URL.createObjectURL;
+    const originalRevokeObjectURL = window.URL.revokeObjectURL;
+    window.URL.createObjectURL = () => 'blob:mock-url';
+    window.URL.revokeObjectURL = revokeObjectURL;
+    const fakeImages: any[] = [];
+    (window as any).Image = class {
+      constructor() {
+        fakeImages.push(this);
+      }
+    };
+
+    try {
+      const canvasCount = document.body.querySelectorAll('canvas').length;
+      let dataUrl: string | undefined;
+      const promise = previewImage(new File(['corrupt'], 'foo.png', { type: 'image/png' })).then(
+        (result) => {
+          dataUrl = result;
+        },
+      );
+
+      // Simulate the browser firing the decode error event
+      fakeImages[0].onerror();
+      await promise;
+
+      expect(dataUrl).toBe('');
+      expect(document.body.querySelectorAll('canvas')).toHaveLength(canvasCount);
+      expect(revokeObjectURL).toHaveBeenCalled();
+    } finally {
+      window.Image = originalImage;
+      window.URL.createObjectURL = originalCreateObjectURL;
+      window.URL.revokeObjectURL = originalRevokeObjectURL;
+    }
+  });
+
   it("upload non image file shouldn't be converted to the base64", async () => {
     const mockFile = new File([''], 'foo.7z', {
       type: 'application/x-7z-compressed',
