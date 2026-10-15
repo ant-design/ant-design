@@ -33,7 +33,7 @@ const genInputStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
           paddingInlineStart: paddingXXS,
           paddingInlineEnd: 0,
         },
-        [`${antCls}-input-number-handler-wrap`]: {
+        [`${antCls}-input-number-actions`]: {
           width: colorPickerInputNumberHandleWidth,
         },
       },

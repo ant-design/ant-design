@@ -305,6 +305,24 @@ describe('Input.OTP', () => {
     });
   });
 
+  it('renders separator when separator returns numeric zero', () => {
+    const { container } = render(<OTP length={4} separator={(index: number) => index} />);
+    const separators = container.querySelectorAll(`.ant-otp-separator`);
+
+    expect(separators.length).toBe(3);
+    expect(Array.from(separators).map((separator) => separator.textContent)).toEqual(['0', '1', '2']);
+  });
+
+  it('renders separator when separator is numeric zero', () => {
+    const { container } = render(<OTP length={4} separator={0} />);
+    const separators = container.querySelectorAll(`.ant-otp-separator`);
+
+    expect(separators.length).toBe(3);
+    separators.forEach((separator) => {
+      expect(separator.textContent).toBe('0');
+    });
+  });
+
   it('support function classNames and styles', () => {
     const functionClassNames = (info: { props: OTPProps }) => {
       const { props } = info;

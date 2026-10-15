@@ -2041,6 +2041,37 @@ describe('Form', () => {
     );
   });
 
+  // https://github.com/ant-design/ant-design/issues/52581
+  it('should not affect popupRender children style of Select-like components', () => {
+    const renderPopup = (className: string) => (menu: React.ReactElement) => (
+      <>
+        {menu}
+        <Input className={className} />
+      </>
+    );
+    const { container } = render(
+      <Form>
+        <Form.Item validateStatus="error" hasFeedback>
+          <Select open options={[]} popupRender={renderPopup('select-popup-input')} />
+        </Form.Item>
+        <Form.Item validateStatus="error" hasFeedback>
+          <TreeSelect open treeData={[]} popupRender={renderPopup('tree-select-popup-input')} />
+        </Form.Item>
+        <Form.Item validateStatus="error" hasFeedback>
+          <Cascader open options={[]} popupRender={renderPopup('cascader-popup-input')} />
+        </Form.Item>
+      </Form>,
+      { container: document.body },
+    );
+
+    ['select-popup-input', 'tree-select-popup-input', 'cascader-popup-input'].forEach((cls) => {
+      const input = container.querySelector(`.${cls}`);
+      expect(input).toBeTruthy();
+      expect(input).not.toHaveClass('ant-input-status-error');
+      expect(input?.parentElement?.querySelector('.ant-form-item-feedback-icon')).toBeFalsy();
+    });
+  });
+
   // eslint-disable-next-line jest/no-disabled-tests
   it.skip('should be set up correctly marginBottom', () => {
     render(

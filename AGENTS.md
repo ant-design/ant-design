@@ -126,6 +126,7 @@ ant-design/
 
 - 新特性开发需基于 `feature` 分支，PR 目标分支也需为 `feature`
 - 其余提交至 `master` 分支
+- 当前 PR 的目标分支为 `master` 时，必须先基于最新的 `feature` 分支进行一次模拟合并，检查是否存在冲突；若存在冲突，则改为合并到 `feature`，并解决所有冲突后完成合并；若无冲突，继续合并到 `master`。
 - 分支命名规范：
   - 功能开发：`feat/description-of-feature`
   - 问题修复：`fix/issue-number-or-description`
