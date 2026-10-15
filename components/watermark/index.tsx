@@ -23,11 +23,11 @@ export interface WatermarkFont {
 }
 
 export interface WatermarkText {
-  text: string;
+  text: string | number;
   font?: WatermarkFont;
 }
 
-export type WatermarkContent = string | WatermarkText;
+export type WatermarkContent = string | number | WatermarkText;
 
 export interface WatermarkProps {
   zIndex?: number;
