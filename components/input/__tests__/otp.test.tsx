@@ -70,6 +70,69 @@ describe('Input.OTP', () => {
     expect(document.activeElement).toBe(inputs[4]);
   });
 
+  it.each(['123 456', '123-456', '1 2 3 4 5 6'])(
+    'should format pasted text before limiting its length: %s',
+    (text) => {
+      const onChange = jest.fn();
+      const onInput = jest.fn();
+      const { container } = render(
+        <OTP
+          formatter={(value) => value.replace(/\D/g, '')}
+          onChange={onChange}
+          onInput={onInput}
+        />,
+      );
+      const inputs = container.querySelectorAll('input');
+
+      fireEvent.input(inputs[0], { target: { value: text } });
+
+      expect(getText(container)).toBe('123456');
+      expect(onInput).toHaveBeenCalledTimes(1);
+      expect(onInput).toHaveBeenCalledWith(['1', '2', '3', '4', '5', '6']);
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledWith('123456');
+      expect(document.activeElement).toBe(inputs[5]);
+    },
+  );
+
+  it('should preserve preceding cells when pasting filtered text into a middle cell', () => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <OTP defaultValue="12" formatter={(value) => value.replace(/\D/g, '')} onChange={onChange} />,
+    );
+    const inputs = container.querySelectorAll('input');
+    inputs[2].focus();
+
+    fireEvent.input(inputs[2], { target: { value: '3-456' } });
+
+    expect(getText(container)).toBe('123456');
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith('123456');
+    expect(document.activeElement).toBe(inputs[5]);
+  });
+
+  it.each(['123456789', '123 456 789'])(
+    'should limit formatted pasted text to the OTP length: %s',
+    (text) => {
+      const onChange = jest.fn();
+      const onInput = jest.fn();
+      const { container } = render(
+        <OTP
+          length={4}
+          formatter={(value) => value.replace(/\D/g, '')}
+          onChange={onChange}
+          onInput={onInput}
+        />,
+      );
+
+      fireEvent.input(container.querySelector('input')!, { target: { value: text } });
+
+      expect(getText(container)).toBe('1234');
+      expect(onInput).toHaveBeenCalledWith(['1', '2', '3', '4']);
+      expect(onChange).toHaveBeenCalledWith('1234');
+    },
+  );
+
   it('fill step by step', () => {
     const CODE = 'BAMBOO';
     const onChange = jest.fn();
@@ -310,7 +373,11 @@ describe('Input.OTP', () => {
     const separators = container.querySelectorAll(`.ant-otp-separator`);
 
     expect(separators.length).toBe(3);
-    expect(Array.from(separators).map((separator) => separator.textContent)).toEqual(['0', '1', '2']);
+    expect(Array.from(separators).map((separator) => separator.textContent)).toEqual([
+      '0',
+      '1',
+      '2',
+    ]);
   });
 
   it('renders separator when separator is numeric zero', () => {
@@ -382,5 +449,10 @@ describe('Input.OTP', () => {
     expect(root).toHaveStyle('color: rgb(0, 255, 0)');
     expect(input).toHaveStyle('color: rgb(255, 0, 0)');
     expect(separator).toHaveStyle('color: rgb(0, 0, 255)');
+  });
+
+  it('should apply rootClassName to the root element', () => {
+    const { container } = render(<OTP rootClassName="bamboo" />);
+    expect(container.querySelector('.ant-otp')).toHaveClass('bamboo');
   });
 });
