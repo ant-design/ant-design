@@ -268,7 +268,7 @@ describe('Tree', () => {
       root: 'test-root',
     };
     const testStyles = {
-      item: { background: 'rgb(255, 0, 0)' },
+      item: { backgroundColor: 'rgb(255, 0, 0)' },
       itemIcon: { color: 'rgb(0, 0, 255)' },
       itemTitle: { color: 'rgb(255, 255, 0)' },
       root: { color: 'rgb(0, 255, 0)' },
