@@ -60,12 +60,12 @@ describe('Listy', () => {
     const { container } = render(
       renderListy({
         classNames: { root: 'custom-root', item: 'custom-item' },
-        styles: { root: { background: 'rgb(255, 0, 0)' } },
+        styles: { root: { backgroundColor: 'rgb(255, 0, 0)' } },
       }),
     );
     const root = container.querySelector<HTMLElement>('.ant-listy');
     expect(root).toHaveClass('custom-root');
-    expect(root).toHaveStyle({ background: 'rgb(255, 0, 0)' });
+    expect(root).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
     expect(container.querySelector('.custom-item')).toBeTruthy();
   });
 });
