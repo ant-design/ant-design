@@ -15,6 +15,7 @@ import { TARGET_CLS } from '../_util/wave/interface';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
+import useVariant from '../form/hooks/useVariants';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import Tooltip from '../tooltip';
@@ -192,10 +193,12 @@ const Steps = (props: StepsProps) => {
     direction: rtlDirection,
     className: contextClassName,
     style: contextStyle,
-    variant: contextVariant,
   } = contextContent;
 
-  const variant = customVariant ?? contextVariant ?? 'filled';
+  const [variant] = useVariant('steps', customVariant, {
+    variants: ['filled', 'outlined'],
+    defaultVariant: 'filled',
+  });
 
   let contextClassNames: StepsProps['classNames'];
   let contextStyles: StepsProps['styles'];

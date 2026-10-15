@@ -8,6 +8,8 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import type { ConfigProviderProps } from '../../config-provider';
+import Form from '../../form';
 import zhTW from '../../locale/zh_TW';
 import Timeline from '../../timeline';
 
@@ -56,15 +58,75 @@ describe('Steps', () => {
     expect(container.querySelector('.ant-steps')).toHaveStyle({ opacity: 0.5 });
   });
 
-  it('does not consume the top-level variant', () => {
+  it.each<
+    [ConfigProviderProps['variant'], StepsProps['variant'], NonNullable<StepsProps['variant']>]
+  >([
+    ['filled', undefined, 'filled'],
+    ['outlined', undefined, 'outlined'],
+    ['borderless', undefined, 'filled'],
+    ['underlined', undefined, 'filled'],
+    ['filled', 'outlined', 'outlined'],
+    ['outlined', 'filled', 'filled'],
+    ['borderless', 'outlined', 'outlined'],
+  ])('global variant %s and prop variant %s render %s', (globalVariant, variant, expected) => {
     const { container } = render(
-      <ConfigProvider variant="outlined">
+      <ConfigProvider variant={globalVariant}>
+        <Steps
+          variant={variant}
+          items={[{ title: 'Create a services site' }]}
+          classNames={({ props }) => ({ root: `custom-${props.variant}` })}
+          styles={({ props }) => ({ root: { opacity: props.variant === 'filled' ? 0.5 : 1 } })}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-steps')).toHaveClass(
+      `ant-steps-${expected}`,
+      `custom-${expected}`,
+    );
+    expect(container.querySelector('.ant-steps')).toHaveStyle({
+      opacity: expected === 'filled' ? 0.5 : 1,
+    });
+  });
+
+  it('prioritizes the component config over the global variant', () => {
+    const { container } = render(
+      <ConfigProvider variant="outlined" steps={{ variant: 'filled' }}>
         <Steps items={[{ title: 'Create a services site' }]} />
       </ConfigProvider>,
     );
 
     expect(container.querySelector('.ant-steps')).toHaveClass('ant-steps-filled');
   });
+
+  it.each<
+    [
+      ConfigProviderProps['variant'],
+      StepsProps['variant'],
+      StepsProps['variant'],
+      NonNullable<StepsProps['variant']>,
+    ]
+  >([
+    ['filled', 'outlined', undefined, 'filled'],
+    ['outlined', 'filled', undefined, 'outlined'],
+    ['borderless', 'outlined', undefined, 'filled'],
+    ['underlined', 'outlined', undefined, 'filled'],
+    ['filled', 'filled', 'outlined', 'outlined'],
+    ['outlined', 'outlined', 'filled', 'filled'],
+  ])(
+    'Form variant %s, config variant %s and prop variant %s render %s',
+    (formVariant, configVariant, variant, expected) => {
+      const { container } = render(
+        <ConfigProvider variant="outlined" steps={{ variant: configVariant }}>
+          <Form variant={formVariant}>
+            <Steps variant={variant} items={[{ title: 'Create a services site' }]} />
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-steps')).toHaveClass(`ant-steps-${expected}`);
+    },
+  );
 
   it('does not change the variant of Timeline', () => {
     const { container } = render(
