@@ -183,9 +183,7 @@ describe('Select', () => {
       );
       const ele = container.querySelector<HTMLElement>('.ant-select-clear');
       if (ele) {
-        expect(getComputedStyle(ele).insetInlineEnd).toBe(
-          'calc(var(--ant-padding-sm) - var(--ant-line-width))',
-        );
+        expect(getComputedStyle(ele).insetInlineEnd).toBe('var(--ant-select-padding-horizontal)');
       }
     });
 
@@ -200,7 +198,7 @@ describe('Select', () => {
       const ele = container.querySelector<HTMLElement>('.ant-select-clear');
       if (ele) {
         expect(getComputedStyle(ele).insetInlineEnd).toBe(
-          'calc(calc(var(--ant-padding-sm) - var(--ant-line-width)) + var(--ant-font-size) + var(--ant-padding-xs))',
+          'calc(var(--ant-select-padding-horizontal) + var(--ant-font-size) + var(--ant-padding-xs))',
         );
       }
     });
@@ -215,10 +213,51 @@ describe('Select', () => {
       );
       const ele = container.querySelector<HTMLElement>('.ant-select-clear');
       if (ele) {
-        expect(getComputedStyle(ele).insetInlineEnd).toBe(
-          'calc(var(--ant-padding-sm) - var(--ant-line-width))',
-        );
+        expect(getComputedStyle(ele).insetInlineEnd).toBe('var(--ant-select-padding-horizontal)');
       }
+    });
+  });
+
+  describe('large control horizontal padding', () => {
+    it.each([true, false])(
+      'uses the configured token for the large input (global: %p)',
+      (global) => {
+        const { container } = render(
+          <ConfigProvider
+            theme={
+              global
+                ? { token: { controlPaddingHorizontal: 50 } }
+                : {
+                    components: { Select: { controlPaddingHorizontal: 50 } },
+                  }
+            }
+          >
+            <Select size="large" allowClear value="value" options={[{ value: 'value' }]} />
+          </ConfigProvider>,
+        );
+        const select = container.querySelector<HTMLElement>('.ant-select')!;
+        expect(getComputedStyle(select).getPropertyValue('--ant-select-padding-horizontal')).toBe(
+          'calc(var(--ant-control-padding-horizontal) - var(--ant-line-width))',
+        );
+        const clear = container.querySelector<HTMLElement>('.ant-select-clear')!;
+        expect(getComputedStyle(clear).insetInlineEnd).toBe('var(--ant-select-padding-horizontal)');
+      },
+    );
+
+    it('keeps the clear button separated from large validation feedback', () => {
+      const { container } = render(
+        <ConfigProvider theme={{ token: { controlPaddingHorizontal: 50 } }}>
+          <Form>
+            <Form.Item hasFeedback validateStatus="success">
+              <Select size="large" allowClear value="value" options={[{ value: 'value' }]} />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+      const clear = container.querySelector<HTMLElement>('.ant-select-clear')!;
+      expect(getComputedStyle(clear).insetInlineEnd).toBe(
+        'calc(var(--ant-select-padding-horizontal) + var(--ant-font-size) + var(--ant-padding-xs))',
+      );
     });
   });
 

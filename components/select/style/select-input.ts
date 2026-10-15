@@ -258,6 +258,9 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         },
 
         '&-lg': {
+          [varName('padding-horizontal')]: calc(token.controlPaddingHorizontal)
+            .sub(token.lineWidth)
+            .equal(),
           [varName('height')]: token.controlHeightLG,
           [varName('font-size')]: token.fontSizeLG,
           [varName('line-height')]: token.lineHeightLG,
