@@ -103,6 +103,7 @@ const Timeline: CompoundedComponent = (props) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    variant: contextVariant,
   } = useComponentConfig('timeline');
 
   const {
@@ -115,7 +116,7 @@ const Timeline: CompoundedComponent = (props) => {
     styles,
 
     // Design
-    variant = 'outlined',
+    variant,
     mode,
     orientation = 'vertical',
     titleSpan,
@@ -135,6 +136,7 @@ const Timeline: CompoundedComponent = (props) => {
   // ===================== MISC =======================
   const rootPrefixCls = getPrefixCls();
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
+  const mergedVariant = variant ?? contextVariant ?? 'outlined';
 
   // ==================== Styles ======================
   // This will be duplicated with Steps's hashId & cssVarCls when they have same token
@@ -192,7 +194,7 @@ const Timeline: CompoundedComponent = (props) => {
   // =========== Merged Props for Semantic ===========
   const mergedProps: TimelineProps = {
     ...props,
-    variant,
+    variant: mergedVariant,
     mode: mergedMode,
     orientation,
     items: mergedItems,
@@ -282,7 +284,7 @@ const Timeline: CompoundedComponent = (props) => {
           classNames={mergedClassNames}
           styles={mergedStyles}
           // Design
-          variant={variant}
+          variant={mergedVariant}
           orientation={orientation}
           // Layout
           type="dot"
