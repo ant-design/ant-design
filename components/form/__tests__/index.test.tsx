@@ -2102,6 +2102,40 @@ describe('Form', () => {
     );
   });
 
+  it('should not affect panelRender children style of DatePicker, RangePicker and TimePicker', () => {
+    const panelRender = (className: string) => (panel: React.ReactNode) => (
+      <>
+        {panel}
+        <Input className={className} />
+      </>
+    );
+    const { container } = render(
+      <Form>
+        <Form.Item validateStatus="error" hasFeedback>
+          <DatePicker open panelRender={panelRender('date-picker-panel-input')} />
+        </Form.Item>
+        <Form.Item validateStatus="error" hasFeedback>
+          <RangePicker open panelRender={panelRender('range-picker-panel-input')} />
+        </Form.Item>
+        <Form.Item validateStatus="error" hasFeedback>
+          <TimePicker open panelRender={panelRender('time-picker-panel-input')} />
+        </Form.Item>
+      </Form>,
+      { container: document.body },
+    );
+
+    expect(container.querySelectorAll('.ant-picker-status-error')).toHaveLength(3);
+
+    ['date-picker-panel-input', 'range-picker-panel-input', 'time-picker-panel-input'].forEach(
+      (cls) => {
+        const input = container.querySelector(`.${cls}`);
+        expect(input).toBeTruthy();
+        expect(input).not.toHaveClass('ant-input-status-error');
+        expect(input?.querySelector('.ant-form-item-feedback-icon')).toBeFalsy();
+      },
+    );
+  });
+
   // eslint-disable-next-line jest/no-disabled-tests
   it.skip('should be set up correctly marginBottom', () => {
     render(
