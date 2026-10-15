@@ -232,6 +232,26 @@ describe('Transfer', () => {
     expect(onSelectChange).not.toHaveBeenCalled();
   });
 
+  it('should update both lists when render changes', () => {
+    const props = {
+      dataSource: listCommonProps.dataSource,
+      targetKeys: listCommonProps.targetKeys,
+    };
+    const { getByText, queryByText, rerender } = render(
+      <Transfer {...props} render={(item) => item.title} />,
+    );
+
+    expect(getByText('a')).toBeInTheDocument();
+    expect(getByText('b')).toBeInTheDocument();
+
+    rerender(<Transfer {...props} render={(item) => `updated-${item.title}`} />);
+
+    expect(getByText('updated-a')).toBeInTheDocument();
+    expect(getByText('updated-b')).toBeInTheDocument();
+    expect(queryByText('a')).not.toBeInTheDocument();
+    expect(queryByText('b')).not.toBeInTheDocument();
+  });
+
   it('multiple select/deselect by hold down the shift key', () => {
     const handleSelectChange = jest.fn();
     const { getByText } = render(
@@ -1014,6 +1034,31 @@ describe('Transfer', () => {
     );
 
     expect(getByText('1 of 2')).toBeTruthy();
+  });
+
+  it.each<[string, SelectAllLabel, string[]]>([
+    ['numeric zero', 0, ['0', '0']],
+    ['string zero', '0', ['0', '0']],
+    ['callback returning zero', () => 0, ['0', '0']],
+    ['undefined', undefined, ['1 item', '0 item']],
+    ['null', null, ['1 item', '0 item']],
+    ['false', false, ['1 item', '0 item']],
+    ['empty string', '', ['1 item', '0 item']],
+  ])('should render selectAllLabels with %s', (_, label, expected) => {
+    const { container } = render(
+      <Transfer
+        dataSource={[{ key: 'a', title: 'a' }]}
+        selectAllLabels={[label, label]}
+        render={(item) => item.title}
+      />,
+    );
+
+    expect(
+      Array.from(
+        container.querySelectorAll('.ant-transfer-list-header-selected'),
+        (element) => element.textContent,
+      ),
+    ).toEqual(expected);
   });
 
   it('should disable transfer operation button when some items are set to selected but also disabled', () => {

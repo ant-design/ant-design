@@ -61,7 +61,7 @@ describe('Alert.Semantic', () => {
     };
     const componentStyles: AlertProps['styles'] = {
       root: { padding: '5px' },
-      title: { fontWeight: 'bold' },
+      title: { fontWeight: 700 },
     };
 
     render(
@@ -90,7 +90,7 @@ describe('Alert.Semantic', () => {
       padding: componentStyles.root?.padding,
     });
     expect(iconElement).toHaveStyle({ fontSize: contextStyles.icon?.fontSize });
-    expect(titleElement).toHaveProperty('style.fontWeight', componentStyles.title?.fontWeight);
+    expect(titleElement).toHaveStyle({ fontWeight: componentStyles.title?.fontWeight });
   });
   it('should follow root style priority', () => {
     render(

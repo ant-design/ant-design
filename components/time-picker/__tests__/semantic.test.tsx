@@ -24,7 +24,7 @@ describe('TimePicker.Semantic', () => {
     const semanticStyles = {
       root: { backgroundColor: 'rgb(240, 240, 240)' },
       prefix: { fontSize: '16px' },
-      input: { fontWeight: 'bold' },
+      input: { fontWeight: 700 },
       suffix: { opacity: 0.8 },
       popup: {
         root: { borderRadius: '8px' },
@@ -51,7 +51,7 @@ describe('TimePicker.Semantic', () => {
 
     const inputElement = container.querySelector('.ant-picker-input input');
     expect(inputElement).toHaveClass('semantic-input');
-    expect(inputElement).toHaveStyle('font-weight: bold');
+    expect(inputElement).toHaveStyle('font-weight: 700');
 
     const popupRoot = container.querySelector('.ant-picker-dropdown');
     expect(popupRoot).toHaveClass('semantic-popup-root');
