@@ -11,6 +11,7 @@ import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
+import useVariant from '../form/hooks/useVariants';
 import useStyle from './style';
 
 export type TitlePlacement =
@@ -74,7 +75,6 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
-    variant: contextVariant,
   } = useComponentConfig('divider');
 
   const {
@@ -97,7 +97,10 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
     ...restProps
   } = props;
 
-  const variant = customVariant ?? contextVariant ?? 'solid';
+  const [variant] = useVariant('divider', customVariant, {
+    variants: ['dashed', 'dotted', 'solid'],
+    defaultVariant: 'solid',
+  });
 
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
   const railCls = `${prefixCls}-rail`;

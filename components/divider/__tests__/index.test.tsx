@@ -6,6 +6,8 @@ import type { Orientation } from '../../_util/hooks';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import type { ConfigProviderProps } from '../../config-provider';
+import Form from '../../form';
 
 describe('Divider', () => {
   mountTest(Divider);
@@ -47,18 +49,91 @@ describe('Divider', () => {
     expect(container.querySelector('.ant-divider')).toHaveStyle({ opacity: 0.5 });
   });
 
-  it('does not consume the top-level variant', () => {
+  it.each<
+    [
+      ConfigProviderProps['variant'],
+      DividerProps['variant'],
+      DividerProps['variant'],
+      NonNullable<DividerProps['variant']>,
+    ]
+  >([
+    ['filled', undefined, undefined, 'solid'],
+    ['outlined', undefined, undefined, 'solid'],
+    ['borderless', undefined, undefined, 'solid'],
+    ['underlined', undefined, undefined, 'solid'],
+    ['filled', 'dotted', undefined, 'dotted'],
+    ['outlined', 'dashed', undefined, 'dashed'],
+    ['filled', 'dotted', 'solid', 'solid'],
+    ['borderless', 'solid', 'dotted', 'dotted'],
+  ])(
+    'global variant %s, config variant %s and prop variant %s render %s',
+    (globalVariant, configVariant, variant, expected) => {
+      const { container } = render(
+        <ConfigProvider variant={globalVariant} divider={{ variant: configVariant }}>
+          <Divider
+            variant={variant}
+            classNames={({ props }) => ({ root: `custom-${props.variant}` })}
+            styles={({ props }) => ({ root: { opacity: props.variant === 'solid' ? 1 : 0.5 } })}
+          />
+        </ConfigProvider>,
+      );
+      const divider = container.querySelector('.ant-divider');
+
+      expect(divider).toHaveClass(`custom-${expected}`);
+      expect(divider).toHaveStyle({ opacity: expected === 'solid' ? 1 : 0.5 });
+      expect(divider).not.toHaveClass(
+        'ant-divider-filled',
+        'ant-divider-outlined',
+        'ant-divider-borderless',
+        'ant-divider-underlined',
+      );
+      if (expected === 'solid') {
+        expect(divider).not.toHaveClass('ant-divider-dashed', 'ant-divider-dotted');
+      } else {
+        expect(divider).toHaveClass(`ant-divider-${expected}`);
+        expect(divider).toHaveStyle({ borderStyle: expected });
+      }
+    },
+  );
+
+  it.each<
+    [ConfigProviderProps['variant'], DividerProps['variant'], NonNullable<DividerProps['variant']>]
+  >([
+    ['filled', undefined, 'solid'],
+    ['outlined', undefined, 'solid'],
+    ['borderless', undefined, 'solid'],
+    ['underlined', undefined, 'solid'],
+    ['filled', 'dotted', 'dotted'],
+    ['outlined', 'dashed', 'dashed'],
+  ])('Form variant %s and prop variant %s render %s', (formVariant, variant, expected) => {
+    const { container } = render(
+      <ConfigProvider variant="outlined" divider={{ variant: 'dotted' }}>
+        <Form variant={formVariant}>
+          <Divider
+            variant={variant}
+            classNames={({ props }) => ({ root: `custom-${props.variant}` })}
+          />
+        </Form>
+      </ConfigProvider>,
+    );
+    const divider = container.querySelector('.ant-divider');
+
+    expect(divider).toHaveClass(`custom-${expected}`);
+    if (expected === 'solid') {
+      expect(divider).not.toHaveClass('ant-divider-dashed', 'ant-divider-dotted');
+    } else {
+      expect(divider).toHaveClass(`ant-divider-${expected}`);
+    }
+  });
+
+  it('preserves the legacy dashed prop with a top-level variant', () => {
     const { container } = render(
       <ConfigProvider variant="filled">
-        <Divider />
+        <Divider dashed />
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-divider')).not.toHaveClass('ant-divider-filled');
-    expect(container.querySelector('.ant-divider')).not.toHaveClass(
-      'ant-divider-dashed',
-      'ant-divider-dotted',
-    );
+    expect(container.querySelector('.ant-divider')).toHaveStyle({ borderStyle: 'dashed' });
   });
 
   it('should support nativeElement ref', () => {
