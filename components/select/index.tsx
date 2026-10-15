@@ -12,7 +12,7 @@ import RcSelect, { OptGroup, Option } from '@rc-component/select';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useZIndex } from '../_util/hooks';
+import { useAllowClear, useZIndex } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
@@ -138,15 +138,15 @@ export interface SelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
-  InternalSelectProps<ValueType, OptionType>,
-  | 'mode'
-  | 'getInputElement'
-  | 'getRawInputElement'
-  | 'backfill'
-  | 'placement'
-  | 'dropdownClassName'
-  | 'dropdownStyle'
-> {
+    InternalSelectProps<ValueType, OptionType>,
+    | 'mode'
+    | 'getInputElement'
+    | 'getRawInputElement'
+    | 'backfill'
+    | 'placement'
+    | 'dropdownClassName'
+    | 'dropdownStyle'
+  > {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
@@ -312,8 +312,8 @@ const InternalSelect = <
     suffix: mergedSuffix,
     itemIcon,
     removeIcon,
-    clearIcon: mergedClearIcon,
   } = useIcons({
+    componentName: 'Select',
     ...rest,
     suffix: mergedCustomSuffix,
     multiple: isMultiple,
@@ -322,10 +322,7 @@ const InternalSelect = <
     showSuffix,
     showArrow,
     prefixCls,
-    componentName: 'Select',
-    clearIcon,
     searchIcon: normalizeIcon(showSearch, 'searchIcon'),
-    contextClearIcon,
     contextLoadingIcon,
     contextMenuItemSelectedIcon,
     contextRemoveIcon,
@@ -333,12 +330,15 @@ const InternalSelect = <
     contextSuffix: contextSuffix !== undefined ? contextSuffix : contextSuffixIcon,
   });
 
-  const finalAllowClear = allowClear ?? contextAllowClear;
-  const mergedAllowClear = finalAllowClear && {
-    clearIcon: mergedClearIcon,
-    label: locale.clear,
-    ...(typeof finalAllowClear !== 'boolean' ? finalAllowClear : {}),
-  };
+  const mergedAllowClear = useAllowClear({
+    allowClear,
+    clearIcon,
+    // AutoComplete does not inherit Select's allowClear configuration.
+    contextAllowClear: mode === 'combobox' ? undefined : contextAllowClear,
+    contextClearIcon,
+    defaultLabel: locale.clear,
+    componentName: 'Select',
+  });
   const mergedShowSearch = showSearch ?? contextShowSearch;
 
   const selectProps = omit(rest, ['suffix', 'suffixIcon', 'itemIcon' as any]);

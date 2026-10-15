@@ -63,7 +63,7 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象类型 | 6.4.0 |
+| allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | false | - | 6.4.0 |
 | ~~autoClearSearchValue~~ | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效 | boolean | true |  | × |
 | ~~bordered~~ | 是否带边框，请使用 `variant` 替代 | boolean | true | - | × |
 | classNames | 用于自定义 Select 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.25.0 |
@@ -130,6 +130,17 @@ demo:
 | onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value: string \| number \| LabeledValue, option: Option) | - |  | × |
 
 > 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentElement}` 将下拉弹层渲染节点固定在触发器的父元素中。
+
+### AllowClearConfig
+
+支持全局配置的字段按组件配置、全局配置、默认值的顺序取值。`allowClear={true}` 继承全局配置；`disabled: false` 和 `tabIndex: 0` 可覆盖全局值。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | 自定义清除图标 | ReactNode | - | - | 6.4.0 |
+| disabled | `true` 时等同于 `allowClear={false}` | boolean | false | 6.7.0 | 6.7.0 |
+| label | 清除按钮的无障碍名称 | string | 组件的本地化文案 | 6.6.0 | 6.6.0 |
+| tabIndex | 清除按钮的 Tab 键顺序。`-1` 表示不参与 Tab 键导航 | number | 0 | 6.7.0 | 6.7.0 |
 
 ### showSearch
 
