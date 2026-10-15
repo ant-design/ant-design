@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import Divider from '..';
-import type { TitlePlacement } from '..';
+import type { DividerProps, TitlePlacement } from '..';
 import type { Orientation } from '../../_util/hooks';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
@@ -9,6 +9,57 @@ import ConfigProvider from '../../config-provider';
 
 describe('Divider', () => {
   mountTest(Divider);
+
+  it.each<[DividerProps['variant'], DividerProps['variant'], string]>([
+    [undefined, undefined, 'solid'],
+    ['dotted', undefined, 'dotted'],
+    ['dashed', undefined, 'dashed'],
+    ['solid', 'dotted', 'dotted'],
+    ['dotted', 'solid', 'solid'],
+    ['dashed', 'dotted', 'dotted'],
+  ])('config variant %s and prop variant %s render %s', (configVariant, variant, expected) => {
+    const { container } = render(
+      <ConfigProvider divider={{ variant: configVariant }}>
+        <Divider variant={variant} />
+      </ConfigProvider>,
+    );
+    const divider = container.querySelector('.ant-divider');
+
+    if (expected === 'solid') {
+      expect(divider).not.toHaveClass('ant-divider-dashed', 'ant-divider-dotted');
+    } else {
+      expect(divider).toHaveClass(`ant-divider-${expected}`);
+      expect(divider).toHaveStyle({ borderStyle: expected });
+    }
+  });
+
+  it('passes the configured variant to semantic functions', () => {
+    const { container } = render(
+      <ConfigProvider divider={{ variant: 'dotted' }}>
+        <Divider
+          classNames={({ props }) => ({ root: `custom-${props.variant}` })}
+          styles={({ props }) => ({ root: { opacity: props.variant === 'dotted' ? 0.5 : 1 } })}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-divider')).toHaveClass('custom-dotted');
+    expect(container.querySelector('.ant-divider')).toHaveStyle({ opacity: 0.5 });
+  });
+
+  it('does not consume the top-level variant', () => {
+    const { container } = render(
+      <ConfigProvider variant="filled">
+        <Divider />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-divider')).not.toHaveClass('ant-divider-filled');
+    expect(container.querySelector('.ant-divider')).not.toHaveClass(
+      'ant-divider-dashed',
+      'ant-divider-dotted',
+    );
+  });
 
   it('should support nativeElement ref', () => {
     const ref = React.createRef<React.ComponentRef<typeof Divider>>();

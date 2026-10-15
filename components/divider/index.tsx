@@ -74,6 +74,7 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    variant: contextVariant,
   } = useComponentConfig('divider');
 
   const {
@@ -87,7 +88,7 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
     rootClassName,
     children,
     dashed,
-    variant = 'solid',
+    variant: customVariant,
     plain,
     style,
     size: customSize,
@@ -95,6 +96,8 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
     styles,
     ...restProps
   } = props;
+
+  const variant = customVariant ?? contextVariant ?? 'solid';
 
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
   const railCls = `${prefixCls}-rail`;
@@ -128,6 +131,7 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
   // ========================= Semantic =========================
   const mergedProps: DividerProps = {
     ...props,
+    variant,
     orientation: mergedOrientation,
     titlePlacement: mergedTitlePlacement,
     size: sizeFullName,
