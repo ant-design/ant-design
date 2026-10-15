@@ -327,6 +327,15 @@ describe('Popconfirm', () => {
     expect(onPopupClick).toHaveBeenCalledTimes(2);
   });
 
+  it('should trigger onPopupClick in PurePanel', () => {
+    const onPopupClick = jest.fn();
+    const PurePanel = Popconfirm._InternalPanelDoNotUseOrYouWillBeFired;
+    const { container } = render(<PurePanel title="test" onPopupClick={onPopupClick} />);
+
+    fireEvent.click(container.querySelector('.ant-popconfirm-title')!);
+    expect(onPopupClick).toHaveBeenCalledTimes(1);
+  });
+
   it('okText & cancelText could be empty', () => {
     render(
       <Popconfirm title="" okText="" cancelText="" open>
