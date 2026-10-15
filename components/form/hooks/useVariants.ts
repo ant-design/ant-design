@@ -47,13 +47,13 @@ interface UseVariant {
 /**
  * Compatible for legacy `bordered` prop.
  */
-const useVariant = (
+const useVariant = <T extends string = Variant>(
   component: VariantComponents,
-  variant?: string,
-  legacyBordered?: boolean | VariantOptions<readonly string[]>,
+  variant?: T,
+  legacyBordered?: boolean | VariantOptions<readonly T[]>,
   fallbackComponent?: VariantComponents,
-): VariantResult<string> => {
-  const options = isPlainObject<VariantOptions<readonly string[]>>(legacyBordered)
+): VariantResult<T | Variant> => {
+  const options = isPlainObject<VariantOptions<readonly T[]>>(legacyBordered)
     ? legacyBordered
     : undefined;
   const config = React.useContext(ConfigContext);
@@ -68,7 +68,7 @@ const useVariant = (
     typeof configComponentVariant !== 'undefined' ||
     typeof configVariant !== 'undefined';
 
-  let mergedVariant: string;
+  let mergedVariant: T | Variant;
   if (typeof variant !== 'undefined') {
     mergedVariant = variant;
   } else if (legacyBordered === false) {
@@ -83,11 +83,12 @@ const useVariant = (
       'outlined';
   }
 
-  if (options && !options.variants.includes(mergedVariant)) {
+  const supportedVariants: readonly (T | Variant)[] = options?.variants ?? Variants;
+  if (options && !supportedVariants.includes(mergedVariant)) {
     mergedVariant = options.defaultVariant;
   }
 
-  const enableVariantCls = (options?.variants ?? Variants).includes(mergedVariant);
+  const enableVariantCls = supportedVariants.includes(mergedVariant);
   return [mergedVariant, enableVariantCls, isVariantConfigured];
 };
 
