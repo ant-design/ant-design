@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { isPlainObject } from '../../_util/is';
 import type { ConfigProviderProps, Variant } from '../../config-provider';
 import { ConfigContext, Variants } from '../../config-provider';
 import { VariantContext } from '../context';
@@ -22,15 +23,39 @@ type VariantComponents = keyof Pick<
   | 'card'
 >;
 
+interface VariantOptions<T extends readonly string[]> {
+  variants: T;
+  defaultVariant: T[number];
+}
+
+type VariantResult<T extends string> = [T, boolean, boolean];
+
+interface UseVariant {
+  <const T extends readonly string[]>(
+    component: VariantComponents,
+    variant: string | undefined,
+    options: VariantOptions<T>,
+  ): VariantResult<T[number]>;
+  (
+    component: VariantComponents,
+    variant?: Variant,
+    legacyBordered?: boolean,
+    fallbackComponent?: VariantComponents,
+  ): VariantResult<Variant>;
+}
+
 /**
  * Compatible for legacy `bordered` prop.
  */
 const useVariant = (
   component: VariantComponents,
-  variant?: Variant,
-  legacyBordered?: boolean,
+  variant?: string,
+  legacyBordered?: boolean | VariantOptions<readonly string[]>,
   fallbackComponent?: VariantComponents,
-): [Variant, boolean, boolean] => {
+): VariantResult<string> => {
+  const options = isPlainObject<VariantOptions<readonly string[]>>(legacyBordered)
+    ? legacyBordered
+    : undefined;
   const config = React.useContext(ConfigContext);
   const { variant: configVariant, [component]: componentConfig } = config;
   const ctxVariant = React.useContext(VariantContext);
@@ -43,18 +68,27 @@ const useVariant = (
     typeof configComponentVariant !== 'undefined' ||
     typeof configVariant !== 'undefined';
 
-  let mergedVariant: Variant;
+  let mergedVariant: string;
   if (typeof variant !== 'undefined') {
     mergedVariant = variant;
   } else if (legacyBordered === false) {
     mergedVariant = 'borderless';
   } else {
     // form variant > component global variant > fallback component global variant > global variant
-    mergedVariant = ctxVariant ?? configComponentVariant ?? configVariant ?? 'outlined';
+    mergedVariant =
+      ctxVariant ??
+      configComponentVariant ??
+      configVariant ??
+      options?.defaultVariant ??
+      'outlined';
   }
 
-  const enableVariantCls = Variants.includes(mergedVariant);
+  if (options && !options.variants.includes(mergedVariant)) {
+    mergedVariant = options.defaultVariant;
+  }
+
+  const enableVariantCls = (options?.variants ?? Variants).includes(mergedVariant);
   return [mergedVariant, enableVariantCls, isVariantConfigured];
 };
 
-export default useVariant;
+export default useVariant as UseVariant;
