@@ -153,7 +153,7 @@ const Steps = (props: StepsProps) => {
     className,
     rootClassName,
     style,
-    variant = 'filled',
+    variant: customVariant,
     type,
     classNames,
     styles,
@@ -192,7 +192,10 @@ const Steps = (props: StepsProps) => {
     direction: rtlDirection,
     className: contextClassName,
     style: contextStyle,
+    variant: contextVariant,
   } = contextContent;
+
+  const variant = customVariant ?? contextVariant ?? 'filled';
 
   let contextClassNames: StepsProps['classNames'];
   let contextStyles: StepsProps['styles'];

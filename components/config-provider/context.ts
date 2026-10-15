@@ -411,7 +411,8 @@ export type SplitterConfig = ComponentStyleConfig & Pick<SplitterProps, 'classNa
 
 export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classNames' | 'styles'>;
 
-export type StepsConfig = ComponentStyleConfig & Pick<StepsProps, 'classNames' | 'styles'>;
+export type StepsConfig = ComponentStyleConfig &
+  Pick<StepsProps, 'classNames' | 'styles' | 'variant'>;
 
 export type SpinConfig = ComponentStyleConfig &
   Pick<SpinProps, 'indicator' | 'classNames' | 'styles'>;

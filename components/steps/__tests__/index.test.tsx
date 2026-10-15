@@ -9,6 +9,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import zhTW from '../../locale/zh_TW';
+import Timeline from '../../timeline';
 
 describe('Steps', () => {
   mountTest(Steps);
@@ -22,6 +23,57 @@ describe('Steps', () => {
   afterEach(() => {
     jest.clearAllTimers();
     jest.useRealTimers();
+  });
+
+  it.each<[StepsProps['variant'], StepsProps['variant'], string]>([
+    [undefined, undefined, 'filled'],
+    ['outlined', undefined, 'outlined'],
+    [undefined, 'outlined', 'outlined'],
+    ['outlined', 'filled', 'filled'],
+    ['filled', 'outlined', 'outlined'],
+  ])('config variant %s and prop variant %s render %s', (configVariant, variant, expected) => {
+    const { container } = render(
+      <ConfigProvider steps={{ variant: configVariant }}>
+        <Steps variant={variant} items={[{ title: 'Create a services site' }]} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-steps')).toHaveClass(`ant-steps-${expected}`);
+  });
+
+  it('passes the configured variant to semantic functions', () => {
+    const { container } = render(
+      <ConfigProvider steps={{ variant: 'outlined' }}>
+        <Steps
+          items={[{ title: 'Create a services site' }]}
+          classNames={({ props }) => ({ root: `custom-${props.variant}` })}
+          styles={({ props }) => ({ root: { opacity: props.variant === 'outlined' ? 0.5 : 1 } })}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-steps')).toHaveClass('custom-outlined');
+    expect(container.querySelector('.ant-steps')).toHaveStyle({ opacity: 0.5 });
+  });
+
+  it('does not consume the top-level variant', () => {
+    const { container } = render(
+      <ConfigProvider variant="outlined">
+        <Steps items={[{ title: 'Create a services site' }]} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-steps')).toHaveClass('ant-steps-filled');
+  });
+
+  it('does not change the variant of Timeline', () => {
+    const { container } = render(
+      <ConfigProvider steps={{ variant: 'filled' }}>
+        <Timeline items={[{ content: 'Create a services site' }]} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-timeline')).toHaveClass('ant-steps-outlined');
   });
 
   it('should hide decorative panel arrows from assistive technology', () => {
