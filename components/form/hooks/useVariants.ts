@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { isPlainObject } from '../../_util/is';
 import type { ConfigProviderProps, Variant } from '../../config-provider';
 import { ConfigContext, Variants } from '../../config-provider';
 import { VariantContext } from '../context';
@@ -22,15 +23,39 @@ type VariantComponents = keyof Pick<
   | 'card'
 >;
 
+interface VariantOptions<T extends readonly string[]> {
+  variants: T;
+  defaultVariant: T[number];
+}
+
+type VariantResult<T extends string> = [T, boolean, boolean];
+
+interface UseVariant {
+  <const T extends readonly string[]>(
+    component: VariantComponents,
+    variant: string | undefined,
+    options: VariantOptions<T>,
+  ): VariantResult<T[number]>;
+  (
+    component: VariantComponents,
+    variant?: Variant,
+    legacyBordered?: boolean,
+    fallbackComponent?: VariantComponents,
+  ): VariantResult<Variant>;
+}
+
 /**
  * Compatible for legacy `bordered` prop.
  */
-const useVariant = (
+const useVariant = <T extends string = Variant>(
   component: VariantComponents,
-  variant?: Variant,
-  legacyBordered?: boolean,
+  variant?: T,
+  legacyBordered?: boolean | VariantOptions<readonly T[]>,
   fallbackComponent?: VariantComponents,
-): [Variant, boolean, boolean] => {
+): VariantResult<T | Variant> => {
+  const options = isPlainObject<VariantOptions<readonly T[]>>(legacyBordered)
+    ? legacyBordered
+    : undefined;
   const config = React.useContext(ConfigContext);
   const { variant: configVariant, [component]: componentConfig } = config;
   const ctxVariant = React.useContext(VariantContext);
@@ -43,18 +68,28 @@ const useVariant = (
     typeof configComponentVariant !== 'undefined' ||
     typeof configVariant !== 'undefined';
 
-  let mergedVariant: Variant;
+  let mergedVariant: T | Variant;
   if (typeof variant !== 'undefined') {
     mergedVariant = variant;
   } else if (legacyBordered === false) {
     mergedVariant = 'borderless';
   } else {
     // form variant > component global variant > fallback component global variant > global variant
-    mergedVariant = ctxVariant ?? configComponentVariant ?? configVariant ?? 'outlined';
+    mergedVariant =
+      ctxVariant ??
+      configComponentVariant ??
+      configVariant ??
+      options?.defaultVariant ??
+      'outlined';
   }
 
-  const enableVariantCls = Variants.includes(mergedVariant);
+  const supportedVariants: readonly (T | Variant)[] = options?.variants ?? Variants;
+  if (options && !supportedVariants.includes(mergedVariant)) {
+    mergedVariant = options.defaultVariant;
+  }
+
+  const enableVariantCls = supportedVariants.includes(mergedVariant);
   return [mergedVariant, enableVariantCls, isVariantConfigured];
 };
 
-export default useVariant;
+export default useVariant as UseVariant;
