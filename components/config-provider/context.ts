@@ -441,7 +441,7 @@ export type CascaderConfig = ComponentStyleConfig &
   > & { clearIcon?: React.ReactNode; searchIcon?: React.ReactNode };
 
 export type TreeSelectConfig = ComponentStyleConfig &
-  Pick<TreeSelectProps, 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;
+  Pick<TreeSelectProps, 'allowClear' | 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;
 
 export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | 'styles'>;
 
