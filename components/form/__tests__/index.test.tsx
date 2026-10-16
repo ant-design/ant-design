@@ -327,6 +327,22 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item-explain')?.id).toBe('test_help');
   });
 
+  it('input element should have the prop aria-describedby pointing to the help id when there are warnings', async () => {
+    const { container } = pureRender(
+      <Form>
+        <Form.Item name="test" rules={[{ len: 3, warningOnly: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    await changeValue(0, 'Invalid number');
+
+    expect(container.querySelector('.ant-form-item-explain-warning')).toBeTruthy();
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe('test_help');
+    expect(container.querySelector('.ant-form-item-explain')?.id).toBe('test_help');
+  });
+
   it('input element should have the prop aria-invalid when there are errors', async () => {
     const { container } = render(
       <Form>

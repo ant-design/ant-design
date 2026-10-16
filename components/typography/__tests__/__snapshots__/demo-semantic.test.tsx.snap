@@ -55,7 +55,7 @@ exports[`renders components/typography/demo/_semantic.tsx correctly 1`] = `
               <span
                 aria-label="edit"
                 class="anticon anticon-edit"
-                role="button"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
