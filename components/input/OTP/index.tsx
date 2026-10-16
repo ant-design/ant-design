@@ -124,6 +124,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     inputMode,
     classNames,
     styles,
+    rootClassName,
     className,
     style,
     ...restProps
@@ -259,7 +260,6 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     } else {
       nextCells = nextCells.slice(0, index).concat(strToArr(txt));
     }
-    nextCells = nextCells.slice(0, length);
 
     // Clean the last empty cell
     for (let i = nextCells.length - 1; i >= 0; i -= 1) {
@@ -269,7 +269,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       nextCells.pop();
     }
 
-    // Format if needed
+    // Format before limiting the length to avoid losing valid characters.
     const formattedValue = internalFormatter(nextCells.map((c) => c || ' ').join(''));
     nextCells = strToArr(formattedValue).map((c, i) => {
       if (c === ' ' && !nextCells[i]) {
@@ -278,7 +278,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       return c;
     });
 
-    return nextCells;
+    return nextCells.slice(0, length);
   });
 
   // ======================== Change ========================
@@ -329,6 +329,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       ref={containerRef}
       className={clsx(
         className,
+        rootClassName,
         prefixCls,
         {
           [`${prefixCls}-sm`]: mergedSize === 'small',
