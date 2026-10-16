@@ -2107,6 +2107,195 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
     role="radiogroup"
   >
     <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="a"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        Hangzhou
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="b"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        Shanghai
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="c"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        Beijing
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="a"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        Hangzhou
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="b"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        Shanghai
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="c"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        Beijing
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-radio-group ant-radio-group-outline ant-radio-group-small css-var-test-id ant-radio-css-var"
+    role="radiogroup"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="a"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        Hangzhou
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="b"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        Shanghai
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="c"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        Beijing
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-radio-group ant-radio-group-outline ant-radio-group-large css-var-test-id ant-radio-css-var"
+    role="radiogroup"
+  >
+    <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
@@ -2162,25 +2351,6 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         class="ant-radio-button-label"
       >
         Beijing
-      </span>
-    </label>
-    <label
-      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
-    >
-      <span
-        class="ant-radio-button"
-      >
-        <input
-          class="ant-radio-button-input"
-          name="test-id"
-          type="radio"
-          value="d"
-        />
-      </span>
-      <span
-        class="ant-radio-button-label"
-      >
-        Chengdu
       </span>
     </label>
   </div>
@@ -2246,25 +2416,6 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         Beijing
       </span>
     </label>
-    <label
-      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
-    >
-      <span
-        class="ant-radio-button"
-      >
-        <input
-          class="ant-radio-button-input"
-          name="test-id"
-          type="radio"
-          value="d"
-        />
-      </span>
-      <span
-        class="ant-radio-button-label"
-      >
-        Chengdu
-      </span>
-    </label>
   </div>
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-small css-var-test-id ant-radio-css-var"
@@ -2326,25 +2477,6 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         class="ant-radio-button-label"
       >
         Beijing
-      </span>
-    </label>
-    <label
-      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
-    >
-      <span
-        class="ant-radio-button"
-      >
-        <input
-          class="ant-radio-button-input"
-          name="test-id"
-          type="radio"
-          value="d"
-        />
-      </span>
-      <span
-        class="ant-radio-button-label"
-      >
-        Chengdu
       </span>
     </label>
   </div>
