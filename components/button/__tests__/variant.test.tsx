@@ -49,6 +49,29 @@ describe('Button global variant', () => {
     expect(container.firstChild).toHaveClass(`ant-btn-variant-${variant}`, 'ant-btn-color-green');
   });
 
+  it.each(_ButtonVariantTypes)(
+    'keeps local variant %s first without an explicit color',
+    (variant) => {
+      const { container } = render(
+        <ConfigProvider variant="filled">
+          <Button variant={variant}>Global</Button>
+          <ConfigProvider button={{ variant: 'filled', color: 'blue' }}>
+            <Button variant={variant}>Component</Button>
+            <Form variant="filled">
+              <Button variant={variant}>Form</Button>
+            </Form>
+          </ConfigProvider>
+        </ConfigProvider>,
+      );
+
+      const buttons = container.querySelectorAll('.ant-btn');
+      expect(buttons).toHaveLength(3);
+      buttons.forEach((button) => {
+        expect(button).toHaveClass(`ant-btn-variant-${variant}`);
+      });
+    },
+  );
+
   it.each<[ButtonProps, string, string]>([
     [{ type: 'default' }, 'outlined', 'default'],
     [{ type: 'primary' }, 'solid', 'primary'],
@@ -57,6 +80,9 @@ describe('Button global variant', () => {
     [{ type: 'link' }, 'link', 'link'],
     [{ danger: true }, 'outlined', 'dangerous'],
     [{ type: 'primary', danger: true }, 'solid', 'dangerous'],
+    [{ type: 'primary', variant: 'outlined' }, 'solid', 'primary'],
+    [{ type: 'dashed', variant: 'filled' }, 'dashed', 'default'],
+    [{ danger: true, variant: 'filled' }, 'outlined', 'dangerous'],
   ])('preserves the type and danger priority for %j', (props, variant, color) => {
     const { container } = render(
       <ConfigProvider variant="filled" button={{ variant: 'dashed', color: 'blue' }}>

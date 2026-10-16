@@ -182,7 +182,7 @@ const InternalCompoundedButton = React.forwardRef<
   } = useComponentConfig('button');
 
   const mergedShape = customizeShape || contextShape || 'default';
-  const [contextVariant, , isVariantConfigured] = useVariant('button', undefined, {
+  const [contextVariant, , isVariantConfigured] = useVariant('button', variant, {
     variants: _ButtonVariantTypes,
     defaultVariant: 'outlined',
   });
