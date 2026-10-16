@@ -151,6 +151,17 @@ describe('Popconfirm', () => {
     expect(titleNode?.textContent).toContain('0');
   });
 
+  it('should render icon when it is the number 0', () => {
+    const { container } = render(
+      <Popconfirm title="code" icon={0} open>
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+    const iconNode = container.querySelector('.ant-popconfirm-message-icon');
+    expect(iconNode).not.toBe(null);
+    expect(iconNode).toHaveTextContent('0');
+  });
+
   it('should trigger onConfirm and onCancel', async () => {
     const confirm = jest.fn();
     const cancel = jest.fn();

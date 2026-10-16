@@ -26,6 +26,11 @@ describe('Divider', () => {
     errSpy.mockRestore();
   });
 
+  it('should render numeric zero children', () => {
+    const { container } = render(<Divider>{0}</Divider>);
+    expect(container.querySelector('.ant-divider-inner-text')).toHaveTextContent('0');
+  });
+
   it('support string orientationMargin', () => {
     const { container } = render(
       <Divider titlePlacement="end" orientationMargin="10">
