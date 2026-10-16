@@ -3,10 +3,10 @@ import { isReactRenderable, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
-import { useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { useOrientation } from '../_util/hooks/useOrientation';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
