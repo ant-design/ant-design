@@ -50,6 +50,65 @@ export default Home;
 
 细心的朋友可以发现这时引入的 antd 组件在首屏并没有样式，下面就需要根据 Next.js 的模式来选择不同的 SSR 样式处理方式。
 
+## 使用零运行时样式 {#using-zero-runtime-styles}
+
+从 Ant Design 6 开始，你可以直接使用预构建样式文件，无需在 SSR 阶段抽取样式。在顶层入口中引入样式文件，并在 `ConfigProvider` 中开启 `zeroRuntime`。
+
+对于 App Router，需要为 `ConfigProvider` 创建一个客户端组件：
+
+```tsx
+// app/antd-provider.tsx
+'use client';
+
+import React from 'react';
+import { ConfigProvider } from 'antd';
+
+const AntdProvider = ({ children }: React.PropsWithChildren) => (
+  <ConfigProvider theme={{ zeroRuntime: true }}>{children}</ConfigProvider>
+);
+
+export default AntdProvider;
+```
+
+然后在根布局中使用：
+
+```tsx
+// app/layout.tsx
+import 'antd/dist/antd.css';
+import React from 'react';
+
+import AntdProvider from './antd-provider';
+
+const RootLayout = ({ children }: React.PropsWithChildren) => (
+  <html lang="en">
+    <body>
+      <AntdProvider>{children}</AntdProvider>
+    </body>
+  </html>
+);
+
+export default RootLayout;
+```
+
+对于 Pages Router，在 `pages/_app.tsx` 中引入样式文件并配置 `ConfigProvider`：
+
+```tsx
+import 'antd/dist/antd.css';
+import React from 'react';
+import { ConfigProvider } from 'antd';
+import type { AppProps } from 'next/app';
+
+const App = ({ Component, pageProps }: AppProps) => (
+  <ConfigProvider theme={{ zeroRuntime: true }}>
+    <Component {...pageProps} />
+  </ConfigProvider>
+);
+
+export default App;
+```
+
+预构建样式使用默认主题和前缀。如果需要为自定义主题或前缀生成静态样式，请参考[定制主题 - 零运行时](/docs/react/customize-theme-cn#zero-runtime)。
+
 ## 使用 App Router <Badge>Updated</Badge> {#using-app-router}
 
 如果你在 Next.js 当中使用了 App Router, 并使用 antd 作为页面组件库，为了让 antd 组件库在你的 Next.js 应用中能够更好的工作，提供更好的用户体验，你可以尝试使用下面的方式将 antd 首屏样式按需抽离并植入到 HTML 中，以避免页面闪动的情况。
