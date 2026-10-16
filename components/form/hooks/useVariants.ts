@@ -21,7 +21,16 @@ type VariantComponents = keyof Pick<
   | 'timePicker'
   | 'rangePicker'
   | 'card'
+  | 'button'
 >;
+
+type ComponentVariant<Component extends VariantComponents = VariantComponents> = NonNullable<
+  NonNullable<ConfigProviderProps[Component]>['variant']
+>;
+
+type LegacyVariantComponents = {
+  [Component in VariantComponents]: ComponentVariant<Component> extends Variant ? Component : never;
+}[VariantComponents];
 
 interface VariantOptions<T extends readonly string[]> {
   variants: T;
@@ -37,10 +46,10 @@ interface UseVariant {
     options: VariantOptions<T>,
   ): VariantResult<T[number]>;
   (
-    component: VariantComponents,
+    component: LegacyVariantComponents,
     variant?: Variant,
     legacyBordered?: boolean,
-    fallbackComponent?: VariantComponents,
+    fallbackComponent?: LegacyVariantComponents,
   ): VariantResult<Variant>;
 }
 
@@ -52,7 +61,7 @@ const useVariant = <T extends string = Variant>(
   variant?: T,
   legacyBordered?: boolean | VariantOptions<readonly T[]>,
   fallbackComponent?: VariantComponents,
-): VariantResult<T | Variant> => {
+): VariantResult<T | ComponentVariant> => {
   const options = isPlainObject<VariantOptions<readonly T[]>>(legacyBordered)
     ? legacyBordered
     : undefined;
@@ -68,7 +77,7 @@ const useVariant = <T extends string = Variant>(
     typeof configComponentVariant !== 'undefined' ||
     typeof configVariant !== 'undefined';
 
-  let mergedVariant: T | Variant;
+  let mergedVariant: T | ComponentVariant;
   if (typeof variant !== 'undefined') {
     mergedVariant = variant;
   } else if (legacyBordered === false) {
@@ -83,7 +92,7 @@ const useVariant = <T extends string = Variant>(
       'outlined';
   }
 
-  const supportedVariants: readonly (T | Variant)[] = options?.variants ?? Variants;
+  const supportedVariants: readonly (T | ComponentVariant)[] = options?.variants ?? Variants;
   if (options && !supportedVariants.includes(mergedVariant)) {
     mergedVariant = options.defaultVariant;
   }
