@@ -33,7 +33,7 @@ Array [
     >
       <div
         class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+        style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
       >
         <span
           class="ant-tooltip-arrow-content"
@@ -142,7 +142,7 @@ Array [
     >
       <div
         class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+        style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
       >
         <span
           class="ant-tooltip-arrow-content"
@@ -227,7 +227,7 @@ Array [
       >
         <div
           class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
+          style="position: absolute; top: clamp(8px, var(--arrow-y), calc(100% - 8px)); left: 0px;"
         >
           <span
             class="ant-tooltip-arrow-content"
@@ -604,7 +604,7 @@ Array [
     >
       <div
         class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+        style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
       >
         <span
           class="ant-tooltip-arrow-content"
@@ -714,7 +714,7 @@ exports[`renders components/slider/demo/icon-slider.tsx extend context correctly
     >
       <div
         class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+        style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
       >
         <span
           class="ant-tooltip-arrow-content"
@@ -798,7 +798,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
           >
             <div
               class="ant-tooltip-arrow"
-              style="position: absolute; bottom: 0px; left: 0px;"
+              style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
             >
               <span
                 class="ant-tooltip-arrow-content"
@@ -933,7 +933,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
           >
             <div
               class="ant-tooltip-arrow"
-              style="position: absolute; bottom: 0px; left: 0px;"
+              style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
             >
               <span
                 class="ant-tooltip-arrow-content"
@@ -1089,7 +1089,7 @@ Array [
     >
       <div
         class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+        style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
       >
         <span
           class="ant-tooltip-arrow-content"
@@ -1268,7 +1268,7 @@ Array [
     >
       <div
         class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+        style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
       >
         <span
           class="ant-tooltip-arrow-content"
@@ -1367,7 +1367,7 @@ Array [
     >
       <div
         class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+        style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
       >
         <span
           class="ant-tooltip-arrow-content"
@@ -1466,7 +1466,7 @@ Array [
     >
       <div
         class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+        style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
       >
         <span
           class="ant-tooltip-arrow-content"
@@ -1609,7 +1609,7 @@ Array [
     >
       <div
         class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+        style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
       >
         <span
           class="ant-tooltip-arrow-content"
@@ -1718,7 +1718,7 @@ exports[`renders components/slider/demo/show-tooltip.tsx extend context correctl
   >
     <div
       class="ant-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
+      style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
     >
       <span
         class="ant-tooltip-arrow-content"
@@ -1772,7 +1772,7 @@ exports[`renders components/slider/demo/style-class.tsx extend context correctly
     >
       <div
         class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+        style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
       >
         <span
           class="ant-tooltip-arrow-content"
@@ -1819,7 +1819,7 @@ exports[`renders components/slider/demo/style-class.tsx extend context correctly
     >
       <div
         class="ant-tooltip-arrow"
-        style="position: absolute; top: 0px; left: 0px;"
+        style="position: absolute; top: clamp(8px, var(--arrow-y), calc(100% - 8px)); left: 0px;"
       >
         <span
           class="ant-tooltip-arrow-content"
@@ -1872,7 +1872,7 @@ Array [
     >
       <div
         class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+        style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
       >
         <span
           class="ant-tooltip-arrow-content"
@@ -1918,7 +1918,7 @@ Array [
     >
       <div
         class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+        style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
       >
         <span
           class="ant-tooltip-arrow-content"
@@ -1972,7 +1972,7 @@ Array [
       >
         <div
           class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
+          style="position: absolute; top: clamp(8px, var(--arrow-y), calc(100% - 8px)); left: 0px;"
         >
           <span
             class="ant-tooltip-arrow-content"
