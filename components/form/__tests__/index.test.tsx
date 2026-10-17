@@ -1900,6 +1900,26 @@ describe('Form', () => {
 
       expect(screen.getByText('姓名')).toHaveClass('ant-form-item-no-colon');
     });
+
+    it('should only strip a trailing colon from string label', () => {
+      render(
+        <Form>
+          <Form.Item label="Name:" name="name">
+            <Input />
+          </Form.Item>
+          <Form.Item label="姓名：" name="cnName">
+            <Input />
+          </Form.Item>
+          <Form.Item label="A|B|" name="pipe">
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(screen.getByText('Name')).toBeInTheDocument();
+      expect(screen.getByText('姓名')).toBeInTheDocument();
+      expect(screen.getByText('A|B|')).toBeInTheDocument();
+    });
   });
 
   it('useFormInstance', () => {
