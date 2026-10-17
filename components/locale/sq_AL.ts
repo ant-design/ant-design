@@ -168,6 +168,7 @@ const localeValues: Locale = {
     transparent: 'Transparent',
     singleColor: 'Një ngjyrë',
     gradientColor: 'Ngjyrë gradient',
+    clear: 'Pastro ngjyrën',
   },
 };
 
