@@ -117,11 +117,13 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const [setItemRef, getItemRef] = useRefs();
 
   // ======================= Item =======================
-  const [mergedItems, setMergedItems] = React.useState<MasonryItemType[]>([]);
+  const mergedItems = React.useMemo(() => items || [], [items]);
+
+  const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
-    setMergedItems(items || []);
-  }, [items]);
+    setMounted(true);
+  }, []);
 
   // ==================== Breakpoint ====================
   const screens = useBreakpoint();
@@ -255,7 +257,8 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
           keys={itemWithPositions}
           component={false}
           // Motion config
-          motionAppear
+          // Keep the initial render consistent with SSR before enabling item animations.
+          motionAppear={mounted}
           motionLeave
           motionName={`${prefixCls}-item-fade`}
         >
