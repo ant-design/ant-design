@@ -23344,7 +23344,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
             >
               <colgroup>
                 <col
-                  class="ant-table-selection-col"
+                  class="ant-table-selection-col ant-table-selection-col-with-dropdown"
                 />
               </colgroup>
               <thead

@@ -81,7 +81,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
             >
               <colgroup>
                 <col
-                  class="ant-table-selection-col"
+                  class="ant-table-selection-col ant-table-selection-col-with-dropdown"
                 />
               </colgroup>
               <thead
@@ -423,7 +423,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
             >
               <colgroup>
                 <col
-                  class="ant-table-selection-col"
+                  class="ant-table-selection-col ant-table-selection-col-with-dropdown"
                 />
               </colgroup>
               <thead

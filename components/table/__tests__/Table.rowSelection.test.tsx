@@ -494,6 +494,20 @@ describe('Table.rowSelection', () => {
     expect(container.querySelector('.ant-dropdown')).toMatchSnapshot();
   });
 
+  it('should mark selection col with dropdown when selections are shown', () => {
+    const colCls = 'ant-table-selection-col-with-dropdown';
+    const { container, rerender } = render(createTable({ rowSelection: { selections: true } }));
+    expect(container.querySelector('.ant-dropdown-trigger')).toBeTruthy();
+    expect(container.querySelector('col.ant-table-selection-col')).toHaveClass(colCls);
+
+    rerender(createTable({ rowSelection: { selections: true, hideSelectAll: true } }));
+    expect(container.querySelector('.ant-dropdown-trigger')).toBeFalsy();
+    expect(container.querySelector('col.ant-table-selection-col')).not.toHaveClass(colCls);
+
+    rerender(createTable({ rowSelection: { type: 'radio', selections: true } }));
+    expect(container.querySelector('col.ant-table-selection-col')).not.toHaveClass(colCls);
+  });
+
   it('fires selectInvert event', () => {
     jest.useFakeTimers();
 
