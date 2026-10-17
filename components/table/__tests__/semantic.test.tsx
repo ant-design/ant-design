@@ -83,11 +83,13 @@ describe('Table', () => {
       footer: 'test-footer',
       content: 'test-content',
       body: {
+        holder: 'test-body-holder',
         wrapper: 'test-body-wrapper',
         cell: 'test-body-cell',
         row: 'test-body-row',
       },
       header: {
+        holder: 'test-header-holder',
         wrapper: 'test-header-wrapper',
         cell: 'test-header-cell',
         row: 'test-header-row',
@@ -105,11 +107,13 @@ describe('Table', () => {
       footer: { background: 'pink' },
       content: { background: 'purple' },
       body: {
+        holder: { background: 'cyan' },
         wrapper: { background: 'cyan' },
         cell: { background: 'lime' },
         row: { background: 'teal' },
       },
       header: {
+        holder: { background: 'magenta' },
         wrapper: { background: 'magenta' },
         cell: { background: 'gold' },
         row: { background: 'silver' },
@@ -179,9 +183,11 @@ describe('Table', () => {
       title: 1,
       footer: 1,
       content: 1,
+      'body.holder': 0,
       'body.wrapper': 1,
       'body.cell': 9,
       'body.row': 3,
+      'header.holder': 0,
       'header.wrapper': 1,
       'header.cell': 3,
       'header.row': 1,
@@ -206,6 +212,72 @@ describe('Table', () => {
     Object.entries(classNameCounts).forEach(([className, expectedCount]) => {
       const elements = container.getElementsByClassName(flatTestClassNames[className]);
       expect(elements.length).toBe(expectedCount);
+    });
+  });
+
+  describe.each([false, true])('scroll holder semantics (virtual: %s)', (virtual) => {
+    it.each([false, true])('merges holder semantics with empty data: %s', (empty) => {
+      const renderTable = (override: boolean) => (
+        <ConfigProvider
+          table={{
+            classNames: {
+              header: { holder: 'context-header-holder' },
+              body: { holder: 'context-body-holder' },
+            },
+            styles: {
+              header: { holder: { background: 'red', outline: '1px solid blue' } },
+              body: { holder: { background: 'red', overscrollBehavior: 'contain' } },
+            },
+          }}
+        >
+          <Table
+            virtual={virtual}
+            columns={[{ dataIndex: 'name', title: 'Name', width: 100 }]}
+            dataSource={empty ? [] : [{ key: '1', name: 'Bamboo' }]}
+            pagination={false}
+            scroll={{ x: 500, y: 100 }}
+            sticky={{ offsetHeader: 8 }}
+            classNames={() => ({
+              content: 'content-only',
+              header: { holder: 'table-header-holder' },
+              body: { holder: 'table-body-holder' },
+            })}
+            styles={
+              override
+                ? () => ({
+                    header: { holder: { background: 'pink' } },
+                    body: { holder: { background: 'cyan' } },
+                  })
+                : undefined
+            }
+          />
+        </ConfigProvider>
+      );
+      const { container, rerender } = render(renderTable(false));
+      const header = container.querySelector('.ant-table-header');
+      const body = container.querySelector(
+        virtual && !empty ? '.ant-table-tbody-virtual-holder' : '.ant-table-body',
+      );
+
+      expect(header).toHaveClass('context-header-holder', 'table-header-holder');
+      expect(header).toHaveStyle({ background: 'red', outline: '1px solid blue', top: '8px' });
+      expect(body).toHaveClass('context-body-holder', 'table-body-holder');
+      expect(body).toHaveStyle({
+        background: 'red',
+        overscrollBehavior: 'contain',
+        maxHeight: '100px',
+      });
+      expect(container.querySelectorAll('.table-body-holder')).toHaveLength(1);
+      expect(container.querySelector('.content-only')).toBeNull();
+
+      rerender(renderTable(true));
+
+      expect(container.querySelector('.table-header-holder')).toBe(header);
+      expect(container.querySelector('.table-body-holder')).toBe(body);
+      expect(header).toHaveStyle({ background: 'pink', top: '8px' });
+      expect(header).not.toHaveStyle({ outline: '1px solid blue' });
+      expect(body).toHaveStyle({ background: 'cyan', maxHeight: '100px' });
+      expect(body).not.toHaveStyle({ overscrollBehavior: 'contain' });
     });
   });
 

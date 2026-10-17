@@ -357,6 +357,8 @@ Here is the [CodeSandbox for TypeScript](https://codesandbox.io/s/serene-platfor
 
 ## Semantic DOM
 
+`content` targets the container around the header and body in the default layout. When `scroll.y` or `sticky` is set, the header and body use separate containers: use `header.holder` for the outer header container and `body.holder` for the body scroll container. `body.holder` also targets the scroll container in virtual tables, including empty tables. These keys do not change the meaning of `header.wrapper` or `body.wrapper`, and do not apply to fixed summary containers.
+
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
