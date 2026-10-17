@@ -5,8 +5,10 @@ import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Popover from '../../popover';
+import Tag from '../../tag';
 
 const { Column, ColumnGroup } = Table;
 
@@ -231,6 +233,46 @@ describe('Table', () => {
       .forEach((td) => {
         expect((td.attributes as any).title).toBeTruthy();
       });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/5753
+  it('should ellipsis Button and Tag content in ellipsis cell', () => {
+    const longText = 'A very long text that does not fit into the column';
+    const { container } = render(
+      <Table
+        columns={[
+          {
+            title: 'Action',
+            key: 'action',
+            width: 100,
+            ellipsis: true,
+            render: () => <Button type="link">{longText}</Button>,
+          },
+          {
+            title: 'Tag',
+            key: 'tag',
+            width: 100,
+            ellipsis: true,
+            render: () => <Tag>{longText}</Tag>,
+          },
+        ]}
+        dataSource={[{ key: 1 }]}
+      />,
+    );
+
+    const button = container.querySelector<HTMLElement>('.ant-table-cell-ellipsis > .ant-btn')!;
+    expect(button).toHaveStyle({ maxWidth: '100%' });
+    expect(button.querySelector('span')).toHaveStyle({
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
+    });
+
+    expect(container.querySelector('.ant-table-cell-ellipsis > .ant-tag')).toHaveStyle({
+      maxWidth: '100%',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+    });
   });
 
   it('supports column align with per-column override and special columns', () => {
