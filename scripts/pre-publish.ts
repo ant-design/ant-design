@@ -7,6 +7,7 @@
  */
 
 import fs from 'node:fs';
+import path from 'node:path'; // AI Refactor Patch: Needed for safe zip extraction path validation with adm-zip 0.6.1.
 import runScript from '@npmcli/run-script';
 import { Octokit } from '@octokit/rest';
 import AdmZip from 'adm-zip';
@@ -84,10 +85,15 @@ async function downloadArtifact(msgKey: string, url: string, filepath: string, t
     headers,
     responseType: 'arraybuffer',
     onDownloadProgress: (progressEvent) => {
-      const { loaded, total = 0 } = progressEvent;
+      const loaded = typeof progressEvent.loaded === 'number' ? progressEvent.loaded : 0;
+      const total = typeof progressEvent.total === 'number' ? progressEvent.total : 0;
+
+      // AI Refactor Patch: Avoid division by zero/NaN with axios 1.18 hardened progress data. Guard total before computing percent.
+      const percent =
+        total > 0 ? `${((loaded / total) * 100).toFixed(2)}%` : 'unknown%';
 
       showMessage(
-        `下载进度 ${toMB(loaded)}MB/${toMB(total)}MB (${((loaded / total) * 100).toFixed(2)}%)`,
+        `下载进度 ${toMB(loaded)}MB/${total > 0 ? toMB(total) : '未知'}MB (${percent})`,
         true,
         msgKey,
       );
@@ -267,6 +273,45 @@ const runPrePublish = async () => {
   // unzip
   showMessage(`正在解压构建产物`, true);
   const zip = new AdmZip(firstArtifactFile);
+
+  // AI Refactor Patch: Limit total uncompressed size and validate entry paths to mitigate DoS/zip-slip patterns with adm-zip 0.6.1.
+  const root = path.resolve('./');
+  const entries = zip.getEntries();
+  const totalUncompressedSize = entries.reduce((sum, e) => {
+    // header.size is the uncompressed size per adm-zip typing
+    const size = e && e.header && typeof e.header.size === 'number' ? e.header.size : 0;
+    return sum + size;
+  }, 0);
+
+  // Set a conservative cap for artifacts; adjust as needed for your project.
+  const MAX_UNCOMPRESSED_BYTES = 500 * 1024 * 1024; // 500 MB
+  if (totalUncompressedSize > MAX_UNCOMPRESSED_BYTES) {
+    showMessage(
+      chalk.bgRedBright(
+        `解压中止：产物解压后预计大小 ${toMB(totalUncompressedSize)}MB 超出限制`,
+      ),
+      'fail',
+    );
+    process.exit(1);
+  }
+
+  const unsafeEntry = entries.find((e) => {
+    const entryName = e.entryName || '';
+    const resolved = path.resolve(root, entryName);
+    // Must stay within root and not be absolute or escape with ..
+    const withinRoot =
+      resolved === root || resolved.startsWith(root + path.sep) || resolved.startsWith(root + '/');
+    return !withinRoot;
+  });
+
+  if (unsafeEntry) {
+    showMessage(
+      chalk.bgRedBright(`解压中止：检测到不安全的路径 ${unsafeEntry.entryName}`),
+      'fail',
+    );
+    process.exit(1);
+  }
+
   zip.extractAllTo('./', true);
   showMessage(`成功解压构建产物`, 'succeed');
   await runScript({ event: 'test:dekko', path: '.', stdio: 'inherit' });
