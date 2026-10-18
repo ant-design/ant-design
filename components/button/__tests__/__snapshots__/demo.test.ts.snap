@@ -968,6 +968,7 @@ Array [
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Large"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -976,6 +977,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Large
@@ -988,6 +990,7 @@ Array [
         class="ant-radio-button"
       >
         <input
+          aria-label="Medium"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -995,6 +998,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Medium
@@ -1007,6 +1011,7 @@ Array [
         class="ant-radio-button"
       >
         <input
+          aria-label="Small"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1014,6 +1019,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Small
@@ -2587,6 +2593,7 @@ Array [
             class="ant-radio-button"
           >
             <input
+              aria-label="start"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -2594,6 +2601,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             start
@@ -2606,6 +2614,7 @@ Array [
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="end"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -2614,6 +2623,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             end
@@ -3569,6 +3579,7 @@ Array [
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Large"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -3577,6 +3588,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Large
@@ -3589,6 +3601,7 @@ Array [
         class="ant-radio-button"
       >
         <input
+          aria-label="Medium"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -3596,6 +3609,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Medium
@@ -3608,6 +3622,7 @@ Array [
         class="ant-radio-button"
       >
         <input
+          aria-label="Small"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -3615,6 +3630,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Small
