@@ -7596,7 +7596,7 @@ exports[`renders components/tabs/demo/style-class.tsx extend context correctly 1
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
             data-node-key="1"
-            style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
+            style="font-weight: 700; color: rgb(24, 144, 255); padding: 6px 10px;"
           >
             <div
               aria-controls="rc-tabs-test-panel-1"
@@ -7612,7 +7612,7 @@ exports[`renders components/tabs/demo/style-class.tsx extend context correctly 1
           <div
             class="ant-tabs-tab"
             data-node-key="2"
-            style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
+            style="font-weight: 700; color: rgb(24, 144, 255); padding: 6px 10px;"
           >
             <div
               aria-controls="rc-tabs-test-panel-2"
@@ -7628,7 +7628,7 @@ exports[`renders components/tabs/demo/style-class.tsx extend context correctly 1
           <div
             class="ant-tabs-tab"
             data-node-key="3"
-            style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
+            style="font-weight: 700; color: rgb(24, 144, 255); padding: 6px 10px;"
           >
             <div
               aria-controls="rc-tabs-test-panel-3"

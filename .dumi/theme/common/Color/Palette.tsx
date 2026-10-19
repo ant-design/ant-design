@@ -80,7 +80,7 @@ const Palette: React.FC<PaletteProps> = (props) => {
         className={`main-color-item palette-${name}-${i + 1}`}
         style={{
           color: (name === 'yellow' ? i > 6 : i > 5) ? firstColor : lastColor,
-          fontWeight: i === 6 ? 'bold' : 'normal',
+          fontWeight: i === 6 ? 700 : 400,
           backgroundColor: defaultBgStyle,
           cursor: 'pointer',
         }}

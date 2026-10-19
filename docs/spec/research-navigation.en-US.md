@@ -314,7 +314,6 @@ To test the quality of the navigation system, conduct a stress test: parachute i
 
 - [Alibaba Cloud - Console Navigation System](https://xconsole.aliyun-inc.com/spec/hxzewz)
 - [Material Design Navigation](https://material.io/design/navigation/understanding-navigation.html#)
-- [Predix Navigation](https://www.predix-ui.com/#/design/foundation/navigation)
 - [Windows - UWP Navigation Design Basics](https://docs.microsoft.com/zh-cn/windows/uwp/design/basics/navigation-basics)
 - [When You Should Use a Breadcrumb Navigation?](https://uxmovement.com/navigation/when-you-should-use-a-breadcrumb-navigation/)
 - [Books: "Information Architecture for the World Wide Web" - Navigation Systems](https://www.oreilly.com/library/view/information-architecture-for/0596527349)

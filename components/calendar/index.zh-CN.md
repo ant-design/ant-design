@@ -81,7 +81,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 
 ### 为什么时间类组件的国际化 locale 设置不生效？ {#faq-locale-not-working}
 
-参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效)。
+参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#date-locale-not-working)。
 
 ### 如何仅获取来自面板点击的日期？ {#faq-get-date-panel-click}
 

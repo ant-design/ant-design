@@ -188,6 +188,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     actions,
     component,
     title,
+    onClick,
     onMouseEnter,
     onMouseLeave,
     ...restProps
@@ -462,7 +463,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           aria-label={ariaLabel}
           tabIndex={tabIndex}
         >
-          {icon || <EditOutlined role="button" />}
+          {icon || <EditOutlined />}
         </button>
       </Tooltip>
     ) : null;
@@ -570,7 +571,12 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             component={component}
             ref={composeRef(resizeRef, typographyRef, ref)}
             direction={direction}
-            onClick={triggerType.includes('text') ? onEditClick : undefined}
+            onClick={(e) => {
+              if (triggerType.includes('text')) {
+                onEditClick(e);
+              }
+              onClick?.(e);
+            }}
             aria-label={topAriaLabel?.toString()}
             title={title}
             {...textProps}

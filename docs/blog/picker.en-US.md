@@ -10,7 +10,7 @@ In antd, there are many question about DatePicker. One is due to the commonality
 
 As its name suggests, `disabledDate` is used to disable dates. So when using DateTimePicker, the time part is not controlled by `disabledDate`. Instead, it needs to be controlled through the `disabledTime` method. This seems a bit counterintuitive. Why do antd need two APIs to manage it?
 
-#### How to determine if a date can be selected?
+#### How to determine if a date can be selected? {#check-if-date-is-selectable}
 
 In terms of intuition, we only need to execute `disabledDate` once for a date to determine if it is disabled. However, if we switch the panel to the month panel, how do we know if the current month is selectable? We must execute `disabledDate` for each date in that month to determine if there are selectable dates in that month, so that month can be selected.
 

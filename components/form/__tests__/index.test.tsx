@@ -327,6 +327,22 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item-explain')?.id).toBe('test_help');
   });
 
+  it('input element should have the prop aria-describedby pointing to the help id when there are warnings', async () => {
+    const { container } = pureRender(
+      <Form>
+        <Form.Item name="test" rules={[{ len: 3, warningOnly: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    await changeValue(0, 'Invalid number');
+
+    expect(container.querySelector('.ant-form-item-explain-warning')).toBeTruthy();
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe('test_help');
+    expect(container.querySelector('.ant-form-item-explain')?.id).toBe('test_help');
+  });
+
   it('input element should have the prop aria-invalid when there are errors', async () => {
     const { container } = render(
       <Form>
@@ -1884,6 +1900,26 @@ describe('Form', () => {
 
       expect(screen.getByText('姓名')).toHaveClass('ant-form-item-no-colon');
     });
+
+    it('should only strip a trailing colon from string label', () => {
+      render(
+        <Form>
+          <Form.Item label="Name:" name="name">
+            <Input />
+          </Form.Item>
+          <Form.Item label="姓名：" name="cnName">
+            <Input />
+          </Form.Item>
+          <Form.Item label="A|B|" name="pipe">
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(screen.getByText('Name')).toBeInTheDocument();
+      expect(screen.getByText('姓名')).toBeInTheDocument();
+      expect(screen.getByText('A|B|')).toBeInTheDocument();
+    });
   });
 
   it('useFormInstance', () => {
@@ -2039,6 +2075,37 @@ describe('Form', () => {
     expect(container.querySelector('.custom-popup-input')).not.toHaveClass(
       'ant-input-status-error',
     );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/52581
+  it('should not affect popupRender children style of Select-like components', () => {
+    const renderPopup = (className: string) => (menu: React.ReactElement) => (
+      <>
+        {menu}
+        <Input className={className} />
+      </>
+    );
+    const { container } = render(
+      <Form>
+        <Form.Item validateStatus="error" hasFeedback>
+          <Select open options={[]} popupRender={renderPopup('select-popup-input')} />
+        </Form.Item>
+        <Form.Item validateStatus="error" hasFeedback>
+          <TreeSelect open treeData={[]} popupRender={renderPopup('tree-select-popup-input')} />
+        </Form.Item>
+        <Form.Item validateStatus="error" hasFeedback>
+          <Cascader open options={[]} popupRender={renderPopup('cascader-popup-input')} />
+        </Form.Item>
+      </Form>,
+      { container: document.body },
+    );
+
+    ['select-popup-input', 'tree-select-popup-input', 'cascader-popup-input'].forEach((cls) => {
+      const input = container.querySelector(`.${cls}`);
+      expect(input).toBeTruthy();
+      expect(input).not.toHaveClass('ant-input-status-error');
+      expect(input?.parentElement?.querySelector('.ant-form-item-feedback-icon')).toBeFalsy();
+    });
   });
 
   // eslint-disable-next-line jest/no-disabled-tests

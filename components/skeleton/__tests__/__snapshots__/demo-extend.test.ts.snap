@@ -716,118 +716,134 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-list ant-list-vertical ant-list-lg ant-list-split css-var-test-id"
+    class="ant-listy css-var-test-id ant-listy-css-var"
+    style="overflow-anchor: none;"
   >
     <div
-      aria-busy="false"
-      aria-live="polite"
-      class="ant-spin css-var-test-id"
+      class="ant-listy-item"
+      data-key="item:ant design part 1"
+      style="padding: 16px 24px;"
     >
       <div
-        class="ant-spin-container"
+        class="ant-flex css-var-test-id ant-flex-gap-large"
       >
-        <ul
-          class="ant-list-items ant-list-container css-var-test-id"
+        <div
+          class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+          style="min-width: 0; flex: 1 1 auto;"
         >
-          <li
-            class="ant-list-item ant-list-item-no-flex"
+          <div
+            class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active css-var-test-id"
           >
             <div
-              class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active css-var-test-id"
+              class="ant-skeleton-header"
             >
-              <div
-                class="ant-skeleton-header"
-              >
-                <span
-                  class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
-                />
-              </div>
-              <div
-                class="ant-skeleton-section"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 50%;"
-                />
-                <ul
-                  class="ant-skeleton-paragraph"
-                >
-                  <li />
-                  <li />
-                </ul>
-              </div>
+              <span
+                class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+              />
             </div>
-          </li>
-          <li
-            class="ant-list-item ant-list-item-no-flex"
+            <div
+              class="ant-skeleton-section"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 50%;"
+              />
+              <ul
+                class="ant-skeleton-paragraph"
+              >
+                <li />
+                <li />
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-listy-item"
+      data-key="item:ant design part 2"
+      style="padding: 16px 24px;"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-gap-large"
+      >
+        <div
+          class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+          style="min-width: 0; flex: 1 1 auto;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active css-var-test-id"
           >
             <div
-              class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active css-var-test-id"
+              class="ant-skeleton-header"
             >
-              <div
-                class="ant-skeleton-header"
-              >
-                <span
-                  class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
-                />
-              </div>
-              <div
-                class="ant-skeleton-section"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 50%;"
-                />
-                <ul
-                  class="ant-skeleton-paragraph"
-                >
-                  <li />
-                  <li />
-                </ul>
-              </div>
+              <span
+                class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+              />
             </div>
-          </li>
-          <li
-            class="ant-list-item ant-list-item-no-flex"
+            <div
+              class="ant-skeleton-section"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 50%;"
+              />
+              <ul
+                class="ant-skeleton-paragraph"
+              >
+                <li />
+                <li />
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-listy-item"
+      data-key="item:ant design part 3"
+      style="padding: 16px 24px;"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-gap-large"
+      >
+        <div
+          class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+          style="min-width: 0; flex: 1 1 auto;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active css-var-test-id"
           >
             <div
-              class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active css-var-test-id"
+              class="ant-skeleton-header"
             >
-              <div
-                class="ant-skeleton-header"
-              >
-                <span
-                  class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
-                />
-              </div>
-              <div
-                class="ant-skeleton-section"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 50%;"
-                />
-                <ul
-                  class="ant-skeleton-paragraph"
-                >
-                  <li />
-                  <li />
-                </ul>
-              </div>
+              <span
+                class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+              />
             </div>
-          </li>
-        </ul>
+            <div
+              class="ant-skeleton-section"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 50%;"
+              />
+              <ul
+                class="ant-skeleton-paragraph"
+              >
+                <li />
+                <li />
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>,
 ]
 `;
 
-exports[`renders components/skeleton/demo/list.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: List] The \`List\` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use \`Listy\` instead.",
-]
-`;
+exports[`renders components/skeleton/demo/list.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/skeleton/demo/style-class.tsx extend context correctly 1`] = `
 <div

@@ -68,7 +68,7 @@ const genInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         // Header
         '&-title': {
-          fontWeight: 'normal',
+          fontWeight: 400,
           whiteSpace: 'nowrap',
         },
         '&-content': {

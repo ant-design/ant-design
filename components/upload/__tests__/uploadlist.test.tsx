@@ -831,6 +831,18 @@ describe('Upload List', () => {
     unmount2();
   });
 
+  it('should render numeric 0 extra', () => {
+    const { container: wrapper } = render(
+      <Upload defaultFileList={fileList} showUploadList={{ extra: 0 }} />,
+    );
+    expect(wrapper.querySelector('.ant-upload-list-item-extra')?.textContent).toBe('0');
+
+    const { container: wrapper2 } = render(
+      <Upload defaultFileList={fileList} showUploadList={{ extra: () => 0 }} />,
+    );
+    expect(wrapper2.querySelector('.ant-upload-list-item-extra')?.textContent).toBe('0');
+  });
+
   // https://github.com/ant-design/ant-design/issues/7762
   it('work with form validation', async () => {
     let formRef: FormInstance;

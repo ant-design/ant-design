@@ -25,7 +25,7 @@ The first level navigation is left aligned near a logo, and the secondary menu i
 - When the current navigation item is collapsed, the style of the current navigation item is applied to its parent level;
 - The left side navigation bar has support for both the accordion and expanding styles; you can choose the one that fits your case the best.
 
-## Visualization rules
+### Visualization rules
 
 Style of a navigation should conform to its level.
 

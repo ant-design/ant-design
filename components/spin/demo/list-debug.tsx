@@ -1,11 +1,17 @@
 import React from 'react';
-import { List, Spin } from 'antd';
+import { Flex, Spin } from 'antd';
 
 const App: React.FC = () => (
-  <List
-    dataSource={['Apple', 'Banana']}
-    renderItem={(item) => <List.Item extra={<Spin size="small" />}>{item}</List.Item>}
-  />
+  <Spin spinning={false}>
+    <Flex vertical gap="small">
+      {['Apple', 'Banana'].map((item) => (
+        <Flex key={item} justify="space-between" align="center">
+          {item}
+          <Spin size="small" />
+        </Flex>
+      ))}
+    </Flex>
+  </Spin>
 );
 
 export default App;

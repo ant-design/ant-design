@@ -9,7 +9,7 @@ title: 重复
 
 ---
 
-## 重复元素
+## 重复元素 {#repetitive-elements}
 
 <ImagePreview>
 <img class="preview-img" alt="线框重复示例" src="https://gw.alipayobjects.com/zos/rmsportal/VkUeJYlTTseLCyUGeXZV.png">

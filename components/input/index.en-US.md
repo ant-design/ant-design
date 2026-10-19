@@ -24,7 +24,6 @@ demo:
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/addon.tsx" debug>Pre / Post tab</code>
 <code src="./demo/compact-style.tsx">Compact Style</code>
-<code src="./demo/group.tsx" debug>Input Group</code>
 <code src="./demo/search-input.tsx">Search box</code>
 <code src="./demo/search-input-loading.tsx">Search box with loading</code>
 <code src="./demo/textarea.tsx">TextArea</code>

@@ -177,6 +177,7 @@ const genNotificationListContentStyle: GenerateStyle<NotificationToken, CSSObjec
       width: '100%',
       willChange: 'height, transform',
       transition: 'none',
+      pointerEvents: 'auto',
 
       [`&${listContentCls}-decrease`]: {
         transition: `height calc(${motionDurationSlow} * 2) ${motionEaseInOut} ${motionDurationMid}`,
@@ -241,7 +242,6 @@ const genNotificationListStyle = <Token extends NotificationToken>(
         overflowY: 'auto',
         overscrollBehavior: 'contain',
         scrollbarWidth: 'none',
-        msOverflowStyle: 'none',
         pointerEvents: 'none',
 
         '&::-webkit-scrollbar': {

@@ -367,6 +367,16 @@ describe('Progress', () => {
     });
   });
 
+  it('should support string width in `size` for line progress', () => {
+    const { container } = render(<Progress percent={50} size={['50%', 20]} />);
+    expect(container.querySelector('.ant-progress-line .ant-progress-body')).toHaveStyle({
+      width: '50%',
+    });
+    expect(container.querySelector('.ant-progress-line .ant-progress-rail')).toHaveStyle({
+      height: '20px',
+    });
+  });
+
   it('no strict warning', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { rerender } = render(

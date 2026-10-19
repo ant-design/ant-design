@@ -3,12 +3,12 @@ import React from 'react';
 import Collapse from '..';
 import type { CollapseProps } from '..';
 import type { GetProp } from '../../_util/type';
-import { render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import {
   expectSemanticRootStylePriority,
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
+import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Collapse.Semantic', () => {
   it('should support styles and classNames', () => {
@@ -68,7 +68,7 @@ describe('Collapse.Semantic', () => {
     const fnStyles: GetProp<CollapseProps, 'styles'> = ({ props }) => ({
       root: { borderWidth: props.ghost ? '0px' : '1px' },
       header: { fontSize: props.size === 'large' ? '18px' : '14px' },
-      title: { fontWeight: props.size === 'large' ? 'bold' : 'normal' },
+      title: { fontWeight: props.size === 'large' ? 700 : 400 },
       body: { padding: props.size === 'small' ? '8px' : '16px' },
       icon: { transform: props.expandIconPlacement === 'end' ? 'rotate(90deg)' : 'none' },
     });
@@ -101,7 +101,7 @@ describe('Collapse.Semantic', () => {
     // check function-based styles
     expect(rootElement).toHaveStyle({ borderWidth: '0px' });
     expect(headerElement).toHaveStyle({ fontSize: '18px' });
-    expect(titleElement).toHaveStyle({ fontWeight: 'bold' });
+    expect(titleElement).toHaveStyle({ fontWeight: 700 });
     expect(bodyElement).toHaveStyle({ padding: '16px' });
     expect(iconElement).toHaveStyle({ transform: 'rotate(90deg)' });
   });

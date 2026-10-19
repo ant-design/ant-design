@@ -62,7 +62,7 @@ const genBaseStyle: GenerateStyle<PopconfirmToken, CSSObject> = (token) => {
           color: colorTextHeading,
 
           '&:only-child': {
-            fontWeight: 'normal',
+            fontWeight: 400,
           },
         },
 

@@ -112,7 +112,7 @@ type DisabledTime = (now: Dayjs) => {
 | blur()  | 移除焦点 |      |
 | focus() | 获取焦点 |      |
 
-## RangePicker
+### RangePicker
 
 属性与 DatePicker 的 [RangePicker](/components/date-picker#rangepicker) 相同。还包含以下属性：
 

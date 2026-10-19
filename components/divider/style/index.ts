@@ -196,7 +196,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken, CSSObject> = (token) =>
 
       [`&-plain${componentCls}-with-text`]: {
         color: token.colorText,
-        fontWeight: 'normal',
+        fontWeight: 400,
         fontSize: token.fontSize,
       },
 

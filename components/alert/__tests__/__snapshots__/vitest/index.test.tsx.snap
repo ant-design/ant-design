@@ -52,7 +52,6 @@ exports[`Alert > custom action 1`] = `
   </div>
   <button
     class="ant-alert-close-icon"
-    tabindex="0"
     type="button"
   >
     <span

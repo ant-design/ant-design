@@ -33,7 +33,7 @@ const Demo = () => (
 export default Demo;
 ```
 
-## Encapsulating Aggregate Field Components
+## Encapsulating Aggregate Field Components {#aggregate-field-components}
 
 When the form is relatively simple, it's manageable, but when encountering a `Form.List` scenario, it becomes necessary to process the values using `map`, which can become quite complex. Therefore, we need to encapsulate an aggregated field component to enable a single `Form.Item` to handle multiple `name` attributes.
 

@@ -22,14 +22,14 @@ const mockData = Array.from({ length: 20 }).map<any>((_, i) => ({
 const initialTargetKeys = mockData.filter((item) => Number(item.key) > 10).map((item) => item.key);
 
 const stylesObject: TransferProps['styles'] = {
-  header: { fontWeight: 'bold' },
+  header: { fontWeight: 700 },
 };
 
 const stylesFn: TransferProps['styles'] = (info): GetProp<TransferProps, 'styles', 'Return'> => {
   if (info.props.status === 'warning') {
     return {
       section: { backgroundColor: 'rgba(246,255,237, 0.6)', borderColor: '#b7eb8f' },
-      header: { color: '#8DBCC7', fontWeight: 'normal' },
+      header: { color: '#8DBCC7', fontWeight: 400 },
     };
   }
   return {};

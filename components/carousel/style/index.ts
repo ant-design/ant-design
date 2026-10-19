@@ -447,15 +447,6 @@ const genCarouselRtlStyle: GenerateStyle<CarouselToken> = (token) => {
         direction: 'rtl',
       },
     },
-    {
-      [`${componentCls}-vertical`]: {
-        '.slick-dots': {
-          [`${componentCls}-rtl&`]: {
-            flexDirection: 'column',
-          },
-        },
-      },
-    },
   ];
 };
 

@@ -187,7 +187,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     if (notFoundContent !== undefined) {
       return notFoundContent;
     }
-    return renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
+    return renderEmpty?.('Mentions') || <DefaultRenderEmpty componentName="Mentions" />;
   }, [notFoundContent, renderEmpty]);
 
   const mentionOptions = React.useMemo<React.ReactNode>(() => {

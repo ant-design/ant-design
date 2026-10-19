@@ -82,7 +82,7 @@ const DrawerNode = (
 const h1Style: React.CSSProperties = {
   fontSize: 20,
   lineHeight: 2,
-  fontWeight: 'bold',
+  fontWeight: 700,
 };
 
 const Demo: React.FC = () => {

@@ -124,6 +124,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     classNames,
     popupMatchSelectWidth,
     dropdownMatchSelectWidth,
+    allowClear,
   } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 
@@ -274,6 +275,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
         'popupClassName',
         'onDropdownVisibleChange',
         'onOpenChange',
+        'allowClear',
       ])}
       prefixCls={prefixCls}
       classNames={finalClassNames}
@@ -282,6 +284,8 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       popupRender={mergedPopupRender}
       onOpenChange={mergedOnOpenChange}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
+      // Keep AutoComplete's default `false` instead of inheriting ConfigProvider `select.allowClear`.
+      allowClear={allowClear ?? false}
       {...{
         // Internal api
         getInputElement,

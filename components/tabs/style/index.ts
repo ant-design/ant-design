@@ -353,7 +353,7 @@ const genDropdownStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
           margin: 0,
           padding: `${unit(token.paddingXXS)} ${unit(token.paddingSM)}`,
           color: token.colorText,
-          fontWeight: 'normal',
+          fontWeight: 400,
           fontSize: token.fontSize,
           lineHeight: token.lineHeight,
           cursor: 'pointer',

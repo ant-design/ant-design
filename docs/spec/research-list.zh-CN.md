@@ -9,11 +9,11 @@ title: 列表页
 
 ---
 
-## 设计目标
+## 设计目标 {#design-goals}
 
 帮助用户更高效地查看、处理、查找条目。
 
-## 设计原则
+## 设计原则 {#design-principles}
 
 <div class="design-inline-cards">
   <div>
@@ -32,11 +32,11 @@ title: 列表页
   </div>
 </div>
 
-## 如何设计
+## 如何设计 {#how-to-design}
 
-### 基础布局
+### 基础布局 {#basic-layout}
 
-#### 单列布局
+#### 单列布局 {#single-column-layout}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*c0iNQIBusPMAAAAAAAAAAABkARQnAQ">
@@ -44,7 +44,7 @@ title: 列表页
 
 从上往下堆叠，数据过滤模块在最上方，过滤数据后，用户再由总体到具体的浏览逻辑理解和分析。
 
-#### 双栏布局
+#### 双栏布局 {#two-column-layout}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*h8MsSr8UXCEAAAAAAAAAAABkARQnAQ">
@@ -52,7 +52,7 @@ title: 列表页
 
 将数据过滤模块放置在侧栏，当过滤条件过多，横向空间充裕时使用。
 
-#### [模板 - 查询表格](https://preview.pro.ant.design/list/table-list)
+#### [模板 - 查询表格](https://preview.pro.ant.design/list/table-list) {#template-query-table}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uAGRTY5EMvIAAAAAAAAAAABkARQnAQ">
@@ -62,7 +62,7 @@ title: 列表页
 
 每个条目都需要露出很多字段；用户在搜寻条目时有准确的查询范围时使用。
 
-#### 模板 - 标准列表
+#### 模板 - 标准列表 {#template---standard-list}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3KMbRrbjvzkAAAAAAAAAAABkARQnAQ">
@@ -72,7 +72,7 @@ title: 列表页
 
 提供每个条目的概览信息，点击列表可导航至条目详情。页面内常提供统计功能，供用户了解总体进展。可作为简易版的工作台使用。
 
-#### [模板 - 卡片列表](https://preview.pro.ant.design/list/card-list)
+#### [模板 - 卡片列表](https://preview.pro.ant.design/list/card-list) {#template-card-list}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*coEVT7uElCUAAAAAAAAAAABkARQnAQ">
@@ -82,7 +82,7 @@ title: 列表页
 
 用户无需以特定顺序浏览条目，将每个条目以富有吸引力的方式呈现。
 
-#### 模板 - 搜索列表
+#### 模板 - 搜索列表 {#template---search-list}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*yW4QQKNi_0QAAAAAAAAAAABkARQnAQ">
@@ -96,7 +96,7 @@ title: 列表页
 
 筛选、搜索
 
-#### 模板 - 成员管理
+#### 模板 - 成员管理 {#template---member-management}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*aJxDR6oP19gAAAAAAAAAAABkARQnAQ">
@@ -110,9 +110,9 @@ title: 列表页
 
 筛选、删除等
 
-## 设计建议
+## 设计建议 {#design-suggestions}
 
-#### 批量操作
+#### 批量操作 {#batch-operations}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NvPKR5HZQ9MAAAAAAAAAAABkARQnAQ">
@@ -120,9 +120,9 @@ title: 列表页
 
 页级的批量操作影响整个页面，可布置于页底。
 
-## 扩展阅读
+## 扩展阅读 {#further-reading}
 
-#### 外部参考文章
+#### 外部参考文章 {#external-reference-articles}
 
 - [Canvas 筛选器](https://canvas.hubspot.com/patterns/filters)
 - [Canvas 搜索](https://canvas.hubspot.com/patterns/search)

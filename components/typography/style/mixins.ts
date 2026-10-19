@@ -261,7 +261,7 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
         insetBlockEnd: token.marginXS,
         color: token.colorIcon,
         // default style
-        fontWeight: 'normal',
+        fontWeight: 400,
         fontSize: token.fontSize,
         fontStyle: 'normal',
         pointerEvents: 'none',

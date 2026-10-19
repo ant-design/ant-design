@@ -80,7 +80,7 @@ See [How to set locale for date-related components](/components/date-picker/#loc
 
 ### Date-related components locale is not working? {#faq-locale-not-working}
 
-See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
+See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-locale-not-working)
 
 ### How to get date from panel click? {#faq-get-date-panel-click}
 

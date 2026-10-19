@@ -351,7 +351,7 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
         'th, td': {
           position: 'relative',
           minWidth: cellHeight,
-          fontWeight: 'normal',
+          fontWeight: 400,
         },
 
         th: {

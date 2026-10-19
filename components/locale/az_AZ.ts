@@ -87,6 +87,10 @@ const localeValues: Locale = {
     expand: 'Genişləndir',
     collapse: 'Yığılma',
   },
+  Carousel: {
+    prevSlide: 'Əvvəlki slayd',
+    nextSlide: 'Növbəti slayd',
+  },
   Form: {
     optional: '（Seçimli）',
     defaultValidateMessages: {

@@ -110,6 +110,6 @@ const SomeComponent = ({ getContainer }) => {
 
 将 `getContainer` 放入 effect 管理后，我们可以更符合 React 生命周期的方式去管理节点，同时也可以在 `getContainer` 变化时进行清理。从而支持动态改变 `getContainer` 的场景（虽然我个人比较怀疑这种使用场景的普遍性）。
 
-## 最后
+## 最后 {#finally}
 
 由于修复了 `getContainer` 不支持动态改变的问题，它也引入了一个潜在的 breaking change。开发者如果自定义 `getContainer` 每次都是创建新的 DOM 节点时，它就会因为 effect 不断执行，导致节点不断创建而死循环。如果你使用了这种方式并且遇到了问题，需要注意检查。
