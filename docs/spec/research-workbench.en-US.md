@@ -78,7 +78,7 @@ Help; Empty State Guide.
 
 ### Design Suggestions
 
-#### Choose the Right Navigation Method
+#### Choose the Right Navigation Method {#choose-navigation-method}
 
 This type of page generally provides two types of navigation forms.<br/>
 
@@ -94,7 +94,7 @@ This type of page generally provides two types of navigation forms.<br/>
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*9nKdRJBAu8sAAAAAAAAAAABkARQnAQ">
 </div>
 
-#### Arrange Content by Usage Frequency
+#### Arrange Content by Usage Frequency {#arrange-content-by-frequency}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1tfiR5-xKUQAAAAAAAAAAABkARQnAQ">

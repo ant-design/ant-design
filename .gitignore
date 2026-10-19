@@ -31,7 +31,6 @@ report.html
 /locale
 elasticsearch-*
 config/base.yaml
-/.vscode/
 /coverage
 yarn.lock
 package-lock.json
@@ -75,7 +74,6 @@ __image_snapshots__/
 .node-version
 .node
 
-.env
 examples/
 .neocoder/
 .claude/*
@@ -87,3 +85,4 @@ docs/superpowers/
 # generated css
 components/style/antd.css
 .turbopack
+config.bat

@@ -16,7 +16,7 @@ type RateRef = React.ComponentRef<typeof RcRate>;
 type RcRateProps = React.ComponentPropsWithoutRef<typeof RcRate>;
 type RcCharacterRender = NonNullable<RcRateProps['characterRender']>;
 
-export interface RateProps extends RcRateProps {
+export interface RateProps extends Omit<RcRateProps, 'direction'> {
   rootClassName?: string;
   tooltips?: (TooltipProps | string)[];
   size?: SizeType;

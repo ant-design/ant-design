@@ -354,15 +354,6 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken, CSSObject> = (token) => {
           transition: `all ${token.motionDurationSlow} ${token.motionEaseOutBack}`,
           WebkitTransformStyle: 'preserve-3d',
           WebkitBackfaceVisibility: 'hidden',
-          [`> p${numberPrefixCls}-only-unit`]: {
-            height: indicatorHeight,
-            margin: 0,
-            WebkitTransformStyle: 'preserve-3d',
-            WebkitBackfaceVisibility: 'hidden',
-          },
-        },
-        [`${numberPrefixCls}-symbol`]: {
-          verticalAlign: 'top',
         },
       },
 

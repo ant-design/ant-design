@@ -86,6 +86,10 @@ const localeValues: Locale = {
     expand: 'Stækkaðu',
     collapse: 'Hrun',
   },
+  Carousel: {
+    prevSlide: 'Fyrri skyggna',
+    nextSlide: 'Næsta skyggna',
+  },
   Form: {
     optional: '（Valfrjálst）',
     defaultValidateMessages: {

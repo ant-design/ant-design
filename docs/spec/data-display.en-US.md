@@ -18,7 +18,7 @@ The suitable way to display data helps users quickly locate and browse data, and
   <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/PetAXSByOolFbtmLazQz.png">
 </ImagePreview>
 
-The table is recognized as one of the clearest and most efficient forms of presentation data. It is often used in conjunction with other interface elements such as sorting, searching, filtering, and paging, and is suitable for information collection and display, data analysis and induction, and manipulation of structured data. It's structure is simple, it's separation and induction are clear, the information is easier to compare, and the user's receiving efficiency and understanding of the information is greatly improved.
+The table is recognized as one of the clearest and most efficient forms of presentation data. It is often used in conjunction with other interface elements such as sorting, searching, filtering, and paging, and is suitable for information collection and display, data analysis and induction, and manipulation of structured data. Its structure is simple, its separation and induction are clear, the information is easier to compare, and the user's receiving efficiency and understanding of the information is greatly improved.
 
 > Note:
 >

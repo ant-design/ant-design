@@ -88,6 +88,10 @@ const localeValues: Locale = {
     expand: 'விரிவாக்கவும்',
     collapse: 'சுருக்கு',
   },
+  Carousel: {
+    prevSlide: 'முந்தைய ஸ்லைடு',
+    nextSlide: 'அடுத்த ஸ்லைடு',
+  },
   Form: {
     optional: '(optional)',
     defaultValidateMessages: {

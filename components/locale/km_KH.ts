@@ -86,6 +86,10 @@ const localeValues: Locale = {
     expand: 'ពង្រីក',
     collapse: 'ដួលរលំ',
   },
+  Carousel: {
+    prevSlide: 'ស្លាយមុន',
+    nextSlide: 'ស្លាយបន្ទាប់',
+  },
   Form: {
     optional: '(ស្រេចចិត្ត)',
     defaultValidateMessages: {

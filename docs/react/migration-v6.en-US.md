@@ -28,7 +28,7 @@ yarn add antd@6
 pnpm add antd@6
 ```
 
-## What incompatible changes are in v6
+## What incompatible changes are in v6 {#v6-incompatible-changes}
 
 ### React version support
 
@@ -351,7 +351,7 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `bordered` is deprecated and replaced by `variant`.
   - `showArrow` is deprecated and will become default behavior; set `suffixIcon` to `null` to hide.
 
-### Overlay components (Modal, Drawer, etc.)
+### Overlay components (Modal, Drawer, etc.) {#overlay-components}
 
 - v6 introduces the `mask` overlay option and supports a blur effect.
 - v6.0.0 – v6.2.x enabled blur by default; starting from v6.3.0, **blur is disabled by default**. To enable blur:
@@ -404,7 +404,7 @@ export default () => (
 
 If you only need the old spacing in specific areas, prefer local container overrides instead of global configuration to avoid unintended impact elsewhere.
 
-### Form `onFinish` no longer includes all data from Form.List
+### Form `onFinish` no longer includes all data from Form.List {#onfinish-excludes-formlist-data}
 
 In v5, Form.List was treated as a single Field, causing `onFinish` to include all data within the Form.List structure, even for items without a registered Form.Item. In v6, Form.List no longer includes data from unregistered child items. Therefore, you no longer need to use `getFieldsValue({ strict: true })` to filter out unregistered fields.
 
@@ -450,7 +450,7 @@ v6 progressively unified component `size` enums to `'large' | 'medium' | 'small'
 - CSS variables are enabled by default and only modern browsers are supported.
 - IE is no longer supported. Some older domestic browsers may have compatibility issues — please verify target browsers before shipping your app.
 
-### Atomic Migration: Install v6 via Package Alias
+### Atomic Migration: Install v6 via Package Alias {#atomic-migration-via-alias}
 
 - If you need to limit the migration's impact, you can try an [atomic migration](https://github.com/ant-design/ant-design/discussions/55957). Please note that this is not the recommended upgrade path.
 

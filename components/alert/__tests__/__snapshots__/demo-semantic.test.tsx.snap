@@ -79,7 +79,6 @@ exports[`renders components/alert/demo/_semantic.tsx correctly 1`] = `
         </div>
         <button
           class="ant-alert-close-icon semantic-mark-close"
-          tabindex="0"
           type="button"
         >
           <span

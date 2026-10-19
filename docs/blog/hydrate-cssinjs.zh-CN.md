@@ -6,7 +6,7 @@ author: zombieJ
 
 众所周知，antd v5 使用了 CSS-in-JS 技术从而支持混合、动态样式的需求。相对的它需要在运行时生成样式，这会造成一定的性能损耗。因此我们研发了组件库级别的 `@ant-design/cssinjs` 库，通过一定的约束提升缓存效率，从而达到性能优化的目的。不过我们并不止步于此。我们可以通过一些逻辑，直接跳过运行时生成样式的阶段。
 
-## 动态样式去哪儿了？
+## 动态样式去哪儿了？ {#where-is-the-dynamic-style}
 
 如果你研究过 Ant Design 的官网，你会发现 Ant Design 的组件并没有动态插入 `<style />` 来控制样式，而是通过 CSS 文件来控制样式：
 
@@ -22,7 +22,7 @@ author: zombieJ
 
 等等！CSS-in-JS 不是需要在运行时生成样式的 hash 然后通过 `<style />` 进行对齐的么？为什么 css 文件也可以对齐？不用着急，我们慢慢看。
 
-## CSS-in-JS 注水
+## CSS-in-JS 注水 {#css-in-js-hydration}
 
 应用级的 CSS-in-JS 方案会对生成的样式计算出 hash 值，并且将其存入 Cache 中。当下次渲染时，会先从 Cache 中查找是否存在对应的样式，如果存在则直接使用，否则再生成一次。这样就可以避免重复生成样式，从而提升性能。
 
@@ -32,7 +32,7 @@ author: zombieJ
 
 你可以发现，虽然 `<style />` 的节点创建可以省略，但是因为 hash 依赖于计算出的样式内容。所以即便页面中已经有可以复用的样式内容，它仍然免不了需要计算一次。实属不划算。
 
-## 组件级 CSS-in-JS
+## 组件级 CSS-in-JS {#component-level-css-in-js}
 
 在 [组件级别的 CSS-in-JS](/docs/blog/css-in-js) 一文中，我们提过。Ant Design 的 Cache 机制并不需要计算出完整的样式。对于组件库而言，只要通过 Token 和 ComponentName 就可以确定生成样式一致性，所以我们可以提前计算出 hash 值：
 
@@ -117,6 +117,6 @@ const { content } = getComputedStyle(measure);
 }
 ```
 
-## 总结
+## 总结 {#summary}
 
 CSS-in-JS 因为运行时的性能损耗而被人诟病。而在 Ant Design 中，如果你的应用使用了 SSR，那么在客户端侧就可以直接跳过运行时生成样式的阶段从而提升性能。当然，我们会继续跟进 CSS-in-JS 的发展，为你带来更好的体验。

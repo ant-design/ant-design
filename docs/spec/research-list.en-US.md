@@ -53,7 +53,7 @@ Stack from top to bottom, with the data filtering module at the top. After filte
 
 Place the data filtering module in the sidebar when there are many filtering conditions and ample horizontal space.
 
-#### [Template - Query Table](https://preview.pro.ant.design/list/table-list)
+#### [Template - Query Table](https://preview.pro.ant.design/list/table-list) {#template-query-table}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uAGRTY5EMvIAAAAAAAAAAABkARQnAQ">
@@ -73,7 +73,7 @@ When each entry needs to expose many fields; use when users have an accurate que
 
 Provide an overview of each entry, with navigation to entry details by clicking the list. The page often provides statistical functions for users to understand the overall progress. It can be used as a simplified version of a workbench.
 
-#### [Template - Card List](https://preview.pro.ant.design/list/card-list)
+#### [Template - Card List](https://preview.pro.ant.design/list/card-list) {#template-card-list}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*coEVT7uElCUAAAAAAAAAAABkARQnAQ">

@@ -87,6 +87,17 @@ export type ItemRender<T = any> = (
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
 
 type BeforeUploadValueType = void | boolean | string | Blob | File;
+type UploadRequestResult = ReturnType<NonNullable<RcUploadProps['customRequest']>>;
+
+type UploadCustomRequest<T, R> = (
+  options: RcCustomRequestOptions<T>,
+  info: {
+    /**
+     * @since 5.28.0
+     */
+    defaultRequest: (option: RcCustomRequestOptions<T>) => UploadRequestResult;
+  },
+) => R;
 
 export type UploadSemanticType = {
   classNames?: {
@@ -139,15 +150,7 @@ export interface UploadProps<T = any>
   style?: React.CSSProperties;
   disabled?: boolean;
   prefixCls?: string;
-  customRequest?: (
-    options: RcCustomRequestOptions<T>,
-    info: {
-      /**
-       * @since 5.28.0
-       */
-      defaultRequest: (option: RcCustomRequestOptions<T>) => void;
-    },
-  ) => void;
+  customRequest?: UploadCustomRequest<T, void> | UploadCustomRequest<T, UploadRequestResult>;
   withCredentials?: boolean;
   openFileDialogOnClick?: boolean;
   locale?: UploadLocale;

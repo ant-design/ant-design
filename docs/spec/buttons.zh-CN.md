@@ -5,43 +5,43 @@ order: 6
 title: 按钮
 ---
 
-## 设计目标
+## 设计目标 {#design-principal}
 
 - 指导用户采取你希望他们采取的行动。
 - 帮助用户避免犯错。
 
-## 类型
+## 类型 {#types}
 
-### 常规按钮
+### 常规按钮 {#common-button-types}
 
 <div>
   <img alt="buttons" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*wsXrT7yQH2MAAAAAAAAAAABkARQnAQ">
 </div>
 
-#### ① 次按钮
+#### ① 次按钮 {#default-button}
 
 常规按钮，用于非主要动作。如果不确定选择哪种按钮，次按钮永远是最安全的选择。
 
-#### ② 主按钮
+#### ② 主按钮 {#primary-button}
 
 突出“完成”、“推荐”类操作；一个按钮区最多使用一个主按钮。
 
-#### ③ 文字按钮
+#### ③ 文字按钮 {#text-button}
 
 弱化的按钮，采用更轻量的按钮样式，可用于需大面积展示按钮场景，例如表格组件中的操作列。
 
-#### ④ 图标按钮
+#### ④ 图标按钮 {#icon-button}
 
 图标提供视觉线索，避免逐字阅读按钮文案，更高效地使用界面。
 
 - 需要在较小的空间内展示尽量多的按钮。
 - 使用纯图标按钮必须有 Tooltip 提示按钮含义。
 
-#### ⑤ 在按钮中添加图标
+#### ⑤ 在按钮中添加图标 {#text-button-with-icon}
 
 用于对按钮含义补充解释，提高按钮识别效率。
 
-### 按钮强调
+### 按钮强调 {#emphasis}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*guusTZ6ZPxkAAAAAAAAAAABkARQnAQ">
@@ -61,9 +61,9 @@ title: 按钮
 <img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zBtTRq2xbTYAAAAAAAAAAABkARQnAQ" alt="错误示范" description="不要在按钮中放置两个图标。">
 </ImagePreview>
 
-### 特殊按钮
+### 特殊按钮 {#special-button-types}
 
-#### 虚线按钮  Dashed button
+#### 虚线按钮  Dashed button {#dashed-button}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*gPmNQ6_YCcoAAAAAAAAAAABkARQnAQ">
@@ -71,7 +71,7 @@ title: 按钮
 
 用于引导用户在一个区域中添加内容。
 
-#### 危险按钮 Danger button
+#### 危险按钮 Danger button {#danger-button}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*OvNaQJrmqVMAAAAAAAAAAABkARQnAQ">
@@ -87,7 +87,7 @@ title: 按钮
 
 警示用户该操作存在风险。
 
-#### 幽灵按钮 Ghost button
+#### 幽灵按钮 Ghost button {#ghost-button}
 
 置于复杂或较深的背景中，避免按钮突兀地破坏背景的整体性。该场景下可灵活定制样式。
 
@@ -95,7 +95,7 @@ title: 按钮
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*-wORTrNJ6YUAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-#### 行动号召按钮 Call to action
+#### 行动号召按钮 Call to action {#call-to-action}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*32zdRqTjDhYAAAAAAAAAAABkARQnAQ">
@@ -103,9 +103,9 @@ title: 按钮
 
 经常独立出现，行动号召按钮就像是电脑在对用户大声说“跟我来吧”，有点命令用户点击的意味，通常出现于 landing page 或者 一些引导性场景。最大可以将按钮放宽到与父区域等宽。一个屏幕空间中，建议只有一个行动号召按钮。
 
-## 位置
+## 位置 {#placement}
 
-### 按钮区
+### 按钮区 {#button-area}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://img.alicdn.com/imgextra/i1/O1CN01Wd9Dbh1z6A5MQwEnh_!!6000000006664-2-tps-930-290.png">
@@ -113,7 +113,7 @@ title: 按钮
 
 按钮区是用于放置按钮的区域，一个按钮区内可以有多个按钮。
 
-### 跟随内容的按钮区
+### 跟随内容的按钮区 {#inline-button-area}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://img.alicdn.com/imgextra/i4/O1CN01OVOv5G27z8YLYdWED_!!6000000007867-2-tps-928-342.png">
@@ -121,7 +121,7 @@ title: 按钮
 
 按钮区跟随受控内容。将按钮区放置于用户浏览路径中，便于被用户发现。
 
-### 工具栏中的按钮区
+### 工具栏中的按钮区 {#toolbar-button-area}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://img.alicdn.com/imgextra/i2/O1CN01aAZHoi1uZrgx1C3zR_!!6000000006052-2-tps-928-332.png">
@@ -129,9 +129,9 @@ title: 按钮
 
 工具栏中的按钮区，靠右放置。控制工具栏控制的内容范围。
 
-### 如何确定按钮区的放置位置？
+### 如何确定按钮区的放置位置？ {#how-to-decide-button-placement}
 
-#### 页面/卡片/一组信息都能够呈现一个主题，主题的描述可以抽象为三个区域：
+#### 页面/卡片/一组信息都能够呈现一个主题，主题的描述可以抽象为三个区域： {#page-card-section-areas}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://img.alicdn.com/imgextra/i2/O1CN017b7PRO1TEnquClCYx_!!6000000002351-2-tps-928-622.png">
@@ -145,7 +145,7 @@ title: 按钮
 
 也存在一些特殊情况，将“完成”主题类的动作放在 Header 区。例如，编辑器中为了最大化编辑空间，将“完成”类动作放到了右上角。
 
-### 什么时候需要在 Footer 中放置按钮区？
+### 什么时候需要在 Footer 中放置按钮区？ {#buttons-in-the-footer}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KGGWQLCBfm0AAAAAAAAAAABkARQnAQ">
@@ -156,9 +156,9 @@ title: 按钮
 - 1）对象详情页，「推进」对象的进展，例如审批流「通过」「驳回」。
 - 2）异常复杂的表单页，表单的内容复杂到需要切分为多张卡片。
 
-## 按钮顺序
+## 按钮顺序 {#ordering}
 
-### 按钮顺序
+### 按钮顺序 {#button-ordering}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NcPDQI3IX8YAAAAAAAAAAABkARQnAQ">
@@ -171,7 +171,7 @@ title: 按钮
 - 对话习惯：按钮放置顺序类似于电脑和用户的对话，**优先询问用户可能需要执行的操作，或你希望用户执行的操作，最后向用户提供存在风险的操作**。
 - 方向性含义：例如，具有返回意义的按钮，应该放在左侧，暗示其方向是回到之前，例如上一步。
 
-### 按钮组
+### 按钮组 {#button-group}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tK-AQaE5h1YAAAAAAAAAAABkARQnAQ" alt="正确示范">
@@ -180,7 +180,7 @@ title: 按钮
 
 多个按钮形成一组时，将按钮排列在一起即可。
 
-### 有很多按钮组，如何确定顺序
+### 有很多按钮组，如何确定顺序 {#button-order-in-group}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://img.alicdn.com/imgextra/i1/O1CN010Q6SBR1vSMpV0jdjX_!!6000000006171-2-tps-928-466.png">
@@ -193,7 +193,7 @@ title: 按钮
 - 其他：刷新、分享、设置等；
 - 溢出：被折叠的操作，若进行响应式设计，从右往左折叠至溢出操作。
 
-### 按钮分组
+### 按钮分组 {#grouping-buttons}
 
 当需要布置的按钮数量过多，可以把相关的动作组成一组，并采用相似的视觉设计。当某一个按钮是首要动作时仍可使用主按钮强调。
 
@@ -212,7 +212,7 @@ title: 按钮
 
 **平铺每个按钮**：优先推荐通过间距来区隔分组，也可以使用分割线来区隔视觉相似的按钮组。
 
-## 文案
+## 文案 {#label}
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*33KsR66zTY8AAAAAAAAAAABkARQnAQ" alt="正确示范">

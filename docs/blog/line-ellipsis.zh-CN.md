@@ -21,7 +21,7 @@ Ant Design 的 Typography 组件提供了一个 `ellipsis` 属性，用于在文
 
 ![row ellipsis](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7tAJRZNqEnwAAAAAAAAAAAAADrJ8AQ/original)
 
-## CSS 的一些问题
+## CSS 的一些问题 {#some-issues-with-css}
 
 然而 CSS 实现也有限制，那就是不支持对省略符号的修改以及对附加操作按钮的支持（比如置于最后的 复制、编辑、展开 等按钮）。
 
@@ -33,7 +33,7 @@ Ant Design 的 Typography 组件提供了一个 `ellipsis` 属性，用于在文
 
 虽然有一些黑魔法手段可以通过诸如 `float` 样式来实现，但是这样的方式在不同的浏览器中需要做针对性处理。此外仍然无法解决自定义省略符号的问题。因而目前最好的实现方式仍然是通过 JS 来实现。
 
-## JS 实现
+## JS 实现 {#using-js}
 
 JS 中，我们通过二分法可以快速的找到文本的截断位置。只要根据 `rows` 推断出文本的高度，然后进行遍历，找到最大可以展示的文字数量即可：
 
@@ -66,7 +66,7 @@ JS 中，我们通过二分法可以快速的找到文本的截断位置。只�
 
 ![CSS Ellipsis](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*59FqR6h5K5UAAAAAAAAAAAAADrJ8AQ/original)
 
-## 混合测量
+## 混合测量 {#mixed-measurement}
 
 为了解决这个问题，我们可以通过混合测量的方式来解决。即通过 CSS 来测量原生多行省略的总高度，然后再通过 JS 进行二分法来确定文本的截断位置最终不要超过 CSS 测量的总高度：
 
@@ -91,7 +91,7 @@ if (walkingMeasureRef.current.clientHeight > cssHeight) {
 
 ![Mixed Line Height Ellipsis](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*IMv0ToSovTwAAAAAAAAAAAAADrJ8AQ/original)
 
-## 总结
+## 总结 {#summary}
 
 通过混合测量的方式，我们可以非常容易的利用 CSS 的准确性和 JS 的灵活性，实现即使在包含图片等不同行高元素的复杂内容中，也能实现准确的文本截断。
 

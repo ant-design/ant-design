@@ -49,7 +49,7 @@ interface StrProps {
 
 > A form control maxlength attribute, controlled by the dirty value flag, declares a limit on the number of characters a user can input.
 
-### “多此一举”
+### “多此一举” {#unnecessary-over-design}
 
 带着上面的疑问，我们想象一个输入场景。现在你有一个电商系统，给商品设定价格：
 
@@ -82,7 +82,7 @@ interface StrProps {
 
 实际上在很多场景下，组件都不应该直接修改实际值。尤其是输入型组件，擅自更改展示值会出现非常严重的后果。
 
-### 所见即所得
+### 所见即所得 {#to-be-what-you-see}
 
 在组件库层面，我们不能“推测”用户的使用场景，因而需要以最保守的方式实现边界场景的处理。但是同时我们其实可以做一些优化手段。比如说将限制设置到 Form.Item 的 `rules` 上，利用表单校验能力来做限制：
 
@@ -105,6 +105,6 @@ interface StrProps {
 
 <img height="40" alt="Ellipsis" src="https://github.com/ant-design/ant-design/assets/5378891/24162b19-985c-4fc4-908a-cdddfc507fc9">
 
-### 总结
+### 总结 {#finally}
 
 在进行组件研发时，需要慎重处理边界场景。在大型项目中，上游使用者可能并不知道你的内部逻辑是如何处理的。因而随着复杂度以及使用场景的增加，我们更加推荐对于默认行为总是选择保守的处理方式。而对于不满足需求的情况，可以通过 HOC 的形式或者是一些额外的 Props 配置来实现，以防止开发者在使用时有过多的约定而不知。

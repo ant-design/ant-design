@@ -322,7 +322,18 @@ describe('Popconfirm', () => {
     fireEvent.click(triggerNode);
     await waitFakeTimer();
     fireEvent.click(popconfirm.container.querySelector('.bamboo')!);
-    expect(onPopupClick).toHaveBeenCalled();
+    expect(onPopupClick).toHaveBeenCalledTimes(1);
+    fireEvent.click(popconfirm.container.querySelector('.ant-popover-container')!);
+    expect(onPopupClick).toHaveBeenCalledTimes(2);
+  });
+
+  it('should trigger onPopupClick in PurePanel', () => {
+    const onPopupClick = jest.fn();
+    const PurePanel = Popconfirm._InternalPanelDoNotUseOrYouWillBeFired;
+    const { container } = render(<PurePanel title="test" onPopupClick={onPopupClick} />);
+
+    fireEvent.click(container.querySelector('.ant-popconfirm-title')!);
+    expect(onPopupClick).toHaveBeenCalledTimes(1);
   });
 
   it('okText & cancelText could be empty', () => {
