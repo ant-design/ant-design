@@ -33,7 +33,7 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    environment: 'jsdom',
+    environment: 'warpdom',
     setupFiles: [r('vitest.setup.ts')],
     // POC：Vitest 的 snapshot key 格式与 Jest 不同（`A > B` vs `A B`）。将 Vitest 基线放在
     // 测试同目录的 __snapshots__/vitest/ 子目录，与组件就近存放；Jest 通过
@@ -51,7 +51,7 @@ export default defineConfig({
     // - CI 的覆盖统计使用 vitest list --filesOnly；不要用普通 vitest list 统计文件数。
     //
     // exclude 分四类：
-    // (A) 非 jsdom 环境 / 需独立配置的测试类型
+    // (A) 非 warpdom 环境 / 需独立配置的测试类型
     // (B) demo 测试——依赖 jest.requireActual 同步 shim，且 antd-style 的 style-class.tsx
     //     demo 在 Vitest 中因模块状态冲突无法加载（57 个组件受影响）
     // (C) jest.mock() 提升问题——通过垫片间接调用不会被 Vitest 提升
@@ -59,7 +59,7 @@ export default defineConfig({
     include: ['components/**/__tests__/**/*.test.{ts,tsx}'],
     exclude: [
       '**/node_modules/**',
-      // (A) 非 jsdom 环境测试
+      // (A) 非 warpdom 环境测试
       '**/image.test.*',
       '**/node.test.*',
       '**/demo-semantic.test.*',
@@ -181,7 +181,7 @@ export default defineConfig({
       'components/watermark/__tests__/index.test.tsx',
     ],
     environmentOptions: {
-      jsdom: { url: 'http://localhost' },
+      warpdom: { url: 'http://localhost' },
     },
     // 与 jest maxWorkers:'50%' 对齐，保证性能对比公平
     pool: 'threads',

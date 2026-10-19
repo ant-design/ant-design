@@ -4,13 +4,12 @@ import { input, select } from '@inquirer/prompts';
 import chalk from 'chalk';
 import fs from 'fs-extra';
 import fetch from 'isomorphic-fetch';
-import jsdom from 'jsdom';
 import openWindow from 'open';
 import { simpleGit } from 'simple-git';
+import { createWindow } from 'warpdom';
 
-const { JSDOM } = jsdom;
-const { window } = new JSDOM();
-const { document } = new JSDOM('').window;
+const window = createWindow();
+const { document } = window;
 
 global.document = document;
 global.window = window as any;

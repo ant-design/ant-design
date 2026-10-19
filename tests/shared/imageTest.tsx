@@ -7,8 +7,8 @@ import { extractStaticStyle } from 'antd-style';
 import dayjs from 'dayjs';
 import fse from 'fs-extra';
 import { globSync } from 'glob';
-import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
+import { createWindow } from 'warpdom';
 import type { HTTPRequest, Page, Viewport } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
 
@@ -62,8 +62,7 @@ export default function imageTest(
   let container: HTMLDivElement;
 
   beforeAll(async () => {
-    const dom = new JSDOM('<!DOCTYPE html><body></body></html>', { url: 'http://localhost/' });
-    const win = dom.window;
+    const win = createWindow({ url: 'http://localhost/' });
     doc = win.document;
 
     (global as any).window = win;
@@ -72,7 +71,7 @@ export default function imageTest(
     const keys = Object.getOwnPropertyNames(win).filter((key) => !(key in global));
 
     keys.forEach((key) => {
-      (global as any)[key] = win[key];
+      (global as any)[key] = (win as any)[key];
     });
 
     // Fake Resize Observer

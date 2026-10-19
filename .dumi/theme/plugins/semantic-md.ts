@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { IApi } from 'dumi';
-import { JSDOM } from 'jsdom';
+import { createWindow } from 'warpdom';
 
 let COMPONENT_ROUTES: Array<{ absPath: string; componentName: string; outputPath: string }> = [];
 let SEMANTIC_MD_EMITTED = false;
@@ -399,8 +399,8 @@ function getComponentHTMLSnapshot(semanticFile: string, cwd: string): string | n
       } catch {}
     }
 
-    const dom = new JSDOM(html);
-    const document = dom.window.document;
+    const { DOMParser } = createWindow();
+    const document = new DOMParser().parseFromString(html, 'text/html');
     const semanticElements = document.querySelectorAll('[class*="semantic-"]');
 
     if (semanticElements.length === 0) {

@@ -7,7 +7,6 @@ import '@testing-library/jest-dom/vitest';
 
 import React from 'react';
 import { toHaveNoViolations } from 'jest-axe';
-import type { DOMWindow } from 'jsdom';
 import format, { plugins } from 'pretty-format';
 import { afterAll, expect, vi } from 'vitest';
 
@@ -149,7 +148,7 @@ console.error = (...args: any[]) => {
 
 type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 
-export function fillWindowEnv(window: Window | DOMWindow) {
+export function fillWindowEnv(window: Window) {
   const win = window as Writeable<Window> & typeof globalThis;
   win.resizeTo = (width, height) => {
     win.innerWidth = width || win.innerWidth;
@@ -270,7 +269,7 @@ global.ResizeObserver = class ResizeObserver {
   disconnect() {}
 };
 
-// jsdom 未实现 canvas getContext，补空实现以避免 QRCode 等组件测试输出噪声
+// warpdom（与 jsdom 一样）未实现 canvas getContext，补空实现以避免 QRCode 等组件测试输出噪声
 if (typeof HTMLCanvasElement !== 'undefined') {
   Object.defineProperty(HTMLCanvasElement.prototype, 'getContext', {
     configurable: true,

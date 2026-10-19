@@ -6,14 +6,7 @@ const compileModules = [
   '@ant-design',
   'countup.js',
   '.pnpm',
-  '@asamuzakjp',
   '@rc-component',
-  // jsdom 27+ pulls ESM dependencies that need transform
-  'parse5',
-  'entities',
-  '@exodus',
-  'jsdom',
-  '@csstools',
 ];
 
 // cnpm use `_` as prefix
@@ -46,7 +39,7 @@ const shouldIgnoreSemantic =
 
 module.exports = {
   verbose: true,
-  testEnvironment: 'jsdom',
+  testEnvironment: 'warpdom',
   setupFiles: ['./tests/setup.ts', 'jest-canvas-mock'],
   setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'md'],
