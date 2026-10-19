@@ -341,7 +341,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg css-var-test-id ant-float-btn-css-var ant-float-btn ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-circle ant-float-btn-individual ant-float-btn-icon-only"
+        class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle ant-float-btn-individual ant-float-btn-icon-only"
         type="button"
       >
         <span
@@ -993,7 +993,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg css-var-test-id ant-float-btn-css-var ant-float-btn ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-circle ant-float-btn-individual ant-float-btn-icon-only"
+        class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle ant-float-btn-individual ant-float-btn-icon-only"
         type="button"
       >
         <span
@@ -1117,7 +1117,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item css-var-test-id ant-float-btn-css-var ant-float-btn ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-square ant-float-btn-icon-only"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-square ant-float-btn-icon-only"
         type="button"
       >
         <span
@@ -1375,7 +1375,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
   style="display: flex; column-gap: 16px; align-items: center;"
 >
   <button
-    class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-pure ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-circle ant-float-btn-individual ant-float-btn-icon-only"
+    class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-pure ant-float-btn-default ant-float-btn-circle ant-float-btn-individual ant-float-btn-icon-only"
     type="button"
   >
     <span
