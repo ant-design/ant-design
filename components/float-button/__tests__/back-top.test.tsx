@@ -1,9 +1,11 @@
 import React from 'react';
+import { Provider as MotionProvider } from '@rc-component/motion';
+import { renderToString } from 'react-dom/server';
 
 import FloatButton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { fireEvent, pureRender, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 const { BackTop } = FloatButton;
@@ -35,6 +37,39 @@ describe('BackTop', () => {
   });
   mountTest(BackTop);
   rtlTest(BackTop);
+
+  it('hydrates an initially visible button without replacing server content', async () => {
+    const onClick = jest.fn();
+    const recoverableErrors: unknown[] = [];
+    const content = (motion: boolean) => (
+      <MotionProvider motion={motion}>
+        <div>
+          <BackTop visibilityHeight={0} aria-label="Back to top" onClick={onClick} />
+          <div>Following content</div>
+        </div>
+      </MotionProvider>
+    );
+
+    const container = document.createElement('div');
+    // A server cannot animate; the browser supports motion when hydrating the same content.
+    container.innerHTML = renderToString(content(false));
+    const serverButton = container.querySelector('button')!;
+    const serverFollowing = serverButton.nextElementSibling!;
+
+    const { getByRole, getByText } = pureRender(content(true), {
+      container,
+      hydrate: true,
+      onRecoverableError: (error) => recoverableErrors.push(error),
+    });
+    await waitFakeTimer();
+
+    const button = getByRole('button', { name: 'Back to top' });
+    expect(recoverableErrors).toEqual([]);
+    expect(button.isSameNode(serverButton)).toBe(true);
+    expect(getByText('Following content').isSameNode(serverFollowing)).toBe(true);
+    fireEvent.click(button);
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
 
   it('should scroll to top after click it', async () => {
     const { container } = render(<BackTop visibilityHeight={0} />);
