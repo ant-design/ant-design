@@ -15,6 +15,36 @@ tag: vVERSION
 
 ---
 
+## 6.6.7
+
+`2026-10-19`
+
+- 🐞 Fix antd failing to load in some production builds when the React version export is unavailable. [#59560](https://github.com/ant-design/ant-design/pull/59560) [react-component/util#810](https://github.com/react-component/util/pull/810) [@github-actions](https://github.com/apps/github-actions) [@nrps9909](https://github.com/nrps9909)
+- 🐞 Fix Button, Form, Slider, Typography, and Upload triggering delayed state updates after unmounting. [#59560](https://github.com/ant-design/ant-design/pull/59560) [react-component/util#806](https://github.com/react-component/util/pull/806) [@github-actions](https://github.com/apps/github-actions) [@nrps9909](https://github.com/nrps9909)
+- 🐞 Fix Select, TreeSelect, Cascader, and Mentions `popupRender` content inheriting Form.Item validation status and feedback icons. [#59463](https://github.com/ant-design/ant-design/pull/59463) [@huytdps13400](https://github.com/huytdps13400)
+- 🐞 Fix Popover and Popconfirm preset `color` not applying to the panel background. [#59549](https://github.com/ant-design/ant-design/pull/59549) [@dogledogle](https://github.com/dogledogle)
+- Form
+  - 🐞 Fix Form custom `shouldUpdate` comparisons missing updates when nested fields with `preserve={false}` are unmounted. [#59560](https://github.com/ant-design/ant-design/pull/59560) [react-component/util#807](https://github.com/react-component/util/pull/807) [@github-actions](https://github.com/apps/github-actions) [@nrps9909](https://github.com/nrps9909)
+  - 🐞 Fix Form.Item incorrectly removing a trailing `|` from a string `label` when displaying a colon. [#59599](https://github.com/ant-design/ant-design/pull/59599) [@wfatih](https://github.com/wfatih)
+  - ⌨️ Fix Form.Item not associating warning-only messages with the control through `aria-describedby`. [#59443](https://github.com/ant-design/ant-design/pull/59443) [@Chaoqi31](https://github.com/Chaoqi31)
+- Input
+  - 🐞 Fix Input.OTP losing valid characters when pasting text with a filtering `formatter`. [#59580](https://github.com/ant-design/ant-design/pull/59580) [@yunfeizhu](https://github.com/yunfeizhu)
+  - 🐞 Fix Input.OTP ignoring `rootClassName` on the root element. [#59439](https://github.com/ant-design/ant-design/pull/59439) [@Chaoqi31](https://github.com/Chaoqi31)
+  - 🐞 Fix Input.OTP not rendering a numeric `0` as the `separator`. [#59518](https://github.com/ant-design/ant-design/pull/59518) [@Ye-YiChen](https://github.com/Ye-YiChen)
+- Table
+  - 🐞 Fix Table selection menu skipping current-page tree descendants when inverting selection and deselecting disabled rows on other pages when clearing selections. [#59570](https://github.com/ant-design/ant-design/pull/59570) [@yunfeizhu](https://github.com/yunfeizhu)
+  - 🐞 Fix Table sorted fixed header hover background and the `fixedHeaderSortActiveBg` token not taking effect. [#59554](https://github.com/ant-design/ant-design/pull/59554) [@dogledogle](https://github.com/dogledogle)
+- ColorPicker
+  - 🐞 Fix ColorPicker applying RTL styles when ConfigProvider `direction` is `ltr`. [#59441](https://github.com/ant-design/ant-design/pull/59441) [@Chaoqi31](https://github.com/Chaoqi31)
+  - 🐞 Fix ColorPicker number input control button width. [#59538](https://github.com/ant-design/ant-design/pull/59538) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix nested Descriptions being affected by the outer component's borders, spacing, and cell layout. [#59547](https://github.com/ant-design/ant-design/pull/59547) [@xushanpei](https://github.com/xushanpei)
+- 🐞 Fix Progress line ignoring string widths in `size`, such as `['50%', 20]`, and always filling the container. [#59597](https://github.com/ant-design/ant-design/pull/59597) [@wfatih](https://github.com/wfatih)
+- 🐞 Fix Tooltip failing to limit panel corner radius to 8px for left and right placements when the `borderRadius` token exceeds 8. [#59568](https://github.com/ant-design/ant-design/pull/59568) [@dogledogle](https://github.com/dogledogle)
+- 🐞 Fix Popconfirm `onPopupClick` firing twice for a single click inside the popup content. [#59440](https://github.com/ant-design/ant-design/pull/59440) [@Chaoqi31](https://github.com/Chaoqi31)
+- 🐞 Fix Upload extra content styles when `showUploadList.extra` is `0` or returns `0`. [#59438](https://github.com/ant-design/ant-design/pull/59438) [@Chaoqi31](https://github.com/Chaoqi31)
+- ♿ Fix Typography duplicate button semantics for the default edit icon. [#59112](https://github.com/ant-design/ant-design/pull/59112) [@nrps9909](https://github.com/nrps9909)
+- ⚡️ Improve Transfer source list rendering performance. [#59524](https://github.com/ant-design/ant-design/pull/59524) [@QDyanbing](https://github.com/QDyanbing)
+
 ## 6.6.6
 
 `2026-10-12`
