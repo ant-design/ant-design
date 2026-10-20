@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 6.6.7
 
-`2026-10-19`
+`2026-10-20`
 
 - 🐞 Fix antd failing to load in some production builds when the React version export is unavailable. [#59560](https://github.com/ant-design/ant-design/pull/59560) [react-component/util#810](https://github.com/react-component/util/pull/810) [@github-actions](https://github.com/apps/github-actions) [@nrps9909](https://github.com/nrps9909)
 - 🐞 Fix Button, Form, Slider, Typography, and Upload triggering delayed state updates after unmounting. [#59560](https://github.com/ant-design/ant-design/pull/59560) [react-component/util#806](https://github.com/react-component/util/pull/806) [@github-actions](https://github.com/apps/github-actions) [@nrps9909](https://github.com/nrps9909)
