@@ -7,7 +7,7 @@ import esLocale from './es_ES';
 const locale: PickerLocale = {
   lang: {
     ...esLocale.lang,
-    locale: 'es-us',
+    locale: 'es_US',
   },
   timePickerLocale: {
     ...TimePickerLocale,
