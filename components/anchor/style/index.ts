@@ -34,11 +34,6 @@ interface AnchorToken extends FullToken<'Anchor'> {
    */
   anchorPaddingBlockSecondary: number | string;
   /**
-   * @desc 锚点球大小
-   * @descEN Anchor ball size
-   */
-  anchorBallSize: number | string;
-  /**
    * @desc 锚点标题块
    * @descEN Anchor title block
    */
@@ -191,12 +186,11 @@ export const prepareComponentToken: GetDefaultToken<'Anchor'> = (token) => ({
 export default genStyleHooks(
   'Anchor',
   (token) => {
-    const { fontSize, fontSizeLG, paddingXXS, calc } = token;
+    const { fontSize, paddingXXS, calc } = token;
     const anchorToken = mergeToken<AnchorToken>(token, {
       holderOffsetBlock: paddingXXS,
       anchorPaddingBlockSecondary: calc(paddingXXS).div(2).equal(),
       anchorTitleBlock: calc(fontSize).div(14).mul(3).equal(),
-      anchorBallSize: calc(fontSizeLG).div(2).equal(),
     });
     return [genSharedAnchorStyle(anchorToken), genSharedAnchorHorizontalStyle(anchorToken)];
   },
