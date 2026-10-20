@@ -1,0 +1,5 @@
+(()=>{"use strict";(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,815732,e=>{var r=e.i(391398),i=e.i(504909),s=e.i(241859);let o=(0,e.i(827830).l)(({css:e})=>({root:e`
+    padding: 4px;
+    border-radius: 8px;
+    overflow: hidden;
+  `})),t={image:{borderRadius:"4px"}},a=e=>e.props.preview?{root:{border:"2px solid #A594F9",borderRadius:8,padding:4,transition:"all 0.3s ease"},image:{borderRadius:4,filter:"grayscale(50%)"}}:{};e.s(["default",0,()=>{let e={src:"https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",width:160,alt:"Example image",classNames:o};return(0,r.jsxs)(i.f,{gap:"medium",children:[(0,r.jsx)(s.f,{...e,styles:t}),(0,r.jsx)(s.f,{...e,styles:a,preview:{open:!1}})]})}])},241859,e=>{var r=e.i(541030);e.s(["f",()=>r.f])}])})();

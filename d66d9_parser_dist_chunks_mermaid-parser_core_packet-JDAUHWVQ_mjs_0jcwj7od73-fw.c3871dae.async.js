@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,192056,t=>{"use strict";var e=t.i(830484);t.i(580658),t.S([e,"createPacketServices,q"],192056)}]);
