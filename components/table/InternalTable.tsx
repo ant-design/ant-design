@@ -94,12 +94,14 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 type ComponentsSemanticClassNames = {
+  holder?: string;
   wrapper?: string;
   cell?: string;
   row?: string;
 };
 
 type ComponentsSemanticStyles = {
+  holder?: React.CSSProperties;
   wrapper?: React.CSSProperties;
   cell?: React.CSSProperties;
   row?: React.CSSProperties;
