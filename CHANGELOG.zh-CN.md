@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 6.6.7
 
-`2026-10-19`
+`2026-10-20`
 
 - 🐞 修复 antd 在部分生产构建中因 React 版本信息缺失而加载失败的问题。[#59560](https://github.com/ant-design/ant-design/pull/59560) [react-component/util#810](https://github.com/react-component/util/pull/810) [@github-actions](https://github.com/apps/github-actions) [@nrps9909](https://github.com/nrps9909)
 - 🐞 修复 Button、Form、Slider、Typography 和 Upload 在卸载后仍触发延迟状态更新的问题。[#59560](https://github.com/ant-design/ant-design/pull/59560) [react-component/util#806](https://github.com/react-component/util/pull/806) [@github-actions](https://github.com/apps/github-actions) [@nrps9909](https://github.com/nrps9909)
