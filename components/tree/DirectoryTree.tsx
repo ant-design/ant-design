@@ -91,6 +91,11 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
     return props.onExpand?.(keys, info);
   };
 
+  /**
+   * Applies DirectoryTree's single, Ctrl/Meta, and Shift selection rules.
+   * Shift selection preserves cached keys that are still selected and in the tree.
+   * Without a visible range anchor, selects the clicked node and starts a new range.
+   */
   const onSelect = (
     keys: React.Key[],
     event: {
@@ -116,6 +121,16 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
     // Windows / Mac single pick
     const ctrlPick: boolean = nativeEvent?.ctrlKey || nativeEvent?.metaKey;
     const shiftPick: boolean = nativeEvent?.shiftKey;
+    const rangeKeys =
+      multiple && shiftPick && !ctrlPick
+        ? calcRangeKeys({
+            treeData,
+            expandedKeys,
+            startKey: key,
+            endKey: lastSelectedKeyRef.current!,
+            fieldNames,
+          })
+        : [];
 
     // Generate new selected keys
     let newSelectedKeys: React.Key[];
@@ -125,23 +140,21 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
       lastSelectedKeyRef.current = key;
       cachedSelectedKeysRef.current = newSelectedKeys;
       newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys, fieldNames);
-    } else if (multiple && shiftPick) {
+    } else if (rangeKeys.length) {
       // Shift click
+      const { keyEntities } = convertDataToEntities(treeData, { fieldNames });
+      const currentKeys = new Set(Object.values(keyEntities).map((entity) => entity.key));
       newSelectedKeys = Array.from(
         new Set([
-          ...(cachedSelectedKeysRef.current || []),
-          ...calcRangeKeys({
-            treeData,
-            expandedKeys,
-            startKey: key,
-            endKey: lastSelectedKeyRef.current!,
-            fieldNames,
-          }),
+          ...(cachedSelectedKeysRef.current || []).filter(
+            (cachedKey) => selectedKeys.includes(cachedKey) && currentKeys.has(cachedKey),
+          ),
+          ...rangeKeys,
         ]),
       );
       newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys, fieldNames);
     } else {
-      // Single click
+      // Single click, or Shift click without a visible range anchor
       newSelectedKeys = [key];
       lastSelectedKeyRef.current = key;
       cachedSelectedKeysRef.current = newSelectedKeys;
