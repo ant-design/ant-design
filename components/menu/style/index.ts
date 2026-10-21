@@ -237,7 +237,7 @@ export interface ComponentToken {
    * @desc 菜单项横向外间距
    * @descEN Horizontal margin of menu item
    */
-  itemMarginInline: number;
+  itemMarginInline: CSSProperties['marginInline'];
   /**
    * @desc 横向菜单项横悬浮态背景色
    * @descEN Background color of horizontal menu item when hover
@@ -970,7 +970,7 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     // internal
     itemWidth: activeBarWidth
       ? `calc(100% + ${activeBarBorderWidth}px)`
-      : `calc(100% - ${itemMarginInline * 2}px)`,
+      : `calc(100% - ${unit(itemMarginInline)} * 2)`,
   };
 };
 

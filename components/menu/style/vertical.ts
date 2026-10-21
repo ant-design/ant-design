@@ -189,7 +189,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
           justifyContent: 'flex-start',
           insetInlineStart: 0,
           paddingInline: `calc(50% - ${unit(token.calc(collapsedIconSize).div(2).equal())} - ${unit(
-            itemMarginInline,
+            itemMarginInline ?? 0,
           )})`,
           textOverflow: 'clip',
 

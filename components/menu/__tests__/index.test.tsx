@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import {
   AppstoreOutlined,
   InboxOutlined,
@@ -15,6 +16,7 @@ import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Layout from '../../layout';
 import OverrideContext from '../OverrideContext';
 
@@ -1390,5 +1392,22 @@ describe('Menu', () => {
         itemData: expect.objectContaining({ ...itemInfo, eventKey: '1' }),
       }),
     );
+  });
+
+  // https://github.com/antdv-next/antdv-next/issues/1018
+  it('should accept non-number itemMarginInline token', () => {
+    const cache = createCache();
+    render(
+      <StyleProvider cache={cache}>
+        <ConfigProvider theme={{ components: { Menu: { itemMarginInline: '8px' } } }}>
+          <Menu mode="vertical" items={[{ key: '1', label: 'One' }]} />
+        </ConfigProvider>
+      </StyleProvider>,
+    );
+
+    const styleText = extractStyle(cache, { plain: true });
+
+    expect(styleText).toContain('--ant-menu-item-margin-inline:8px;');
+    expect(styleText).toContain('--ant-menu-item-width:calc(100% - 8px * 2);');
   });
 });
