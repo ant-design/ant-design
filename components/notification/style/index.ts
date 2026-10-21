@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
@@ -18,6 +19,8 @@ interface SharedStyleConfig<Token extends NotificationToken> {
   listWidthKey?: WidthKey<Token>;
   stackVisibleCount?: number;
   itemStyle?: GenerateStyle<Token>;
+  /** Whether the list content should capture pointer events (stack interaction needs it). */
+  listContentPointerEvents?: CSSProperties['pointerEvents'];
 }
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -161,7 +164,10 @@ const getStackNoticeClipPath = (offset: string | number) =>
   `inset(${offset} ${offset} ${offset} ${offset})`;
 
 /** Generate shared list content and motion base styles. */
-const genNotificationListContentStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
+const genNotificationListContentStyle = (
+  token: NotificationToken,
+  pointerEvents: CSSProperties['pointerEvents'],
+): CSSObject => {
   const { componentCls, motionDurationMid, motionDurationSlow, motionEaseInOut } = token;
 
   const listCls = `${componentCls}-list`;
@@ -177,7 +183,7 @@ const genNotificationListContentStyle: GenerateStyle<NotificationToken, CSSObjec
       width: '100%',
       willChange: 'height, transform',
       transition: 'none',
-      pointerEvents: 'auto',
+      pointerEvents,
 
       [`&${listContentCls}-decrease`]: {
         transition: `height calc(${motionDurationSlow} * 2) ${motionEaseInOut} ${motionDurationMid}`,
@@ -251,7 +257,7 @@ const genNotificationListStyle = <Token extends NotificationToken>(
         },
       },
 
-      ...genNotificationListContentStyle(token),
+      ...genNotificationListContentStyle(token, config.listContentPointerEvents ?? 'auto'),
 
       // ============================ Stack ============================
       [`&${componentCls}-stack`]: {
