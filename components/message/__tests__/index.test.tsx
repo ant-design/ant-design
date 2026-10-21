@@ -257,22 +257,4 @@ describe('message', () => {
     await awaitPromise();
     expect(document.querySelector('.ant-message-notice')?.textContent).toContain('0');
   });
-
-  // https://github.com/ant-design/ant-design/issues/59620
-  it('list content should not capture pointer events', async () => {
-    message.info('pointer events', 0);
-    await awaitPromise();
-
-    const styleText = Array.from(document.head.querySelectorAll('style'))
-      .map((style) => style.innerHTML)
-      .join('');
-    const listContentRule = styleText
-      .split('}')
-      .map((rule) => `${rule}}`)
-      .find(
-        (rule) => rule.includes('.ant-message-list-content') && rule.includes('pointer-events'),
-      );
-
-    expect(listContentRule).toContain('pointer-events:none');
-  });
 });

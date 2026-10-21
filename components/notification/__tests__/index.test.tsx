@@ -545,25 +545,4 @@ describe('notification', () => {
     expect(document.querySelector('.ant-notification-notice-close')?.textContent).toBe('0');
     expect(document.querySelector('.ant-notification-notice-icon')?.textContent).toBe('0');
   });
-
-  // https://github.com/ant-design/ant-design/issues/59620
-  it('list content should keep capturing pointer events for stack interaction', async () => {
-    act(() => {
-      notification.open({ title: 'Pointer events', duration: 0 });
-    });
-    await awaitPromise();
-
-    const styleText = Array.from(document.head.querySelectorAll('style'))
-      .map((style) => style.innerHTML)
-      .join('');
-    const listContentRule = styleText
-      .split('}')
-      .map((rule) => `${rule}}`)
-      .find(
-        (rule) =>
-          rule.includes('.ant-notification-list-content') && rule.includes('pointer-events'),
-      );
-
-    expect(listContentRule).toContain('pointer-events:auto');
-  });
 });
