@@ -222,7 +222,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     expandIcon,
     placement,
     showSearch,
-    allowClear = true,
+    allowClear,
     notFoundContent,
     direction,
     getPopupContainer,
@@ -262,6 +262,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     expandIcon: contextExpandIcon,
     loadingIcon: contextLoadingIcon,
     clearIcon: contextClearIcon,
+    allowClear: contextAllowClear,
     removeIcon: contextRemoveIcon,
     suffix: contextSuffix,
     suffixIcon: contextSuffixIcon,
@@ -403,6 +404,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   const mergedAllowClear = useAllowClear({
     allowClear,
+    contextAllowClear,
+    defaultAllowClear: true,
     clearIcon,
     contextClearIcon,
     defaultLabel: locale.clear,
