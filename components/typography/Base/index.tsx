@@ -433,7 +433,10 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           mergedClassNames.action,
         )}
         style={mergedStyles.action}
-        onClick={(e) => onExpandClick(e!, { expanded: !expanded })}
+        onClick={(e) => {
+          e.stopPropagation();
+          onExpandClick(e!, { expanded: !expanded });
+        }}
         aria-label={expanded ? textLocale.collapse : textLocale?.expand}
       >
         {isFunction(symbol) ? symbol(expanded) : symbol}
