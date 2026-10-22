@@ -66,7 +66,7 @@ describe('List.pagination', () => {
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy']);
 
     const paginationItems = wrapper.querySelectorAll('.ant-pagination-item');
-    fireEvent.click(paginationItems[paginationItems.length - 1]);
+    fireEvent.click(paginationItems[paginationItems.length - 1].querySelector('a')!);
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Jerry']);
   });
 
@@ -90,7 +90,7 @@ describe('List.pagination', () => {
     );
 
     const paginationItems = wrapper.querySelectorAll('.ant-pagination-item');
-    fireEvent.click(paginationItems[paginationItems.length - 1]);
+    fireEvent.click(paginationItems[paginationItems.length - 1].querySelector('a')!);
 
     expect(handlePaginationChange).toHaveBeenCalledWith(2, 2);
   });
@@ -109,7 +109,7 @@ describe('List.pagination', () => {
     expect(wrapper.querySelectorAll('.ant-pagination')).toHaveLength(1);
     expect(wrapper.querySelectorAll('.ant-pagination-item')).toHaveLength(2);
 
-    fireEvent.click(wrapper.querySelector('.ant-pagination-item-2')!);
+    fireEvent.click(wrapper.querySelector('.ant-pagination-item-2 > :is(a, button)')!);
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Jerry']);
 
     rerender(createList({ pagination: false }));
@@ -125,7 +125,7 @@ describe('List.pagination', () => {
   // https://github.com/ant-design/ant-design/issues/5259
   it('change to correct page when data source changes', () => {
     const { container: wrapper, rerender } = render(createList({ pagination: { pageSize: 1 } }));
-    fireEvent.click(wrapper.querySelector('.ant-pagination-item-3')!);
+    fireEvent.click(wrapper.querySelector('.ant-pagination-item-3 > :is(a, button)')!);
     rerender(createList({ dataSource: [data[0]] }));
     expect(wrapper.querySelector('.ant-pagination-item-1')).toHaveClass(
       'ant-pagination-item-active',

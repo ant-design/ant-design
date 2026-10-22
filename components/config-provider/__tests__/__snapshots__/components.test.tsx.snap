@@ -18213,13 +18213,14 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     class="config-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18246,23 +18247,27 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18341,13 +18346,14 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18374,23 +18380,27 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18474,13 +18484,14 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     class="config-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18507,23 +18518,27 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18603,13 +18618,14 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18636,23 +18652,27 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18737,13 +18757,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     class="config-pagination config-pagination-large css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18770,23 +18791,27 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18865,13 +18890,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18898,23 +18924,27 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18998,13 +19028,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
     class="config-pagination config-pagination-medium css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19031,23 +19062,27 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19126,13 +19161,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
     class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19159,23 +19195,27 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19259,13 +19299,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19292,23 +19333,27 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19387,13 +19432,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19420,23 +19466,27 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19520,13 +19570,14 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19553,23 +19604,27 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="ant-pagination-next ant-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19648,13 +19703,14 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     class="ant-pagination ant-pagination-small ant-pagination-mini css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19681,23 +19737,27 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="ant-pagination-next ant-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19781,13 +19841,14 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     class="prefix-Pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="prefix-Pagination-prev prefix-Pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="prefix-Pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19814,23 +19875,27 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     </li>
     <li
       class="prefix-Pagination-item prefix-Pagination-item-1 prefix-Pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="prefix-Pagination-next prefix-Pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="prefix-Pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19909,13 +19974,14 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     class="prefix-Pagination prefix-Pagination-small prefix-Pagination-mini css-var-root"
   >
     <li
-      aria-disabled="true"
       class="prefix-Pagination-prev prefix-Pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="prefix-Pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19942,23 +20008,27 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     </li>
     <li
       class="prefix-Pagination-item prefix-Pagination-item-1 prefix-Pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="prefix-Pagination-next prefix-Pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="prefix-Pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >

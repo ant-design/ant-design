@@ -85,7 +85,7 @@ describe('Table.pagination', () => {
     const { container } = render(createTable());
 
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy']);
-    fireEvent.click(container.querySelector('.ant-pagination-next')!);
+    fireEvent.click(container.querySelector('.ant-pagination-next > :is(a, button)')!);
     expect(renderedNames(container)).toEqual(['Tom', 'Jerry']);
   });
 
@@ -133,7 +133,7 @@ describe('Table.pagination', () => {
     );
     expect(scrollTo).toHaveBeenCalledTimes(0);
 
-    fireEvent.click(container.querySelector('.ant-pagination-next')!);
+    fireEvent.click(container.querySelector('.ant-pagination-next > :is(a, button)')!);
     expect(scrollTo).toHaveBeenCalledTimes(1);
 
     fireEvent.mouseDown(container.querySelector('.ant-select')!);
@@ -151,7 +151,7 @@ describe('Table.pagination', () => {
     const { container } = render(
       createTable({ scroll: { y: 20 }, pagination: { showSizeChanger: true, pageSize: 2 } }),
     );
-    fireEvent.click(container.querySelector('.ant-pagination-next')!);
+    fireEvent.click(container.querySelector('.ant-pagination-next > :is(a, button)')!);
   });
 
   it('should scroll to first row when page change with scroll from ConfigProvider', () => {
@@ -164,7 +164,7 @@ describe('Table.pagination', () => {
     );
     expect(scrollTo).toHaveBeenCalledTimes(0);
 
-    fireEvent.click(container.querySelector('.ant-pagination-next')!);
+    fireEvent.click(container.querySelector('.ant-pagination-next > :is(a, button)')!);
     expect(scrollTo).toHaveBeenCalledTimes(1);
   });
 
@@ -178,7 +178,7 @@ describe('Table.pagination', () => {
         onChange: handleChange,
       }),
     );
-    fireEvent.click(container.querySelector('.ant-pagination-next')!);
+    fireEvent.click(container.querySelector('.ant-pagination-next > :is(a, button)')!);
 
     expect(handleChange).toHaveBeenCalledWith(
       { className: 'my-page', current: 2, pageSize: 2 },
@@ -222,7 +222,7 @@ describe('Table.pagination', () => {
     rerender(createTable({ pagination }));
     expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
     expect(container.querySelectorAll('.ant-pagination-item')).toHaveLength(2);
-    fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
+    fireEvent.click(container.querySelector('.ant-pagination-item-2 > :is(a, button)')!);
     expect(renderedNames(container)).toEqual(['Tom', 'Jerry']);
 
     rerender(createTable({ pagination: false }));
@@ -237,7 +237,7 @@ describe('Table.pagination', () => {
   // https://github.com/ant-design/ant-design/issues/5259
   it('change to correct page when data source changes', () => {
     const { container, rerender } = render(createTable({ pagination: { pageSize: 1 } }));
-    fireEvent.click(container.querySelector('.ant-pagination-item-3')!);
+    fireEvent.click(container.querySelector('.ant-pagination-item-3 > :is(a, button)')!);
     rerender(createTable({ dataSource: [data[0]] }));
     expect(
       container
@@ -270,7 +270,7 @@ describe('Table.pagination', () => {
         ?.querySelector('.ant-pagination-item-2')
         ?.className.includes('ant-pagination-item-active'),
     ).toBe(true);
-    fireEvent.click(container.querySelector('.ant-pagination-item-3')!);
+    fireEvent.click(container.querySelector('.ant-pagination-item-3 > :is(a, button)')!);
     expect(
       container
         ?.querySelector('.ant-pagination-item-2')
@@ -463,7 +463,9 @@ describe('Table.pagination', () => {
       data.length,
     );
 
-    fireEvent.click(container.querySelector('.ant-pagination .ant-pagination-item-2')!);
+    fireEvent.click(
+      container.querySelector('.ant-pagination .ant-pagination-item-2 > :is(a, button)')!,
+    );
     expect(onChange.mock.calls[0][0].current).toBe(2);
     expect(onChange).toHaveBeenCalledWith(
       { current: 2, pageSize: 10, total: 200 },
@@ -533,7 +535,7 @@ describe('Table.pagination', () => {
   it('ajax should work with pagination', () => {
     const { container, rerender } = render(createTable({ pagination: { total: 100 } }));
 
-    fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
+    fireEvent.click(container.querySelector('.ant-pagination-item-2 > :is(a, button)')!);
     rerender(createTable({ pagination: { current: 2, total: 100 } }));
 
     expect(
@@ -650,7 +652,7 @@ describe('Table.pagination', () => {
     expect(container.querySelector('.ant-pagination-total-text')?.textContent).toBe('>200<');
 
     // Should hide
-    fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
+    fireEvent.click(container.querySelector('.ant-pagination-item-2 > :is(a, button)')!);
     expect(container.querySelectorAll('.ant-pagination-total-text')).toHaveLength(0);
   });
 
