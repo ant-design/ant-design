@@ -20,7 +20,7 @@ const clearCases = [
   },
   {
     name: 'AutoComplete',
-    configKey: undefined,
+    configKey: 'autoComplete',
     render: (props: ClearProps) => <AutoComplete defaultValue="value" {...props} />,
   },
   {
