@@ -216,13 +216,14 @@ exports[`Locale Provider > should display the text as ar 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="الصفحة السابقة"
     >
       <button
+        aria-disabled="true"
+        aria-label="الصفحة السابقة"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -249,68 +250,78 @@ exports[`Locale Provider > should display the text as ar 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="الصفحة 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="الصفحة 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="الصفحة 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="الصفحة 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="الصفحة 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="الصفحة التالية"
     >
       <button
+        aria-label="الصفحة التالية"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -2167,13 +2178,14 @@ exports[`Locale Provider > should display the text as az 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Əvvəlki Səhifə"
     >
       <button
+        aria-disabled="true"
+        aria-label="Əvvəlki Səhifə"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -2200,68 +2212,78 @@ exports[`Locale Provider > should display the text as az 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Növbəti Səhifə"
     >
       <button
+        aria-label="Növbəti Səhifə"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -4118,13 +4140,14 @@ exports[`Locale Provider > should display the text as bg 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Предишна страница"
     >
       <button
+        aria-disabled="true"
+        aria-label="Предишна страница"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -4151,68 +4174,78 @@ exports[`Locale Provider > should display the text as bg 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Следваща страница"
     >
       <button
+        aria-label="Следваща страница"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -6069,13 +6102,14 @@ exports[`Locale Provider > should display the text as bn-bd 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="আগের পৃষ্ঠা"
     >
       <button
+        aria-disabled="true"
+        aria-label="আগের পৃষ্ঠা"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -6102,68 +6136,78 @@ exports[`Locale Provider > should display the text as bn-bd 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="পৃষ্ঠা 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="পৃষ্ঠা 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="পৃষ্ঠা 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="পৃষ্ঠা 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="পৃষ্ঠা 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="পরের পৃষ্ঠা"
     >
       <button
+        aria-label="পরের পৃষ্ঠা"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -8020,13 +8064,14 @@ exports[`Locale Provider > should display the text as by 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Назад"
     >
       <button
+        aria-disabled="true"
+        aria-label="Назад"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -8053,68 +8098,78 @@ exports[`Locale Provider > should display the text as by 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Наперад"
     >
       <button
+        aria-label="Наперад"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -9971,13 +10026,14 @@ exports[`Locale Provider > should display the text as ca 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Pàgina prèvia"
     >
       <button
+        aria-disabled="true"
+        aria-label="Pàgina prèvia"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -10004,68 +10060,78 @@ exports[`Locale Provider > should display the text as ca 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Pàgina següent"
     >
       <button
+        aria-label="Pàgina següent"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -11922,13 +11988,14 @@ exports[`Locale Provider > should display the text as cs 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Předchozí strana"
     >
       <button
+        aria-disabled="true"
+        aria-label="Předchozí strana"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -11955,68 +12022,78 @@ exports[`Locale Provider > should display the text as cs 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Následující strana"
     >
       <button
+        aria-label="Následující strana"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -13873,13 +13950,14 @@ exports[`Locale Provider > should display the text as da 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Forrige Side"
     >
       <button
+        aria-disabled="true"
+        aria-label="Forrige Side"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -13906,68 +13984,78 @@ exports[`Locale Provider > should display the text as da 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Side 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Side 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Side 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Side 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Side 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Næste Side"
     >
       <button
+        aria-label="Næste Side"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -15824,13 +15912,14 @@ exports[`Locale Provider > should display the text as de 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Vorherige Seite"
     >
       <button
+        aria-disabled="true"
+        aria-label="Vorherige Seite"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -15857,68 +15946,78 @@ exports[`Locale Provider > should display the text as de 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Seite 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Seite 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Seite 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Seite 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Seite 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Nächste Seite"
     >
       <button
+        aria-label="Nächste Seite"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -17775,13 +17874,14 @@ exports[`Locale Provider > should display the text as el 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Προηγούμενη Σελίδα"
     >
       <button
+        aria-disabled="true"
+        aria-label="Προηγούμενη Σελίδα"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -17808,68 +17908,78 @@ exports[`Locale Provider > should display the text as el 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Επόμενη Σελίδα"
     >
       <button
+        aria-label="Επόμενη Σελίδα"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -19726,13 +19836,14 @@ exports[`Locale Provider > should display the text as en 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19759,68 +19870,78 @@ exports[`Locale Provider > should display the text as en 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Page 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Page 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Page 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Page 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Next Page"
     >
       <button
+        aria-label="Next Page"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -21677,13 +21798,14 @@ exports[`Locale Provider > should display the text as en-gb 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -21710,68 +21832,78 @@ exports[`Locale Provider > should display the text as en-gb 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Page 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Page 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Page 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Page 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Next Page"
     >
       <button
+        aria-label="Next Page"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -23628,13 +23760,14 @@ exports[`Locale Provider > should display the text as es 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Página anterior"
     >
       <button
+        aria-disabled="true"
+        aria-label="Página anterior"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -23661,68 +23794,78 @@ exports[`Locale Provider > should display the text as es 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Página 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Página 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Página 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Página 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Página 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Página siguiente"
     >
       <button
+        aria-label="Página siguiente"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -25579,13 +25722,14 @@ exports[`Locale Provider > should display the text as es-us 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Página anterior"
     >
       <button
+        aria-disabled="true"
+        aria-label="Página anterior"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -25612,68 +25756,78 @@ exports[`Locale Provider > should display the text as es-us 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Página 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Página 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Página 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Página 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Página 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Página siguiente"
     >
       <button
+        aria-label="Página siguiente"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -27530,13 +27684,14 @@ exports[`Locale Provider > should display the text as et 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Eelmine leht"
     >
       <button
+        aria-disabled="true"
+        aria-label="Eelmine leht"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -27563,68 +27718,78 @@ exports[`Locale Provider > should display the text as et 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Järgmine leht"
     >
       <button
+        aria-label="Järgmine leht"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -29481,13 +29646,14 @@ exports[`Locale Provider > should display the text as eu 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Aurreko orrialdea"
     >
       <button
+        aria-disabled="true"
+        aria-label="Aurreko orrialdea"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -29514,68 +29680,78 @@ exports[`Locale Provider > should display the text as eu 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Orrialde 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Orrialde 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Orrialde 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Orrialde 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Orrialde 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Hurrengo orrialdea"
     >
       <button
+        aria-label="Hurrengo orrialdea"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -31432,13 +31608,14 @@ exports[`Locale Provider > should display the text as fa 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="صفحه قبلی"
     >
       <button
+        aria-disabled="true"
+        aria-label="صفحه قبلی"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -31465,68 +31642,78 @@ exports[`Locale Provider > should display the text as fa 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="صفحه بعدی"
     >
       <button
+        aria-label="صفحه بعدی"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -33383,13 +33570,14 @@ exports[`Locale Provider > should display the text as fi 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Edellinen sivu"
     >
       <button
+        aria-disabled="true"
+        aria-label="Edellinen sivu"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -33416,68 +33604,78 @@ exports[`Locale Provider > should display the text as fi 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Sivu 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Sivu 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Sivu 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Sivu 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Sivu 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Seuraava sivu"
     >
       <button
+        aria-label="Seuraava sivu"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -35334,13 +35532,14 @@ exports[`Locale Provider > should display the text as fr 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Page précédente"
     >
       <button
+        aria-disabled="true"
+        aria-label="Page précédente"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -35367,68 +35566,78 @@ exports[`Locale Provider > should display the text as fr 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Page suivante"
     >
       <button
+        aria-label="Page suivante"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -37285,13 +37494,14 @@ exports[`Locale Provider > should display the text as fr 2`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Page précédente"
     >
       <button
+        aria-disabled="true"
+        aria-label="Page précédente"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -37318,68 +37528,78 @@ exports[`Locale Provider > should display the text as fr 2`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Page 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Page 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Page 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Page 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Page suivante"
     >
       <button
+        aria-label="Page suivante"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -39236,13 +39456,14 @@ exports[`Locale Provider > should display the text as fr 3`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Page précédente"
     >
       <button
+        aria-disabled="true"
+        aria-label="Page précédente"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -39269,68 +39490,78 @@ exports[`Locale Provider > should display the text as fr 3`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Page 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Page 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Page 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Page 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Page suivante"
     >
       <button
+        aria-label="Page suivante"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -41187,13 +41418,14 @@ exports[`Locale Provider > should display the text as ga 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Leathanach Roimhe Seo"
     >
       <button
+        aria-disabled="true"
+        aria-label="Leathanach Roimhe Seo"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -41220,68 +41452,78 @@ exports[`Locale Provider > should display the text as ga 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="An chéad leathanach eile"
     >
       <button
+        aria-label="An chéad leathanach eile"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -43138,13 +43380,14 @@ exports[`Locale Provider > should display the text as gl 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Páxina anterior"
     >
       <button
+        aria-disabled="true"
+        aria-label="Páxina anterior"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -43171,68 +43414,78 @@ exports[`Locale Provider > should display the text as gl 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Páxina seguinte"
     >
       <button
+        aria-label="Páxina seguinte"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -45089,13 +45342,14 @@ exports[`Locale Provider > should display the text as he 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="העמוד הקודם"
     >
       <button
+        aria-disabled="true"
+        aria-label="העמוד הקודם"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -45122,68 +45376,78 @@ exports[`Locale Provider > should display the text as he 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="העמוד הבא"
     >
       <button
+        aria-label="העמוד הבא"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -47040,13 +47304,14 @@ exports[`Locale Provider > should display the text as hi 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="पिछला पृष्ठ"
     >
       <button
+        aria-disabled="true"
+        aria-label="पिछला पृष्ठ"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -47073,68 +47338,78 @@ exports[`Locale Provider > should display the text as hi 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="अगला पृष्ठ"
     >
       <button
+        aria-label="अगला पृष्ठ"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -48991,13 +49266,14 @@ exports[`Locale Provider > should display the text as hr 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Prijašnja stranica"
     >
       <button
+        aria-disabled="true"
+        aria-label="Prijašnja stranica"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -49024,68 +49300,78 @@ exports[`Locale Provider > should display the text as hr 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Sljedeća stranica"
     >
       <button
+        aria-label="Sljedeća stranica"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -50942,13 +51228,14 @@ exports[`Locale Provider > should display the text as hu 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Előző oldal"
     >
       <button
+        aria-disabled="true"
+        aria-label="Előző oldal"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -50975,68 +51262,78 @@ exports[`Locale Provider > should display the text as hu 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Következő oldal"
     >
       <button
+        aria-label="Következő oldal"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -52893,13 +53190,14 @@ exports[`Locale Provider > should display the text as hy-am 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Նախորդ Էջ"
     >
       <button
+        aria-disabled="true"
+        aria-label="Նախորդ Էջ"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -52926,68 +53224,78 @@ exports[`Locale Provider > should display the text as hy-am 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Հաջորդ Էջ"
     >
       <button
+        aria-label="Հաջորդ Էջ"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -54844,13 +55152,14 @@ exports[`Locale Provider > should display the text as id 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Halaman Sebelumnya"
     >
       <button
+        aria-disabled="true"
+        aria-label="Halaman Sebelumnya"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -54877,68 +55186,78 @@ exports[`Locale Provider > should display the text as id 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Halaman 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Halaman 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Halaman 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Halaman 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Halaman 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Halaman Berikutnya"
     >
       <button
+        aria-label="Halaman Berikutnya"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -56795,13 +57114,14 @@ exports[`Locale Provider > should display the text as is 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Fyrri síða"
     >
       <button
+        aria-disabled="true"
+        aria-label="Fyrri síða"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -56828,68 +57148,78 @@ exports[`Locale Provider > should display the text as is 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Næsta síða"
     >
       <button
+        aria-label="Næsta síða"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -58746,13 +59076,14 @@ exports[`Locale Provider > should display the text as it 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Pagina precedente"
     >
       <button
+        aria-disabled="true"
+        aria-label="Pagina precedente"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -58779,68 +59110,78 @@ exports[`Locale Provider > should display the text as it 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Pagina 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Pagina 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Pagina 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Pagina 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Pagina 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Pagina successiva"
     >
       <button
+        aria-label="Pagina successiva"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -60697,13 +61038,14 @@ exports[`Locale Provider > should display the text as ja 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="前のページ"
     >
       <button
+        aria-disabled="true"
+        aria-label="前のページ"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -60730,68 +61072,78 @@ exports[`Locale Provider > should display the text as ja 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="ページ 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="ページ 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="ページ 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="ページ 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="ページ 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="次のページ"
     >
       <button
+        aria-label="次のページ"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -62648,13 +63000,14 @@ exports[`Locale Provider > should display the text as ka 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="წინა გვერდი"
     >
       <button
+        aria-disabled="true"
+        aria-label="წინა გვერდი"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -62681,68 +63034,78 @@ exports[`Locale Provider > should display the text as ka 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="შემდეგი გვერდი"
     >
       <button
+        aria-label="შემდეგი გვერდი"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -64599,13 +64962,14 @@ exports[`Locale Provider > should display the text as kk 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Артқа"
     >
       <button
+        aria-disabled="true"
+        aria-label="Артқа"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -64632,68 +64996,78 @@ exports[`Locale Provider > should display the text as kk 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Алға"
     >
       <button
+        aria-label="Алға"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -66550,13 +66924,14 @@ exports[`Locale Provider > should display the text as km 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="ទំព័រ​មុន"
     >
       <button
+        aria-disabled="true"
+        aria-label="ទំព័រ​មុន"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -66583,68 +66958,78 @@ exports[`Locale Provider > should display the text as km 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="ទំព័រ 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="ទំព័រ 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="ទំព័រ 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="ទំព័រ 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="ទំព័រ 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="ទំព័រ​​បន្ទាប់"
     >
       <button
+        aria-label="ទំព័រ​​បន្ទាប់"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -68499,13 +68884,14 @@ exports[`Locale Provider > should display the text as kn 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="ಹಿಂದಿನ ಪುಟ"
     >
       <button
+        aria-disabled="true"
+        aria-label="ಹಿಂದಿನ ಪುಟ"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -68532,68 +68918,78 @@ exports[`Locale Provider > should display the text as kn 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="ಮುಂದಿನ ಪುಟ"
     >
       <button
+        aria-label="ಮುಂದಿನ ಪುಟ"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -70450,13 +70846,14 @@ exports[`Locale Provider > should display the text as ko 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="이전 페이지"
     >
       <button
+        aria-disabled="true"
+        aria-label="이전 페이지"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -70483,68 +70880,78 @@ exports[`Locale Provider > should display the text as ko 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="페이지 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="페이지 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="페이지 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="페이지 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="페이지 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="다음 페이지"
     >
       <button
+        aria-label="다음 페이지"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -72401,13 +72808,14 @@ exports[`Locale Provider > should display the text as ku 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Rûpelê Pêş"
     >
       <button
+        aria-disabled="true"
+        aria-label="Rûpelê Pêş"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -72434,68 +72842,78 @@ exports[`Locale Provider > should display the text as ku 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Rûpelê Paş"
     >
       <button
+        aria-label="Rûpelê Paş"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -74352,13 +74770,14 @@ exports[`Locale Provider > should display the text as ku-iq 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Rûpelê Pêş"
     >
       <button
+        aria-disabled="true"
+        aria-label="Rûpelê Pêş"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -74385,68 +74804,78 @@ exports[`Locale Provider > should display the text as ku-iq 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Rûpelê Paş"
     >
       <button
+        aria-label="Rûpelê Paş"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -76303,13 +76732,14 @@ exports[`Locale Provider > should display the text as lt 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Atgal"
     >
       <button
+        aria-disabled="true"
+        aria-label="Atgal"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -76336,68 +76766,78 @@ exports[`Locale Provider > should display the text as lt 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="psl. 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="psl. 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="psl. 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="psl. 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="psl. 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Pirmyn"
     >
       <button
+        aria-label="Pirmyn"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -78254,13 +78694,14 @@ exports[`Locale Provider > should display the text as lv 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Iepriekšējā lapa"
     >
       <button
+        aria-disabled="true"
+        aria-label="Iepriekšējā lapa"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -78287,68 +78728,78 @@ exports[`Locale Provider > should display the text as lv 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Nākamā lapaspuse"
     >
       <button
+        aria-label="Nākamā lapaspuse"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -80205,13 +80656,14 @@ exports[`Locale Provider > should display the text as mk 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Претходна страница"
     >
       <button
+        aria-disabled="true"
+        aria-label="Претходна страница"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -80238,68 +80690,78 @@ exports[`Locale Provider > should display the text as mk 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Наредна страница"
     >
       <button
+        aria-label="Наредна страница"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -82156,13 +82618,14 @@ exports[`Locale Provider > should display the text as ml 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="മുൻപുള്ള പേജ്"
     >
       <button
+        aria-disabled="true"
+        aria-label="മുൻപുള്ള പേജ്"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -82189,68 +82652,78 @@ exports[`Locale Provider > should display the text as ml 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="അടുത്ത പേജ്"
     >
       <button
+        aria-label="അടുത്ത പേജ്"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -84107,13 +84580,14 @@ exports[`Locale Provider > should display the text as mn-mn 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Өмнөх хуудас"
     >
       <button
+        aria-disabled="true"
+        aria-label="Өмнөх хуудас"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -84140,68 +84614,78 @@ exports[`Locale Provider > should display the text as mn-mn 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Дараагийн хуудас"
     >
       <button
+        aria-label="Дараагийн хуудас"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -86058,13 +86542,14 @@ exports[`Locale Provider > should display the text as mr 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="मागील पृष्ठ"
     >
       <button
+        aria-disabled="true"
+        aria-label="मागील पृष्ठ"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -86091,68 +86576,78 @@ exports[`Locale Provider > should display the text as mr 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="पृष्ठ 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="पृष्ठ 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="पृष्ठ 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="पृष्ठ 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="पृष्ठ 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="पुढील पृष्ठ"
     >
       <button
+        aria-label="पुढील पृष्ठ"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -88009,13 +88504,14 @@ exports[`Locale Provider > should display the text as ms-my 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Halaman sebelumnya"
     >
       <button
+        aria-disabled="true"
+        aria-label="Halaman sebelumnya"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -88042,68 +88538,78 @@ exports[`Locale Provider > should display the text as ms-my 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Halam seterusnya"
     >
       <button
+        aria-label="Halam seterusnya"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -89960,13 +90466,14 @@ exports[`Locale Provider > should display the text as my 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="ယခင်စာမျက်နှာ"
     >
       <button
+        aria-disabled="true"
+        aria-label="ယခင်စာမျက်နှာ"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -89993,68 +90500,78 @@ exports[`Locale Provider > should display the text as my 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="နောက်စာမျက်နှာ"
     >
       <button
+        aria-label="နောက်စာမျက်နှာ"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -91911,13 +92428,14 @@ exports[`Locale Provider > should display the text as nb 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Forrige side"
     >
       <button
+        aria-disabled="true"
+        aria-label="Forrige side"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -91944,68 +92462,78 @@ exports[`Locale Provider > should display the text as nb 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Side 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Side 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Side 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Side 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Side 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Neste side"
     >
       <button
+        aria-label="Neste side"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -93862,13 +94390,14 @@ exports[`Locale Provider > should display the text as ne-np 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -93895,68 +94424,78 @@ exports[`Locale Provider > should display the text as ne-np 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Page 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Page 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Page 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Page 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Next Page"
     >
       <button
+        aria-label="Next Page"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -95813,13 +96352,14 @@ exports[`Locale Provider > should display the text as nl 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Vorige pagina"
     >
       <button
+        aria-disabled="true"
+        aria-label="Vorige pagina"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -95846,68 +96386,78 @@ exports[`Locale Provider > should display the text as nl 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Pagina 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Pagina 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Pagina 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Pagina 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Pagina 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Volgende pagina"
     >
       <button
+        aria-label="Volgende pagina"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -97764,13 +98314,14 @@ exports[`Locale Provider > should display the text as nl-be 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Vorige pagina"
     >
       <button
+        aria-disabled="true"
+        aria-label="Vorige pagina"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -97797,68 +98348,78 @@ exports[`Locale Provider > should display the text as nl-be 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Volgende pagina"
     >
       <button
+        aria-label="Volgende pagina"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -99715,13 +100276,14 @@ exports[`Locale Provider > should display the text as pl 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Poprzednia strona"
     >
       <button
+        aria-disabled="true"
+        aria-label="Poprzednia strona"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -99748,68 +100310,78 @@ exports[`Locale Provider > should display the text as pl 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Następna strona"
     >
       <button
+        aria-label="Następna strona"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -101666,13 +102238,14 @@ exports[`Locale Provider > should display the text as pt 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Página Anterior"
     >
       <button
+        aria-disabled="true"
+        aria-label="Página Anterior"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -101699,68 +102272,78 @@ exports[`Locale Provider > should display the text as pt 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Página 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Página 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Página 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Página 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Página 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Página Seguinte"
     >
       <button
+        aria-label="Página Seguinte"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -103617,13 +104200,14 @@ exports[`Locale Provider > should display the text as pt-br 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Página anterior"
     >
       <button
+        aria-disabled="true"
+        aria-label="Página anterior"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -103650,68 +104234,78 @@ exports[`Locale Provider > should display the text as pt-br 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Página 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Página 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Página 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Página 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Página 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Próxima página"
     >
       <button
+        aria-label="Próxima página"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -105568,13 +106162,14 @@ exports[`Locale Provider > should display the text as ro 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Pagina Anterioară"
     >
       <button
+        aria-disabled="true"
+        aria-label="Pagina Anterioară"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -105601,68 +106196,78 @@ exports[`Locale Provider > should display the text as ro 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Pagina Următoare"
     >
       <button
+        aria-label="Pagina Următoare"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -107519,13 +108124,14 @@ exports[`Locale Provider > should display the text as ru 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Назад"
     >
       <button
+        aria-disabled="true"
+        aria-label="Назад"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -107552,68 +108158,78 @@ exports[`Locale Provider > should display the text as ru 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Страница 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Страница 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Страница 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Страница 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Страница 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Вперед"
     >
       <button
+        aria-label="Вперед"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -109470,13 +110086,14 @@ exports[`Locale Provider > should display the text as si 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="කලින් පිටුව"
     >
       <button
+        aria-disabled="true"
+        aria-label="කලින් පිටුව"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -109503,68 +110120,78 @@ exports[`Locale Provider > should display the text as si 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="පිටුව 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="පිටුව 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="පිටුව 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="පිටුව 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="පිටුව 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="ඊළඟ පිටුව"
     >
       <button
+        aria-label="ඊළඟ පිටුව"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -111421,13 +112048,14 @@ exports[`Locale Provider > should display the text as sk 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Predchádzajúca strana"
     >
       <button
+        aria-disabled="true"
+        aria-label="Predchádzajúca strana"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -111454,68 +112082,78 @@ exports[`Locale Provider > should display the text as sk 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Nasledujúca strana"
     >
       <button
+        aria-label="Nasledujúca strana"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -113372,13 +114010,14 @@ exports[`Locale Provider > should display the text as sl 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Prejšnja stran"
     >
       <button
+        aria-disabled="true"
+        aria-label="Prejšnja stran"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -113405,68 +114044,78 @@ exports[`Locale Provider > should display the text as sl 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Naslednja stran"
     >
       <button
+        aria-label="Naslednja stran"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -115323,13 +115972,14 @@ exports[`Locale Provider > should display the text as sq 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Faqja e mëparshme"
     >
       <button
+        aria-disabled="true"
+        aria-label="Faqja e mëparshme"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -115356,68 +116006,78 @@ exports[`Locale Provider > should display the text as sq 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Faqe 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Faqe 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Faqe 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Faqe 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Faqe 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Faqja tjetër"
     >
       <button
+        aria-label="Faqja tjetër"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -117274,13 +117934,14 @@ exports[`Locale Provider > should display the text as sr 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Prethodna strana"
     >
       <button
+        aria-disabled="true"
+        aria-label="Prethodna strana"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -117307,68 +117968,78 @@ exports[`Locale Provider > should display the text as sr 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Sledeća strana"
     >
       <button
+        aria-label="Sledeća strana"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -119225,13 +119896,14 @@ exports[`Locale Provider > should display the text as sv 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Föreg sida"
     >
       <button
+        aria-disabled="true"
+        aria-label="Föreg sida"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -119258,68 +119930,78 @@ exports[`Locale Provider > should display the text as sv 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Sida 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Sida 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Sida 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Sida 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Sida 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Nästa sida"
     >
       <button
+        aria-label="Nästa sida"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -121176,13 +121858,14 @@ exports[`Locale Provider > should display the text as ta 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="முந்தைய பக்கம்"
     >
       <button
+        aria-disabled="true"
+        aria-label="முந்தைய பக்கம்"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -121209,68 +121892,78 @@ exports[`Locale Provider > should display the text as ta 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="அடுத்த பக்கம்"
     >
       <button
+        aria-label="அடுத்த பக்கம்"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -123127,13 +123820,14 @@ exports[`Locale Provider > should display the text as th 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="หน้าก่อนหน้า"
     >
       <button
+        aria-disabled="true"
+        aria-label="หน้าก่อนหน้า"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -123160,68 +123854,78 @@ exports[`Locale Provider > should display the text as th 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="หน้า 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="หน้า 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="หน้า 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="หน้า 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="หน้า 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="หน้าถัดไป"
     >
       <button
+        aria-label="หน้าถัดไป"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -125078,13 +125782,14 @@ exports[`Locale Provider > should display the text as tk 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Öňki sahypa"
     >
       <button
+        aria-disabled="true"
+        aria-label="Öňki sahypa"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -125111,68 +125816,78 @@ exports[`Locale Provider > should display the text as tk 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Sahypa 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Sahypa 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Sahypa 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Sahypa 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Sahypa 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Soňky sahypa"
     >
       <button
+        aria-label="Soňky sahypa"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -127029,13 +127744,14 @@ exports[`Locale Provider > should display the text as tr 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Önceki Sayfa"
     >
       <button
+        aria-disabled="true"
+        aria-label="Önceki Sayfa"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -127062,68 +127778,78 @@ exports[`Locale Provider > should display the text as tr 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Sayfa 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Sayfa 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Sayfa 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Sayfa 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Sayfa 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Sonraki Sayfa"
     >
       <button
+        aria-label="Sonraki Sayfa"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -128980,13 +129706,14 @@ exports[`Locale Provider > should display the text as uk 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Попередня сторінка"
     >
       <button
+        aria-disabled="true"
+        aria-label="Попередня сторінка"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -129013,68 +129740,78 @@ exports[`Locale Provider > should display the text as uk 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Наступна сторінка"
     >
       <button
+        aria-label="Наступна сторінка"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -130931,13 +131668,14 @@ exports[`Locale Provider > should display the text as ur 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="پچھلا صفحہ"
     >
       <button
+        aria-disabled="true"
+        aria-label="پچھلا صفحہ"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -130964,68 +131702,78 @@ exports[`Locale Provider > should display the text as ur 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="اگلا صفحہ"
     >
       <button
+        aria-label="اگلا صفحہ"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -132882,13 +133630,14 @@ exports[`Locale Provider > should display the text as uz-latn 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Orqaga"
     >
       <button
+        aria-disabled="true"
+        aria-label="Orqaga"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -132915,68 +133664,78 @@ exports[`Locale Provider > should display the text as uz-latn 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Sahifa 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Sahifa 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Sahifa 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Sahifa 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Sahifa 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Oldinga"
     >
       <button
+        aria-label="Oldinga"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -134833,13 +135592,14 @@ exports[`Locale Provider > should display the text as vi 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Trang Trước"
     >
       <button
+        aria-disabled="true"
+        aria-label="Trang Trước"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -134866,68 +135626,78 @@ exports[`Locale Provider > should display the text as vi 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="Trang 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="Trang 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="Trang 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="Trang 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="Trang 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="Trang Kế"
     >
       <button
+        aria-label="Trang Kế"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -136784,13 +137554,14 @@ exports[`Locale Provider > should display the text as zh-cn 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="上一页"
     >
       <button
+        aria-disabled="true"
+        aria-label="上一页"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -136817,68 +137588,78 @@ exports[`Locale Provider > should display the text as zh-cn 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="页 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="页 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="页 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="页 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="页 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="下一页"
     >
       <button
+        aria-label="下一页"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -138735,13 +139516,14 @@ exports[`Locale Provider > should display the text as zh-hk 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="上一頁"
     >
       <button
+        aria-disabled="true"
+        aria-label="上一頁"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -138768,68 +139550,78 @@ exports[`Locale Provider > should display the text as zh-hk 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="頁 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="頁 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="頁 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="頁 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="頁 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="下一頁"
     >
       <button
+        aria-label="下一頁"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -138861,14 +139653,14 @@ exports[`Locale Provider > should display the text as zh-hk 1`] = `
       >
         <div
           class="ant-select-content ant-select-content-has-value"
-          title="10 條/頁"
+          title="10 筆／頁"
         >
-          10 條/頁
+          10 筆／頁
           <input
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="頁碼"
+            aria-label="每頁筆數"
             autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
@@ -140686,13 +141478,14 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="上一頁"
     >
       <button
+        aria-disabled="true"
+        aria-label="上一頁"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -140719,68 +141512,78 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-current="page"
+        aria-label="頁 1"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         1
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
-      tabindex="0"
       title="2"
     >
       <a
+        aria-label="頁 2"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         2
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
-      tabindex="0"
       title="3"
     >
       <a
+        aria-label="頁 3"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         3
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
-      tabindex="0"
       title="4"
     >
       <a
+        aria-label="頁 4"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         4
       </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
-      tabindex="0"
       title="5"
     >
       <a
+        aria-label="頁 5"
         rel="nofollow"
+        role="button"
+        tabindex="0"
       >
         5
       </a>
     </li>
     <li
-      aria-disabled="false"
       class="ant-pagination-next"
-      tabindex="0"
-      title="下一頁"
     >
       <button
+        aria-label="下一頁"
         class="ant-pagination-item-link"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
         type="button"
       >
         <span
@@ -140812,14 +141615,14 @@ exports[`Locale Provider > should display the text as zh-tw 1`] = `
       >
         <div
           class="ant-select-content ant-select-content-has-value"
-          title="10 條/頁"
+          title="10 筆／頁"
         >
-          10 條/頁
+          10 筆／頁
           <input
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="頁碼"
+            aria-label="每頁筆數"
             autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
