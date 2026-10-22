@@ -6,6 +6,9 @@ import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
+import type { ConfigProviderProps } from '../../config-provider';
+import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 
 const renderFactory = (timeLineProps: TimelineProps) =>
   render(
@@ -23,6 +26,111 @@ describe('TimeLine', () => {
 
   beforeEach(() => {
     resetWarned();
+  });
+
+  it.each<[TimelineProps['variant'], TimelineProps['variant'], string]>([
+    [undefined, undefined, 'outlined'],
+    [undefined, 'filled', 'filled'],
+    ['filled', undefined, 'filled'],
+    ['filled', 'outlined', 'outlined'],
+    ['outlined', 'filled', 'filled'],
+  ])('config variant %s and prop variant %s render %s', (configVariant, variant, expected) => {
+    const { container } = render(
+      <ConfigProvider timeline={{ variant: configVariant }}>
+        <TimeLine variant={variant} items={[{ content: 'Create a services site' }]} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-timeline')).toHaveClass(`ant-steps-${expected}`);
+  });
+
+  it.each<
+    [
+      ConfigProviderProps['variant'],
+      TimelineProps['variant'],
+      NonNullable<TimelineProps['variant']>,
+    ]
+  >([
+    ['filled', undefined, 'filled'],
+    ['outlined', undefined, 'outlined'],
+    ['borderless', undefined, 'outlined'],
+    ['underlined', undefined, 'outlined'],
+    ['filled', 'outlined', 'outlined'],
+    ['outlined', 'filled', 'filled'],
+    ['borderless', 'filled', 'filled'],
+  ])('global variant %s and prop variant %s render %s', (globalVariant, variant, expected) => {
+    const { container } = render(
+      <ConfigProvider variant={globalVariant}>
+        <TimeLine
+          variant={variant}
+          items={[{ content: 'Create a services site' }]}
+          classNames={({ props }) => ({ root: `custom-${props.variant}` })}
+          styles={({ props }) => ({ root: { opacity: props.variant === 'filled' ? 0.5 : 1 } })}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-timeline')).toHaveClass(
+      `ant-steps-${expected}`,
+      `custom-${expected}`,
+    );
+    expect(container.querySelector('.ant-timeline')).toHaveStyle({
+      opacity: expected === 'filled' ? 0.5 : 1,
+    });
+  });
+
+  it('prioritizes the component config over the global variant', () => {
+    const { container } = render(
+      <ConfigProvider variant="filled" timeline={{ variant: 'outlined' }}>
+        <TimeLine items={[{ content: 'Create a services site' }]} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-timeline')).toHaveClass('ant-steps-outlined');
+  });
+
+  it.each<
+    [
+      ConfigProviderProps['variant'],
+      TimelineProps['variant'],
+      TimelineProps['variant'],
+      NonNullable<TimelineProps['variant']>,
+    ]
+  >([
+    ['filled', 'outlined', undefined, 'filled'],
+    ['outlined', 'filled', undefined, 'outlined'],
+    ['borderless', 'filled', undefined, 'outlined'],
+    ['underlined', 'filled', undefined, 'outlined'],
+    ['filled', 'filled', 'outlined', 'outlined'],
+    ['outlined', 'outlined', 'filled', 'filled'],
+  ])(
+    'Form variant %s, config variant %s and prop variant %s render %s',
+    (formVariant, configVariant, variant, expected) => {
+      const { container } = render(
+        <ConfigProvider variant="filled" timeline={{ variant: configVariant }}>
+          <Form variant={formVariant}>
+            <TimeLine variant={variant} items={[{ content: 'Create a services site' }]} />
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-timeline')).toHaveClass(`ant-steps-${expected}`);
+    },
+  );
+
+  it('passes the configured variant to semantic functions', () => {
+    const { container } = render(
+      <ConfigProvider timeline={{ variant: 'filled' }}>
+        <TimeLine
+          items={[{ content: 'Create a services site' }]}
+          classNames={({ props }) => ({ root: `custom-${props.variant}` })}
+          styles={({ props }) => ({ root: { opacity: props.variant === 'filled' ? 0.5 : 1 } })}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-timeline')).toHaveClass('custom-filled');
+    expect(container.querySelector('.ant-timeline')).toHaveStyle({ opacity: 0.5 });
   });
 
   describe('render TimeLine.Item', () => {

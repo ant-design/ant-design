@@ -461,7 +461,8 @@ export type TimePickerConfig = ComponentStyleConfig &
     'variant' | 'classNames' | 'styles' | 'suffix' | 'suffixIcon' | 'allowClear' | 'clearIcon'
   >;
 
-export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
+export type TimelineConfig = ComponentStyleConfig &
+  Pick<TimelineProps, 'classNames' | 'styles' | 'variant'>;
 
 export type MentionsConfig = ComponentStyleConfig &
   Pick<MentionsProps, 'variant' | 'classNames' | 'styles' | 'allowClear'>;

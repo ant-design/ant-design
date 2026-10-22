@@ -22,6 +22,7 @@ type VariantComponents = keyof Pick<
   | 'rangePicker'
   | 'card'
   | 'divider'
+  | 'timeline'
 >;
 
 type ComponentVariant<Component extends VariantComponents = VariantComponents> = NonNullable<
