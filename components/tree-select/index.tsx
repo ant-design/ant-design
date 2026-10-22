@@ -226,6 +226,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     styles: contextStyles,
     classNames: contextClassNames,
     switcherIcon,
+    allowClear: contextAllowClear,
   } = useComponentConfig('treeSelect');
   const {
     renderEmpty,
@@ -379,6 +380,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
 
   const mergedAllowClear = useAllowClear({
     allowClear,
+    contextAllowClear,
     clearIcon: restProps.clearIcon,
     defaultLabel: locale.clear,
     componentName: 'TreeSelect',

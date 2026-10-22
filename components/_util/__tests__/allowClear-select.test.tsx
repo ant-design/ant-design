@@ -20,19 +20,19 @@ const clearCases = [
   },
   {
     name: 'AutoComplete',
-    configKey: undefined,
+    configKey: 'autoComplete',
     render: (props: ClearProps) => <AutoComplete defaultValue="value" {...props} />,
   },
   {
     name: 'TreeSelect',
-    configKey: undefined,
+    configKey: 'treeSelect',
     render: (props: ClearProps) => (
       <TreeSelect defaultValue="value" treeData={[{ value: 'value', title: 'Value' }]} {...props} />
     ),
   },
   {
     name: 'Cascader',
-    configKey: undefined,
+    configKey: 'cascader',
     render: (props: ClearProps) => (
       <Cascader
         defaultValue={['value']}
