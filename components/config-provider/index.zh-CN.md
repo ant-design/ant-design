@@ -117,6 +117,7 @@ const {
 - `alert`：[Alert](/components/alert#api)（自 5.7.0 起支持）
 - `anchor`：[Anchor](/components/anchor#api)（自 6.0.0 起支持）
 - `app`：[App](/components/app#api)（自 6.3.0 起支持）
+- `autoComplete`：[AutoComplete](/components/auto-complete#allowclearconfig)（自 6.7.0 起支持，仅支持 `allowClear`）
 - `avatar`：[Avatar](/components/avatar#api)（自 5.7.0 起支持）
 - `badge`：[Badge](/components/badge#api)（自 5.7.0 起支持）
 - `borderBeam`：[BorderBeam](/components/border-beam#api)（自 6.4.0 起支持）

@@ -6,6 +6,7 @@ import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { AlertProps } from '../alert';
 import type { AnchorProps } from '../anchor';
+import type { AutoCompleteProps } from '../auto-complete';
 import type { BadgeProps } from '../badge';
 import type { RibbonProps } from '../badge/Ribbon';
 import type { BreadcrumbProps } from '../breadcrumb';
@@ -262,6 +263,8 @@ export type BreadcrumbConfig = ComponentStyleConfig &
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
+export type AutoCompleteConfig = Pick<AutoCompleteProps, 'allowClear'>;
+
 export type InputPasswordConfig = ComponentStyleConfig &
   Pick<PasswordProps, 'classNames' | 'styles' | 'iconRender' | 'variant'>;
 
@@ -431,6 +434,7 @@ export type InputNumberConfig = ComponentStyleConfig &
 export type CascaderConfig = ComponentStyleConfig &
   Pick<
     CascaderProps,
+    | 'allowClear'
     | 'variant'
     | 'styles'
     | 'classNames'
@@ -442,7 +446,7 @@ export type CascaderConfig = ComponentStyleConfig &
   > & { clearIcon?: React.ReactNode; searchIcon?: React.ReactNode };
 
 export type TreeSelectConfig = ComponentStyleConfig &
-  Pick<TreeSelectProps, 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;
+  Pick<TreeSelectProps, 'allowClear' | 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;
 
 export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | 'styles'>;
 
@@ -505,6 +509,7 @@ export interface WaveConfig {
 }
 
 export interface ConfigComponentProps {
+  autoComplete?: AutoCompleteConfig;
   input?: InputConfig;
   inputPassword?: InputPasswordConfig;
   inputSearch?: InputSearchConfig;

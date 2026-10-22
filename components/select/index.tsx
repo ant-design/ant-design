@@ -228,6 +228,7 @@ const InternalSelect = <
     virtual,
     popupMatchSelectWidth: contextPopupMatchSelectWidth,
     popupOverflow,
+    autoComplete,
   } = React.useContext(ConfigContext);
 
   const [locale] = useLocale('global');
@@ -333,8 +334,8 @@ const InternalSelect = <
   const mergedAllowClear = useAllowClear({
     allowClear,
     clearIcon,
-    // AutoComplete does not inherit Select's allowClear configuration.
-    contextAllowClear: mode === 'combobox' ? undefined : contextAllowClear,
+    // AutoComplete uses its own allowClear configuration instead of Select's.
+    contextAllowClear: mode === 'combobox' ? autoComplete?.allowClear : contextAllowClear,
     contextClearIcon,
     defaultLabel: locale.clear,
     componentName: 'Select',
