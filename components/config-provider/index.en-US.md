@@ -115,6 +115,7 @@ The following config keys set common props for corresponding components or globa
 - `alert`: [Alert](/components/alert#api) (supported since 5.7.0)
 - `anchor`: [Anchor](/components/anchor#api) (supported since 6.0.0)
 - `app`: [App](/components/app#api) (supported since 6.3.0)
+- `autoComplete`: [AutoComplete](/components/auto-complete#allowclearconfig) (supported since 6.7.0, only supports `allowClear`)
 - `avatar`: [Avatar](/components/avatar#api) (supported since 5.7.0)
 - `badge`: [Badge](/components/badge#api) (supported since 5.7.0)
 - `borderBeam`: [BorderBeam](/components/border-beam#api) (supported since 6.4.0)

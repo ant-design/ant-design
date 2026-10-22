@@ -53,7 +53,7 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | true | - | `clearIcon`: 6.4.0 |
+| allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | true | - | 6.7.0 |
 | ~~autoClearSearchValue~~ | 是否在选中项后清空搜索框，只在 `multiple` 为 `true` 时有效 | boolean | true | 5.9.0 | × |
 | ~~bordered~~ | 是否带边框，请使用 `variant` 替代 | boolean | true | - | × |
 | changeOnSelect | 单选时生效（multiple 下始终都可以选择），点选每级菜单选项值都会发生变化。 | boolean | false |  | × |
@@ -108,12 +108,14 @@ demo:
 
 ### AllowClearConfig
 
+支持通过 `ConfigProvider.cascader.allowClear` 全局配置（6.7.0）。字段按组件配置、全局配置、默认值的顺序取值。`allowClear={true}` 继承全局配置；`disabled: false` 和 `tabIndex: 0` 可覆盖全局值。
+
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| clearIcon | 自定义清除图标 | ReactNode | - | - | 6.4.0 (`cascader.clearIcon`) |
-| disabled | `true` 时等同于 `allowClear={false}` | boolean | false | 6.7.0 | × |
-| label | 清除按钮的无障碍名称 | string | 组件的本地化文案 | 6.6.0 | × |
-| tabIndex | 清除按钮的 Tab 键顺序。`-1` 表示不参与 Tab 键导航 | number | 0 | 6.7.0 | × |
+| clearIcon | 自定义清除图标 | ReactNode | - | - | 6.7.0 (`cascader.allowClear.clearIcon`), 6.4.0 (`cascader.clearIcon`) |
+| disabled | `true` 时等同于 `allowClear={false}` | boolean | false | 6.7.0 | 6.7.0 |
+| label | 清除按钮的无障碍名称 | string | 组件的本地化文案 | 6.6.0 | 6.7.0 |
+| tabIndex | 清除按钮的 Tab 键顺序。`-1` 表示不参与 Tab 键导航 | number | 0 | 6.7.0 | 6.7.0 |
 
 ### showSearch
 

@@ -14,6 +14,7 @@ import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticT
 import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
+import useVariant from '../form/hooks/useVariants';
 import useStyle from './style';
 
 export interface AlertRef {
@@ -209,7 +210,6 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
   const {
     getPrefixCls,
     direction,
-    variant: contextVariant,
     closable: contextClosable,
     closeIcon: contextCloseIcon,
     className: contextClassName,
@@ -245,7 +245,10 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     return banner ? 'warning' : 'info';
   }, [props.type, banner]);
 
-  const mergedVariant = props.variant ?? contextVariant ?? 'outlined';
+  const [mergedVariant] = useVariant('alert', props.variant, {
+    variants: ['outlined', 'filled'],
+    defaultVariant: 'outlined',
+  });
 
   // closeable when closeText or closeIcon is assigned
   const isClosable = React.useMemo<boolean>(() => {
