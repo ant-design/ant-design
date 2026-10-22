@@ -32,7 +32,7 @@ const clearCases = [
   },
   {
     name: 'Cascader',
-    configKey: undefined,
+    configKey: 'cascader',
     render: (props: ClearProps) => (
       <Cascader
         defaultValue={['value']}

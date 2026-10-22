@@ -52,7 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | true | - | `clearIcon`: 6.4.0 |
+| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | true | - | 6.7.0 |
 | ~~autoClearSearchValue~~ | Whether the current search will be cleared on selecting an item. Only applies when `multiple` is `true` | boolean | true | 5.9.0 | × |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - | × |
 | changeOnSelect | Change value on each selection if set to true, see above demo for details | boolean | false |  | × |
@@ -107,12 +107,14 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### AllowClearConfig
 
+Supports global configuration through `ConfigProvider.cascader.allowClear` (6.7.0). Fields use component values first, then global values, then defaults. `allowClear={true}` inherits global configuration; `disabled: false` and `tabIndex: 0` override global values.
+
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| clearIcon | Custom clear icon | ReactNode | - | - | 6.4.0 (`cascader.clearIcon`) |
-| disabled | When `true`, equivalent to `allowClear={false}` | boolean | false | 6.7.0 | × |
-| label | Accessible name of the clear button | string | Component locale text | 6.6.0 | × |
-| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 6.7.0 | × |
+| clearIcon | Custom clear icon | ReactNode | - | - | 6.7.0 (`cascader.allowClear.clearIcon`), 6.4.0 (`cascader.clearIcon`) |
+| disabled | When `true`, equivalent to `allowClear={false}` | boolean | false | 6.7.0 | 6.7.0 |
+| label | Accessible name of the clear button | string | Component locale text | 6.6.0 | 6.7.0 |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 6.7.0 | 6.7.0 |
 
 ### showSearch
 

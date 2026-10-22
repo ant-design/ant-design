@@ -433,6 +433,7 @@ export type InputNumberConfig = ComponentStyleConfig &
 export type CascaderConfig = ComponentStyleConfig &
   Pick<
     CascaderProps,
+    | 'allowClear'
     | 'variant'
     | 'styles'
     | 'classNames'
