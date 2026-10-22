@@ -825,7 +825,7 @@ describe('Table.rowSelection', () => {
         ).toBe(true);
         expect(container.querySelector('thead .ant-checkbox-indeterminate')).toBeNull();
 
-        fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
+        fireEvent.click(container.querySelector('.ant-pagination-item-2 > :is(a, button)')!);
         fireEvent.click(container.querySelector('.ant-table-row-expand-icon')!);
         expect(getSelections(container)).toEqual(['other-parent', 'selected', 'other-child']);
       },
@@ -855,7 +855,7 @@ describe('Table.rowSelection', () => {
       fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
       expect(onChange).toHaveBeenCalledWith([0, 1, 2], expect.anything(), { type: 'all' });
 
-      fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
+      fireEvent.click(container.querySelector('.ant-pagination-item-2 > :is(a, button)')!);
       expect(
         container.querySelector<HTMLInputElement>(
           'tbody tr[data-row-key="3"] input[type="checkbox"]',
@@ -995,7 +995,7 @@ describe('Table.rowSelection', () => {
       fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
 
       expect(onChange).toHaveBeenCalledWith([1], [presetData[1]], { type: 'none' });
-      fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
+      fireEvent.click(container.querySelector('.ant-pagination-item-2 > :is(a, button)')!);
       expect(getSelections(container)).toEqual([1]);
     });
 
@@ -1128,7 +1128,7 @@ describe('Table.rowSelection', () => {
         dataSource: newData,
       }),
     );
-    fireEvent.click(container.querySelectorAll('.ant-pagination-item')[1]); // switch to second page
+    fireEvent.click(container.querySelectorAll('.ant-pagination-item > a')[1]); // switch to second page
     fireEvent.click(container.querySelector('.ant-checkbox')!);
 
     expect(renderedNames(container)).toEqual([
