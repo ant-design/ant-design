@@ -122,6 +122,92 @@ describe('Pagination', () => {
     });
   });
 
+  describe('variant and shape', () => {
+    it('should use outlined variant by default', () => {
+      const { container } = render(<Pagination defaultCurrent={1} total={50} />);
+      expect(container.querySelector('.ant-pagination')).toHaveClass(
+        'ant-pagination-variant-outlined',
+      );
+      expect(container.querySelector('.ant-pagination-round')).toBeFalsy();
+    });
+
+    it.each(['outlined', 'borderless', 'filled', 'underlined'] as const)(
+      'should support variant=%s',
+      (variant) => {
+        const { container } = render(
+          <Pagination defaultCurrent={1} total={50} variant={variant} />,
+        );
+        expect(container.querySelector('.ant-pagination')).toHaveClass(
+          `ant-pagination-variant-${variant}`,
+        );
+      },
+    );
+
+    it('should support shape=round', () => {
+      const { container } = render(<Pagination defaultCurrent={1} total={50} shape="round" />);
+      expect(container.querySelector('.ant-pagination')).toHaveClass('ant-pagination-round');
+    });
+
+    it('should follow ConfigProvider pagination variant and shape', () => {
+      const { container } = render(
+        <ConfigProvider pagination={{ variant: 'filled', shape: 'round' }}>
+          <Pagination defaultCurrent={1} total={50} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-pagination')).toHaveClass(
+        'ant-pagination-variant-filled',
+      );
+      expect(container.querySelector('.ant-pagination')).toHaveClass('ant-pagination-round');
+    });
+
+    it('should prioritize component props over ConfigProvider', () => {
+      const { container } = render(
+        <ConfigProvider pagination={{ variant: 'filled', shape: 'round' }}>
+          <Pagination defaultCurrent={1} total={50} variant="borderless" shape="default" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-pagination')).toHaveClass(
+        'ant-pagination-variant-borderless',
+      );
+      expect(container.querySelector('.ant-pagination-round')).toBeFalsy();
+    });
+
+    it('should sync variant to quick jumper input and size changer select', () => {
+      const { container } = render(
+        <Pagination
+          defaultCurrent={1}
+          total={500}
+          variant="filled"
+          showQuickJumper
+          showSizeChanger
+        />,
+      );
+
+      expect(container.querySelector('.ant-pagination')).toHaveClass('ant-pagination-filled');
+      expect(container.querySelector('.ant-pagination')).toHaveClass(
+        'ant-pagination-variant-filled',
+      );
+      expect(container.querySelector('.ant-select')).toHaveClass('ant-select-filled');
+    });
+
+    it('should allow showSizeChanger.variant to override pagination variant', () => {
+      const { container } = render(
+        <Pagination
+          defaultCurrent={1}
+          total={500}
+          variant="filled"
+          showSizeChanger={{ variant: 'borderless' }}
+        />,
+      );
+
+      expect(container.querySelector('.ant-pagination')).toHaveClass(
+        'ant-pagination-variant-filled',
+      );
+      expect(container.querySelector('.ant-select')).toHaveClass('ant-select-borderless');
+      expect(container.querySelector('.ant-select-filled')).toBeFalsy();
+    });
+  });
+
   it('showSizeChanger support showSearch=false', () => {
     const { container } = render(
       <Pagination

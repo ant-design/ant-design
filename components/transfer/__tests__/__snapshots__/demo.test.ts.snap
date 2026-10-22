@@ -3592,7 +3592,7 @@ Array [
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+                  class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-outlined ant-table-pagination ant-table-pagination-end css-var-test-id"
                 >
                   <li
                     aria-disabled="true"
@@ -4120,7 +4120,7 @@ Array [
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+                  class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-outlined ant-table-pagination ant-table-pagination-end css-var-test-id"
                 >
                   <li
                     aria-disabled="true"
@@ -8941,7 +8941,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+                  class="ant-pagination ant-pagination-small ant-pagination-mini ant-pagination-variant-outlined ant-table-pagination ant-table-pagination-end css-var-test-id"
                 >
                   <li
                     aria-disabled="true"
