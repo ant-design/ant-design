@@ -65,6 +65,7 @@ demo:
 | --- | --- | --- | --- | --- | --- |
 | allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | false | - | 6.4.0 |
 | ~~autoClearSearchValue~~ | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效 | boolean | true |  | × |
+| autoComplete | 输入框的 HTML `autocomplete` 属性 | string | `new-password` | - | 6.7.0 |
 | ~~bordered~~ | 是否带边框，请使用 `variant` 替代 | boolean | true | - | × |
 | classNames | 用于自定义 Select 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.25.0 |
 | defaultActiveFirstOption | 是否默认高亮第一个选项 | boolean | true |  | × |

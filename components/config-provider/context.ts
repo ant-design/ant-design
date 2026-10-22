@@ -346,6 +346,7 @@ export type ProgressConfig = ComponentStyleConfig & Pick<ProgressProps, 'classNa
 export type SelectConfig = ComponentStyleConfig &
   Pick<
     SelectProps,
+    | 'autoComplete'
     | 'showSearch'
     | 'variant'
     | 'classNames'

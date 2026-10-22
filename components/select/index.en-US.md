@@ -64,6 +64,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- | --- |
 | allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | false | - | 6.4.0 |
 | ~~autoClearSearchValue~~ | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true |  | × |
+| autoComplete | The HTML `autocomplete` attribute of the input | string | `new-password` | - | 6.7.0 |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - | × |
 | classNames | Customize class for each semantic structure inside the Select component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.25.0 |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  | × |
