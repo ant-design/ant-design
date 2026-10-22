@@ -138,6 +138,11 @@ export function previewImage(file: File | Blob): Promise<string> {
       resolve(dataURL);
     };
     img.crossOrigin = 'anonymous';
+    img.onerror = () => {
+      document.body.removeChild(canvas);
+      window.URL.revokeObjectURL(img.src);
+      resolve('');
+    };
     if (file.type.startsWith('image/svg+xml')) {
       const reader = new FileReader();
       reader.onload = () => {
