@@ -21,6 +21,7 @@ type VariantComponents = keyof Pick<
   | 'timePicker'
   | 'rangePicker'
   | 'card'
+  | 'timeline'
 >;
 
 interface VariantOptions<T extends readonly string[]> {
