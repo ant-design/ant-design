@@ -338,12 +338,12 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "448 KiB",
+      "limit": "449 KiB",
       "gzip": true
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "540 KiB",
+      "limit": "541 KiB",
       "gzip": true
     }
   ],
