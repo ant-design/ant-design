@@ -8428,7 +8428,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                       >
                         <colgroup>
                           <col
-                            class="ant-table-selection-col"
+                            class="ant-table-selection-col ant-table-selection-col-with-dropdown"
                           />
                         </colgroup>
                         <thead
@@ -9205,7 +9205,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                       >
                         <colgroup>
                           <col
-                            class="ant-table-selection-col"
+                            class="ant-table-selection-col ant-table-selection-col-with-dropdown"
                           />
                         </colgroup>
                         <thead

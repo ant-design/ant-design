@@ -12502,7 +12502,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                       >
                         <colgroup>
                           <col
-                            class="ant-table-selection-col"
+                            class="ant-table-selection-col ant-table-selection-col-with-dropdown"
                           />
                         </colgroup>
                         <thead
@@ -13385,7 +13385,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                       >
                         <colgroup>
                           <col
-                            class="ant-table-selection-col"
+                            class="ant-table-selection-col ant-table-selection-col-with-dropdown"
                           />
                         </colgroup>
                         <thead
