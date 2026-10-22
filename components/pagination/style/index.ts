@@ -663,6 +663,7 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
       ...resetComponent(token),
       display: 'flex',
       alignItems: 'center',
+      userSelect: 'none',
 
       '&-start': {
         justifyContent: 'start',
