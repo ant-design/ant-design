@@ -288692,7 +288692,7 @@ exports[`Locale Provider should display the text as ne-np 1`] = `
     >
       <button
         aria-disabled="true"
-        aria-label="Previous Page"
+        aria-label="अघिल्लो पृष्ठ"
         class="ant-pagination-item-link"
         disabled=""
         role="button"
@@ -288726,7 +288726,7 @@ exports[`Locale Provider should display the text as ne-np 1`] = `
     >
       <a
         aria-current="page"
-        aria-label="Page 1"
+        aria-label="पृष्ठ 1"
         rel="nofollow"
         role="button"
         tabindex="0"
@@ -288739,7 +288739,7 @@ exports[`Locale Provider should display the text as ne-np 1`] = `
       title="2"
     >
       <a
-        aria-label="Page 2"
+        aria-label="पृष्ठ 2"
         rel="nofollow"
         role="button"
         tabindex="0"
@@ -288752,7 +288752,7 @@ exports[`Locale Provider should display the text as ne-np 1`] = `
       title="3"
     >
       <a
-        aria-label="Page 3"
+        aria-label="पृष्ठ 3"
         rel="nofollow"
         role="button"
         tabindex="0"
@@ -288765,7 +288765,7 @@ exports[`Locale Provider should display the text as ne-np 1`] = `
       title="4"
     >
       <a
-        aria-label="Page 4"
+        aria-label="पृष्ठ 4"
         rel="nofollow"
         role="button"
         tabindex="0"
@@ -288778,7 +288778,7 @@ exports[`Locale Provider should display the text as ne-np 1`] = `
       title="5"
     >
       <a
-        aria-label="Page 5"
+        aria-label="पृष्ठ 5"
         rel="nofollow"
         role="button"
         tabindex="0"
@@ -288790,7 +288790,7 @@ exports[`Locale Provider should display the text as ne-np 1`] = `
       class="ant-pagination-next"
     >
       <button
-        aria-label="Next Page"
+        aria-label="अर्को पृष्ठ"
         class="ant-pagination-item-link"
         role="button"
         tabindex="0"
@@ -288825,14 +288825,14 @@ exports[`Locale Provider should display the text as ne-np 1`] = `
       >
         <div
           class="ant-select-content ant-select-content-has-value"
-          title="10 / page"
+          title="10 / पृष्ठ"
         >
-          10 / page
+          10 / पृष्ठ
           <input
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Page Size"
+            aria-label="पृष्ठ आकार"
             autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
