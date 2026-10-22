@@ -314,6 +314,30 @@ describe('Typography.Ellipsis', () => {
     expect(container.querySelector('p')?.textContent).toBe(fullStr);
   });
 
+  it('expand click should not trigger editable when triggerType is text', async () => {
+    const onExpand = jest.fn();
+    const onStart = jest.fn();
+    const ref = React.createRef<HTMLElement>();
+    const { container } = render(
+      <Base
+        ellipsis={{ expandable: true, onExpand }}
+        editable={{ triggerType: ['text'], onStart }}
+        component="p"
+        ref={ref}
+      >
+        {fullStr}
+      </Base>,
+    );
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
+    fireEvent.click(container.querySelector('.ant-typography-expand')!);
+    expect(onExpand).toHaveBeenCalled();
+    expect(onStart).not.toHaveBeenCalled();
+    expect(container.querySelector('textarea')).toBeFalsy();
+  });
+
   it('should collapsible work', async () => {
     const ref = React.createRef<HTMLElement>();
 
