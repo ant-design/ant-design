@@ -35,6 +35,7 @@
   "typings": "es/index.d.ts",
   "files": [
     "BUG_VERSIONS.json",
+    "cssinjs",
     "dist",
     "es",
     "lib",

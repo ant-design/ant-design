@@ -57,6 +57,7 @@ module.exports = {
     '^antd/es/(.*)$': '<rootDir>/components/$1',
     '^antd/lib/(.*)$': '<rootDir>/components/$1',
     '^antd/locale/(.*)$': '<rootDir>/components/locale/$1',
+    '^antd/cssinjs$': '<rootDir>/components/cssinjs',
   },
   testPathIgnorePatterns: [
     '/node_modules/',

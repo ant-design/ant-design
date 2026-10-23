@@ -6,6 +6,16 @@ const antdCssPath = path.join(process.cwd(), 'components', 'style', 'antd.css');
 const tokenStatisticPath = path.join(process.cwd(), 'components', 'version', 'token.json');
 const tokenMetaPath = path.join(process.cwd(), 'components', 'version', 'token-meta.json');
 
+function generateCssinjsEntry() {
+  const cssinjsDir = path.join(process.cwd(), 'cssinjs');
+  fs.mkdirSync(cssinjsDir, { recursive: true });
+  fs.writeFileSync(
+    path.join(cssinjsDir, 'index.js'),
+    `module.exports = require('../lib/cssinjs');\n`,
+  );
+  fs.writeFileSync(path.join(cssinjsDir, 'index.d.ts'), `export * from '../lib/cssinjs';\n`);
+}
+
 function finalizeCompile() {
   if (fs.existsSync(path.join(__dirname, './es'))) {
     fs.copyFileSync(restCssPath, path.join(process.cwd(), 'es', 'style', 'reset.css'));
@@ -19,6 +29,7 @@ function finalizeCompile() {
     fs.copyFileSync(antdCssPath, path.join(process.cwd(), 'lib', 'style', 'antd.css'));
     fs.copyFileSync(tokenStatisticPath, path.join(process.cwd(), 'lib', 'version', 'token.json'));
     fs.copyFileSync(tokenMetaPath, path.join(process.cwd(), 'lib', 'version', 'token-meta.json'));
+    generateCssinjsEntry();
   }
 }
 
