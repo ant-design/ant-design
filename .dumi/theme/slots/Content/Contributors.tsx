@@ -5,6 +5,7 @@ import { useIntl } from 'dumi';
 import useSWR from 'swr';
 import type { SWRConfiguration } from 'swr';
 
+import { isOfficialHost } from '../../utils';
 import SiteContext from '../SiteContext';
 import ContributorAvatar from './ContributorAvatar';
 import type { AvatarListItem } from './ContributorAvatar';
@@ -77,9 +78,16 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const { formatMessage } = useIntl();
   const { isMobile } = React.use(SiteContext);
   const dataKey = getContributorKey(filename);
+  const [deployedOnOfficialHost, setDeployedOnOfficialHost] = React.useState(false);
+
+  React.useEffect(() => {
+    setDeployedOnOfficialHost(isOfficialHost(window.location.hostname));
+  }, []);
 
   const { data, error, isLoading } = useSWR<ContributorsData, Error>(
-    process.env.NODE_ENV === 'production' && dataKey ? CONTRIBUTORS_URL : null,
+    process.env.NODE_ENV === 'production' && deployedOnOfficialHost && dataKey
+      ? CONTRIBUTORS_URL
+      : null,
     fetcher,
     swrConfig,
   );
