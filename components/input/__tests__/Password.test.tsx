@@ -1,5 +1,6 @@
 import React from 'react';
 import { LockOutlined } from '@ant-design/icons';
+import { renderToString } from 'react-dom/server';
 
 import type { InputRef } from '..';
 import Input from '..';
@@ -8,6 +9,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 import Password from '../Password';
 
 describe('Input.Password', () => {
@@ -146,6 +148,85 @@ describe('Input.Password', () => {
   });
 
   // https://github.com/ant-design/ant-design/pull/20544#issuecomment-569861679
+  it.each(['value', 'defaultValue', 'initialValues'])(
+    'should preserve the password %s after hydration',
+    async (valueProp) => {
+      jest.useFakeTimers();
+      const password = 'initial-password';
+      const input =
+        valueProp === 'initialValues' ? (
+          <Form initialValues={{ password }}>
+            <Form.Item name="password">
+              <Input.Password />
+            </Form.Item>
+          </Form>
+        ) : (
+          <Input.Password {...{ [valueProp]: password }} />
+        );
+      const container = document.createElement('div');
+      container.innerHTML = renderToString(input);
+      const element = container.querySelector('input')!;
+      expect(element).toHaveValue(password);
+      element.setSelectionRange(2, 5, 'backward');
+
+      const { unmount } = render(input, { container, hydrate: true });
+      await waitFakeTimer();
+      expect(container.querySelector('input')).toBe(element);
+      expect(element).toHaveValue(password);
+      expect(element).not.toHaveAttribute('value');
+      expect([element.selectionStart, element.selectionEnd, element.selectionDirection]).toEqual([
+        2,
+        5,
+        'backward',
+      ]);
+
+      fireEvent.change(element, { target: { value: 'edited-password' } });
+      fireEvent.blur(element);
+      await waitFakeTimer();
+      expect(element).toHaveValue(valueProp === 'value' ? password : 'edited-password');
+      expect(element).not.toHaveAttribute('value');
+      unmount();
+      jest.clearAllTimers();
+      jest.useRealTimers();
+    },
+  );
+
+  it('restores the selection if marking a hydrated password dirty moves the caret', async () => {
+    jest.useFakeTimers();
+    const input = <Input.Password defaultValue="initial-password" />;
+    const container = document.createElement('div');
+    container.innerHTML = renderToString(input);
+    const element = container.querySelector('input')!;
+    element.setSelectionRange(2, 5, 'backward');
+
+    const { unmount } = render(input, { container, hydrate: true });
+    const valueDescriptor = Object.getOwnPropertyDescriptor(element, 'value')!;
+    Object.defineProperty(element, 'value', {
+      ...valueDescriptor,
+      get() {
+        return valueDescriptor.get!.call(this);
+      },
+      set(value: string) {
+        valueDescriptor.set!.call(this, value);
+        this.setSelectionRange(this.value.length, this.value.length);
+      },
+    });
+
+    await waitFakeTimer();
+    expect(element).toHaveValue('initial-password');
+    expect(element).not.toHaveAttribute('value');
+    expect([element.selectionStart, element.selectionEnd, element.selectionDirection]).toEqual([
+      2,
+      5,
+      'backward',
+    ]);
+
+    Object.defineProperty(element, 'value', valueDescriptor);
+    unmount();
+    jest.clearAllTimers();
+    jest.useRealTimers();
+  });
+
   it('should not contain value attribute in input element with defaultValue', async () => {
     jest.useFakeTimers();
     const { container } = render(<Input.Password defaultValue="value" />);
