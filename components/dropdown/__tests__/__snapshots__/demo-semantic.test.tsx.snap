@@ -14,7 +14,11 @@ exports[`renders components/dropdown/demo/_semantic.tsx correctly 1`] = `
         style="height: 120px; position: absolute; top: 50px;"
       >
         <a
+          aria-expanded="true"
+          aria-haspopup="menu"
           class="ant-dropdown-trigger ant-dropdown-open"
+          role="button"
+          tabindex="0"
         >
           <div
             class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"

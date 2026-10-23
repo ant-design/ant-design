@@ -9,6 +9,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import Input from '../../input';
 
 let triggerProps: TriggerProps;
 
@@ -45,6 +46,491 @@ describe('Dropdown', () => {
       <span />
     </Dropdown>
   ));
+
+  describe('menu trigger accessibility', () => {
+    it('keeps aria-expanded in sync with controlled open state', () => {
+      const { container, rerender } = render(
+        <Dropdown menu={{ items }} open={false}>
+          <button type="button">Actions</button>
+        </Dropdown>,
+      );
+      const button = container.querySelector('button')!;
+      expect(button).toHaveAttribute('aria-haspopup', 'menu');
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+
+      rerender(
+        <Dropdown menu={{ items }} open>
+          <button type="button">Actions</button>
+        </Dropdown>,
+      );
+      expect(button).toHaveAttribute('aria-expanded', 'true');
+      expect(container.querySelector('[role="menu"]')).toBeTruthy();
+
+      rerender(
+        <Dropdown menu={{ items }} open={false}>
+          <button type="button">Actions</button>
+        </Dropdown>,
+      );
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    it('updates aria-expanded after opening and selecting an item', () => {
+      const { container } = render(
+        <Dropdown menu={{ items }} trigger={['click']}>
+          <button type="button">Actions</button>
+        </Dropdown>,
+      );
+      const button = container.querySelector('button')!;
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+      fireEvent.click(button);
+      expect(button).toHaveAttribute('aria-expanded', 'true');
+      fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    it('forwards aria attributes to the trigger and preserves child attributes', () => {
+      const { container } = render(
+        <Dropdown menu={{ items }} aria-label="Actions" aria-describedby="description">
+          <button type="button" aria-label="More actions" aria-controls="actions-menu" />
+        </Dropdown>,
+      );
+      const button = container.querySelector('button')!;
+      expect(button).toHaveAttribute('aria-label', 'More actions');
+      expect(button).toHaveAttribute('aria-describedby', 'description');
+      expect(button).toHaveAttribute('aria-controls', 'actions-menu');
+    });
+
+    it('uses the Dropdown label when the trigger has no label', () => {
+      const { container } = render(
+        <Dropdown menu={{ items }} aria-label="Actions">
+          <button type="button" />
+        </Dropdown>,
+      );
+      expect(container.querySelector('button')).toHaveAttribute('aria-label', 'Actions');
+    });
+
+    it.each(['Enter', ' '])('opens a non-native trigger with %p', (key) => {
+      const { container } = render(
+        <Dropdown menu={{ items }}>
+          <span>Actions</span>
+        </Dropdown>,
+      );
+      const trigger = container.querySelector('.ant-dropdown-trigger')!;
+      expect(trigger).toHaveAttribute('role', 'button');
+      expect(trigger).toHaveAttribute('tabindex', '0');
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+      fireEvent.keyDown(trigger, { key });
+      expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('preserves click callbacks when activating a click trigger by keyboard', () => {
+      const onClick = jest.fn();
+      const { container } = render(
+        <Dropdown menu={{ items }} trigger={['click']}>
+          <button type="button" onClick={onClick}>
+            Actions
+          </button>
+        </Dropdown>,
+      );
+      const button = container.querySelector('button')!;
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+      fireEvent.keyDown(button, { key: 'Enter' });
+      expect(button).toHaveAttribute('aria-expanded', 'true');
+      expect(onClick).toHaveBeenCalledTimes(1);
+    });
+
+    it('allows the child keyboard handler to prevent activation', () => {
+      const onKeyDown = jest.fn((event: React.KeyboardEvent) => event.preventDefault());
+      const { container } = render(
+        <Dropdown menu={{ items }}>
+          <span onKeyDown={onKeyDown}>Actions</span>
+        </Dropdown>,
+      );
+      const trigger = container.querySelector('.ant-dropdown-trigger')!;
+      fireEvent.keyDown(trigger, { key: 'Enter' });
+      expect(onKeyDown).toHaveBeenCalledTimes(1);
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    it('does not activate disabled or repeated keyboard events', () => {
+      const { container, rerender } = render(
+        <Dropdown menu={{ items }} disabled>
+          <span>Actions</span>
+        </Dropdown>,
+      );
+      const trigger = container.querySelector('.ant-dropdown-trigger')!;
+      fireEvent.keyDown(trigger, { key: 'Enter' });
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+      rerender(
+        <Dropdown menu={{ items }}>
+          <span>Actions</span>
+        </Dropdown>,
+      );
+      fireEvent.keyDown(trigger, { key: 'Enter', repeat: true });
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+      fireEvent.keyDown(trigger, { key: 'Enter' });
+      expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it.each([
+      { name: 'button', node: <button type="button">Actions</button>, role: 'button' },
+      { name: 'input', node: <input aria-label="Actions" />, role: 'textbox' },
+      {
+        name: 'select',
+        node: (
+          <select aria-label="Actions">
+            <option value="edit">Edit</option>
+          </select>
+        ),
+        role: 'combobox',
+      },
+      { name: 'textarea', node: <textarea aria-label="Actions" />, role: 'textbox' },
+      { name: 'link', node: <a href="/actions">Actions</a>, role: 'link' },
+    ])('preserves the native semantics of $name triggers', ({ node, role }) => {
+      const { getByRole, rerender } = render(
+        <Dropdown menu={{ items }} open={false}>
+          {node}
+        </Dropdown>,
+      );
+      const trigger = getByRole(role);
+      expect(trigger).not.toHaveAttribute('role');
+      expect(trigger).toHaveAttribute('aria-haspopup', 'menu');
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+
+      rerender(
+        <Dropdown menu={{ items }} open>
+          {node}
+        </Dropdown>,
+      );
+      expect(trigger).not.toHaveAttribute('role');
+      expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('preserves an empty href without adding a button role', () => {
+      const { container } = render(
+        <Dropdown menu={{ items }}>
+          <a href="">Actions</a>
+        </Dropdown>,
+      );
+      const trigger = container.querySelector('a')!;
+      expect(trigger).toHaveAttribute('href', '');
+      expect(trigger).not.toHaveAttribute('role');
+      expect(trigger).toHaveAttribute('aria-haspopup', 'menu');
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    it.each([
+      { name: 'div', node: <div>Actions</div> },
+      { name: 'span', node: <span>Actions</span> },
+      { name: 'anchor without href', node: <a>Actions</a> },
+    ])('provides button semantics for $name triggers', ({ node }) => {
+      const { getByRole } = render(<Dropdown menu={{ items }}>{node}</Dropdown>);
+      expect(getByRole('button')).toHaveAttribute('role', 'button');
+    });
+
+    it('preserves an explicit role on a native trigger', () => {
+      const { getByRole } = render(
+        <Dropdown menu={{ items }}>
+          <input aria-label="Actions" role="searchbox" />
+        </Dropdown>,
+      );
+      expect(getByRole('searchbox')).toHaveAttribute('role', 'searchbox');
+    });
+
+    it('preserves explicit trigger roles, tab order and popup types', () => {
+      const { container } = render(
+        <Dropdown menu={{ items }}>
+          <span role="link" tabIndex={-1} aria-haspopup="true">
+            Actions
+          </span>
+        </Dropdown>,
+      );
+      const trigger = container.querySelector('span')!;
+      expect(trigger).toHaveAttribute('role', 'link');
+      expect(trigger).toHaveAttribute('tabindex', '-1');
+      expect(trigger).toHaveAttribute('aria-haspopup', 'true');
+    });
+
+    describe('keyboard menu focus', () => {
+      beforeEach(() => jest.useFakeTimers());
+      afterEach(() => jest.useRealTimers());
+
+      it.each([
+        { key: 'Enter', click: false },
+        { key: ' ', click: false },
+        { key: 'Enter', click: true },
+        { key: ' ', click: true },
+      ])('focuses a menu item on $key (click trigger: $click)', async ({ key, click }) => {
+        const { getByRole } = render(
+          <Dropdown menu={{ items }} trigger={click ? ['click'] : undefined}>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        const trigger = getByRole('button');
+        act(() => trigger.focus());
+        expect(trigger).toHaveFocus();
+        fireEvent.keyDown(trigger, { key });
+        await waitFakeTimer();
+        expect(getByRole('menuitem')).toHaveFocus();
+      });
+
+      it('respects explicit autoFocus=false when opening by keyboard', async () => {
+        const { getByRole } = render(
+          <Dropdown menu={{ items }} autoFocus={false}>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        const trigger = getByRole('button');
+        act(() => trigger.focus());
+        fireEvent.keyDown(trigger, { key: 'Enter' });
+        await waitFakeTimer();
+        expect(getByRole('menuitem')).toBeTruthy();
+        expect(trigger).toHaveFocus();
+      });
+
+      it('does not carry keyboard autofocus into a subsequent pointer open', async () => {
+        const { getByRole } = render(
+          <Dropdown menu={{ items }} trigger={['click']}>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        const trigger = getByRole('button');
+        act(() => trigger.focus());
+        fireEvent.keyDown(trigger, { key: 'Enter' });
+        await waitFakeTimer();
+        expect(getByRole('menuitem')).toHaveFocus();
+        fireEvent.click(getByRole('menuitem'));
+        await waitFakeTimer();
+        expect(trigger).toHaveAttribute('aria-expanded', 'false');
+        act(() => trigger.focus());
+        fireEvent.click(trigger);
+        await waitFakeTimer();
+        expect(trigger).toHaveAttribute('aria-expanded', 'true');
+        expect(trigger).toHaveFocus();
+      });
+
+      it('focuses a controlled menu when the keyboard open request is accepted later', async () => {
+        const onOpenChange = jest.fn();
+        const { getByRole, rerender } = render(
+          <Dropdown menu={{ items }} open={false} onOpenChange={onOpenChange}>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        const trigger = getByRole('button');
+        act(() => trigger.focus());
+        fireEvent.keyDown(trigger, { key: 'Enter' });
+        await waitFakeTimer();
+        expect(onOpenChange).toHaveBeenCalledWith(true, { source: 'trigger' });
+        expect(trigger).toHaveAttribute('aria-expanded', 'false');
+        expect(trigger).toHaveFocus();
+        rerender(
+          <Dropdown menu={{ items }} open onOpenChange={onOpenChange}>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        await waitFakeTimer();
+        expect(getByRole('menuitem')).toHaveFocus();
+      });
+
+      it('does not autofocus an independent controlled open without a keyboard request', async () => {
+        const { getByRole, rerender } = render(
+          <Dropdown menu={{ items }} open={false}>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        const trigger = getByRole('button');
+        act(() => trigger.focus());
+        expect(trigger).toHaveFocus();
+        rerender(
+          <Dropdown menu={{ items }} open>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        await waitFakeTimer();
+        expect(getByRole('menuitem')).toBeTruthy();
+        expect(trigger).toHaveFocus();
+      });
+
+      it('clears keyboard autofocus after controlled close before an external reopen', async () => {
+        const onOpenChange = jest.fn();
+        const { getByRole, rerender } = render(
+          <Dropdown menu={{ items }} open={false} onOpenChange={onOpenChange}>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        const trigger = getByRole('button');
+        act(() => trigger.focus());
+        fireEvent.keyDown(trigger, { key: 'Enter' });
+        rerender(
+          <Dropdown menu={{ items }} open onOpenChange={onOpenChange}>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        await waitFakeTimer();
+        expect(getByRole('menuitem')).toHaveFocus();
+        rerender(
+          <Dropdown menu={{ items }} open={false} onOpenChange={onOpenChange}>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        await waitFakeTimer();
+        expect(trigger).toHaveAttribute('aria-expanded', 'false');
+        act(() => trigger.focus());
+        expect(trigger).toHaveFocus();
+        rerender(
+          <Dropdown menu={{ items }} open onOpenChange={onOpenChange}>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        await waitFakeTimer();
+        expect(getByRole('menuitem')).toBeTruthy();
+        expect(trigger).toHaveFocus();
+      });
+
+      it('preserves explicit autoFocus=true for pointer opens', async () => {
+        const { getByRole } = render(
+          <Dropdown menu={{ items }} trigger={['click']} autoFocus>
+            <span>Actions</span>
+          </Dropdown>,
+        );
+        const trigger = getByRole('button');
+        act(() => trigger.focus());
+        expect(trigger).toHaveFocus();
+        fireEvent.click(trigger);
+        await waitFakeTimer();
+        expect(getByRole('menuitem')).toHaveFocus();
+      });
+    });
+
+    it.each([
+      { name: 'text input', node: <input aria-label="Editor" />, key: ' ' },
+      { name: 'text input Enter', node: <input aria-label="Editor" />, key: 'Enter' },
+      { name: 'textarea', node: <textarea aria-label="Editor" />, key: ' ' },
+      { name: 'textarea Enter', node: <textarea aria-label="Editor" />, key: 'Enter' },
+      { name: 'Ant Design input', node: <Input aria-label="Editor" />, key: ' ' },
+    ])('preserves editing keys in $name', ({ node, key }) => {
+      const onOpenChange = jest.fn();
+      const { getByLabelText } = render(
+        <Dropdown menu={{ items }} trigger={['click']} onOpenChange={onOpenChange}>
+          {node}
+        </Dropdown>,
+      );
+      const input = getByLabelText('Editor');
+      expect(fireEvent.keyDown(input, { key })).toBe(true);
+      expect(input).toHaveAttribute('aria-expanded', 'false');
+      expect(onOpenChange).not.toHaveBeenCalled();
+    });
+
+    it('preserves editing keys bubbling from a nested input inside a trigger', () => {
+      const onOpenChange = jest.fn();
+      const { getByLabelText } = render(
+        <Dropdown menu={{ items }} trigger={['click']} onOpenChange={onOpenChange}>
+          <div>
+            <input aria-label="Nested editor" />
+          </div>
+        </Dropdown>,
+      );
+      expect(fireEvent.keyDown(getByLabelText('Nested editor'), { key: ' ' })).toBe(true);
+      expect(onOpenChange).not.toHaveBeenCalled();
+    });
+
+    describe.each(['Enter', ' '])('nested native button activation with %s', (key) => {
+      it.each(['button', 'submit', 'reset', 'image', 'native button'])(
+        'preserves the native click for %s',
+        (type) => {
+          const onClick = jest.fn();
+          const onOpenChange = jest.fn();
+          const { getByTestId } = render(
+            <Dropdown menu={{ items }} trigger={['click']} onOpenChange={onOpenChange}>
+              <div data-testid="trigger">
+                {type === 'native button' ? (
+                  <button type="button" onClick={onClick}>
+                    <span data-testid="target">Actions</span>
+                  </button>
+                ) : (
+                  <input type={type} data-testid="target" onClick={onClick} alt="Actions" />
+                )}
+              </div>
+            </Dropdown>,
+          );
+          const target = getByTestId('target');
+          expect(fireEvent.keyDown(target, { key })).toBe(true);
+          expect(onClick).not.toHaveBeenCalled();
+          expect(onOpenChange).not.toHaveBeenCalled();
+          // jsdom does not synthesize the browser's native keyboard click.
+          fireEvent.click(target);
+          expect(onClick).toHaveBeenCalledTimes(1);
+          expect(onOpenChange).toHaveBeenCalledWith(true, { source: 'trigger' });
+          expect(getByTestId('trigger')).toHaveAttribute('aria-expanded', 'true');
+        },
+      );
+    });
+
+    it('keeps keyboard activation available for native input buttons', () => {
+      const { getByRole } = render(
+        <Dropdown menu={{ items }} trigger={['click']}>
+          <input type="button" value="Actions" />
+        </Dropdown>,
+      );
+      const button = getByRole('button');
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+      fireEvent.keyDown(button, { key: ' ' });
+      expect(button).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('reports a non-native trigger disabled state and updates it when re-enabled', () => {
+      const { getByRole, rerender } = render(
+        <Dropdown menu={{ items }} disabled>
+          <span>Actions</span>
+        </Dropdown>,
+      );
+      const trigger = getByRole('button');
+      expect(trigger).toHaveAttribute('aria-disabled', 'true');
+      fireEvent.keyDown(trigger, { key: 'Enter' });
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+      rerender(
+        <Dropdown menu={{ items }} disabled={false}>
+          <span>Actions</span>
+        </Dropdown>,
+      );
+      expect(trigger).toHaveAttribute('aria-disabled', 'false');
+      fireEvent.keyDown(trigger, { key: 'Enter' });
+      expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it.each([true, false])(
+      'preserves child aria-disabled=%p over generated and parent attributes',
+      (value) => {
+        const { getByRole } = render(
+          <Dropdown menu={{ items }} disabled aria-disabled={!value}>
+            <span aria-disabled={value}>Actions</span>
+          </Dropdown>,
+        );
+        expect(getByRole('button')).toHaveAttribute('aria-disabled', String(value));
+      },
+    );
+
+    it('keeps native disabled button semantics', () => {
+      const { getByRole } = render(
+        <Dropdown menu={{ items }} disabled>
+          <button type="button">Actions</button>
+        </Dropdown>,
+      );
+      expect(getByRole('button')).toBeDisabled();
+      expect(getByRole('button')).not.toHaveAttribute('aria-disabled');
+    });
+
+    it('does not assign menu semantics to a custom popup without menu items', () => {
+      const { container } = render(
+        <Dropdown popupRender={() => <div>Custom content</div>}>
+          <button type="button">Open</button>
+        </Dropdown>,
+      );
+      const button = container.querySelector('button')!;
+      expect(button).not.toHaveAttribute('aria-haspopup');
+      expect(button).not.toHaveAttribute('aria-expanded');
+    });
+  });
 
   it('support custom transitionName', () => {
     const { asFragment } = render(

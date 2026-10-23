@@ -4,7 +4,15 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import RcDropdown from '@rc-component/dropdown';
 import type { MenuProps as RcMenuProps } from '@rc-component/menu';
 import type { AlignType } from '@rc-component/trigger';
-import { getNodeRef, omit, useComposeRef, useControlledState, useEvent } from '@rc-component/util';
+import {
+  getNodeRef,
+  isNonNullable,
+  omit,
+  pickAttrs,
+  useComposeRef,
+  useControlledState,
+  useEvent,
+} from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useZIndex } from '../_util/hooks';
@@ -68,7 +76,7 @@ export type DropdownSemanticType = {
 
 export type DropdownSemanticAllType = GenerateSemantic<DropdownSemanticType, DropdownProps>;
 
-export interface DropdownProps {
+export interface DropdownProps extends React.AriaAttributes {
   classNames?: DropdownSemanticAllType['classNamesAndFn'];
   styles?: DropdownSemanticAllType['stylesAndFn'];
   menu?: MenuProps & { activeKey?: RcMenuProps['activeKey'] };
@@ -233,30 +241,99 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
 
   const child = React.Children.only(
     isPrimitive(children) ? <span>{children}</span> : children,
-  ) as React.ReactElement<{ className?: string; disabled?: boolean }>;
+  ) as React.ReactElement<React.HTMLAttributes<HTMLElement> & { disabled?: boolean }>;
 
   const composedRef = useComposeRef(ref, getNodeRef(child));
 
+  // =========================== Open ============================
+  const [mergedOpen, setOpen] = useControlledState(false, open);
+  const [keyboardOpen, setKeyboardOpen] = React.useState(false);
+  const keyboardTriggerRef = React.useRef(false);
+
+  React.useEffect(() => {
+    if (!mergedOpen) {
+      setKeyboardOpen(false);
+    }
+  }, [mergedOpen]);
+
+  const triggerAriaProps: React.AriaAttributes & { role?: React.AriaRole } = {
+    ...pickAttrs(props, true),
+    ...pickAttrs(child.props, true),
+  };
+  const isNativeInteractive =
+    isString(child.type) &&
+    (['button', 'input', 'select', 'textarea'].includes(child.type) ||
+      (child.type === 'a' && 'href' in child.props && isNonNullable(child.props.href)));
+
+  if (menu?.items) {
+    if (!isNativeInteractive) {
+      triggerAriaProps.role ??= 'button';
+    }
+    triggerAriaProps['aria-haspopup'] ??= 'menu';
+    triggerAriaProps['aria-expanded'] = mergedOpen;
+  }
+
+  const onInnerOpenChange = useEvent((nextOpen: boolean) => {
+    setKeyboardOpen(nextOpen && keyboardTriggerRef.current);
+    onOpenChange?.(nextOpen, { source: 'trigger' });
+    setOpen(nextOpen);
+  });
+
+  const triggerActions = disabled ? [] : trigger;
+  const alignPoint = !!triggerActions?.includes('contextMenu');
+  const mergedDisabled = child.props.disabled ?? disabled;
+  if (menu?.items && !isNativeInteractive) {
+    triggerAriaProps['aria-disabled'] ??= disabled || mergedDisabled;
+  }
+  const onTriggerKeyDown: React.KeyboardEventHandler<HTMLElement> = (event) => {
+    child.props.onKeyDown?.(event);
+    const target = event.target as HTMLElement;
+    const nativeControl = target.closest('button, input');
+    const isNestedNativeControl = nativeControl && nativeControl !== event.currentTarget;
+    const isEditableTarget =
+      target.isContentEditable ||
+      target.tagName === 'TEXTAREA' ||
+      target.tagName === 'SELECT' ||
+      (target.tagName === 'INPUT' &&
+        !['button', 'submit', 'reset', 'image'].includes(
+          target.getAttribute('type')?.toLowerCase() ?? 'text',
+        ));
+    if (
+      menu?.items &&
+      !isEditableTarget &&
+      !isNestedNativeControl &&
+      !disabled &&
+      !mergedDisabled &&
+      !event.defaultPrevented &&
+      !event.repeat &&
+      (event.key === 'Enter' || event.key === ' ')
+    ) {
+      event.preventDefault();
+      keyboardTriggerRef.current = true;
+      try {
+        if (triggerActions?.includes('click')) {
+          event.currentTarget.click();
+        } else {
+          onInnerOpenChange(!mergedOpen);
+        }
+      } finally {
+        keyboardTriggerRef.current = false;
+      }
+    }
+  };
+
   const popupTrigger = cloneElement(child, {
+    ...triggerAriaProps,
     className: clsx(
       `${prefixCls}-trigger`,
       { [`${prefixCls}-rtl`]: direction === 'rtl' },
       child.props.className,
     ),
-    disabled: child.props.disabled ?? disabled,
+    disabled: mergedDisabled,
+    tabIndex: child.props.tabIndex ?? (menu?.items ? (mergedDisabled ? -1 : 0) : undefined),
+    onKeyDown: onTriggerKeyDown,
     ref: composedRef,
   });
-  const triggerActions = disabled ? [] : trigger;
-  const alignPoint = !!triggerActions?.includes('contextMenu');
-
-  // =========================== Open ============================
-  const [mergedOpen, setOpen] = useControlledState(false, open);
-
-  const onInnerOpenChange = useEvent((nextOpen: boolean) => {
-    onOpenChange?.(nextOpen, { source: 'trigger' });
-    setOpen(nextOpen);
-  });
-
   // =========================== Overlay ============================
   const overlayClassNameCustomized = clsx(
     overlayClassName,
@@ -366,6 +443,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       transitionName={memoTransitionName}
       trigger={triggerActions}
+      autoFocus={props.autoFocus ?? keyboardOpen}
       overlay={renderOverlay}
       placement={memoPlacement as React.ComponentProps<typeof RcDropdown>['placement']}
       onVisibleChange={onInnerOpenChange}
@@ -391,7 +469,7 @@ const PurePanel = genPurePanel(Dropdown, 'align', undefined, 'dropdown', (prefix
 /* istanbul ignore next */
 const WrapPurePanel: React.FC<DropdownProps> = (props) => (
   <PurePanel {...props}>
-    <span />
+    <span aria-hidden tabIndex={-1} />
   </PurePanel>
 );
 
