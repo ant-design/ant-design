@@ -304,6 +304,10 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     {
       popup: {
         _default: 'root',
+        root: {},
+        item: {},
+        itemTitle: {},
+        itemSwitcher: {},
       },
     },
   );
