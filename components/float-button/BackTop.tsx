@@ -99,7 +99,7 @@ const BackTop = React.forwardRef<FloatButtonRef, FloatButtonBackTopProps>((props
   };
 
   return (
-    <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`} motionAppear={false}>
+    <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
       {({ className: motionClassName }, setRef) => (
         <FloatButton
           ref={composeRef(internalRef, setRef)}
