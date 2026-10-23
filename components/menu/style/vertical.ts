@@ -89,6 +89,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
       },
 
       [`${componentCls}-submenu-popup`]: {
+        maxHeight: `calc(100vh - ${unit(token.calc(controlHeightLG).mul(2.5).equal())})`,
         [`${componentCls}-vertical`]: {
           ...getVerticalInlineStyle(token),
           boxShadow: boxShadowSecondary,
