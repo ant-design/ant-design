@@ -8,7 +8,6 @@ import {
   StyleProvider,
 } from '@ant-design/cssinjs';
 import { HappyProvider } from '@ant-design/happy-work-theme';
-import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import { theme as antdTheme, App, ConfigProvider } from 'antd';
 import type { MappingAlgorithm } from 'antd';
 import type { DirectionType, ThemeConfig } from 'antd/es/config-provider';
@@ -289,14 +288,6 @@ const GlobalLayout: React.FC = () => {
       />
     );
   });
-
-  useServerInsertedHTML(() => (
-    <style
-      data-sandpack="true"
-      id="sandpack"
-      dangerouslySetInnerHTML={{ __html: getSandpackCssText() }}
-    />
-  ));
 
   return (
     <DarkContext value={isDark}>
