@@ -303,7 +303,8 @@ export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classNa
 export type DrawerConfig = ComponentStyleConfig &
   Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'mask' | 'focusable'>;
 
-export type DividerConfig = ComponentStyleConfig & Pick<DividerProps, 'classNames' | 'styles'>;
+export type DividerConfig = ComponentStyleConfig &
+  Pick<DividerProps, 'classNames' | 'styles' | 'variant'>;
 
 export type DropdownConfig = ComponentStyleConfig & Pick<DropdownProps, 'classNames' | 'styles'>;
 
@@ -414,7 +415,8 @@ export type SplitterConfig = ComponentStyleConfig & Pick<SplitterProps, 'classNa
 
 export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classNames' | 'styles'>;
 
-export type StepsConfig = ComponentStyleConfig & Pick<StepsProps, 'classNames' | 'styles'>;
+export type StepsConfig = ComponentStyleConfig &
+  Pick<StepsProps, 'classNames' | 'styles' | 'variant'>;
 
 export type SpinConfig = ComponentStyleConfig &
   Pick<SpinProps, 'indicator' | 'classNames' | 'styles'>;
