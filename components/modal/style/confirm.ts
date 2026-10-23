@@ -88,7 +88,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken, CSSObject> = (token) => {
         lineHeight: titleLineHeight,
       },
 
-      [`${confirmComponentCls}-container`]: {
+      [`${confirmComponentCls}-content`]: {
         color: token.colorText,
         fontSize,
         lineHeight,
