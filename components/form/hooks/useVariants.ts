@@ -22,6 +22,8 @@ type VariantComponents = keyof Pick<
   | 'rangePicker'
   | 'card'
   | 'tag'
+  | 'divider'
+  | 'steps'
   | 'alert'
   | 'timeline'
 >;
