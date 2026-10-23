@@ -572,7 +572,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             ref={composeRef(resizeRef, typographyRef, ref)}
             direction={direction}
             onClick={(e) => {
-              if (triggerType.includes('text')) {
+              // Skip if click on the edit icon
+              const fromEditIcon = !!editIconRef.current?.contains(e.target as Node);
+              if (triggerType.includes('text') && !fromEditIcon) {
                 onEditClick(e);
               }
               onClick?.(e);
