@@ -379,15 +379,13 @@ export const getSortData = <RecordType extends AnyObject = AnyObject>(
 
 interface SorterConfig<RecordType = AnyObject> {
   prefixCls: string;
-  mergedColumns: ColumnsType<RecordType>;
   /**
    * Columns before applying the responsive filter.
    * Used to collect `defaultSortOrder` / controlled `sortOrder` for columns
    * that are currently hidden by `column.responsive`, so the user's sort
    * intent is preserved when the column appears at a different breakpoint.
-   * Falls back to `mergedColumns` when not provided.
    */
-  baseColumns?: ColumnsType<RecordType>;
+  baseColumns: ColumnsType<RecordType>;
   onSorterChange: (
     sorterResult: SorterResult<RecordType> | SorterResult<RecordType>[],
     sortStates: SortState<RecordType>[],
@@ -408,7 +406,6 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
 ] => {
   const {
     prefixCls,
-    mergedColumns,
     baseColumns,
     sortDirections,
     tableLocale,
@@ -421,10 +418,8 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
   // `defaultSortOrder` on a `responsive` column is honored even when the
   // column is not visible at the current breakpoint.
   // See: https://github.com/ant-design/ant-design/issues/32847
-  const collectColumns = baseColumns ?? mergedColumns;
-
   const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(() =>
-    collectSortStates<RecordType>(collectColumns, true),
+    collectSortStates<RecordType>(baseColumns, true),
   );
 
   const getColumnKeys = (columns: ColumnsType<RecordType>, pos?: string): Key[] => {
@@ -444,11 +439,11 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
     // Collect controlled `sortOrder` from the full (pre-responsive) column
     // set so that a controlled `sortOrder` on a hidden responsive column
     // still applies to the sorted data.
-    const collectedStates = collectSortStates<RecordType>(collectColumns, false);
+    const collectedStates = collectSortStates<RecordType>(baseColumns, false);
 
     // Return if not controlled
     if (!collectedStates.length) {
-      const collectColumnsKeys = getColumnKeys(collectColumns);
+      const collectColumnsKeys = getColumnKeys(baseColumns);
       return sortStates.filter(({ key }) => collectColumnsKeys.includes(key));
     }
 
@@ -486,7 +481,7 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
     });
 
     return validateStates;
-  }, [collectColumns, sortStates]);
+  }, [baseColumns, sortStates]);
 
   // Get render columns title required props
   const columnTitleSorterProps = React.useMemo<ColumnTitleProps<RecordType>>(() => {
