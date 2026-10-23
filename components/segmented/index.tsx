@@ -6,10 +6,11 @@ import type {
   SegmentedRawOption,
 } from '@rc-component/segmented';
 import RcSegmented from '@rc-component/segmented';
-import { isReactRenderable, useId } from '@rc-component/util';
+import { composeRef, isReactRenderable, useId } from '@rc-component/util';
 import { clsx } from 'clsx';
+import { createPortal } from 'react-dom';
 
-import { useOrientation } from '../_util/hooks';
+import { useFluidHover, useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
@@ -82,6 +83,8 @@ export interface SegmentedProps<ValueType = RcSegmentedValue>
   classNames?: SegmentedSemanticAllType['classNamesAndFn'];
   styles?: SegmentedSemanticAllType['stylesAndFn'];
   shape?: 'default' | 'round';
+  /** Let the hover highlight glide between items instead of toggling per item */
+  hoverMotion?: 'fluid';
 }
 
 const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) => {
@@ -97,6 +100,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     vertical,
     orientation,
     shape = 'default',
+    hoverMotion,
     name = defaultName,
     styles,
     classNames,
@@ -137,6 +141,25 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
   // ===================== Size =====================
   const mergedSize = useSize(customSize);
 
+  // ================== Fluid Hover ==================
+  const fluidHover = hoverMotion === 'fluid';
+  const rootRef = React.useRef<HTMLDivElement>(null);
+  const mergedRef = React.useMemo(() => composeRef(rootRef, ref), [ref]);
+
+  // The thumb is portaled into the rc-rendered group element
+  const [hoverThumbHolder, setHoverThumbHolder] = React.useState<HTMLElement | null>(null);
+  React.useEffect(() => {
+    setHoverThumbHolder(
+      fluidHover ? (rootRef.current?.querySelector(`.${prefixCls}-group`) ?? null) : null,
+    );
+  }, [fluidHover, prefixCls]);
+
+  const [hoverRect, hoverFresh] = useFluidHover(rootRef, hoverThumbHolder, {
+    enabled: fluidHover && !restProps.disabled,
+    itemSelector: `.${prefixCls}-item`,
+    isItemDisabled: (item) => item.classList.contains(`${prefixCls}-item-disabled`),
+  });
+
   // syntactic sugar to support `icon` for Segmented Item
   const extendedOptions = React.useMemo<RCSegmentedProps['options']>(
     () =>
@@ -176,6 +199,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-vertical`]: mergedVertical,
       [`${prefixCls}-shape-${shape}`]: shape === 'round',
+      [`${prefixCls}-hover-fluid`]: fluidHover,
     },
     hashId,
     cssVarCls,
@@ -192,20 +216,38 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
   };
 
   return (
-    <RcSegmented
-      {...restProps}
-      name={name}
-      className={cls}
-      style={mergedStyles.root}
-      classNames={mergedClassNames}
-      styles={mergedStyles}
-      itemRender={itemRender}
-      options={extendedOptions}
-      ref={ref}
-      prefixCls={prefixCls}
-      direction={direction}
-      vertical={mergedVertical}
-    />
+    <>
+      <RcSegmented
+        {...restProps}
+        name={name}
+        className={cls}
+        style={mergedStyles.root}
+        classNames={mergedClassNames}
+        styles={mergedStyles}
+        itemRender={itemRender}
+        options={extendedOptions}
+        ref={mergedRef}
+        prefixCls={prefixCls}
+        direction={direction}
+        vertical={mergedVertical}
+      />
+      {hoverThumbHolder &&
+        hoverRect &&
+        createPortal(
+          <div
+            aria-hidden
+            className={`${prefixCls}-hover-thumb`}
+            style={{
+              // Physical coordinates: positions are measured from DOM rects
+              transform: `translate(${hoverRect.left}px, ${hoverRect.top}px)`,
+              width: hoverRect.width,
+              height: hoverRect.height,
+              transition: hoverFresh ? 'none' : undefined,
+            }}
+          />,
+          hoverThumbHolder,
+        )}
+    </>
   );
 });
 
