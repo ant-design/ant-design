@@ -27,10 +27,13 @@ const styles = createStaticStyles(({ cssVar, css }) => ({
     padding: 0;
     list-style: none;
 
-    a {
+    a,
+    a:hover,
+    a:active {
       display: flex;
       align-items: center;
       gap: ${cssVar.marginXS};
+      color: ${cssVar.colorTextSecondary};
       overflow-wrap: anywhere;
     }
 
