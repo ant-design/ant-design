@@ -414,6 +414,21 @@ describe('Progress', () => {
     expect(progress).toHaveAttribute('aria-valuenow', '90');
   });
 
+  it('aria-valuenow should reflect percent instead of success percent', () => {
+    const { container, rerender } = render(<Progress percent={60} success={{ percent: 30 }} />);
+    const progress = container.querySelector('[role="progressbar"]');
+    expect(progress).toHaveAttribute('aria-valuenow', '60');
+
+    rerender(<Progress percent={60} success={{ percent: 30 }} type="circle" />);
+    expect(progress).toHaveAttribute('aria-valuenow', '60');
+
+    rerender(<Progress percent={120} />);
+    expect(progress).toHaveAttribute('aria-valuenow', '100');
+
+    rerender(<Progress percent={-10} />);
+    expect(progress).toHaveAttribute('aria-valuenow', '0');
+  });
+
   it('circle progress should accept steps', () => {
     const { container } = render(<Progress percent={70} steps={{ count: 5, gap: 5 }} />);
     expect(container.firstChild).toMatchSnapshot();
