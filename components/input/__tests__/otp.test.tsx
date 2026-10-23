@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Input from '..';
+import ConfigProvider from '../../config-provider';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -211,6 +212,23 @@ describe('Input.OTP', () => {
     expect(document.activeElement).toEqual(inputList[1]);
 
     fireEvent.keyDown(document.activeElement!, { key: 'ArrowLeft' });
+    expect(document.activeElement).toEqual(inputList[0]);
+  });
+
+  it('arrow key to switch in rtl', () => {
+    const { container } = render(
+      <ConfigProvider direction="rtl">
+        <OTP autoFocus defaultValue="12" />
+      </ConfigProvider>,
+    );
+
+    const inputList = Array.from(container.querySelectorAll('input'));
+    expect(document.activeElement).toEqual(inputList[0]);
+
+    fireEvent.keyDown(document.activeElement!, { key: 'ArrowLeft' });
+    expect(document.activeElement).toEqual(inputList[1]);
+
+    fireEvent.keyDown(document.activeElement!, { key: 'ArrowRight' });
     expect(document.activeElement).toEqual(inputList[0]);
   });
 
