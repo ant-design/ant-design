@@ -42,10 +42,9 @@ export function removeFileItem(file: UploadFile, fileList: (UploadFile | Readonl
 
 // ==================== Default Image Preview ====================
 const extname = (url = '') => {
-  const temp = url.split('/');
+  const temp = url.split(/#|\?/)[0].split('/');
   const filename = temp[temp.length - 1];
-  const filenameWithoutSuffix = filename.split(/#|\?/)[0];
-  return (/\.[^./\\]*$/.exec(filenameWithoutSuffix) || [''])[0];
+  return (/\.[^./\\]*$/.exec(filename) || [''])[0];
 };
 
 const isImageFileType = (type: string): boolean => type.indexOf('image/') === 0;
