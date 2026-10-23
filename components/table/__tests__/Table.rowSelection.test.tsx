@@ -2212,6 +2212,229 @@ describe('Table.rowSelection', () => {
         { type: 'single' },
       );
     });
+
+    it('should prune selected keys when dataSource changed', () => {
+      const onChange = jest.fn();
+      const { container, rerender } = render(
+        <Table
+          dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
+          rowSelection={{ onChange }}
+          rowKey="name"
+        />,
+      );
+
+      fireEvent.click(container.querySelector('tbody input')!);
+      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { type: 'single' });
+
+      // Simulate async pagination which replaces the whole dataSource
+      rerender(<Table dataSource={[{ name: 'moon' }]} rowSelection={{ onChange }} rowKey="name" />);
+
+      expect(onChange).toHaveBeenCalledTimes(2);
+      expect(onChange).toHaveBeenLastCalledWith([], [], { type: 'none' });
+
+      // Switch back, the row should not be selected anymore
+      rerender(
+        <Table
+          dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
+          rowSelection={{ onChange }}
+          rowKey="name"
+        />,
+      );
+
+      expect(onChange).toHaveBeenCalledTimes(2);
+      expect(container.querySelector<HTMLInputElement>('tbody input')!).not.toBeChecked();
+    });
+
+    it('should not prune selected keys when preserveSelectedRowKeys is true', () => {
+      const onChange = jest.fn();
+      const rowSelection = { onChange, preserveSelectedRowKeys: true };
+      const { container, rerender } = render(
+        <Table
+          dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
+          rowSelection={rowSelection}
+          rowKey="name"
+        />,
+      );
+
+      fireEvent.click(container.querySelector('tbody input')!);
+      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { type: 'single' });
+
+      rerender(<Table dataSource={[{ name: 'moon' }]} rowSelection={rowSelection} rowKey="name" />);
+
+      // No extra callback to clear the selection
+      expect(onChange).toHaveBeenCalledTimes(1);
+
+      rerender(
+        <Table
+          dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
+          rowSelection={rowSelection}
+          rowKey="name"
+        />,
+      );
+
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(container.querySelector<HTMLInputElement>('tbody input')!).toBeChecked();
+    });
+
+    it('should notify pruned keys in controlled mode when dataSource changed', () => {
+      const onChange = jest.fn();
+      const rowSelection = { onChange, selectedRowKeys: ['light', 'bamboo'] };
+      const { rerender } = render(
+        <Table
+          dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
+          rowSelection={rowSelection}
+          rowKey="name"
+        />,
+      );
+
+      rerender(
+        <Table
+          dataSource={[{ name: 'bamboo' }, { name: 'moon' }]}
+          rowSelection={rowSelection}
+          rowKey="name"
+        />,
+      );
+
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledWith(['bamboo'], [{ name: 'bamboo' }], { type: 'none' });
+    });
+
+    it('should not trigger onChange repeatedly when the controlled selectedRowKeys is not updated', () => {
+      const onChange = jest.fn();
+      // Which keeps the stale keys since the parent ignores `onChange`
+      const selectedRowKeys = ['light'];
+      const { rerender } = render(
+        <Table
+          dataSource={[{ name: 'light' }]}
+          rowSelection={{ onChange, selectedRowKeys }}
+          rowKey="name"
+        />,
+      );
+
+      for (let index = 0; index < 3; index += 1) {
+        rerender(
+          <Table
+            dataSource={[{ name: `page-${index}` }]}
+            rowSelection={{ onChange, selectedRowKeys }}
+            rowKey="name"
+          />,
+        );
+      }
+
+      // Only the first `data` change should be notified, otherwise it will be a render loop
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledWith([], [], { type: 'none' });
+    });
+
+    it('should clear selection when async pagination dataSource changed (#32861)', () => {
+      const onChange = jest.fn();
+      const rowSelection = { onChange };
+      const pagination = { pageSize: 1, total: 2 };
+      const { container, rerender } = render(
+        <Table
+          dataSource={[{ name: 'light' }]}
+          pagination={pagination}
+          rowSelection={rowSelection}
+          rowKey="name"
+        />,
+      );
+
+      fireEvent.click(container.querySelector('tbody input')!);
+      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { type: 'single' });
+
+      // Switch to page 2, the async dataSource is still the page 1 one here
+      fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
+      expect(onChange).toHaveBeenCalledTimes(1);
+
+      // Page 2 data arrives
+      rerender(
+        <Table
+          dataSource={[{ name: 'moon' }]}
+          pagination={pagination}
+          rowSelection={rowSelection}
+          rowKey="name"
+        />,
+      );
+
+      expect(onChange).toHaveBeenCalledTimes(2);
+      expect(onChange).toHaveBeenLastCalledWith([], [], { type: 'none' });
+
+      // Switch back to page 1, the row should not be selected anymore
+      fireEvent.click(container.querySelector('.ant-pagination-item-1')!);
+      rerender(
+        <Table
+          dataSource={[{ name: 'light' }]}
+          pagination={pagination}
+          rowSelection={rowSelection}
+          rowKey="name"
+        />,
+      );
+
+      expect(container.querySelector<HTMLInputElement>('tbody input')!).not.toBeChecked();
+    });
+
+    it('should not prune selected keys when data changed by pagination, sorter or filter', () => {
+      const onChange = jest.fn();
+      const columns: TableProps['columns'] = [
+        { title: 'Name', dataIndex: 'name' },
+        {
+          title: 'Age',
+          dataIndex: 'age',
+          sorter: (a, b) => a.age - b.age,
+          filters: [{ text: '2', value: 2 }],
+          onFilter: (value, record) => record.age === value,
+        },
+      ];
+      const dataSource = [
+        { name: 'light', age: 1 },
+        { name: 'bamboo', age: 2 },
+      ];
+      const { container } = render(
+        <Table
+          columns={columns}
+          dataSource={dataSource}
+          pagination={{ pageSize: 1 }}
+          rowSelection={{ onChange }}
+          rowKey="name"
+        />,
+      );
+
+      fireEvent.click(container.querySelector('tbody input')!);
+      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light', age: 1 }], {
+        type: 'single',
+      });
+
+      // Client side pagination: the selected row is not in the current page
+      fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
+      fireEvent.click(container.querySelector('.ant-pagination-item-1')!);
+
+      // Sorter
+      fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+
+      // Filter which removes the selected row from `data`
+      fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
+      fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
+      fireEvent.click(
+        container.querySelector(
+          '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
+        )!,
+      );
+
+      // The row is still in the `dataSource`, so the selection should be kept
+      expect(onChange).toHaveBeenCalledTimes(1);
+
+      // Reset the filter, the row should still be selected
+      fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
+      fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-link')!);
+      fireEvent.click(
+        container.querySelector(
+          '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
+        )!,
+      );
+
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(container.querySelector<HTMLInputElement>('tbody input')!).toBeChecked();
+    });
   });
 
   it('should trigger both custom and internal checkbox events', () => {
