@@ -15,6 +15,7 @@ import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
+import useLocale from '../locale/useLocale';
 import type { CollapsibleType } from './CollapsePanel';
 import CollapsePanel from './CollapsePanel';
 import useStyle from './style';
@@ -115,6 +116,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   } = props;
 
   const mergedSize = useSize((ctx) => customizeSize ?? ctx ?? 'middle');
+  const [textLocale] = useLocale('Text');
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   const [hashId, cssVarCls] = useStyle(prefixCls);
@@ -161,7 +163,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
         <RightOutlined
           rotate={panelProps.isActive ? (direction === 'rtl' ? -90 : 90) : undefined}
           {...(iconIsInteractive
-            ? { 'aria-label': panelProps.isActive ? 'expanded' : 'collapsed' }
+            ? { 'aria-label': panelProps.isActive ? textLocale.collapse : textLocale.expand }
             : { 'aria-hidden': true })}
         />
       );
@@ -169,7 +171,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
         className: clsx(oriProps.className, `${prefixCls}-arrow`),
       }));
     },
-    [mergedExpandIcon, prefixCls, direction],
+    [mergedExpandIcon, prefixCls, direction, textLocale],
   );
 
   const collapseClassName = clsx(
