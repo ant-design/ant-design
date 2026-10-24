@@ -1,0 +1,7 @@
+{
+  "verdict": "CHANGES_REQUESTED",
+  "findings": [
+    "Inverted drag direction — dragging the handle left widens the menu, dragging right narrows it. Reverse the sign of deltaX or flip the calculation so dragging matches visual direction. The handle is on the left edge of a right-anchored container, so as the user drags left (negative deltaX), the menu should shrink (decreasing width), not grow."
+  ],
+  "reviewDoc": "/Users/aryandixit/ant-design/.agents/tasks/anchor-review.md"
+}
