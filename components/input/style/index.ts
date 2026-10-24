@@ -352,6 +352,11 @@ export const genInputStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
       ...genBorderlessStyle(token),
       ...genUnderlinedStyle(token),
 
+      // https://github.com/ant-design/ant-design/issues/57065
+      [`input&${componentCls}-lg`]: {
+        height: token.controlHeightLG,
+      },
+
       '&[type="color"]': {
         height: token.controlHeight,
 
