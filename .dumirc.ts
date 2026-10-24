@@ -48,7 +48,7 @@ const alibabaSansFontFaceStyle = alibabaSansFonts
 const isCloudflarePages = process.env.CF_PAGES === '1';
 
 export default defineConfig({
-  plugins: ['dumi-plugin-color-chunk'],
+  plugins: ['dumi-plugin-color-chunk', 'dumi-plugin-mermaid'],
 
   // For <Link prefetch />
   routePrefetch: {},
