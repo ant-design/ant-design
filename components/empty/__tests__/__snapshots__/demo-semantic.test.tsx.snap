@@ -14,6 +14,7 @@ exports[`renders components/empty/demo/_semantic.tsx correctly 1`] = `
         class="css-var-test-id ant-empty ant-empty-normal semantic-mark-root"
       >
         <div
+          aria-hidden="true"
           class="ant-empty-image semantic-mark-image"
           style="height: 60px;"
         >
