@@ -110,7 +110,7 @@ Breadcrumb、Collapse、Segmented、Tabs、Tag 等组件会对相应图标位置
 
 ## antd 覆盖了我的全局样式！ {#antd-overrides-my-global-styles}
 
-是的，antd 在设计的时候就是用来开发一个完整的应用的，为了方便，我们覆盖了一些全局样式，现在还不能移除，想要了解更多请追踪 [这个 issue](https://github.com/ant-design/ant-design/issues/4331)，或者参考这个教程 [How to avoid modifying global styles?](/docs/react/customize-theme#how-to-avoid-modifying-global-styles)
+是的，antd 在设计的时候就是用来开发一个完整的应用的，为了方便，我们覆盖了一些全局样式，现在还不能移除，想要了解更多请追踪 [这个 issue](https://github.com/ant-design/ant-design/issues/4331)。
 
 ## 我没法安装 `antd` 和 `antd` 的依赖，顺便提一句，我在中国大陆。 {#install-antd-in-mainland-china}
 
