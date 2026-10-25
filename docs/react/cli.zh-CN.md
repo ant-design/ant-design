@@ -11,16 +11,16 @@ tag: New
 
 ## 什么是 Ant Design CLI？ {#what-is-ant-design-cli}
 
-[`@ant-design/cli`](https://github.com/ant-design/ant-design-cli) 是官方命令行工具，将 Ant Design 知识带到你的终端。所有元数据随包安装 — antd v3 / v4 / v5 / v6 的每个 Prop、Token、Demo 和 Changelog 条目 — 毫秒级查询，完全离线。
+[`@ant-design/cli`](https://github.com/ant-design/ant-design-cli) 是官方命令行工具，将 Ant Design 知识带到你的终端。所有元数据随包安装：antd v3/v4/v5/v6 的每个 Prop、Token、Demo 和 Changelog 条目均可毫秒级查询，完全离线。
 
 ## 亮点 {#highlights}
 
-- **完全离线** — 所有元数据随包安装，无需网络请求，无延迟，无 API Key。
-- **版本精确** — 跨 v3/v4/v5/v6 的 55+ 小版本快照，查询任意版本的精确 API。
-- **Agent 优化** — 所有命令支持 `--format json`，结构化错误码与修复建议。
-- **双语输出** — 每个组件名、描述和文档均有中英文，通过 `--lang zh` 切换。
-- **智能纠错** — 输入 `Buttn`？CLI 基于 Levenshtein 距离建议 `Button`。
-- **18 条命令** — 从 Prop 查询到项目级 Lint，从 Design Token 到 MCP/Skill 配置。
+- **完全离线**：所有元数据随包安装，无需网络请求，无延迟，无 API Key。
+- **版本精确**：跨 v3/v4/v5/v6 的 55+ 小版本快照，可查询任意版本的精确 API。
+- **Agent 优化**：所有命令支持 `--format json`，并提供结构化错误码与修复建议。
+- **双语输出**：每个组件名、描述和文档均提供中英文，可通过 `--lang zh` 切换。
+- **智能纠错**：输入 `Buttn` 时，CLI 会基于 Levenshtein 距离建议 `Button`。
+- **18 条命令**：从 Prop 查询到项目级 Lint，从 Design Token 到 MCP/Skill 配置。
 
 ## 安装 {#install}
 
@@ -28,7 +28,7 @@ tag: New
 npm install -g @ant-design/cli
 ```
 
-需要 Node.js `>=20.0.0`。也可以使用 `pnpm add -g @ant-design/cli` 或 `bun add -g @ant-design/cli` 全局安装。
+需要 Node.js ≥ 20.0.0。也可以使用 `pnpm add -g @ant-design/cli` 或 `bun add -g @ant-design/cli` 全局安装。
 
 ## 快速开始 {#quick-start}
 
@@ -44,7 +44,7 @@ antd changelog 4.24.0 5.0.0 Select  # 跨版本 API 差异对比
 antd doctor                         # 诊断项目配置问题
 antd env                            # 收集环境信息用于 Bug 报告
 antd usage ./src                    # 分析项目中的 antd 导入
-antd lint ./src                     # 检查废弃 API 和最佳实践
+antd lint ./src                     # 检查废弃 API 使用情况与最佳实践符合性
 antd migrate 3 4                    # v3 到 v4 迁移指南
 antd migrate 4 5 --apply ./src      # 生成 Agent 迁移提示
 antd mcp                            # 启动 MCP 服务，供 IDE 集成
@@ -79,15 +79,15 @@ antd design.md --lang zh      # 中文描述
 
 文件内容包括：
 
-- **YAML Front Matter** — 颜色、字体、圆角、间距和核心组件的结构化 Token 定义，支持 `{path.to.token}` 引用语法
-- **设计概览** — Ant Design 四大设计价值观（自然、确定、有意义、生长）
-- **颜色系统** — 功能色、预设色板、中性色使用 `rgba()` 的原因
-- **字体排版** — 14px 基础字号、字体栈、两种字重限制
-- **布局** — 4px 网格、间距比例尺、三层表面模型
-- **层次与深度** — 四级阴影、动效时长与缓动函数
-- **形状** — 6px 默认圆角及各组件分类
-- **组件** — 核心组件原型和状态的样式描述
-- **设计建议** — Do's and Don'ts 规则
+- **YAML Front Matter**：颜色、字体、圆角、间距和核心组件的结构化 Token 定义，支持 `{path.to.token}` 引用语法
+- **设计概览**：Ant Design 四大设计价值观（自然、确定性、意义感、生长性）
+- **颜色系统**：功能色、预设色板，以及中性色使用 `rgba()` 的原因
+- **字体排版**：14px 基础字号、字体栈，以及字重仅限两种的规范
+- **布局**：4px 网格、间距比例/梯度、三层表面模型
+- **层次与深度**：四级阴影、动效时长与缓动函数
+- **形状**：6px 默认圆角以及各组件圆角分类
+- **组件**：核心组件原型和状态的样式描述
+- **设计建议**：Do's and Don'ts 规则
 
 该文件也已发布在 [ant.design/design.md](https://ant.design/design.md)，AI 工具可直接通过 URL 读取。
 
@@ -95,11 +95,11 @@ antd design.md --lang zh      # 中文描述
 
 | 命令                       | 说明                                                              |
 | -------------------------- | ----------------------------------------------------------------- |
-| `antd doctor`              | 10 项诊断检查：React 兼容性、重复安装、peer 依赖、SSR、babel 插件 |
+| `antd doctor`              | 10 项诊断检查，包括 React 兼容性、重复安装、peer 依赖、SSR、Babel 插件等 |
 | `antd env [dir]`           | 一键收集 antd 相关环境信息，用于 Bug 报告或 AI 辅助诊断           |
 | `antd usage [dir]`         | 导入统计、子组件分布（`Form.Item`）、非组件导出                   |
-| `antd lint [target]`       | 废弃 API、无障碍缺陷、性能问题、最佳实践                          |
-| `antd migrate <from> <to>` | 迁移清单，区分自动修复/手动处理，`--apply` 生成 Agent 提示        |
+| `antd lint [target]`       | 废弃 API、无障碍缺陷、性能问题、最佳实践符合性                    |
+| `antd migrate <from> <to>` | 迁移清单，区分自动修复/手动处理；`--apply` 生成 Agent 提示        |
 
 ### 问题反馈 {#issue-reporting}
 
@@ -159,10 +159,10 @@ npx skills add ant-design/ant-design-cli
 
 | 工具 | 说明 |
 | --- | --- |
-| **Claude Code** | 安装为 Agent Skill 或直接在终端使用 `antd` 命令。[文档](https://docs.anthropic.com/en/docs/claude-code) |
-| **Cursor** | 安装 Skill 后，Agent 会自动调用 CLI 命令。[文档](https://docs.cursor.com/zh/context/@-symbols/@-docs) |
-| **Codex** | 安装 Skill 以启用 Agent 访问。[文档](https://github.com/openai/codex) |
-| **Gemini CLI** | 安装 Skill 以启用自动命令调用。[文档](https://github.com/google-gemini/gemini-cli) |
+| **Claude Code** | 安装为 Agent Skill 或直接在终端使用 `antd` 命令。详见[文档](https://docs.anthropic.com/en/docs/claude-code) |
+| **Cursor** | 安装 Skill 后，Agent 会自动调用 CLI 命令。详见[文档](https://docs.cursor.com/zh/context/@-symbols/@-docs) |
+| **Codex** | 安装 Skill 以启用 Agent 访问。详见[文档](https://github.com/openai/codex) |
+| **Gemini CLI** | 安装 Skill 以启用自动命令调用。详见[文档](https://github.com/google-gemini/gemini-cli) |
 
 支持所有兼容 [skills](https://github.com/nicepkg/agent-skills) 协议的 Agent。
 
@@ -170,5 +170,5 @@ npx skills add ant-design/ant-design-cli
 
 - [@ant-design/cli GitHub 仓库](https://github.com/ant-design/ant-design-cli)
 - [@ant-design/cli npm 地址](https://www.npmjs.com/package/@ant-design/cli)
-- [Ant Design LLMs.txt 指南](/docs/react/llms)
+- [Ant Design llms.txt 指南](/docs/react/llms)
 - [Ant Design MCP Server](/docs/react/mcp)
