@@ -124,8 +124,6 @@ These styles target directly rendered SVGs. Icons from `@ant-design/icons` wrap 
 
 Yes, antd is designed to help you develop a complete background application. To do so, we override some global styles for styling convenience, and currently these cannot be removed or changed. More info at https://github.com/ant-design/ant-design/issues/4331 .
 
-Alternatively, follow the instructions in [How to avoid modifying global styles?](/docs/react/customize-theme#how-to-avoid-modifying-global-styles)
-
 ## I cannot install `antd` and `antd`'s dependencies in mainland China. {#install-antd-in-mainland-china}
 
 To potentially solve this, try [npm mirror china](https://npmmirror.com) and [cnpm](https://github.com/cnpm/cnpm).
