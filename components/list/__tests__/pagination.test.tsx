@@ -85,7 +85,7 @@ describe('List.pagination', () => {
     );
 
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy']);
-    fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
+    fireEvent.click(container.querySelector<HTMLAnchorElement>('.ant-pagination-item-2 > a')!);
     expect(renderedNames(container)).toEqual(['Tom']);
   });
 
