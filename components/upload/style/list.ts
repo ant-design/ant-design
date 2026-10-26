@@ -85,7 +85,7 @@ const genListStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
           },
         },
 
-        [`${itemCls}:hover ${actionCls}`]: {
+        [`${itemCls}:hover ${actionCls}, ${itemCls}:focus-within ${actionCls}`]: {
           opacity: 1,
         },
 
