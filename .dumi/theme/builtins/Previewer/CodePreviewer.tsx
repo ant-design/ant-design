@@ -11,12 +11,13 @@ import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
-import CodePreview from '../../common/CodePreview';
 import EditButton from '../../common/EditButton';
 import DemoContext from '../../slots/DemoContext';
 import SiteContext from '../../slots/SiteContext';
 import { isOfficialHost } from '../../utils';
 import Actions from './Actions';
+
+const CodePreview = React.lazy(() => import('../../common/CodePreview'));
 
 const styles = createStaticStyles(({ cssVar, css }) => {
   return {
@@ -146,6 +147,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
       <BrowserFrame>
         <iframe
           src={demoUrlWithTheme}
+          loading="lazy"
           height={iframe === true ? undefined : iframe}
           title="demo"
           className="iframe-demo"
@@ -260,14 +262,16 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
       )}
       {codeExpand && (
         <section className={highlightClass} key="code">
-          <CodePreview
-            sourceCode={entryCode}
-            jsxCode={jsx}
-            styleCode={style}
-            error={liveDemoError}
-            entryName={entryName}
-            onSourceChange={setLiveDemoSource}
-          />
+          <React.Suspense fallback={null}>
+            <CodePreview
+              sourceCode={entryCode}
+              jsxCode={jsx}
+              styleCode={style}
+              error={liveDemoError}
+              entryName={entryName}
+              onSourceChange={setLiveDemoSource}
+            />
+          </React.Suspense>
           <div
             tabIndex={0}
             role="button"
