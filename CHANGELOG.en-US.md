@@ -15,6 +15,93 @@ tag: vVERSION
 
 ---
 
+## 6.6.8
+
+`2026-10-26`
+
+- Modal
+  - 🐞 Fix Modal and Popconfirm custom button `onClick` handlers preventing confirmation or cancellation callbacks from running. [#59294](https://github.com/ant-design/ant-design/pull/59294) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Modal confirmation content styles not applying the `colorText`, `fontSize`, and `lineHeight` tokens. [#59627](https://github.com/ant-design/ant-design/pull/59627) [@QDyanbing](https://github.com/QDyanbing)
+- Pagination
+  - ⌨️ Fix Pagination focus indicators and jump icons not appearing when an inner link or button receives keyboard focus. [#59573](https://github.com/ant-design/ant-design/pull/59573) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 Fix Pagination accidentally selecting text or blank areas after repeatedly clicking jump buttons. [#59638](https://github.com/ant-design/ant-design/pull/59638) [@Ye-YiChen](https://github.com/Ye-YiChen)
+- 🐞 Fix Message blocking pointer events on underlying elements outside the message content. [#59622](https://github.com/ant-design/ant-design/pull/59622) [@th74100](https://github.com/th74100)
+- 🐞 Fix Upload preview tasks remaining pending and leaking memory when images fail to decode. [#59583](https://github.com/ant-design/ant-design/pull/59583) [@dogledogle](https://github.com/dogledogle)
+- 🐞 Fix Card title margins not being reset when using Typography.Title as the title. [#59613](https://github.com/ant-design/ant-design/pull/59613) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Fix Listy virtual scrollbars not using the `colorSplit` token for their background color. [#59643](https://github.com/ant-design/ant-design/pull/59643) [@th74100](https://github.com/th74100)
+- ♿ Fix Progress `aria-valuenow` reporting `success.percent` instead of the overall `percent` and exceeding the 0–100 range. [#59634](https://github.com/ant-design/ant-design/pull/59634) [@Enesuygurs](https://github.com/Enesuygurs)
+- 🤖 Fix List `dataSource` types not accepting readonly arrays. [#59642](https://github.com/ant-design/ant-design/pull/59642) [@oovz](https://github.com/oovz)
+
+## 6.6.7
+
+`2026-10-20`
+
+- 🐞 Fix antd failing to load in some production builds when the React version export is unavailable. [#59560](https://github.com/ant-design/ant-design/pull/59560) [react-component/util#810](https://github.com/react-component/util/pull/810) [@github-actions](https://github.com/apps/github-actions) [@nrps9909](https://github.com/nrps9909)
+- 🐞 Fix Button, Form, Slider, Typography, and Upload triggering delayed state updates after unmounting. [#59560](https://github.com/ant-design/ant-design/pull/59560) [react-component/util#806](https://github.com/react-component/util/pull/806) [@github-actions](https://github.com/apps/github-actions) [@nrps9909](https://github.com/nrps9909)
+- 🐞 Fix Select, TreeSelect, Cascader, and Mentions `popupRender` content inheriting Form.Item validation status and feedback icons. [#59463](https://github.com/ant-design/ant-design/pull/59463) [@huytdps13400](https://github.com/huytdps13400)
+- 🐞 Fix Popover and Popconfirm preset `color` not applying to the panel background. [#59549](https://github.com/ant-design/ant-design/pull/59549) [@dogledogle](https://github.com/dogledogle)
+- Form
+  - 🐞 Fix Form custom `shouldUpdate` comparisons missing updates when nested fields with `preserve={false}` are unmounted. [#59560](https://github.com/ant-design/ant-design/pull/59560) [react-component/util#807](https://github.com/react-component/util/pull/807) [@github-actions](https://github.com/apps/github-actions) [@nrps9909](https://github.com/nrps9909)
+  - 🐞 Fix Form.Item incorrectly removing a trailing `|` from a string `label` when displaying a colon. [#59599](https://github.com/ant-design/ant-design/pull/59599) [@wfatih](https://github.com/wfatih)
+  - ⌨️ Fix Form.Item not associating warning-only messages with the control through `aria-describedby`. [#59443](https://github.com/ant-design/ant-design/pull/59443) [@Chaoqi31](https://github.com/Chaoqi31)
+- Input
+  - 🐞 Fix Input.OTP losing valid characters when pasting text with a filtering `formatter`. [#59580](https://github.com/ant-design/ant-design/pull/59580) [@yunfeizhu](https://github.com/yunfeizhu)
+  - 🐞 Fix Input.OTP ignoring `rootClassName` on the root element. [#59439](https://github.com/ant-design/ant-design/pull/59439) [@Chaoqi31](https://github.com/Chaoqi31)
+  - 🐞 Fix Input.OTP not rendering a numeric `0` as the `separator`. [#59518](https://github.com/ant-design/ant-design/pull/59518) [@Ye-YiChen](https://github.com/Ye-YiChen)
+- Table
+  - 🐞 Fix Table selection menu skipping current-page tree descendants when inverting selection and deselecting disabled rows on other pages when clearing selections. [#59570](https://github.com/ant-design/ant-design/pull/59570) [@yunfeizhu](https://github.com/yunfeizhu)
+  - 🐞 Fix Table sorted fixed header hover background and the `fixedHeaderSortActiveBg` token not taking effect. [#59554](https://github.com/ant-design/ant-design/pull/59554) [@dogledogle](https://github.com/dogledogle)
+- ColorPicker
+  - 🐞 Fix ColorPicker applying RTL styles when ConfigProvider `direction` is `ltr`. [#59441](https://github.com/ant-design/ant-design/pull/59441) [@Chaoqi31](https://github.com/Chaoqi31)
+  - 🐞 Fix ColorPicker number input control button width. [#59538](https://github.com/ant-design/ant-design/pull/59538) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix nested Descriptions being affected by the outer component's borders, spacing, and cell layout. [#59547](https://github.com/ant-design/ant-design/pull/59547) [@xushanpei](https://github.com/xushanpei)
+- 🐞 Fix Progress line ignoring string widths in `size`, such as `['50%', 20]`, and always filling the container. [#59597](https://github.com/ant-design/ant-design/pull/59597) [@wfatih](https://github.com/wfatih)
+- 🐞 Fix Tooltip failing to limit panel corner radius to 8px for left and right placements when the `borderRadius` token exceeds 8. [#59568](https://github.com/ant-design/ant-design/pull/59568) [@dogledogle](https://github.com/dogledogle)
+- 🐞 Fix Popconfirm `onPopupClick` firing twice for a single click inside the popup content. [#59440](https://github.com/ant-design/ant-design/pull/59440) [@Chaoqi31](https://github.com/Chaoqi31)
+- 🐞 Fix Upload extra content styles when `showUploadList.extra` is `0` or returns `0`. [#59438](https://github.com/ant-design/ant-design/pull/59438) [@Chaoqi31](https://github.com/Chaoqi31)
+- ♿ Fix Typography duplicate button semantics for the default edit icon. [#59112](https://github.com/ant-design/ant-design/pull/59112) [@nrps9909](https://github.com/nrps9909)
+- ⚡️ Improve Transfer source list rendering performance. [#59524](https://github.com/ant-design/ant-design/pull/59524) [@QDyanbing](https://github.com/QDyanbing)
+
+## 6.6.6
+
+`2026-10-12`
+
+- Table
+  - 🐞 Fix Table selection menu's "Select all data" option missing descendant rows in tree data. [#59342](https://github.com/ant-design/ant-design/pull/59342) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Table `rowSelection` `onSelect` returning `undefined` for preserved keys when `preserveSelectedRowKeys` is enabled. [#59449](https://github.com/ant-design/ant-design/pull/59449) [@Chaoqi31](https://github.com/Chaoqi31)
+  - 🐞 Fix Table `column.filterDropdownProps.popupRender` not working. [#59393](https://github.com/ant-design/ant-design/pull/59393) [@ramen2020](https://github.com/ramen2020)
+  - 🐞 Fix Table not scrolling to the first row when `scroll` is configured only in ConfigProvider. [#59394](https://github.com/ant-design/ant-design/pull/59394) [@ramen2020](https://github.com/ramen2020)
+  - 🐞 Fix Table selection column `z-index` not applying with fixed columns after the v6 logical property migration. [#58609](https://github.com/ant-design/ant-design/pull/58609) [@leshalv](https://github.com/leshalv)
+- Transfer
+  - 🐞 Fix Transfer `selectAllLabels` falling back to default counts when set to numeric `0`. [#59487](https://github.com/ant-design/ant-design/pull/59487) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix controlled Transfer selection remaining checked after one-way removal. [#59428](https://github.com/ant-design/ant-design/pull/59428) [@yunfeizhu](https://github.com/yunfeizhu)
+  - 🐞 Fix Transfer Shift selection affecting filtered-out items and selecting incorrect ranges after search results change. [#59348](https://github.com/ant-design/ant-design/pull/59348) [@QDyanbing](https://github.com/QDyanbing)
+- Tree
+  - 🐞 Fix Tree.DirectoryTree Shift range selection with numeric keys and `defaultExpandAll`. [#59375](https://github.com/ant-design/ant-design/pull/59375) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Tree.DirectoryTree incorrectly selecting nodes with `selectable: false` or `disabled: true` during Shift range selection. [#59341](https://github.com/ant-design/ant-design/pull/59341) [@QDyanbing](https://github.com/QDyanbing)
+- Carousel
+  - 🐞 Fix Carousel reversing vertical slide order in RTL when `dotPlacement` makes the carousel vertical. [#59436](https://github.com/ant-design/ant-design/pull/59436) [@Chaoqi31](https://github.com/Chaoqi31)
+  - 🤖 Fix Carousel types exposing the ignored `verticalSwiping` prop. [#59366](https://github.com/ant-design/ant-design/pull/59366) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix numeric `0` content rendering across List, Divider, and Drawer. [#59118](https://github.com/ant-design/ant-design/pull/59118) [#59517](https://github.com/ant-design/ant-design/pull/59517) [#59437](https://github.com/ant-design/ant-design/pull/59437) [@nrps9909](https://github.com/nrps9909) [@Ye-YiChen](https://github.com/Ye-YiChen) [@Chaoqi31](https://github.com/Chaoqi31)
+- 🐞 Fix Notification timers not resuming after closing hovered notices. [#59435](https://github.com/ant-design/ant-design/pull/59435) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix DatePicker and TimePicker RangePicker not applying ConfigProvider `locale.DatePicker`. [#59356](https://github.com/ant-design/ant-design/pull/59356) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix TreeSelect and Mentions calling `renderEmpty` with `Select` instead of their component names. [#59364](https://github.com/ant-design/ant-design/pull/59364) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix AutoComplete incorrectly inheriting `allowClear` from ConfigProvider `select`. [#59358](https://github.com/ant-design/ant-design/pull/59358) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Upload ignoring `linkProps.onClick` when clicking a file name link. [#59324](https://github.com/ant-design/ant-design/pull/59324) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Input.OTP focus landing on the wrong cell after paste. [#59479](https://github.com/ant-design/ant-design/pull/59479) [@dogledogle](https://github.com/dogledogle)
+- 🐞 Fix Typography text editing not working when `onClick` is provided. [#59325](https://github.com/ant-design/ant-design/pull/59325) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Alert close button remaining clickable when `closable.disabled` is true. [#59432](https://github.com/ant-design/ant-design/pull/59432) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Card ignoring `tabProps.defaultActiveKey` when selecting the initial tab. [#59414](https://github.com/ant-design/ant-design/pull/59414) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Breadcrumb dropdown menu links starting with `undefined` when the parent item has no `href` or `path`. [#59423](https://github.com/ant-design/ant-design/pull/59423) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Avatar falling back to its default size when a larger breakpoint matches without a configured size. [#59446](https://github.com/ant-design/ant-design/pull/59446) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Badge truncating fractional horizontal `offset` values. [#59314](https://github.com/ant-design/ant-design/pull/59314) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Button custom loading icons appearing before the loading delay ends. [#59353](https://github.com/ant-design/ant-design/pull/59353) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Tour `nextButtonProps.onClick` and `prevButtonProps.onClick` not receiving mouse events. [#59332](https://github.com/ant-design/ant-design/pull/59332) [@QDyanbing](https://github.com/QDyanbing)
+- 🤖 Fix Form.Item, Rate, and QRCode TypeScript definitions to exclude unsupported props. [#59373](https://github.com/ant-design/ant-design/pull/59373) [#59379](https://github.com/ant-design/ant-design/pull/59379) [#59408](https://github.com/ant-design/ant-design/pull/59408) [@QDyanbing](https://github.com/QDyanbing)
+- 🤖 Fix Upload custom request types to expose `abort` handles. [#59382](https://github.com/ant-design/ant-design/pull/59382) [@QDyanbing](https://github.com/QDyanbing)
+- 🌐 Add missing DatePicker placeholders and Carousel arrow labels in remaining locales. [#59351](https://github.com/ant-design/ant-design/pull/59351) [@shoutoutuoadi325](https://github.com/shoutoutuoadi325)
+- 🌐 Improve Romanian (ro_RO) locale translations. [#59528](https://github.com/ant-design/ant-design/pull/59528) [@vicuts](https://github.com/vicuts)
+
 ## 6.6.5
 
 `2026-09-20`

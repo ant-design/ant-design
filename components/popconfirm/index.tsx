@@ -176,6 +176,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
           okType={okType}
           icon={icon}
           {...props}
+          onPopupClick={undefined}
           prefixCls={prefixCls}
           close={close}
           onConfirm={onConfirm}

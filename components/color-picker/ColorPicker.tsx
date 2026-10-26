@@ -237,7 +237,7 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-  const rtlCls = { [`${prefixCls}-rtl`]: direction };
+  const rtlCls = { [`${prefixCls}-rtl`]: direction === 'rtl' };
   const mergedRootCls = clsx(rootClassName, cssVarCls, rootCls, rtlCls);
   const mergedCls = clsx(
     getStatusClassNames(prefixCls, contextStatus),
