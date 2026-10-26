@@ -7,6 +7,7 @@ import { isReactRenderable, useDelayState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isFunction } from '../../_util/is';
+import Button from '../../button';
 import { ConfigContext } from '../../config-provider';
 import Progress from '../../progress';
 import Tooltip from '../../tooltip';
@@ -228,18 +229,23 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     const previewIcon =
       (isFunction(showPreviewIcon) ? showPreviewIcon(file) : showPreviewIcon) &&
       (file.url || file.thumbUrl) ? (
-        <a
+        <Button
+          type="text"
+          size="small"
           href={file.url || file.thumbUrl}
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => onPreview(file, e)}
           title={locale.previewFile}
           aria-label={locale.previewFile || undefined}
-        >
-          {isFunction(customPreviewIcon)
-            ? customPreviewIcon(file)
-            : customPreviewIcon || <EyeOutlined />}
-        </a>
+          className={`${prefixCls}-list-item-action`}
+          draggable={false}
+          icon={
+            isFunction(customPreviewIcon)
+              ? customPreviewIcon(file)
+              : (customPreviewIcon || <EyeOutlined />)
+          }
+        />
       ) : null;
 
     const pictureCardActions = (listType === 'picture-card' || listType === 'picture-circle') &&
