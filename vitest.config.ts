@@ -20,6 +20,7 @@ export default defineConfig({
       { find: /^antd\/es\/(.*)$/, replacement: r(`${baseDir}/$1`) },
       { find: /^antd\/lib\/(.*)$/, replacement: r(`${baseDir}/$1`) },
       { find: /^antd\/locale\/(.*)$/, replacement: r(`${baseDir}/locale/$1`) },
+      { find: /^antd\/cssinjs$/, replacement: r(`${baseDir}/cssinjs`) },
       // 部分 antd 生态包默认解析到 CJS lib/（内部 require('antd') 绕过 alias）；
       // 强制走各自 ESM es/，其 import 'antd' 可命中上面的 antd alias。
       { find: /^antd-style$/, replacement: r('node_modules/antd-style/es/index.js') },
