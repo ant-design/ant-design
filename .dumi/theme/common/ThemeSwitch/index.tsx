@@ -18,7 +18,7 @@ import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { getLocalizedPathname, isZhCN } from '../../utils';
 import Link from '../Link';
-import PromptDrawer from './PromptDrawer';
+import LazyPromptDrawer from './LazyPromptDrawer';
 import ThemeIcon from './ThemeIcon';
 
 export type ThemeName = 'light' | 'dark' | 'auto' | 'compact' | 'motion-off' | 'happy-work';
@@ -185,7 +185,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
         <Button type="text" icon={<ThemeIcon />} style={{ fontSize: 16 }} />
       </Dropdown>
 
-      <PromptDrawer
+      <LazyPromptDrawer
         open={isMarketDrawerOpen}
         onClose={() => setIsMarketDrawerOpen(false)}
         onThemeChange={(nextTheme) => {
