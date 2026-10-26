@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 6.6.8
 
-`2026-10-25`
+`2026-10-26`
 
 - Modal
   - 🐞 修复 Modal 和 Popconfirm 自定义按钮 `onClick` 导致确认或取消回调失效的问题。[#59294](https://github.com/ant-design/ant-design/pull/59294) [@QDyanbing](https://github.com/QDyanbing)
