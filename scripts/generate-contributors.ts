@@ -144,15 +144,15 @@ async function getFileCommits(filePath: string) {
     per_page: 100,
   });
 
-  return Array.from(
-    commits.reduce<Set<string>>((loginSet, commit) => {
-      const login = commit.author?.login;
-      if (login && !botExcludes.includes(login.toLowerCase())) {
-        loginSet.add(login);
-      }
-      return loginSet;
-    }, new Set<string>()),
-  );
+  return commits.reduce<Map<string, number>>((contributors, commit) => {
+    const login = commit.author?.login;
+    if (login && !botExcludes.includes(login.toLowerCase())) {
+      const date =
+        Date.parse(commit.commit.committer?.date ?? commit.commit.author?.date ?? '') || 0;
+      contributors.set(login, Math.max(contributors.get(login) ?? 0, date));
+    }
+    return contributors;
+  }, new Map<string, number>());
 }
 
 async function execute() {
@@ -194,15 +194,17 @@ async function execute() {
 
   progressBar.start(allTasks.length, 0, { module: '' });
 
-  // moduleData[module][key][locale] = number[]
-  const moduleData: Record<string, Record<string, Record<string, number[]>>> = {};
+  // moduleData[module][key][locale] = contributor index -> latest commit date
+  const moduleData: Record<string, Record<string, Record<string, Map<number, number>>>> = {};
 
   try {
     for (const { module: mod, locale, key, filePath } of allTasks) {
       progressBar.update({ module: `${mod.name}/${key}` });
 
-      const logins = await getFileCommits(filePath);
-      const indices = logins.map<number>(getLoginIndex);
+      const contributors = await getFileCommits(filePath);
+      const indices = new Map(
+        Array.from(contributors, ([login, date]) => [getLoginIndex(login), date]),
+      );
 
       moduleData[mod.name] ??= {};
       moduleData[mod.name][key] ??= {};
@@ -224,17 +226,19 @@ async function execute() {
       continue;
     }
 
-    // Flatten: merge locales for the same key, deduplicate indices
+    // Merge locales and sort contributors by their latest commit date.
     const merged: Record<string, number[]> = {};
 
     for (const [key, localesMap] of Object.entries(data)) {
-      const indices = new Set<number>();
+      const indices = new Map<number, number>();
       for (const localeIndices of Object.values(localesMap)) {
-        for (const idx of localeIndices) {
-          indices.add(idx);
+        for (const [idx, date] of localeIndices) {
+          indices.set(idx, Math.max(indices.get(idx) ?? 0, date));
         }
       }
-      merged[key] = Array.from(indices);
+      merged[key] = Array.from(indices)
+        .sort(([, dateA], [, dateB]) => dateB - dateA)
+        .map(([idx]) => idx);
     }
 
     output[mod.name] = merged;
