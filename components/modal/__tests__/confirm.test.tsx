@@ -141,6 +141,36 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     await waitFakeTimer();
   }
 
+  it('applies body typography to static and hook confirmation content', async () => {
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+      return (
+        <>
+          <button type="button" onClick={() => modal.confirm({ content: 'Hook content' })}>
+            Open
+          </button>
+          {contextHolder}
+        </>
+      );
+    };
+    const { getByText } = render(<Demo />);
+    fireEvent.click(getByText('Open'));
+
+    (['info', 'success', 'error', 'warning', 'confirm'] as const).forEach((type) => {
+      Modal[type]({ content: `${type} content` });
+    });
+    await waitFakeTimer();
+
+    const contents = $$('.ant-modal-confirm-content');
+    expect(contents).toHaveLength(6);
+    contents.forEach((content) => {
+      const style = getComputedStyle(content);
+      expect(style.color).toBe('var(--ant-color-text)');
+      expect(style.fontSize).toBe('var(--ant-font-size)');
+      expect(style.lineHeight).toBe('var(--ant-line-height)');
+    });
+  });
+
   it('should not render title when title not defined', async () => {
     confirm({
       content: 'some descriptions',

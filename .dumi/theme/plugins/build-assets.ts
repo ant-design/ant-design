@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import createEmotionServer from '@emotion/server/create-instance';
 import type { IApi } from 'dumi';
+import { compile } from 'tailwindcss';
 
 const siteLayerOrder = '@layer theme, base, global, antd, components, utilities;';
 const siteLayerStyle = `<style>${siteLayerOrder}</style>`;
@@ -47,6 +48,16 @@ function prependSiteLayerOrder(html: string) {
 
 export default async function buildAssetsPlugin(api: IApi) {
   const chalk = await import('chalk').then((m) => m.default);
+  // Keep the reset in the initial HTML while loading the utility compiler on demand.
+  const { build } = await compile(`
+    @layer theme {
+      ${fs.readFileSync(require.resolve('tailwindcss/theme.css'), 'utf8')}
+    }
+    @layer base {
+      ${fs.readFileSync(require.resolve('tailwindcss/preflight.css'), 'utf8')}
+    }
+  `);
+  const tailwindBaseStyle = build([]);
 
   const writeCSSFile = (key: string, hashKey: string, cssString: string) => {
     const fileName = `style-${key}.${getHash(hashKey)}.css`;
@@ -101,6 +112,7 @@ export default async function buildAssetsPlugin(api: IApi) {
   // add ssr css file to html
   api.modifyConfig((memo) => {
     memo.styles ??= [];
+    memo.styles.push(tailwindBaseStyle);
 
     return memo;
   });

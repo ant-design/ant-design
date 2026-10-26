@@ -15,6 +15,23 @@ tag: vVERSION
 
 ---
 
+## 6.6.8
+
+`2026-10-26`
+
+- Modal
+  - 🐞 修复 Modal 和 Popconfirm 自定义按钮 `onClick` 导致确认或取消回调失效的问题。[#59294](https://github.com/ant-design/ant-design/pull/59294) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 修复 Modal 确认框正文的 `colorText`、`fontSize` 和 `lineHeight` token 样式未生效的问题。[#59627](https://github.com/ant-design/ant-design/pull/59627) [@QDyanbing](https://github.com/QDyanbing)
+- Pagination
+  - ⌨️ 修复 Pagination 内部链接或按钮获得键盘焦点时，焦点样式和跳页图标不显示的问题。[#59573](https://github.com/ant-design/ant-design/pull/59573) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 修复 Pagination 连续点击跳页按钮后意外选中文字或空白区域的问题。[#59638](https://github.com/ant-design/ant-design/pull/59638) [@Ye-YiChen](https://github.com/Ye-YiChen)
+- 🐞 修复 Message 消息内容外的区域阻挡下方元素鼠标事件的问题。[#59622](https://github.com/ant-design/ant-design/pull/59622) [@th74100](https://github.com/th74100)
+- 🐞 修复 Upload 图片解码失败时预览任务一直未完成并泄漏内存的问题。[#59583](https://github.com/ant-design/ant-design/pull/59583) [@dogledogle](https://github.com/dogledogle)
+- 🐞 修复 Card 使用 Typography.Title 作为标题时外边距未重置的问题。[#59613](https://github.com/ant-design/ant-design/pull/59613) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 修复 Listy 虚拟滚动条背景色未使用 `colorSplit` token 的问题。[#59643](https://github.com/ant-design/ant-design/pull/59643) [@th74100](https://github.com/th74100)
+- ♿ 修复 Progress 的 `aria-valuenow` 错误使用 `success.percent` 而非整体 `percent`，以及取值超出 0–100 范围的问题。[#59634](https://github.com/ant-design/ant-design/pull/59634) [@Enesuygurs](https://github.com/Enesuygurs)
+- 🤖 修复 List 的 `dataSource` 类型不支持只读数组的问题。[#59642](https://github.com/ant-design/ant-design/pull/59642) [@oovz](https://github.com/oovz)
+
 ## 6.6.7
 
 `2026-10-20`

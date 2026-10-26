@@ -143,10 +143,6 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
           },
         },
 
-        [`${componentCls}-content`]: {
-          position: 'relative',
-        },
-
         // generator for preset color
         ...genPresetColor(token, (colorKey, { darkColor }) => ({
           [`&${componentCls}-${colorKey}`]: {

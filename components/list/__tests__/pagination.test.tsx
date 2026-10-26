@@ -70,6 +70,25 @@ describe('List.pagination', () => {
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Jerry']);
   });
 
+  it('paginates a readonly data source', () => {
+    const readonlyData: readonly DataSourceItem[] = Object.freeze([
+      { key: 0, name: 'Jack' },
+      { key: 1, name: 'Lucy' },
+      { key: 2, name: 'Tom' },
+    ]);
+    const { container } = render(
+      <List
+        dataSource={readonlyData}
+        pagination={{ pageSize: 2 }}
+        renderItem={(item) => <List.Item key={item.key}>{item.name}</List.Item>}
+      />,
+    );
+
+    expect(renderedNames(container)).toEqual(['Jack', 'Lucy']);
+    fireEvent.click(container.querySelector<HTMLAnchorElement>('.ant-pagination-item-2 > a')!);
+    expect(renderedNames(container)).toEqual(['Tom']);
+  });
+
   it('repaginates when pageSize change', () => {
     const { container: wrapper, rerender } = render(createList());
 

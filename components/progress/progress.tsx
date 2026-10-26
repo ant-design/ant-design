@@ -342,7 +342,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       style={mergedStyles.root}
       className={classString}
       role="progressbar"
-      aria-valuenow={percentNumber}
+      aria-valuenow={validProgress(percent)}
       aria-valuemin={0}
       aria-valuemax={100}
       {...omit(restProps, [
