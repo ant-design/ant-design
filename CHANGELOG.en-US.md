@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 6.6.8
 
-`2026-10-25`
+`2026-10-26`
 
 - Modal
   - 🐞 Fix Modal and Popconfirm custom button `onClick` handlers preventing confirmation or cancellation callbacks from running. [#59294](https://github.com/ant-design/ant-design/pull/59294) [@QDyanbing](https://github.com/QDyanbing)
