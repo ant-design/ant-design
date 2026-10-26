@@ -5,6 +5,7 @@ import { useIntl } from 'dumi';
 import useSWR from 'swr';
 import type { SWRConfiguration } from 'swr';
 
+import useIsPreviewSite from '../../../hooks/useIsPreviewSite';
 import SiteContext from '../SiteContext';
 import ContributorAvatar from './ContributorAvatar';
 import type { AvatarListItem } from './ContributorAvatar';
@@ -77,15 +78,7 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const { formatMessage } = useIntl();
   const { isMobile } = React.use(SiteContext);
   const dataKey = getContributorKey(filename);
-  const [isPreviewSite, setIsPreviewSite] = React.useState(true);
-
-  React.useEffect(() => {
-    const { hostname } = window.location;
-    setIsPreviewSite(
-      /^(?:\d+-)?preview-\d+-ant-design\.surge\.sh$/.test(hostname) ||
-        /\.ant-design\.pages\.dev$/.test(hostname),
-    );
-  }, []);
+  const isPreviewSite = useIsPreviewSite();
 
   const { data, error, isLoading } = useSWR<ContributorsData, Error>(
     process.env.NODE_ENV === 'production' && !isPreviewSite && dataKey ? CONTRIBUTORS_URL : null,
