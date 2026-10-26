@@ -6,6 +6,7 @@ import { useIntl } from 'dumi';
 import useSWR from 'swr';
 import type { SWRConfiguration } from 'swr';
 
+import useIsPreviewSite from '../../../hooks/useIsPreviewSite';
 import SiteContext from '../SiteContext';
 import ContributorAvatar from './ContributorAvatar';
 import type { AvatarListItem } from './ContributorAvatar';
@@ -86,9 +87,10 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const { isMobile } = React.use(SiteContext);
   const [open, setOpen] = useState(false);
   const dataKey = getContributorKey(filename);
+  const isPreviewSite = useIsPreviewSite();
 
   const { data, error, isLoading } = useSWR<ContributorsData, Error>(
-    process.env.NODE_ENV === 'production' && dataKey ? CONTRIBUTORS_URL : null,
+    process.env.NODE_ENV === 'production' && !isPreviewSite && dataKey ? CONTRIBUTORS_URL : null,
     fetcher,
     swrConfig,
   );
