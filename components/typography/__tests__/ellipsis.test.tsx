@@ -584,6 +584,19 @@ describe('Typography.Ellipsis', () => {
 
         expect(baseElement.querySelector('.ant-tooltip-open')).toBeFalsy();
       });
+
+      it('should not show for subpixel left-edge measurement differences', async () => {
+        containerRect.left = 100;
+        containerRect.right = 200;
+        measureRect.left = 99.99996;
+
+        const { container, baseElement } = await getWrapper({ title: true });
+        fireEvent.mouseEnter(container.firstChild!);
+
+        await waitFakeTimer();
+
+        expect(baseElement.querySelector('.ant-tooltip-open')).toBeFalsy();
+      });
     });
   });
 
