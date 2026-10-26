@@ -9,6 +9,9 @@ import remarkAnchor from './.dumi/remarkAnchor';
 import remarkAntd from './.dumi/remarkAntd';
 import { version } from './package.json';
 
+const alibabaSansBoldFont =
+  'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*E_cxRbMlZqUAAAAAQuAAAAgAegCCAQ/AlibabaSans-Bold.woff2';
+
 const alibabaSansFonts = [
   {
     weight: 300,
@@ -20,15 +23,15 @@ const alibabaSansFonts = [
   },
   {
     weight: 500,
-    url: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*E_cxRbMlZqUAAAAAQuAAAAgAegCCAQ/AlibabaSans-Medium.woff2',
+    url: alibabaSansBoldFont,
   },
   {
     weight: 600,
-    url: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*E_cxRbMlZqUAAAAAQuAAAAgAegCCAQ/AlibabaSans-Bold.woff2',
+    url: alibabaSansBoldFont,
   },
   {
     weight: 700,
-    url: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*E_cxRbMlZqUAAAAAQuAAAAgAegCCAQ/AlibabaSans-Heavy.woff2',
+    url: alibabaSansBoldFont,
   },
 ] as const;
 
@@ -120,71 +123,15 @@ export default defineConfig({
       : {
           analyzerPort: 'auto',
         },
-  links: [
-    ...alibabaSansFonts.map(({ url }) => ({
+  links: alibabaSansFonts
+    .filter(({ weight }) => weight === 400 || weight === 600)
+    .map(({ url }) => ({
       rel: 'preload',
       as: 'font',
       href: url,
       type: 'font/woff2',
       crossorigin: 'anonymous',
     })),
-    {
-      rel: 'prefetch',
-      as: 'font',
-      href: '//at.alicdn.com/t/webfont_6e11e43nfj.woff2',
-      type: 'font/woff2',
-      crossorigin: 'anonymous',
-    },
-    {
-      rel: 'prefetch',
-      as: 'font',
-      href: '//at.alicdn.com/t/webfont_6e11e43nfj.woff',
-      type: 'font/woff',
-      crossorigin: 'anonymous',
-    },
-    {
-      rel: 'prefetch',
-      as: 'font',
-      href: '//at.alicdn.com/t/webfont_6e11e43nfj.ttf',
-      type: 'font/ttf',
-      crossorigin: 'anonymous',
-    },
-    {
-      rel: 'prefetch',
-      as: 'font',
-      href: '//at.alicdn.com/t/webfont_exesdog9toj.woff2',
-      type: 'font/woff2',
-      crossorigin: 'anonymous',
-    },
-    {
-      rel: 'prefetch',
-      as: 'font',
-      href: '//at.alicdn.com/t/webfont_exesdog9toj.woff',
-      type: 'font/woff',
-      crossorigin: 'anonymous',
-    },
-    {
-      rel: 'prefetch',
-      as: 'font',
-      href: '//at.alicdn.com/t/webfont_exesdog9toj.ttf',
-      type: 'font/ttf',
-      crossorigin: 'anonymous',
-    },
-    {
-      rel: 'preload',
-      as: 'font',
-      href: '//at.alicdn.com/wf/webfont/exMpJIukiCms/Gsw2PSKrftc1yNWMNlXgw.woff2',
-      type: 'font/woff2',
-      crossorigin: 'anonymous',
-    },
-    {
-      rel: 'preload',
-      as: 'font',
-      href: '//at.alicdn.com/wf/webfont/exMpJIukiCms/vtu73by4O2gEBcvBuLgeu.woff',
-      type: 'font/woff2',
-      crossorigin: 'anonymous',
-    },
-  ],
   headScripts: [
     `
     (function () {
@@ -242,9 +189,6 @@ export default defineConfig({
     `,
   ],
   scripts: [
-    {
-      src: 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4',
-    },
     {
       async: true,
       content: fs

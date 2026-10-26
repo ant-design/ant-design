@@ -4,7 +4,8 @@ import { useLocation } from 'dumi';
 
 import useLocale from '../../../hooks/useLocale';
 import * as utils from '../../utils';
-import ChangeLog from './ChangeLog';
+
+const ChangeLog = React.lazy(() => import('./ChangeLog'));
 
 const [major] = version.split('.');
 const STORAGE_KEY = `antd${major}-version-upgrade-notify`;
@@ -90,7 +91,11 @@ const VersionUpgradeModal = () => {
         </Flex>
       )}
     >
-      <ChangeLog />
+      {open && (
+        <React.Suspense fallback={null}>
+          <ChangeLog />
+        </React.Suspense>
+      )}
     </Modal>
   );
 };
