@@ -15,6 +15,23 @@ tag: vVERSION
 
 ---
 
+## 6.6.8
+
+`2026-10-26`
+
+- Modal
+  - 🐞 Fix Modal and Popconfirm custom button `onClick` handlers preventing confirmation or cancellation callbacks from running. [#59294](https://github.com/ant-design/ant-design/pull/59294) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 Fix Modal confirmation content styles not applying the `colorText`, `fontSize`, and `lineHeight` tokens. [#59627](https://github.com/ant-design/ant-design/pull/59627) [@QDyanbing](https://github.com/QDyanbing)
+- Pagination
+  - ⌨️ Fix Pagination focus indicators and jump icons not appearing when an inner link or button receives keyboard focus. [#59573](https://github.com/ant-design/ant-design/pull/59573) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 Fix Pagination accidentally selecting text or blank areas after repeatedly clicking jump buttons. [#59638](https://github.com/ant-design/ant-design/pull/59638) [@Ye-YiChen](https://github.com/Ye-YiChen)
+- 🐞 Fix Message blocking pointer events on underlying elements outside the message content. [#59622](https://github.com/ant-design/ant-design/pull/59622) [@th74100](https://github.com/th74100)
+- 🐞 Fix Upload preview tasks remaining pending and leaking memory when images fail to decode. [#59583](https://github.com/ant-design/ant-design/pull/59583) [@dogledogle](https://github.com/dogledogle)
+- 🐞 Fix Card title margins not being reset when using Typography.Title as the title. [#59613](https://github.com/ant-design/ant-design/pull/59613) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Fix Listy virtual scrollbars not using the `colorSplit` token for their background color. [#59643](https://github.com/ant-design/ant-design/pull/59643) [@th74100](https://github.com/th74100)
+- ♿ Fix Progress `aria-valuenow` reporting `success.percent` instead of the overall `percent` and exceeding the 0–100 range. [#59634](https://github.com/ant-design/ant-design/pull/59634) [@Enesuygurs](https://github.com/Enesuygurs)
+- 🤖 Fix List `dataSource` types not accepting readonly arrays. [#59642](https://github.com/ant-design/ant-design/pull/59642) [@oovz](https://github.com/oovz)
+
 ## 6.6.7
 
 `2026-10-20`

@@ -57,7 +57,7 @@ export interface ListProps<T> {
   rootClassName?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  dataSource?: T[];
+  dataSource?: readonly T[];
   extra?: React.ReactNode;
   grid?: ListGridType;
   id?: string;
