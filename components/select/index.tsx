@@ -31,6 +31,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
+import defaultLocale from '../locale/en_US';
 import useLocale from '../locale/useLocale';
 import useVariants from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
@@ -323,10 +324,11 @@ const InternalSelect = <
 
   const finalAllowClear = allowClear ?? contextAllowClear;
   const [globalLocale] = useLocale('global');
+  const clearLabel = globalLocale.clear || defaultLocale.global?.clear;
   const mergedAllowClear =
     finalAllowClear === true
-      ? { clearIcon: mergedClearIcon, label: globalLocale.clear }
-      : finalAllowClear && { label: globalLocale.clear, ...finalAllowClear };
+      ? { clearIcon: mergedClearIcon, label: clearLabel }
+      : finalAllowClear && { ...finalAllowClear, label: finalAllowClear.label ?? clearLabel };
   const mergedShowSearch = showSearch ?? contextShowSearch;
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);

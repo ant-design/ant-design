@@ -651,6 +651,18 @@ describe('Input allowClear a11y', () => {
     expect(getClearButton().querySelector('[aria-label]')).toHaveAttribute('aria-label', 'Effacer');
   });
 
+  it('should fall back to the English clear name when the locale has none', () => {
+    const { container } = render(
+      <ConfigProvider locale={{ locale: 'xx', global: { clear: undefined } }}>
+        <Input allowClear defaultValue="a" />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-input-clear-icon [aria-label]')).toHaveAttribute(
+      'aria-label',
+      'Clear',
+    );
+  });
+
   it('should keep a custom clearIcon', () => {
     const { container } = render(
       <Input allowClear={{ clearIcon: <span className="custom-clear" /> }} defaultValue="a" />,

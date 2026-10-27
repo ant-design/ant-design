@@ -139,4 +139,11 @@ describe('Select allowClear a11y', () => {
     );
     expect(container.querySelector('.ant-select-clear')).toHaveAttribute('aria-label', 'Remove');
   });
+
+  it('should keep the localized label when allowClear.label is undefined', () => {
+    const { container } = render(
+      <Select allowClear={{ label: undefined }} defaultValue="a" options={[{ value: 'a' }]} />,
+    );
+    expect(container.querySelector('.ant-select-clear')).toHaveAttribute('aria-label', 'Clear');
+  });
 });
