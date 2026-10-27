@@ -262,6 +262,23 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(onCancel).toHaveBeenCalledTimes(1);
   });
 
+  // https://github.com/ant-design/ant-design/issues/59680
+  it('should call the updated onCancel when press ESC', async () => {
+    const onCancel = jest.fn();
+    const updatedOnCancel = jest.fn();
+    const instance = Modal.confirm({ title: 'title', content: 'content', onCancel });
+
+    await waitFakeTimer();
+    instance.update({ onCancel: updatedOnCancel });
+    await waitFakeTimer();
+
+    fireEvent.keyDown(window, { key: 'Escape' });
+    await waitFakeTimer(0);
+
+    expect(onCancel).not.toHaveBeenCalled();
+    expect(updatedOnCancel).toHaveBeenCalledTimes(1);
+  });
+
   it('should not fire twice onOk when button is pressed twice', async () => {
     let resolveFn: VoidFunction;
     const onOk = jest.fn(
@@ -704,6 +721,23 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(afterClose).not.toHaveBeenCalled();
     await waitFakeTimer(500);
     expect(afterClose).toHaveBeenCalled();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59680
+  it('trigger the updated afterClose', async () => {
+    const afterClose = jest.fn();
+    const updatedAfterClose = jest.fn();
+    const instance = Modal.confirm({ title: 'title', content: 'content', afterClose });
+
+    await waitFakeTimer();
+    instance.update({ afterClose: updatedAfterClose });
+    await waitFakeTimer();
+
+    $$('.ant-btn-primary')[0].click();
+    await waitFakeTimer(500);
+
+    expect(afterClose).not.toHaveBeenCalled();
+    expect(updatedAfterClose).toHaveBeenCalledTimes(1);
   });
 
   it('bodyStyle', async () => {
