@@ -471,6 +471,7 @@ describe('Input.OTP a11y', () => {
     ]);
 
     rerender(
+      // eslint-disable-next-line no-template-curly-in-string
       <ConfigProvider locale={{ locale: 'fr', Input: { otpCell: 'Chiffre ${index} sur ${total}' } }}>
         <Input.OTP length={2} />
       </ConfigProvider>,
@@ -483,12 +484,18 @@ describe('Input.OTP a11y', () => {
     const group = container.querySelector('[role="group"]')!;
     const inputs = () => Array.from(container.querySelectorAll('input'));
     expect(group).not.toHaveAttribute('aria-invalid');
-    inputs().forEach((input) => expect(input).toHaveAttribute('aria-invalid', 'true'));
+    inputs().forEach((input) => {
+      expect(input).toHaveAttribute('aria-invalid', 'true');
+    });
 
     rerender(<Input.OTP status="error" />);
-    inputs().forEach((input) => expect(input).toHaveAttribute('aria-invalid', 'true'));
+    inputs().forEach((input) => {
+      expect(input).toHaveAttribute('aria-invalid', 'true');
+    });
 
     rerender(<Input.OTP />);
-    inputs().forEach((input) => expect(input).not.toHaveAttribute('aria-invalid'));
+    inputs().forEach((input) => {
+      expect(input).not.toHaveAttribute('aria-invalid');
+    });
   });
 });

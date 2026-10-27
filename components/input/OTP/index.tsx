@@ -361,8 +361,8 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
                 }}
                 index={index}
                 aria-label={inputLocale.otpCell
-                  ?.replace('${index}', String(index + 1))
-                  .replace('${total}', String(length))}
+                  ?.replace(/\$\{index\}/g, String(index + 1))
+                  .replace(/\$\{total\}/g, String(length))}
                 size={mergedSize}
                 htmlSize={1}
                 className={clsx(mergedClassNames.input, `${prefixCls}-input`)}
