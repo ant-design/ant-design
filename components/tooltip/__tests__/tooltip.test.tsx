@@ -331,6 +331,27 @@ describe('Tooltip', () => {
     });
   });
 
+  it('should preserve disabled overflow adjustment', () => {
+    const placementInfo = getPlacements({
+      arrowWidth: 4,
+      autoAdjustOverflow: {
+        adjustX: false,
+        adjustY: false,
+        shiftX: false,
+        shiftY: false,
+      },
+      borderRadius: 10,
+      offset: 0,
+    });
+
+    expect(placementInfo.top.overflow).toEqual({
+      adjustX: false,
+      adjustY: false,
+      shiftX: false,
+      shiftY: false,
+    });
+  });
+
   describe('support other placement when mouse enter', () => {
     const placementList = [
       'top',
