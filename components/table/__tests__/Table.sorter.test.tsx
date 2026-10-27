@@ -88,6 +88,43 @@ describe('Table.sorter', () => {
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
 
+  it.each<[string, ColumnType<any>[], TableProps<any>]>([
+    [
+      'after a column hidden by responsive',
+      [{ title: 'Hidden', dataIndex: 'name', responsive: ['md'] }],
+      {},
+    ],
+    ['in an expandable table', [], { expandable: { expandedRowRender: () => null } }],
+  ])('sorts a column without key or dataIndex %s', (_, prevColumns, tableProps) => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <Table
+        columns={[
+          ...prevColumns,
+          {
+            title: 'Name',
+            className: 'keyless-name',
+            sorter: sorterFn,
+            render: (_, record) => record.name,
+          },
+        ]}
+        dataSource={data}
+        pagination={false}
+        onChange={onChange}
+        {...tableProps}
+      />,
+    );
+    const getNames = () =>
+      Array.from(container.querySelectorAll('tbody td.keyless-name')).map((td) => td.textContent);
+
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(getNames()).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(getNames()).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+    expect(onChange.mock.calls.map(([, , sorter]) => sorter.order)).toEqual(['ascend', 'descend']);
+  });
+
   it('sort will work when column with children', () => {
     const onChange = jest.fn();
     const tableData = [
