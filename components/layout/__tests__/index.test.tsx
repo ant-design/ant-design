@@ -332,6 +332,18 @@ describe('Layout', () => {
     const header = container.querySelector('.standalone-header')!;
     expect(header).toHaveClass('foo');
   });
+
+  // https://github.com/ant-design/ant-design/issues/59696
+  it.each([
+    ['Header', Header],
+    ['Content', Content],
+    ['Footer', Footer],
+  ] as const)('%s should apply rootClassName', (_, Component) => {
+    const { container } = render(<Component rootClassName="custom-root" />);
+
+    expect(container.firstChild).toHaveClass('custom-root');
+    expect(container.firstChild).not.toHaveAttribute('rootClassName');
+  });
 });
 
 describe('Sider', () => {
