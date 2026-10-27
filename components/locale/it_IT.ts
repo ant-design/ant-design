@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Selezionare',
     close: 'Chiudi',
+    clear: 'Cancella',
     show: 'Mostra',
     hide: 'Nascondi',
     sortable: 'ordinabile',

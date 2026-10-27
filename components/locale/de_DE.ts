@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Bitte auswählen',
     close: 'Schließen',
+    clear: 'Löschen',
     show: 'Anzeigen',
     hide: 'Ausblenden',
     sortable: 'sortierbar',

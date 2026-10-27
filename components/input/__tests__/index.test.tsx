@@ -636,3 +636,25 @@ describe('triggerFocus', () => {
     }).not.toThrow();
   });
 });
+
+describe('Input allowClear a11y', () => {
+  it('should name the clear button from the locale', () => {
+    const { container, rerender } = render(<Input allowClear defaultValue="a" />);
+    const getClearButton = () => container.querySelector('.ant-input-clear-icon')!;
+    expect(getClearButton().querySelector('[aria-label]')).toHaveAttribute('aria-label', 'Clear');
+
+    rerender(
+      <ConfigProvider locale={{ locale: 'fr', global: { clear: 'Effacer' } }}>
+        <Input allowClear defaultValue="a" />
+      </ConfigProvider>,
+    );
+    expect(getClearButton().querySelector('[aria-label]')).toHaveAttribute('aria-label', 'Effacer');
+  });
+
+  it('should keep a custom clearIcon', () => {
+    const { container } = render(
+      <Input allowClear={{ clearIcon: <span className="custom-clear" /> }} defaultValue="a" />,
+    );
+    expect(container.querySelector('.ant-input-clear-icon .custom-clear')).toBeTruthy();
+  });
+});

@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import type { BaseInputProps } from '@rc-component/input';
 
+import useLocale from '../../locale/useLocale';
 import fallbackProp from '../fallbackProp';
 import { isPlainObject } from '../is';
 import { devUseWarning } from '../warning';
@@ -32,6 +33,8 @@ export const useAllowClear = (options: UseAllowClearOptions): AllowClear => {
     warning.deprecated(!clearIcon, 'clearIcon', 'allowClear={{ clearIcon: React.ReactNode }}');
   }
 
+  const [locale] = useLocale('global');
+
   return useMemo(() => {
     const mergedAllowClear = allowClear ?? contextAllowClear ?? defaultAllowClear;
     if (!mergedAllowClear) {
@@ -41,11 +44,11 @@ export const useAllowClear = (options: UseAllowClearOptions): AllowClear => {
       clearIcon: fallbackProp(
         isPlainObject(allowClear) ? allowClear?.clearIcon : clearIcon,
         isPlainObject(contextAllowClear) ? contextAllowClear?.clearIcon : contextClearIcon,
-        <CloseCircleFilled />,
+        <CloseCircleFilled aria-label={locale.clear} />,
       ),
       disabled:
         (isPlainObject(allowClear) ? allowClear?.disabled : undefined) ??
         (isPlainObject(contextAllowClear) ? contextAllowClear?.disabled : undefined),
     };
-  }, [allowClear, clearIcon, contextAllowClear, contextClearIcon, defaultAllowClear]);
+  }, [allowClear, clearIcon, contextAllowClear, contextClearIcon, defaultAllowClear, locale.clear]);
 };

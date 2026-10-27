@@ -35,6 +35,7 @@ export interface Locale {
   global?: {
     placeholder?: string;
     close?: string;
+    clear?: string;
     sortable?: string;
     show?: string;
     hide?: string;
