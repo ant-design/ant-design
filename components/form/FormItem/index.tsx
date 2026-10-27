@@ -284,7 +284,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   let variables: Record<string, string> = {};
   if (typeof label === 'string') {
     variables.label = label;
-  } else if (name) {
+  } else if (hasName) {
     variables.label = String(name);
   }
   if (messageVariables) {
