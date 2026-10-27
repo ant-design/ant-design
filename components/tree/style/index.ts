@@ -390,6 +390,8 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         background: 'transparent',
         borderRadius: token.borderRadius,
         cursor: 'pointer',
+        // fix https://github.com/ant-design/ant-design/issues/59673
+        userSelect: 'none',
         transition: [
           `all ${motionDurationMid}`,
           'border 0s',

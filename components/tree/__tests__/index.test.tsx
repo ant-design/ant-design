@@ -1,4 +1,5 @@
 import React from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { SmileOutlined } from '@ant-design/icons';
 
 import Tree from '..';
@@ -338,5 +339,23 @@ describe('Tree', () => {
       expect(trees[0]).not.toHaveClass('ant-tree-disabled');
       expect(trees[1]).toHaveClass('ant-tree-disabled');
     });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59673
+  it('should not allow selecting node title text', () => {
+    const cache = createCache();
+    render(
+      <StyleProvider cache={cache}>
+        <Tree treeData={[{ key: '0', title: 'Node 0' }]} />
+      </StyleProvider>,
+    );
+
+    const styleText = extractStyle(cache, { plain: true });
+    const contentWrapperRule = styleText
+      .split('}')
+      .map((rule) => `${rule}}`)
+      .find((rule) => rule.includes('-node-content-wrapper') && rule.includes('user-select'));
+
+    expect(contentWrapperRule).toContain('user-select:none');
   });
 });
