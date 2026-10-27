@@ -2069,6 +2069,23 @@ describe('Form', () => {
         expect(container.querySelector('.ant-form-item-feedback-icon-success')).toBeFalsy();
       },
     );
+
+    // https://github.com/ant-design/ant-design/issues/59706
+    it('noStyle with hasFeedback should keep the parent success feedback after being touched', async () => {
+      const { container } = render(
+        <Form>
+          <Form.Item validateStatus="success" hasFeedback>
+            <Form.Item name="phone" noStyle hasFeedback>
+              <Input />
+            </Form.Item>
+          </Form.Item>
+        </Form>,
+      );
+
+      await changeValue(0, '123');
+
+      expect(container.querySelector('.ant-form-item-feedback-icon-success')).toBeTruthy();
+    });
   });
 
   it('should not affect Popup children style', () => {

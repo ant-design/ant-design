@@ -54,10 +54,10 @@ function StatusProvider({
     name: parentName,
   } = React.useContext(FormItemInputContext);
 
-  // A touched `noStyle` field is implicitly `success`, which should not override the parent status
+  // A touched `noStyle` field is implicitly `success`, so it follows the parent status instead
   const mergedValidateStatus =
     noStyle && parentStatus && validateStatus === undefined && selfValidateStatus === 'success'
-      ? null
+      ? parentStatus
       : selfValidateStatus;
 
   // ====================== Context =======================
