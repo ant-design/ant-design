@@ -377,11 +377,16 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
           const hasExtra = isReactRenderable(props.extra);
 
-          // `noStyle` items show their messages in the help of the parent Form.Item
-          const helpId = noStyle && !hidden ? parentHelpId : `${fieldId}_help`;
+          const hasMessages = mergedErrors.length > 0 || mergedWarnings.length > 0;
           const describedbyArr: string[] = [];
-          if (helpId && (help || mergedErrors.length > 0 || mergedWarnings.length > 0)) {
-            describedbyArr.push(helpId);
+          if (noStyle && !hidden) {
+            // `noStyle` items report their messages to the help of the parent Form.Item,
+            // unless `help` is `false`. Their own `help` is not rendered.
+            if (parentHelpId && help !== false && hasMessages) {
+              describedbyArr.push(parentHelpId);
+            }
+          } else if (help || hasMessages) {
+            describedbyArr.push(`${fieldId}_help`);
           }
           if (hasExtra) {
             describedbyArr.push(`${fieldId}_extra`);
