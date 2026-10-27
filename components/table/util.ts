@@ -45,7 +45,7 @@ export interface ColumnPosNode {
 export const getColumnPosTree = <RecordType extends AnyObject = AnyObject>(
   renderColumns: ColumnsType<RecordType>,
   baseColumns: ColumnsType<RecordType>,
-  visibleColumns: ColumnsType<RecordType> = baseColumns,
+  visibleColumns: ColumnsType<RecordType>,
   pos?: string,
 ): (ColumnPosNode | undefined)[] => {
   // rc-table drops `EXPAND_COLUMN` placeholders and `hidden` columns, and keeps the others in order
@@ -61,11 +61,9 @@ export const getColumnPosTree = <RecordType extends AnyObject = AnyObject>(
     }
     const originColumn = originColumns[originIndex];
     originIndex += 1;
-    // Search after the previous match, so a column object used twice keeps both positions
+    // `originColumns` keeps the order of `baseColumns`. Search after the previous match, so a column
+    // object used twice keeps both positions
     baseIndex = baseColumns.indexOf(originColumn, baseIndex + 1);
-    if (baseIndex === -1) {
-      return undefined;
-    }
 
     const columnPos = getColumnPos(baseIndex, pos);
     const originChildren = (originColumn as ColumnGroupType<RecordType>).children;
