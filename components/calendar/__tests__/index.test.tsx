@@ -387,6 +387,28 @@ describe('Calendar', () => {
     },
   );
 
+  it('should keep the locale of the value when moving the date into validRange', () => {
+    const start = Dayjs('2018-03-15 10:30').locale('en');
+    const onValueChange = jest.fn();
+    const { container } = render(
+      <Header
+        prefixCls="ant-picker-calendar"
+        generateConfig={dayjsGenerateConfig}
+        onChange={onValueChange}
+        value={Dayjs('2018-04-10 08:00').locale('zh-cn')}
+        validRange={[start, Dayjs('2019-10-20').locale('en')]}
+        // @ts-ignore
+        locale={{ year: '年', locale: 'zh_CN' }}
+        mode="month"
+      />,
+    );
+    openSelect(container, '.ant-picker-calendar-month-select');
+    clickSelectItem(container);
+    const [date] = onValueChange.mock.calls[0];
+    expect(date.valueOf()).toBe(start.valueOf());
+    expect(date.locale()).toBe('zh-cn');
+  });
+
   it('onTypeChange should work correctly', () => {
     const onTypeChange = jest.fn();
     const value = Dayjs('2018-12-03');

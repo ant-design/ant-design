@@ -23,6 +23,29 @@ interface SharedProps<DateType> {
   onChange: (year: DateType) => void;
 }
 
+const DATE_TIME_FIELDS = [
+  ['getYear', 'setYear'],
+  ['getMonth', 'setMonth'],
+  ['getDate', 'setDate'],
+  ['getHour', 'setHour'],
+  ['getMinute', 'setMinute'],
+  ['getSecond', 'setSecond'],
+  ['getMillisecond', 'setMillisecond'],
+] as const;
+
+// Copy the date and time of `target` into `date`, so the result keeps the locale of `date`
+function copyDateTime<DateType>(
+  date: DateType,
+  target: DateType,
+  generateConfig: GenerateConfig<DateType>,
+): DateType {
+  // Start from the first day of the month, so changing the year or month can't overflow
+  return DATE_TIME_FIELDS.reduce(
+    (result, [getter, setter]) => generateConfig[setter](result, generateConfig[getter](target)),
+    generateConfig.setDate(date, 1),
+  );
+}
+
 function clampDate<DateType>(
   date: DateType,
   generateConfig: GenerateConfig<DateType>,
@@ -31,10 +54,10 @@ function clampDate<DateType>(
   if (validRange) {
     const [startDate, endDate] = validRange;
     if (generateConfig.isAfter(startDate, date)) {
-      return startDate;
+      return copyDateTime(date, startDate, generateConfig);
     }
     if (generateConfig.isAfter(date, endDate)) {
-      return endDate;
+      return copyDateTime(date, endDate, generateConfig);
     }
   }
   return date;
