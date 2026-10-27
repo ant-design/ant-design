@@ -367,6 +367,32 @@ describe('Form', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/59702
+  it('noStyle input should be described by the help of its parent when there are warnings', async () => {
+    const { container } = pureRender(
+      <Form>
+        <Form.Item label="Address">
+          <Form.Item
+            name="city"
+            noStyle
+            rules={[{ len: 3, warningOnly: true, message: 'City should have 3 characters' }]}
+          >
+            <input />
+          </Form.Item>
+        </Form.Item>
+      </Form>,
+    );
+
+    await changeValue(0, 'Shanghai');
+
+    const describedBy = container.querySelector('input')?.getAttribute('aria-describedby');
+    expect(container.querySelector('.ant-form-item-explain-warning')).toBeTruthy();
+    expect(describedBy).toBeTruthy();
+    expect(document.getElementById(describedBy!)).toHaveTextContent(
+      'City should have 3 characters',
+    );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59702
   it('noStyle input without parent should not be described by a missing help', async () => {
     const { container } = pureRender(
       <Form>
