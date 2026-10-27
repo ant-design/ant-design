@@ -343,6 +343,46 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item-explain')?.id).toBe('test_help');
   });
 
+  // https://github.com/ant-design/ant-design/issues/59702
+  it.each([
+    ['without name', undefined],
+    ['with name', 'address'],
+  ])('noStyle input should be described by the help of its parent %s', async (_, parentName) => {
+    const { container } = pureRender(
+      <Form>
+        <Form.Item label="Address" name={parentName}>
+          <Form.Item name="city" noStyle rules={[{ required: true, message: 'City is required' }]}>
+            <input />
+          </Form.Item>
+        </Form.Item>
+      </Form>,
+    );
+
+    await changeValue(0, 'Shanghai');
+    await changeValue(0, '');
+
+    const describedBy = container.querySelector('input')?.getAttribute('aria-describedby');
+    expect(describedBy).toBeTruthy();
+    expect(document.getElementById(describedBy!)).toHaveTextContent('City is required');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59702
+  it('noStyle input without parent should not be described by a missing help', async () => {
+    const { container } = pureRender(
+      <Form>
+        <Form.Item name="city" noStyle rules={[{ required: true, message: 'City is required' }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    await changeValue(0, 'Shanghai');
+    await changeValue(0, '');
+
+    expect(container.querySelector('input')).toHaveAttribute('aria-invalid', 'true');
+    expect(container.querySelector('input')).not.toHaveAttribute('aria-describedby');
+  });
+
   it('input element should have the prop aria-invalid when there are errors', async () => {
     const { container } = render(
       <Form>

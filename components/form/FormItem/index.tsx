@@ -10,7 +10,7 @@ import { cloneElement } from '../../_util/reactNode';
 import { useDevWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
-import { FormContext, NoStyleItemContext } from '../context';
+import { FormContext, NoStyleItemContext, NoStyleItemHelpIdContext } from '../context';
 import type { FormInstance, FormItemLayout } from '../Form';
 import type { FormItemInputProps } from '../FormItemInput';
 import type { FormItemLabelProps } from '../FormItemLabel';
@@ -133,6 +133,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const isRenderProps = isFunction(mergedChildren);
 
   const notifyParentMetaChange = React.useContext(NoStyleItemContext);
+  const parentHelpId = React.useContext(NoStyleItemHelpIdContext);
 
   const { validateTrigger: contextValidateTrigger } = React.useContext(FieldContext);
 
@@ -376,14 +377,16 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
           const hasExtra = isReactRenderable(props.extra);
 
-          if (help || mergedErrors.length > 0 || mergedWarnings.length > 0 || hasExtra) {
-            const describedbyArr: string[] = [];
-            if (help || mergedErrors.length > 0 || mergedWarnings.length > 0) {
-              describedbyArr.push(`${fieldId}_help`);
-            }
-            if (hasExtra) {
-              describedbyArr.push(`${fieldId}_extra`);
-            }
+          // `noStyle` items show their messages in the help of the parent Form.Item
+          const helpId = noStyle && !hidden ? parentHelpId : `${fieldId}_help`;
+          const describedbyArr: string[] = [];
+          if (helpId && (help || mergedErrors.length > 0 || mergedWarnings.length > 0)) {
+            describedbyArr.push(helpId);
+          }
+          if (hasExtra) {
+            describedbyArr.push(`${fieldId}_extra`);
+          }
+          if (describedbyArr.length) {
             childProps['aria-describedby'] = describedbyArr.join(' ');
           }
 
