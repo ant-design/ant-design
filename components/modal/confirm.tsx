@@ -102,11 +102,13 @@ export default function confirm(config: ModalFuncProps) {
 
   // Kept out of `currentConfig` so that `update` can still replace the user's `afterClose`
   function afterClose() {
+    // The user's `afterClose` can call `close` again (e.g. through `Modal.destroyAll`)
+    const args = closeArgs;
     if (isFunction(currentConfig.afterClose)) {
       currentConfig.afterClose();
     }
-    if (closeArgs) {
-      destroy(...closeArgs);
+    if (args) {
+      destroy(...args);
     }
   }
 

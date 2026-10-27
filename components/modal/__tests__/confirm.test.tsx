@@ -740,6 +740,22 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(updatedAfterClose).toHaveBeenCalledTimes(1);
   });
 
+  it('should call onCancel when afterClose calls destroyAll', async () => {
+    const onCancel = jest.fn();
+    Modal.confirm({
+      title: 'title',
+      content: 'content',
+      onCancel,
+      afterClose: () => Modal.destroyAll(),
+    });
+
+    await waitFakeTimer();
+    fireEvent.keyDown(window, { key: 'Escape' });
+    await waitFakeTimer(500);
+
+    expect(onCancel).toHaveBeenCalledTimes(1);
+  });
+
   it('bodyStyle', async () => {
     resetWarned();
     const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
