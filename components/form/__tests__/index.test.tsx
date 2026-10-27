@@ -2043,6 +2043,32 @@ describe('Form', () => {
       expect(container.querySelectorAll('input')[0]).toHaveClass('ant-input-status-error');
       expect(container.querySelectorAll('input')[1]).not.toHaveClass('ant-input-status-error');
     });
+
+    // https://github.com/ant-design/ant-design/issues/59706
+    it.each([
+      ['error', 'error', {}],
+      ['error with feedback', 'error', { hasFeedback: true }],
+      ['validating', 'validating', {}],
+    ] as const)(
+      'noStyle should keep the parent %s status after being touched',
+      async (_, status, feedbackProps) => {
+        const { container } = render(
+          <Form>
+            <Form.Item validateStatus={status} {...feedbackProps}>
+              <Form.Item name="phone" noStyle {...feedbackProps}>
+                <Input />
+              </Form.Item>
+            </Form.Item>
+          </Form>,
+        );
+
+        await changeValue(0, '123');
+
+        expect(container.querySelector(`.ant-input-status-${status}`)).toBeTruthy();
+        expect(container.querySelector('.ant-input-status-success')).toBeFalsy();
+        expect(container.querySelector('.ant-form-item-feedback-icon-success')).toBeFalsy();
+      },
+    );
   });
 
   it('should not affect Popup children style', () => {
