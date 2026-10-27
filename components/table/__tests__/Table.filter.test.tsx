@@ -486,6 +486,26 @@ describe('Table.filter', () => {
       {},
     ],
     [
+      'after a hidden column',
+      (col) => [{ title: 'Hidden', dataIndex: 'name', hidden: true }, col],
+      '1',
+      {},
+    ],
+    [
+      'after a hidden column in an expandable table',
+      (col) => [{ title: 'Hidden', dataIndex: 'name', hidden: true }, col],
+      '1',
+      { expandable: { expandedRowRender: () => null } },
+    ],
+    [
+      'after a hidden column in a column group',
+      (col) => [
+        { title: 'Group', children: [{ title: 'Age', dataIndex: 'age', hidden: true }, col] },
+      ],
+      '0-1',
+      {},
+    ],
+    [
       'after a column group',
       (col) => [{ title: 'Group', children: [{ title: 'Age', dataIndex: 'age' }] }, col],
       '1',

@@ -4,6 +4,7 @@ import { isFunction, isPlainObject } from '../_util/is';
 import type { AnyObject } from '../_util/type';
 import type { SizeType } from '../config-provider/SizeContext';
 import type {
+  ColumnGroupType,
   ColumnsType,
   ColumnTitle,
   ColumnTitleProps,
@@ -30,28 +31,51 @@ export function getColumnPos(index: number, pos?: string) {
   return pos ? `${pos}-${index}` : `${index}`;
 }
 
-/**
- * Rendered columns can differ from the `columns` prop: columns hidden by `responsive` are removed
- * and the expand column is inserted. Map each rendered top-level column back to its position in
- * `baseColumns`, so the positional key of a column without `key` or `dataIndex` matches the one
- * used to collect its sorter and filter states.
- */
-export const getColumnPosList = <RecordType extends AnyObject = AnyObject>(
-  renderColumns: ColumnsType<RecordType>,
-  visibleColumns: ColumnsType<RecordType>,
-  baseColumns: ColumnsType<RecordType>,
-): string[] => {
-  // rc-table replaces or removes `EXPAND_COLUMN` placeholders and keeps the other columns in order
-  const originColumns = visibleColumns.filter((column) => column !== EXPAND_COLUMN);
-  let originIndex = 0;
+export interface ColumnPosNode {
+  pos: string;
+  children?: (ColumnPosNode | undefined)[];
+}
 
-  return renderColumns.map((column: any, index) => {
+/**
+ * Rendered columns can differ from the `columns` prop: Table removes columns hidden by
+ * `responsive`, and rc-table removes `hidden` columns at every level and inserts the expand column.
+ * Map each rendered column back to its position in `baseColumns`, so the positional key of a column
+ * without `key` or `dataIndex` matches the one used to collect its sorter and filter states.
+ */
+export const getColumnPosTree = <RecordType extends AnyObject = AnyObject>(
+  renderColumns: ColumnsType<RecordType>,
+  baseColumns: ColumnsType<RecordType>,
+  visibleColumns: ColumnsType<RecordType> = baseColumns,
+  pos?: string,
+): (ColumnPosNode | undefined)[] => {
+  // rc-table drops `EXPAND_COLUMN` placeholders and `hidden` columns, and keeps the others in order
+  const originColumns = visibleColumns.filter(
+    (column) => column !== EXPAND_COLUMN && !column.hidden,
+  );
+  let originIndex = 0;
+  let baseIndex = -1;
+
+  return renderColumns.map((column: any) => {
     if (column[INTERNAL_COL_DEFINE]?.columnType === 'EXPAND_COLUMN') {
-      return getColumnPos(index);
+      return undefined;
     }
-    const baseIndex = baseColumns.indexOf(originColumns[originIndex]);
+    const originColumn = originColumns[originIndex];
     originIndex += 1;
-    return getColumnPos(baseIndex === -1 ? index : baseIndex);
+    // Search after the previous match, so a column object used twice keeps both positions
+    baseIndex = baseColumns.indexOf(originColumn, baseIndex + 1);
+    if (baseIndex === -1) {
+      return undefined;
+    }
+
+    const columnPos = getColumnPos(baseIndex, pos);
+    const originChildren = (originColumn as ColumnGroupType<RecordType>).children;
+    return {
+      pos: columnPos,
+      children:
+        column.children && originChildren
+          ? getColumnPosTree(column.children, originChildren, originChildren, columnPos)
+          : undefined,
+    };
   });
 };
 

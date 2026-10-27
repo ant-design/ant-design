@@ -14,7 +14,8 @@ import type {
   TableLocale,
   TransformColumns,
 } from '../../interface';
-import { getColumnKey, getColumnPos, getColumnPosList, renderColumnTitle } from '../../util';
+import type { ColumnPosNode } from '../../util';
+import { getColumnKey, getColumnPos, getColumnPosTree, renderColumnTitle } from '../../util';
 import FilterDropdown, { flattenKeys } from './FilterDropdown';
 
 export interface FilterState<RecordType = AnyObject> {
@@ -79,10 +80,11 @@ function injectFilter<RecordType extends AnyObject = AnyObject>(
   getPopupContainer?: GetPopupContainer,
   pos?: string,
   rootClassName?: string,
-  columnPosList?: string[],
+  columnPosTree?: (ColumnPosNode | undefined)[],
 ): ColumnsType<RecordType> {
   return columns.map((column, index) => {
-    const columnPos = columnPosList?.[index] ?? getColumnPos(index, pos);
+    const columnPosNode = columnPosTree?.[index];
+    const columnPos = columnPosNode?.pos ?? getColumnPos(index, pos);
     const {
       filterOnClose = true,
       filterMultiple = true,
@@ -134,6 +136,7 @@ function injectFilter<RecordType extends AnyObject = AnyObject>(
           getPopupContainer,
           columnPos,
           rootClassName,
+          columnPosNode?.children,
         ),
       };
     }
@@ -345,7 +348,7 @@ const useFilter = <RecordType extends AnyObject = AnyObject>(
       getPopupContainer,
       undefined,
       rootClassName,
-      getColumnPosList(innerColumns, mergedColumns, collectColumns),
+      getColumnPosTree(innerColumns, collectColumns, mergedColumns),
     );
 
   return [transformColumns, mergedFilterStates, filters] as const;

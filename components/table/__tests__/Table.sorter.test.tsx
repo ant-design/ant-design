@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { ColumnType, TableProps } from '..';
+import type { ColumnsType, ColumnType, TableProps } from '..';
 import Table from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 import type { SortOrder, TablePaginationConfig } from '../interface';
@@ -88,26 +88,40 @@ describe('Table.sorter', () => {
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
 
-  it.each<[string, ColumnType<any>[], TableProps<any>]>([
+  it.each<[string, (col: ColumnType<any>) => ColumnsType<any>, TableProps<any>]>([
     [
       'after a column hidden by responsive',
-      [{ title: 'Hidden', dataIndex: 'name', responsive: ['md'] }],
+      (col) => [{ title: 'Hidden', dataIndex: 'name', responsive: ['md'] }, col],
       {},
     ],
-    ['in an expandable table', [], { expandable: { expandedRowRender: () => null } }],
-  ])('sorts a column without key or dataIndex %s', (_, prevColumns, tableProps) => {
+    [
+      'after a hidden column',
+      (col) => [{ title: 'Hidden', dataIndex: 'name', hidden: true }, col],
+      {},
+    ],
+    [
+      'after a hidden column in an expandable table',
+      (col) => [{ title: 'Hidden', dataIndex: 'name', hidden: true }, col],
+      { expandable: { expandedRowRender: () => null } },
+    ],
+    [
+      'after a hidden column in a column group',
+      (col) => [
+        { title: 'Group', children: [{ title: 'Age', dataIndex: 'age', hidden: true }, col] },
+      ],
+      {},
+    ],
+    ['in an expandable table', (col) => [col], { expandable: { expandedRowRender: () => null } }],
+  ])('sorts a column without key or dataIndex %s', (_, getColumns, tableProps) => {
     const onChange = jest.fn();
     const { container } = render(
       <Table
-        columns={[
-          ...prevColumns,
-          {
-            title: 'Name',
-            className: 'keyless-name',
-            sorter: sorterFn,
-            render: (_, record) => record.name,
-          },
-        ]}
+        columns={getColumns({
+          title: 'Name',
+          className: 'keyless-name',
+          sorter: sorterFn,
+          render: (_, record) => record.name,
+        })}
         dataSource={data}
         pagination={false}
         onChange={onChange}
@@ -123,6 +137,24 @@ describe('Table.sorter', () => {
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(getNames()).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
     expect(onChange.mock.calls.map(([, , sorter]) => sorter.order)).toEqual(['ascend', 'descend']);
+  });
+
+  it('keeps separate sort states for a column object used twice', () => {
+    const column: ColumnType<any> = {
+      title: 'Name',
+      sorter: sorterFn,
+      render: (_, record) => record.name,
+    };
+    const { container } = render(
+      <Table columns={[column, column]} dataSource={data} pagination={false} />,
+    );
+
+    fireEvent.click(container.querySelectorAll('.ant-table-column-sorters')[0]);
+
+    const ariaSorts = Array.from(container.querySelectorAll('thead th')).map((th) =>
+      th.getAttribute('aria-sort'),
+    );
+    expect(ariaSorts).toEqual(['ascending', null]);
   });
 
   it('sort will work when column with children', () => {
