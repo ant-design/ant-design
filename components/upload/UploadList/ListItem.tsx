@@ -239,7 +239,6 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
           title={locale.previewFile}
           aria-label={locale.previewFile || undefined}
           className={`${prefixCls}-list-item-action`}
-          draggable={false}
           icon={
             isFunction(customPreviewIcon)
               ? customPreviewIcon(file)
