@@ -83,14 +83,14 @@ export default function useIcons({
       mergedSuffixIcon = getSuffixIconNode(suffixIcon);
     } else if (loading) {
       mergedSuffixIcon = getSuffixIconNode(
-        fallbackProp(loadingIcon, contextLoadingIcon, <LoadingOutlined spin />),
+        fallbackProp(loadingIcon, contextLoadingIcon, <LoadingOutlined spin aria-hidden="true" />),
       );
     } else {
       mergedSuffixIcon = ({ open, showSearch }: { open: boolean; showSearch: boolean }) => {
         if (open && showSearch) {
-          return getSuffixIconNode(fallbackProp(searchIcon, contextSearchIcon, <SearchOutlined />));
+          return getSuffixIconNode(fallbackProp(searchIcon, contextSearchIcon, <SearchOutlined aria-hidden="true" />));
         }
-        return getSuffixIconNode(fallbackProp(contextSuffixIcon, <DownOutlined />));
+        return getSuffixIconNode(fallbackProp(contextSuffixIcon, <DownOutlined aria-hidden="true" />));
       };
     }
 
