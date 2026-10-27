@@ -11676,7 +11676,7 @@ Array [
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >
@@ -14737,7 +14737,7 @@ Array [
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -17898,7 +17898,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -19485,7 +19485,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -21072,7 +21072,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >

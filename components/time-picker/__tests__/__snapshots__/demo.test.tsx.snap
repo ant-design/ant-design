@@ -419,7 +419,7 @@ exports[`renders components/time-picker/demo/hide-column.tsx correctly 1`] = `
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -626,7 +626,7 @@ exports[`renders components/time-picker/demo/range-picker.tsx correctly 1`] = `
     type="button"
   >
     <span
-      aria-label="close-circle"
+      aria-label="Clear"
       class="anticon anticon-close-circle"
       role="img"
     >
@@ -753,7 +753,7 @@ exports[`renders components/time-picker/demo/size.tsx correctly 1`] = `
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -825,7 +825,7 @@ exports[`renders components/time-picker/demo/size.tsx correctly 1`] = `
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -897,7 +897,7 @@ exports[`renders components/time-picker/demo/size.tsx correctly 1`] = `
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >

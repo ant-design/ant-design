@@ -732,7 +732,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
               type="button"
             >
               <span
-                aria-label="close-circle"
+                aria-label="Clear"
                 class="anticon anticon-close-circle"
                 role="img"
               >
@@ -987,7 +987,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
               type="button"
             >
               <span
-                aria-label="close-circle"
+                aria-label="Clear"
                 class="anticon anticon-close-circle"
                 role="img"
               >
@@ -2721,7 +2721,7 @@ Array [
                 type="button"
               >
                 <span
-                  aria-label="close-circle"
+                  aria-label="Clear"
                   class="anticon anticon-close-circle"
                   role="img"
                 >
@@ -2956,7 +2956,7 @@ Array [
                 type="button"
               >
                 <span
-                  aria-label="close-circle"
+                  aria-label="Clear"
                   class="anticon anticon-close-circle"
                   role="img"
                 >
@@ -6033,7 +6033,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
               type="button"
             >
               <span
-                aria-label="close-circle"
+                aria-label="Clear"
                 class="anticon anticon-close-circle"
                 role="img"
               >
@@ -6268,7 +6268,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
               type="button"
             >
               <span
-                aria-label="close-circle"
+                aria-label="Clear"
                 class="anticon anticon-close-circle"
                 role="img"
               >
@@ -6731,7 +6731,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
                 type="button"
               >
                 <span
-                  aria-label="close-circle"
+                  aria-label="Clear"
                   class="anticon anticon-close-circle"
                   role="img"
                 >
@@ -6966,7 +6966,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
                 type="button"
               >
                 <span
-                  aria-label="close-circle"
+                  aria-label="Clear"
                   class="anticon anticon-close-circle"
                   role="img"
                 >
@@ -8377,7 +8377,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                 type="button"
               >
                 <span
-                  aria-label="close-circle"
+                  aria-label="Clear"
                   class="anticon anticon-close-circle"
                   role="img"
                 >
@@ -9154,7 +9154,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                 type="button"
               >
                 <span
-                  aria-label="close-circle"
+                  aria-label="Clear"
                   class="anticon anticon-close-circle"
                   role="img"
                 >

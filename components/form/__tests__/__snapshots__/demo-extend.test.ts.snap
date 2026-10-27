@@ -2046,7 +2046,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
                   type="button"
                 >
                   <span
-                    aria-label="close-circle"
+                    aria-label="Clear"
                     class="anticon anticon-close-circle"
                     role="img"
                   >
@@ -8913,7 +8913,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
                   type="button"
                 >
                   <span
-                    aria-label="close-circle"
+                    aria-label="Clear"
                     class="anticon anticon-close-circle"
                     role="img"
                   >
@@ -31276,7 +31276,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   type="button"
                 >
                   <span
-                    aria-label="close-circle"
+                    aria-label="Clear"
                     class="anticon anticon-close-circle"
                     role="img"
                   >
@@ -31466,7 +31466,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   type="button"
                 >
                   <span
-                    aria-label="close-circle"
+                    aria-label="Clear"
                     class="anticon anticon-close-circle"
                     role="img"
                   >
@@ -31975,7 +31975,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   type="button"
                 >
                   <span
-                    aria-label="close-circle"
+                    aria-label="Clear"
                     class="anticon anticon-close-circle"
                     role="img"
                   >

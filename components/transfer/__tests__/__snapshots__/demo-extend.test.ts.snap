@@ -958,7 +958,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
               type="button"
             >
               <span
-                aria-label="close-circle"
+                aria-label="Clear"
                 class="anticon anticon-close-circle"
                 role="img"
               >
@@ -1459,7 +1459,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
               type="button"
             >
               <span
-                aria-label="close-circle"
+                aria-label="Clear"
                 class="anticon anticon-close-circle"
                 role="img"
               >
@@ -3894,7 +3894,7 @@ Array [
                 type="button"
               >
                 <span
-                  aria-label="close-circle"
+                  aria-label="Clear"
                   class="anticon anticon-close-circle"
                   role="img"
                 >
@@ -4204,7 +4204,7 @@ Array [
                 type="button"
               >
                 <span
-                  aria-label="close-circle"
+                  aria-label="Clear"
                   class="anticon anticon-close-circle"
                   role="img"
                 >
@@ -9086,7 +9086,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
               type="button"
             >
               <span
-                aria-label="close-circle"
+                aria-label="Clear"
                 class="anticon anticon-close-circle"
                 role="img"
               >
@@ -9567,7 +9567,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
               type="button"
             >
               <span
-                aria-label="close-circle"
+                aria-label="Clear"
                 class="anticon anticon-close-circle"
                 role="img"
               >
@@ -10429,7 +10429,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
                 type="button"
               >
                 <span
-                  aria-label="close-circle"
+                  aria-label="Clear"
                   class="anticon anticon-close-circle"
                   role="img"
                 >
@@ -10739,7 +10739,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
                 type="button"
               >
                 <span
-                  aria-label="close-circle"
+                  aria-label="Clear"
                   class="anticon anticon-close-circle"
                   role="img"
                 >
@@ -12451,7 +12451,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                 type="button"
               >
                 <span
-                  aria-label="close-circle"
+                  aria-label="Clear"
                   class="anticon anticon-close-circle"
                   role="img"
                 >
@@ -13334,7 +13334,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                 type="button"
               >
                 <span
-                  aria-label="close-circle"
+                  aria-label="Clear"
                   class="anticon anticon-close-circle"
                   role="img"
                 >
