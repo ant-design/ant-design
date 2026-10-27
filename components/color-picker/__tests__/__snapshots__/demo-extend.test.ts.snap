@@ -164,6 +164,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -536,6 +537,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -913,6 +915,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -1282,6 +1285,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -1660,6 +1664,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -2010,6 +2015,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -2322,6 +2328,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -2706,6 +2713,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -3296,6 +3304,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -3989,6 +3998,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -4415,6 +4425,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -4814,6 +4825,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           class="ant-select-suffix"
                         >
                           <span
+                            aria-hidden="true"
                             aria-label="down"
                             class="anticon anticon-down"
                             role="img"
@@ -5773,6 +5785,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           class="ant-select-suffix"
                         >
                           <span
+                            aria-hidden="true"
                             aria-label="down"
                             class="anticon anticon-down"
                             role="img"
@@ -6149,6 +6162,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -6953,6 +6967,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -7337,6 +7352,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -7706,6 +7722,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -8075,6 +8092,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -8457,6 +8475,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -8831,6 +8850,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -9205,6 +9225,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -9581,6 +9602,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       class="ant-select-suffix"
                     >
                       <span
+                        aria-hidden="true"
                         aria-label="down"
                         class="anticon anticon-down"
                         role="img"
@@ -9946,6 +9968,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       class="ant-select-suffix"
                     >
                       <span
+                        aria-hidden="true"
                         aria-label="down"
                         class="anticon anticon-down"
                         role="img"
@@ -10340,6 +10363,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -10716,6 +10740,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -11109,6 +11134,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -11479,6 +11505,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -11851,6 +11878,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"

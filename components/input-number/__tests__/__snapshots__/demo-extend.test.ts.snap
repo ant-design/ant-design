@@ -127,6 +127,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
             class="ant-select-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="down"
               class="anticon anticon-down"
               role="img"
@@ -327,6 +328,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
             class="ant-select-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="down"
               class="anticon anticon-down"
               role="img"
@@ -603,6 +605,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
             class="ant-select-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="down"
               class="anticon anticon-down"
               role="img"
@@ -1073,6 +1076,7 @@ exports[`renders components/input-number/demo/borderless-height-debug.tsx extend
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -1262,6 +1266,7 @@ exports[`renders components/input-number/demo/borderless-height-debug.tsx extend
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -1451,6 +1456,7 @@ exports[`renders components/input-number/demo/borderless-height-debug.tsx extend
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
