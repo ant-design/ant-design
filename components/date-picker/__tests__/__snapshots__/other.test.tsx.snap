@@ -45,7 +45,7 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >
@@ -315,7 +315,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >
@@ -1014,7 +1014,7 @@ exports[`Picker format by locale date 1`] = `
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="清除"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -1082,7 +1082,7 @@ exports[`Picker format by locale dateTime 1`] = `
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="清除"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -1150,7 +1150,7 @@ exports[`Picker format by locale month 1`] = `
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="清除"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -1218,7 +1218,7 @@ exports[`Picker format by locale week 1`] = `
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="清除"
         class="anticon anticon-close-circle"
         role="img"
       >

@@ -348,7 +348,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -417,7 +417,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -501,7 +501,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
               type="button"
             >
               <span
-                aria-label="close-circle"
+                aria-label="Clear"
                 class="anticon anticon-close-circle"
                 role="img"
               >
@@ -570,7 +570,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
               type="button"
             >
               <span
-                aria-label="close-circle"
+                aria-label="Clear"
                 class="anticon anticon-close-circle"
                 role="img"
               >
@@ -831,7 +831,7 @@ exports[`renders components/date-picker/demo/date-range.tsx correctly 1`] = `
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -1131,7 +1131,7 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >
@@ -1199,7 +1199,7 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -2173,7 +2173,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >
@@ -2242,7 +2242,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -2541,7 +2541,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -2610,7 +2610,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -2679,7 +2679,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -2749,7 +2749,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -2864,7 +2864,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >
@@ -2933,7 +2933,7 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -3257,7 +3257,7 @@ exports[`renders components/date-picker/demo/multiple.tsx correctly 1`] = `
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -3340,7 +3340,7 @@ exports[`renders components/date-picker/demo/multiple.tsx correctly 1`] = `
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -3423,7 +3423,7 @@ exports[`renders components/date-picker/demo/multiple.tsx correctly 1`] = `
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -3932,7 +3932,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx correctly 1`] = 
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -4389,7 +4389,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx correctly 1`] = 
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -4846,7 +4846,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx correctly 1`] = 
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >

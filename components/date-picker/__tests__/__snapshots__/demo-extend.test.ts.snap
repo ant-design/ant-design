@@ -3186,7 +3186,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -3830,7 +3830,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -5977,7 +5977,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
               type="button"
             >
               <span
-                aria-label="close-circle"
+                aria-label="Clear"
                 class="anticon anticon-close-circle"
                 role="img"
               >
@@ -6621,7 +6621,7 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
               type="button"
             >
               <span
-                aria-label="close-circle"
+                aria-label="Clear"
                 class="anticon anticon-close-circle"
                 role="img"
               >
@@ -10734,7 +10734,7 @@ Array [
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >
@@ -13501,7 +13501,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >
@@ -14682,7 +14682,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -31144,7 +31144,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >
@@ -32326,7 +32326,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -36003,7 +36003,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -36647,7 +36647,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -37291,7 +37291,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -37561,7 +37561,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -38306,7 +38306,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >
@@ -39488,7 +39488,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           type="button"
         >
           <span
-            aria-label="close-circle"
+            aria-label="Clear"
             class="anticon anticon-close-circle"
             role="img"
           >
@@ -43275,7 +43275,7 @@ exports[`renders components/date-picker/demo/multiple.tsx extend context correct
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -43915,7 +43915,7 @@ exports[`renders components/date-picker/demo/multiple.tsx extend context correct
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -44555,7 +44555,7 @@ exports[`renders components/date-picker/demo/multiple.tsx extend context correct
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -46180,7 +46180,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx extend context c
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -47194,7 +47194,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx extend context c
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -48208,7 +48208,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx extend context c
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >

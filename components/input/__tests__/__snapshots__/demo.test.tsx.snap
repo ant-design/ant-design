@@ -1173,7 +1173,7 @@ Array [
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >
@@ -1212,7 +1212,7 @@ Array [
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >
@@ -1304,7 +1304,7 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >
@@ -1343,7 +1343,7 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >
@@ -1419,7 +1419,7 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >
@@ -1550,7 +1550,7 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
               type="button"
             >
               <span
-                aria-label="close-circle"
+                aria-label="Clear"
                 class="anticon anticon-close-circle"
                 role="img"
               >
@@ -2168,7 +2168,7 @@ exports[`renders components/input/demo/filled-debug.tsx correctly 1`] = `
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >
@@ -3501,7 +3501,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="close-circle"
+              aria-label="Clear"
               class="anticon anticon-close-circle"
               role="img"
             >
@@ -3584,7 +3584,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
               type="button"
             >
               <span
-                aria-label="close-circle"
+                aria-label="Clear"
                 class="anticon anticon-close-circle"
                 role="img"
               >
@@ -3702,7 +3702,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
             type="button"
           >
             <span
-              aria-label="close-circle"
+              aria-label="Clear"
               class="anticon anticon-close-circle"
               role="img"
             >
@@ -5069,7 +5069,7 @@ Array [
         type="button"
       >
         <span
-          aria-label="close-circle"
+          aria-label="Clear"
           class="anticon anticon-close-circle"
           role="img"
         >

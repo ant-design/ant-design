@@ -119,7 +119,7 @@ exports[`Input allowClear should change type when click 1`] = `
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -160,7 +160,7 @@ exports[`Input allowClear should change type when click 2`] = `
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -201,7 +201,7 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -242,7 +242,7 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -283,7 +283,7 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -324,7 +324,7 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -365,7 +365,7 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
@@ -406,7 +406,7 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
       type="button"
     >
       <span
-        aria-label="close-circle"
+        aria-label="Clear"
         class="anticon anticon-close-circle"
         role="img"
       >
