@@ -63,6 +63,10 @@ export interface Locale {
     prevSlide: string;
     nextSlide: string;
   };
+  Input?: {
+    /** Accessible name of each `Input.OTP` cell, `${index}` and `${total}` are replaced */
+    otpCell?: string;
+  };
   ColorPicker?: {
     presetEmpty: string;
     transparent: string;
