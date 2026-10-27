@@ -307,7 +307,7 @@ describe('Calendar', () => {
   it('if start.month > value.month, set value.month to start.month', () => {
     const value = Dayjs('1990-01-03');
     const start = Dayjs('2019-11-01');
-    const end = Dayjs('2019-03-01');
+    const end = Dayjs('2019-12-01');
     const onValueChange = jest.fn();
     createWrapper(start, end, value, onValueChange);
     expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(10), 'year');
@@ -316,7 +316,7 @@ describe('Calendar', () => {
   it('if change year and month > end month, set value.month to end.month', () => {
     const value = Dayjs('2018-11-03');
     const start = Dayjs('2000-01-01');
-    const end = Dayjs('2019-03-01');
+    const end = Dayjs('2019-03-10');
     const onValueChange = jest.fn();
     const { container } = render(
       <Header
@@ -357,6 +357,35 @@ describe('Calendar', () => {
     clickSelectItem(wrapper.container);
     expect(onValueChange).toHaveBeenCalledWith(value.month(10), 'month');
   });
+
+  // https://github.com/ant-design/ant-design/issues/59691
+  it.each([
+    { select: 'year', value: '2019-03-10', option: 'first', expected: '2018-03-15' },
+    { select: 'year', value: '2018-10-25', option: 'last', expected: '2019-10-20' },
+    { select: 'month', value: '2018-04-10', option: 'first', expected: '2018-03-15' },
+    { select: 'month', value: '2019-04-25', option: 'last', expected: '2019-10-20' },
+  ])(
+    'should keep the date within validRange when selecting the $option $select',
+    ({ select, value, option, expected }) => {
+      const onValueChange = jest.fn();
+      const { container } = render(
+        <Header
+          prefixCls="ant-picker-calendar"
+          generateConfig={dayjsGenerateConfig}
+          onChange={onValueChange}
+          value={Dayjs(value)}
+          validRange={[Dayjs('2018-03-15'), Dayjs('2019-10-20')]}
+          // @ts-ignore
+          locale={{ year: '年', locale: 'zh_CN' }}
+          mode="month"
+        />,
+      );
+      openSelect(container, `.ant-picker-calendar-${select}-select`);
+      const options = findSelectItem(container);
+      fireEvent.click(options[option === 'first' ? 0 : options.length - 1]);
+      expect(onValueChange).toHaveBeenCalledWith(Dayjs(expected), select);
+    },
+  );
 
   it('onTypeChange should work correctly', () => {
     const onTypeChange = jest.fn();

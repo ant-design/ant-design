@@ -23,6 +23,23 @@ interface SharedProps<DateType> {
   onChange: (year: DateType) => void;
 }
 
+function clampDate<DateType>(
+  date: DateType,
+  generateConfig: GenerateConfig<DateType>,
+  validRange?: [DateType, DateType],
+): DateType {
+  if (validRange) {
+    const [startDate, endDate] = validRange;
+    if (generateConfig.isAfter(startDate, date)) {
+      return startDate;
+    }
+    if (generateConfig.isAfter(date, endDate)) {
+      return endDate;
+    }
+  }
+  return date;
+}
+
 function YearSelect<DateType>(props: SharedProps<DateType>) {
   const { fullscreen, validRange, generateConfig, locale, prefixCls, value, onChange, divRef } =
     props;
@@ -70,7 +87,7 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
           }
         }
 
-        onChange(newDate);
+        onChange(clampDate(newDate, generateConfig, validRange));
       }}
       getPopupContainer={() => divRef.current}
     />
@@ -112,7 +129,7 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
       value={month}
       options={options}
       onChange={(newMonth) => {
-        onChange(generateConfig.setMonth(value, newMonth));
+        onChange(clampDate(generateConfig.setMonth(value, newMonth), generateConfig, validRange));
       }}
       getPopupContainer={() => divRef.current}
     />
