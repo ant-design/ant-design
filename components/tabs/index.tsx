@@ -278,7 +278,7 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
       style={mergedStyles.root}
       editable={editable}
       more={{
-        icon: tabs?.more?.icon ?? tabs?.moreIcon ?? moreIcon ?? <EllipsisOutlined />,
+        icon: moreIcon ?? tabs?.more?.icon ?? tabs?.moreIcon ?? <EllipsisOutlined />,
         transitionName: `${rootPrefixCls}-slide-up`,
         ...more,
       }}
