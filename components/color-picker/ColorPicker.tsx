@@ -211,7 +211,10 @@ const ColorPicker: CompoundedComponent = (props) => {
       // Should after `onInternalChange` since it will clear the cached color
       setCachedGradientColor(mergedColor);
     } else if (newMode === 'gradient' && !mergedColor.isGradient()) {
-      const baseColor = isAlphaColor ? genAlphaColor(mergedColor) : mergedColor;
+      const baseColor =
+        isAlphaColor && (disabledAlpha || mergedColor.cleared)
+          ? genAlphaColor(mergedColor)
+          : mergedColor;
 
       onInternalChange(
         new AggregationColor(
