@@ -162,6 +162,9 @@ const localeValues: Locale = {
     singleColor: '单色',
     gradientColor: '渐变色',
   },
+  Input: {
+    otpCell: '第 ${index} 位，共 ${total} 位',
+  },
 };
 
 export default localeValues;
