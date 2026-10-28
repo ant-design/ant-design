@@ -239,4 +239,17 @@ describe('useSizes', () => {
     expect(postPxSizes[1]).toBeCloseTo(450);
     expect(postPxSizes[2]).toBeCloseTo(450);
   });
+
+  it('should not treat floating point noise as unsatisfiable minimums', () => {
+    // 800px leaves exactly 200px for minimums of 50px + 150px, but `1 - 0.8`
+    // is 0.19999999999999996, which used to take the average-fill branch.
+    const items = [{ size: 800 }, { min: 50 }, { min: 150 }];
+
+    const { result } = renderHook(() => useSizes(items, 1000));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes[0]).toBeCloseTo(800);
+    expect(postPxSizes[1]).toBeCloseTo(50);
+    expect(postPxSizes[2]).toBeCloseTo(150);
+  });
 });

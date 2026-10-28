@@ -1,5 +1,9 @@
 type SizeUnit = number | undefined;
 
+// Sizes are converted from pixels to percentages, so constraint comparisons need
+// a small tolerance to ignore floating point noise (e.g. `1 - 0.8`).
+const CONSTRAINT_EPSILON = 1e-9;
+
 function fitPtgSizes(sizes: number[], minSizes: SizeUnit[], maxSizes: SizeUnit[]): number[] {
   // Collapsed panels should stay at 0 even when they have a min size.
   const mergedMinSizes = sizes.map((size, index) => (size === 0 ? 0 : (minSizes[index] ?? 0)));
@@ -86,7 +90,7 @@ export function autoPtgSizes(
   }
 
   // Impossible case, just average fill
-  if (sumMin > restPtg || sumMax < restPtg) {
+  if (sumMin > restPtg + CONSTRAINT_EPSILON || sumMax < restPtg - CONSTRAINT_EPSILON) {
     const avg = restPtg / undefinedCount;
     return ptgSizes.map((size) => (size === undefined ? avg : size));
   }
@@ -99,7 +103,7 @@ export function autoPtgSizes(
 
   // Greedy algorithm
   const result = [...ptgSizes] as number[];
-  let remain = restPtg - sumMin;
+  let remain = Math.max(0, restPtg - sumMin);
 
   for (let i = 0; i < undefinedCount; i += 1) {
     const index = undefinedIndexes[i];
