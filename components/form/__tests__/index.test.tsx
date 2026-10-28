@@ -5,7 +5,7 @@ import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
-import type { FormInstance } from '..';
+import type { FormInstance, FormItemProps } from '..';
 import Form from '..';
 import { isNumber } from '../../_util/is';
 import { responsiveArrayReversed } from '../../_util/responsiveObserver';
@@ -2048,6 +2048,7 @@ describe('Form', () => {
     it.each([
       ['error', 'error', {}],
       ['error with feedback', 'error', { hasFeedback: true }],
+      ['warning', 'warning', {}],
       ['validating', 'validating', {}],
     ] as const)(
       'noStyle should keep the parent %s status after being touched',
@@ -2086,6 +2087,32 @@ describe('Form', () => {
 
       expect(container.querySelector('.ant-form-item-feedback-icon-success')).toBeTruthy();
     });
+
+    // https://github.com/ant-design/ant-design/issues/59706
+    it.each<[string, FormItemProps['validateStatus'], FormItemProps['rules'], string]>([
+      ['error', 'warning', [{ required: true }], ''],
+      ['warning', 'error', [{ len: 3, warningOnly: true }], 'Nanjing'],
+      ['validating', 'error', [{ validator: () => new Promise<void>(() => {}) }], 'Nanjing'],
+    ])(
+      'noStyle should keep its own %s status over the parent %s status',
+      async (status, parentStatus, rules, value) => {
+        const { container } = render(
+          <Form>
+            <Form.Item validateStatus={parentStatus}>
+              <Form.Item name="phone" noStyle rules={rules}>
+                <Input />
+              </Form.Item>
+            </Form.Item>
+          </Form>,
+        );
+
+        await changeValue(0, 'Shanghai');
+        await changeValue(0, value);
+
+        expect(container.querySelector(`.ant-input-status-${status}`)).toBeTruthy();
+        expect(container.querySelector(`.ant-input-status-${parentStatus}`)).toBeFalsy();
+      },
+    );
   });
 
   it('should not affect Popup children style', () => {
