@@ -299,30 +299,41 @@ describe('Typography copy', () => {
       expect(wrapper.querySelectorAll('.anticon-loading')[0]).toBeFalsy();
     });
 
-    it('should allow retrying a failed copy without reporting success', async () => {
-      jest.mocked(copyObj.default).mockResolvedValueOnce(false).mockResolvedValueOnce(true);
-      const onCopy = jest.fn();
-      const { container } = render(
-        <Base component="p" copyable={{ onCopy }}>
-          Text to copy
-        </Base>,
-      );
-      const copyButton = container.querySelector('.ant-typography-copy')!;
+    it.each([false, true])(
+      'should allow retrying a failed copy after previous success: %s',
+      async (previousSuccess) => {
+        const onCopy = jest.fn();
+        const { container } = render(
+          <Base component="p" copyable={{ onCopy }}>
+            Text to copy
+          </Base>,
+        );
+        const copyButton = container.querySelector('.ant-typography-copy')!;
 
-      fireEvent.click(copyButton);
-      await waitFor(() => {
+        if (previousSuccess) {
+          fireEvent.click(copyButton);
+          await waitFor(() => {
+            expect(onCopy).toHaveBeenCalledTimes(1);
+          });
+          onCopy.mockClear();
+        }
+
+        jest.mocked(copyObj.default).mockResolvedValueOnce(false).mockResolvedValueOnce(true);
+        fireEvent.click(copyButton);
+        await waitFor(() => {
+          expect(container.querySelector('.anticon-copy')).not.toBeNull();
+        });
         expect(container.querySelector('.anticon-loading')).toBeNull();
-      });
-      expect(container.querySelector('.anticon-copy')).not.toBeNull();
-      expect(container.querySelector('.anticon-check')).toBeNull();
-      expect(onCopy).not.toHaveBeenCalled();
+        expect(container.querySelector('.anticon-check')).toBeNull();
+        expect(onCopy).not.toHaveBeenCalled();
 
-      fireEvent.click(copyButton);
-      await waitFor(() => {
-        expect(onCopy).toHaveBeenCalledTimes(1);
-      });
-      expect(container.querySelector('.anticon-check')).not.toBeNull();
-    });
+        fireEvent.click(copyButton);
+        await waitFor(() => {
+          expect(onCopy).toHaveBeenCalledTimes(1);
+        });
+        expect(container.querySelector('.anticon-check')).not.toBeNull();
+      },
+    );
 
     it('useCopyClick error', async () => {
       const { result } = renderHook(() =>
