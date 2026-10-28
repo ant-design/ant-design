@@ -54,6 +54,17 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     onClick?.(e, { title, href });
+
+    if (
+      (target && target.toLowerCase() !== '_self') ||
+      e.ctrlKey ||
+      e.metaKey ||
+      e.shiftKey ||
+      e.altKey
+    ) {
+      return;
+    }
+
     scrollTo?.(href, targetOffset);
 
     // Support clicking on an anchor does not record history.
