@@ -45,6 +45,34 @@ describe('Table.sorter', () => {
     return namesList;
   }
 
+  // Mock `matchMedia` with a screen width that can change after render
+  function mockScreenWidth(initialWidth: number) {
+    let width = initialWidth;
+    const listeners = new Map<string, (e: { matches: boolean }) => void>();
+    const matches = (query: string) => {
+      const [, type, size] = /\((min|max)-width: (\d+)px\)/.exec(query)!;
+      return type === 'min' ? width >= Number(size) : width <= Number(size);
+    };
+    jest.spyOn(window, 'matchMedia').mockImplementation(
+      (query) =>
+        ({
+          matches: matches(query),
+          addEventListener: (_: string, listener: (e: { matches: boolean }) => void) => {
+            listeners.set(query, listener);
+          },
+          removeEventListener: jest.fn(),
+        }) as any,
+    );
+    return (newWidth: number) => {
+      width = newWidth;
+      act(() => {
+        listeners.forEach((listener, query) => {
+          listener({ matches: matches(query) });
+        });
+      });
+    };
+  }
+
   it('renders sorter icon correctly', () => {
     const { container } = render(createTable());
     expect(container.querySelector('thead')).toMatchSnapshot();
@@ -111,6 +139,16 @@ describe('Table.sorter', () => {
       ],
       {},
     ],
+    [
+      'after a column group',
+      (col) => [{ title: 'Group', children: [{ title: 'Age', dataIndex: 'age' }] }, col],
+      {},
+    ],
+    [
+      'inside a column group',
+      (col) => [{ title: 'Group', children: [{ title: 'Age', dataIndex: 'age' }, col] }],
+      {},
+    ],
     ['in an expandable table', (col) => [col], { expandable: { expandedRowRender: () => null } }],
   ])('sorts a column without key or dataIndex %s', (_, getColumns, tableProps) => {
     const onChange = jest.fn();
@@ -137,6 +175,46 @@ describe('Table.sorter', () => {
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(getNames()).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
     expect(onChange.mock.calls.map(([, , sorter]) => sorter.order)).toEqual(['ascend', 'descend']);
+  });
+
+  it('keeps the sort state of a column without key or dataIndex across responsive changes', () => {
+    const resizeScreen = mockScreenWidth(375);
+    const { container } = render(
+      <Table
+        columns={[
+          { title: 'Hidden', dataIndex: 'name', responsive: ['md'] },
+          {
+            title: 'Name',
+            className: 'keyless-name',
+            sorter: sorterFn,
+            render: (_, record) => record.name,
+          },
+        ]}
+        dataSource={data}
+        pagination={false}
+      />,
+    );
+    const getNames = () =>
+      Array.from(container.querySelectorAll('tbody td.keyless-name')).map((td) => td.textContent);
+    const getHeader = () => container.querySelector('thead th.keyless-name')!;
+
+    fireEvent.click(getHeader().querySelector('.ant-table-column-sorters')!);
+    expect(getNames()).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+
+    resizeScreen(1024);
+    expect(container.querySelectorAll('thead th')).toHaveLength(2);
+    expect(getNames()).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+    expect(getHeader().getAttribute('aria-sort')).toBe('ascending');
+
+    fireEvent.click(getHeader().querySelector('.ant-table-column-sorters')!);
+    expect(getNames()).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+
+    resizeScreen(375);
+    expect(container.querySelectorAll('thead th')).toHaveLength(1);
+    expect(getNames()).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+    expect(getHeader().getAttribute('aria-sort')).toBe('descending');
+
+    jest.restoreAllMocks();
   });
 
   it('keeps separate sort states for a column object used twice', () => {

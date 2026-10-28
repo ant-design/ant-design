@@ -82,6 +82,34 @@ describe('Table.filter', () => {
     }
   }
 
+  // Mock `matchMedia` with a screen width that can change after render
+  function mockScreenWidth(initialWidth: number) {
+    let width = initialWidth;
+    const listeners = new Map<string, (e: { matches: boolean }) => void>();
+    const matches = (query: string) => {
+      const [, type, size] = /\((min|max)-width: (\d+)px\)/.exec(query)!;
+      return type === 'min' ? width >= Number(size) : width <= Number(size);
+    };
+    jest.spyOn(window, 'matchMedia').mockImplementation(
+      (query) =>
+        ({
+          matches: matches(query),
+          addEventListener: (_: string, listener: (e: { matches: boolean }) => void) => {
+            listeners.set(query, listener);
+          },
+          removeEventListener: jest.fn(),
+        }) as any,
+    );
+    return (newWidth: number) => {
+      width = newWidth;
+      act(() => {
+        listeners.forEach((listener, query) => {
+          listener({ matches: matches(query) });
+        });
+      });
+    };
+  }
+
   beforeEach(() => {
     jest.useFakeTimers();
   });
@@ -557,6 +585,61 @@ describe('Table.filter', () => {
     );
     expect(names).toEqual(['Jack']);
     expect(onChange.mock.calls[0][1]).toEqual({ [columnKey]: ['Jack'] });
+  });
+
+  it('keeps the filter state of a column without key or dataIndex across responsive changes', () => {
+    const resizeScreen = mockScreenWidth(375);
+    const { container } = render(
+      <Table
+        columns={[
+          { title: 'Hidden', dataIndex: 'name', responsive: ['md'] },
+          {
+            title: 'Name',
+            className: 'keyless-name',
+            filters: [
+              { text: 'Jack', value: 'Jack' },
+              { text: 'Lucy', value: 'Lucy' },
+            ],
+            onFilter: filterFn,
+            render: (_, record) => record.name,
+          },
+        ]}
+        dataSource={data}
+        pagination={false}
+      />,
+    );
+    const getNames = () =>
+      Array.from(container.querySelectorAll('tbody td.keyless-name')).map((td) => td.textContent);
+    const filter = (...indexes: number[]) => {
+      fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+      indexes.forEach((index) => {
+        fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[index]);
+      });
+      fireEvent.click(
+        container.querySelector(
+          '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
+        )!,
+      );
+    };
+
+    filter(0);
+    expect(getNames()).toEqual(['Jack']);
+
+    resizeScreen(1024);
+    expect(container.querySelectorAll('thead th')).toHaveLength(2);
+    expect(getNames()).toEqual(['Jack']);
+    expect(container.querySelector('.ant-table-filter-trigger')).toHaveClass('active');
+
+    // Unselect Jack and select Lucy
+    filter(0, 1);
+    expect(getNames()).toEqual(['Lucy']);
+
+    resizeScreen(375);
+    expect(container.querySelectorAll('thead th')).toHaveLength(1);
+    expect(getNames()).toEqual(['Lucy']);
+    expect(container.querySelector('.ant-table-filter-trigger')).toHaveClass('active');
+
+    jest.restoreAllMocks();
   });
 
   it('should handle filteredValue and non-array filterValue as expected', () => {
