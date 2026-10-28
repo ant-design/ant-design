@@ -91,6 +91,15 @@ export function autoPtgSizes(
     return ptgSizes.map((size) => (size === undefined ? avg : size));
   }
 
+  // Not enough space left for every minimum, shrink the minimums proportionally
+  // instead of letting a panel end up with a negative size
+  if (sumMin > restPtg) {
+    const scale = restPtg / sumMin;
+    return ptgSizes.map((size, index) =>
+      size === undefined ? (minPtgSizes[index] || 0) * scale : size,
+    );
+  }
+
   // Quickly fill if can
   const restAvg = restPtg / undefinedCount;
   if (limitMin <= restAvg && restAvg <= limitMax) {

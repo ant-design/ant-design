@@ -213,4 +213,17 @@ describe('useSizes', () => {
     // Check if the `size` of the first panel gets priority.
     expect(postPxSizes).toEqual([600, 400]);
   });
+
+  it('should not produce negative sizes when minimums exceed the remaining space', () => {
+    // `size` leaves 10% for the other panels while their minimums add up to 70%
+    const items = [{ size: '90%' }, { min: '20%' }, { min: '50%' }];
+
+    const { result } = renderHook(() => useSizes(items, containerSize));
+    const [, postPxSizes] = result.current;
+
+    postPxSizes.forEach((size) => {
+      expect(size).toBeGreaterThanOrEqual(0);
+    });
+    expect(postPxSizes.reduce((sum, size) => sum + size, 0)).toBeCloseTo(containerSize);
+  });
 });
