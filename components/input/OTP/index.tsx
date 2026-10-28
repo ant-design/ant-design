@@ -169,7 +169,8 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   });
 
   // `aria-invalid` is not supported on `role="group"`, so it is set on each cell instead
-  const { 'aria-invalid': ariaInvalid, ...domAttrs } = pickAttrs(restProps, {
+  const { 'aria-invalid': ariaInvalid, ...restDomProps } = restProps;
+  const domAttrs = pickAttrs(restDomProps, {
     aria: true,
     data: true,
     attr: true,
