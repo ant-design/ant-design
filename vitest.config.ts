@@ -1,7 +1,7 @@
 import { resolve } from 'node:path';
 import { defineConfig } from 'vitest/config';
 
-// POC: 对标 .jest.js 的 moduleNameMapper / LIB_DIR 机制。
+// POC: 对标 .jest.ts 的 moduleNameMapper / LIB_DIR 机制。
 // LIB_DIR=es|lib 时让 antd 指向对应产物目录，否则指向源码 components。
 // 注：dist/dist-min（UMD 产物 dist/antd.js、dist/antd.min.js）的映射与源码不同，
 // 本 POC 未验证，故不纳入；仅支持 es/lib 与默认 components。

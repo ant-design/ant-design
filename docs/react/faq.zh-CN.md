@@ -96,7 +96,7 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 ## 多个组件放一排时没有垂直对齐怎么办？ {#not-vertically-aligned}
 
-尝试使用 [Space](/components/space) 组件来使他们对齐。
+尝试使用 [Space](/components/space) 组件来使它们对齐。
 
 ## 为什么第三方 SVG 图标设置了 margin-block-end？ {#faq-icon-margin-block-end}
 
@@ -155,7 +155,7 @@ Breadcrumb、Collapse、Segmented、Tabs、Tag 等组件会对相应图标位置
 
 如果你需要一些 antd 没有包含的功能，你可以尝试通过 [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775) 拓展 antd 的组件。 [更多](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
 
-antd 对新增组件需求会进行严格的讨论，以防止 API 腐败而变为[历史债务](/docs/blog/historical-debt)。antd 侧对于 API 也更倾向于提供原子化的能力使开发者可以更灵活的定制自己所需要的功能。
+antd 对新增组件需求会进行严格的讨论，以防止 API 腐败而变为[历史债务](/docs/blog/historical-debt)。antd 侧对于 API 也更倾向于提供原子化的能力使开发者可以更灵活地定制自己所需要的功能。
 
 ## 如何获取未导出的属性定义？ {#get-unexported-definition}
 
@@ -174,7 +174,7 @@ type CheckboxValue = GetProp<CheckboxProps, 'value'>;
 type InputRef = GetRef<typeof Input>;
 ```
 
-## 我的组件默认语言是英文的？如何切回中文的。 {#switch-default-locale-to-chinese}
+## 我的组件默认语言是英文的？如何切回中文？ {#switch-default-locale-to-chinese}
 
 请尝试使用 [ConfigProvider](/components/config-provider#config-provider-demo-locale) 组件来包裹你的应用。
 
@@ -229,13 +229,13 @@ message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲�
 
 ## 为什么我不应该通过 ref 访问组件内部的 props 和 state？ {#avoid-internal-props-with-ref}
 
-你通过 ref 获得引用时只应该使用文档提供的方法。直接读取组件内部的 `props` 和 `state` 不是一个好的设计，这会使你的代码与组件版本强耦合。任何重构都可能会使你的代码无法工作，其中重构包括且不仅限于改造成 [Hooks](https://zh-hans.react.dev/reference/react/hooks) 版本、移除 / 更名内部 `props` 与 `state`、调整内部 React 节点结构等等。
+你通过 ref 获得引用时只应该使用文档提供的方法。直接读取组件内部的 `props` 和 `state` 不是一个好的设计，这会使你的代码与组件版本强耦合。任何重构都可能会使你的代码无法工作，其中重构包括但不限于改造成 [Hooks](https://zh-hans.react.dev/reference/react/hooks) 版本、移除 / 更名内部 `props` 与 `state`、调整内部 React 节点结构等等。
 
 <div id="why-open"></div>
 
 ## 弹层类组件为什么要统一至 `open` 属性？ {#align-pop-component-with-open}
 
-因为历史原因，弹层类组件展示命名并不统一，出现了 `open` 与 `visible` 都在使用的情况。这使得非 tsx 用户在开发时遭遇的记忆成本。同样导致新增 feature 时选择何种命名的模棱两可。因而我们希望统一该属性命名，你仍然可以使用原本的 `visible` 它仍然会向下兼容，但是从 v5 起我们将从文档中移除该属性。
+因为历史原因，弹层类组件展示命名并不统一，出现了 `open` 与 `visible` 都在使用的情况。这增加了非 tsx 用户在开发时的记忆成本。同样导致新增 feature 时选择何种命名的模棱两可。因而我们希望统一该属性命名，你仍然可以使用原本的 `visible`，它仍然会向下兼容，但是从 v5 起我们将从文档中移除该属性。
 
 ## 动态样式有 `:where` 导致旧版浏览器不支持怎么办？ {#where-selector-old-browser}
 
@@ -267,9 +267,9 @@ import { ConfigProvider } from 'antd';
 
 ## V5 中 colorPrimary 和 colorInfo 及 colorLink 之间是什么关系？ {#colorprimary-colorlink-relation}
 
-在 Ant Design Token 系统中 `colorPrimary` 和 `colorInfo` 同属于 [基础变量（Seed Token）](../react/customize-theme.zh-CN.md#seed-token)，所以两者是互相独立的。`colorLink` 则属于 [别名变量（Alias Token）](../react/customize-theme.zh-CN.md#alias-token), 默认继承 `colorInfo` 且和 `colorPrimary` 无关。
+在 Ant Design Token 系统中 `colorPrimary` 和 `colorInfo` 同属于 [基础变量（Seed Token）](../react/customize-theme.zh-CN.md#seed-token)，所以两者是互相独立的。`colorLink` 则属于 [别名变量（Alias Token）](../react/customize-theme.zh-CN.md#alias-token)，默认继承 `colorInfo` 且和 `colorPrimary` 无关。
 
-## 如何正确的拼写 Ant Design？ {#spell-ant-design-correctly}
+## 如何正确地拼写 Ant Design？ {#spell-ant-design-correctly}
 
 | 拼写 | 用法 | 发音 |
 | --- | --- | --- |
@@ -297,7 +297,7 @@ import { ConfigProvider } from 'antd';
 当我们尝试使用表单组件的表单实例当中的 `setFieldsValue` 方法设置表单值时，如果在传入的对象中包含有 `null` 类型，如：
 
 ```tsx
-// This is not real world code, just for explain
+// This is not real world code, just to explain
 import { Form } from 'antd';
 
 type Test = {
@@ -321,7 +321,7 @@ export default () => {
 }
 ```
 
-如果 `strictNullChecks` 的值被设置为 `true` 就会出现上述问题，如果你确定项目中可以不需要这个检测配置（查看[strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks)判断是否需要该配置），可以尝试改为 `false` 关闭控制严格检查功能。但如果你确实需要开启这个功能，那么，你可以在设计类型时，使用其他类型替代 `null` 以避免出现这种情况。
+如果 `strictNullChecks` 的值被设置为 `true` 就会出现上述问题，如果你确定项目中可以不需要这个检测配置（查看[strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks)判断是否需要该配置），可以尝试改为 `false` 关闭严格空值检查功能。但如果你确实需要开启这个功能，那么，你可以在设计类型时，使用其他类型替代 `null` 以避免出现这种情况。
 
 ## 为什么 antd 不处理浏览器缩放遇到的精度问题？ {#browser-zoom-precision-issue}
 
@@ -335,7 +335,7 @@ export default () => {
 Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
 ```
 
-目前这个问题需要[等待 Next.js 官方给出解决方案](https://github.com/vercel/next.js/issues/51593)，在此之前，如果你需要在使用 App router 的页面中使用子组件，目前有两种变通方法：
+目前这个问题需要[等待 Next.js 官方给出解决方案](https://github.com/vercel/next.js/issues/51593)，在此之前，如果你需要在使用 App Router 的页面中使用子组件，目前有两种变通方法：
 
 - 创建一个包裹组件，提取所需的子组件并重新导出。以 `Typography` 组件为例，代码大概像这样：
 
