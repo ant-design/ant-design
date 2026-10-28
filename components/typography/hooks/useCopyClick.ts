@@ -29,8 +29,15 @@ const useCopyClick = ({
     setCopyLoading(true);
     try {
       const text = isFunction(copyConfig.text) ? await copyConfig.text() : copyConfig.text;
-      await copy(text || toList(children, { skipEmpty: true }).join('') || '', copyOptions);
+      const success = await copy(
+        text || toList(children, { skipEmpty: true }).join('') || '',
+        copyOptions,
+      );
       setCopyLoading(false);
+
+      if (!success) {
+        return;
+      }
 
       setCopied(true, true);
 
