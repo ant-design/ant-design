@@ -34553,7 +34553,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 1"
+                  aria-label="Character 1 of 6"
                   class="ant-input ant-input-outlined ant-input-status-success ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34565,7 +34565,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 2"
+                  aria-label="Character 2 of 6"
                   class="ant-input ant-input-outlined ant-input-status-success ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34577,7 +34577,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 3"
+                  aria-label="Character 3 of 6"
                   class="ant-input ant-input-outlined ant-input-status-success ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34589,7 +34589,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 4"
+                  aria-label="Character 4 of 6"
                   class="ant-input ant-input-outlined ant-input-status-success ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34601,7 +34601,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 5"
+                  aria-label="Character 5 of 6"
                   class="ant-input ant-input-outlined ant-input-status-success ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34613,7 +34613,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 6"
+                  aria-label="Character 6 of 6"
                   class="ant-input ant-input-outlined ant-input-status-success ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34660,7 +34660,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 1"
+                  aria-label="Character 1 of 6"
                   class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34672,7 +34672,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 2"
+                  aria-label="Character 2 of 6"
                   class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34684,7 +34684,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 3"
+                  aria-label="Character 3 of 6"
                   class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34696,7 +34696,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 4"
+                  aria-label="Character 4 of 6"
                   class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34708,7 +34708,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 5"
+                  aria-label="Character 5 of 6"
                   class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34720,7 +34720,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 6"
+                  aria-label="Character 6 of 6"
                   class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34767,7 +34767,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 1"
+                  aria-invalid="true"
+                  aria-label="Character 1 of 6"
                   class="ant-input ant-input-outlined ant-input-status-error ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34779,7 +34780,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 2"
+                  aria-invalid="true"
+                  aria-label="Character 2 of 6"
                   class="ant-input ant-input-outlined ant-input-status-error ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34791,7 +34793,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 3"
+                  aria-invalid="true"
+                  aria-label="Character 3 of 6"
                   class="ant-input ant-input-outlined ant-input-status-error ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34803,7 +34806,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 4"
+                  aria-invalid="true"
+                  aria-label="Character 4 of 6"
                   class="ant-input ant-input-outlined ant-input-status-error ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34815,7 +34819,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 5"
+                  aria-invalid="true"
+                  aria-label="Character 5 of 6"
                   class="ant-input ant-input-outlined ant-input-status-error ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -34827,7 +34832,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 6"
+                  aria-invalid="true"
+                  aria-label="Character 6 of 6"
                   class="ant-input ant-input-outlined ant-input-status-error ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"

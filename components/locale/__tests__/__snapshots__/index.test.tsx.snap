@@ -26749,7 +26749,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                 >
                   <li
                     aria-disabled="false"
-                    aria-label="0 hours"
+                    aria-label="0 heure"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="0"
@@ -26764,7 +26764,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="1 hour"
+                    aria-label="1 heure"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="1"
@@ -26779,7 +26779,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="2 hours"
+                    aria-label="2 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="2"
@@ -26794,7 +26794,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="3 hours"
+                    aria-label="3 heures"
                     aria-selected="true"
                     class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                     data-value="3"
@@ -26809,7 +26809,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="4 hours"
+                    aria-label="4 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="4"
@@ -26824,7 +26824,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="5 hours"
+                    aria-label="5 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="5"
@@ -26839,7 +26839,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="6 hours"
+                    aria-label="6 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="6"
@@ -26854,7 +26854,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="7 hours"
+                    aria-label="7 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="7"
@@ -26869,7 +26869,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="8 hours"
+                    aria-label="8 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="8"
@@ -26884,7 +26884,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="9 hours"
+                    aria-label="9 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="9"
@@ -26899,7 +26899,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="10 hours"
+                    aria-label="10 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="10"
@@ -26914,7 +26914,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="11 hours"
+                    aria-label="11 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="11"
@@ -26929,7 +26929,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="12 hours"
+                    aria-label="12 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="12"
@@ -26944,7 +26944,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="13 hours"
+                    aria-label="13 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="13"
@@ -26959,7 +26959,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="14 hours"
+                    aria-label="14 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="14"
@@ -26974,7 +26974,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="15 hours"
+                    aria-label="15 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="15"
@@ -26989,7 +26989,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="16 hours"
+                    aria-label="16 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="16"
@@ -27004,7 +27004,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="17 hours"
+                    aria-label="17 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="17"
@@ -27019,7 +27019,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="18 hours"
+                    aria-label="18 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="18"
@@ -27034,7 +27034,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="19 hours"
+                    aria-label="19 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="19"
@@ -27049,7 +27049,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="20 hours"
+                    aria-label="20 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="20"
@@ -27064,7 +27064,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="21 hours"
+                    aria-label="21 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="21"
@@ -27079,7 +27079,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="22 hours"
+                    aria-label="22 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="22"
@@ -27094,7 +27094,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="23 hours"
+                    aria-label="23 heures"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="23"
@@ -27116,7 +27116,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                 >
                   <li
                     aria-disabled="false"
-                    aria-label="0 minutes"
+                    aria-label="0 minute"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="0"
@@ -28023,7 +28023,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                 >
                   <li
                     aria-disabled="false"
-                    aria-label="0 seconds"
+                    aria-label="0 seconde"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="0"
@@ -28038,7 +28038,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="1 second"
+                    aria-label="1 seconde"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="1"
@@ -28053,7 +28053,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="2 seconds"
+                    aria-label="2 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="2"
@@ -28068,7 +28068,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="3 seconds"
+                    aria-label="3 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="3"
@@ -28083,7 +28083,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="4 seconds"
+                    aria-label="4 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="4"
@@ -28098,7 +28098,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="5 seconds"
+                    aria-label="5 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="5"
@@ -28113,7 +28113,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="6 seconds"
+                    aria-label="6 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="6"
@@ -28128,7 +28128,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="7 seconds"
+                    aria-label="7 secondes"
                     aria-selected="true"
                     class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                     data-value="7"
@@ -28143,7 +28143,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="8 seconds"
+                    aria-label="8 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="8"
@@ -28158,7 +28158,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="9 seconds"
+                    aria-label="9 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="9"
@@ -28173,7 +28173,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="10 seconds"
+                    aria-label="10 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="10"
@@ -28188,7 +28188,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="11 seconds"
+                    aria-label="11 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="11"
@@ -28203,7 +28203,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="12 seconds"
+                    aria-label="12 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="12"
@@ -28218,7 +28218,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="13 seconds"
+                    aria-label="13 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="13"
@@ -28233,7 +28233,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="14 seconds"
+                    aria-label="14 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="14"
@@ -28248,7 +28248,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="15 seconds"
+                    aria-label="15 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="15"
@@ -28263,7 +28263,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="16 seconds"
+                    aria-label="16 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="16"
@@ -28278,7 +28278,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="17 seconds"
+                    aria-label="17 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="17"
@@ -28293,7 +28293,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="18 seconds"
+                    aria-label="18 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="18"
@@ -28308,7 +28308,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="19 seconds"
+                    aria-label="19 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="19"
@@ -28323,7 +28323,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="20 seconds"
+                    aria-label="20 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="20"
@@ -28338,7 +28338,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="21 seconds"
+                    aria-label="21 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="21"
@@ -28353,7 +28353,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="22 seconds"
+                    aria-label="22 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="22"
@@ -28368,7 +28368,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="23 seconds"
+                    aria-label="23 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="23"
@@ -28383,7 +28383,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="24 seconds"
+                    aria-label="24 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="24"
@@ -28398,7 +28398,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="25 seconds"
+                    aria-label="25 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="25"
@@ -28413,7 +28413,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="26 seconds"
+                    aria-label="26 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="26"
@@ -28428,7 +28428,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="27 seconds"
+                    aria-label="27 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="27"
@@ -28443,7 +28443,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="28 seconds"
+                    aria-label="28 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="28"
@@ -28458,7 +28458,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="29 seconds"
+                    aria-label="29 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="29"
@@ -28473,7 +28473,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="30 seconds"
+                    aria-label="30 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="30"
@@ -28488,7 +28488,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="31 seconds"
+                    aria-label="31 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="31"
@@ -28503,7 +28503,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="32 seconds"
+                    aria-label="32 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="32"
@@ -28518,7 +28518,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="33 seconds"
+                    aria-label="33 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="33"
@@ -28533,7 +28533,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="34 seconds"
+                    aria-label="34 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="34"
@@ -28548,7 +28548,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="35 seconds"
+                    aria-label="35 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="35"
@@ -28563,7 +28563,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="36 seconds"
+                    aria-label="36 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="36"
@@ -28578,7 +28578,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="37 seconds"
+                    aria-label="37 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="37"
@@ -28593,7 +28593,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="38 seconds"
+                    aria-label="38 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="38"
@@ -28608,7 +28608,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="39 seconds"
+                    aria-label="39 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="39"
@@ -28623,7 +28623,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="40 seconds"
+                    aria-label="40 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="40"
@@ -28638,7 +28638,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="41 seconds"
+                    aria-label="41 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="41"
@@ -28653,7 +28653,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="42 seconds"
+                    aria-label="42 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="42"
@@ -28668,7 +28668,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="43 seconds"
+                    aria-label="43 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="43"
@@ -28683,7 +28683,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="44 seconds"
+                    aria-label="44 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="44"
@@ -28698,7 +28698,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="45 seconds"
+                    aria-label="45 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="45"
@@ -28713,7 +28713,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="46 seconds"
+                    aria-label="46 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="46"
@@ -28728,7 +28728,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="47 seconds"
+                    aria-label="47 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="47"
@@ -28743,7 +28743,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="48 seconds"
+                    aria-label="48 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="48"
@@ -28758,7 +28758,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="49 seconds"
+                    aria-label="49 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="49"
@@ -28773,7 +28773,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="50 seconds"
+                    aria-label="50 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="50"
@@ -28788,7 +28788,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="51 seconds"
+                    aria-label="51 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="51"
@@ -28803,7 +28803,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="52 seconds"
+                    aria-label="52 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="52"
@@ -28818,7 +28818,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="53 seconds"
+                    aria-label="53 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="53"
@@ -28833,7 +28833,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="54 seconds"
+                    aria-label="54 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="54"
@@ -28848,7 +28848,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="55 seconds"
+                    aria-label="55 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="55"
@@ -28863,7 +28863,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="56 seconds"
+                    aria-label="56 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="56"
@@ -28878,7 +28878,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="57 seconds"
+                    aria-label="57 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="57"
@@ -28893,7 +28893,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="58 seconds"
+                    aria-label="58 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="58"
@@ -28908,7 +28908,7 @@ exports[`Locale Provider should display the text as by 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="59 seconds"
+                    aria-label="59 secondes"
                     aria-selected="false"
                     class="ant-picker-time-panel-cell"
                     data-value="59"
