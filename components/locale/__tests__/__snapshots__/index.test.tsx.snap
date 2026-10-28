@@ -54235,7 +54235,7 @@ exports[`Locale Provider should display the text as de 1`] = `
               class="ant-input-suffix"
             >
               <button
-                aria-label="Clear"
+                aria-label="Löschen"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -54469,7 +54469,7 @@ exports[`Locale Provider should display the text as de 1`] = `
               class="ant-input-suffix"
             >
               <button
-                aria-label="Clear"
+                aria-label="Löschen"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -125923,7 +125923,7 @@ exports[`Locale Provider should display the text as fr 3`] = `
               class="ant-input-suffix"
             >
               <button
-                aria-label="Clear"
+                aria-label="Effacer"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -126157,7 +126157,7 @@ exports[`Locale Provider should display the text as fr 3`] = `
               class="ant-input-suffix"
             >
               <button
-                aria-label="Clear"
+                aria-label="Effacer"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -185660,7 +185660,7 @@ exports[`Locale Provider should display the text as it 1`] = `
               class="ant-input-suffix"
             >
               <button
-                aria-label="Clear"
+                aria-label="Cancella"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -185894,7 +185894,7 @@ exports[`Locale Provider should display the text as it 1`] = `
               class="ant-input-suffix"
             >
               <button
-                aria-label="Clear"
+                aria-label="Cancella"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
