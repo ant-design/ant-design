@@ -11,7 +11,7 @@ import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import Input from '../../input';
-import deDE from '../../locale/de_DE';
+import jaJP from '../../locale/ja_JP';
 import zhCN from '../../locale/zh_CN';
 import Space from '../../space';
 import type { AntTreeNodeProps } from '../../tree';
@@ -479,10 +479,10 @@ describe('TreeSelect', () => {
     });
 
     it('should fall back to English for locales that do not translate `clear`', () => {
-      expect(deDE.global).not.toHaveProperty('clear');
+      expect(jaJP.global).not.toHaveProperty('clear');
 
       const { container } = render(
-        <ConfigProvider locale={deDE}>
+        <ConfigProvider locale={jaJP}>
           <TreeSelect {...props} allowClear />
         </ConfigProvider>,
       );

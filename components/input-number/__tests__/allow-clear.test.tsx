@@ -162,7 +162,7 @@ describe('InputNumber allowClear', () => {
 
   it.each([
     { locale: zhCN, label: zhCN.global!.clear! },
-    { locale: deDE, label: 'Clear' },
+    { locale: deDE, label: 'Löschen' },
   ])('uses the global clear label with locale $locale.locale', ({ locale, label }) => {
     const { getByRole } = render(
       <ConfigProvider locale={locale}>
