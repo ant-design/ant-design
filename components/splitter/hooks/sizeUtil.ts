@@ -86,18 +86,9 @@ export function autoPtgSizes(
   }
 
   // Impossible case, just average fill
-  if (sumMin > 1 && sumMax < 1) {
-    const avg = 1 / undefinedCount;
+  if (sumMin > restPtg || sumMax < restPtg) {
+    const avg = restPtg / undefinedCount;
     return ptgSizes.map((size) => (size === undefined ? avg : size));
-  }
-
-  // Not enough space left for every minimum, shrink the minimums proportionally
-  // instead of letting a panel end up with a negative size
-  if (sumMin > restPtg) {
-    const scale = restPtg / sumMin;
-    return ptgSizes.map((size, index) =>
-      size === undefined ? (minPtgSizes[index] || 0) * scale : size,
-    );
   }
 
   // Quickly fill if can

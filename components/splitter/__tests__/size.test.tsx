@@ -221,9 +221,22 @@ describe('useSizes', () => {
     const { result } = renderHook(() => useSizes(items, containerSize));
     const [, postPxSizes] = result.current;
 
-    postPxSizes.forEach((size) => {
-      expect(size).toBeGreaterThanOrEqual(0);
-    });
+    // The constraints cannot be satisfied, so the remaining 100px is shared evenly.
+    expect(postPxSizes[0]).toBeCloseTo(900);
+    expect(postPxSizes[1]).toBeCloseTo(50);
+    expect(postPxSizes[2]).toBeCloseTo(50);
     expect(postPxSizes.reduce((sum, size) => sum + size, 0)).toBeCloseTo(containerSize);
+  });
+
+  it('should share the remaining space when maximums cannot fill it', () => {
+    // `size` leaves 90% while the other panels accept at most 40% in total
+    const items = [{ size: '10%' }, { max: '20%' }, { max: '20%' }];
+
+    const { result } = renderHook(() => useSizes(items, containerSize));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes[0]).toBeCloseTo(100);
+    expect(postPxSizes[1]).toBeCloseTo(450);
+    expect(postPxSizes[2]).toBeCloseTo(450);
   });
 });
