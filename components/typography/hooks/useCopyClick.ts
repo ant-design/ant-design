@@ -36,6 +36,7 @@ const useCopyClick = ({
       setCopyLoading(false);
 
       if (!success) {
+        setCopied(false, true);
         return;
       }
 
