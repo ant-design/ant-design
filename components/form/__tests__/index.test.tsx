@@ -1,5 +1,6 @@
 import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { AlertFilled } from '@ant-design/icons';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { clsx } from 'clsx';
@@ -508,6 +509,39 @@ describe('Form', () => {
       expect(input.id).toBe('test');
       formInstance.scrollToField('test');
       expect(scrollIntoView).toHaveBeenCalledWith(input, expect.any(Object));
+    });
+
+    // https://github.com/ant-design/ant-design/issues/30048
+    it('should use native scrollIntoView when field is rendered in an iframe', () => {
+      const iframe = document.createElement('iframe');
+      document.body.appendChild(iframe);
+      const iframeDoc = iframe.contentDocument!;
+      const nativeScrollIntoView = jest.fn();
+      (iframe.contentWindow as any).Element.prototype.scrollIntoView = nativeScrollIntoView;
+
+      let formInstance: any;
+      const Demo = () => {
+        const [form] = Form.useForm();
+        formInstance = form;
+        return createPortal(
+          <Form form={form} name="frame">
+            <Form.Item name="test">
+              <Input />
+            </Form.Item>
+          </Form>,
+          iframeDoc.body,
+        );
+      };
+
+      const { unmount } = render(<Demo />);
+      formInstance.scrollToField('test', { block: 'start' });
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      expect(nativeScrollIntoView).toHaveBeenCalledWith({ block: 'start' });
+      expect(nativeScrollIntoView.mock.contexts[0]).toBe(iframeDoc.getElementById('frame_test'));
+
+      unmount();
+      iframe.remove();
     });
   });
 
