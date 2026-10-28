@@ -2364,7 +2364,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 1"
+        aria-label="Character 1 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2376,7 +2376,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 2"
+        aria-label="Character 2 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2388,7 +2388,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 3"
+        aria-label="Character 3 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2400,7 +2400,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 4"
+        aria-label="Character 4 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2412,7 +2412,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 5"
+        aria-label="Character 5 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2424,7 +2424,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 6"
+        aria-label="Character 6 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2446,7 +2446,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 1"
+        aria-label="Character 1 of 6"
         class="ant-input ant-input-disabled ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         disabled=""
         size="1"
@@ -2459,7 +2459,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 2"
+        aria-label="Character 2 of 6"
         class="ant-input ant-input-disabled ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         disabled=""
         size="1"
@@ -2472,7 +2472,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 3"
+        aria-label="Character 3 of 6"
         class="ant-input ant-input-disabled ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         disabled=""
         size="1"
@@ -2485,7 +2485,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 4"
+        aria-label="Character 4 of 6"
         class="ant-input ant-input-disabled ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         disabled=""
         size="1"
@@ -2498,7 +2498,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 5"
+        aria-label="Character 5 of 6"
         class="ant-input ant-input-disabled ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         disabled=""
         size="1"
@@ -2511,7 +2511,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 6"
+        aria-label="Character 6 of 6"
         class="ant-input ant-input-disabled ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         disabled=""
         size="1"
@@ -2534,7 +2534,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 1"
+        aria-label="Character 1 of 8"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2546,7 +2546,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 2"
+        aria-label="Character 2 of 8"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2558,7 +2558,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 3"
+        aria-label="Character 3 of 8"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2570,7 +2570,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 4"
+        aria-label="Character 4 of 8"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2582,7 +2582,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 5"
+        aria-label="Character 5 of 8"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2594,7 +2594,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 6"
+        aria-label="Character 6 of 8"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2606,7 +2606,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 7"
+        aria-label="Character 7 of 8"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2618,7 +2618,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 8"
+        aria-label="Character 8 of 8"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2640,7 +2640,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 1"
+        aria-label="Character 1 of 6"
         class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2652,7 +2652,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 2"
+        aria-label="Character 2 of 6"
         class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2664,7 +2664,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 3"
+        aria-label="Character 3 of 6"
         class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2676,7 +2676,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 4"
+        aria-label="Character 4 of 6"
         class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2688,7 +2688,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 5"
+        aria-label="Character 5 of 6"
         class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2700,7 +2700,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 6"
+        aria-label="Character 6 of 6"
         class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2722,7 +2722,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 1"
+        aria-label="Character 1 of 6"
         class="ant-input ant-input-outlined ant-otp-input ant-otp-mask-input css-var-test-id ant-input-css-var"
         size="1"
         type="password"
@@ -2734,7 +2734,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 2"
+        aria-label="Character 2 of 6"
         class="ant-input ant-input-outlined ant-otp-input ant-otp-mask-input css-var-test-id ant-input-css-var"
         size="1"
         type="password"
@@ -2746,7 +2746,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 3"
+        aria-label="Character 3 of 6"
         class="ant-input ant-input-outlined ant-otp-input ant-otp-mask-input css-var-test-id ant-input-css-var"
         size="1"
         type="password"
@@ -2758,7 +2758,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 4"
+        aria-label="Character 4 of 6"
         class="ant-input ant-input-outlined ant-otp-input ant-otp-mask-input css-var-test-id ant-input-css-var"
         size="1"
         type="password"
@@ -2770,7 +2770,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 5"
+        aria-label="Character 5 of 6"
         class="ant-input ant-input-outlined ant-otp-input ant-otp-mask-input css-var-test-id ant-input-css-var"
         size="1"
         type="password"
@@ -2782,7 +2782,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 6"
+        aria-label="Character 6 of 6"
         class="ant-input ant-input-outlined ant-otp-input ant-otp-mask-input css-var-test-id ant-input-css-var"
         size="1"
         type="password"
@@ -2804,7 +2804,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 1"
+        aria-label="Character 1 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2823,7 +2823,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 2"
+        aria-label="Character 2 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2842,7 +2842,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 3"
+        aria-label="Character 3 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2861,7 +2861,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 4"
+        aria-label="Character 4 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2880,7 +2880,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 5"
+        aria-label="Character 5 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2899,7 +2899,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 6"
+        aria-label="Character 6 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2921,7 +2921,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 1"
+        aria-label="Character 1 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2942,7 +2942,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 2"
+        aria-label="Character 2 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2963,7 +2963,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 3"
+        aria-label="Character 3 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -2984,7 +2984,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 4"
+        aria-label="Character 4 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -3005,7 +3005,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 5"
+        aria-label="Character 5 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -3026,7 +3026,7 @@ exports[`renders components/input/demo/otp.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 6"
+        aria-label="Character 6 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         type="text"
@@ -4266,7 +4266,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 1"
+          aria-label="Character 1 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4278,7 +4278,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 2"
+          aria-label="Character 2 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4290,7 +4290,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 3"
+          aria-label="Character 3 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4302,7 +4302,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 4"
+          aria-label="Character 4 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4314,7 +4314,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 5"
+          aria-label="Character 5 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4326,7 +4326,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 6"
+          aria-label="Character 6 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4350,7 +4350,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 1"
+          aria-label="Character 1 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4362,7 +4362,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 2"
+          aria-label="Character 2 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4374,7 +4374,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 3"
+          aria-label="Character 3 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4386,7 +4386,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 4"
+          aria-label="Character 4 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4398,7 +4398,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 5"
+          aria-label="Character 5 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4410,7 +4410,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 6"
+          aria-label="Character 6 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4434,7 +4434,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 1"
+          aria-label="Character 1 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4446,7 +4446,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 2"
+          aria-label="Character 2 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4458,7 +4458,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 3"
+          aria-label="Character 3 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4470,7 +4470,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 4"
+          aria-label="Character 4 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4482,7 +4482,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 5"
+          aria-label="Character 5 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4494,7 +4494,7 @@ exports[`renders components/input/demo/search-variant-debug.tsx correctly 1`] = 
         role="presentation"
       >
         <input
-          aria-label="OTP Input 6"
+          aria-label="Character 6 of 6"
           class="ant-input ant-input-filled ant-otp-input css-var-test-id ant-input-css-var"
           size="1"
           type="text"
@@ -4885,7 +4885,7 @@ exports[`renders components/input/demo/style-class.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 1"
+        aria-label="Character 1 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         style="border-color:#6E8CFB;width:32px"
@@ -4903,7 +4903,7 @@ exports[`renders components/input/demo/style-class.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 2"
+        aria-label="Character 2 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         style="border-color:#6E8CFB;width:32px"
@@ -4921,7 +4921,7 @@ exports[`renders components/input/demo/style-class.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 3"
+        aria-label="Character 3 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         style="border-color:#6E8CFB;width:32px"
@@ -4939,7 +4939,7 @@ exports[`renders components/input/demo/style-class.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 4"
+        aria-label="Character 4 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         style="border-color:#6E8CFB;width:32px"
@@ -4957,7 +4957,7 @@ exports[`renders components/input/demo/style-class.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 5"
+        aria-label="Character 5 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         style="border-color:#6E8CFB;width:32px"
@@ -4975,7 +4975,7 @@ exports[`renders components/input/demo/style-class.tsx correctly 1`] = `
       role="presentation"
     >
       <input
-        aria-label="OTP Input 6"
+        aria-label="Character 6 of 6"
         class="ant-input ant-input-outlined ant-otp-input css-var-test-id ant-input-css-var"
         size="1"
         style="border-color:#6E8CFB;width:32px"
