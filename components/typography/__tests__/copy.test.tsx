@@ -6,8 +6,14 @@ import { fireEvent, render, renderHook, sleep, waitFakeTimer, waitFor } from '..
 import Base from '../Base';
 import useCopyClick from '../hooks/useCopyClick';
 
+jest.mock('../../_util/copy');
+
 describe('Typography copy', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+  beforeEach(() => {
+    jest.mocked(copyObj.default).mockReset().mockResolvedValue(true);
+  });
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -291,6 +297,31 @@ describe('Typography copy', () => {
       expect(spy.mock.calls[0][0]).toBe('Request text');
       spy.mockReset();
       expect(wrapper.querySelectorAll('.anticon-loading')[0]).toBeFalsy();
+    });
+
+    it('should allow retrying a failed copy without reporting success', async () => {
+      jest.mocked(copyObj.default).mockResolvedValueOnce(false).mockResolvedValueOnce(true);
+      const onCopy = jest.fn();
+      const { container } = render(
+        <Base component="p" copyable={{ onCopy }}>
+          Text to copy
+        </Base>,
+      );
+      const copyButton = container.querySelector('.ant-typography-copy')!;
+
+      fireEvent.click(copyButton);
+      await waitFor(() => {
+        expect(container.querySelector('.anticon-loading')).toBeNull();
+      });
+      expect(container.querySelector('.anticon-copy')).not.toBeNull();
+      expect(container.querySelector('.anticon-check')).toBeNull();
+      expect(onCopy).not.toHaveBeenCalled();
+
+      fireEvent.click(copyButton);
+      await waitFor(() => {
+        expect(onCopy).toHaveBeenCalledTimes(1);
+      });
+      expect(container.querySelector('.anticon-check')).not.toBeNull();
     });
 
     it('useCopyClick error', async () => {
