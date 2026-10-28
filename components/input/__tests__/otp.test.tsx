@@ -5,6 +5,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { OTPProps } from '../OTP';
 
 const { OTP } = Input;
@@ -454,5 +455,47 @@ describe('Input.OTP', () => {
   it('should apply rootClassName to the root element', () => {
     const { container } = render(<OTP rootClassName="bamboo" />);
     expect(container.querySelector('.ant-otp')).toHaveClass('bamboo');
+  });
+});
+
+describe('Input.OTP a11y', () => {
+  it('should name each cell from the locale', () => {
+    const { container, rerender } = render(<Input.OTP length={4} />);
+    const getLabels = () =>
+      Array.from(container.querySelectorAll('input')).map((input) => input.getAttribute('aria-label'));
+    expect(getLabels()).toEqual([
+      'Character 1 of 4',
+      'Character 2 of 4',
+      'Character 3 of 4',
+      'Character 4 of 4',
+    ]);
+
+    rerender(
+      // eslint-disable-next-line no-template-curly-in-string
+      <ConfigProvider locale={{ locale: 'fr', Input: { otpCell: 'Chiffre ${index} sur ${total}' } }}>
+        <Input.OTP length={2} />
+      </ConfigProvider>,
+    );
+    expect(getLabels()).toEqual(['Chiffre 1 sur 2', 'Chiffre 2 sur 2']);
+  });
+
+  it('should set aria-invalid on the cells, not on the group', () => {
+    const { container, rerender } = render(<Input.OTP aria-invalid />);
+    const group = container.querySelector('[role="group"]')!;
+    const inputs = () => Array.from(container.querySelectorAll('input'));
+    expect(group).not.toHaveAttribute('aria-invalid');
+    inputs().forEach((input) => {
+      expect(input).toHaveAttribute('aria-invalid', 'true');
+    });
+
+    rerender(<Input.OTP status="error" />);
+    inputs().forEach((input) => {
+      expect(input).toHaveAttribute('aria-invalid', 'true');
+    });
+
+    rerender(<Input.OTP />);
+    inputs().forEach((input) => {
+      expect(input).not.toHaveAttribute('aria-invalid');
+    });
   });
 });
