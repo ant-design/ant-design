@@ -40,7 +40,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
-| closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | false | 4.4.0 | 5.14.0 |
+| closable | Whether to show the close button. An object can configure the close icon and `aria-*` attributes | boolean \| ({ closeIcon?: ReactNode } & React.AriaAttributes) | false | - | ✔ |
+| closeIcon | Custom close icon, as a shorthand for `closable`. When `closable` is not set, `true` shows the default close button, while `null` or `false` hides it (supported since 5.7.0) | ReactNode | false | 4.4.0 | 5.14.0 |
 | color | Color of the Tag | string | `default` when `variant="solid"` | `solid` default color: 6.4.0 | × |
 | disabled | Whether the tag is disabled | boolean | false | 6.0.0 | × |
 | href | The address to jump when clicking, when this property is specified, the `tag` component will be rendered as an `<a>` tag | string | - | 6.0.0 | × |

@@ -49,7 +49,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
   variant?: 'filled' | 'solid' | 'outlined';
-  /** Advised to use closeIcon instead. */
+  /** Configure the close button and its accessibility attributes. */
   closable?: ClosableType;
   closeIcon?: React.ReactNode;
   onClose?: (e: React.MouseEvent<HTMLElement>) => void;
