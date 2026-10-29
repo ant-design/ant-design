@@ -110,6 +110,10 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         userSelect: 'text',
         filter: dropShadowPopover,
 
+        // Keep the popup in its own compositing layer so text is not re-rasterized
+        // when the zoom motion ends, which shifts glyphs by a pixel
+        willChange: 'transform',
+
         // When use `autoArrow`, origin will follow the arrow position
         [varName('valid-offset-x')]: varRef('arrow-offset-x', 'var(--arrow-x)'),
         transformOrigin: [

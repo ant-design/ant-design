@@ -1612,6 +1612,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -1657,6 +1658,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -2524,6 +2526,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -2858,6 +2861,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -2904,6 +2908,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3774,6 +3779,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -4109,6 +4115,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -4154,6 +4161,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -5021,6 +5029,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -5354,6 +5363,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -5399,6 +5409,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -6266,6 +6277,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -6599,6 +6611,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -6644,6 +6657,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -7511,6 +7525,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -7844,6 +7859,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -7889,6 +7905,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -8756,6 +8773,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -9089,6 +9107,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -9134,6 +9153,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -10001,6 +10021,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -11237,6 +11258,7 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -11286,6 +11308,7 @@ exports[`ConfigProvider components Cascader configProvider componentDisabled 1`]
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -11334,6 +11357,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -11382,6 +11406,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize medium 
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -11430,6 +11455,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize small 1
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -11478,6 +11504,7 @@ exports[`ConfigProvider components Cascader normal 1`] = `
     class="ant-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -11526,6 +11553,7 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
     class="prefix-Cascader-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -18320,6 +18348,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -18453,6 +18482,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -18592,6 +18622,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -18726,6 +18757,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -18864,6 +18896,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -18997,6 +19030,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -19135,6 +19169,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -19268,6 +19303,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -19406,6 +19442,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -19539,6 +19576,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -19677,6 +19715,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -19810,6 +19849,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -19948,6 +19988,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -20081,6 +20122,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -23632,6 +23674,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -23681,6 +23724,7 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -23732,6 +23776,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -23783,6 +23828,7 @@ exports[`ConfigProvider components Select configProvider componentSize medium 1`
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -23834,6 +23880,7 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -23885,6 +23932,7 @@ exports[`ConfigProvider components Select normal 1`] = `
     class="ant-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -23936,6 +23984,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
     class="prefix-Select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -45451,6 +45500,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -45501,6 +45551,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -45552,6 +45603,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -45603,6 +45655,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize mediu
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -45654,6 +45707,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -45705,6 +45759,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
     class="ant-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -45756,6 +45811,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
     class="prefix-TreeSelect-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"

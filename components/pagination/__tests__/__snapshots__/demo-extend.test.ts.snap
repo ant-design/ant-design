@@ -648,6 +648,7 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -1161,6 +1162,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -1531,6 +1533,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -1860,6 +1863,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -2241,6 +2245,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -2986,6 +2991,7 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -3349,6 +3355,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3730,6 +3737,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -4190,6 +4198,7 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -4642,6 +4651,7 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -5093,6 +5103,7 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -5545,6 +5556,7 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -5964,6 +5976,7 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -6597,6 +6610,7 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -6964,6 +6978,7 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -7265,6 +7280,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -7560,6 +7576,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -8897,6 +8914,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -9267,6 +9285,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -9627,6 +9646,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -9997,6 +10017,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"

@@ -87,15 +87,17 @@ export default function useIcons({
           : getSuffixNode(suffix);
     } else if (loading) {
       mergedSuffix = getSuffixNode(
-        fallbackProp(loadingIcon, contextLoadingIcon, <LoadingOutlined spin />),
+        fallbackProp(loadingIcon, contextLoadingIcon, <LoadingOutlined spin aria-hidden="true" />),
       );
     } else {
       mergedSuffix = (props: { open: boolean; showSearch: boolean }) => {
         const { open, showSearch } = props;
         if (open && showSearch) {
-          return getSuffixNode(fallbackProp(searchIcon, contextSearchIcon, <SearchOutlined />));
+          return getSuffixNode(
+            fallbackProp(searchIcon, contextSearchIcon, <SearchOutlined aria-hidden="true" />),
+          );
         }
-        const fallbackSuffix = fallbackProp(contextSuffix, <DownOutlined />);
+        const fallbackSuffix = fallbackProp(contextSuffix, <DownOutlined aria-hidden="true" />);
         return getSuffixNode(
           typeof fallbackSuffix === 'function' ? fallbackSuffix(props) : fallbackSuffix,
         );
