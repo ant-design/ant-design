@@ -42,6 +42,38 @@ describe('Select', () => {
     jest.useRealTimers();
   });
 
+  it.each([undefined, 'multiple', 'tags'] as const)(
+    'should support autoComplete configuration in %s mode',
+    (mode) => {
+      const { getByRole, rerender } = render(<Select mode={mode} />);
+      expect(getByRole('combobox')).toHaveAttribute('autocomplete', 'new-password');
+
+      rerender(
+        <ConfigProvider select={{ autoComplete: 'off' }}>
+          <Select mode={mode} />
+        </ConfigProvider>,
+      );
+      expect(getByRole('combobox')).toHaveAttribute('autocomplete', 'off');
+
+      rerender(
+        <ConfigProvider select={{ autoComplete: 'off' }}>
+          <Select mode={mode} autoComplete="on" />
+        </ConfigProvider>,
+      );
+      expect(getByRole('combobox')).toHaveAttribute('autocomplete', 'on');
+
+      rerender(
+        <ConfigProvider select={{ autoComplete: 'off' }}>
+          <Select mode={mode} autoComplete={undefined} />
+        </ConfigProvider>,
+      );
+      expect(getByRole('combobox')).toHaveAttribute('autocomplete', 'off');
+
+      rerender(<Select mode={mode} />);
+      expect(getByRole('combobox')).toHaveAttribute('autocomplete', 'new-password');
+    },
+  );
+
   it('should have default notFoundContent', () => {
     const { container } = render(<Select mode="multiple" />);
     toggleOpen(container);

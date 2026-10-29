@@ -217,6 +217,7 @@ const InternalSelect = <
     clearIcon,
     showArrow,
     showSearch,
+    autoComplete: customAutoComplete,
     ...rest
   } = props;
 
@@ -234,6 +235,7 @@ const InternalSelect = <
   const [locale] = useLocale('global');
 
   const {
+    autoComplete: contextAutoComplete,
     showSearch: contextShowSearch,
     allowClear: contextAllowClear,
     style: contextStyle,
@@ -470,6 +472,7 @@ const InternalSelect = <
       classNames={mergedClassNames}
       styles={mergedStyles}
       showSearch={mergedShowSearch}
+      autoComplete={customAutoComplete ?? contextAutoComplete}
       {...selectProps}
       style={mergedStyles.root}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
