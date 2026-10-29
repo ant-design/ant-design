@@ -169,54 +169,46 @@ export const getFilterData = <RecordType extends AnyObject = AnyObject>(
   filterStates: FilterState<RecordType>[],
   childrenColumnName: string,
 ) => {
-  const filterDatas = filterStates.reduce<RecordType[]>((currentData, filterState) => {
-    const {
-      column: { onFilter, filters },
-      filteredKeys,
-    } = filterState;
-
-    if (onFilter && filteredKeys && filteredKeys.length) {
-      // Preprocess the keys corresponding to the filter tree,
-      // use Map to improve lookup performance to O(1).
-      const flatKeys = flattenKeys(filters);
-      const keyMap = new Map<string, FilterValue[number]>();
-      flatKeys.forEach((k) => {
-        const strKey = String(k);
-        if (!keyMap.has(strKey)) {
-          keyMap.set(strKey, k);
-        }
-      });
-
-      const realKeys = filteredKeys.map((key) => {
-        const strKey = String(key);
-        return keyMap.get(strKey) ?? key;
-      });
-
-      const internalFilter = (subset: RecordType[]): RecordType[] =>
-        subset.reduce<RecordType[]>((acc, record) => {
-          const clonedRecord = { ...record } as any;
-
-          if (clonedRecord[childrenColumnName]) {
-            clonedRecord[childrenColumnName] = getFilterData(
-              clonedRecord[childrenColumnName],
-              filterStates,
-              childrenColumnName,
-            );
-          }
-
-          if (realKeys.some((realKey) => onFilter(realKey, clonedRecord))) {
-            acc.push(clonedRecord);
-          }
-          return acc;
-        }, []);
-
-      return internalFilter(currentData);
+  const activeFilters = filterStates.flatMap(({ column: { onFilter, filters }, filteredKeys }) => {
+    if (!onFilter || !filteredKeys?.length) {
+      return [];
     }
 
-    return currentData;
-  }, data);
+    const keyMap = new Map<string, FilterValue[number]>();
+    flattenKeys(filters).forEach((key) => {
+      const strKey = String(key);
+      if (!keyMap.has(strKey)) {
+        keyMap.set(strKey, key);
+      }
+    });
 
-  return filterDatas;
+    return [{ onFilter, realKeys: filteredKeys.map((key) => keyMap.get(String(key)) ?? key) }];
+  });
+
+  if (!activeFilters.length) {
+    return data;
+  }
+
+  const filterTree = (records: RecordType[]): RecordType[] =>
+    records.reduce<RecordType[]>((filteredRecords, record) => {
+      const clonedRecord = { ...record };
+      if (clonedRecord[childrenColumnName]) {
+        Object.assign(clonedRecord, {
+          [childrenColumnName]: filterTree(clonedRecord[childrenColumnName]),
+        });
+      }
+
+      if (
+        activeFilters.every(({ onFilter, realKeys }) =>
+          realKeys.some((key) => onFilter(key, clonedRecord)),
+        )
+      ) {
+        filteredRecords.push(clonedRecord);
+      }
+      return filteredRecords;
+    }, []);
+
+  return filterTree(data);
 };
 
 export interface FilterConfig<RecordType = AnyObject> {
