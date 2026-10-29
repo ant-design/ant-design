@@ -82,6 +82,10 @@ describe('ColorPicker.Semantic', () => {
   // https://github.com/ant-design/ant-design/issues/59738
   it.each([
     [
+      'styles object',
+      <ColorPicker key="obj" open styles={{ popupOverlayInner: { width: 480 } }} />,
+    ],
+    [
       'styles function',
       <ColorPicker key="fn" open styles={() => ({ popupOverlayInner: { width: 480 } })} />,
     ],
