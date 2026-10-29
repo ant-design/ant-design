@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 
 import convertToTooltipProps from '../_util/convertToTooltipProps';
 import { useZIndex } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
@@ -13,7 +13,7 @@ import type { BadgeProps } from '../badge';
 import type { ButtonSemanticType } from '../button/Button';
 import Button from '../button/Button';
 import type { ButtonHTMLType } from '../button/buttonHelpers';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Tooltip from '../tooltip';
 import type { TooltipProps } from '../tooltip';
@@ -92,7 +92,14 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     styles,
     ...restProps
   } = props;
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('floatButton');
   const groupContext = React.useContext(GroupContext);
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
@@ -100,8 +107,8 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
   const {
     shape: contextShape,
     individual: contextIndividual,
-    classNames: contextClassNames,
-    styles: contextStyles,
+    classNames: groupClassNames,
+    styles: groupStyles,
   } = groupContext || {};
 
   const mergedShape = contextShape || shape;
@@ -124,9 +131,12 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     [prefixCls],
   );
 
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [floatButtonClassNames, contextClassNames, classNames],
-    [contextStyles, styles],
+    [floatButtonClassNames, contextClassNames, groupClassNames, classNames],
+    [contextStyles, contextStyleRoot, groupStyles, styles, styleRoot],
     {
       props: mergedProps,
     },
@@ -137,9 +147,9 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
 
   // ============================ zIndex ============================
 
-  const [zIndex] = useZIndex('FloatButton', style?.zIndex as number);
+  const [zIndex] = useZIndex('FloatButton', mergedStyles.root?.zIndex as number);
 
-  const mergedStyle: React.CSSProperties = { ...style, zIndex };
+  const mergedStyle: React.CSSProperties = { ...mergedStyles.root, zIndex };
 
   // ============================ Badge =============================
   // 虽然在 ts 中已经 omit 过了，但是为了防止多余的属性被透传进来，这里再 omit 一遍，以防万一
@@ -181,6 +191,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
         cssVarCls,
         rootCls,
         prefixCls,
+        contextClassName,
         className,
         rootClassName,
         `${prefixCls}-${type}`,
