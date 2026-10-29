@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Form from '..';
+import type { FormInstance } from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Input from '../../input';
 import type { FormListOperation } from '../FormList';
@@ -127,6 +128,67 @@ describe('Form.List.NoStyle', () => {
     await waitFakeTimer();
 
     expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(0);
+
+    jest.clearAllTimers();
+    jest.useRealTimers();
+  });
+
+  it('should keep every nested error after reordering lists that share a parent item', async () => {
+    jest.useFakeTimers();
+
+    let itemsOperation: FormListOperation;
+    let formInstance: FormInstance;
+
+    const Demo: React.FC = () => {
+      const [form] = Form.useForm();
+      formInstance = form;
+      return (
+        <Form form={form} initialValues={{ items: [{ list: [{}] }, { list: [{}] }] }}>
+          <Form.Item label="Shared">
+            <Form.List name="items">
+              {(fields, op) => {
+                itemsOperation = op;
+                return fields.map((field) => (
+                  <Form.List key={field.key} name={[field.name, 'list']}>
+                    {(subFields) =>
+                      subFields.map((subField) => (
+                        <Form.Item key={subField.key} noStyle name={[subField.name, 'first']}>
+                          <Input />
+                        </Form.Item>
+                      ))
+                    }
+                  </Form.List>
+                ));
+              }}
+            </Form.List>
+          </Form.Item>
+        </Form>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    const run = async (fn: () => void) => {
+      await act(async () => {
+        fn();
+      });
+      await waitFakeTimer();
+    };
+
+    const setErrors = () =>
+      formInstance.setFields([
+        { name: ['items', 0, 'list', 0, 'first'], errors: ['first error'] },
+        { name: ['items', 1, 'list', 0, 'first'], errors: ['second error'] },
+      ]);
+
+    await run(setErrors);
+    await run(() => itemsOperation.move(0, 1));
+    await run(setErrors);
+
+    const errors = Array.from(container.querySelectorAll('.ant-form-item-explain-error')).map(
+      (node) => node.textContent,
+    );
+    expect(errors.sort()).toEqual(['first error', 'second error']);
 
     jest.clearAllTimers();
     jest.useRealTimers();

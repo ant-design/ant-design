@@ -29,6 +29,7 @@ const NAME_SPLIT = '__SPLIT__';
 interface FieldError {
   errors: string[];
   warnings: string[];
+  owner: object;
 }
 
 const _ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as const;
@@ -185,6 +186,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         notifyParentMetaChange(
           reported ? { ...nextMeta, name: reported.meta.name } : nextMeta,
           reported?.namePath || nextMeta.name,
+          reportedMetaRef,
         );
         return;
       }
@@ -199,16 +201,20 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       // so the parent still holds the meta reported under the old name
       if (reported && reported.meta.name.join(NAME_SPLIT) !== nextMeta.name.join(NAME_SPLIT)) {
         const staleMeta: Meta & { destroy: boolean } = { ...reported.meta, destroy: true };
-        notifyParentMetaChange(staleMeta, reported.namePath);
+        notifyParentMetaChange(staleMeta, reported.namePath, reportedMetaRef);
       }
 
       reportedMetaRef.current = { meta: nextMeta, namePath };
-      notifyParentMetaChange(nextMeta, namePath);
+      notifyParentMetaChange(nextMeta, namePath, reportedMetaRef);
     }
   };
 
   // >>>>> Collect noStyle Field error to the top FormItem
-  const onSubItemMetaChange: ItemHolderProps['onSubItemMetaChange'] = (subMeta, uniqueKeys) => {
+  const onSubItemMetaChange: ItemHolderProps['onSubItemMetaChange'] = (
+    subMeta,
+    uniqueKeys,
+    owner,
+  ) => {
     // Only `noStyle` sub item will trigger
     setSubFieldErrors((prevSubFieldErrors) => {
       const clone = {
@@ -220,11 +226,13 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       const mergedNameKey = mergedNamePath.join(NAME_SPLIT);
 
       if ((subMeta as any).destroy) {
-        // Remove
-        delete clone[mergedNameKey];
+        // A re-ordered Form.List can hand this key to another field before the old owner cleans up
+        if (clone[mergedNameKey]?.owner === owner) {
+          delete clone[mergedNameKey];
+        }
       } else {
         // Update
-        clone[mergedNameKey] = subMeta;
+        clone[mergedNameKey] = { ...subMeta, owner };
       }
 
       return clone;
