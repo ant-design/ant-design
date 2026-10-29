@@ -127,14 +127,23 @@ describe('TreeSelect', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/59736
-  it('should apply popupStyle and its zIndex to the popup', () => {
+  it('should merge styles.popup.root with popupStyle, which overrides dropdownStyle', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
-      <TreeSelect popupStyle={{ backgroundColor: 'red', zIndex: 2000 }} open />,
+      <TreeSelect
+        styles={{ popup: { root: { border: '1px solid blue' } } }}
+        dropdownStyle={{ backgroundColor: 'green', zIndex: 1500 }}
+        popupStyle={{ backgroundColor: 'red', zIndex: 2000 }}
+        open
+      />,
     );
     expect(container.querySelector('.ant-select-dropdown')).toHaveStyle({
+      border: '1px solid blue',
       backgroundColor: 'rgb(255, 0, 0)',
       zIndex: 2000,
     });
+
+    errSpy.mockRestore();
   });
 
   it('legacy dropdownRender', () => {
