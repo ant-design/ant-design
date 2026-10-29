@@ -68,6 +68,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
@@ -206,6 +207,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
@@ -460,6 +462,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
@@ -3784,6 +3787,7 @@ Array [
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -3913,6 +3917,7 @@ Array [
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -4044,6 +4049,7 @@ Array [
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -4175,6 +4181,7 @@ Array [
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -4280,6 +4287,7 @@ Array [
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -6588,6 +6596,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"

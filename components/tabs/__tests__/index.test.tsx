@@ -143,6 +143,24 @@ describe('Tabs', () => {
     expect(container.querySelector('.Tabs_3 .ant-tabs-ink-bar')).toHaveStyle({ width: 4 });
   });
 
+  // https://github.com/ant-design/ant-design/issues/59689
+  it.each([
+    ['moreIcon', { moreIcon: <span className="cp-more-icon" /> }],
+    ['more.icon', { more: { icon: <span className="cp-more-icon" /> } }],
+  ])('moreIcon should take priority over ConfigProvider %s', (_, tabsConfig) => {
+    const { container } = render(
+      <ConfigProvider tabs={tabsConfig}>
+        <Tabs
+          items={[{ key: '1', label: 'foo' }]}
+          moreIcon={<span className="custom-more-icon" />}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.custom-more-icon')).toBeTruthy();
+    expect(container.querySelector('.cp-more-icon')).toBeFalsy();
+  });
+
   it('warning for indicatorSize', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Tabs indicatorSize={10} />);
