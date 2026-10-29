@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { JSX } from 'react';
-import { Field, FieldContext, ListContext } from '@rc-component/form';
-import type { FieldProps, InternalNamePath, Meta, RuleObject } from '@rc-component/form';
+import { Field, FieldContext } from '@rc-component/form';
+import type { FieldProps, Meta, RuleObject } from '@rc-component/form';
 import { isNonNullable, isReactRenderable, supportRef, useState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -24,12 +24,9 @@ import type { ItemHolderProps } from './ItemHolder';
 import ItemHolder from './ItemHolder';
 import StatusProvider from './StatusProvider';
 
-const NAME_SPLIT = '__SPLIT__';
-
 interface FieldError {
   errors: string[];
   warnings: string[];
-  owner: object;
 }
 
 const _ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as const;
@@ -157,82 +154,39 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   // ========================= MISC =========================
-  // Get `noStyle` required info
-  const listContext = React.useContext(ListContext);
-  const reportedMetaRef = React.useRef<{ meta: Meta; namePath: InternalNamePath }>(null);
+  // Form.List can re-index or reorder this field without remounting it, so its name path
+  // is not a stable key for the errors it reports to the parent
+  const metaKey = React.useRef({}).current;
 
   // ======================== Errors ========================
   // >>>>> Collect sub field errors
-  const [subFieldErrors, setSubFieldErrors] = useFrameState<Record<string, FieldError>>({});
+  const [subFieldErrors, setSubFieldErrors] = useFrameState<Map<object, FieldError>>(new Map());
 
   // >>>>> Current field errors
   const [meta, setMeta] = useState<Meta>(() => genEmptyMeta());
 
   const onMetaChange = (nextMeta: Meta & { destroy?: boolean }) => {
-    // This keyInfo is not correct when field is removed
-    // Since origin keyManager no longer keep the origin key anymore
-    // Which means we need cache origin one and reuse when removed
-    const keyInfo = listContext?.getKey(nextMeta.name);
-
     // Destroy will reset all the meta
     setMeta(nextMeta.destroy ? genEmptyMeta() : nextMeta, true);
 
     // Bump to parent since noStyle
     if (noStyle && help !== false && notifyParentMetaChange) {
-      const reported = reportedMetaRef.current;
-
-      if (nextMeta.destroy) {
-        // Use origin cache data
-        notifyParentMetaChange(
-          reported ? { ...nextMeta, name: reported.meta.name } : nextMeta,
-          reported?.namePath || nextMeta.name,
-          reportedMetaRef,
-        );
-        return;
-      }
-
-      let namePath = nextMeta.name;
-      if (keyInfo !== undefined) {
-        const [fieldKey, restPath] = keyInfo;
-        namePath = [fieldKey, ...restPath];
-      }
-
-      // Removing an earlier Form.List row re-indexes this field without unmounting it,
-      // so the parent still holds the meta reported under the old name
-      if (reported && reported.meta.name.join(NAME_SPLIT) !== nextMeta.name.join(NAME_SPLIT)) {
-        const staleMeta: Meta & { destroy: boolean } = { ...reported.meta, destroy: true };
-        notifyParentMetaChange(staleMeta, reported.namePath, reportedMetaRef);
-      }
-
-      reportedMetaRef.current = { meta: nextMeta, namePath };
-      notifyParentMetaChange(nextMeta, namePath, reportedMetaRef);
+      notifyParentMetaChange(nextMeta, metaKey);
     }
   };
 
   // >>>>> Collect noStyle Field error to the top FormItem
-  const onSubItemMetaChange: ItemHolderProps['onSubItemMetaChange'] = (
-    subMeta,
-    uniqueKeys,
-    owner,
-  ) => {
+  const onSubItemMetaChange: ItemHolderProps['onSubItemMetaChange'] = (subMeta, subMetaKey) => {
     // Only `noStyle` sub item will trigger
     setSubFieldErrors((prevSubFieldErrors) => {
-      const clone = {
-        ...prevSubFieldErrors,
-      };
-
-      // name: ['user', 1] + key: [4] = ['user', 4]
-      const mergedNamePath = [...subMeta.name.slice(0, -1), ...uniqueKeys];
-      const mergedNameKey = mergedNamePath.join(NAME_SPLIT);
+      const clone = new Map(prevSubFieldErrors);
 
       if ((subMeta as any).destroy) {
-        // A re-ordered Form.List can hand this key to another field before the old owner cleans up
-        if (clone[mergedNameKey]?.owner === owner) {
-          delete clone[mergedNameKey];
-        }
+        // Remove
+        clone.delete(subMetaKey);
       } else {
         // Update
-        clone[mergedNameKey] = { ...subMeta, owner };
+        clone.set(subMetaKey, subMeta);
       }
 
       return clone;
@@ -244,7 +198,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     const errorList: string[] = [...meta.errors];
     const warningList: string[] = [...meta.warnings];
 
-    Object.values(subFieldErrors).forEach((subFieldError) => {
+    subFieldErrors.forEach((subFieldError) => {
       errorList.push(...(subFieldError.errors || []));
       warningList.push(...(subFieldError.warnings || []));
     });

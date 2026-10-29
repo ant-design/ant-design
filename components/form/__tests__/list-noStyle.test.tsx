@@ -193,4 +193,62 @@ describe('Form.List.NoStyle', () => {
     jest.clearAllTimers();
     jest.useRealTimers();
   });
+
+  it('should keep the other nested error after reordering and filling one field', async () => {
+    jest.useFakeTimers();
+
+    let itemsOperation: FormListOperation;
+
+    const { container } = render(
+      <Form initialValues={{ items: [{ list: [{}] }, { list: [{}] }] }}>
+        <Form.Item label="Shared">
+          <Form.List name="items">
+            {(fields, op) => {
+              itemsOperation = op;
+              return fields.map((field) => (
+                <Form.List key={field.key} name={[field.name, 'list']}>
+                  {(subFields) =>
+                    subFields.map((subField) => (
+                      <Form.Item
+                        key={subField.key}
+                        noStyle
+                        name={[subField.name, 'first']}
+                        rules={[{ required: true, message: 'Required' }]}
+                      >
+                        <Input />
+                      </Form.Item>
+                    ))
+                  }
+                </Form.List>
+              ));
+            }}
+          </Form.List>
+        </Form.Item>
+      </Form>,
+    );
+
+    const run = async (fn: () => void) => {
+      await act(async () => {
+        fn();
+      });
+      await waitFakeTimer();
+    };
+
+    const getErrors = () =>
+      Array.from(container.querySelectorAll('.ant-form-item-explain-error')).map(
+        (node) => node.textContent,
+      );
+
+    await run(() => fireEvent.submit(container.querySelector('form')!));
+    expect(getErrors()).toEqual(['Required', 'Required']);
+
+    await run(() => itemsOperation.move(0, 1));
+    await run(() =>
+      fireEvent.change(container.querySelector('input')!, { target: { value: 'filled' } }),
+    );
+    expect(getErrors()).toEqual(['Required']);
+
+    jest.clearAllTimers();
+    jest.useRealTimers();
+  });
 });
