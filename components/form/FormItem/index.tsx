@@ -239,6 +239,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     baseChildren: React.ReactNode,
     fieldId?: string,
     isRequired?: boolean,
+    mergedName = name,
   ): React.ReactNode {
     if (noStyle && !hidden) {
       return (
@@ -250,7 +251,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           errors={mergedErrors}
           warnings={mergedWarnings}
           noStyle
-          name={name}
+          name={mergedName}
         >
           {baseChildren}
         </StatusProvider>
@@ -270,7 +271,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         meta={meta}
         onSubItemMetaChange={onSubItemMetaChange}
         layout={layout}
-        name={name}
+        name={mergedName}
       >
         {baseChildren}
       </ItemHolder>
@@ -439,7 +440,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           childNode = mergedChildren as React.ReactNode;
         }
 
-        return renderLayout(childNode, fieldId, isRequired);
+        return renderLayout(childNode, fieldId, isRequired, mergedName);
       }}
     </Field>
   );
