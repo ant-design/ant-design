@@ -1,4 +1,4 @@
-import React, { forwardRef, useContext, useEffect, useRef } from 'react';
+import React, { forwardRef, useContext, useEffect, useId, useRef } from 'react';
 import type { InputRef, InputProps as RcInputProps } from '@rc-component/input';
 import RcInput from '@rc-component/input';
 import { composeRef, triggerFocus } from '@rc-component/util';
@@ -9,6 +9,7 @@ import ContextIsolator from '../_util/ContextIsolator';
 import { useAllowClear } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isNumber, isString } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -125,6 +126,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onChange,
     classNames,
     variant: customVariant,
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledby,
     ...rest
   } = props;
 
@@ -152,6 +155,17 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);
   const inputRef = useRef<InputRef>(null);
+  const addonId = useId();
+  const addonBeforeId = `${addonId}-addon-before`;
+  const addonAfterId = `${addonId}-addon-after`;
+  const addonBeforeLabel = !!addonBefore && (isString(addonBefore) || isNumber(addonBefore));
+  const addonAfterLabel = !!addonAfter && (isString(addonAfter) || isNumber(addonAfter));
+  const addonLabelledby =
+    !ariaLabel && (addonBeforeLabel || addonAfterLabel)
+      ? [ariaLabelledby, addonBeforeLabel && addonBeforeId, addonAfterLabel && addonAfterId]
+          .filter(Boolean)
+          .join(' ')
+      : ariaLabelledby;
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
@@ -243,6 +257,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       ref={composeRef(ref, inputRef)}
       prefixCls={prefixCls}
       autoComplete={contextAutoComplete}
+      aria-label={ariaLabel}
+      aria-labelledby={addonLabelledby}
       {...rest}
       disabled={mergedDisabled}
       onBlur={handleBlur}
@@ -262,18 +278,30 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       )}
       onChange={handleChange}
       addonBefore={
-        addonBefore && (
+        addonBefore && addonBeforeLabel ? (
+          <span id={addonBeforeId}>
+            <ContextIsolator form space>
+              {addonBefore}
+            </ContextIsolator>
+          </span>
+        ) : addonBefore ? (
           <ContextIsolator form space>
             {addonBefore}
           </ContextIsolator>
-        )
+        ) : null
       }
       addonAfter={
-        addonAfter && (
+        addonAfter && addonAfterLabel ? (
+          <span id={addonAfterId}>
+            <ContextIsolator form space>
+              {addonAfter}
+            </ContextIsolator>
+          </span>
+        ) : addonAfter ? (
           <ContextIsolator form space>
             {addonAfter}
           </ContextIsolator>
-        )
+        ) : null
       }
       classNames={{
         ...mergedClassNames,
