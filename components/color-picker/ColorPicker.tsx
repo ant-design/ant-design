@@ -6,7 +6,6 @@ import ContextIsolator from '../_util/ContextIsolator';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
-import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -282,7 +281,7 @@ const ColorPicker: CompoundedComponent = (props) => {
       classNames={{ root: mergedPopupCls }}
       styles={{
         root: mergedStyles.popup?.root,
-        container: (styles as GetProp<ColorPickerProps, 'styles', 'Return'>)?.popupOverlayInner,
+        container: mergedStyles.popupOverlayInner,
       }}
       onOpenChange={triggerOpenChange}
       content={

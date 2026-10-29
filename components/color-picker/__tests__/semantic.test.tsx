@@ -79,6 +79,23 @@ describe('ColorPicker.Semantic', () => {
     expect(root).toHaveStyle({ fontSize: '16px' });
   });
 
+  // https://github.com/ant-design/ant-design/issues/59738
+  it.each([
+    [
+      'styles function',
+      <ColorPicker key="fn" open styles={() => ({ popupOverlayInner: { width: 480 } })} />,
+    ],
+    [
+      'ConfigProvider',
+      <ConfigProvider key="cp" colorPicker={{ styles: { popupOverlayInner: { width: 480 } } }}>
+        <ColorPicker open />
+      </ConfigProvider>,
+    ],
+  ])('support popupOverlayInner style from %s', (_, node) => {
+    const { baseElement } = render(node);
+    expect(baseElement.querySelector('.ant-popover-container')).toHaveStyle({ width: '480px' });
+  });
+
   it('should follow root style priority', () => {
     const { container } = render(
       <ConfigProvider
