@@ -33,6 +33,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -177,6 +178,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -321,6 +323,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -1350,6 +1353,7 @@ exports[`renders components/auto-complete/demo/disabled-custom-debug.tsx extend 
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -1939,6 +1943,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -2079,6 +2084,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -2342,6 +2348,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -2541,6 +2548,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -2745,6 +2753,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"

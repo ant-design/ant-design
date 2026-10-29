@@ -604,5 +604,16 @@ describe('Select', () => {
       );
       expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('bamboo');
     });
+
+    it('should hide the default decorative icons from assistive technologies', () => {
+      const { container, rerender } = render(<Select />);
+      expect(container.querySelector('.anticon-down')).toHaveAttribute('aria-hidden', 'true');
+
+      rerender(<Select loading />);
+      expect(container.querySelector('.anticon-loading')).toHaveAttribute('aria-hidden', 'true');
+
+      rerender(<Select showSearch open />);
+      expect(container.querySelector('.anticon-search')).toHaveAttribute('aria-hidden', 'true');
+    });
   });
 });

@@ -8004,6 +8004,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
@@ -12727,6 +12728,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
@@ -14732,6 +14734,7 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
@@ -15889,6 +15892,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
@@ -18044,6 +18048,7 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -28472,6 +28477,7 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
