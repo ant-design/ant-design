@@ -80,6 +80,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   props,
   ref,
 ) => {
+  // Pointer events are not part of `CheckboxProps`, but triggers such as Tooltip pass them
   const {
     prefixCls: customizePrefixCls,
 
@@ -88,6 +89,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
 
     onMouseEnter,
     onMouseLeave,
+    onPointerEnter,
+    onPointerLeave,
     skipGroup = false,
     disabled,
 
@@ -110,7 +113,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     onChange,
 
     ...restProps
-  } = props;
+  } = props as CheckboxProps &
+    Pick<React.DOMAttributes<HTMLElement>, 'onPointerEnter' | 'onPointerLeave'>;
   const {
     getPrefixCls,
     direction,
@@ -233,6 +237,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
         style={mergedStyles.root}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
+        onPointerEnter={onPointerEnter}
+        onPointerLeave={onPointerLeave}
         onClick={onLabelClick}
       >
         <RcCheckbox
