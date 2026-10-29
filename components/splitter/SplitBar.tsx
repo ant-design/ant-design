@@ -215,6 +215,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       mouseup: onMouseUp,
       touchmove: handleTouchMove as EventListener,
       touchend: handleTouchEnd,
+      touchcancel: handleTouchEnd,
     };
 
     for (const [event, handler] of Object.entries(eventHandlerMap)) {
