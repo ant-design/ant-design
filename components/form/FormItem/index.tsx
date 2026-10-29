@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { JSX } from 'react';
 import { Field, FieldContext, ListContext } from '@rc-component/form';
-import type { FieldProps, InternalNamePath, Meta, RuleObject } from '@rc-component/form';
+import type { FieldProps, InternalNamePath, Meta, NamePath, RuleObject } from '@rc-component/form';
 import { isNonNullable, isReactRenderable, supportRef, useState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -239,7 +239,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     baseChildren: React.ReactNode,
     fieldId?: string,
     isRequired?: boolean,
-    mergedName = name,
+    mergedName: NamePath | undefined = name,
   ): React.ReactNode {
     if (noStyle && !hidden) {
       return (
