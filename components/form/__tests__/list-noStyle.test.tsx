@@ -198,6 +198,7 @@ describe('Form.List.NoStyle', () => {
     jest.useFakeTimers();
 
     let itemsOperation: FormListOperation;
+    const rowErrors = ['first row required', 'second row required'];
 
     const { container } = render(
       <Form initialValues={{ items: [{ list: [{}] }, { list: [{}] }] }}>
@@ -213,7 +214,7 @@ describe('Form.List.NoStyle', () => {
                         key={subField.key}
                         noStyle
                         name={[subField.name, 'first']}
-                        rules={[{ required: true, message: 'Required' }]}
+                        rules={[{ required: true, message: rowErrors[field.key] }]}
                       >
                         <Input />
                       </Form.Item>
@@ -240,13 +241,13 @@ describe('Form.List.NoStyle', () => {
       );
 
     await run(() => fireEvent.submit(container.querySelector('form')!));
-    expect(getErrors()).toEqual(['Required', 'Required']);
+    expect(getErrors()).toEqual(rowErrors);
 
     await run(() => itemsOperation.move(0, 1));
     await run(() =>
       fireEvent.change(container.querySelector('input')!, { target: { value: 'filled' } }),
     );
-    expect(getErrors()).toEqual(['Required']);
+    expect(getErrors()).toEqual(['first row required']);
 
     jest.clearAllTimers();
     jest.useRealTimers();
