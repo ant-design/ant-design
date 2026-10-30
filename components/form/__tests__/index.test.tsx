@@ -32,6 +32,7 @@ import Segmented from '../../segmented';
 import Select from '../../select';
 import Slider from '../../slider';
 import Switch from '../../switch';
+import TimePicker from '../../time-picker';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 import type { NamePath } from '../interface';
@@ -2176,6 +2177,69 @@ describe('Form', () => {
       expect(input).not.toHaveClass('ant-input-status-error');
       expect(input?.parentElement?.querySelector('.ant-form-item-feedback-icon')).toBeFalsy();
     });
+  });
+
+  it('should not affect popup children style of DatePicker, RangePicker and TimePicker', () => {
+    const renderFooter = (className: string) => () => <Input className={className} />;
+    const { container } = render(
+      <Form>
+        <Form.Item validateStatus="error" hasFeedback>
+          <DatePicker open renderExtraFooter={renderFooter('date-picker-footer-input')} />
+        </Form.Item>
+        <Form.Item validateStatus="error" hasFeedback>
+          <RangePicker open renderExtraFooter={renderFooter('range-picker-footer-input')} />
+        </Form.Item>
+        <Form.Item validateStatus="error" hasFeedback>
+          <TimePicker open renderExtraFooter={renderFooter('time-picker-footer-input')} />
+        </Form.Item>
+      </Form>,
+      { container: document.body },
+    );
+
+    expect(container.querySelectorAll('.ant-picker-status-error')).toHaveLength(3);
+
+    ['date-picker-footer-input', 'range-picker-footer-input', 'time-picker-footer-input'].forEach(
+      (cls) => {
+        const input = container.querySelector(`.${cls}`);
+        expect(input).toBeTruthy();
+        expect(input).not.toHaveClass('ant-input-status-error');
+        expect(input?.querySelector('.ant-form-item-feedback-icon')).toBeFalsy();
+      },
+    );
+  });
+
+  it('should not affect panelRender children style of DatePicker, RangePicker and TimePicker', () => {
+    const panelRender = (className: string) => (panel: React.ReactNode) => (
+      <>
+        {panel}
+        <Input className={className} />
+      </>
+    );
+    const { container } = render(
+      <Form>
+        <Form.Item validateStatus="error" hasFeedback>
+          <DatePicker open panelRender={panelRender('date-picker-panel-input')} />
+        </Form.Item>
+        <Form.Item validateStatus="error" hasFeedback>
+          <RangePicker open panelRender={panelRender('range-picker-panel-input')} />
+        </Form.Item>
+        <Form.Item validateStatus="error" hasFeedback>
+          <TimePicker open panelRender={panelRender('time-picker-panel-input')} />
+        </Form.Item>
+      </Form>,
+      { container: document.body },
+    );
+
+    expect(container.querySelectorAll('.ant-picker-status-error')).toHaveLength(3);
+
+    ['date-picker-panel-input', 'range-picker-panel-input', 'time-picker-panel-input'].forEach(
+      (cls) => {
+        const input = container.querySelector(`.${cls}`);
+        expect(input).toBeTruthy();
+        expect(input).not.toHaveClass('ant-input-status-error');
+        expect(input?.querySelector('.ant-form-item-feedback-icon')).toBeFalsy();
+      },
+    );
   });
 
   // eslint-disable-next-line jest/no-disabled-tests

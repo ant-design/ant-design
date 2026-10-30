@@ -213,7 +213,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       // ============================ zIndex ============================
       const [zIndex] = useZIndex('DatePicker', mergedStyles?.popup?.root?.zIndex as number);
       return (
-        <ContextIsolator space>
+        <ContextIsolator space form>
           <RCPicker<DateType>
             ref={innerRef}
             placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
