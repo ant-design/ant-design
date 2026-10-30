@@ -3183,6 +3183,400 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
 
 exports[`renders components/layout/demo/side.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/layout/demo/sider-bottom-menu.tsx extend context correctly 1`] = `
+<div
+  class="ant-layout ant-layout-has-sider css-var-test-id"
+  style="min-height: 100vh;"
+>
+  <aside
+    class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-has-trigger css-var-test-id"
+    style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
+  >
+    <div
+      class="ant-layout-sider-children"
+      style="display: flex; flex-direction: column;"
+    >
+      <div
+        class="demo-logo-vertical"
+      />
+      <ul
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark css-var-test-id ant-menu-css-var"
+        data-menu-list="true"
+        role="menu"
+        style="flex: 1 1 0%; min-height: 0; overflow-y: auto;"
+        tabindex="0"
+      >
+        <li
+          aria-describedby="test-id"
+          class="ant-menu-item ant-menu-item-selected"
+          data-menu-id="rc-menu-uuid-test-id-dashboard"
+          role="menuitem"
+          style="padding-left: 24px;"
+          tabindex="-1"
+        >
+          <span
+            aria-label="pie-chart"
+            class="anticon anticon-pie-chart ant-menu-item-icon"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="pie-chart"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M864 518H506V160c0-4.4-3.6-8-8-8h-26a398.46 398.46 0 00-282.8 117.1 398.19 398.19 0 00-85.7 127.1A397.61 397.61 0 0072 552a398.46 398.46 0 00117.1 282.8c36.7 36.7 79.5 65.6 127.1 85.7A397.61 397.61 0 00472 952a398.46 398.46 0 00282.8-117.1c36.7-36.7 65.6-79.5 85.7-127.1A397.61 397.61 0 00872 552v-26c0-4.4-3.6-8-8-8zM705.7 787.8A331.59 331.59 0 01470.4 884c-88.1-.4-170.9-34.9-233.2-97.2C174.5 724.1 140 640.7 140 552c0-88.7 34.5-172.1 97.2-234.8 54.6-54.6 124.9-87.9 200.8-95.5V586h364.3c-7.7 76.3-41.3 147-96.6 201.8zM952 462.4l-2.6-28.2c-8.5-92.1-49.4-179-115.2-244.6A399.4 399.4 0 00589 74.6L560.7 72c-4.7-.4-8.7 3.2-8.7 7.9V464c0 4.4 3.6 8 8 8l384-1c4.7 0 8.4-4 8-8.6zm-332.2-58.2V147.6a332.24 332.24 0 01166.4 89.8c45.7 45.6 77 103.6 90 166.1l-256.4.7z"
+              />
+            </svg>
+          </span>
+          <span
+            class="ant-menu-title-content"
+          >
+            Dashboard
+          </span>
+        </li>
+        <div
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position: absolute; top: 0px; left: 0px;"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          />
+        </div>
+        <li
+          aria-describedby="test-id"
+          class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-test-id-workspace"
+          role="menuitem"
+          style="padding-left: 24px;"
+          tabindex="-1"
+        >
+          <span
+            aria-label="desktop"
+            class="anticon anticon-desktop ant-menu-item-icon"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="desktop"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M928 140H96c-17.7 0-32 14.3-32 32v496c0 17.7 14.3 32 32 32h380v112H304c-8.8 0-16 7.2-16 16v48c0 4.4 3.6 8 8 8h432c4.4 0 8-3.6 8-8v-48c0-8.8-7.2-16-16-16H548V700h380c17.7 0 32-14.3 32-32V172c0-17.7-14.3-32-32-32zm-40 488H136V212h752v416z"
+              />
+            </svg>
+          </span>
+          <span
+            class="ant-menu-title-content"
+          >
+            Workspace
+          </span>
+        </li>
+        <div
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position: absolute; top: 0px; left: 0px;"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          />
+        </div>
+        <li
+          aria-describedby="test-id"
+          class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-test-id-team"
+          role="menuitem"
+          style="padding-left: 24px;"
+          tabindex="-1"
+        >
+          <span
+            aria-label="team"
+            class="anticon anticon-team ant-menu-item-icon"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="team"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M824.2 699.9a301.55 301.55 0 00-86.4-60.4C783.1 602.8 812 546.8 812 484c0-110.8-92.4-201.7-203.2-200-109.1 1.7-197 90.6-197 200 0 62.8 29 118.8 74.2 155.5a300.95 300.95 0 00-86.4 60.4C345 754.6 314 826.8 312 903.8a8 8 0 008 8.2h56c4.3 0 7.9-3.4 8-7.7 1.9-58 25.4-112.3 66.7-153.5A226.62 226.62 0 01612 684c60.9 0 118.2 23.7 161.3 66.8C814.5 792 838 846.3 840 904.3c.1 4.3 3.7 7.7 8 7.7h56a8 8 0 008-8.2c-2-77-33-149.2-87.8-203.9zM612 612c-34.2 0-66.4-13.3-90.5-37.5a126.86 126.86 0 01-37.5-91.8c.3-32.8 13.4-64.5 36.3-88 24-24.6 56.1-38.3 90.4-38.7 33.9-.3 66.8 12.9 91 36.6 24.8 24.3 38.4 56.8 38.4 91.4 0 34.2-13.3 66.3-37.5 90.5A127.3 127.3 0 01612 612zM361.5 510.4c-.9-8.7-1.4-17.5-1.4-26.4 0-15.9 1.5-31.4 4.3-46.5.7-3.6-1.2-7.3-4.5-8.8-13.6-6.1-26.1-14.5-36.9-25.1a127.54 127.54 0 01-38.7-95.4c.9-32.1 13.8-62.6 36.3-85.6 24.7-25.3 57.9-39.1 93.2-38.7 31.9.3 62.7 12.6 86 34.4 7.9 7.4 14.7 15.6 20.4 24.4 2 3.1 5.9 4.4 9.3 3.2 17.6-6.1 36.2-10.4 55.3-12.4 5.6-.6 8.8-6.6 6.3-11.6-32.5-64.3-98.9-108.7-175.7-109.9-110.9-1.7-203.3 89.2-203.3 199.9 0 62.8 28.9 118.8 74.2 155.5-31.8 14.7-61.1 35-86.5 60.4-54.8 54.7-85.8 126.9-87.8 204a8 8 0 008 8.2h56.1c4.3 0 7.9-3.4 8-7.7 1.9-58 25.4-112.3 66.7-153.5 29.4-29.4 65.4-49.8 104.7-59.7 3.9-1 6.5-4.7 6-8.7z"
+              />
+            </svg>
+          </span>
+          <span
+            class="ant-menu-title-content"
+          >
+            Team
+          </span>
+        </li>
+        <div
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position: absolute; top: 0px; left: 0px;"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          />
+        </div>
+        <li
+          aria-describedby="test-id"
+          class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-test-id-files"
+          role="menuitem"
+          style="padding-left: 24px;"
+          tabindex="-1"
+        >
+          <span
+            aria-label="file"
+            class="anticon anticon-file ant-menu-item-icon"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="file"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494z"
+              />
+            </svg>
+          </span>
+          <span
+            class="ant-menu-title-content"
+          >
+            Files
+          </span>
+        </li>
+        <div
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position: absolute; top: 0px; left: 0px;"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          />
+        </div>
+      </ul>
+      <div
+        aria-hidden="true"
+        style="display: none;"
+      />
+      <ul
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark css-var-test-id ant-menu-css-var"
+        data-menu-list="true"
+        role="menu"
+        tabindex="0"
+      >
+        <li
+          aria-describedby="test-id"
+          class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-test-id-account"
+          role="menuitem"
+          style="padding-left: 24px;"
+          tabindex="-1"
+        >
+          <span
+            aria-label="user"
+            class="anticon anticon-user ant-menu-item-icon"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="user"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+              />
+            </svg>
+          </span>
+          <span
+            class="ant-menu-title-content"
+          >
+            Account
+          </span>
+        </li>
+        <div
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position: absolute; top: 0px; left: 0px;"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          />
+        </div>
+        <li
+          aria-describedby="test-id"
+          class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-test-id-settings"
+          role="menuitem"
+          style="padding-left: 24px;"
+          tabindex="-1"
+        >
+          <span
+            aria-label="setting"
+            class="anticon anticon-setting ant-menu-item-icon"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="setting"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
+              />
+            </svg>
+          </span>
+          <span
+            class="ant-menu-title-content"
+          >
+            Settings
+          </span>
+        </li>
+        <div
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position: absolute; top: 0px; left: 0px;"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          />
+        </div>
+      </ul>
+      <div
+        aria-hidden="true"
+        style="display: none;"
+      />
+    </div>
+    <div
+      class="ant-layout-sider-trigger"
+      style="width: 200px;"
+    >
+      <span
+        aria-label="left"
+        class="anticon anticon-left"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="left"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+          />
+        </svg>
+      </span>
+    </div>
+  </aside>
+  <div
+    class="ant-layout css-var-test-id"
+  >
+    <header
+      class="ant-layout-header css-var-test-id"
+      style="padding: 0px; background: rgb(255, 255, 255);"
+    />
+    <main
+      class="ant-layout-content css-var-test-id"
+      style="margin: 16px;"
+    >
+      <div
+        style="padding: 24px; min-height: 200px; background: rgb(255, 255, 255); border-radius: 8px;"
+      >
+        Selected: dashboard
+      </div>
+    </main>
+  </div>
+</div>
+`;
+
+exports[`renders components/layout/demo/sider-bottom-menu.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
 <div
   class="ant-layout css-var-test-id"
