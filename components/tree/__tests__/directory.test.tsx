@@ -146,6 +146,139 @@ describe('Directory Tree', () => {
     expect(leaf3).not.toHaveClass('ant-tree-node-selected');
   });
 
+  it('starts a new range when the first selection uses Shift', () => {
+    const onSelect = jest.fn();
+    const treeData = ['A', 'B', 'C'].map((key) => ({ key, title: key }));
+    const { getByText } = render(
+      <DirectoryTree multiple treeData={treeData} onSelect={onSelect} />,
+    );
+
+    fireEvent.click(getByText('B'), { shiftKey: true });
+    expect(onSelect).toHaveBeenLastCalledWith(
+      ['B'],
+      expect.objectContaining({ selectedNodes: [treeData[1]] }),
+    );
+
+    fireEvent.click(getByText('C'), { shiftKey: true });
+    expect(onSelect).toHaveBeenLastCalledWith(
+      ['B', 'C'],
+      expect.objectContaining({ selectedNodes: treeData.slice(1) }),
+    );
+  });
+
+  it.each([false, true])(
+    'starts a new range after removing the anchor (controlled: %s)',
+    (controlled) => {
+      const onSelect = jest.fn();
+      const treeData = ['A', 'B', 'C', 'D'].map((key) => ({ key, title: key }));
+      const renderTree = (data: typeof treeData, selectedKeys: string[]) => (
+        <DirectoryTree
+          multiple
+          treeData={data}
+          selectedKeys={controlled ? selectedKeys : undefined}
+          onSelect={onSelect}
+        />
+      );
+      const { getByText, rerender } = render(renderTree(treeData, []));
+
+      fireEvent.click(getByText('B'));
+      rerender(renderTree(treeData, ['B']));
+      const remainingData = treeData.filter(({ key }) => key !== 'B');
+      rerender(renderTree(remainingData, []));
+      fireEvent.click(getByText('C'), { shiftKey: true });
+
+      expect(onSelect).toHaveBeenLastCalledWith(
+        ['C'],
+        expect.objectContaining({ selectedNodes: [treeData[2]] }),
+      );
+
+      rerender(renderTree(remainingData, ['C']));
+      fireEvent.click(getByText('D'), { shiftKey: true });
+      expect(onSelect).toHaveBeenLastCalledWith(
+        ['C', 'D'],
+        expect.objectContaining({ selectedNodes: treeData.slice(2) }),
+      );
+    },
+  );
+
+  it('starts a new range after collapsing the anchor parent', () => {
+    const onSelect = jest.fn();
+    const treeData = [
+      { key: 'folder', title: 'Folder', children: [{ key: 'A', title: 'A' }] },
+      { key: 'B', title: 'B' },
+      { key: 'C', title: 'C' },
+    ];
+    const renderTree = (expandedKeys: string[]) => (
+      <DirectoryTree
+        multiple
+        expandAction={false}
+        treeData={treeData}
+        expandedKeys={expandedKeys}
+        onSelect={onSelect}
+      />
+    );
+    const { getByText, rerender } = render(renderTree(['folder']));
+    fireEvent.click(getByText('A'));
+    rerender(renderTree([]));
+    fireEvent.click(getByText('B'), { shiftKey: true });
+
+    expect(onSelect).toHaveBeenLastCalledWith(
+      ['B'],
+      expect.objectContaining({ selectedNodes: [treeData[1]] }),
+    );
+  });
+
+  it.each(['ctrlKey', 'metaKey'])(
+    'does not restore removed cached selections after %s selection',
+    (modifier) => {
+      const onSelect = jest.fn();
+      const treeData = ['A', 'B', 'C', 'D'].map((key) => ({ key, title: key }));
+      const { getByText, rerender } = render(
+        <DirectoryTree multiple treeData={treeData} onSelect={onSelect} />,
+      );
+      fireEvent.click(getByText('A'));
+      fireEvent.click(getByText('B'), { [modifier]: true });
+      rerender(<DirectoryTree multiple treeData={treeData.slice(1)} onSelect={onSelect} />);
+      fireEvent.click(getByText('D'), { shiftKey: true });
+      expect(onSelect).toHaveBeenLastCalledWith(
+        ['B', 'C', 'D'],
+        expect.objectContaining({ selectedNodes: treeData.slice(1) }),
+      );
+
+      fireEvent.click(getByText('C'), { shiftKey: true });
+      expect(onSelect).toHaveBeenLastCalledWith(
+        ['B', 'C'],
+        expect.objectContaining({ selectedNodes: treeData.slice(1, 3) }),
+      );
+    },
+  );
+
+  it('resets a removed numeric anchor with custom fieldNames', () => {
+    const onSelect = jest.fn();
+    const treeData = [0, 1, 2].map((id) => ({ id, label: `File ${id}`, isLeaf: true }));
+    const renderTree = (data: typeof treeData) => (
+      <DirectoryTree
+        multiple
+        treeData={data}
+        fieldNames={{ key: 'id', title: 'label' }}
+        onSelect={onSelect}
+      />
+    );
+    const { getByText, rerender } = render(renderTree(treeData));
+    fireEvent.click(getByText('File 0'));
+    rerender(renderTree(treeData.slice(1)));
+    fireEvent.click(getByText('File 1'), { shiftKey: true });
+    expect(onSelect).toHaveBeenLastCalledWith(
+      [1],
+      expect.objectContaining({ selectedNodes: [treeData[1]] }),
+    );
+    fireEvent.click(getByText('File 2'), { shiftKey: true });
+    expect(onSelect).toHaveBeenLastCalledWith(
+      [1, 2],
+      expect.objectContaining({ selectedNodes: treeData.slice(1) }),
+    );
+  });
+
   it.each([false, true])('skip unselectable nodes in shift selection (reverse: %s)', (reverse) => {
     const onSelect = jest.fn();
     const treeData = [
