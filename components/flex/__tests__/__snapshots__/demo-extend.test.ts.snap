@@ -228,6 +228,7 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
+          aria-label="horizontal"
           checked=""
           class="ant-radio-input"
           name="test-id"
@@ -236,6 +237,7 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         horizontal
@@ -248,6 +250,7 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="vertical"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -255,6 +258,7 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         vertical
@@ -383,6 +387,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
+          aria-label="small"
           checked=""
           class="ant-radio-input"
           name="test-id"
@@ -391,6 +396,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         small
@@ -403,6 +409,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="medium"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -410,6 +417,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         medium
@@ -422,6 +430,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="large"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -429,6 +438,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         large
@@ -441,6 +451,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="customize"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -448,6 +459,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         customize

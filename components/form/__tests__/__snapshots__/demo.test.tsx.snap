@@ -1863,6 +1863,7 @@ Array [
                     class="ant-radio ant-wave-target ant-radio-disabled"
                   >
                     <input
+                      aria-label=" Apple "
                       class="ant-radio-input"
                       disabled=""
                       name="test-id"
@@ -1871,6 +1872,7 @@ Array [
                     />
                   </span>
                   <span
+                    aria-hidden="true"
                     class="ant-radio-label"
                   >
                      Apple 
@@ -1883,6 +1885,7 @@ Array [
                     class="ant-radio ant-wave-target ant-radio-disabled"
                   >
                     <input
+                      aria-label=" Pear "
                       class="ant-radio-input"
                       disabled=""
                       name="test-id"
@@ -1891,6 +1894,7 @@ Array [
                     />
                   </span>
                   <span
+                    aria-hidden="true"
                     class="ant-radio-label"
                   >
                      Pear 
@@ -6300,6 +6304,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                   class="ant-radio-button ant-radio-button-checked"
                 >
                   <input
+                    aria-label="Horizontal"
                     checked=""
                     class="ant-radio-button-input"
                     name="layout"
@@ -6308,6 +6313,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-button-label"
                 >
                   Horizontal
@@ -6320,6 +6326,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                   class="ant-radio-button"
                 >
                   <input
+                    aria-label="Vertical"
                     class="ant-radio-button-input"
                     name="layout"
                     type="radio"
@@ -6327,6 +6334,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-button-label"
                 >
                   Vertical
@@ -6339,6 +6347,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                   class="ant-radio-button"
                 >
                   <input
+                    aria-label="Inline"
                     class="ant-radio-button-input"
                     name="layout"
                     type="radio"
@@ -6346,6 +6355,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-button-label"
                 >
                   Inline
@@ -8433,6 +8443,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                   class="ant-radio-button"
                 >
                   <input
+                    aria-label="Default"
                     class="ant-radio-button-input"
                     name="requiredMarkValue"
                     type="radio"
@@ -8440,6 +8451,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-button-label"
                 >
                   Default
@@ -8452,6 +8464,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                   class="ant-radio-button ant-radio-button-checked"
                 >
                   <input
+                    aria-label="Optional"
                     checked=""
                     class="ant-radio-button-input"
                     name="requiredMarkValue"
@@ -8460,6 +8473,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-button-label"
                 >
                   Optional
@@ -8472,6 +8486,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                   class="ant-radio-button"
                 >
                   <input
+                    aria-label="Hidden"
                     class="ant-radio-button-input"
                     name="requiredMarkValue"
                     type="radio"
@@ -8479,6 +8494,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-button-label"
                 >
                   Hidden
@@ -8491,6 +8507,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                   class="ant-radio-button"
                 >
                   <input
+                    aria-label="Customize"
                     class="ant-radio-button-input"
                     name="requiredMarkValue"
                     type="radio"
@@ -8498,6 +8515,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-button-label"
                 >
                   Customize
@@ -8714,6 +8732,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                   class="ant-radio-button"
                 >
                   <input
+                    aria-label="Small"
                     class="ant-radio-button-input"
                     name="size"
                     type="radio"
@@ -8721,6 +8740,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-button-label"
                 >
                   Small
@@ -8733,6 +8753,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                   class="ant-radio-button ant-radio-button-checked"
                 >
                   <input
+                    aria-label="Medium"
                     checked=""
                     class="ant-radio-button-input"
                     name="size"
@@ -8741,6 +8762,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-button-label"
                 >
                   Medium
@@ -8753,6 +8775,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                   class="ant-radio-button"
                 >
                   <input
+                    aria-label="Large"
                     class="ant-radio-button-input"
                     name="size"
                     type="radio"
@@ -8760,6 +8783,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-button-label"
                 >
                   Large
@@ -10965,6 +10989,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   class="ant-radio ant-wave-target"
                 >
                   <input
+                    aria-label="item 1"
                     class="ant-radio-input"
                     name="radio-group"
                     type="radio"
@@ -10972,6 +10997,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-label"
                 >
                   item 1
@@ -10984,6 +11010,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   class="ant-radio ant-wave-target"
                 >
                   <input
+                    aria-label="item 2"
                     class="ant-radio-input"
                     name="radio-group"
                     type="radio"
@@ -10991,6 +11018,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-label"
                 >
                   item 2
@@ -11003,6 +11031,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   class="ant-radio ant-wave-target"
                 >
                   <input
+                    aria-label="item 3"
                     class="ant-radio-input"
                     name="radio-group"
                     type="radio"
@@ -11010,6 +11039,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-label"
                 >
                   item 3
@@ -11060,6 +11090,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   class="ant-radio-button"
                 >
                   <input
+                    aria-label="item 1"
                     class="ant-radio-button-input"
                     name="radio-button"
                     type="radio"
@@ -11067,6 +11098,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-button-label"
                 >
                   item 1
@@ -11079,6 +11111,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   class="ant-radio-button"
                 >
                   <input
+                    aria-label="item 2"
                     class="ant-radio-button-input"
                     name="radio-button"
                     type="radio"
@@ -11086,6 +11119,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-button-label"
                 >
                   item 2
@@ -11098,6 +11132,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   class="ant-radio-button"
                 >
                   <input
+                    aria-label="item 3"
                     class="ant-radio-button-input"
                     name="radio-button"
                     type="radio"
@@ -11105,6 +11140,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                   />
                 </span>
                 <span
+                  aria-hidden="true"
                   class="ant-radio-button-label"
                 >
                   item 3

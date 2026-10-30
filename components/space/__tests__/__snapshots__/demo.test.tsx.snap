@@ -4331,6 +4331,7 @@ Array [
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
+          aria-label="small"
           checked=""
           class="ant-radio-input"
           name="test-id"
@@ -4339,6 +4340,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         small
@@ -4351,6 +4353,7 @@ Array [
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="medium"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -4358,6 +4361,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         medium
@@ -4370,6 +4374,7 @@ Array [
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="large"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -4377,6 +4382,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         large
@@ -4389,6 +4395,7 @@ Array [
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="customize"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -4396,6 +4403,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         customize

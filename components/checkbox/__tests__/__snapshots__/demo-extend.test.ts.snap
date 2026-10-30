@@ -424,12 +424,14 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
           class="ant-radio ant-wave-target"
         >
           <input
+            aria-label="Little"
             class="ant-radio-input"
             type="radio"
             value="little"
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-label"
         >
           Little
@@ -501,12 +503,14 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="Little"
           class="ant-radio-input"
           type="radio"
           value="little"
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Little
