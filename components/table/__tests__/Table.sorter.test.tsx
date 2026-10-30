@@ -650,6 +650,32 @@ describe('Table.sorter', () => {
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
 
+  // https://github.com/ant-design/ant-design/issues/30791
+  it('works with defaultSortOrder on a grouping column', () => {
+    const columns: TableProps['columns'] = [
+      {
+        title: 'group',
+        key: 'group',
+        sorter: sorterFn,
+        defaultSortOrder: 'descend',
+        children: [
+          { title: 'Name', dataIndex: 'name', key: 'name' },
+          { title: 'Age', dataIndex: 'age', key: 'age' },
+        ],
+      },
+    ];
+    const testData = [
+      { key: 0, name: 'Jack', age: 11 },
+      { key: 1, name: 'Lucy', age: 20 },
+      { key: 2, name: 'Tom', age: 21 },
+      { key: 3, name: 'Jerry', age: 22 },
+    ];
+    const { container } = render(<Table columns={columns} dataSource={testData} />);
+
+    expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+    expect(container.querySelector('th[aria-sort]')?.getAttribute('aria-sort')).toBe('descending');
+  });
+
   // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
   it('Allow column title as render props with sortOrder argument', () => {
     const title: NonNullable<TableProps['columns']>[number]['title'] = ({ sortColumns }) => (
