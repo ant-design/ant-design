@@ -242,7 +242,10 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
           fileObj.status = 'uploading';
         }
 
-        onInternalChange(triggerFileObj, newFileList, undefined, false);
+        // Every file of the batch ends up with the same list. Only the first one commits it
+        // synchronously, so the following `onChange` can already read the latest list.
+        // The rest are flushed together by the outer `flushSync` to avoid rendering N times.
+        onInternalChange(triggerFileObj, newFileList, undefined, index === 0);
       });
     });
   };
