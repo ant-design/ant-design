@@ -1,12 +1,16 @@
 import React from 'react';
-import { Anchor } from 'antd';
+import { Anchor, Tooltip } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import type { AnchorLinkItemProps } from 'antd/es/anchor/Anchor';
 import { clsx } from 'clsx';
 import { useRouteMeta, useTabMeta } from 'dumi';
 
-export const useStyle = createStyles(({ cssVar, token, css }) => {
+import useLocalStorage from '../../../hooks/useLocalStorage';
+import ResizeHandle from './ResizeHandle';
+
+export const useStyle = createStyles(({ cssVar, token, css }, anchorWidth?: number) => {
   const { antCls } = token;
+  const width = anchorWidth ?? 148;
   return {
     anchorToc: css`
       scrollbar-width: thin;
@@ -14,6 +18,9 @@ export const useStyle = createStyles(({ cssVar, token, css }) => {
       ${antCls}-anchor {
         ${antCls}-anchor-link-title {
           font-size: ${cssVar.fontSizeSM};
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
       }
     `,
@@ -21,7 +28,7 @@ export const useStyle = createStyles(({ cssVar, token, css }) => {
       position: fixed;
       top: calc(${token.headerHeight}px + ${cssVar.marginXL} - 4px);
       inset-inline-end: 0;
-      width: 148px;
+      width: ${width}px;
       padding: 0;
       border-radius: ${cssVar.borderRadius};
       box-sizing: border-box;
@@ -48,7 +55,7 @@ export const useStyle = createStyles(({ cssVar, token, css }) => {
       }
     `,
     articleWrapper: css`
-      padding-inline: 48px 164px;
+      padding-inline: 48px ${width + 16}px;
       padding-block: 0 32px;
 
       @media only screen and (max-width: ${cssVar.screenLG}) {
@@ -72,14 +79,25 @@ interface AnchorItem {
 }
 
 const DocAnchor: React.FC<DocAnchorProps> = ({ showDebug, debugDemos = [] }) => {
-  const { styles } = useStyle();
+  const [anchorWidth, setAnchorWidth] = useLocalStorage<number>('ANT_DESIGN_ANCHOR_WIDTH', {
+    defaultValue: 200,
+  });
+
+  // Clamp width to constraints
+  const clampedWidth = Math.min(Math.max(anchorWidth, 148), 400);
+
+  const { styles } = useStyle(clampedWidth);
   const token = useTheme();
   const meta = useRouteMeta();
   const tab = useTabMeta();
 
   const renderAnchorItem = (item: AnchorItem): AnchorLinkItemProps => ({
     href: `#${item.id}`,
-    title: item.title,
+    title: (
+      <Tooltip title={item.title} placement="left">
+        <span>{item.title}</span>
+      </Tooltip>
+    ),
     key: item.id,
     children: item.children
       ?.filter((child) => showDebug || !debugDemos.includes(child.id))
@@ -87,9 +105,11 @@ const DocAnchor: React.FC<DocAnchorProps> = ({ showDebug, debugDemos = [] }) => 
         key: child.id,
         href: `#${child.id}`,
         title: (
-          <span className={clsx({ 'toc-debug': debugDemos.includes(child.id) })}>
-            {child?.title}
-          </span>
+          <Tooltip title={child.title} placement="left">
+            <span className={clsx({ 'toc-debug': debugDemos.includes(child.id) })}>
+              {child?.title}
+            </span>
+          </Tooltip>
         ),
       })),
   });
@@ -117,6 +137,7 @@ const DocAnchor: React.FC<DocAnchorProps> = ({ showDebug, debugDemos = [] }) => 
 
   return (
     <section className={styles.tocWrapper}>
+      <ResizeHandle onWidthChange={setAnchorWidth} />
       <Anchor
         affix={false}
         className={styles.anchorToc}
