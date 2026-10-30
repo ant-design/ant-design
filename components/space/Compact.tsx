@@ -2,8 +2,8 @@ import * as React from 'react';
 import { toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useOrientation } from '../_util/hooks';
-import type { Orientation } from '../_util/hooks';
+import { useOrientation } from '../_util/hooks/useOrientation';
+import type { Orientation } from '../_util/hooks/useOrientation';
 import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
