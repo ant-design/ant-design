@@ -36,11 +36,14 @@ export function isEleEllipsis(ele: HTMLElement): boolean {
   // Reset
   ele.removeChild(childDiv);
 
+  // Browser zoom can introduce tiny differences between the two DOMRects.
+  const horizontalTolerance = 0.001;
+
   // Range checker
   return (
     // Horizontal out of range
-    rect.left > childRect.left ||
-    childRect.right > rect.right ||
+    rect.left - childRect.left > horizontalTolerance ||
+    childRect.right - rect.right > horizontalTolerance ||
     // Vertical out of range
     rect.top > childRect.top ||
     childRect.bottom > rect.bottom
