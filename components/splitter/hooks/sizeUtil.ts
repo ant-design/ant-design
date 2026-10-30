@@ -80,6 +80,7 @@ export function autoPtgSizes(
   let sumMax = 0;
   let limitMin = 0;
   let limitMax = 1;
+  let finiteLimits = true;
   for (const index of undefinedIndexes) {
     const min = minPtgSizes[index] || 0;
     const max = maxPtgSizes[index] || 1;
@@ -87,10 +88,18 @@ export function autoPtgSizes(
     sumMax += max;
     limitMin = Math.max(limitMin, min);
     limitMax = Math.min(limitMax, max);
+    finiteLimits = finiteLimits && Number.isFinite(min) && Number.isFinite(max);
   }
 
-  // Impossible case, just average fill
-  if (sumMin > restPtg + CONSTRAINT_EPSILON || sumMax < restPtg - CONSTRAINT_EPSILON) {
+  // Impossible case, just average fill.
+  // Limits given in px are divided by the container size, so before the container
+  // is measured they turn into `Infinity` / `NaN`. Such a render carries no
+  // constraint information, so keep the legacy fallback for it instead of
+  // reporting an average split that the real layout will never use.
+  if (
+    finiteLimits &&
+    (sumMin > restPtg + CONSTRAINT_EPSILON || sumMax < restPtg - CONSTRAINT_EPSILON)
+  ) {
     const avg = restPtg / undefinedCount;
     return ptgSizes.map((size) => (size === undefined ? avg : size));
   }
