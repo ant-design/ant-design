@@ -120,7 +120,11 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     file: UploadFile,
     changedFileList: UploadFile[],
     event?: { percent: number },
+    // Whether to flush update synchronously. `onBatchStart` will flush the whole batch at once.
+    sync = true,
   ) => {
+    const flush = sync ? flushSync : (fn: () => void) => fn();
+
     let cloneList = [...changedFileList];
 
     let exceedMaxCount = false;
@@ -135,8 +139,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
     // Prevent React18 auto batch since input[upload] trigger process at same time
     // which makes fileList closure problem
-    // eslint-disable-next-line react-dom/no-flush-sync
-    flushSync(() => {
+    flush(() => {
       setMergedFileList(cloneList);
     });
 
@@ -155,8 +158,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       // We should ignore event if current file is exceed `maxCount`
       cloneList.some((f) => f.uid === file.uid)
     ) {
-      // eslint-disable-next-line react-dom/no-flush-sync
-      flushSync(() => {
+      flush(() => {
         onChange?.(changeInfo);
       });
     }
@@ -209,36 +211,39 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       newFileList = updateFileList(fileObj, newFileList);
     });
 
-    objectFileList.forEach((fileObj, index) => {
-      // Repeat trigger `onChange` event for compatible
-      let triggerFileObj: UploadFile = fileObj;
+    // eslint-disable-next-line react-dom/no-flush-sync
+    flushSync(() => {
+      objectFileList.forEach((fileObj, index) => {
+        // Repeat trigger `onChange` event for compatible
+        let triggerFileObj: UploadFile = fileObj;
 
-      if (!filteredFileInfoList[index].parsedFile) {
-        // `beforeUpload` return false
-        const { originFileObj } = fileObj;
-        let clone: UploadFile;
+        if (!filteredFileInfoList[index].parsedFile) {
+          // `beforeUpload` return false
+          const { originFileObj } = fileObj;
+          let clone: UploadFile;
 
-        try {
-          clone = new File([originFileObj], originFileObj.name, {
-            type: originFileObj.type,
-          }) as any as UploadFile;
-        } catch {
-          clone = new Blob([originFileObj], {
-            type: originFileObj.type,
-          }) as any as UploadFile;
-          clone.name = originFileObj.name;
-          clone.lastModifiedDate = new Date();
-          clone.lastModified = new Date().getTime();
+          try {
+            clone = new File([originFileObj], originFileObj.name, {
+              type: originFileObj.type,
+            }) as any as UploadFile;
+          } catch {
+            clone = new Blob([originFileObj], {
+              type: originFileObj.type,
+            }) as any as UploadFile;
+            clone.name = originFileObj.name;
+            clone.lastModifiedDate = new Date();
+            clone.lastModified = new Date().getTime();
+          }
+
+          clone.uid = fileObj.uid;
+          triggerFileObj = clone;
+        } else {
+          // Inject `uploading` status
+          fileObj.status = 'uploading';
         }
 
-        clone.uid = fileObj.uid;
-        triggerFileObj = clone;
-      } else {
-        // Inject `uploading` status
-        fileObj.status = 'uploading';
-      }
-
-      onInternalChange(triggerFileObj, newFileList);
+        onInternalChange(triggerFileObj, newFileList, undefined, false);
+      });
     });
   };
 
