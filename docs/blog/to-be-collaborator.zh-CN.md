@@ -162,6 +162,6 @@ npm run test component/XXX
 
 ## 相关资源 {#related-resources}
 
-了解更多 Ant Design 的开发流程和和注意事项，可以参考：
+了解更多 Ant Design 的开发流程和注意事项，可以参考：
 
 - [贡献者开发维护指南](/docs/blog/contributor-development-maintenance-guide)
