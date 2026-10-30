@@ -64,6 +64,7 @@ const localeValues: Locale = {
     next_5: 'Հաջորդ 5 Էջերը',
     prev_3: 'Նախորդ 3 Էջերը',
     next_3: 'Հաջորդ 3 Էջերը',
+    page_size: 'Էջի չափը',
   },
   DatePicker: datePickerLocale,
   TimePicker: {
