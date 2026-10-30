@@ -160,6 +160,7 @@ const localeValues: Locale = {
     transparent: 'Transparente',
     singleColor: 'Couleur unique',
     gradientColor: 'Couleur dégradée',
+    clear: 'Effacer la couleur',
   },
   Input: {
     otpCell: 'Caractère ${index} sur ${total}',

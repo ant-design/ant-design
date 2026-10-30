@@ -159,6 +159,7 @@ const localeValues: Locale = {
     transparent: 'გამჭვირვალე',
     singleColor: 'ერთი ფერი',
     gradientColor: 'გრადიენტური ფერი',
+    clear: 'ფერის გასუფთავება',
   },
 };
 
