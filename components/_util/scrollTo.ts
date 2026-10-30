@@ -20,7 +20,7 @@ const scrollTo = (y: number, options: ScrollToOptions = {}) => {
 
   const scroll = (top: number) => {
     if (isWindow(container)) {
-      container.scrollTo(window.pageXOffset, top);
+      container.scrollTo(container.pageXOffset, top);
     } else if (isDocument(container)) {
       container.documentElement.scrollTop = top;
     } else {
