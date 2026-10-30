@@ -280,6 +280,42 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     [setMergedSelectedKeys, getRecordByKey, onSelectionChange, preserveSelectedRowKeys],
   );
 
+  // ======================= Prune ========================
+  // Remove the keys which are not exist in `data` if `preserveSelectedRowKeys` is false
+  //
+  // `getRecordByKey` is not stable so this effect runs on every render. Without this guard a
+  // controlled `selectedRowKeys` would call `setSelectedKeys` on every render forever, since the
+  // keys removed by the parent are never updated and always look missing. It also skips the mount
+  // render so that the initial behavior is unchanged.
+  const prunedDataRef = React.useRef(data);
+  // Dedupe the `onChange` calls only, in case the controlled `selectedRowKeys` is not updated.
+  const lastPrunedKeysRef = React.useRef<Key[] | null>(null);
+
+  React.useEffect(() => {
+    // Only sync when `data` changed
+    if (preserveSelectedRowKeys || prunedDataRef.current === data) {
+      return;
+    }
+    prunedDataRef.current = data;
+
+    const availableKeys = mergedSelectedKeyList.filter((key) => getRecordByKey(key) !== undefined);
+    if (availableKeys.length === mergedSelectedKeyList.length) {
+      return;
+    }
+
+    // Avoid duplicated `onChange`
+    const lastPrunedKeys = lastPrunedKeysRef.current;
+    if (
+      lastPrunedKeys?.length === availableKeys.length &&
+      lastPrunedKeys.every((key, index) => key === availableKeys[index])
+    ) {
+      return;
+    }
+    lastPrunedKeysRef.current = availableKeys;
+
+    setSelectedKeys(availableKeys, 'none');
+  }, [data, mergedSelectedKeyList, getRecordByKey, preserveSelectedRowKeys, setSelectedKeys]);
+
   // ====================== Selections ======================
   // Trigger single `onSelect` event
   const triggerSingleSelection = useCallback(
