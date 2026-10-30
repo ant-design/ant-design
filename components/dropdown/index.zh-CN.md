@@ -72,6 +72,10 @@ demo:
 
 请确保 `Dropdown` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
 
+当提供 `menu.items` 时，未显式指定角色的非原生触发元素默认具有 `role="button"`，原生控件及带 `href` 的链接保留其原生语义。触发元素默认具有 `tabIndex={0}`，支持按钮式 Enter 和空格键激活，可编辑控件保留原生按键行为，并获得 `aria-haspopup="menu"`，且 `aria-expanded` 会随菜单展开状态更新。传给 `Dropdown` 的 `aria-label`、`aria-describedby` 等 ARIA 属性会传递给触发元素。子元素已有的属性优先，但 `aria-expanded` 始终反映菜单的实际状态。使用 `Button` 并设置 `trigger={['click']}`，可通过键盘操作菜单触发元素。
+
+通过键盘激活时，焦点会移入菜单，除非显式设置 `autoFocus={false}`。非原生菜单触发元素还会根据禁用状态获得 `aria-disabled`，已有的 ARIA 属性值优先。
+
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
