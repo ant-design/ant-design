@@ -778,6 +778,56 @@ describe('Table.rowSelection', () => {
       expect(onChange).toHaveBeenCalledWith([0, 2], expect.anything(), { type: 'all' });
     });
 
+    it.each([true, false])(
+      'SELECTION_ALL should preserve missing records with checkStrictly=%s',
+      (checkStrictly) => {
+        jest.useFakeTimers();
+        const onChange = jest.fn();
+        const previous = { key: 'previous', name: 'Previous' };
+        const selectedDisabled = { key: 'selected-disabled', name: 'Selected', disabled: true };
+        const current = { key: 'current', name: 'Current' };
+        const disabled = { key: 'disabled', name: 'Disabled', disabled: true };
+        const rowSelection = {
+          onChange,
+          checkStrictly,
+          preserveSelectedRowKeys: true,
+          defaultSelectedRowKeys: [previous.key, selectedDisabled.key],
+          getCheckboxProps: (record: (typeof presetData)[number]) => ({
+            disabled: record.disabled,
+          }),
+          selections: [Table.SELECTION_ALL],
+        };
+        const { container, rerender } = render(
+          createTable({ dataSource: [previous, selectedDisabled], rowSelection }),
+        );
+
+        rerender(createTable({ dataSource: [current, disabled], rowSelection }));
+        fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
+        act(() => {
+          jest.runAllTimers();
+        });
+        fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
+
+        expect(onChange).toHaveBeenLastCalledWith(
+          [previous.key, selectedDisabled.key, current.key],
+          [previous, selectedDisabled, current],
+          { type: 'all' },
+        );
+        expect(getSelections(container)).toEqual([current.key]);
+
+        fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
+        act(() => {
+          jest.runAllTimers();
+        });
+        fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
+        expect(onChange).toHaveBeenLastCalledWith(
+          [previous.key, selectedDisabled.key, current.key],
+          [previous, selectedDisabled, current],
+          { type: 'all' },
+        );
+      },
+    );
+
     it.each(['children', 'nodes'])(
       'SELECTION_ALL should select tree descendants across pages with %s',
       (childrenColumnName) => {
