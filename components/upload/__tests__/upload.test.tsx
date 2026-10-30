@@ -1199,6 +1199,124 @@ describe('Upload', () => {
     });
   });
 
+  describe('batch upload many files', () => {
+    const FILE_COUNT = 100;
+
+    const createFiles = (count = FILE_COUNT) =>
+      Array.from({ length: count }, (_, index) => {
+        const file = new File(['foo'], `file-${index}.png`, { type: 'image/png' }) as RcFile;
+        (file as any).uid = `rc-upload-batch-${index}`;
+        return file;
+      });
+
+    it('should commit batch together in uncontrolled mode', () => {
+      const onChange = jest.fn();
+      const onRender = jest.fn();
+      const ref = React.createRef<UploadRef>();
+      const { container } = render(
+        <React.Profiler id="upload" onRender={onRender}>
+          <Upload ref={ref} onChange={onChange} />
+        </React.Profiler>,
+      );
+      const files = createFiles();
+      onRender.mockReset();
+
+      act(() => {
+        ref.current?.onBatchStart?.(files.map((file) => ({ file, parsedFile: file })));
+      });
+
+      // Keep trigger `onChange` for each file for compatible
+      expect(onChange).toHaveBeenCalledTimes(FILE_COUNT);
+      onChange.mock.calls.forEach(([info], index) => {
+        expect(info.file.uid).toBe(files[index].uid);
+        expect(info.fileList).toHaveLength(FILE_COUNT);
+      });
+      expect(container.querySelectorAll('.ant-upload-list-item')).toHaveLength(FILE_COUNT);
+
+      // Whole batch should be committed together instead of once per file (was ~2 * FILE_COUNT).
+      // A few extra commits come from UploadList effects (motion etc.), so not strictly 1.
+      expect(onRender.mock.calls.length).toBeLessThan(10);
+    });
+
+    it('should commit batch together in controlled mode', () => {
+      const onChange = jest.fn();
+      const onRender = jest.fn();
+      const ref = React.createRef<UploadRef>();
+
+      const Demo: React.FC = () => {
+        const [fileList, setFileList] = React.useState<UploadFile[]>([]);
+        return (
+          <Upload
+            ref={ref}
+            fileList={fileList}
+            onChange={(info) => {
+              onChange(info);
+              setFileList(info.fileList);
+            }}
+          />
+        );
+      };
+
+      const { container } = render(
+        <React.Profiler id="upload" onRender={onRender}>
+          <Demo />
+        </React.Profiler>,
+      );
+      const files = createFiles();
+      onRender.mockReset();
+
+      act(() => {
+        ref.current?.onBatchStart?.(files.map((file) => ({ file, parsedFile: file })));
+      });
+
+      expect(onChange).toHaveBeenCalledTimes(FILE_COUNT);
+      expect(container.querySelectorAll('.ant-upload-list-item')).toHaveLength(FILE_COUNT);
+      expect(onRender.mock.calls.length).toBeLessThan(10);
+    });
+
+    it('should read latest fileList from ref in onChange during batch', () => {
+      const ref = React.createRef<UploadRef>();
+      const refFileListLengths: number[] = [];
+      const { container } = render(
+        <Upload
+          ref={ref}
+          onChange={() => {
+            refFileListLengths.push(ref.current!.fileList.length);
+          }}
+        />,
+      );
+      const files = createFiles(3);
+
+      act(() => {
+        ref.current?.onBatchStart?.(files.map((file) => ({ file, parsedFile: file })));
+      });
+
+      expect(refFileListLengths).toEqual([3, 3, 3]);
+      expect(container.querySelectorAll('.ant-upload-list-item-uploading')).toHaveLength(3);
+    });
+
+    it('should get latest fileList when customRequest finishes synchronously', async () => {
+      const onChange = jest.fn();
+      const files = createFiles(3);
+
+      const { container } = render(
+        <Upload customRequest={({ onSuccess }) => onSuccess?.('ok')} onChange={onChange} />,
+      );
+
+      fireEvent.change(container.querySelector('input')!, {
+        target: { files },
+      });
+
+      await waitFakeTimer();
+
+      const lastInfo = onChange.mock.calls[onChange.mock.calls.length - 1][0];
+      expect(lastInfo.fileList).toHaveLength(files.length);
+      lastInfo.fileList.forEach((file: UploadFile) => {
+        expect(file.status).toBe('done');
+      });
+    });
+  });
+
   it('container ref', () => {
     const ref = React.createRef<UploadRef<any>>();
     render(<Upload ref={ref} />);
