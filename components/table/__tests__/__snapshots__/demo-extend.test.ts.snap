@@ -25371,7 +25371,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
             >
               <colgroup>
                 <col
-                  class="ant-table-selection-col"
+                  class="ant-table-selection-col ant-table-selection-col-with-dropdown"
                 />
               </colgroup>
               <thead
