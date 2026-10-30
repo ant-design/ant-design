@@ -60,15 +60,16 @@ export type ColorPickerSemanticType = {
     body?: string;
     content?: string;
     description?: string;
-    popup?: { root?: string };
+    popup?: { root?: string; container?: string };
   };
   styles?: {
     root?: React.CSSProperties;
     body?: React.CSSProperties;
     content?: React.CSSProperties;
     description?: React.CSSProperties;
+    /** @deprecated Will be removed in v7. Please use `popup.container` instead. */
     popupOverlayInner?: React.CSSProperties;
-    popup?: { root?: React.CSSProperties };
+    popup?: { root?: React.CSSProperties; container?: React.CSSProperties };
   };
 };
 
