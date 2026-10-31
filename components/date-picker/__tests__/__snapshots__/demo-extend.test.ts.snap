@@ -88180,6 +88180,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"

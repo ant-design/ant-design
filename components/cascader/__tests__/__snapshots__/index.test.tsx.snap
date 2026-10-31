@@ -916,6 +916,7 @@ exports[`Cascader legacy props should support showCheckedStrategy child 1`] = `
     class="ant-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -978,6 +979,7 @@ exports[`Cascader legacy props should support showCheckedStrategy parent 1`] = `
     class="ant-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -1182,6 +1184,7 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
     class="ant-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -1257,6 +1260,7 @@ exports[`Cascader rtl render component should be rendered correctly in RTL direc
     class="ant-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -1497,6 +1501,7 @@ exports[`Cascader support controlled mode 1`] = `
     class="ant-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"

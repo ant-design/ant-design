@@ -277,6 +277,7 @@ exports[`Pagination > ConfigProvider > should be rendered correctly when compone
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"

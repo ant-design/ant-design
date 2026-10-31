@@ -111,6 +111,7 @@ Array [
                       class="ant-select-suffix"
                     >
                       <span
+                        aria-hidden="true"
                         aria-label="down"
                         class="anticon anticon-down"
                         role="img"
@@ -361,6 +362,7 @@ Array [
                       class="ant-select-suffix"
                     >
                       <span
+                        aria-hidden="true"
                         aria-label="down"
                         class="anticon anticon-down"
                         role="img"
@@ -1003,6 +1005,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -1421,6 +1424,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -1693,6 +1697,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -2195,6 +2200,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -2571,6 +2577,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -2703,6 +2710,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -2871,6 +2879,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -5327,6 +5336,7 @@ Array [
                               class="ant-select-suffix"
                             >
                               <span
+                                aria-hidden="true"
                                 aria-label="down"
                                 class="anticon anticon-down"
                                 role="img"
@@ -11474,6 +11484,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -11730,6 +11741,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -11971,6 +11983,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -12245,6 +12258,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -13031,6 +13045,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -13162,6 +13177,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -13329,6 +13345,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -23008,6 +23025,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -23178,6 +23196,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -24648,6 +24667,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                             class="ant-select-suffix"
                           >
                             <span
+                              aria-hidden="true"
                               aria-label="down"
                               class="anticon anticon-down"
                               role="img"
@@ -25042,6 +25062,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -29285,6 +29306,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -29510,6 +29532,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -29655,6 +29678,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -32597,6 +32621,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -32736,6 +32761,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -32889,6 +32915,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
