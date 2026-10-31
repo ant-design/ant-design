@@ -97,25 +97,30 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
       return;
     }
     let returnValueOfOnOk: PromiseLike<any>;
-    if (emitEvent) {
-      returnValueOfOnOk = actionFn(e);
-      if (quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
+    try {
+      if (emitEvent) {
+        returnValueOfOnOk = actionFn(e);
+        if (quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
+          clickedRef.current = false;
+          onInternalClose(e);
+          buttonOnClick?.(e);
+          return;
+        }
+      } else if (actionFn.length) {
+        returnValueOfOnOk = actionFn(close);
+        // https://github.com/ant-design/ant-design/issues/23358
         clickedRef.current = false;
-        onInternalClose(e);
-        buttonOnClick?.(e);
-        return;
+      } else {
+        returnValueOfOnOk = actionFn();
+        if (!isThenable(returnValueOfOnOk)) {
+          onInternalClose();
+          buttonOnClick?.(e);
+          return;
+        }
       }
-    } else if (actionFn.length) {
-      returnValueOfOnOk = actionFn(close);
-      // https://github.com/ant-design/ant-design/issues/23358
+    } catch (error) {
       clickedRef.current = false;
-    } else {
-      returnValueOfOnOk = actionFn();
-      if (!isThenable(returnValueOfOnOk)) {
-        onInternalClose();
-        buttonOnClick?.(e);
-        return;
-      }
+      throw error;
     }
     buttonOnClick?.(e);
     handlePromiseOnOk(returnValueOfOnOk);
