@@ -76,6 +76,15 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = (token) => {
         margin: 0,
         padding: 0,
         overflow: 'hidden',
+        // The track gets an inline pixel width (slides x slideWidth). In a flex or
+        // grid container that sizes items by content, that width would stretch the
+        // slider, and the next measure would grow it again until it overflows the
+        // page. Zero the intrinsic contribution of the list and keep filling the
+        // slider with `min-width` instead, so the carousel width always comes from
+        // the surrounding layout and never from its own track.
+        // https://github.com/ant-design/ant-design/issues/59664
+        width: 0,
+        minWidth: '100%',
 
         '&:focus': {
           outline: 'none',

@@ -109,6 +109,24 @@ describe('Carousel', () => {
     expect(spy).toHaveBeenCalled();
   });
 
+  it('should not stretch inside containers that size items by content', () => {
+    const { container } = render(
+      <Carousel>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </Carousel>,
+    );
+    // react-slick gives `.slick-track` an inline pixel width. If `.slick-list`
+    // keeps `width: auto`, that width propagates to the carousel root, so inside
+    // a flex/grid container the carousel grows to its own track width, and the
+    // next resize measure grows it again.
+    // https://github.com/ant-design/ant-design/issues/59664
+    const list = container.querySelector<HTMLElement>('.slick-list')!;
+    expect(getComputedStyle(list).width).toBe('0px');
+    expect(getComputedStyle(list).minWidth).toBe('100%');
+  });
+
   describe('should works for dotPosition', () => {
     (['left', 'right', 'top', 'bottom'] as const).forEach((dotPosition) => {
       it(dotPosition, () => {
