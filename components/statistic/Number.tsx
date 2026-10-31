@@ -3,6 +3,31 @@ import * as React from 'react';
 import { isFunction, isNumber } from '../_util/is';
 import type { FormatConfig, valueType } from './utils';
 
+/**
+ * Expand exponential notation (e.g. `1e-7`, `1.5e+21`) into plain decimal digits,
+ * since `String(number)` uses it for very small or very large numbers.
+ */
+function toPlainString(val: string) {
+  const cells = val.match(/^(-?)(\d+)(?:\.(\d+))?e([+-]?\d+)$/i);
+  if (!cells) {
+    return val;
+  }
+  const [, negative, int, decimal = '', exponent] = cells;
+  const digits = `${int}${decimal}`;
+  const pointIndex = int.length + Number(exponent);
+
+  let plain: string;
+  if (pointIndex <= 0) {
+    plain = `0.${'0'.repeat(-pointIndex)}${digits}`;
+  } else if (pointIndex >= digits.length) {
+    plain = digits.padEnd(pointIndex, '0');
+  } else {
+    plain = `${digits.slice(0, pointIndex)}.${digits.slice(pointIndex)}`;
+  }
+
+  return `${negative}${plain}`;
+}
+
 interface NumberProps extends FormatConfig {
   value: valueType;
   prefixCls?: string;
@@ -29,7 +54,7 @@ const StatisticNumber: React.FC<NumberProps> = (props) => {
     valueNode = formatter(value);
   } else {
     // Internal formatter
-    const val = String(value);
+    const val = toPlainString(String(value));
     const cells = val.match(/^(-?)(\d*)(\.(\d+))?$/);
 
     // Process if illegal number
