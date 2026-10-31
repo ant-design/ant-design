@@ -3,6 +3,7 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import type { PopconfirmProps, PopconfirmSemanticAllType } from '.';
 import ActionButton from '../_util/ActionButton';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import Button from '../button/Button';
@@ -10,7 +11,6 @@ import { convertLegacyProps } from '../button/buttonHelpers';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type { PopconfirmProps, PopconfirmSemanticAllType } from '.';
 import PopoverPurePanel from '../popover/PurePanel';
 import useStyle from './style';
 
