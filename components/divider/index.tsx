@@ -193,7 +193,7 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Divider');
 
-    warning(!children || !mergedVertical, 'usage', '`children` not working in `vertical` mode.');
+    warning(!hasChildren || !mergedVertical, 'usage', '`children` not working in `vertical` mode.');
     warning(
       !validTitlePlacement,
       'usage',
