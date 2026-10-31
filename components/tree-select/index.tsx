@@ -194,7 +194,8 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     popupMatchSelectWidth,
     allowClear,
     variant: customVariant,
-    dropdownStyle: _dropdownStyle,
+    popupStyle,
+    dropdownStyle,
     dropdownRender,
     popupRender,
     onDropdownVisibleChange,
@@ -411,7 +412,12 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
   );
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('SelectLike', mergedStyles.popup?.root?.zIndex as number);
+  const mergedPopupStyle: React.CSSProperties = {
+    ...mergedStyles.popup?.root,
+    ...(popupStyle ?? dropdownStyle),
+  };
+
+  const [zIndex] = useZIndex('SelectLike', mergedPopupStyle.zIndex as number);
 
   return (
     <RcTreeSelect
@@ -443,7 +449,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}
       popupClassName={mergedPopupClassName}
-      popupStyle={{ ...mergedStyles.root, ...mergedStyles.popup?.root, zIndex }}
+      popupStyle={{ ...mergedStyles.root, ...mergedPopupStyle, zIndex }}
       popupRender={mergedPopupRender}
       onPopupVisibleChange={mergedOnOpenChange}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}

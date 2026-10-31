@@ -110,6 +110,7 @@ describe('TreeSelect', () => {
     errSpy.mockRestore();
   });
 
+  // https://github.com/ant-design/ant-design/issues/59736
   it('legacy dropdownStyle', () => {
     resetWarned();
 
@@ -118,7 +119,29 @@ describe('TreeSelect', () => {
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
     );
-    expect(container.querySelector('.ant-select-dropdown')).toBeTruthy();
+    expect(container.querySelector('.ant-select-dropdown')).toHaveStyle({
+      color: 'rgb(255, 0, 0)',
+    });
+
+    errSpy.mockRestore();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59736
+  it('should merge styles.popup.root with popupStyle, which overrides dropdownStyle', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(
+      <TreeSelect
+        styles={{ popup: { root: { border: '1px solid blue' } } }}
+        dropdownStyle={{ backgroundColor: 'green', zIndex: 1500 }}
+        popupStyle={{ backgroundColor: 'red', zIndex: 2000 }}
+        open
+      />,
+    );
+    expect(container.querySelector('.ant-select-dropdown')).toHaveStyle({
+      border: '1px solid blue',
+      backgroundColor: 'rgb(255, 0, 0)',
+      zIndex: 2000,
+    });
 
     errSpy.mockRestore();
   });
