@@ -68,6 +68,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
             class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
+              aria-hidden="true"
               class="ant-empty-image"
             >
               <svg
@@ -213,6 +214,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
             class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
+              aria-hidden="true"
               class="ant-empty-image"
             >
               <svg
@@ -358,6 +360,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
             class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
+              aria-hidden="true"
               class="ant-empty-image"
             >
               <svg
@@ -1388,6 +1391,7 @@ exports[`renders components/auto-complete/demo/disabled-custom-debug.tsx extend 
           class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg
@@ -1977,6 +1981,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
                   >
                     <div
+                      aria-hidden="true"
                       class="ant-empty-image"
                     >
                       <svg
@@ -2118,6 +2123,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
                     >
                       <div
+                        aria-hidden="true"
                         class="ant-empty-image"
                       >
                         <svg
@@ -2382,6 +2388,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
                     >
                       <div
+                        aria-hidden="true"
                         class="ant-empty-image"
                       >
                         <svg
@@ -2582,6 +2589,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
                     >
                       <div
+                        aria-hidden="true"
                         class="ant-empty-image"
                       >
                         <svg
@@ -2787,6 +2795,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
                     >
                       <div
+                        aria-hidden="true"
                         class="ant-empty-image"
                       >
                         <svg
