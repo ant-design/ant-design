@@ -17,6 +17,8 @@ interface FormItemInputMiscProps {
   children: React.ReactNode;
   errors: React.ReactNode[];
   warnings: React.ReactNode[];
+  /** Used for the help id. Same as `fieldId`, or generated when `noStyle` items need it */
+  helpFieldId?: string;
   marginBottom?: number | null;
   onErrorVisibleChanged?: (visible: boolean) => void;
   /** @internal do not use in any of your production. */
@@ -57,6 +59,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     extra,
     help,
     fieldId,
+    helpFieldId,
     marginBottom,
     onErrorVisibleChanged,
     label,
@@ -126,7 +129,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
     marginBottom !== null || errors.length || warnings.length ? (
       <FormItemPrefixContext.Provider value={formItemContext}>
         <ErrorList
-          fieldId={fieldId}
+          fieldId={helpFieldId}
           errors={errors}
           warnings={warnings}
           help={help}

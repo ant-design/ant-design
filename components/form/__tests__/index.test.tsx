@@ -343,6 +343,124 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item-explain')?.id).toBe('test_help');
   });
 
+  // https://github.com/ant-design/ant-design/issues/59702
+  it.each([
+    ['without name', undefined],
+    ['with name', 'address'],
+  ])('noStyle input should be described by the help of its parent %s', async (_, parentName) => {
+    const { container } = pureRender(
+      <Form>
+        <Form.Item label="Address" name={parentName}>
+          <Form.Item name="city" noStyle rules={[{ required: true, message: 'City is required' }]}>
+            <input />
+          </Form.Item>
+        </Form.Item>
+      </Form>,
+    );
+
+    await changeValue(0, 'Shanghai');
+    await changeValue(0, '');
+
+    const describedBy = container.querySelector('input')?.getAttribute('aria-describedby');
+    expect(describedBy).toBeTruthy();
+    expect(document.getElementById(describedBy!)).toHaveTextContent('City is required');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59702
+  it('noStyle input should be described by the help of its parent when there are warnings', async () => {
+    const { container } = pureRender(
+      <Form>
+        <Form.Item label="Address">
+          <Form.Item
+            name="city"
+            noStyle
+            rules={[{ len: 3, warningOnly: true, message: 'City should have 3 characters' }]}
+          >
+            <input />
+          </Form.Item>
+        </Form.Item>
+      </Form>,
+    );
+
+    await changeValue(0, 'Shanghai');
+
+    const describedBy = container.querySelector('input')?.getAttribute('aria-describedby');
+    expect(container.querySelector('.ant-form-item-explain-warning')).toBeTruthy();
+    expect(describedBy).toBeTruthy();
+    expect(document.getElementById(describedBy!)).toHaveTextContent(
+      'City should have 3 characters',
+    );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59702
+  it('noStyle input without parent should not be described by a missing help', async () => {
+    const { container } = pureRender(
+      <Form>
+        <Form.Item name="city" noStyle rules={[{ required: true, message: 'City is required' }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    await changeValue(0, 'Shanghai');
+    await changeValue(0, '');
+
+    expect(container.querySelector('input')).toHaveAttribute('aria-invalid', 'true');
+    expect(container.querySelector('input')).not.toHaveAttribute('aria-describedby');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59702
+  it('noStyle input with `help={false}` should not be described by the help of its parent', async () => {
+    const { container } = pureRender(
+      <Form>
+        <Form.Item label="Address">
+          <Form.Item
+            name="city"
+            noStyle
+            help={false}
+            rules={[{ required: true, message: 'City is required' }]}
+          >
+            <input />
+          </Form.Item>
+          <Form.Item
+            name="street"
+            noStyle
+            rules={[{ required: true, message: 'Street is required' }]}
+          >
+            <input />
+          </Form.Item>
+        </Form.Item>
+      </Form>,
+    );
+
+    await changeValue(0, 'Shanghai');
+    await changeValue(0, '');
+    await changeValue(1, 'Nanjing Road');
+    await changeValue(1, '');
+
+    const [city, street] = container.querySelectorAll('input');
+    expect(city).toHaveAttribute('aria-invalid', 'true');
+    expect(city).not.toHaveAttribute('aria-describedby');
+    expect(document.getElementById(street.getAttribute('aria-describedby')!)).toHaveTextContent(
+      'Street is required',
+    );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59702
+  it('noStyle input should not be described by its own help, which is not rendered', () => {
+    const { container } = pureRender(
+      <Form>
+        <Form.Item label="Address" help="Enter the full address">
+          <Form.Item name="city" noStyle help="Enter the city">
+            <input />
+          </Form.Item>
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('input')).not.toHaveAttribute('aria-describedby');
+  });
+
   it('input element should have the prop aria-invalid when there are errors', async () => {
     const { container } = render(
       <Form>
