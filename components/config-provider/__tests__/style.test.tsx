@@ -1620,6 +1620,21 @@ describe('ConfigProvider support style and className props', () => {
     );
   });
 
+  // https://github.com/ant-design/ant-design/issues/59733
+  it('Should not apply Steps className & style to Timeline', () => {
+    const { container } = render(
+      <ConfigProvider
+        steps={{ className: 'config-provider-steps', style: { color: 'rgb(255, 0, 0)' } }}
+      >
+        <Timeline items={[{ children: 'test item' }]} />
+      </ConfigProvider>,
+    );
+
+    const timeline = container.querySelector('.ant-timeline');
+    expect(timeline).not.toHaveClass('config-provider-steps');
+    expect(timeline).not.toHaveStyle({ color: 'rgb(255, 0, 0)' });
+  });
+
   it('Should Transfer className works', () => {
     const mockData = [
       {
