@@ -410,7 +410,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position: absolute; bottom: 0px; left: 0px;"
+                style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
               >
                 <span
                   class="ant-tooltip-arrow-content"
@@ -477,7 +477,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position: absolute; bottom: 0px; left: 0px;"
+                style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
               >
                 <span
                   class="ant-tooltip-arrow-content"
@@ -544,7 +544,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position: absolute; bottom: 0px; left: 0px;"
+                style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
               >
                 <span
                   class="ant-tooltip-arrow-content"
@@ -611,7 +611,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position: absolute; bottom: 0px; left: 0px;"
+                style="position: absolute; bottom: 0px; left: clamp(12px, var(--arrow-x), calc(100% - 12px));"
               >
                 <span
                   class="ant-tooltip-arrow-content"
