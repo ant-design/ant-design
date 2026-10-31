@@ -14,7 +14,8 @@ import type {
   TableLocale,
   TransformColumns,
 } from '../../interface';
-import { getColumnKey, getColumnPos, renderColumnTitle } from '../../util';
+import type { ColumnPosNode } from '../../util';
+import { getColumnKey, getColumnPos, getColumnPosTree, renderColumnTitle } from '../../util';
 import FilterDropdown, { flattenKeys } from './FilterDropdown';
 
 export interface FilterState<RecordType = AnyObject> {
@@ -79,9 +80,11 @@ function injectFilter<RecordType extends AnyObject = AnyObject>(
   getPopupContainer?: GetPopupContainer,
   pos?: string,
   rootClassName?: string,
+  columnPosTree?: (ColumnPosNode | undefined)[],
 ): ColumnsType<RecordType> {
   return columns.map((column, index) => {
-    const columnPos = getColumnPos(index, pos);
+    const columnPosNode = columnPosTree?.[index];
+    const columnPos = columnPosNode?.pos ?? getColumnPos(index, pos);
     const {
       filterOnClose = true,
       filterMultiple = true,
@@ -133,6 +136,7 @@ function injectFilter<RecordType extends AnyObject = AnyObject>(
           getPopupContainer,
           columnPos,
           rootClassName,
+          columnPosNode?.children,
         ),
       };
     }
@@ -234,15 +238,23 @@ export interface FilterConfig<RecordType = AnyObject> {
   rootClassName?: string;
 }
 
-const getMergedColumns = <RecordType extends AnyObject = AnyObject>(
-  rawMergedColumns: ColumnsType<RecordType>,
-): ColumnsType<RecordType> =>
-  rawMergedColumns.flatMap((column) => {
-    if ('children' in column) {
-      return [column, ...getMergedColumns<RecordType>(column.children || [])];
+const getColumnKeyMap = <RecordType extends AnyObject = AnyObject>(
+  columns: ColumnsType<RecordType>,
+  pos?: string,
+  keyMap = new Map<Key, ColumnsType<RecordType>[number]>(),
+) => {
+  (columns || []).forEach((column, index) => {
+    const columnPos = getColumnPos(index, pos);
+    const key = getColumnKey(column, columnPos);
+    if (!keyMap.has(key)) {
+      keyMap.set(key, column);
     }
-    return [column];
+    if ('children' in column) {
+      getColumnKeyMap(column.children, columnPos, keyMap);
+    }
   });
+  return keyMap;
+};
 
 const useFilter = <RecordType extends AnyObject = AnyObject>(
   props: FilterConfig<RecordType>,
@@ -254,7 +266,7 @@ const useFilter = <RecordType extends AnyObject = AnyObject>(
   const {
     prefixCls,
     dropdownPrefixCls,
-    mergedColumns: rawMergedColumns,
+    mergedColumns,
     baseColumns,
     onFilterChange,
     getPopupContainer,
@@ -263,17 +275,14 @@ const useFilter = <RecordType extends AnyObject = AnyObject>(
   } = props;
   const warning = devUseWarning('Table');
 
-  const mergedColumns = React.useMemo(
-    () => getMergedColumns<RecordType>(baseColumns ?? rawMergedColumns ?? []),
-    [baseColumns, rawMergedColumns],
-  );
+  const collectColumns = baseColumns ?? mergedColumns;
 
   const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(() =>
-    collectFilterStates(mergedColumns, true),
+    collectFilterStates(collectColumns, true),
   );
 
   const mergedFilterStates = React.useMemo(() => {
-    const collectedStates = collectFilterStates(mergedColumns, false);
+    const collectedStates = collectFilterStates(collectColumns, false);
     if (collectedStates.length === 0) {
       return collectedStates;
     }
@@ -290,13 +299,10 @@ const useFilter = <RecordType extends AnyObject = AnyObject>(
     // Return if not controlled
     if (filteredKeysIsAllNotControlled) {
       // Filter column may have been removed
-      const keyList = (mergedColumns || []).map((column, index) =>
-        getColumnKey(column, getColumnPos(index)),
-      );
+      const columnKeyMap = getColumnKeyMap(collectColumns);
       return filterStates.reduce<FilterState<RecordType>[]>((list, item) => {
-        const keyIndex = keyList.indexOf(item.key);
-        if (keyIndex !== -1) {
-          const col = mergedColumns[keyIndex];
+        const col = columnKeyMap.get(item.key);
+        if (col) {
           list.push({
             ...item,
             column: {
@@ -317,7 +323,7 @@ const useFilter = <RecordType extends AnyObject = AnyObject>(
     );
 
     return collectedStates;
-  }, [mergedColumns, filterStates]);
+  }, [collectColumns, filterStates]);
 
   const filters = React.useMemo(
     () => generateFilterInfo<RecordType>(mergedFilterStates),
@@ -342,6 +348,7 @@ const useFilter = <RecordType extends AnyObject = AnyObject>(
       getPopupContainer,
       undefined,
       rootClassName,
+      getColumnPosTree(innerColumns, collectColumns, mergedColumns),
     );
 
   return [transformColumns, mergedFilterStates, filters] as const;

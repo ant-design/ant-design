@@ -82,6 +82,34 @@ describe('Table.filter', () => {
     }
   }
 
+  // Mock `matchMedia` with a screen width that can change after render
+  function mockScreenWidth(initialWidth: number) {
+    let width = initialWidth;
+    const listeners = new Map<string, (e: { matches: boolean }) => void>();
+    const matches = (query: string) => {
+      const [, type, size] = /\((min|max)-width: (\d+)px\)/.exec(query)!;
+      return type === 'min' ? width >= Number(size) : width <= Number(size);
+    };
+    jest.spyOn(window, 'matchMedia').mockImplementation(
+      (query) =>
+        ({
+          matches: matches(query),
+          addEventListener: (_: string, listener: (e: { matches: boolean }) => void) => {
+            listeners.set(query, listener);
+          },
+          removeEventListener: jest.fn(),
+        }) as any,
+    );
+    return (newWidth: number) => {
+      width = newWidth;
+      act(() => {
+        listeners.forEach((listener, query) => {
+          listener({ matches: matches(query) });
+        });
+      });
+    };
+  }
+
   beforeEach(() => {
     jest.useFakeTimers();
   });
@@ -467,6 +495,151 @@ describe('Table.filter', () => {
 
     expect(container.querySelectorAll('thead th')).toHaveLength(1);
     expect(renderedNames(container)).toEqual(['Alice', 'Carol']);
+  });
+
+  it.each<[string, (col: ColumnType<any>) => ColumnsType<any>, string, TableProps<any>]>([
+    [
+      'after a column hidden by responsive',
+      (col) => [{ title: 'Hidden', dataIndex: 'name', responsive: ['md'] }, col],
+      '1',
+      {},
+    ],
+    [
+      'with a sorter after a column hidden by responsive',
+      (col) => [
+        { title: 'Hidden', dataIndex: 'name', responsive: ['md'] },
+        { ...col, sorter: () => 0 },
+      ],
+      '1',
+      {},
+    ],
+    [
+      'after a hidden column',
+      (col) => [{ title: 'Hidden', dataIndex: 'name', hidden: true }, col],
+      '1',
+      {},
+    ],
+    [
+      'after a hidden column in an expandable table',
+      (col) => [{ title: 'Hidden', dataIndex: 'name', hidden: true }, col],
+      '1',
+      { expandable: { expandedRowRender: () => null } },
+    ],
+    [
+      'after a hidden column in a column group',
+      (col) => [
+        { title: 'Group', children: [{ title: 'Age', dataIndex: 'age', hidden: true }, col] },
+      ],
+      '0-1',
+      {},
+    ],
+    [
+      'after a column group',
+      (col) => [{ title: 'Group', children: [{ title: 'Age', dataIndex: 'age' }] }, col],
+      '1',
+      {},
+    ],
+    [
+      'inside a column group',
+      (col) => [{ title: 'Group', children: [{ title: 'Age', dataIndex: 'age' }, col] }],
+      '0-1',
+      {},
+    ],
+    [
+      'in an expandable table',
+      (col) => [col],
+      '0',
+      { expandable: { expandedRowRender: () => null } },
+    ],
+  ])('filters a column without key or dataIndex %s', (_, getColumns, columnKey, tableProps) => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <Table
+        columns={getColumns({
+          title: 'Name',
+          className: 'keyless-name',
+          filters: [
+            { text: 'Jack', value: 'Jack' },
+            { text: 'Lucy', value: 'Lucy' },
+          ],
+          onFilter: filterFn,
+          render: (_, record) => record.name,
+        })}
+        dataSource={data}
+        pagination={false}
+        onChange={onChange}
+        {...tableProps}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+    fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
+    fireEvent.click(
+      container.querySelector(
+        '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
+      )!,
+    );
+
+    const names = Array.from(container.querySelectorAll('tbody td.keyless-name')).map(
+      (td) => td.textContent,
+    );
+    expect(names).toEqual(['Jack']);
+    expect(onChange.mock.calls[0][1]).toEqual({ [columnKey]: ['Jack'] });
+  });
+
+  it('keeps the filter state of a column without key or dataIndex across responsive changes', () => {
+    const resizeScreen = mockScreenWidth(375);
+    const { container } = render(
+      <Table
+        columns={[
+          { title: 'Hidden', dataIndex: 'name', responsive: ['md'] },
+          {
+            title: 'Name',
+            className: 'keyless-name',
+            filters: [
+              { text: 'Jack', value: 'Jack' },
+              { text: 'Lucy', value: 'Lucy' },
+            ],
+            onFilter: filterFn,
+            render: (_, record) => record.name,
+          },
+        ]}
+        dataSource={data}
+        pagination={false}
+      />,
+    );
+    const getNames = () =>
+      Array.from(container.querySelectorAll('tbody td.keyless-name')).map((td) => td.textContent);
+    const filter = (...indexes: number[]) => {
+      fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+      indexes.forEach((index) => {
+        fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[index]);
+      });
+      fireEvent.click(
+        container.querySelector(
+          '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
+        )!,
+      );
+    };
+
+    filter(0);
+    expect(getNames()).toEqual(['Jack']);
+
+    resizeScreen(1024);
+    expect(container.querySelectorAll('thead th')).toHaveLength(2);
+    expect(getNames()).toEqual(['Jack']);
+    expect(container.querySelector('.ant-table-filter-trigger')).toHaveClass('active');
+
+    // Unselect Jack and select Lucy
+    filter(0, 1);
+    expect(getNames()).toEqual(['Lucy']);
+
+    resizeScreen(375);
+    expect(container.querySelectorAll('thead th')).toHaveLength(1);
+    expect(getNames()).toEqual(['Lucy']);
+    expect(container.querySelector('.ant-table-filter-trigger')).toHaveClass('active');
+
+    jest.restoreAllMocks();
   });
 
   it('should handle filteredValue and non-array filterValue as expected', () => {
@@ -1972,17 +2145,13 @@ describe('Table.filter', () => {
 
     const { container } = render(<App />);
 
-    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toBe(
-      `${32}`,
-    );
+    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toBe(`${32}`);
     fireEvent.click(container.querySelector('.ant-dropdown-trigger.ant-table-filter-trigger')!);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(
       container.querySelector('.ant-btn.ant-btn-color-primary.ant-btn-variant-solid.ant-btn-sm')!,
     );
-    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toBe(
-      `${66}`,
-    );
+    expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toBe(`${66}`);
   });
 
   it('Columns with filters should filter correctly after reset it.', () => {
@@ -3078,17 +3247,13 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('input[type="checkbox"]')!);
 
     // The checkbox is now checked.
-    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toBe(
-      true,
-    );
+    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toBe(true);
     fireEvent.click(container.querySelector('.ant-btn-primary')!);
     // Table data changes while the dropdown is open and a user is setting filters.
     rerender(createTable({ ...tableProps, dataSource: [{ name: 'Foo' }] }));
 
     // The checkbox is still checked.
-    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toBe(
-      true,
-    );
+    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toBe(true);
   });
 
   it('should not crash when filterDropdown is boolean', () => {
@@ -3285,13 +3450,17 @@ describe('Table.filter', () => {
       const { container, rerender } = render(getTable(['boy']));
 
       await waitFor(() => {
-        expect(container.querySelectorAll<HTMLInputElement>('input[type="radio"]')[0]).toBeChecked();
+        expect(
+          container.querySelectorAll<HTMLInputElement>('input[type="radio"]')[0],
+        ).toBeChecked();
       });
 
       rerender(getTable(['girl']));
 
       await waitFor(() => {
-        expect(container.querySelectorAll<HTMLInputElement>('input[type="radio"]')[1]).toBeChecked();
+        expect(
+          container.querySelectorAll<HTMLInputElement>('input[type="radio"]')[1],
+        ).toBeChecked();
       });
     });
 
