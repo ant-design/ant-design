@@ -108,7 +108,6 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         textAlign: 'start',
         cursor: 'auto',
         userSelect: 'text',
-        filter: dropShadowPopover,
 
         // Keep the popup in its own compositing layer so text is not re-rasterized
         // when the zoom motion ends, which shifts glyphs by a pixel
@@ -138,9 +137,11 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         },
 
         [`${componentCls}-container`]: {
+          position: 'relative',
           backgroundColor: popoverBg,
           backgroundClip: 'padding-box',
           borderRadius: borderRadiusLG,
+          filter: dropShadowPopover,
           padding: innerPadding,
         },
 
@@ -161,7 +162,10 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     },
 
     // Arrow Style
-    getArrowStyle<PopoverToken>(token, varRef('arrow-background-color'), { arrowShadow: false }),
+    getArrowStyle<PopoverToken>(token, varRef('arrow-background-color'), {
+      arrowShadow: false,
+      arrowInContainer: true,
+    }),
 
     // Pure Render
     {
