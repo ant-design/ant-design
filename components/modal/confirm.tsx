@@ -77,7 +77,7 @@ export default function confirm(config: ModalFuncProps) {
   }
 
   const container = document.createDocumentFragment();
-  let currentConfig = { ...config, close, open: true } as any;
+  let currentConfig = { ...config, close: closeDialog, open: true } as any;
   let timeoutId: ReturnType<typeof setTimeout>;
 
   function destroy(...args: any[]) {
@@ -87,7 +87,7 @@ export default function confirm(config: ModalFuncProps) {
     }
     for (let i = 0; i < destroyFns.length; i++) {
       const fn = destroyFns[i];
-      if (fn === close) {
+      if (fn === closeDialog) {
         destroyFns.splice(i, 1);
         break;
       }
@@ -122,7 +122,7 @@ export default function confirm(config: ModalFuncProps) {
     });
   };
 
-  function close(...args: any[]) {
+  function closeDialog(...args: any[]) {
     currentConfig = {
       ...currentConfig,
       open: false,
@@ -130,15 +130,14 @@ export default function confirm(config: ModalFuncProps) {
         if (isFunction(config.afterClose)) {
           config.afterClose();
         }
-        // @ts-ignore
-        destroy.apply(this, args);
+        destroy(...args);
       },
     };
 
     scheduleRender(currentConfig);
   }
 
-  function update(configUpdate: ConfigUpdate) {
+  function updateDialog(configUpdate: ConfigUpdate) {
     if (isFunction(configUpdate)) {
       currentConfig = configUpdate(currentConfig);
     } else {
@@ -149,11 +148,11 @@ export default function confirm(config: ModalFuncProps) {
 
   scheduleRender(currentConfig);
 
-  destroyFns.push(close);
+  destroyFns.push(closeDialog);
 
   return {
-    destroy: close,
-    update,
+    destroy: closeDialog,
+    update: updateDialog,
   };
 }
 
