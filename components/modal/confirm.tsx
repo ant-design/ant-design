@@ -12,9 +12,9 @@ import { getConfirmLocale } from './locale';
 
 let defaultRootPrefixCls = '';
 
-function getRootPrefixCls() {
+const getRootPrefixCls = () => {
   return defaultRootPrefixCls;
-}
+};
 
 export type ConfigUpdate = ModalFuncProps | ((prevConfig: ModalFuncProps) => ModalFuncProps);
 
@@ -80,7 +80,7 @@ export default function confirm(config: ModalFuncProps) {
   let currentConfig = { ...config, close: closeDialog, open: true } as any;
   let timeoutId: ReturnType<typeof setTimeout>;
 
-  function destroy(...args: any[]) {
+  const destroy = (...args: any[]) => {
     const triggerCancel = args.some((param) => param?.triggerCancel);
     if (triggerCancel) {
       config.onCancel?.(() => {}, ...args.slice(1));
@@ -96,7 +96,7 @@ export default function confirm(config: ModalFuncProps) {
     unmount(container).then(() => {
       // Do nothing
     });
-  }
+  };
 
   const scheduleRender = (props: ConfirmDialogProps) => {
     clearTimeout(timeoutId);
@@ -137,14 +137,14 @@ export default function confirm(config: ModalFuncProps) {
     scheduleRender(currentConfig);
   }
 
-  function updateDialog(configUpdate: ConfigUpdate) {
+  const updateDialog = (configUpdate: ConfigUpdate) => {
     if (isFunction(configUpdate)) {
       currentConfig = configUpdate(currentConfig);
     } else {
       currentConfig = { ...currentConfig, ...configUpdate };
     }
     scheduleRender(currentConfig);
-  }
+  };
 
   scheduleRender(currentConfig);
 
@@ -156,42 +156,42 @@ export default function confirm(config: ModalFuncProps) {
   };
 }
 
-export function withWarn(props: ModalFuncProps): ModalFuncProps {
+export const withWarn = (props: ModalFuncProps): ModalFuncProps => {
   return {
     ...props,
     type: 'warning',
   };
-}
+};
 
-export function withInfo(props: ModalFuncProps): ModalFuncProps {
+export const withInfo = (props: ModalFuncProps): ModalFuncProps => {
   return {
     ...props,
     type: 'info',
   };
-}
+};
 
-export function withSuccess(props: ModalFuncProps): ModalFuncProps {
+export const withSuccess = (props: ModalFuncProps): ModalFuncProps => {
   return {
     ...props,
     type: 'success',
   };
-}
+};
 
-export function withError(props: ModalFuncProps): ModalFuncProps {
+export const withError = (props: ModalFuncProps): ModalFuncProps => {
   return {
     ...props,
     type: 'error',
   };
-}
+};
 
-export function withConfirm(props: ModalFuncProps): ModalFuncProps {
+export const withConfirm = (props: ModalFuncProps): ModalFuncProps => {
   return {
     ...props,
     type: 'confirm',
   };
-}
+};
 
-export function modalGlobalConfig({ rootPrefixCls }: { rootPrefixCls: string }) {
+export const modalGlobalConfig = ({ rootPrefixCls }: { rootPrefixCls: string }) => {
   warning(false, 'Modal', 'Modal.config is deprecated. Please use ConfigProvider.config instead.');
   defaultRootPrefixCls = rootPrefixCls;
-}
+};
