@@ -25380,11 +25380,14 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                         </div>
                       </span>
                       <span
+                        aria-expanded="true"
+                        aria-label="Filter menu"
                         class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="filter"
                           class="anticon anticon-filter"
                           role="img"
@@ -25687,11 +25690,14 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                         </div>
                       </span>
                       <span
+                        aria-expanded="true"
+                        aria-label="Filter menu"
                         class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="filter"
                           class="anticon anticon-filter"
                           role="img"
@@ -25996,11 +26002,14 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                         </div>
                       </span>
                       <span
+                        aria-expanded="true"
+                        aria-label="Filter menu"
                         class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="filter"
                           class="anticon anticon-filter"
                           role="img"
@@ -26303,11 +26312,14 @@ exports[`ConfigProvider components Table configProvider componentSize medium 1`]
                         </div>
                       </span>
                       <span
+                        aria-expanded="true"
+                        aria-label="Filter menu"
                         class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="filter"
                           class="anticon anticon-filter"
                           role="img"
@@ -26610,11 +26622,14 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                         </div>
                       </span>
                       <span
+                        aria-expanded="true"
+                        aria-label="Filter menu"
                         class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="filter"
                           class="anticon anticon-filter"
                           role="img"
@@ -26917,11 +26932,14 @@ exports[`ConfigProvider components Table normal 1`] = `
                         </div>
                       </span>
                       <span
+                        aria-expanded="true"
+                        aria-label="Filter menu"
                         class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="filter"
                           class="anticon anticon-filter"
                           role="img"
@@ -27224,11 +27242,14 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                         </div>
                       </span>
                       <span
+                        aria-expanded="true"
+                        aria-label="Filter menu"
                         class="ant-dropdown-trigger prefix-Table-filter-trigger ant-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="filter"
                           class="anticon anticon-filter"
                           role="img"
