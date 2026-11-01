@@ -77,7 +77,9 @@ export default function confirm(config: ModalFuncProps) {
   }
 
   const container = document.createDocumentFragment();
-  let currentConfig = { ...config, close: closeDialog, open: true } as any;
+
+  let closeDialog: (...args: any[]) => void;
+  let currentConfig: any;
   let timeoutId: ReturnType<typeof setTimeout>;
 
   const destroy = (...args: any[]) => {
@@ -122,20 +124,21 @@ export default function confirm(config: ModalFuncProps) {
     });
   };
 
-  function closeDialog(...args: any[]) {
+  closeDialog = (...args: any[]) => {
     currentConfig = {
       ...currentConfig,
       open: false,
       afterClose: () => {
-        if (isFunction(config.afterClose)) {
+        if (isFunction(config?.afterClose)) {
           config.afterClose();
         }
         destroy(...args);
       },
     };
-
     scheduleRender(currentConfig);
-  }
+  };
+
+  currentConfig = { ...config, close: closeDialog, open: true };
 
   const updateDialog = (configUpdate: ConfigUpdate) => {
     if (isFunction(configUpdate)) {
