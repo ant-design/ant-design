@@ -38,7 +38,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     iconRender,
     isImageUrl: isImgUrl = isImageUrl,
     prefixCls: customizePrefixCls,
-    items = [],
+    items: originalItems = [],
     showPreviewIcon = true,
     showRemoveIcon = true,
     showDownloadIcon = false,
@@ -54,6 +54,23 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     classNames: uploadListClassNames,
     styles,
   } = props;
+
+  const frozenFiles = React.useRef(new WeakMap<UploadFile, UploadFile>());
+  const items = React.useMemo(
+    () =>
+      originalItems.map((file) => {
+        if (!Object.isFrozen(file)) {
+          return file;
+        }
+        let cachedFile = frozenFiles.current.get(file);
+        if (!cachedFile) {
+          cachedFile = { ...file };
+          frozenFiles.current.set(file, cachedFile);
+        }
+        return cachedFile;
+      }),
+    [originalItems],
+  );
 
   const [, forceUpdate] = useForceUpdate();
   const [motionAppear, setMotionAppear] = React.useState(false);
