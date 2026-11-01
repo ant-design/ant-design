@@ -427,17 +427,22 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
     collectSortStates<RecordType>(collectColumns, true),
   );
 
-  const getColumnKeys = (columns: ColumnsType<RecordType>, pos?: string): Key[] => {
-    const newKeys: Key[] = [];
+  const getColumnMap = (
+    columns: ColumnsType<RecordType>,
+    pos?: string,
+    columnMap = new Map<Key, ColumnsType<RecordType>[number]>(),
+  ) => {
     columns.forEach((item, index) => {
       const columnPos = getColumnPos(index, pos);
-      newKeys.push(getColumnKey<RecordType>(item, columnPos));
+      const key = getColumnKey<RecordType>(item, columnPos);
+      if (!columnMap.has(key)) {
+        columnMap.set(key, item);
+      }
       if (Array.isArray((item as ColumnGroupType<RecordType>).children)) {
-        const childKeys = getColumnKeys((item as ColumnGroupType<RecordType>).children, columnPos);
-        newKeys.push(...childKeys);
+        getColumnMap((item as ColumnGroupType<RecordType>).children, columnPos, columnMap);
       }
     });
-    return newKeys;
+    return columnMap;
   };
   const mergedSorterStates = React.useMemo<SortState<RecordType>[]>(() => {
     let validate = true;
@@ -448,8 +453,13 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
 
     // Return if not controlled
     if (!collectedStates.length) {
-      const collectColumnsKeys = getColumnKeys(collectColumns);
-      return sortStates.filter(({ key }) => collectColumnsKeys.includes(key));
+      const columnMap = getColumnMap(collectColumns);
+      return sortStates.flatMap((state) => {
+        const column = columnMap.get(state.key);
+        return column?.sorter
+          ? [{ ...state, column, multiplePriority: getMultiplePriority(column) }]
+          : [];
+      });
     }
 
     const validateStates: SortState<RecordType>[] = [];
