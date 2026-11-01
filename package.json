@@ -252,7 +252,7 @@
     "fs-extra": "^11.3.4",
     "gh-pages": "^6.3.0",
     "github-slugger": "^2.0.0",
-    "glob": "^13.0.6",
+    "glob": "^14.0.0",
     "hast-util-to-string": "^3.0.1",
     "html2sketch": "^1.0.2",
     "http-server": "^14.1.1",
