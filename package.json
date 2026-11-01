@@ -283,7 +283,7 @@
     "node-fetch": "^3.3.2",
     "node-notifier": "^11.0.0",
     "open": "^11.0.0",
-    "ora": "^9.4.0",
+    "ora": "^10.0.0",
     "p-all": "^5.0.1",
     "package-manager-detector": "^1.6.0",
     "pngjs": "^7.0.0",
