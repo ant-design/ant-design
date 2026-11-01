@@ -440,7 +440,12 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           childNode = mergedChildren as React.ReactNode;
         }
 
-        return renderLayout(childNode, fieldId, isRequired, mergedName);
+        return renderLayout(
+          childNode,
+          fieldId,
+          isRequired,
+          mergedName.length ? mergedName : undefined,
+        );
       }}
     </Field>
   );
