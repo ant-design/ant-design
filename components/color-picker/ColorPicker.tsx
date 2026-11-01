@@ -43,6 +43,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     defaultValue,
     format,
     defaultFormat,
+    panelControls,
     allowClear = false,
     presets,
     children,
@@ -308,6 +309,7 @@ const ColorPicker: CompoundedComponent = (props) => {
             gradientDragging={gradientDragging}
             onGradientDragging={setGradientDragging}
             disabledFormat={disabledFormat}
+            controls={panelControls}
           />
         </ContextIsolator>
       }
