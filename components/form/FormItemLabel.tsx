@@ -67,11 +67,16 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   const mergedLabelCol: ColProps = labelCol || contextLabelCol || {};
 
   const mergedLabelAlign: FormLabelAlign | undefined = labelAlign || contextLabelAlign;
+  const isStartAlign = mergedLabelAlign === 'left' || mergedLabelAlign === 'start';
 
   const labelClsBasic = `${prefixCls}-item-label`;
   const labelColClassName = clsx(
     labelClsBasic,
-    mergedLabelAlign === 'left' && `${labelClsBasic}-left`,
+    {
+      [`${labelClsBasic}-start`]: isStartAlign,
+      // TODO: Remove the legacy `-left` class in v7.
+      [`${labelClsBasic}-left`]: isStartAlign,
+    },
     mergedLabelCol.className,
     {
       [`${labelClsBasic}-wrap`]: !!labelWrap,

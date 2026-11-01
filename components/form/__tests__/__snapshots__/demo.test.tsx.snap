@@ -6474,7 +6474,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
       class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap css-var-test-id"
+        class="ant-col ant-form-item-label ant-form-item-label-start ant-form-item-label-left ant-form-item-label-wrap css-var-test-id"
         style="flex:0 0 110px"
       >
         <label
@@ -6514,7 +6514,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
       class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap css-var-test-id"
+        class="ant-col ant-form-item-label ant-form-item-label-start ant-form-item-label-left ant-form-item-label-wrap css-var-test-id"
         style="flex:0 0 110px"
       >
         <label
@@ -6554,7 +6554,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
       class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap css-var-test-id"
+        class="ant-col ant-form-item-label ant-form-item-label-start ant-form-item-label-left ant-form-item-label-wrap css-var-test-id"
         style="flex:0 0 110px"
       >
         <label
@@ -6593,7 +6593,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
       class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap css-var-test-id"
+        class="ant-col ant-form-item-label ant-form-item-label-start ant-form-item-label-left ant-form-item-label-wrap css-var-test-id"
         style="flex:0 0 110px"
       >
         <label

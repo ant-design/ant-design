@@ -130,7 +130,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
   const contextValidateMessages = React.useContext(ValidateMessagesContext);
 
   if (process.env.NODE_ENV !== 'production') {
-    useFormWarning(props);
+    useFormWarning({ name, labelAlign: labelAlign ?? contextLabelAlign });
   }
 
   const mergedRequiredMark = React.useMemo(() => {
