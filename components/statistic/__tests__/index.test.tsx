@@ -69,7 +69,7 @@ describe('Statistic', () => {
       [0.0000001, 2, '0.00'],
       [-0.00000012345, 9, '-0.000000123'],
       [1.5e21, undefined, '1,500,000,000,000,000,000,000'],
-      ['1.234e+3', 1, '1,234.0'],
+      [Number.MIN_VALUE, 2, '0.00'],
     ].forEach(([value, precision, expectValue]) => {
       const { container } = render(
         <Statistic value={value as number} precision={precision as number} />,
