@@ -26,7 +26,6 @@ const genSpaceStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
         flexDirection: 'column',
       },
       '&-align': {
-        flexDirection: 'column',
         '&-center': {
           alignItems: 'center',
         },
