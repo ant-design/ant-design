@@ -42,7 +42,13 @@ interface Options<T> {
   initialValue: T;
 }
 
-const useLocalStorage = <T>(key: string, options: Options<T>) => {
+type UseLocalStorageReturn<T> = readonly [
+  value: T,
+  setValue: React.Dispatch<React.SetStateAction<T>>,
+  removeValue: () => void,
+];
+
+const useLocalStorage = <T>(key: string, options: Options<T>): UseLocalStorageReturn<T> => {
   const { initialValue } = options;
 
   const subscribe = React.useCallback(
@@ -79,8 +85,8 @@ const useLocalStorage = <T>(key: string, options: Options<T>) => {
 
   const value = React.useMemo(() => deserializer<T>(raw, initialValue), [raw, initialValue]);
 
-  const setValue = React.useCallback(
-    (next: React.SetStateAction<T>) => {
+  const setValue = React.useCallback<React.Dispatch<React.SetStateAction<T>>>(
+    (next) => {
       if (typeof window === 'undefined') {
         return;
       }
