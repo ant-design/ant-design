@@ -2738,6 +2738,60 @@ describe('Table.filter', () => {
     });
   });
 
+  it('clearFilters with confirm should apply defaultFilteredValue when filterResetToDefaultFilteredValue', () => {
+    const onChange = jest.fn();
+    const filter = ({ setSelectedKeys, confirm, clearFilters }: FilterDropdownProps) => (
+      <div>
+        <button
+          type="button"
+          id="setLucy"
+          onClick={() => {
+            setSelectedKeys(['Lucy']);
+            confirm();
+          }}
+        >
+          setSelectedKeys
+        </button>
+        <button
+          type="button"
+          id="reset"
+          onClick={() => clearFilters?.({ confirm: true, closeDropdown: true })}
+        >
+          Reset
+        </button>
+      </div>
+    );
+
+    const { container } = render(
+      createTable({
+        onChange,
+        columns: [
+          {
+            ...column,
+            filterDropdown: filter,
+            defaultFilteredValue: ['Jack'],
+            filterResetToDefaultFilteredValue: true,
+          },
+        ],
+      }),
+    );
+    expect(renderedNames(container)).toEqual(['Jack']);
+
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!);
+    fireEvent.click(container.querySelector('#setLucy')!);
+    expect(renderedNames(container)).toEqual(['Lucy']);
+
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!);
+    fireEvent.click(container.querySelector('#reset')!);
+    expect(renderedNames(container)).toEqual(['Jack']);
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.anything(),
+      { name: ['Jack'] },
+      expect.anything(),
+      expect.anything(),
+    );
+  });
+
   it('filterDropdown should support filterResetToDefaultFilteredValue', () => {
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
 
