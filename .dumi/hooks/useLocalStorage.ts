@@ -97,7 +97,7 @@ const useLocalStorage = <T>(key: string, options: Options<T>): UseLocalStorageRe
 
       const serialized = serializer(nextValue);
 
-      if (serialized === null) {
+      if (serialized === undefined) {
         throw new TypeError('useLocalStorage 的值必须可以序列化为 JSON');
       }
 
