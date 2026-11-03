@@ -69,7 +69,13 @@ function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElem
             config={withFunc(config)}
             ref={modalRef}
             afterClose={() => {
-              closeFunc?.();
+              if (closeFunc) {
+                closeFunc();
+                const index = destroyFns.indexOf(closeFunc);
+                if (index !== -1) {
+                  destroyFns.splice(index, 1);
+                }
+              }
             }}
             isSilent={() => silent}
             onConfirm={(confirmed) => {
