@@ -10,6 +10,7 @@ function createFile(): UploadFile {
     status: 'done',
     originFileObj: Object.assign(new File(['image'], 'photo.png', { type: 'image/png' }), {
       uid: 'photo',
+      lastModifiedDate: new Date(),
     }),
   };
 }
