@@ -5,12 +5,11 @@ import useResponsiveObserver from '../../_util/responsiveObserver';
 
 function useBreakpoint(refreshOnChange: boolean, defaultScreens: null): ScreenMap | null;
 function useBreakpoint(refreshOnChange?: boolean, defaultScreens?: ScreenMap): ScreenMap;
-
 function useBreakpoint(
   refreshOnChange = true,
   defaultScreens: ScreenMap | null = {} as ScreenMap,
 ): ScreenMap | null {
-  const [initialScreens] = useState(defaultScreens);
+  const [initialScreens] = useState<ScreenMap>(defaultScreens as ScreenMap);
   const responsiveObserver = useResponsiveObserver();
 
   const subscribe = useCallback(
@@ -34,7 +33,7 @@ function useBreakpoint(
     return responsiveObserver.getServerSnapshot?.() ?? initialScreens;
   }, [responsiveObserver, initialScreens]);
 
-  const screens = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const screens = useSyncExternalStore<ScreenMap>(subscribe, getSnapshot, getServerSnapshot);
 
   // Disabled refresh still exposes the latest breakpoints on the next parent render.
   return refreshOnChange ? screens : (responsiveObserver.getSnapshot?.() ?? initialScreens);
