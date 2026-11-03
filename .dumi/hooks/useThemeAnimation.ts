@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useInsertionEffect, useRef } from 'react';
 import { removeCSS, updateCSS } from '@rc-component/util';
 import { theme } from 'antd';
 
@@ -105,7 +105,7 @@ const useThemeAnimation = () => {
   };
 
   // inject transition style
-  useEffect(() => {
+  useInsertionEffect(() => {
     if (typeof document.startViewTransition === 'function') {
       updateCSS(viewTransitionStyle, 'view-transition-style');
     }
