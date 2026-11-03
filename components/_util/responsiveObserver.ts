@@ -107,7 +107,16 @@ const useResponsiveObserver = () => {
     return {
       responsiveMap,
       matchHandlers: {},
-      getSnapshot: () => screens,
+      getSnapshot() {
+        // Read client breakpoints before the first commit without registering listeners in render.
+        screens ??= Object.fromEntries(
+          Object.entries(responsiveMap).map<[string, boolean]>(([screen, query]) => [
+            screen,
+            window.matchMedia(query).matches,
+          ]),
+        );
+        return screens;
+      },
       getServerSnapshot: () => undefined,
       dispatch(pointMap: ScreenMap) {
         if (!screens || responsiveArray.some((screen) => screens?.[screen] !== pointMap[screen])) {

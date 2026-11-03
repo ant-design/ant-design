@@ -41,6 +41,20 @@ describe('useBreakpoint', () => {
     });
   };
 
+  it('provides client breakpoints on the first commit', () => {
+    const committed = jest.fn();
+    const Demo: React.FC = () => {
+      const screens = useBreakpoint();
+      React.useLayoutEffect(() => {
+        committed(screens);
+      }, [screens]);
+      return null;
+    };
+
+    render(<Demo />);
+    expect(committed.mock.calls[0][0]).toMatchObject({ xs: true, md: false });
+  });
+
   it('updates breakpoints without resubscribing or rendering unchanged snapshots', () => {
     const rendered = jest.fn();
     const Demo: React.FC = () => {
@@ -135,6 +149,28 @@ describe('useBreakpoint', () => {
 
     changeMedia('(min-width: 800px)', false);
     expect(JSON.parse(container.textContent!)).toMatchObject({ md: false });
+  });
+
+  it('retains the latest subscribed breakpoints across token changes when refresh is disabled', () => {
+    const Demo: React.FC = () => <span>{JSON.stringify(useBreakpoint(false))}</span>;
+    const renderDemo = (screenMD: number) => (
+      <ConfigProvider theme={{ token: { screenMD, screenMDMin: screenMD } }}>
+        <Demo />
+      </ConfigProvider>
+    );
+    const { container, rerender } = render(renderDemo(768));
+
+    rerender(renderDemo(768));
+    expect(JSON.parse(container.textContent!)).toMatchObject({ xs: true, md: false });
+
+    changeMedia('(min-width: 768px)', true);
+    expect(JSON.parse(container.textContent!)).toMatchObject({ md: false });
+
+    rerender(renderDemo(800));
+    expect(JSON.parse(container.textContent!)).toMatchObject({ xs: true, md: true });
+
+    rerender(renderDemo(800));
+    expect(JSON.parse(container.textContent!)).toMatchObject({ xs: true, md: false });
   });
 
   it.each([undefined, { md: true }] as const)(

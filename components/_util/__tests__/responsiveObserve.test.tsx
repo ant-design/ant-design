@@ -59,12 +59,15 @@ describe('Test ResponsiveObserve', () => {
     const instance = responsiveRef.current!;
     const getSnapshot = instance.getSnapshot!;
     const getServerSnapshot = instance.getServerSnapshot!;
-    expect(getSnapshot()).toBeUndefined();
+    const initialSnapshot = getSnapshot();
+    expect(initialSnapshot).toMatchObject({ xs: true });
+    expect(instance.matchHandlers).toEqual({});
     expect(getServerSnapshot()).toBeUndefined();
 
     const subscriber = jest.fn();
     const token = instance.subscribe(subscriber);
     const snapshot = getSnapshot()!;
+    expect(snapshot).toBe(initialSnapshot);
 
     rerender(<Demo />);
     expect(responsiveRef.current).toBe(instance);
