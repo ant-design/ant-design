@@ -68,6 +68,7 @@ Style of a navigation should conform to its level.
 <code src="./demo/responsive.tsx" compact background="grey">Responsive</code>
 <code src="./demo/fixed.tsx" iframe="360">Fixed Header</code>
 <code src="./demo/fixed-sider.tsx" iframe="360">Fixed Sider</code>
+<code src="./demo/sider-bottom-menu.tsx" iframe="420" version="6.5.0">Sider with bottom menu items</code>
 <code src="./demo/custom-trigger-debug.tsx" compact background="grey" debug>Custom trigger debug</code>
 <code src="./demo/component-token.tsx" compact background="grey" debug>Component Token</code>
 
