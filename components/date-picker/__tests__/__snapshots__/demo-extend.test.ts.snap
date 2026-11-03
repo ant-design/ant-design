@@ -1803,20 +1803,16 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Today
-                </a>
-              </li>
-            </ul>
+                Today
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -3764,20 +3760,16 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -6610,32 +6602,24 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -7281,20 +7265,16 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
                 <div
                   class="ant-picker-footer"
                 >
-                  <ul
+                  <div
                     class="ant-picker-ranges"
                   >
-                    <li
+                    <button
                       class="ant-picker-now"
+                      type="button"
                     >
-                      <a
-                        aria-disabled="false"
-                        class="ant-picker-now-btn"
-                      >
-                        Today
-                      </a>
-                    </li>
-                  </ul>
+                      Today
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -10127,32 +10107,24 @@ exports[`renders components/date-picker/demo/buddhist-era.tsx extend context cor
                 <div
                   class="ant-picker-footer"
                 >
-                  <ul
+                  <div
                     class="ant-picker-ranges"
                   >
-                    <li
+                    <button
                       class="ant-picker-now"
+                      type="button"
                     >
-                      <a
-                        aria-disabled="false"
-                        class="ant-picker-now-btn"
-                      >
-                        Now
-                      </a>
-                    </li>
-                    <li
-                      class="ant-picker-ok"
+                      Now
+                    </button>
+                    <button
+                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                      type="button"
                     >
-                      <button
-                        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                        type="button"
-                      >
-                        <span>
-                          OK
-                        </span>
-                      </button>
-                    </li>
-                  </ul>
+                      <span>
+                        OK
+                      </span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -10771,20 +10743,16 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -12765,20 +12733,17 @@ Array [
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                disabled=""
+                type="button"
               >
-                <a
-                  aria-disabled="true"
-                  class="ant-picker-now-btn ant-picker-now-btn-disabled"
-                >
-                  Today
-                </a>
-              </li>
-            </ul>
+                Today
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -13393,20 +13358,16 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -16714,20 +16675,17 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  disabled=""
+                  type="button"
                 >
-                  <a
-                    aria-disabled="true"
-                    class="ant-picker-now-btn ant-picker-now-btn-disabled"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -19543,33 +19501,26 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  disabled=""
+                  type="button"
                 >
-                  <a
-                    aria-disabled="true"
-                    class="ant-picker-now-btn ant-picker-now-btn-disabled"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -23091,23 +23042,19 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
               <div
                 class="ant-picker-footer"
               >
-                <ul
+                <div
                   class="ant-picker-ranges"
                 >
-                  <li
-                    class="ant-picker-ok"
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                    disabled=""
+                    type="button"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                      disabled=""
-                      type="button"
-                    >
-                      <span>
-                        OK
-                      </span>
-                    </button>
-                  </li>
-                </ul>
+                    <span>
+                      OK
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -23852,20 +23799,16 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
                         <div
                           class="ant-picker-footer"
                         >
-                          <ul
+                          <div
                             class="ant-picker-ranges"
                           >
-                            <li
+                            <button
                               class="ant-picker-now"
+                              type="button"
                             >
-                              <a
-                                aria-disabled="false"
-                                class="ant-picker-now-btn"
-                              >
-                                Today
-                              </a>
-                            </li>
-                          </ul>
+                              Today
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -25872,20 +25815,16 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
               >
                 extra footer
               </div>
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -28696,33 +28635,25 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
               >
                 extra footer
               </div>
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -32795,23 +32726,19 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
                 >
                   extra footer
                 </div>
-                <ul
+                <div
                   class="ant-picker-ranges"
                 >
-                  <li
-                    class="ant-picker-ok"
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                    disabled=""
+                    type="button"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                      disabled=""
-                      type="button"
-                    >
-                      <span>
-                        OK
-                      </span>
-                    </button>
-                  </li>
-                </ul>
+                    <span>
+                      OK
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -33680,20 +33607,16 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -37000,20 +36923,16 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -37619,20 +37538,16 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -40677,20 +40592,16 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -41321,20 +41232,16 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -44162,20 +44069,16 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -44789,20 +44692,16 @@ exports[`renders components/date-picker/demo/mask.tsx extend context correctly 1
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -45407,20 +45306,16 @@ exports[`renders components/date-picker/demo/mask.tsx extend context correctly 1
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -47697,33 +47592,25 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -54210,33 +54097,25 @@ Array [
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Today
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Today
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                disabled=""
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  disabled=""
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -54928,20 +54807,16 @@ Array [
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Today
-                </a>
-              </li>
-            </ul>
+                Today
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -56769,20 +56644,16 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -60884,23 +60755,19 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
               <div
                 class="ant-picker-footer"
               >
-                <ul
+                <div
                   class="ant-picker-ranges"
                 >
-                  <li
-                    class="ant-picker-ok"
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                    disabled=""
+                    type="button"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                      disabled=""
-                      type="button"
-                    >
-                      <span>
-                        OK
-                      </span>
-                    </button>
-                  </li>
-                </ul>
+                    <span>
+                      OK
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -64970,23 +64837,19 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
               <div
                 class="ant-picker-footer"
               >
-                <ul
+                <div
                   class="ant-picker-ranges"
                 >
-                  <li
-                    class="ant-picker-ok"
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                    disabled=""
+                    type="button"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                      disabled=""
-                      type="button"
-                    >
-                      <span>
-                        OK
-                      </span>
-                    </button>
-                  </li>
-                </ul>
+                    <span>
+                      OK
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -68231,20 +68094,16 @@ exports[`renders components/date-picker/demo/render-panel.tsx extend context cor
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Today
-                </a>
-              </li>
-            </ul>
+                Today
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -70638,20 +70497,16 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -75583,33 +75438,25 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -78415,33 +78262,25 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -79057,20 +78896,16 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -79676,20 +79511,16 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -82706,20 +82537,16 @@ exports[`renders components/date-picker/demo/style-class.tsx extend context corr
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Today
-                </a>
-              </li>
-            </ul>
+                Today
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -83321,20 +83148,16 @@ exports[`renders components/date-picker/demo/style-class.tsx extend context corr
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Today
-                </a>
-              </li>
-            </ul>
+                Today
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -83947,20 +83770,16 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -86660,20 +86479,16 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -93443,20 +93258,16 @@ exports[`renders components/date-picker/demo/suffix-debug.tsx extend context cor
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -94037,20 +93848,16 @@ exports[`renders components/date-picker/demo/suffix-debug.tsx extend context cor
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -94655,20 +94462,16 @@ exports[`renders components/date-picker/demo/suffix-debug.tsx extend context cor
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -95249,20 +95052,16 @@ exports[`renders components/date-picker/demo/suffix-debug.tsx extend context cor
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -95848,20 +95647,16 @@ exports[`renders components/date-picker/demo/suffix-debug.tsx extend context cor
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -98335,33 +98130,25 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -101177,33 +100964,25 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -103154,23 +102933,19 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
               <div
                 class="ant-picker-footer"
               >
-                <ul
+                <div
                   class="ant-picker-ranges"
                 >
-                  <li
-                    class="ant-picker-ok"
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                    disabled=""
+                    type="button"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                      disabled=""
-                      type="button"
-                    >
-                      <span>
-                        OK
-                      </span>
-                    </button>
-                  </li>
-                </ul>
+                    <span>
+                      OK
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -103787,20 +103562,16 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -105603,20 +105374,16 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -107419,20 +107186,16 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -109235,20 +108998,16 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Today
-                  </a>
-                </li>
-              </ul>
+                  Today
+                </button>
+              </div>
             </div>
           </div>
         </div>

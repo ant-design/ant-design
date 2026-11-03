@@ -2117,33 +2117,25 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -4262,33 +4254,25 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -5500,33 +5484,25 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -7804,33 +7780,25 @@ Array [
                 </span>
               </button>
             </div>
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Now
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                disabled=""
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  disabled=""
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -10095,32 +10063,24 @@ Array [
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Now
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -12385,20 +12345,16 @@ Array [
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-            </ul>
+                Now
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -14663,32 +14619,24 @@ Array [
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Now
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -16954,32 +16902,24 @@ Array [
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Now
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -18363,32 +18303,24 @@ Array [
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Now
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -19003,33 +18935,25 @@ Array [
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Now
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                disabled=""
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  disabled=""
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -21294,33 +21218,25 @@ Array [
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Now
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                disabled=""
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  disabled=""
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -23663,22 +23579,18 @@ Array [
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
-                  class="ant-picker-ok"
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -25947,33 +25859,25 @@ exports[`renders components/time-picker/demo/render-panel.tsx extend context cor
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Now
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                disabled=""
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  disabled=""
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -28270,32 +28174,24 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -30583,32 +30479,24 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -32896,32 +32784,24 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -35192,33 +35072,25 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -37480,33 +37352,25 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -39820,23 +39684,19 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
               <div
                 class="ant-picker-footer"
               >
-                <ul
+                <div
                   class="ant-picker-ranges"
                 >
-                  <li
-                    class="ant-picker-ok"
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                    disabled=""
+                    type="button"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                      disabled=""
-                      type="button"
-                    >
-                      <span>
-                        OK
-                      </span>
-                    </button>
-                  </li>
-                </ul>
+                    <span>
+                      OK
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -42151,23 +42011,19 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
               <div
                 class="ant-picker-footer"
               >
-                <ul
+                <div
                   class="ant-picker-ranges"
                 >
-                  <li
-                    class="ant-picker-ok"
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                    disabled=""
+                    type="button"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                      disabled=""
-                      type="button"
-                    >
-                      <span>
-                        OK
-                      </span>
-                    </button>
-                  </li>
-                </ul>
+                    <span>
+                      OK
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -44437,33 +44293,25 @@ exports[`renders components/time-picker/demo/style-class.tsx extend context corr
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Now
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                disabled=""
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  disabled=""
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -46723,33 +46571,25 @@ exports[`renders components/time-picker/demo/style-class.tsx extend context corr
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Now
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                disabled=""
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  disabled=""
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -49016,32 +48856,24 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -51326,33 +51158,25 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -53689,23 +53513,19 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
               <div
                 class="ant-picker-footer"
               >
-                <ul
+                <div
                   class="ant-picker-ranges"
                 >
-                  <li
-                    class="ant-picker-ok"
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                    disabled=""
+                    type="button"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                      disabled=""
-                      type="button"
-                    >
-                      <span>
-                        OK
-                      </span>
-                    </button>
-                  </li>
-                </ul>
+                    <span>
+                      OK
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -55972,33 +55792,25 @@ Array [
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Now
+              </button>
+              <button
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                disabled=""
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  disabled=""
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -58270,33 +58082,25 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -60606,23 +60410,19 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
               <div
                 class="ant-picker-footer"
               >
-                <ul
+                <div
                   class="ant-picker-ranges"
                 >
-                  <li
-                    class="ant-picker-ok"
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                    disabled=""
+                    type="button"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                      disabled=""
-                      type="button"
-                    >
-                      <span>
-                        OK
-                      </span>
-                    </button>
-                  </li>
-                </ul>
+                    <span>
+                      OK
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -62886,33 +62686,25 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -65222,23 +65014,19 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
               <div
                 class="ant-picker-footer"
               >
-                <ul
+                <div
                   class="ant-picker-ranges"
                 >
-                  <li
-                    class="ant-picker-ok"
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                    disabled=""
+                    type="button"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                      disabled=""
-                      type="button"
-                    >
-                      <span>
-                        OK
-                      </span>
-                    </button>
-                  </li>
-                </ul>
+                    <span>
+                      OK
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -67502,33 +67290,25 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -69838,23 +69618,19 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
               <div
                 class="ant-picker-footer"
               >
-                <ul
+                <div
                   class="ant-picker-ranges"
                 >
-                  <li
-                    class="ant-picker-ok"
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                    disabled=""
+                    type="button"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                      disabled=""
-                      type="button"
-                    >
-                      <span>
-                        OK
-                      </span>
-                    </button>
-                  </li>
-                </ul>
+                    <span>
+                      OK
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -72118,33 +71894,25 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
             <div
               class="ant-picker-footer"
             >
-              <ul
+              <div
                 class="ant-picker-ranges"
               >
-                <li
+                <button
                   class="ant-picker-now"
+                  type="button"
                 >
-                  <a
-                    aria-disabled="false"
-                    class="ant-picker-now-btn"
-                  >
-                    Now
-                  </a>
-                </li>
-                <li
-                  class="ant-picker-ok"
+                  Now
+                </button>
+                <button
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                  disabled=""
+                  type="button"
                 >
-                  <button
-                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                    disabled=""
-                    type="button"
-                  >
-                    <span>
-                      OK
-                    </span>
-                  </button>
-                </li>
-              </ul>
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -74454,23 +74222,19 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
               <div
                 class="ant-picker-footer"
               >
-                <ul
+                <div
                   class="ant-picker-ranges"
                 >
-                  <li
-                    class="ant-picker-ok"
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                    disabled=""
+                    type="button"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                      disabled=""
-                      type="button"
-                    >
-                      <span>
-                        OK
-                      </span>
-                    </button>
-                  </li>
-                </ul>
+                    <span>
+                      OK
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
