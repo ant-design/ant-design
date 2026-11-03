@@ -48,4 +48,39 @@ describe('Test ResponsiveObserve', () => {
       instance?.unsubscribe(token);
     }
   });
+
+  it('keeps the observer and unchanged snapshots stable', () => {
+    const responsiveRef = React.createRef<ReturnType<typeof useResponsiveObserver>>();
+    const Demo = () => {
+      responsiveRef.current = useResponsiveObserver();
+      return null;
+    };
+    const { rerender } = render(<Demo />);
+    const instance = responsiveRef.current!;
+    const getSnapshot = instance.getSnapshot!;
+    const getServerSnapshot = instance.getServerSnapshot!;
+    expect(getSnapshot()).toBeUndefined();
+    expect(getServerSnapshot()).toBeUndefined();
+
+    const subscriber = jest.fn();
+    const token = instance.subscribe(subscriber);
+    const snapshot = getSnapshot()!;
+
+    rerender(<Demo />);
+    expect(responsiveRef.current).toBe(instance);
+    expect(getSnapshot()).toBe(snapshot);
+
+    instance.dispatch({ ...snapshot });
+    expect(getSnapshot()).toBe(snapshot);
+    expect(subscriber).toHaveBeenCalledTimes(1);
+
+    instance.dispatch({ ...snapshot, xs: !snapshot.xs });
+    expect(getSnapshot()).not.toBe(snapshot);
+    expect(getSnapshot()?.xs).toBe(!snapshot.xs);
+    expect(getServerSnapshot()).toBeUndefined();
+    expect(snapshot.xs).toBe(true);
+    expect(subscriber).toHaveBeenCalledTimes(2);
+
+    instance.unsubscribe(token);
+  });
 });

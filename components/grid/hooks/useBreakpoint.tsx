@@ -1,7 +1,5 @@
-import { useRef } from 'react';
-import { useLayoutEffect } from '@rc-component/util';
+import { useCallback, useState, useSyncExternalStore } from 'react';
 
-import { useForceUpdate } from '../../_util/hooks';
 import type { ScreenMap } from '../../_util/responsiveObserver';
 import useResponsiveObserver from '../../_util/responsiveObserver';
 
@@ -12,22 +10,34 @@ function useBreakpoint(
   refreshOnChange = true,
   defaultScreens: ScreenMap | null = {} as ScreenMap,
 ): ScreenMap | null {
-  const screensRef = useRef<ScreenMap | null>(defaultScreens);
-  const [, forceUpdate] = useForceUpdate();
+  const [initialScreens] = useState(defaultScreens);
   const responsiveObserver = useResponsiveObserver();
 
-  useLayoutEffect(() => {
-    const token = responsiveObserver.subscribe((supportScreens) => {
-      screensRef.current = supportScreens;
-      if (refreshOnChange) {
-        forceUpdate();
-      }
-    });
+  const subscribe = useCallback(
+    (onStoreChange: () => void) => {
+      const token = responsiveObserver.subscribe(onStoreChange);
+      return () => {
+        responsiveObserver.unsubscribe(token);
+      };
+    },
+    [responsiveObserver],
+  );
 
-    return () => responsiveObserver.unsubscribe(token);
-  }, [refreshOnChange]);
+  const getSnapshot = useCallback(() => {
+    if (refreshOnChange) {
+      return responsiveObserver.getSnapshot?.() ?? initialScreens;
+    }
+    return initialScreens;
+  }, [responsiveObserver, refreshOnChange, initialScreens]);
 
-  return screensRef.current;
+  const getServerSnapshot = useCallback(() => {
+    return responsiveObserver.getServerSnapshot?.() ?? initialScreens;
+  }, [responsiveObserver, initialScreens]);
+
+  const screens = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
+  // Disabled refresh still exposes the latest breakpoints on the next parent render.
+  return refreshOnChange ? screens : (responsiveObserver.getSnapshot?.() ?? initialScreens);
 }
 
 export default useBreakpoint;

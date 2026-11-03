@@ -78,6 +78,8 @@ export const matchScreen = (screens: ScreenMap, screenSizes?: ScreenSizeMap) => 
 
 interface ResponsiveObserverType {
   responsiveMap: BreakpointMap;
+  getSnapshot?: () => ScreenMap | undefined;
+  getServerSnapshot?: () => ScreenMap | undefined;
   dispatch: (map: ScreenMap) => boolean;
   subscribe: (func: SubscribeFunc) => number;
   unsubscribe: (token: number) => void;
@@ -94,21 +96,26 @@ interface ResponsiveObserverType {
 
 const useResponsiveObserver = () => {
   const [, token] = useToken();
-  const responsiveMap = getResponsiveMap(validateBreakpoints(token));
+  const { xs, sm, md, lg, xl, xxl, xxxl } = getResponsiveMap(validateBreakpoints(token));
 
   // To avoid repeat create instance, we add `useMemo` here.
   return React.useMemo<ResponsiveObserverType>(() => {
+    const responsiveMap = { xs, sm, md, lg, xl, xxl, xxxl };
     const subscribers = new Map<number, SubscribeFunc>();
     let subUid = -1;
-    let screens: Partial<Record<Breakpoint, boolean>> = {};
+    let screens: ScreenMap | undefined;
     return {
       responsiveMap,
       matchHandlers: {},
+      getSnapshot: () => screens,
+      getServerSnapshot: () => undefined,
       dispatch(pointMap: ScreenMap) {
-        screens = pointMap;
-        subscribers.forEach((func) => {
-          func(screens);
-        });
+        if (!screens || responsiveArray.some((screen) => screens?.[screen] !== pointMap[screen])) {
+          screens = pointMap;
+          subscribers.forEach((func) => {
+            func(pointMap);
+          });
+        }
         return subscribers.size >= 1;
       },
       subscribe(func: SubscribeFunc): number {
@@ -117,7 +124,8 @@ const useResponsiveObserver = () => {
         }
         subUid += 1;
         subscribers.set(subUid, func);
-        func(screens);
+        // Register initializes all breakpoints before notifying the first subscriber.
+        func(screens!);
         return subUid;
       },
       unsubscribe(paramToken: number) {
@@ -149,7 +157,7 @@ const useResponsiveObserver = () => {
         subscribers.clear();
       },
     };
-  }, [responsiveMap]);
+  }, [xs, sm, md, lg, xl, xxl, xxxl]);
 };
 
 export default useResponsiveObserver;
