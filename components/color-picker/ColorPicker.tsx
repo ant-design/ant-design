@@ -30,7 +30,7 @@ import type {
   TriggerPlacement,
 } from './interface';
 import useStyle from './style';
-import { genAlphaColor, generateColor, getColorAlpha } from './util';
+import { genAlphaColor, generateColor } from './util';
 
 type CompoundedComponent = React.FC<ColorPickerProps> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
@@ -153,7 +153,10 @@ const ColorPicker: CompoundedComponent = (props) => {
     mode,
   );
 
-  const isAlphaColor = useMemo(() => getColorAlpha(mergedColor) < 100, [mergedColor]);
+  const isAlphaColor = useMemo(() => mergedColor.toRgb().a < 1, [mergedColor]);
+
+  const shouldNormalizeAlpha = (color: AggregationColor) =>
+    disabledAlpha && !color.cleared && !color.isGradient() && color.toRgb().a < 1;
 
   // ==================== Change =====================
   // To enhance user experience, we cache the gradient color when switch from gradient to single
@@ -167,7 +170,7 @@ const ColorPicker: CompoundedComponent = (props) => {
       let changeColor = generateColor(color);
 
       // ignore alpha color
-      if (disabledAlpha && isAlphaColor) {
+      if (shouldNormalizeAlpha(changeColor)) {
         changeColor = genAlphaColor(color);
       }
       onChangeComplete(changeColor);
@@ -178,7 +181,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     let color: AggregationColor = generateColor(data as AggregationColor);
 
     // ignore alpha color
-    if (disabledAlpha && isAlphaColor) {
+    if (shouldNormalizeAlpha(color)) {
       color = genAlphaColor(color);
     }
 
@@ -258,7 +261,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     const warning = devUseWarning('ColorPicker');
 
     warning(
-      !(disabledAlpha && isAlphaColor),
+      !shouldNormalizeAlpha(mergedColor),
       'usage',
       '`disabledAlpha` will make the alpha to be 100% when use alpha color.',
     );

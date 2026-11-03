@@ -649,6 +649,96 @@ describe('ColorPicker', () => {
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
+  it('Should not warning for cleared or gradient color when disabledAlpha', async () => {
+    const { container } = render(
+      <ColorPicker open disabledAlpha allowClear defaultValue="#1677ff" />,
+    );
+    await waitFakeTimer();
+    fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
+    await waitFakeTimer();
+    expect(errorSpy).not.toHaveBeenCalled();
+
+    const { unmount } = render(
+      <ColorPicker
+        open
+        disabledAlpha
+        defaultValue="linear-gradient(to right, #00000080, #ffffff80)"
+      />,
+    );
+    await waitFakeTimer();
+    expect(errorSpy).not.toHaveBeenCalled();
+    unmount();
+  });
+
+  it('Should disabledAlpha normalize alpha from preset color', () => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <ColorPicker
+        open
+        disabledAlpha
+        defaultValue="#1677ff"
+        onChange={onChange}
+        presets={[{ label: 'Bug', colors: ['#000000E0'] }]}
+      />,
+    );
+    fireEvent.click(container.querySelector('.ant-color-picker-presets-color')!);
+    expect(onChange.mock.calls[0][0].toHexString()).toBe('#000000');
+  });
+
+  it('Should disabledAlpha normalize near-opaque alpha from 8-digit hex input', () => {
+    // #000000FE alpha is 254/255, which getColorAlpha would round to 100
+    const onChange = jest.fn();
+    const { container } = render(
+      <ColorPicker open disabledAlpha defaultValue="#1677ff" onChange={onChange} />,
+    );
+    fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
+      target: { value: '#000000FE' },
+    });
+    expect(onChange.mock.calls[0][0].toHexString()).toBe('#000000');
+  });
+
+  it('Should disabledAlpha normalize alpha via onChangeComplete', () => {
+    const spyRect = spyElementPrototypes(HTMLElement, {
+      getBoundingClientRect: () => ({
+        x: 0,
+        y: 100,
+        width: 100,
+        height: 100,
+      }),
+    });
+
+    const onChange = jest.fn();
+    const onChangeComplete = jest.fn();
+    const { container } = render(
+      <ColorPicker
+        open
+        disabledAlpha
+        defaultValue="#1677ff86"
+        onChange={onChange}
+        onChangeComplete={onChangeComplete}
+      />,
+    );
+
+    // Press and release on the picker without moving: complete receives the
+    // raw dragged color which still carries the inherited alpha
+    doMouseMove(container, 50, 50);
+
+    const changedColor = onChange.mock.calls[0][0] as AggregationColor;
+    expect(changedColor.toRgb().a).toBe(1);
+    expect(onChangeComplete.mock.calls[0][0].toHexString()).toBe(changedColor.toHexString());
+
+    spyRect.mockRestore();
+  });
+
+  it('Should disabledAlpha keep cleared color when clear', () => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <ColorPicker open disabledAlpha allowClear defaultValue="#1677ff86" onChange={onChange} />,
+    );
+    fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
+    expect(onChange.mock.calls[0][0].cleared).toBe(true);
+  });
+
   it('Should not show popup when disabled', async () => {
     const Demo = () => {
       const [disabled, setDisabled] = useState(false);
