@@ -571,6 +571,32 @@ describe('Typography.Ellipsis', () => {
 
         expect(baseElement.querySelector('.ant-tooltip-open')).toBeFalsy();
       });
+
+      // https://github.com/ant-design/ant-design/issues/59488
+      it('should not show for subpixel measurement differences', async () => {
+        containerRect.right = 1011.09377;
+        measureRect.left = 1011.09381;
+
+        const { container, baseElement } = await getWrapper({ title: true });
+        fireEvent.mouseEnter(container.firstChild!);
+
+        await waitFakeTimer();
+
+        expect(baseElement.querySelector('.ant-tooltip-open')).toBeFalsy();
+      });
+
+      it('should not show for subpixel left-edge measurement differences', async () => {
+        containerRect.left = 100;
+        containerRect.right = 200;
+        measureRect.left = 99.99996;
+
+        const { container, baseElement } = await getWrapper({ title: true });
+        fireEvent.mouseEnter(container.firstChild!);
+
+        await waitFakeTimer();
+
+        expect(baseElement.querySelector('.ant-tooltip-open')).toBeFalsy();
+      });
     });
   });
 
