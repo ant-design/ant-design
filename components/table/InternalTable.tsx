@@ -341,11 +341,36 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   const [, token] = useToken();
 
+  const { controlHeight, fontSizeIcon, padding, paddingXS } = token;
+
   const mergedRowSelection = React.useMemo(() => {
-    return isPlainObject(customizeRowSelection)
-      ? { columnWidth: token.Table?.selectionColumnWidth, ...customizeRowSelection }
-      : customizeRowSelection;
-  }, [customizeRowSelection, token.Table?.selectionColumnWidth]);
+    if (!isPlainObject(customizeRowSelection)) {
+      return customizeRowSelection;
+    }
+
+    let columnWidth = token.Table?.selectionColumnWidth;
+
+    // Virtual body has no `<col />`, so the selection column width from style can not work.
+    // Use the same width as `style/selection.ts`, or it will be squeezed by other columns.
+    // https://github.com/ant-design/ant-design/issues/56681
+    if (virtual && columnWidth === undefined) {
+      const { selections, type } = customizeRowSelection;
+      const dropdownWidth = selections && type === 'checkbox' ? fontSizeIcon + padding / 4 : 0;
+      const borderedWidth = bordered ? paddingXS * 2 : 0;
+      columnWidth = controlHeight + dropdownWidth + borderedWidth;
+    }
+
+    return { columnWidth, ...customizeRowSelection };
+  }, [
+    customizeRowSelection,
+    token.Table?.selectionColumnWidth,
+    virtual,
+    bordered,
+    controlHeight,
+    fontSizeIcon,
+    padding,
+    paddingXS,
+  ]);
 
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
