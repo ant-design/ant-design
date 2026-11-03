@@ -87,6 +87,7 @@ const jestShim: any = {
   fn: vi.fn,
   spyOn: vi.spyOn,
   mock: vi.mock,
+  mocked: vi.mocked,
   unmock: vi.unmock,
   doMock: vi.doMock,
   clearAllMocks: vi.clearAllMocks,
