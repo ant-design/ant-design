@@ -18,6 +18,7 @@ const localeValues: Locale = {
     next_5: '5 faqet e tjera',
     prev_3: '3 faqet e mëparshme',
     next_3: '3 faqet e tjera',
+    page_size: 'Madhësia e faqes',
   },
   DatePicker,
   TimePicker,
