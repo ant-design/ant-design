@@ -64,14 +64,18 @@ const NEW_ICON_NAMES: ReadonlyArray<string> = [
 
 const NEW_ICON_ORDER = new Map(NEW_ICON_NAMES.map((name, index) => [name, index]));
 
+const initialValue: IconSearchState = {
+  searchKey: '',
+  theme: ThemeType.All,
+};
+
 const IconSearch: React.FC = () => {
   const intl = useIntl();
-  const [displayState, setDisplayState] = useState<IconSearchState>({
-    searchKey: '',
-    theme: ThemeType.All,
-  });
-  const deferredDisplayState = useDeferredValue(displayState);
   const token = useTheme();
+
+  const [displayState, setDisplayState] = useState<IconSearchState>(initialValue);
+
+  const deferredDisplayState = useDeferredValue<IconSearchState>(displayState, initialValue);
 
   const scrollToIcons = useMemo(() => {
     return debounce(() => {
