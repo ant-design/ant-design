@@ -1,10 +1,12 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
+import type RcTree from '@rc-component/tree';
 
 import Tree from '..';
-import { render, screen } from '../../../tests/utils';
+import { fireEvent, render, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
+import Select from '../../select';
 import type { AntTreeNodeProps } from '../Tree';
 
 const { TreeNode } = Tree;
@@ -338,5 +340,46 @@ describe('Tree', () => {
       expect(trees[0]).not.toHaveClass('ant-tree-disabled');
       expect(trees[1]).toHaveClass('ant-tree-disabled');
     });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/58500
+  it('should not activate a node or scroll when a title descendant receives focus', () => {
+    const treeData = Array.from({ length: 20 }, (_, index) => ({
+      key: String(index),
+      title: `Node ${index}`,
+    }));
+    const treeRef = React.createRef<RcTree>();
+    const { container } = render(
+      <Tree
+        ref={treeRef}
+        treeData={treeData}
+        height={100}
+        itemHeight={20}
+        selectedKeys={['1']}
+        titleRender={(node) =>
+          node.key === '0' ? (
+            <Select
+              aria-label="Node action"
+              options={[{ value: 'action', label: 'Action' }]}
+              popupMatchSelectWidth={false}
+            />
+          ) : (
+            node.title
+          )
+        }
+      />,
+    );
+
+    const select = screen.getByRole('combobox');
+    const scrollToSpy = jest.spyOn(treeRef.current!, 'scrollTo');
+
+    // Clicking the inner Select must not be treated as a keyboard focus on the Tree
+    fireEvent.mouseDown(select);
+    fireEvent.mouseUp(select);
+    fireEvent.focus(select);
+
+    expect(scrollToSpy).not.toHaveBeenCalled();
+    expect(container.querySelector('.ant-tree-treenode-active')).toBeFalsy();
+    scrollToSpy.mockRestore();
   });
 });
