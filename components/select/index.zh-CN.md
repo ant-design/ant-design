@@ -34,6 +34,7 @@ demo:
 <code src="./demo/automatic-tokenization.tsx">自动分词</code>
 <code src="./demo/custom-tokenization.tsx" version="6.5.0">自定义分词</code>
 <code src="./demo/select-users.tsx">搜索用户</code>
+<code src="./demo/infinite-scroll.tsx">搜索与滚动加载</code>
 <code src="./demo/suffix.tsx" version="5.22.0">前后缀</code>
 <code src="./demo/custom-dropdown-menu.tsx">扩展菜单</code>
 <code src="./demo/hide-selected.tsx">隐藏已选择选项</code>
