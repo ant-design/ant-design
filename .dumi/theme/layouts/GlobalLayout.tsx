@@ -83,12 +83,12 @@ const GlobalLayout: React.FC = () => {
     dynamicTheme: undefined,
   });
 
-  const [storedTheme] = useLocalStorage<ThemeName>(ANT_DESIGN_SITE_THEME, {
-    defaultValue: undefined,
+  const [storedTheme] = useLocalStorage<ThemeName | undefined>(ANT_DESIGN_SITE_THEME, {
+    initialValue: undefined,
   });
 
-  const [bannerLastTime] = useLocalStorage<string>(ANT_DESIGN_NOT_SHOW_BANNER, {
-    defaultValue: undefined,
+  const [bannerLastTime] = useLocalStorage<string | undefined>(ANT_DESIGN_NOT_SHOW_BANNER, {
+    initialValue: undefined,
   });
 
   // 获取最终主题（优先级：URL Query > Local Storage > Site (Memory)）
@@ -99,7 +99,7 @@ const GlobalLayout: React.FC = () => {
     if (urlColor) {
       return [...baseTheme, urlColor];
     }
-    if (['light', 'dark', 'auto'].includes(storedTheme)) {
+    if (storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'auto') {
       return [...baseTheme, storedTheme];
     }
     return [...baseTheme, 'auto'];
@@ -215,7 +215,7 @@ const GlobalLayout: React.FC = () => {
     return () => {
       window.removeEventListener('resize', updateMobileMode);
     };
-  }, [bannerData, bannerLastTime, searchParams, systemTheme, updateMobileMode]);
+  }, [bannerData, bannerLastTime, searchParams, storedTheme, systemTheme, updateMobileMode]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(
     () => ({

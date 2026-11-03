@@ -36,8 +36,8 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
   const lastThemeKeyRef = useRef<string>(theme.includes('dark') ? 'dark' : 'light');
   const [isMarketDrawerOpen, setIsMarketDrawerOpen] = useState(false);
 
-  const [, setTheme] = useLocalStorage<ThemeName>(ANT_DESIGN_SITE_THEME, {
-    defaultValue: undefined,
+  const [, setTheme] = useLocalStorage<ThemeName | undefined>(ANT_DESIGN_SITE_THEME, {
+    initialValue: undefined,
   });
 
   const badge = <Badge color="blue" style={{ marginTop: -1 }} />;
