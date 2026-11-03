@@ -1,5 +1,4 @@
-import type { CSSProperties } from 'react';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
 import { Affix, Empty, Input, Segmented } from 'antd';
 import { createStaticStyles, useTheme } from 'antd-style';
@@ -65,26 +64,44 @@ const NEW_ICON_NAMES: ReadonlyArray<string> = [
 
 const NEW_ICON_ORDER = new Map(NEW_ICON_NAMES.map((name, index) => [name, index]));
 
+const initialValue: IconSearchState = {
+  searchKey: '',
+  theme: ThemeType.All,
+};
+
 const IconSearch: React.FC = () => {
   const intl = useIntl();
-  const [displayState, setDisplayState] = useState<IconSearchState>({
-    searchKey: '',
-    theme: ThemeType.All,
-  });
   const token = useTheme();
 
-  const handleSearchIcon = debounce((e: React.ChangeEvent<HTMLInputElement>) => {
-    setDisplayState((prevState) => ({ ...prevState, searchKey: e.target.value }));
+  const [displayState, setDisplayState] = useState<IconSearchState>(initialValue);
 
-    document.getElementById('list-of-icons')?.scrollIntoView({ behavior: 'smooth' });
-  }, 300);
+  const deferredDisplayState = useDeferredValue<IconSearchState>(displayState, initialValue);
+
+  const scrollToIcons = useMemo(() => {
+    return debounce(() => {
+      const element = document.querySelector<HTMLHeadingElement>('#list-of-icons');
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }, 300);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      scrollToIcons.cancel();
+    };
+  }, [scrollToIcons]);
+
+  const handleSearchIcon: React.ChangeEventHandler<HTMLInputElement, HTMLInputElement> = (e) => {
+    const searchKey = e.target.value;
+    setDisplayState((prevState) => ({ ...prevState, searchKey }));
+    scrollToIcons();
+  };
 
   const handleChangeTheme = useCallback((value: ThemeType) => {
     setDisplayState((prevState) => ({ ...prevState, theme: value as ThemeType }));
   }, []);
 
   const renderCategories = useMemo<React.ReactNode | React.ReactNode[]>(() => {
-    const { searchKey = '', theme } = displayState;
+    const { searchKey = '', theme } = deferredDisplayState;
     // loop over metaInfo to find all the icons which has searchKey in their tags
     let normalizedSearchKey = searchKey?.trim();
 
@@ -144,13 +161,13 @@ const IconSearch: React.FC = () => {
       />
     ));
     return categoriesResult.length ? categoriesResult : <Empty style={{ margin: '2em 0' }} />;
-  }, [displayState]);
+  }, [deferredDisplayState]);
 
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean | undefined>(false);
 
   const { borderRadius, colorBgContainer, anchorTop } = token;
 
-  const affixedStyle: CSSProperties = {
+  const affixedStyle: React.CSSProperties = {
     boxShadow: 'rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px',
     padding: 8,
     margin: -8,
@@ -204,6 +221,7 @@ const IconSearch: React.FC = () => {
             autoFocus
             size="large"
             variant="filled"
+            value={displayState.searchKey}
             onChange={handleSearchIcon}
           />
         </div>
