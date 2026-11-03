@@ -5160,6 +5160,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           class="ant-collapse-item ant-collapse-item-active"
                         >
                           <div
+                            aria-controls="test-id"
                             aria-disabled="false"
                             aria-expanded="true"
                             class="ant-collapse-header"
@@ -5203,6 +5204,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           </div>
                           <div
                             class="ant-collapse-panel ant-collapse-panel-active"
+                            id="test-id"
                           >
                             <div
                               class="ant-collapse-body"
@@ -5298,6 +5300,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           class="ant-collapse-item ant-collapse-item-active"
                         >
                           <div
+                            aria-controls="test-id"
                             aria-disabled="false"
                             aria-expanded="true"
                             class="ant-collapse-header"
@@ -5341,6 +5344,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           </div>
                           <div
                             class="ant-collapse-panel ant-collapse-panel-active"
+                            id="test-id"
                           >
                             <div
                               class="ant-collapse-body"
@@ -5436,6 +5440,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           class="ant-collapse-item ant-collapse-item-active"
                         >
                           <div
+                            aria-controls="test-id"
                             aria-disabled="false"
                             aria-expanded="true"
                             class="ant-collapse-header"
@@ -5479,6 +5484,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           </div>
                           <div
                             class="ant-collapse-panel ant-collapse-panel-active"
+                            id="test-id"
                           >
                             <div
                               class="ant-collapse-body"
@@ -5574,6 +5580,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           class="ant-collapse-item ant-collapse-item-active"
                         >
                           <div
+                            aria-controls="test-id"
                             aria-disabled="false"
                             aria-expanded="true"
                             class="ant-collapse-header"
@@ -5617,6 +5624,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           </div>
                           <div
                             class="ant-collapse-panel ant-collapse-panel-active"
+                            id="test-id"
                           >
                             <div
                               class="ant-collapse-body"
@@ -6441,6 +6449,7 @@ Array [
                   class="ant-collapse-item ant-collapse-item-active"
                 >
                   <div
+                    aria-controls="test-id"
                     aria-disabled="false"
                     aria-expanded="true"
                     class="ant-collapse-header"
@@ -6484,6 +6493,7 @@ Array [
                   </div>
                   <div
                     class="ant-collapse-panel ant-collapse-panel-active"
+                    id="test-id"
                   >
                     <div
                       class="ant-collapse-body"
@@ -6579,6 +6589,7 @@ Array [
                   class="ant-collapse-item ant-collapse-item-active"
                 >
                   <div
+                    aria-controls="test-id"
                     aria-disabled="false"
                     aria-expanded="true"
                     class="ant-collapse-header"
@@ -6622,6 +6633,7 @@ Array [
                   </div>
                   <div
                     class="ant-collapse-panel ant-collapse-panel-active"
+                    id="test-id"
                   >
                     <div
                       class="ant-collapse-body"
@@ -6717,6 +6729,7 @@ Array [
                   class="ant-collapse-item ant-collapse-item-active"
                 >
                   <div
+                    aria-controls="test-id"
                     aria-disabled="false"
                     aria-expanded="true"
                     class="ant-collapse-header"
@@ -6760,6 +6773,7 @@ Array [
                   </div>
                   <div
                     class="ant-collapse-panel ant-collapse-panel-active"
+                    id="test-id"
                   >
                     <div
                       class="ant-collapse-body"
