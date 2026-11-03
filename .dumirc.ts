@@ -5,7 +5,6 @@ import * as fs from 'fs-extra';
 
 import rehypeAntd from './.dumi/rehypeAntd';
 import rehypeChangelog from './.dumi/rehypeChangelog';
-import remarkAnchor from './.dumi/remarkAnchor';
 import remarkAntd from './.dumi/remarkAntd';
 import { version } from './package.json';
 
@@ -107,7 +106,7 @@ export default defineConfig({
     antd: path.join(__dirname, 'components'),
   },
   extraRehypePlugins: [rehypeAntd, rehypeChangelog],
-  extraRemarkPlugins: [remarkAntd, remarkAnchor],
+  extraRemarkPlugins: [remarkAntd],
   metas: [
     { name: 'theme-color', content: '#1677ff' },
     { name: 'build-time', content: Date.now().toString() },
