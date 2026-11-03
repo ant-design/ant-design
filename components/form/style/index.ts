@@ -277,10 +277,6 @@ const genFormItemStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
             display: 'inline-block',
             marginInlineStart: token.marginXXS,
             color: token.colorTextDescription,
-
-            [`&${formItemCls}-required-mark-hidden`]: {
-              display: 'none',
-            },
           },
 
           // Optional mark
