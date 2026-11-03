@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useInsertionEffect, useMemo, useRef, useState } from 'react';
 import { UpOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Badge, Tag, Tooltip } from 'antd';
@@ -286,7 +286,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     </section>
   );
 
-  useEffect(() => {
+  useInsertionEffect(() => {
     // In Safari, if style tag be inserted into non-head tag,
     // it will affect the rendering ability of the browser,
     // resulting in some response delays like following issue:
