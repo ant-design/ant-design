@@ -32,9 +32,14 @@ const localeValues: Locale = {
     emptyText: 'Daneyên tune',
     selectNone: 'Hemî daneyan paqij bike',
     selectionAll: 'Hemî daneyan hilbijêrin',
+    selectRow: 'Rêzê hilbijêre',
+    selectedRow: 'Rêz hat hilbijartin',
+    selectionMenu: 'Pêşeka hilbijartinê',
     sortTitle: 'Sort',
     expand: 'Rêzê berfireh bike',
     collapse: 'Rêzê hilweşîne',
+    expandAll: 'Hemî rêzan berfireh bike',
+    collapseAll: 'Hemî rêzan veşêre',
     triggerDesc: 'Bikirtînin ji bo rêzkirina daketî',
     triggerAsc: 'Ji bo rêzkirina hilkişînê bikirtînin',
     cancelSort: 'Ji bo betalkirina dabeşkirinê bikirtînin',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Temam',
     cancelText: 'Betal ke',
+  },
+  Splitter: {
+    toggleStartPanel: 'Panela destpêkê biguherîne',
+    toggleEndPanel: 'Panela dawiyê biguherîne',
   },
   Transfer: {
     titles: ['', ''],

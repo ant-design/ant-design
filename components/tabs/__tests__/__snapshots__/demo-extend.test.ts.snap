@@ -4381,7 +4381,9 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       >
         <div
           aria-label="Parent - start"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="4"
           id="test-id_list_0"
           role="option"
         >
@@ -4389,7 +4391,9 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </div>
         <div
           aria-label="Parent - end"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="4"
           id="test-id_list_1"
           role="option"
         >
@@ -4543,7 +4547,9 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       >
         <div
           aria-label="Child - start"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="4"
           id="test-id_list_0"
           role="option"
         >
@@ -4551,7 +4557,9 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </div>
         <div
           aria-label="Child - end"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="4"
           id="test-id_list_1"
           role="option"
         >
@@ -4705,7 +4713,9 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       >
         <div
           aria-label="Parent - line"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="3"
           id="test-id_list_0"
           role="option"
         >
@@ -4713,7 +4723,9 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </div>
         <div
           aria-label="Parent - card"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="3"
           id="test-id_list_1"
           role="option"
         >
@@ -4850,7 +4862,9 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       >
         <div
           aria-label="Child - line"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="3"
           id="test-id_list_0"
           role="option"
         >
@@ -4858,7 +4872,9 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </div>
         <div
           aria-label="Child - card"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="3"
           id="test-id_list_1"
           role="option"
         >
@@ -6266,6 +6282,7 @@ exports[`renders components/tabs/demo/popupRender-Search.tsx extend context corr
                 class="ant-input-suffix"
               >
                 <button
+                  aria-label="Clear"
                   class="ant-input-clear-icon ant-input-clear-icon-hidden"
                   type="button"
                 >

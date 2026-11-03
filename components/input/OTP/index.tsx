@@ -16,6 +16,7 @@ import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
 import type { FormItemStatusContextProps } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
+import useLocale from '../../locale/useLocale';
 import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
@@ -167,11 +168,15 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     props: mergedProps,
   });
 
-  const domAttrs = pickAttrs(restProps, {
+  // `aria-invalid` is not supported on `role="group"`, so it is set on each cell instead
+  const { 'aria-invalid': ariaInvalid, ...restDomProps } = restProps;
+  const domAttrs = pickAttrs(restDomProps, {
     aria: true,
     data: true,
     attr: true,
   });
+
+  const [inputLocale] = useLocale('Input');
 
   // ========================= Root =========================
   // Style
@@ -314,6 +319,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   // ======================== Render ========================
   const inputSharedProps: Partial<OTPInputProps> = {
+    'aria-invalid': ariaInvalid ?? (mergedStatus === 'error' || undefined),
     variant,
     disabled,
     status: mergedStatus as InputStatus,
@@ -355,6 +361,9 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
                   inputsRef.current[index] = inputEle;
                 }}
                 index={index}
+                aria-label={inputLocale.otpCell
+                  ?.replace(/\$\{index\}/g, String(index + 1))
+                  .replace(/\$\{total\}/g, String(length))}
                 size={mergedSize}
                 htmlSize={1}
                 className={clsx(mergedClassNames.input, `${prefixCls}-input`)}

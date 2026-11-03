@@ -37,9 +37,14 @@ const localeValues: Locale = {
     selectInvert: 'Tanlovni aylantirish',
     selectNone: "Barcha ma'lumotlarni tozalang",
     selectionAll: 'Barchasini tanlash',
+    selectRow: 'Qatorni tanlash',
+    selectedRow: 'Qator tanlandi',
+    selectionMenu: 'Tanlash menyusi',
     sortTitle: 'Tartiblash',
     expand: 'Satirni yozish',
     collapse: "Satirni yig'ish",
+    expandAll: 'Barcha satrlarni yozish',
+    collapseAll: "Barcha satrlarni yig'ish",
     triggerDesc: 'Kamayish tartibida tartiblash uchun bosing',
     triggerAsc: "O'sish tartibida tartiblash uchun bosing",
     cancelSort: 'Tartiblshni rad etish uchun bosing',
@@ -57,6 +62,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Bekor qilish',
+  },
+  Splitter: {
+    toggleStartPanel: 'Boshlang‘ich panelni almashtirish',
+    toggleEndPanel: 'Yakuniy panelni almashtirish',
   },
   Transfer: {
     titles: ['', ''],

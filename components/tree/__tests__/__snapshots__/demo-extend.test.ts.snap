@@ -3687,7 +3687,9 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
         >
           <div
             aria-label="True"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
@@ -3695,7 +3697,9 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
           </div>
           <div
             aria-label="False"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >

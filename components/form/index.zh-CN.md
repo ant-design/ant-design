@@ -77,7 +77,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | form | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | [FormInstance](#forminstance) | - |  | × |
 | feedbackIcons | 当 `Form.Item` 有 `hasFeedback` 属性时可以自定义图标 | [FeedbackIcons](#feedbackicons) | - | 5.9.0 | × |
 | initialValues | 表单默认值，只有初始化以及重置时生效 | object | - |  | × |
-| labelAlign | label 标签的文本对齐方式 | `left` \| `right` | `right` |  | 6.4.0 |
+| labelAlign | 标签文本对齐方式 | `start` \| `end` | `end` | 6.7.0：`left` 改为 `start`，`right` 改为 `end` | 6.4.0 |
 | labelWrap | label 标签的文本换行方式 | boolean | false | 4.18.0 | × |
 | labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](/components/grid#col) | - |  | × |
 | layout | 表单布局。`horizontal` 布局默认在视口宽度不超过 `575px` 时将标签和控件上下排列，可通过 `labelCol` 和 `wrapperCol` 的 `xs` 配置自定义窄屏下的列宽 | `horizontal` \| `vertical` \| `inline` | `horizontal` |  | × |
@@ -143,7 +143,7 @@ const validateMessages = {
 | htmlFor | 设置子元素 label `htmlFor` 属性 | string | - |  |
 | initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | string | - | 4.2.0 |
 | label | `label` 标签的文本，当不需要 label 又需要与冒号对齐，可以设为 null | ReactNode | - | null: 5.22.0 |
-| labelAlign | 标签文本对齐方式 | `left` \| `right` | `right` |  |
+| labelAlign | 标签文本对齐方式 | `start` \| `end` | `end` | 6.7.0：`left` 改为 `start`，`right` 改为 `end` |
 | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid#col) | - |  |
 | messageVariables | 默认验证字段的信息，查看[详情](#messagevariables) | Record&lt;string, string> | - | 4.7.0 |
 | name | 字段名，支持数组 | [NamePath](#namepath) | - |  |
