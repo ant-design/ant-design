@@ -4,6 +4,7 @@ import type { SelectProps } from '..';
 import Select from '..';
 import accessibilityDemoTest, { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 accessibilityDemoTest('select', { disabledRules: ['label', 'button-name'] });
 
@@ -113,5 +114,36 @@ describe('Select popup a11y', () => {
 
   describe('grouped options without virtual list', () => {
     accessibilityTest(() => <OpenSelect options={groupedOptions} virtual={false} />);
+  });
+});
+
+describe('Select allowClear a11y', () => {
+  it('should name the clear button from the locale', () => {
+    const { container, rerender } = render(
+      <Select allowClear defaultValue="a" options={[{ value: 'a' }]} />,
+    );
+    const getClearButton = () => container.querySelector('.ant-select-clear')!;
+    expect(getClearButton()).toHaveAttribute('aria-label', 'Clear');
+
+    rerender(
+      <ConfigProvider locale={{ locale: 'fr', global: { clear: 'Effacer' } }}>
+        <Select allowClear defaultValue="a" options={[{ value: 'a' }]} />
+      </ConfigProvider>,
+    );
+    expect(getClearButton()).toHaveAttribute('aria-label', 'Effacer');
+  });
+
+  it('should keep a custom clear label', () => {
+    const { container } = render(
+      <Select allowClear={{ label: 'Remove' }} defaultValue="a" options={[{ value: 'a' }]} />,
+    );
+    expect(container.querySelector('.ant-select-clear')).toHaveAttribute('aria-label', 'Remove');
+  });
+
+  it('should keep the localized label when allowClear.label is undefined', () => {
+    const { container } = render(
+      <Select allowClear={{ label: undefined }} defaultValue="a" options={[{ value: 'a' }]} />,
+    );
+    expect(container.querySelector('.ant-select-clear')).toHaveAttribute('aria-label', 'Clear');
   });
 });

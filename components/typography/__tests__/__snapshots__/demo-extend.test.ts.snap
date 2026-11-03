@@ -2634,6 +2634,18 @@ Array [
 
 exports[`renders components/typography/demo/paragraph-debug.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/typography/demo/shimmer.tsx extend context correctly 1`] = `
+<span
+  aria-busy="true"
+  class="ant-typography ant-typography-shimmer css-var-test-id"
+  style="--ant-typography-shimmer-motion-time: 1; --ant-typography-shimmer-wait-time: 1;"
+>
+  Thinking...
+</span>
+`;
+
+exports[`renders components/typography/demo/shimmer.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/typography/demo/suffix.tsx extend context correctly 1`] = `
 Array [
   <div
