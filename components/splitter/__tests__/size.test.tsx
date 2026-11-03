@@ -213,4 +213,9 @@ describe('useSizes', () => {
     // Check if the `size` of the first panel gets priority.
     expect(postPxSizes).toEqual([600, 400]);
   });
+
+  it.each([0, '0%'])('honors a zero max threshold %s during auto allocation', (max) => {
+    const { result } = renderHook(() => useSizes([{ max }, {}], 1000));
+    expect(result.current[1]).toEqual([0, 1000]);
+  });
 });

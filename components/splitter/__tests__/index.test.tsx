@@ -75,6 +75,14 @@ describe('Splitter', () => {
     jest.useRealTimers();
   });
 
+  it.each([0, '0%'])('honors a zero panel max %s after measuring the container', async (max) => {
+    const { container } = render(<SplitterDemo items={[{ max }, {}]} />);
+    await resizeSplitter();
+    const panels = container.querySelectorAll('.ant-splitter-panel');
+    expect(panels[0]).toHaveStyle('flex-basis: 0px');
+    expect(panels[1]).toHaveStyle('flex-basis: 100px');
+  });
+
   it('should support nativeElement ref', () => {
     const ref = React.createRef<React.ComponentRef<typeof Splitter>>();
     const { container } = render(

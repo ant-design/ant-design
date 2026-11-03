@@ -52,7 +52,7 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
         if (isPtg(item.max)) {
           return getPtg(item.max);
         }
-        return (item.max || mergedContainerSize) / mergedContainerSize;
+        return mergedContainerSize ? (item.max ?? mergedContainerSize) / mergedContainerSize : 1;
       }),
     [items, mergedContainerSize],
   );
