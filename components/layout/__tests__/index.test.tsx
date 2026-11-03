@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { UserOutlined } from '@ant-design/icons';
+import * as rcUseId from '@rc-component/util/lib/hooks/useId';
 import { renderToString } from 'react-dom/server';
 
 import Layout from '..';
@@ -39,14 +40,21 @@ describe('Layout', () => {
     unmount();
   });
 
-  it('umount from multiple siders', async () => {
+  it('keeps the sider layout until all nested siders unmount', () => {
+    // rc-util returns the same ID for every instance in the test environment.
+    const useIdSpy = jest
+      .spyOn(rcUseId, 'default')
+      .mockImplementation(jest.requireActual('react').useId);
+
     const App: React.FC = () => {
       const [hide1, setHide1] = useState(false);
       const [hide2, setHide2] = useState(false);
       return (
         <Layout>
-          {hide1 ? null : <Sider>Sider</Sider>}
-          {hide2 ? null : <Sider>Sider</Sider>}
+          <div>
+            {hide1 ? null : <Sider>Sider</Sider>}
+            {hide2 ? null : <Sider>Sider</Sider>}
+          </div>
           <Content>
             <button onClick={() => setHide1(true)} type="button">
               hide sider 1
@@ -70,6 +78,8 @@ describe('Layout', () => {
     expect(container.querySelector('.ant-layout')?.className.includes('ant-layout-has-sider')).toBe(
       false,
     );
+
+    useIdSpy.mockRestore();
   });
 
   it('detect the sider inside the children', async () => {
