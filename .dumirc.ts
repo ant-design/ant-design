@@ -76,6 +76,7 @@ export default defineConfig({
   mako: isCloudflarePages && ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
   utoopack: {
     devServer: {
+      lazyDynamicImports: true,
       dynamicHmrChunkLists: true,
     },
     watch: {
