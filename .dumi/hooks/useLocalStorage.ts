@@ -26,11 +26,11 @@ const deserializer = <T>(raw: string | null, fallback: T): T => {
   }
 };
 
-const serializer = <T>(value: T): string => {
+const serializer = <T>(value: T): string | undefined => {
   try {
     return JSON.stringify(value);
   } catch {
-    return undefined as any;
+    return undefined;
   }
 };
 
@@ -40,6 +40,7 @@ const notifyChange = (key: string) => {
 
 interface Options<T> {
   initialValue: T;
+  onError?: (err: any) => void;
 }
 
 type UseLocalStorageReturn<T> = readonly [
@@ -49,7 +50,7 @@ type UseLocalStorageReturn<T> = readonly [
 ];
 
 const useLocalStorage = <T>(key: string, options: Options<T>): UseLocalStorageReturn<T> => {
-  const { initialValue } = options;
+  const { initialValue, onError } = options;
 
   const subscribe = React.useCallback(
     (onChange: () => void) => {
@@ -101,9 +102,13 @@ const useLocalStorage = <T>(key: string, options: Options<T>): UseLocalStorageRe
         throw new TypeError('useLocalStorage 的值必须可以序列化为 JSON');
       }
 
-      // 写入失败时向调用方抛出错误；成功后再通知订阅者。
-      window.localStorage.setItem(key, serialized);
-      notifyChange(key);
+      // 存储不可用时不阻断调用方流程，成功后再通知订阅者。
+      try {
+        window.localStorage.setItem(key, serialized);
+        notifyChange(key);
+      } catch (err) {
+        onError?.(err);
+      }
     },
     [key, initialValue],
   );
@@ -112,8 +117,12 @@ const useLocalStorage = <T>(key: string, options: Options<T>): UseLocalStorageRe
     if (typeof window === 'undefined') {
       return;
     }
-    window.localStorage.removeItem(key);
-    notifyChange(key);
+    try {
+      window.localStorage.removeItem(key);
+      notifyChange(key);
+    } catch (err) {
+      onError?.(err);
+    }
   }, [key]);
 
   return [value, setValue, removeValue] as const;
