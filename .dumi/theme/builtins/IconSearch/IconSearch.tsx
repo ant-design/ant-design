@@ -90,7 +90,7 @@ const IconSearch: React.FC = () => {
     };
   }, [scrollToIcons]);
 
-  const handleSearchIcon = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchIcon: React.ChangeEventHandler<HTMLInputElement, HTMLInputElement> = (e) => {
     const searchKey = e.target.value;
     setDisplayState((prevState) => ({ ...prevState, searchKey }));
     scrollToIcons();
