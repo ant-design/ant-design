@@ -1054,6 +1054,266 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
 
 exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/segmented/demo/fluid-hover.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      aria-label="segmented control"
+      aria-orientation="horizontal"
+      class="ant-segmented ant-segmented-hover-fluid css-var-test-id"
+      role="radiogroup"
+      tabindex="0"
+    >
+      <div
+        class="ant-segmented-group"
+      >
+        <label
+          class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+        >
+          <input
+            checked=""
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="Daily"
+          >
+            Daily
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="Weekly"
+          >
+            Weekly
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="Monthly"
+          >
+            Monthly
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="Quarterly"
+          >
+            Quarterly
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="Yearly"
+          >
+            Yearly
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      aria-label="segmented control"
+      aria-orientation="horizontal"
+      class="ant-segmented ant-segmented-hover-fluid css-var-test-id"
+      role="radiogroup"
+      tabindex="0"
+    >
+      <div
+        class="ant-segmented-group"
+      >
+        <label
+          class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+        >
+          <input
+            checked=""
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="Daily"
+          >
+            Daily
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item ant-segmented-item-disabled"
+        >
+          <input
+            class="ant-segmented-item-input"
+            disabled=""
+            name="test-id"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="Weekly"
+          >
+            Weekly
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="Monthly"
+          >
+            Monthly
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      aria-label="segmented control"
+      aria-orientation="vertical"
+      class="ant-segmented ant-segmented-vertical ant-segmented-vertical ant-segmented-hover-fluid css-var-test-id"
+      role="radiogroup"
+      tabindex="0"
+    >
+      <div
+        class="ant-segmented-group"
+      >
+        <label
+          class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+        >
+          <input
+            checked=""
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="Daily"
+          >
+            Daily
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="Weekly"
+          >
+            Weekly
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="Monthly"
+          >
+            Monthly
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="Quarterly"
+          >
+            Quarterly
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            name="test-id"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="Yearly"
+          >
+            Yearly
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/segmented/demo/fluid-hover.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Space] \`direction\` is deprecated. Please use \`orientation\` instead.",
+]
+`;
+
 exports[`renders components/segmented/demo/icon-only.tsx extend context correctly 1`] = `
 <div
   aria-label="segmented control"
