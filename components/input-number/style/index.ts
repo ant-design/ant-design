@@ -235,6 +235,12 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
             opacity: 1,
           },
 
+          [`&:hover:not(${componentCls}-without-controls)`]: {
+            [`${componentCls}-suffix`]: {
+              marginInlineEnd: token.handleWidth,
+            },
+          },
+
           [`${componentCls}-action`]: {
             color: colorIcon,
             height: '50%',
@@ -258,6 +264,14 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
         [`&${componentCls}-mode-spinner`]: {
           padding: 0,
           width: 'auto',
+
+          [`${componentCls}-prefix`]: {
+            marginInlineStart: varRef('input-padding-inline'),
+          },
+
+          [`${componentCls}-suffix`]: {
+            marginInlineEnd: varRef('input-padding-inline'),
+          },
 
           [`${componentCls}-action`]: {
             flex: 'none',
@@ -326,12 +340,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
           height: '100%',
           marginInlineStart: inputAffixPadding,
           transition: `margin ${motionDurationMid}`,
-        },
-
-        [`&:hover:not(${componentCls}-without-controls)`]: {
-          [`${componentCls}-suffix`]: {
-            marginInlineEnd: token.handleWidth,
-          },
         },
       },
     },
