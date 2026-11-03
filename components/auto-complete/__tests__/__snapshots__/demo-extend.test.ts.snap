@@ -667,7 +667,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up acss-1pp3wun css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up acss-yyhqh7 css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; width: 500px;"
   >
     <div>
@@ -675,13 +675,7 @@ Array [
         id="test-id_list"
         role="listbox"
         style="height: 0px; width: 0px; overflow: hidden;"
-      >
-        <div
-          aria-selected="false"
-          id="test-id_list_0"
-          role="presentation"
-        />
-      </div>
+      />
       <div
         class="ant-select-dropdown-list"
         style="position: relative;"
@@ -1066,7 +1060,9 @@ exports[`renders components/auto-complete/demo/customize-clear-debug.tsx extend 
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-posinset="1"
           aria-selected="true"
+          aria-setsize="3"
           id="test-id_list_0"
           role="option"
         >
@@ -1201,7 +1197,9 @@ exports[`renders components/auto-complete/demo/customize-clear-debug.tsx extend 
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-posinset="1"
           aria-selected="true"
+          aria-setsize="3"
           id="test-id_list_0"
           role="option"
         >
@@ -1507,7 +1505,9 @@ exports[`renders components/auto-complete/demo/disabled-in-form-debug.tsx extend
                     style="height: 0px; width: 0px; overflow: hidden;"
                   >
                     <div
+                      aria-posinset="1"
                       aria-selected="true"
+                      aria-setsize="1"
                       id="test-id_list_0"
                       role="option"
                     >
@@ -1589,7 +1589,9 @@ exports[`renders components/auto-complete/demo/disabled-in-form-debug.tsx extend
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-posinset="1"
           aria-selected="true"
+          aria-setsize="1"
           id="test-id_list_0"
           role="option"
         >
@@ -1701,7 +1703,9 @@ exports[`renders components/auto-complete/demo/filled-custom-debug.tsx extend co
                     style="height: 0px; width: 0px; overflow: hidden;"
                   >
                     <div
+                      aria-posinset="1"
                       aria-selected="false"
+                      aria-setsize="3"
                       id="test-id_list_0"
                       role="option"
                     >
@@ -2977,7 +2981,9 @@ Array [
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="3"
           id="test-id_list_0"
           role="option"
         >
@@ -3164,7 +3170,9 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="4"
             id="test-id_list_0"
             role="option"
           >
@@ -3392,7 +3400,9 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="5"
           id="test-id_list_0"
           role="option"
         >
@@ -3544,7 +3554,9 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="5"
           id="test-id_list_0"
           role="option"
         >
