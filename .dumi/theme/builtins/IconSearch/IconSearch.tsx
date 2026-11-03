@@ -79,7 +79,8 @@ const IconSearch: React.FC = () => {
 
   const scrollToIcons = useMemo(() => {
     return debounce(() => {
-      document.getElementById('list-of-icons')?.scrollIntoView({ behavior: 'smooth' });
+      const element = document.querySelector<HTMLHeadingElement>('#list-of-icons');
+      element?.scrollIntoView({ behavior: 'smooth' });
     }, 300);
   }, []);
 
