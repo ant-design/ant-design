@@ -4,6 +4,7 @@ import { resetComponent, textEllipsis } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import genDropdownStyle from './dropdown';
 import genSelectInputStyle from './select-input';
 import type { ComponentToken, SelectToken } from './token';
@@ -13,7 +14,9 @@ export type { ComponentToken };
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
-  const { antCls, componentCls, motionDurationMid, inputPaddingHorizontalBase } = token;
+  const { antCls, componentCls, motionDurationMid } = token;
+  const [, varRef] = genCssVar(antCls, 'select');
+  const inputPaddingHorizontalBase = varRef('padding-horizontal');
 
   const hoverShowClearStyle: CSSObject = {
     [`${componentCls}-clear`]: {
