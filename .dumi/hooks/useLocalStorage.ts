@@ -110,7 +110,7 @@ const useLocalStorage = <T>(key: string, options: Options<T>): UseLocalStorageRe
         onError?.(err);
       }
     },
-    [key, initialValue],
+    [key, initialValue, onError],
   );
 
   const removeValue = React.useCallback(() => {
@@ -123,7 +123,7 @@ const useLocalStorage = <T>(key: string, options: Options<T>): UseLocalStorageRe
     } catch (err) {
       onError?.(err);
     }
-  }, [key]);
+  }, [key, onError]);
 
   return [value, setValue, removeValue] as const;
 };
