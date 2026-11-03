@@ -305,7 +305,7 @@ describe('Typography', () => {
 
             fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
 
-            expect(onStart).toHaveBeenCalled();
+            expect(onStart).toHaveBeenCalledTimes(1);
             if (triggerType?.includes('text')) {
               fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
               fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
@@ -416,6 +416,18 @@ describe('Typography', () => {
         expect(onClick).toHaveBeenCalledWith(expect.objectContaining({ target: text }));
         expect(onStart).toHaveBeenCalledTimes(1);
         expect(getByRole('textbox')).toHaveValue('Bamboo');
+      });
+
+      it('should trigger onStart once when click edit icon with both icon and text triggers', () => {
+        const onStart = jest.fn();
+        const { container } = render(
+          <Paragraph editable={{ triggerType: ['icon', 'text'], onStart }}>Bamboo</Paragraph>,
+        );
+
+        fireEvent.click(container.querySelectorAll('.ant-typography-edit')[0]);
+
+        expect(onStart).toHaveBeenCalledTimes(1);
+        expect(container.querySelector('textarea')).toHaveValue('Bamboo');
       });
 
       it.each<{ editable: React.ComponentProps<typeof Paragraph>['editable'] }>([
