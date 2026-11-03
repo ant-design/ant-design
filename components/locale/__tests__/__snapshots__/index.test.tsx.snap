@@ -623,20 +623,16 @@ exports[`Locale Provider set dayjs locale when locale changes 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  今天
-                </a>
-              </li>
-            </ul>
+                今天
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -1268,20 +1264,16 @@ exports[`Locale Provider set dayjs locale when locale changes 2`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Aujourd'hui
-                </a>
-              </li>
-            </ul>
+                Aujourd'hui
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -1913,20 +1905,16 @@ exports[`Locale Provider set dayjs locale when locale changes 3`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Today
-                </a>
-              </li>
-            </ul>
+                Today
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -2763,20 +2751,16 @@ exports[`Locale Provider should display the text as ar 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  اليوم
-                </a>
-              </li>
-            </ul>
+                اليوم
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -5034,32 +5018,24 @@ exports[`Locale Provider should display the text as ar 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  الأن
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                الأن
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    تأكيد
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  تأكيد
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -8741,20 +8717,16 @@ exports[`Locale Provider should display the text as az 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Bugün
-                </a>
-              </li>
-            </ul>
+                Bugün
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -11012,32 +10984,24 @@ exports[`Locale Provider should display the text as az 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  İndi
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                İndi
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Təsdiq
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  Təsdiq
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -14719,20 +14683,16 @@ exports[`Locale Provider should display the text as bg 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Днес
-                </a>
-              </li>
-            </ul>
+                Днес
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -16990,32 +16950,24 @@ exports[`Locale Provider should display the text as bg 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Сега
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Сега
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Добре
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  Добре
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -20697,20 +20649,16 @@ exports[`Locale Provider should display the text as bn-bd 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  আজ
-                </a>
-              </li>
-            </ul>
+                আজ
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -22968,32 +22916,24 @@ exports[`Locale Provider should display the text as bn-bd 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  এখন
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                এখন
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    ওকে
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  ওকে
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -26675,20 +26615,16 @@ exports[`Locale Provider should display the text as by 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Сёння
-                </a>
-              </li>
-            </ul>
+                Сёння
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -28946,32 +28882,24 @@ exports[`Locale Provider should display the text as by 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Зараз
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Зараз
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -32653,20 +32581,16 @@ exports[`Locale Provider should display the text as ca 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Avui
-                </a>
-              </li>
-            </ul>
+                Avui
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -34924,32 +34848,24 @@ exports[`Locale Provider should display the text as ca 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Ara
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Ara
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Acceptar
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  Acceptar
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -38631,20 +38547,16 @@ exports[`Locale Provider should display the text as cs 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Dnes
-                </a>
-              </li>
-            </ul>
+                Dnes
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -40902,32 +40814,24 @@ exports[`Locale Provider should display the text as cs 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Nyní
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Nyní
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -44609,20 +44513,16 @@ exports[`Locale Provider should display the text as da 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  I dag
-                </a>
-              </li>
-            </ul>
+                I dag
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -46880,32 +46780,24 @@ exports[`Locale Provider should display the text as da 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Nu
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Nu
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -50587,20 +50479,16 @@ exports[`Locale Provider should display the text as de 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Heute
-                </a>
-              </li>
-            </ul>
+                Heute
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -52858,32 +52746,24 @@ exports[`Locale Provider should display the text as de 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Jetzt
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Jetzt
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -56565,20 +56445,16 @@ exports[`Locale Provider should display the text as el 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Σήμερα
-                </a>
-              </li>
-            </ul>
+                Σήμερα
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -58836,32 +58712,24 @@ exports[`Locale Provider should display the text as el 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Τώρα
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Τώρα
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -62543,20 +62411,16 @@ exports[`Locale Provider should display the text as en 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Today
-                </a>
-              </li>
-            </ul>
+                Today
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -64814,32 +64678,24 @@ exports[`Locale Provider should display the text as en 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Now
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -68521,20 +68377,16 @@ exports[`Locale Provider should display the text as en-gb 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Today
-                </a>
-              </li>
-            </ul>
+                Today
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -70792,32 +70644,24 @@ exports[`Locale Provider should display the text as en-gb 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Now
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -74499,20 +74343,16 @@ exports[`Locale Provider should display the text as es 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Hoy
-                </a>
-              </li>
-            </ul>
+                Hoy
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -76770,32 +76610,24 @@ exports[`Locale Provider should display the text as es 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Ahora
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Ahora
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Aceptar
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  Aceptar
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -80477,20 +80309,16 @@ exports[`Locale Provider should display the text as es-us 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Hoy
-                </a>
-              </li>
-            </ul>
+                Hoy
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -82748,32 +82576,24 @@ exports[`Locale Provider should display the text as es-us 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Ahora
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Ahora
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Aceptar
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  Aceptar
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -86455,20 +86275,16 @@ exports[`Locale Provider should display the text as et 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Täna
-                </a>
-              </li>
-            </ul>
+                Täna
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -88726,32 +88542,24 @@ exports[`Locale Provider should display the text as et 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Praegu
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Praegu
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -92433,20 +92241,16 @@ exports[`Locale Provider should display the text as eu 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Gaur
-                </a>
-              </li>
-            </ul>
+                Gaur
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -94704,32 +94508,24 @@ exports[`Locale Provider should display the text as eu 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Orain
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Orain
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -98411,20 +98207,16 @@ exports[`Locale Provider should display the text as fa 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  امروز
-                </a>
-              </li>
-            </ul>
+                امروز
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -100682,32 +100474,24 @@ exports[`Locale Provider should display the text as fa 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  اکنون
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                اکنون
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    باشه
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  باشه
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -104389,20 +104173,16 @@ exports[`Locale Provider should display the text as fi 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Tänään
-                </a>
-              </li>
-            </ul>
+                Tänään
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -106660,32 +106440,24 @@ exports[`Locale Provider should display the text as fi 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Nyt
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Nyt
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -110367,20 +110139,16 @@ exports[`Locale Provider should display the text as fr 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Aujourd'hui
-                </a>
-              </li>
-            </ul>
+                Aujourd'hui
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -112638,32 +112406,24 @@ exports[`Locale Provider should display the text as fr 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Maintenant
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Maintenant
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -116345,20 +116105,16 @@ exports[`Locale Provider should display the text as fr 2`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Aujourd'hui
-                </a>
-              </li>
-            </ul>
+                Aujourd'hui
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -118616,32 +118372,24 @@ exports[`Locale Provider should display the text as fr 2`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Maintenant
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Maintenant
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -122323,20 +122071,16 @@ exports[`Locale Provider should display the text as fr 3`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Aujourd'hui
-                </a>
-              </li>
-            </ul>
+                Aujourd'hui
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -124594,32 +124338,24 @@ exports[`Locale Provider should display the text as fr 3`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Maintenant
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Maintenant
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -128301,20 +128037,16 @@ exports[`Locale Provider should display the text as ga 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  inniu
-                </a>
-              </li>
-            </ul>
+                inniu
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -130572,32 +130304,24 @@ exports[`Locale Provider should display the text as ga 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  anois
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                anois
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    ceart go leor
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  ceart go leor
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -134279,20 +134003,16 @@ exports[`Locale Provider should display the text as gl 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Hoxe
-                </a>
-              </li>
-            </ul>
+                Hoxe
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -136550,32 +136270,24 @@ exports[`Locale Provider should display the text as gl 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Agora
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Agora
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Aceptar
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  Aceptar
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -140257,20 +139969,16 @@ exports[`Locale Provider should display the text as he 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  היום
-                </a>
-              </li>
-            </ul>
+                היום
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -142528,32 +142236,24 @@ exports[`Locale Provider should display the text as he 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  עכשיו
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                עכשיו
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    אישור
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  אישור
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -146235,20 +145935,16 @@ exports[`Locale Provider should display the text as hi 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  आज
-                </a>
-              </li>
-            </ul>
+                आज
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -148506,32 +148202,24 @@ exports[`Locale Provider should display the text as hi 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  अभी
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                अभी
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    ठीक
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  ठीक
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -152213,20 +151901,16 @@ exports[`Locale Provider should display the text as hr 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Danas
-                </a>
-              </li>
-            </ul>
+                Danas
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -154484,32 +154168,24 @@ exports[`Locale Provider should display the text as hr 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Sad
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Sad
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -158191,20 +157867,16 @@ exports[`Locale Provider should display the text as hu 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Ma
-                </a>
-              </li>
-            </ul>
+                Ma
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -160462,32 +160134,24 @@ exports[`Locale Provider should display the text as hu 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Most
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Most
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -164169,20 +163833,16 @@ exports[`Locale Provider should display the text as hy-am 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Այսօր
-                </a>
-              </li>
-            </ul>
+                Այսօր
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -166437,32 +166097,24 @@ exports[`Locale Provider should display the text as hy-am 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Հիմա
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Հիմա
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Օկ
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  Օկ
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -170144,20 +169796,16 @@ exports[`Locale Provider should display the text as id 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Hari ini
-                </a>
-              </li>
-            </ul>
+                Hari ini
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -172415,32 +172063,24 @@ exports[`Locale Provider should display the text as id 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Sekarang
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Sekarang
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Baik
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  Baik
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -176122,20 +175762,16 @@ exports[`Locale Provider should display the text as is 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Í dag
-                </a>
-              </li>
-            </ul>
+                Í dag
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -178393,32 +178029,24 @@ exports[`Locale Provider should display the text as is 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Núna
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Núna
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Í lagi
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  Í lagi
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -182100,20 +181728,16 @@ exports[`Locale Provider should display the text as it 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Oggi
-                </a>
-              </li>
-            </ul>
+                Oggi
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -184371,32 +183995,24 @@ exports[`Locale Provider should display the text as it 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Adesso
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Adesso
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -188078,20 +187694,16 @@ exports[`Locale Provider should display the text as ja 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  今日
-                </a>
-              </li>
-            </ul>
+                今日
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -190349,32 +189961,24 @@ exports[`Locale Provider should display the text as ja 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  現在時刻
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                現在時刻
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    確 定
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  確 定
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -194056,20 +193660,16 @@ exports[`Locale Provider should display the text as ka 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  დღეს
-                </a>
-              </li>
-            </ul>
+                დღეს
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -196327,32 +195927,24 @@ exports[`Locale Provider should display the text as ka 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  ახლა
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                ახლა
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -200034,20 +199626,16 @@ exports[`Locale Provider should display the text as kk 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Бүгін
-                </a>
-              </li>
-            </ul>
+                Бүгін
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -202305,32 +201893,24 @@ exports[`Locale Provider should display the text as kk 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Қазір
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Қазір
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Таңдау
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  Таңдау
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -206012,20 +205592,16 @@ exports[`Locale Provider should display the text as km 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  ថ្ងៃនេះ
-                </a>
-              </li>
-            </ul>
+                ថ្ងៃនេះ
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -208283,32 +207859,24 @@ exports[`Locale Provider should display the text as km 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  ឥឡូវ​នេះ
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                ឥឡូវ​នេះ
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    កំណត់
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  កំណត់
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -211988,20 +211556,16 @@ exports[`Locale Provider should display the text as kn 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  ಇಂದು
-                </a>
-              </li>
-            </ul>
+                ಇಂದು
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -214259,32 +213823,24 @@ exports[`Locale Provider should display the text as kn 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  ಈಗ
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                ಈಗ
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    ಸರಿ
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  ಸರಿ
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -217966,20 +217522,16 @@ exports[`Locale Provider should display the text as ko 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  오늘
-                </a>
-              </li>
-            </ul>
+                오늘
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -220237,32 +219789,24 @@ exports[`Locale Provider should display the text as ko 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  현재 시각
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                현재 시각
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    확인
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  확인
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -223944,20 +223488,16 @@ exports[`Locale Provider should display the text as ku 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Îro
-                </a>
-              </li>
-            </ul>
+                Îro
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -226215,32 +225755,24 @@ exports[`Locale Provider should display the text as ku 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Niha
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Niha
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Temam
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  Temam
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -229922,20 +229454,16 @@ exports[`Locale Provider should display the text as ku-iq 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Îro
-                </a>
-              </li>
-            </ul>
+                Îro
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -232193,32 +231721,24 @@ exports[`Locale Provider should display the text as ku-iq 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Niha
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Niha
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Temam
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  Temam
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -235900,20 +235420,16 @@ exports[`Locale Provider should display the text as lt 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Šiandien
-                </a>
-              </li>
-            </ul>
+                Šiandien
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -238171,32 +237687,24 @@ exports[`Locale Provider should display the text as lt 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Dabar
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Dabar
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Gerai
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  Gerai
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -241878,20 +241386,16 @@ exports[`Locale Provider should display the text as lv 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Šodien
-                </a>
-              </li>
-            </ul>
+                Šodien
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -244149,32 +243653,24 @@ exports[`Locale Provider should display the text as lv 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Tagad
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Tagad
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -247856,20 +247352,16 @@ exports[`Locale Provider should display the text as mk 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Денес
-                </a>
-              </li>
-            </ul>
+                Денес
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -250127,32 +249619,24 @@ exports[`Locale Provider should display the text as mk 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Сега
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Сега
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    ОК
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  ОК
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -253834,20 +253318,16 @@ exports[`Locale Provider should display the text as ml 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  ഇന്ന്
-                </a>
-              </li>
-            </ul>
+                ഇന്ന്
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -256105,32 +255585,24 @@ exports[`Locale Provider should display the text as ml 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  ഇപ്പോൾ
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                ഇപ്പോൾ
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    ശരിയാണ്
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  ശരിയാണ്
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -259812,20 +259284,16 @@ exports[`Locale Provider should display the text as mn-mn 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Өнөөдөр
-                </a>
-              </li>
-            </ul>
+                Өнөөдөр
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -262083,32 +261551,24 @@ exports[`Locale Provider should display the text as mn-mn 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Одоо
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Одоо
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -265790,20 +265250,16 @@ exports[`Locale Provider should display the text as mr 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  आज
-                </a>
-              </li>
-            </ul>
+                आज
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -268061,32 +267517,24 @@ exports[`Locale Provider should display the text as mr 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  आता
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                आता
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    ठीक आहे
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  ठीक आहे
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -271768,20 +271216,16 @@ exports[`Locale Provider should display the text as ms-my 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Hari ini
-                </a>
-              </li>
-            </ul>
+                Hari ini
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -274039,32 +273483,24 @@ exports[`Locale Provider should display the text as ms-my 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Sekarang
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Sekarang
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -277746,20 +277182,16 @@ exports[`Locale Provider should display the text as my 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  ယနေ့
-                </a>
-              </li>
-            </ul>
+                ယနေ့
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -280017,32 +279449,24 @@ exports[`Locale Provider should display the text as my 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  ယခု
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                ယခု
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -283724,20 +283148,16 @@ exports[`Locale Provider should display the text as nb 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  I dag
-                </a>
-              </li>
-            </ul>
+                I dag
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -285995,32 +285415,24 @@ exports[`Locale Provider should display the text as nb 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Nå
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Nå
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -289702,20 +289114,16 @@ exports[`Locale Provider should display the text as ne-np 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Today
-                </a>
-              </li>
-            </ul>
+                Today
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -291973,32 +291381,24 @@ exports[`Locale Provider should display the text as ne-np 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Now
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -295680,20 +295080,16 @@ exports[`Locale Provider should display the text as nl 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Vandaag
-                </a>
-              </li>
-            </ul>
+                Vandaag
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -297951,32 +297347,24 @@ exports[`Locale Provider should display the text as nl 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Nu
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Nu
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -301658,20 +301046,16 @@ exports[`Locale Provider should display the text as nl-be 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Vandaag
-                </a>
-              </li>
-            </ul>
+                Vandaag
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -303929,32 +303313,24 @@ exports[`Locale Provider should display the text as nl-be 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Nu
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Nu
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -307636,20 +307012,16 @@ exports[`Locale Provider should display the text as pl 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Dzisiaj
-                </a>
-              </li>
-            </ul>
+                Dzisiaj
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -309907,32 +309279,24 @@ exports[`Locale Provider should display the text as pl 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Teraz
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Teraz
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -313614,20 +312978,16 @@ exports[`Locale Provider should display the text as pt 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Hoje
-                </a>
-              </li>
-            </ul>
+                Hoje
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -315885,32 +315245,24 @@ exports[`Locale Provider should display the text as pt 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Agora
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Agora
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -319592,20 +318944,16 @@ exports[`Locale Provider should display the text as pt-br 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Hoje
-                </a>
-              </li>
-            </ul>
+                Hoje
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -321863,32 +321211,24 @@ exports[`Locale Provider should display the text as pt-br 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Agora
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Agora
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -325570,20 +324910,16 @@ exports[`Locale Provider should display the text as ro 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Azi
-                </a>
-              </li>
-            </ul>
+                Azi
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -327841,32 +327177,24 @@ exports[`Locale Provider should display the text as ro 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Acum
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Acum
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -331548,20 +330876,16 @@ exports[`Locale Provider should display the text as ru 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Сегодня
-                </a>
-              </li>
-            </ul>
+                Сегодня
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -333819,32 +333143,24 @@ exports[`Locale Provider should display the text as ru 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Сейчас
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Сейчас
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    ОК
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  ОК
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -337526,20 +336842,16 @@ exports[`Locale Provider should display the text as si 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  අද
-                </a>
-              </li>
-            </ul>
+                අද
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -339797,32 +339109,24 @@ exports[`Locale Provider should display the text as si 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  දැන්
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                දැන්
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    හරි
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  හරි
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -343504,20 +342808,16 @@ exports[`Locale Provider should display the text as sk 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Dnes
-                </a>
-              </li>
-            </ul>
+                Dnes
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -345775,32 +345075,24 @@ exports[`Locale Provider should display the text as sk 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Teraz
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Teraz
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -349482,20 +348774,16 @@ exports[`Locale Provider should display the text as sl 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Danes
-                </a>
-              </li>
-            </ul>
+                Danes
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -351750,32 +351038,24 @@ exports[`Locale Provider should display the text as sl 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Trenutno
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Trenutno
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -355457,20 +354737,16 @@ exports[`Locale Provider should display the text as sq 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Sot
-                </a>
-              </li>
-            </ul>
+                Sot
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -357725,32 +357001,24 @@ exports[`Locale Provider should display the text as sq 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Tani
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Tani
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -361432,20 +360700,16 @@ exports[`Locale Provider should display the text as sr 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Danas
-                </a>
-              </li>
-            </ul>
+                Danas
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -363703,32 +362967,24 @@ exports[`Locale Provider should display the text as sr 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Sada
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Sada
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    U redu
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  U redu
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -367410,20 +366666,16 @@ exports[`Locale Provider should display the text as sv 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  I dag
-                </a>
-              </li>
-            </ul>
+                I dag
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -369681,32 +368933,24 @@ exports[`Locale Provider should display the text as sv 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Nu
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Nu
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -373388,20 +372632,16 @@ exports[`Locale Provider should display the text as ta 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  இன்று
-                </a>
-              </li>
-            </ul>
+                இன்று
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -375659,32 +374899,24 @@ exports[`Locale Provider should display the text as ta 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  இப்போது
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                இப்போது
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    சரி
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  சரி
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -379366,20 +378598,16 @@ exports[`Locale Provider should display the text as th 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  วันนี้
-                </a>
-              </li>
-            </ul>
+                วันนี้
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -381637,32 +380865,24 @@ exports[`Locale Provider should display the text as th 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  ตอนนี้
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                ตอนนี้
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    ตกลง
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  ตกลง
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -385344,20 +384564,16 @@ exports[`Locale Provider should display the text as tk 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Şugün
-                </a>
-              </li>
-            </ul>
+                Şugün
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -387615,32 +386831,24 @@ exports[`Locale Provider should display the text as tk 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Şuwagt
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Şuwagt
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Bolýar
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  Bolýar
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -391322,20 +390530,16 @@ exports[`Locale Provider should display the text as tr 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Bugün
-                </a>
-              </li>
-            </ul>
+                Bugün
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -393593,32 +392797,24 @@ exports[`Locale Provider should display the text as tr 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Şimdi
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Şimdi
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Tamam
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  Tamam
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -397300,20 +396496,16 @@ exports[`Locale Provider should display the text as uk 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Сьогодні
-                </a>
-              </li>
-            </ul>
+                Сьогодні
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -399571,32 +398763,24 @@ exports[`Locale Provider should display the text as uk 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Зараз
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Зараз
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -403278,20 +402462,16 @@ exports[`Locale Provider should display the text as ur 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  آج
-                </a>
-              </li>
-            </ul>
+                آج
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -405549,32 +404729,24 @@ exports[`Locale Provider should display the text as ur 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  ابھی
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                ابھی
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    ٹھیک ہے
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  ٹھیک ہے
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -409256,20 +408428,16 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Bugun
-                </a>
-              </li>
-            </ul>
+                Bugun
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -411527,32 +410695,24 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Hozir
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Hozir
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -415234,20 +414394,16 @@ exports[`Locale Provider should display the text as vi 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Hôm nay
-                </a>
-              </li>
-            </ul>
+                Hôm nay
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -417505,32 +416661,24 @@ exports[`Locale Provider should display the text as vi 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Bây giờ
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Bây giờ
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -421212,20 +420360,16 @@ exports[`Locale Provider should display the text as zh-cn 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  今天
-                </a>
-              </li>
-            </ul>
+                今天
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -423483,32 +422627,24 @@ exports[`Locale Provider should display the text as zh-cn 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  此刻
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                此刻
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    确 定
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  确 定
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -427190,20 +426326,16 @@ exports[`Locale Provider should display the text as zh-hk 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  今天
-                </a>
-              </li>
-            </ul>
+                今天
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -429461,32 +428593,24 @@ exports[`Locale Provider should display the text as zh-hk 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  此刻
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                此刻
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    確 定
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  確 定
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -433168,20 +432292,16 @@ exports[`Locale Provider should display the text as zh-tw 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  今天
-                </a>
-              </li>
-            </ul>
+                今天
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -435439,32 +434559,24 @@ exports[`Locale Provider should display the text as zh-tw 1`] = `
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  此刻
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                此刻
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    確 定
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  確 定
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
