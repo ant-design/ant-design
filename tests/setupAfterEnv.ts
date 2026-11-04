@@ -27,6 +27,32 @@ if (process.env.LIB_DIR === 'dist') {
 type SnapshotTarget = HTMLElement | DocumentFragment | HTMLCollection | NodeList | Node[];
 
 function cleanup(node: HTMLElement) {
+  // Normalize React 18 & 19 diff: React 18 always renders `value=""` on
+  // checkbox/radio inputs without a value prop, while React 19 omits it.
+  // Remove it from the clone so snapshots match across both versions.
+  node
+    .querySelectorAll?.('input[type="checkbox"][value=""], input[type="radio"][value=""]')
+    .forEach((input) => {
+      input.removeAttribute('value');
+    });
+
+  // Multiple Segmented instances share the same mocked `useId` name in tests,
+  // so their radio groups collide and React 18 / 19 end up with a different
+  // radio checked. Align the `checked` attr with the parent label's
+  // `-selected` class (the semantic source of truth) to keep snapshots
+  // consistent across React versions.
+  node.querySelectorAll?.('input[type="radio"]').forEach((input) => {
+    if (!/(?:^|\s)[-\w]+segmented-item-input(?:\s|$)/.test(input.className)) return;
+    const label = input.closest('label');
+    if (!label) return;
+    const isSelected = label.className.split(/\s+/).some((cls) => /-selected$/.test(cls));
+    if (isSelected) {
+      input.setAttribute('checked', '');
+    } else {
+      input.removeAttribute('checked');
+    }
+  });
+
   const childList = Array.from(node.childNodes);
   node.innerHTML = '';
   childList.forEach((child) => {
