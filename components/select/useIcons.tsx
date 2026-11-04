@@ -9,6 +9,7 @@ import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import { isReactRenderable } from '@rc-component/util';
 
 import fallbackProp from '../_util/fallbackProp';
+import { isFunction } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 
 type RenderNode = React.ReactNode | ((props: any) => React.ReactNode);
@@ -81,10 +82,9 @@ export default function useIcons({
     // Suffix
     let mergedSuffix: RenderNode = null;
     if (suffix !== undefined) {
-      mergedSuffix =
-        typeof suffix === 'function'
-          ? (props) => getSuffixNode(suffix(props))
-          : getSuffixNode(suffix);
+      mergedSuffix = isFunction(suffix)
+        ? (props) => getSuffixNode(suffix(props))
+        : getSuffixNode(suffix);
     } else if (loading) {
       mergedSuffix = getSuffixNode(
         fallbackProp(loadingIcon, contextLoadingIcon, <LoadingOutlined spin aria-hidden="true" />),
@@ -98,9 +98,7 @@ export default function useIcons({
           );
         }
         const fallbackSuffix = fallbackProp(contextSuffix, <DownOutlined aria-hidden="true" />);
-        return getSuffixNode(
-          typeof fallbackSuffix === 'function' ? fallbackSuffix(props) : fallbackSuffix,
-        );
+        return getSuffixNode(isFunction(fallbackSuffix) ? fallbackSuffix(props) : fallbackSuffix);
       };
     }
 
