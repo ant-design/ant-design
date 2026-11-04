@@ -141,7 +141,7 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (t
       '&, &:hover': {
         cursor: 'not-allowed',
 
-        [`${componentCls}-item-link`]: {
+        [`${componentCls}-item-link, a`]: {
           color: token.colorTextDisabled,
           cursor: 'not-allowed',
         },
@@ -150,7 +150,7 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (t
       '&:focus-visible': {
         cursor: 'not-allowed',
 
-        [`${componentCls}-item-link`]: {
+        [`${componentCls}-item-link, a`]: {
           color: token.colorTextDisabled,
           cursor: 'not-allowed',
         },
@@ -188,7 +188,7 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (t
         },
       },
 
-      [`${componentCls}-item-link`]: {
+      [`${componentCls}-item-link, a`]: {
         color: token.colorTextDisabled,
         cursor: 'not-allowed',
         '&:hover, &:active': {

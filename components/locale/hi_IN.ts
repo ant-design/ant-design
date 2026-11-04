@@ -30,9 +30,14 @@ const localeValues: Locale = {
     selectInvert: 'वर्तमान पृष्ठ घुमाएं',
     selectNone: 'सभी डेटा साफ़ करें',
     selectionAll: 'सभी डेटा का चयन करें',
+    selectRow: 'पंक्ति चुनें',
+    selectedRow: 'पंक्ति चुनी गई',
+    selectionMenu: 'चयन मेनू',
     sortTitle: 'द्वारा क्रमबद्ध करें',
     expand: 'पंक्ति का विस्तार करें',
     collapse: 'पंक्ति संक्षिप्त करें',
+    expandAll: 'सभी पंक्तियों का विस्तार करें',
+    collapseAll: 'सभी पंक्तियों को संक्षिप्त करें',
     triggerDesc: 'अवरोही क्रमित करने के लिए क्लिक करें',
     triggerAsc: 'आरोही क्रमित करने के लिए क्लिक करें',
     cancelSort: 'छँटाई रद्द करने के लिए क्लिक करें',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'अच्छी तरह से',
     cancelText: 'रद्द करना',
+  },
+  Splitter: {
+    toggleStartPanel: 'आरंभ पैनल टॉगल करें',
+    toggleEndPanel: 'अंत पैनल टॉगल करें',
   },
   Transfer: {
     titles: ['', ''],

@@ -61,7 +61,7 @@ The whole of the step bar.
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | titlePlacement | Place title and content with `horizontal` or `vertical` direction | string | `horizontal` |  | × |
 | type | Type of steps, can be set to one of the following values: `default` `dot` `inline` `navigation` `panel` | string | `default` |  | × |
-| variant | Config style variant | `filled` \| `outlined` | `filled` |  | × |
+| variant | Config style variant | `filled` \| `outlined` | `filled` |  | 6.7.0 |
 | onChange | Trigger when Step is changed | (current) => void | - |  | × |
 | items | StepItem content | [StepItem](#stepitem) | [] | 4.24.0 | × |
 

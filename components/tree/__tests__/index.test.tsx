@@ -295,6 +295,51 @@ describe('Tree', () => {
     expect(title).toHaveClass(testClassNames.itemTitle);
     expect(item).toHaveStyle(testStyles.item);
   });
+  describe('unselectable', () => {
+    it('selectable={false} should show disabled style in non-checkable mode', () => {
+      const { container } = render(
+        <Tree defaultExpandAll>
+          <TreeNode title="normal" key="0-0" />
+          <TreeNode title="unselectable" key="0-1" selectable={false} />
+          <TreeNode title="disabled" key="0-2" disabled />
+        </Tree>,
+      );
+
+      const nodes = Array.from(container.querySelectorAll<HTMLElement>('.ant-tree-treenode'));
+      const normalNode = nodes.find((node) => node.textContent?.includes('normal'));
+      const unselectableNode = nodes.find((node) => node.textContent?.includes('unselectable'));
+      const disabledNode = nodes.find((node) => node.textContent?.includes('disabled'));
+
+      expect(unselectableNode).toHaveClass('ant-tree-treenode-unselectable');
+      expect(normalNode).not.toHaveClass('ant-tree-treenode-unselectable');
+
+      // Should apply the same disabled color as `ant-tree-treenode-disabled`
+      const unselectableContent = unselectableNode?.querySelector<HTMLElement>(
+        '.ant-tree-node-content-wrapper',
+      );
+      const disabledContent = disabledNode?.querySelector<HTMLElement>(
+        '.ant-tree-node-content-wrapper',
+      );
+      expect(getComputedStyle(unselectableContent!).color).toBe(
+        getComputedStyle(disabledContent!).color,
+      );
+    });
+
+    it('selectable={false} should not show unselectable class in checkable mode', () => {
+      const { container } = render(
+        <Tree defaultExpandAll checkable>
+          <TreeNode title="normal" key="0-0" />
+          <TreeNode title="unselectable" key="0-1" selectable={false} />
+        </Tree>,
+      );
+
+      const nodes = Array.from(container.querySelectorAll<HTMLElement>('.ant-tree-treenode'));
+      const unselectableNode = nodes.find((node) => node.textContent?.includes('unselectable'));
+
+      expect(unselectableNode).not.toHaveClass('ant-tree-treenode-unselectable');
+    });
+  });
+
   describe('form disabled', () => {
     it('should support Form disabled', () => {
       const { container } = render(
