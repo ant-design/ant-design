@@ -39,7 +39,8 @@ const Block: React.FC<Readonly<TabsProps>> = (props) => {
       {...props}
       defaultActiveKey="1"
       type="editable-card"
-      style={{ height: 220, width: '100%' }}
+      style={{ height: 220, position: 'relative', width: '100%' }}
+      getPopupContainer={(triggerNode) => triggerNode.closest<HTMLElement>('.ant-tabs')!}
       styles={{
         popup: {
           root: { background: '#fff' },
@@ -75,7 +76,7 @@ const App: React.FC = () => {
         { name: 'popup.root', desc: locale['popup.root'] },
       ]}
     >
-      <Block />
+      <Block more={{ open: true, placement: 'topLeft' }} />
     </SemanticPreview>
   );
 };

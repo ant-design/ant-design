@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/locale/en_US';
+import Pagination from '@rc-component/pagination/locale/ne_NP';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/en_US';
@@ -32,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: 'छनौट उल्टाउनुहोस',
     selectNone: 'सबै खाली गर्नुहोस्',
     selectionAll: 'सबै छान्नु',
+    selectRow: 'पङ्क्ति चयन गर्नुहोस्',
+    selectedRow: 'पङ्क्ति चयन गरियो',
+    selectionMenu: 'चयन मेनु',
     sortTitle: 'क्रमबद्ध',
     expand: 'पङ्क्ति विस्तार गर्नुहोस्',
     collapse: 'पङ्क्ति बन्द गर्नुहोस्',
+    expandAll: 'सबै पङ्क्तिहरू विस्तार गर्नुहोस्',
+    collapseAll: 'सबै पङ्क्तिहरू बन्द गर्नुहोस्',
     triggerDesc: 'तल क्रमबद्ध गर्न क्लिक गर्नुहोस्',
     triggerAsc: 'बढ्दो अर्डर गर्न क्लिक गर्नुहोस्',
     cancelSort: 'क्रमबद्ध नगर्नुहोस्',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
     Next: 'अर्को पाइला',
     Previous: 'अघिल्लो',
     Finish: 'भ्रमण अन्त्य गर्नुहोस्',
+  },
+  Splitter: {
+    toggleStartPanel: 'सुरुवातीको प्यानल टगल गर्नुहोस्',
+    toggleEndPanel: 'अन्तिम प्यानल टगल गर्नुहोस्',
   },
   Transfer: {
     titles: ['', ''],

@@ -59,7 +59,7 @@ const App: React.FC = () => {
       multiple
       maxCount={MAX_COUNT}
       style={{ width: '100%' }}
-      suffixIcon={suffix}
+      suffix={suffix}
       treeCheckable
       placeholder="Please select"
       showCheckedStrategy={TreeSelect.SHOW_CHILD}
