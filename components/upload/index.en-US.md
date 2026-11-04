@@ -80,6 +80,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | A callback function, can be executed when uploading state is changing. It will trigger by every uploading phase. see [onChange](#onchange) | function | - |  | × |
 | onDrop | A callback function executed when files are dragged and dropped into the upload area | (event: React.DragEvent) => void | - | 4.16.0 | × |
 | onDownload | Click the method to download the file, pass the method to perform the method logic, and do not pass the default jump to the new TAB | function(file): void | (Jump to new TAB) |  | × |
+| onFocus | Called when focus enters the Upload component | (event: React.FocusEvent&lt;HTMLSpanElement>) => void | - | 6.7.0 | × |
 | onPreview | A callback function, will be executed when the file link or preview icon is clicked | function(file) | - |  | × |
 | onRemove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when the return value is false or a Promise which resolve(false) or reject | function(file): boolean \| Promise | - |  | × |
 

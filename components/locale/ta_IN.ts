@@ -34,11 +34,16 @@ const localeValues: Locale = {
     filterSearchPlaceholder: 'வடிப்பான்களில் தேடவும்',
     expand: 'வரிசையை விரிவாக்கு',
     collapse: 'வரிசையைச் சுருக்கு',
+    expandAll: 'அனைத்து வரிசைகளையும் விரிவாக்கு',
+    collapseAll: 'அனைத்து வரிசைகளையும் சுருக்கு',
     triggerDesc: 'இறங்குவரிசையை வரிசைப்படுத்த கிளிக் செய்யவும்',
     triggerAsc: 'ஏறுவரிசையில் வரிசைப்படுத்த கிளிக் செய்யவும்',
     cancelSort: 'வரிசையாக்கத்தை ரத்து செய்ய கிளிக் செய்யவும்',
     selectNone: 'எல்லா தரவையும் அழிக்கவும்',
     selectionAll: 'எல்லா தரவையும் தேர்ந்தெடுக்கவும்',
+    selectRow: 'வரிசையைத் தேர்ந்தெடுக்கவும்',
+    selectedRow: 'வரிசை தேர்ந்தெடுக்கப்பட்டது',
+    selectionMenu: 'தேர்வு மெனு',
   },
   Tour: {
     Next: 'அடுத்தது',
@@ -53,6 +58,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'சரி',
     cancelText: 'ரத்து செய்யவும்',
+  },
+  Splitter: {
+    toggleStartPanel: 'தொடக்கப் பலகையை மாற்று',
+    toggleEndPanel: 'இறுதிப் பலகையை மாற்று',
   },
   Transfer: {
     titles: ['', ''],
