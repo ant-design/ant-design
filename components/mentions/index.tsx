@@ -22,6 +22,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
+import { useLocale } from '../locale';
 import usePopupRender from '../select/usePopupRender';
 import Spin from '../spin';
 import useStyle from './style';
@@ -213,11 +214,13 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const mentionsfilterOption = loading ? loadingFilterOption : filterOption;
 
+  const [locale] = useLocale('global');
   const mergedAllowClear = useAllowClear({
     allowClear,
     contextAllowClear,
     defaultAllowClear: false,
     componentName: 'Mentions',
+    defaultLabel: locale.clear,
   });
 
   // Style

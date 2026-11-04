@@ -49,7 +49,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | reverse | Whether reverse nodes or not | boolean | false |  | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | titleSpan | Set the title span space. It is the distance to the center of the dot <InlinePopover previewURL="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1NJISa7bpqgAAAAAR5AAAAgAerJ8AQ/original"></InlinePopover> | number \| string | 12 |  | × |
-| variant | Config style variant | `filled` \| `outlined` | `outlined` |  | × |
+| variant | Config style variant | `filled` \| `outlined` | `outlined` |  | 6.7.0 |
 
 ### Items
 

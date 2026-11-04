@@ -1591,6 +1591,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
