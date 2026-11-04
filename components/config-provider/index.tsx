@@ -18,6 +18,7 @@ import UniqueProvider from '../tooltip/UniqueProvider';
 import type {
   AlertConfig,
   AnchorStyleConfig,
+  AutoCompleteConfig,
   BadgeConfig,
   BorderBeamConfig,
   BreadcrumbConfig,
@@ -201,6 +202,7 @@ export interface ConfigProviderProps {
   otp?: OTPConfig;
   inputNumber?: InputNumberConfig;
   textArea?: TextAreaConfig;
+  autoComplete?: AutoCompleteConfig;
   select?: SelectConfig;
   pagination?: PaginationConfig;
   /**
@@ -375,6 +377,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     affix,
     anchor,
     app,
+    autoComplete,
     form,
     locale: rawLocale,
     componentSize,
@@ -506,6 +509,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     affix,
     anchor,
     app,
+    autoComplete,
     locale: locale || legacyLocale,
     direction,
     space,

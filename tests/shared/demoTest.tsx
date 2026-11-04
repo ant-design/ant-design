@@ -10,7 +10,7 @@ import { renderToString } from 'react-dom/server';
 import { resetWarned } from '../../components/_util/warning';
 import { act, fireEvent, render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
-import { excludeWarning, isSafeWarning } from './excludeWarning';
+import { excludeWarning } from './excludeWarning';
 import rootPropsTest from './rootPropsTest';
 
 export { rootPropsTest };
@@ -88,9 +88,7 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
         // Snapshot of warning info
         if (doInject) {
           const errorMessageSet = new Set(errSpy.mock.calls.map((args) => args[0]));
-          const errorMessages = Array.from(errorMessageSet)
-            .filter((msg) => !isSafeWarning(msg, true))
-            .sort();
+          const errorMessages = Array.from(errorMessageSet).sort();
 
           // Console log the error messages for debugging
           if (errorMessages.length) {
