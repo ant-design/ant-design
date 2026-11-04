@@ -279,6 +279,22 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(updatedOnCancel).toHaveBeenCalledTimes(1);
   });
 
+  it('should not call onCancel when reopened before closing with ESC', async () => {
+    const onCancel = jest.fn();
+    const instance = Modal.confirm({ title: 'title', content: 'content', onCancel });
+
+    await waitFakeTimer();
+    fireEvent.keyDown(window, { key: 'Escape' });
+    instance.update({ open: true });
+    await waitFakeTimer();
+
+    instance.update({ open: false });
+    await waitFakeTimer(500);
+
+    expect(onCancel).not.toHaveBeenCalled();
+    expect($$('.ant-modal-confirm-confirm')).toHaveLength(1);
+  });
+
   it('should not fire twice onOk when button is pressed twice', async () => {
     let resolveFn: VoidFunction;
     const onOk = jest.fn(

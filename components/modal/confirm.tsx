@@ -152,6 +152,10 @@ export default function confirm(config: ModalFuncProps) {
     } else {
       currentConfig = { ...currentConfig, ...configUpdate };
     }
+    // Reopening cancels the pending close, so the next close must not destroy the modal
+    if (currentConfig.open) {
+      closeArgs = undefined;
+    }
     scheduleRender(currentConfig);
   };
 
