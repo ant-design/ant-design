@@ -91,19 +91,14 @@ const GlobalLayout: React.FC = () => {
     initialValue: undefined,
   });
 
-  // 获取最终主题（优先级：URL Query > Local Storage > Site (Memory)）
-  const getFinalTheme = (urlTheme: ThemeName[]): ThemeName[] => {
-    // 只认 light/dark
-    const baseTheme = urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t));
-    const urlColor = urlTheme.find((t) => t === 'light' || t === 'dark');
-    if (urlColor) {
-      return [...baseTheme, urlColor];
-    }
-    if (storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'auto') {
-      return [...baseTheme, storedTheme];
-    }
-    return [...baseTheme, 'auto'];
-  };
+  // 颜色模式优先级：URL Query > Local Storage > auto。
+  const urlColor = searchParams.getAll('theme').find((t) => t === 'light' || t === 'dark');
+
+  const colorTheme =
+    urlColor ||
+    (storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'auto'
+      ? storedTheme
+      : 'auto');
 
   const [systemTheme, setSystemTheme] = React.useState<'light' | 'dark'>(() => getSystemTheme());
 
@@ -185,9 +180,7 @@ const GlobalLayout: React.FC = () => {
   // 主题初始化
   useEffect(() => {
     const urlTheme = searchParams.getAll('theme') as ThemeName[];
-    const finalTheme = getFinalTheme(urlTheme);
     const _direction = searchParams.get('direction') as DirectionType;
-    const _isDark = isThemeDark(finalTheme, systemTheme);
 
     const storedBannerVisible = bannerLastTime && dayjs().diff(dayjs(bannerLastTime), 'day') >= 1;
 
@@ -195,12 +188,15 @@ const GlobalLayout: React.FC = () => {
 
     const hasBannerContent = isZhCN && !!bannerData;
 
-    setSiteState({
-      theme: finalTheme,
-      isDark: _isDark,
+    setSiteState((prev) => ({
+      ...prev,
+      theme: [
+        ...urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t)),
+        ...(prev.theme || []).filter((t) => ['light', 'dark', 'auto'].includes(t)),
+      ],
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
       bannerVisible: hasBannerContent && (bannerLastTime ? !!storedBannerVisible : true),
-    });
+    }));
 
     // Handle isMobile
     updateMobileMode();
@@ -215,7 +211,18 @@ const GlobalLayout: React.FC = () => {
     return () => {
       window.removeEventListener('resize', updateMobileMode);
     };
-  }, [bannerData, bannerLastTime, searchParams, storedTheme, systemTheme, updateMobileMode]);
+  }, [bannerData, bannerLastTime, searchParams, updateMobileMode]);
+
+  // 颜色偏好变化只更新颜色模式，保留动态主题和当前的其他主题设置。
+  useEffect(() => {
+    setSiteState((prev) => ({
+      ...prev,
+      theme: [
+        ...(prev.theme || []).filter((t) => !['light', 'dark', 'auto'].includes(t)),
+        colorTheme,
+      ],
+    }));
+  }, [colorTheme]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(
     () => ({
