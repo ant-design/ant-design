@@ -56,7 +56,7 @@ function cleanup(node: HTMLElement) {
   return node;
 }
 
-function normalizeSegmentedChecked(node: HTMLElement | Node[]) {
+function normalizeSegmentedChecked(node: Node | Node[]) {
   const roots: Node[] = Array.isArray(node) ? node : [node];
   roots.forEach((root) => {
     const rootEl = root as HTMLElement;
