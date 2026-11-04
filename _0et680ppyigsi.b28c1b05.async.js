@@ -1,0 +1,5 @@
+(()=>{"use strict";(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,279576,e=>{var o=e.i(391398),t=e.i(473657),r=e.i(504909),i=e.i(724296);let s=(0,e.i(827830).l)(({css:e})=>({root:e`
+    border: 2px dashed #ccc;
+    padding: 16px;
+    border-radius: 8px;
+  `})),l=({props:e})=>{let o=Number(e.value??0);return Number.isFinite(o)&&o<0?{title:{color:"#ff4d4f"},content:{color:"#ff7875"},value:{backgroundColor:"#fff1f0",borderRadius:4,paddingInline:6,userSelect:"none"}}:{}};e.s(["default",0,()=>{let e={classNames:{root:s.root},prefix:(0,o.jsx)(t.f,{})};return(0,o.jsxs)(r.f,{vertical:!0,gap:"medium",children:[(0,o.jsx)(i.f,{...e,title:"Monthly Active Users",value:93241,styles:{title:{color:"#1890ff",fontWeight:600},content:{fontSize:"24px"},value:{backgroundColor:"#e6f4ff",borderRadius:4,color:"#0958d9",paddingInline:6,userSelect:"none"}},suffix:"users"}),(0,o.jsx)(i.f,{...e,title:"Yearly Loss",value:-18.7,precision:1,styles:l,suffix:"%"})]})}])},724296,e=>{var o=e.i(891989);e.s(["f",()=>o.f])},473657,e=>{var o=e.i(654930);e.s(["f",()=>o.f])}])})();

@@ -1,0 +1,1 @@
+(()=>{"use strict";(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,800745,t=>{var o=t.i(391398),u=t.i(376752);t.s(["default",0,()=>(0,o.jsx)(u.f,{allowHalf:!0,defaultValue:2.5})])},376752,t=>{var o=t.i(88652);t.s(["f",()=>o.f])}])})();
