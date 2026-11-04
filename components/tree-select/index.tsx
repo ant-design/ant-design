@@ -446,7 +446,10 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     ...(popupStyle ?? dropdownStyle),
   };
 
-  const [zIndex] = useZIndex('SelectLike', mergedPopupStyle.zIndex as number);
+  const [zIndex] = useZIndex(
+    'SelectLike',
+    (mergedStyles.popup?.root?.zIndex as number) ?? (mergedPopupStyle.zIndex as number),
+  );
 
   return (
     <RcTreeSelect

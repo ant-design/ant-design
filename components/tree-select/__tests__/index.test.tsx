@@ -118,12 +118,15 @@ describe('TreeSelect', () => {
     resetWarned();
 
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(<TreeSelect dropdownStyle={{ color: 'red' }} open />);
+    const { container } = render(
+      <TreeSelect dropdownStyle={{ color: 'red', zIndex: 1500 }} open />,
+    );
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
     );
     expect(container.querySelector('.ant-select-dropdown')).toHaveStyle({
       color: 'rgb(255, 0, 0)',
+      zIndex: 1500,
     });
 
     errSpy.mockRestore();
@@ -145,6 +148,21 @@ describe('TreeSelect', () => {
       backgroundColor: 'rgb(255, 0, 0)',
       zIndex: 2000,
     });
+
+    errSpy.mockRestore();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59736
+  it('should prefer the zIndex of styles.popup.root over dropdownStyle', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(
+      <TreeSelect
+        styles={{ popup: { root: { zIndex: 1000 } } }}
+        dropdownStyle={{ zIndex: 1500 }}
+        open
+      />,
+    );
+    expect(container.querySelector('.ant-select-dropdown')).toHaveStyle({ zIndex: 1000 });
 
     errSpy.mockRestore();
   });
