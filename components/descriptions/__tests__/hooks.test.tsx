@@ -17,7 +17,7 @@ describe('Descriptions.Hooks', () => {
         </Descriptions.Item>,
       );
 
-      return <p>{(items[0] as any).key}</p>;
+      return <p>{items[0].key}</p>;
     };
 
     const { container } = render(<Demo />);

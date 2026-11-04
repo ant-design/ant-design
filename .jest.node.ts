@@ -1,7 +1,12 @@
-const { moduleNameMapper, transformIgnorePatterns, modulePathIgnorePatterns } = require('./.jest');
+import type { Config } from 'jest';
 
-module.exports = {
+import jestConfig from './.jest.ts';
+
+const { moduleNameMapper, transformIgnorePatterns, modulePathIgnorePatterns } = jestConfig;
+
+const config: Config = {
   setupFiles: ['./tests/setup.ts'],
+  setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'md'],
   moduleNameMapper,
   modulePathIgnorePatterns,
@@ -10,13 +15,10 @@ module.exports = {
     '\\.md$': './node_modules/@ant-design/tools/lib/jest/demoPreprocessor',
     '\\.(jpg|png|gif|svg)$': './node_modules/@ant-design/tools/lib/jest/imagePreprocessor',
   },
-  testRegex: 'image\\.test\\.(j|t)s$',
+  testRegex: 'node\\.test\\.(j|t)sx$',
+  testEnvironment: 'node',
   transformIgnorePatterns,
-  globals: {
-    'ts-jest': {
-      tsConfigFile: './tsconfig.test.json',
-    },
-  },
-  preset: 'jest-puppeteer',
-  testTimeout: 120000,
-};
+  // bail: true,
+} satisfies Config;
+
+export default config;

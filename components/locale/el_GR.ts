@@ -32,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: 'Αντιστροφή τρέχουσας σελίδας',
     selectNone: 'Εκκαθάριση όλων των δεδομένων',
     selectionAll: 'Επιλογή όλων των δεδομένων',
+    selectRow: 'Επιλογή γραμμής',
+    selectedRow: 'Η γραμμή επιλέχθηκε',
+    selectionMenu: 'Μενού επιλογής',
     sortTitle: 'Ταξινόμηση',
     expand: 'Ανάπτυξη σειράς',
     collapse: 'Σύμπτυξη σειράς',
+    expandAll: 'Ανάπτυξη όλων των σειρών',
+    collapseAll: 'Σύμπτυξη όλων των σειρών',
     triggerDesc: 'Κλικ για φθίνουσα ταξινόμηση',
     triggerAsc: 'Κλικ για αύξουσα ταξινόμηση',
     cancelSort: 'Κλικ για ακύρωση ταξινόμησης',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'ΟΚ',
     cancelText: 'Άκυρο',
+  },
+  Splitter: {
+    toggleStartPanel: 'Εναλλαγή αρχικού πίνακα',
+    toggleEndPanel: 'Εναλλαγή τελικού πίνακα',
   },
   Transfer: {
     titles: ['', ''],

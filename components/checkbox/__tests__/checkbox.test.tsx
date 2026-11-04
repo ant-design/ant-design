@@ -6,6 +6,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import Tooltip from '../../tooltip';
 
 describe('Checkbox', () => {
   focusTest(Checkbox, { refFocus: true });
@@ -33,6 +34,39 @@ describe('Checkbox', () => {
 
     fireEvent.mouseLeave(container.querySelector('label')!);
     expect(onMouseLeave).toHaveBeenCalled();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59700
+  it('should keep Tooltip open when moving from the checkbox to its label', () => {
+    const onOpenChange = jest.fn();
+
+    const { container } = render(
+      <Tooltip title="Tooltip" onOpenChange={onOpenChange}>
+        <Checkbox>Checkbox</Checkbox>
+      </Tooltip>,
+    );
+    const input = container.querySelector('input')!;
+    const label = container.querySelector('.ant-checkbox-label')!;
+
+    // Browsers fire both pointer and mouse events
+    const move = (from: Element, to: Element) => {
+      fireEvent.pointerOut(from, { relatedTarget: to });
+      fireEvent.pointerOver(to, { relatedTarget: from });
+      fireEvent.mouseOut(from, { relatedTarget: to });
+      fireEvent.mouseOver(to, { relatedTarget: from });
+    };
+
+    move(document.body, input);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(onOpenChange).toHaveBeenCalledWith(true);
+
+    move(input, label);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(onOpenChange).not.toHaveBeenCalledWith(false);
   });
 
   it('warning if set `value`', () => {

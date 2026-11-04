@@ -32,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: '선택 반전',
     selectNone: '없음',
     selectionAll: '전체 선택',
+    selectRow: '행 선택',
+    selectedRow: '행 선택됨',
+    selectionMenu: '선택 메뉴',
     sortTitle: '정렬',
     expand: '펼치기',
     collapse: '접기',
+    expandAll: '모든 행 펼치기',
+    collapseAll: '모든 행 접기',
     triggerDesc: '내림차순으로 정렬하기',
     triggerAsc: '오름차순으로 정렬하기',
     cancelSort: '정렬 취소하기',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: '확인',
     cancelText: '취소',
+  },
+  Splitter: {
+    toggleStartPanel: '시작 패널 전환',
+    toggleEndPanel: '끝 패널 전환',
   },
   Transfer: {
     titles: ['', ''],
