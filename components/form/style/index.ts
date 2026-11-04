@@ -226,7 +226,8 @@ const genFormItemStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
         textAlign: 'end',
         verticalAlign: 'middle',
 
-        '&-left': {
+        // TODO: Remove the legacy `&-left` selector in v7.
+        '&-start, &-left': {
           textAlign: 'start',
         },
 

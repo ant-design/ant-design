@@ -1,7 +1,12 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
-import { genBasicInputStyle, genPlaceholderStyle, initInputToken } from '../../input/style';
+import {
+  genAllowClearStyle,
+  genBasicInputStyle,
+  genPlaceholderStyle,
+  initInputToken,
+} from '../../input/style';
 import {
   genBorderlessStyle,
   genFilledStyle,
@@ -276,6 +281,10 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
             textAlign: 'center',
             paddingInline: varRef('input-padding-inline'),
           },
+
+          [`${componentCls}-suffix`]: {
+            marginInlineEnd: varRef('input-padding-inline'),
+          },
         },
       },
     },
@@ -310,6 +319,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
     // ==========================================================
     {
       [componentCls]: {
+        ...genAllowClearStyle(token),
+
         [`${componentCls}-prefix, ${componentCls}-suffix`]: {
           display: 'flex',
           flex: 'none',
@@ -326,11 +337,22 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
           height: '100%',
           marginInlineStart: inputAffixPadding,
           transition: `margin ${motionDurationMid}`,
+
+          [`${componentCls}-clear-icon`]: {
+            flex: 'none',
+            pointerEvents: 'auto',
+          },
         },
 
-        [`&:hover:not(${componentCls}-without-controls)`]: {
+        [`&-mode-input:not(${componentCls}-without-controls)`]: {
           [`${componentCls}-suffix`]: {
-            marginInlineEnd: token.handleWidth,
+            marginInlineEnd: token.handleVisibleWidth,
+          },
+
+          [`&:hover, &${componentCls}-focused`]: {
+            [`${componentCls}-suffix`]: {
+              marginInlineEnd: token.handleWidth,
+            },
           },
         },
       },
