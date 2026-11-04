@@ -62,6 +62,10 @@ ant-design/
 - 禁止在 `__tests__` 目录下使用 `antd`、`antd/es/*`、`antd/lib/*`、`antd/locale/*`、`.dumi/*`、`@@/*` 这类绝对路径或别名路径去引用仓库内代码。
 - 如需引用仓库外第三方依赖，仍按依赖包名正常导入，例如 `react`、`@testing-library/react`、`dayjs`。
 
+## 站点代码测试规范 {#site-tests}
+
+- 在 `.dumi/` 目录下新增或修改站点代码时，无需新增任何测试用例。
+
 ---
 
 ## 文档规范
