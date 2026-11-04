@@ -37,8 +37,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`
-        table tr th${componentCls}-row-expand-icon-cell,
-        table tr td${componentCls}-row-expand-icon-cell,
+        ${componentCls}-thead > tr > ${componentCls}-row-expand-icon-cell,
         ${componentCls}-row-expand-icon-cell
       `]: {
         textAlign: 'center',
