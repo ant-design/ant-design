@@ -44,7 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| align | Align items | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 | × |
+| align | Align items | `start` \| `end` \| `center` \| `baseline` \| `stretch` | - | 4.2.0 \| `stretch`: 6.6.0 | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props: SpaceProps })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.6.0 |
 | ~~direction~~ | The space direction | `vertical` \| `horizontal` | `horizontal` | 4.1.0 | × |
 | orientation | The space direction | `vertical` \| `horizontal` | `horizontal` |  | × |

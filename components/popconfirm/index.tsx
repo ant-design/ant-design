@@ -60,6 +60,8 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     children,
     overlayClassName,
     onOpenChange,
+    onConfirm: onConfirmProp,
+    onCancel: onCancelProp,
     overlayStyle,
     styles,
     arrow: popconfirmArrow,
@@ -107,11 +109,13 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     settingOpen(false);
   };
 
-  const onConfirm = (e: React.MouseEvent<HTMLButtonElement>) => props.onConfirm?.call(this, e);
+  const onConfirm = (e: React.MouseEvent<HTMLButtonElement>) => {
+    return onConfirmProp?.(e);
+  };
 
   const onCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     settingOpen(false);
-    props.onCancel?.call(this, e);
+    onCancelProp?.(e);
   };
 
   const onInternalOpenChange: PopoverProps['onOpenChange'] = (nextOpen) => {

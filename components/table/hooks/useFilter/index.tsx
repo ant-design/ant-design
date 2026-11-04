@@ -173,6 +173,7 @@ export const getFilterData = <RecordType extends AnyObject = AnyObject>(
   filterStates: FilterState<RecordType>[],
   childrenColumnName: string,
 ) => {
+  let childrenFiltered = false;
   const filterDatas = filterStates.reduce<RecordType[]>((currentData, filterState) => {
     const {
       column: { onFilter, filters },
@@ -200,7 +201,7 @@ export const getFilterData = <RecordType extends AnyObject = AnyObject>(
         subset.reduce<RecordType[]>((acc, record) => {
           const clonedRecord = { ...record } as any;
 
-          if (clonedRecord[childrenColumnName]) {
+          if (!childrenFiltered && clonedRecord[childrenColumnName]) {
             clonedRecord[childrenColumnName] = getFilterData(
               clonedRecord[childrenColumnName],
               filterStates,
@@ -214,7 +215,10 @@ export const getFilterData = <RecordType extends AnyObject = AnyObject>(
           return acc;
         }, []);
 
-      return internalFilter(currentData);
+      const filteredData = internalFilter(currentData);
+      // Descendants already passed all filters during the first active filter.
+      childrenFiltered = true;
+      return filteredData;
     }
 
     return currentData;

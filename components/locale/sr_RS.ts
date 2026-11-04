@@ -30,9 +30,14 @@ const localeValues: Locale = {
     selectInvert: 'Obrni izbor trenutne stranice',
     selectNone: 'Obriši sve podatke',
     selectionAll: 'Izaberi sve podatke',
+    selectRow: 'Изабери ред',
+    selectedRow: 'Ред је изабран',
+    selectionMenu: 'Мени за избор',
     sortTitle: 'Sortiraj',
     expand: 'Proširi red',
     collapse: 'Skupi red',
+    expandAll: 'Proširi sve redove',
+    collapseAll: 'Skupi sve redove',
     triggerDesc: 'Klikni da sortiraš po padajućem redosledu',
     triggerAsc: 'Klikni da sortiraš po rastućem redosledu',
     cancelSort: 'Klikni da otkažeš sortiranje',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'U redu',
     cancelText: 'Otkaži',
+  },
+  Splitter: {
+    toggleStartPanel: 'Пребаци почетни панел',
+    toggleEndPanel: 'Пребаци завршни панел',
   },
   Transfer: {
     titles: ['', ''],

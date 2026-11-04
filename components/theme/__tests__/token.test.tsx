@@ -311,6 +311,15 @@ describe('Theme', () => {
       expect(token).toEqual(hookToken);
       expect(token.colorPrimary).toBe('#1668dc');
     });
+
+    // https://github.com/ant-design/ant-design/issues/59694
+    it('with empty algorithm array', () => {
+      const config: ThemeConfig = { algorithm: [] };
+      const token = theme.getDesignToken(config);
+      const { token: hookToken } = getHookToken(config);
+      expect(token).toEqual(hookToken);
+      expect(token.colorPrimary).toBe('#1677ff');
+    });
   });
 
   describe('colorLink', () => {

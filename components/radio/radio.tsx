@@ -43,6 +43,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     groupContext?.onChange?.(e);
   };
 
+  // Pointer events are not part of `RadioProps`, but triggers such as Tooltip pass them
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -53,8 +54,13 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     classNames,
     styles,
     checked,
+    onMouseEnter,
+    onMouseLeave,
+    onPointerEnter,
+    onPointerLeave,
     ...restProps
-  } = props;
+  } = props as RadioProps &
+    Pick<React.DOMAttributes<HTMLElement>, 'onPointerEnter' | 'onPointerLeave'>;
   const radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
 
   const isButtonType = (groupContext?.optionType || radioOptionTypeContext) === 'button';
@@ -98,9 +104,13 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     RadioSemanticAllType['classNames'],
     RadioSemanticAllType['styles'],
     RadioProps
-  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
-    props: mergedProps,
-  });
+  >(
+    [contextClassNames, groupContext?.classNames, classNames],
+    [contextStyles, contextStyleRoot, groupContext?.styles, styles, styleRoot],
+    {
+      props: mergedProps,
+    },
+  );
 
   const wrapperClassString = clsx(
     `${prefixCls}-wrapper`,
@@ -129,8 +139,10 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
       <label
         className={wrapperClassString}
         style={mergedStyles.root}
-        onMouseEnter={props.onMouseEnter}
-        onMouseLeave={props.onMouseLeave}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        onPointerEnter={onPointerEnter}
+        onPointerLeave={onPointerLeave}
         title={title}
         onClick={onLabelClick}
       >
