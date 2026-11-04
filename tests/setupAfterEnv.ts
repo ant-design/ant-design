@@ -36,23 +36,6 @@ function cleanup(node: HTMLElement) {
       input.removeAttribute('value');
     });
 
-  // Multiple Segmented instances share the same mocked `useId` name in tests,
-  // so their radio groups collide and React 18 / 19 end up with a different
-  // radio checked. Align the `checked` attr with the parent label's
-  // `-selected` class (the semantic source of truth) to keep snapshots
-  // consistent across React versions.
-  node.querySelectorAll?.('input[type="radio"]').forEach((input) => {
-    if (!/(?:^|\s)[-\w]+segmented-item-input(?:\s|$)/.test(input.className)) return;
-    const label = input.closest('label');
-    if (!label) return;
-    const isSelected = label.className.split(/\s+/).some((cls) => /-selected$/.test(cls));
-    if (isSelected) {
-      input.setAttribute('checked', '');
-    } else {
-      input.removeAttribute('checked');
-    }
-  });
-
   const childList = Array.from(node.childNodes);
   node.innerHTML = '';
   childList.forEach((child) => {
@@ -65,6 +48,19 @@ function cleanup(node: HTMLElement) {
   return node;
 }
 
+function normalizeSegmentedChecked(node: HTMLElement | Node[]) {
+  const roots: Node[] = Array.isArray(node) ? node : [node];
+  roots.forEach((root) => {
+    const rootEl = root as HTMLElement;
+    if (typeof rootEl.querySelectorAll !== 'function') return;
+    rootEl.querySelectorAll?.('input[type="radio"]').forEach((input) => {
+      if (/segmented-item-input/.test(input.className)) {
+        input.removeAttribute('checked');
+      }
+    });
+  });
+}
+
 function formatHTML(nodes: SnapshotTarget) {
   let cloneNodes: Node | Node[];
   if (Array.isArray(nodes) || nodes instanceof HTMLCollection || nodes instanceof NodeList) {
@@ -72,6 +68,8 @@ function formatHTML(nodes: SnapshotTarget) {
   } else {
     cloneNodes = cleanup(nodes.cloneNode(true) as HTMLElement);
   }
+
+  normalizeSegmentedChecked(cloneNodes);
 
   const htmlContent = format(cloneNodes, {
     plugins: [plugins.DOMCollection, plugins.DOMElement],
@@ -82,7 +80,7 @@ function formatHTML(nodes: SnapshotTarget) {
     .filter((line) => line.trim())
     .join('\n');
 
-  return filtered;
+  return filtered.replace(/(Dnd(?:LiveRegion|DescribedBy))-\d+/g, '$1');
 }
 
 /**
