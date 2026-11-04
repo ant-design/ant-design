@@ -27,6 +27,7 @@ exports[`Select Deprecated should ignore mode="combobox" 1`] = `
     class="ant-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -76,6 +77,7 @@ exports[`Select Select Custom Icons should support customized icons 1`] = `
     class="ant-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -125,6 +127,7 @@ exports[`Select rtl render component should be rendered correctly in RTL directi
     class="ant-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"

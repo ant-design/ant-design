@@ -1799,6 +1799,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -1831,7 +1832,9 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
         >
           <div
             aria-label="Lucy"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="1"
             id="test-id_list_0"
             role="option"
           >

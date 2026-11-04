@@ -143,6 +143,24 @@ describe('Tabs', () => {
     expect(container.querySelector('.Tabs_3 .ant-tabs-ink-bar')).toHaveStyle({ width: 4 });
   });
 
+  // https://github.com/ant-design/ant-design/issues/59689
+  it.each([
+    ['moreIcon', { moreIcon: <span className="cp-more-icon" /> }],
+    ['more.icon', { more: { icon: <span className="cp-more-icon" /> } }],
+  ])('moreIcon should take priority over ConfigProvider %s', (_, tabsConfig) => {
+    const { container } = render(
+      <ConfigProvider tabs={tabsConfig}>
+        <Tabs
+          items={[{ key: '1', label: 'foo' }]}
+          moreIcon={<span className="custom-more-icon" />}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.custom-more-icon')).toBeTruthy();
+    expect(container.querySelector('.cp-more-icon')).toBeFalsy();
+  });
+
   it('warning for indicatorSize', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Tabs indicatorSize={10} />);
@@ -151,6 +169,30 @@ describe('Tabs', () => {
     );
     errorSpy.mockRestore();
   });
+
+  it('support deprecated visible props in more', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const onVisibleChange = jest.fn();
+    const { container } = render(
+      <Tabs
+        items={[{ key: '1', label: 'Tab' }]}
+        more={{ visible: true, onVisibleChange, trigger: ['click'] }}
+      />,
+    );
+
+    expect(document.querySelector('.ant-tabs-dropdown')).toBeTruthy();
+    fireEvent.click(container.querySelector('.ant-tabs-nav-more')!);
+    expect(onVisibleChange).toHaveBeenCalledWith(false);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tabs] `more.visible` is deprecated. Please use `more.open` instead.',
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tabs] `more.onVisibleChange` is deprecated. Please use `more.onOpenChange` instead.',
+    );
+    errorSpy.mockRestore();
+  });
+
   it('support classnames and styles', () => {
     const customClassnames = {
       root: 'test-class',

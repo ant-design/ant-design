@@ -15,6 +15,93 @@ tag: vVERSION
 
 ---
 
+## 6.7.0
+
+`2026-11-04`
+
+- 🆕 新增 Button、Tag、Steps、Alert 和 Timeline 对 ConfigProvider 全局 `variant` 的支持，并支持通过 `divider.variant` 统一设置 Divider 的分割线样式。 [#59589](https://github.com/ant-design/ant-design/pull/59589) [#59588](https://github.com/ant-design/ant-design/pull/59588) [#59578](https://github.com/ant-design/ant-design/pull/59578) [#59577](https://github.com/ant-design/ant-design/pull/59577) [#59587](https://github.com/ant-design/ant-design/pull/59587) [#59576](https://github.com/ant-design/ant-design/pull/59576) [@QDyanbing](https://github.com/QDyanbing)
+- 🆕 新增 DatePicker、TimePicker、Select、AutoComplete、Cascader 和 TreeSelect 的 `suffix` 属性，用于自定义后缀内容；选择类组件支持根据状态动态渲染。`suffixIcon` 保持兼容并废弃，请迁移至 `suffix`。 [#59240](https://github.com/ant-design/ant-design/pull/59240) [#59185](https://github.com/ant-design/ant-design/pull/59185) [@QDyanbing](https://github.com/QDyanbing) [@meet-student](https://github.com/meet-student)
+- 🆕 新增 Input、Input.TextArea、Mentions、InputNumber、Select、AutoComplete、TreeSelect、Cascader、DatePicker 和 TimePicker 的 `allowClear.tabIndex`；Input、Input.TextArea、Mentions、DatePicker 和 TimePicker 新增 `allowClear.label`，支持设置清除按钮的 Tab 顺序和无障碍名称，并按字段继承 ConfigProvider 配置。 [#59566](https://github.com/ant-design/ant-design/pull/59566) [#59567](https://github.com/ant-design/ant-design/pull/59567) [#59548](https://github.com/ant-design/ant-design/pull/59548) [@QDyanbing](https://github.com/QDyanbing)
+- 🆕 新增 App 在 React 19.3 及以上版本使用 `component={false}` 时的 Fragment `ref` 支持。 [#59281](https://github.com/ant-design/ant-design/pull/59281) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 新增 BorderBeam `items` 属性，可分别设置每束光的 `color`、`lineWidth`、`outset` 和 `size`，并由数组长度决定光束数量。 [#59095](https://github.com/ant-design/ant-design/pull/59095) [@QDyanbing](https://github.com/QDyanbing)
+- 🆕 新增 Cascader 的 `checkStrictly` 属性，支持在多选模式下独立勾选父子选项。 [#59566](https://github.com/ant-design/ant-design/pull/59566) [@QDyanbing](https://github.com/QDyanbing)
+- 🆕 新增 Cascader、TreeSelect 和 AutoComplete 的 ConfigProvider `allowClear` 全局配置，可分别统一设置清除按钮。 [#59593](https://github.com/ant-design/ant-design/pull/59593) [#59592](https://github.com/ant-design/ant-design/pull/59592) [#59591](https://github.com/ant-design/ant-design/pull/59591) [@QDyanbing](https://github.com/QDyanbing)
+- 🆕 新增 Checkbox.Group 和 Radio.Group 的 `classNames` 和 `styles`，可自定义组容器、选项、图标和文本的样式。 [#59058](https://github.com/ant-design/ant-design/pull/59058) [#59059](https://github.com/ant-design/ant-design/pull/59059) [@QDyanbing](https://github.com/QDyanbing)
+- 🆕 新增 InputNumber `allowClear` 和 `onClear`，可一键清空数值，并自定义清除图标、禁用状态及无障碍名称。 [#59251](https://github.com/ant-design/ant-design/pull/59251) [@nikzanda](https://github.com/nikzanda)
+- 🆕 新增 Space `align="stretch"`，使子元素沿交叉轴拉伸对齐。 [#59005](https://github.com/ant-design/ant-design/pull/59005) [@dogledogle](https://github.com/dogledogle)
+- 🆕 新增 Typography `shimmer` 属性，为文本显示流光效果，可通过 `duration` 分别设置动画和等待时长。 [#59054](https://github.com/ant-design/ant-design/pull/59054) [@zombieJ](https://github.com/zombieJ)
+- 🛠 统一 Input、Input.TextArea、Mentions、InputNumber、Select、AutoComplete、TreeSelect、Cascader、DatePicker 和 TimePicker 的 `allowClear.disabled` 行为，设置为 `true` 时移除清除按钮，与 `allowClear={false}` 保持一致。 [#59548](https://github.com/ant-design/ant-design/pull/59548) [#59566](https://github.com/ant-design/ant-design/pull/59566) [#59567](https://github.com/ant-design/ant-design/pull/59567) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 调整 Alert 容器圆角组件 Token，将 `borderRadius` 替换为 `containerBorderRadius`，自定义容器圆角时需使用新 Token。 [#59305](https://github.com/ant-design/ant-design/pull/59305) [@MadCcc](https://github.com/MadCcc)
+- DatePicker
+  - 🆕 新增 DatePicker 和 TimePicker `components.nowButton` 和 `components.okButton`，支持分别自定义底部的“今天／此刻”按钮和确认按钮。旧的 `components.button` 保持兼容并废弃。 [#59778](https://github.com/ant-design/ant-design/pull/59778) [@yoyo837](https://github.com/yoyo837)
+  - ⌨️ 增强 DatePicker 和 TimePicker 的键盘与读屏支持，时间面板支持方向键切换、Enter/Space 确认并跳过禁用选项，底部“今天／此刻”按钮支持键盘操作和原生禁用状态。 [#59778](https://github.com/ant-design/ant-design/pull/59778) [#59367](https://github.com/ant-design/ant-design/pull/59367) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 修复 DatePicker 和 TimePicker 在 `allowClear` 对象未指定 `clearIcon` 时忽略 `clearIcon` 配置的问题。 [#59565](https://github.com/ant-design/ant-design/pull/59565) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 修复 DatePicker、TimePicker 和 Calendar 在 Node 原生 ESM 环境下的依赖导入兼容性。 [#59261](https://github.com/ant-design/ant-design/pull/59261) [@zombieJ](https://github.com/zombieJ)
+  - 🐞 修复 DatePicker 使用 Day.js 时，组件语言与全局语言不一致导致本地化月份等日期输入无法解析的问题。 [#59240](https://github.com/ant-design/ant-design/pull/59240) [@QDyanbing](https://github.com/QDyanbing)
+  - 🌐 修正 DatePicker `zh_TW` 的选周用语。 [#59261](https://github.com/ant-design/ant-design/pull/59261) [@zombieJ](https://github.com/zombieJ)
+- Select
+  - 🆕 新增 Select `autoComplete` 属性和 ConfigProvider `select.autoComplete` 配置，用于设置搜索输入框的浏览器自动补全行为。 [#59566](https://github.com/ant-design/ant-design/pull/59566) [#59632](https://github.com/ant-design/ant-design/pull/59632) [@QDyanbing](https://github.com/QDyanbing)
+  - ⌨️ 优化 Select、Cascader、TreeSelect 和 AutoComplete 的屏幕阅读器体验，隐藏默认装饰性箭头、搜索和加载图标，避免重复朗读。 [#59709](https://github.com/ant-design/ant-design/pull/59709) [@droduit](https://github.com/droduit)
+  - ⌨️ 增强 Select、Cascader 和 TreeSelect 清除按钮的键盘可访问性，聚焦时显示按钮及焦点轮廓，并使用本地化无障碍名称。 [#58267](https://github.com/ant-design/ant-design/pull/58267) [@Pareder](https://github.com/Pareder)
+  - ⌨️ 修复 Select 和 AutoComplete 在虚拟滚动模式下无法正确播报选项位置、总数及分组的问题。 [#58993](https://github.com/ant-design/ant-design/pull/58993) [@yoyo837](https://github.com/yoyo837)
+- Table
+  - 🆕 新增 Table 的 `expandable.showExpandAll` 和 `expandable.onExpandAll`，支持使用 `expandedRowRender` 时一键展开或收起当前页的所有可展开行。 [#59036](https://github.com/ant-design/ant-design/pull/59036) [@nikzanda](https://github.com/nikzanda)
+  - 🆕 新增 Table `components.ExpandIcon` 和 `expandable.columnTitle` 渲染函数，支持自定义行展开及全部展开按钮；兼容并废弃 `expandable.expandIcon`，请迁移至 `components.ExpandIcon`。 [#59036](https://github.com/ant-design/ant-design/pull/59036) [@nikzanda](https://github.com/nikzanda)
+  - ⌨️ 增强 Table 行选择的可访问性，使用本地化无障碍名称，并支持通过键盘打开自定义选择菜单。 [#58969](https://github.com/ant-design/ant-design/pull/58969) [@thlovey](https://github.com/thlovey)
+  - ⚡️ 优化 Table 对深层树形数据同时应用多个列筛选条件时的性能，避免重复递归筛选。 [#59719](https://github.com/ant-design/ant-design/pull/59719) [@Aminark](https://github.com/Aminark)
+- Tree
+  - 💄 优化 Tree 非勾选模式下 `selectable={false}` 节点的样式，显示禁用文本色和光标，并取消悬停高亮。 [#58906](https://github.com/ant-design/ant-design/pull/58906) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 🐞 修复 Tree 的 `expandedKeys`、`selectedKeys` 等显式为 `undefined` 时默认值及非受控交互失效的问题。 [#59274](https://github.com/ant-design/ant-design/pull/59274) [@aojunhao123](https://github.com/aojunhao123)
+  - 🐞 修复 Tree 标题内子元素获得焦点时列表意外滚动的问题。 [#59274](https://github.com/ant-design/ant-design/pull/59274) [@aojunhao123](https://github.com/aojunhao123)
+  - 🐞 修复 Tree 拖拽到嵌套首个子节点前方时目标错误、自定义拖拽文本被覆盖，以及卸载后仍触发悬停展开的问题。 [#59274](https://github.com/ant-design/ant-design/pull/59274) [@aojunhao123](https://github.com/aojunhao123)
+- Listy
+  - 🆕 新增 Listy `rowKey` 回调的第二个参数 `index`，便于根据行下标生成标识。 [#59347](https://github.com/ant-design/ant-design/pull/59347) [@aojunhao123](https://github.com/aojunhao123)
+  - 🆕 新增 Listy `rowHoverable` 属性，用于关闭列表行的悬停高亮。 [#59273](https://github.com/ant-design/ant-design/pull/59273) [@QDyanbing](https://github.com/QDyanbing)
+  - 🆕 新增 Listy `scrollWidth` 属性，使虚拟列表内容超出容器时可横向滚动。 [#59197](https://github.com/ant-design/ant-design/pull/59197) [@aojunhao123](https://github.com/aojunhao123)
+- Pagination
+  - 🆕 新增 Pagination `onChange` 可选的第三个参数 `info`，通过 `info.recommendPage` 在每页条数变化时提供推荐页码，便于保留当前数据位置；Table 和 List 的 `pagination.onChange` 同步支持。 [#58604](https://github.com/ant-design/ant-design/pull/58604) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - ♿ 优化 Pagination 的列表语义以及分页按钮的键盘操作和禁用状态识别。 [#58604](https://github.com/ant-design/ant-design/pull/58604) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 🌐 修正 Pagination 亚美尼亚语（`hy_AM`）、阿尔巴尼亚语（`sq_AL`）、尼泊尔语（`ne_NP`）和繁体中文（`zh_TW`）的分页及每页条数文案。 [#59500](https://github.com/ant-design/ant-design/pull/59500) [#59499](https://github.com/ant-design/ant-design/pull/59499) [#58604](https://github.com/ant-design/ant-design/pull/58604) [@yoyo837](https://github.com/yoyo837) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- Button
+  - 🐞 修复 Button 设置 `href` 时 `tabIndex` 不生效的问题。 [#59732](https://github.com/ant-design/ant-design/pull/59732) [@nikzanda](https://github.com/nikzanda)
+  - 🐞 修复 Button 未指定 `color` 时无法使用 ConfigProvider 组件级非 `solid` 变体的问题。 [#59589](https://github.com/ant-design/ant-design/pull/59589) [@QDyanbing](https://github.com/QDyanbing)
+- ColorPicker
+  - 🆕 新增 ColorPicker `styles.popup.container` 和 `classNames.popup.container`，支持自定义弹出面板内容容器；废弃 `styles.popupOverlayInner` 并保留兼容至 v7。 [#59743](https://github.com/ant-design/ant-design/pull/59743) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 修复 ColorPicker 在 `styles` 为函数或通过 ConfigProvider 配置时 `styles.popupOverlayInner` 不生效的问题。 [#59743](https://github.com/ant-design/ant-design/pull/59743) [@QDyanbing](https://github.com/QDyanbing)
+- Dropdown
+  - 🆕 新增 Dropdown `classNames.menu` 和 `styles.menu`，用于自定义下拉菜单根元素的样式。 [#58979](https://github.com/ant-design/ant-design/pull/58979) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 修复 Dropdown 启用 `autoFocus` 时自动聚焦菜单导致意外滚动的问题。 [#59786](https://github.com/ant-design/ant-design/pull/59786) [react-component/dropdown#271](https://github.com/react-component/dropdown/pull/271) [@github-actions](https://github.com/apps/github-actions) [@lkxdsb](https://github.com/lkxdsb)
+- Form
+  - 🆕 新增 Form 和 Form.Item `labelAlign` 对逻辑方向 `start` / `end` 的支持，使标签对齐方式随书写方向调整；兼容并废弃旧值 `left` / `right`。 [#59760](https://github.com/ant-design/ant-design/pull/59760) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 修复 Form.Item `noStyle` 字段在编辑后丢失父级 `validateStatus` 的问题。 [#59708](https://github.com/ant-design/ant-design/pull/59708) [@nikzanda](https://github.com/nikzanda)
+- Input
+  - ⌨️ 优化 Input.OTP 的无障碍体验，支持通过 `locale.Input.otpCell` 本地化每个输入格的名称，并在输入格上标记 `aria-invalid`。 [#59722](https://github.com/ant-design/ant-design/pull/59722) [@droduit](https://github.com/droduit)
+  - 🐞 修复 Input.Search 的 `rootClassName` 被添加到内部输入框而不是根节点的问题。 [#59582](https://github.com/ant-design/ant-design/pull/59582) [@Chaoqi31](https://github.com/Chaoqi31)
+- Menu
+  - 🐞 修复 Menu 动态加载菜单项后父级子菜单未更新选中样式的问题。 [#59786](https://github.com/ant-design/ant-design/pull/59786) [react-component/menu#895](https://github.com/react-component/menu/pull/895) [@github-actions](https://github.com/apps/github-actions) [@dogledogle](https://github.com/dogledogle)
+  - 🐞 修复 Menu 子菜单按 Escape 返回父级时连带关闭外层弹层的问题。 [#59786](https://github.com/ant-design/ant-design/pull/59786) [react-component/menu#899](https://github.com/react-component/menu/pull/899) [@github-actions](https://github.com/apps/github-actions) [@nrps9909](https://github.com/nrps9909)
+- Slider
+  - ⌨️ 新增 Slider `ariaDescribedByForHandle` 属性，为滑块关联额外的无障碍说明。 [#59110](https://github.com/ant-design/ant-design/pull/59110) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 修复 Slider 在祖先元素阻止 `mouseup` 冒泡时无法结束拖拽，以及拖拽过程中容器暂不可用时可能报错的问题。 [#59786](https://github.com/ant-design/ant-design/pull/59786) [react-component/slider#1089](https://github.com/react-component/slider/pull/1089) [react-component/slider#1087](https://github.com/react-component/slider/pull/1087) [@github-actions](https://github.com/apps/github-actions) [@nrps9909](https://github.com/nrps9909)
+- Splitter
+  - ⌨️ 增强 Splitter 折叠控件的本地化无障碍名称，并允许通过自定义图标的 `aria-label` 覆盖默认名称。 [#58978](https://github.com/ant-design/ant-design/pull/58978) [@thlovey](https://github.com/thlovey)
+  - 🐞 修复 Splitter 在触摸操作被取消后仍保留拖拽状态的问题。 [#59712](https://github.com/ant-design/ant-design/pull/59712) [@Aminark](https://github.com/Aminark)
+- Tabs
+  - 🆕 新增 Tabs `more.open`、`more.onOpenChange`，用于控制溢出菜单展开状态；兼容并废弃 `more.visible`、`more.onVisibleChange`。 [#59259](https://github.com/ant-design/ant-design/pull/59259) [@QDyanbing](https://github.com/QDyanbing)
+  - 🐞 修复 Tabs 的 `moreIcon` 被 ConfigProvider 的 `tabs.more.icon` 和 `tabs.moreIcon` 覆盖的问题。 [#59690](https://github.com/ant-design/ant-design/pull/59690) [@nikzanda](https://github.com/nikzanda)
+- Upload
+  - 🐞 修复 Upload 在 URL 查询参数或锚点包含斜杠时误判图片缩略图的问题。 [#59649](https://github.com/ant-design/ant-design/pull/59649) [@Aminark](https://github.com/Aminark)
+  - 🐞 修复 Upload 在焦点进入选择、拖拽及图片卡片布局时未触发 `onFocus` 回调的问题。 [#59002](https://github.com/ant-design/ant-design/pull/59002) [@nrps9909](https://github.com/nrps9909)
+- ⌨️ 改进 Collapse 无障碍体验，支持按空格键切换面板且不滚动页面，并通过 `aria-controls` 关联展开的标题与面板内容。 [#59771](https://github.com/ant-design/ant-design/pull/59771) [@yoyo837](https://github.com/yoyo837)
+- 🐞 修复 Card 的 `tabProps.onChange` 在切换页签时不触发的问题。 [#59655](https://github.com/ant-design/ant-design/pull/59655) [@dogledogle](https://github.com/dogledogle)
+- 🐞 修复 Tooltip 和 Popover 在打开动画结束后文字发生位移的问题。 [#59729](https://github.com/ant-design/ant-design/pull/59729) [@th74100](https://github.com/th74100)
+- 🐞 修复 `theme.getDesignToken` 在 `algorithm` 为空数组时无法获取 Design Token 的问题。 [#59695](https://github.com/ant-design/ant-design/pull/59695) [@nikzanda](https://github.com/nikzanda)
+- 🐞 修复 Input 的前缀、后缀和清除图标、Mentions 的后缀、Cascader 的展开和加载图标，以及 Pagination 的自定义导航项或图标为数字 `0` 时被忽略的问题。 [#59548](https://github.com/ant-design/ant-design/pull/59548) [#59566](https://github.com/ant-design/ant-design/pull/59566) [#58604](https://github.com/ant-design/ant-design/pull/58604) [@QDyanbing](https://github.com/QDyanbing) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 修复 Checkbox 和 Radio 在鼠标从选框移到文字时意外关闭 Tooltip 的问题，并修复 Radio 错误触发 `onMouseEnter` 和 `onMouseLeave` 的问题。 [#59701](https://github.com/ant-design/ant-design/pull/59701) [#59699](https://github.com/ant-design/ant-design/pull/59699) [@nikzanda](https://github.com/nikzanda)
+- 🐞 修复 Statistic 在数值极小或极大时显示科学计数法，且 `precision` 与分隔符不生效的问题。 [#59693](https://github.com/ant-design/ant-design/pull/59693) [@RaphaelFakhri](https://github.com/RaphaelFakhri)
+- 🐞 修复 TreeSelect 未应用 ConfigProvider 的全局 `className`、`style`，以及根节点 `classNames`、`styles` 错误影响下拉弹层的问题。 [#59343](https://github.com/ant-design/ant-design/pull/59343) [@dogledogle](https://github.com/dogledogle)
+- 🌐 新增 Input、Select 等组件清除按钮无障碍名称的德语、法语和意大利语翻译。 [#59723](https://github.com/ant-design/ant-design/pull/59723) [@droduit](https://github.com/droduit)
+
 ## 6.6.8
 
 `2026-10-26`

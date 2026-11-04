@@ -32,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: 'Бусдыг сонгох',
     selectNone: 'Бүх өгөгдлийг арилгах',
     selectionAll: 'Бүх өгөгдлийг сонгоно уу',
+    selectRow: 'Мөр сонгох',
+    selectedRow: 'Мөр сонгогдсон',
+    selectionMenu: 'Сонголтын цэс',
     sortTitle: 'Эрэмбэлэх',
     expand: 'Мөрийг өргөжүүлэх',
     collapse: 'Мөрийг буулгах',
+    expandAll: 'Бүх мөрийг өргөжүүлэх',
+    collapseAll: 'Бүх мөрийг хумих',
     triggerDesc: 'Буурах байдлаар эрэмбэлэхийн тулд товшино уу',
     triggerAsc: 'Өсөхөөр эрэмбэлэхийн тулд товшино уу',
     cancelSort: 'Эрэмбэлэхийг цуцлахын тулд товшино уу',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Тийм',
     cancelText: 'Цуцлах',
+  },
+  Splitter: {
+    toggleStartPanel: 'Эхлэх самбарыг сэлгэх',
+    toggleEndPanel: 'Төгсгөлийн самбарыг сэлгэх',
   },
   Transfer: {
     titles: ['', ''],

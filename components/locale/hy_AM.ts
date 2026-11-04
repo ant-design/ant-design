@@ -1,3 +1,5 @@
+import Pagination from '@rc-component/pagination/locale/hy_AM';
+
 import type { Locale } from '.';
 import type { PickerLocale } from '../date-picker/generatePicker';
 
@@ -50,21 +52,7 @@ const datePickerLocale: PickerLocale = {
 
 const localeValues: Locale = {
   locale: 'hy-am',
-  Pagination: {
-    // Options.jsx
-    items_per_page: '/ էջ',
-    jump_to: 'Գնալ',
-    jump_to_confirm: 'հաստատել',
-    page: '',
-
-    // Pagination.jsx
-    prev_page: 'Նախորդ Էջ',
-    next_page: 'Հաջորդ Էջ',
-    prev_5: 'Նախորդ 5 Էջերը',
-    next_5: 'Հաջորդ 5 Էջերը',
-    prev_3: 'Նախորդ 3 Էջերը',
-    next_3: 'Հաջորդ 3 Էջերը',
-  },
+  Pagination,
   DatePicker: datePickerLocale,
   TimePicker: {
     placeholder: 'Ընտրեք ժամը',
@@ -87,12 +75,17 @@ const localeValues: Locale = {
     sortTitle: 'Տեսակավորել',
     expand: 'Ընդլայնեք տողը',
     collapse: 'Կրճատել տողը',
+    expandAll: 'Ընդլայնել բոլոր տողերը',
+    collapseAll: 'Կրճատել բոլոր տողերը',
     filterEmptyText: 'Զտիչներ չկան',
     filterCheckAll: 'Ընտրեք բոլոր տարրերը',
     filterSearchPlaceholder: 'Որոնել ֆիլտրերում',
     emptyText: 'Տվյալներ չկան',
     selectNone: 'Մաքրել բոլոր տվյալները',
     selectionAll: 'Ընտրեք բոլոր տվյալները',
+    selectRow: 'Ընտրել տողը',
+    selectedRow: 'Տողն ընտրված է',
+    selectionMenu: 'Ընտրության ընտրացանկ',
     triggerDesc: 'Սեղմեք՝ նվազման կարգով',
     triggerAsc: 'Սեղմեք՝ աճող տեսակավորելու համար',
     cancelSort: 'Սեղմեք՝ տեսակավորումը չեղարկելու համար',
@@ -110,6 +103,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Հաստատել',
     cancelText: 'Մերժել',
+  },
+  Splitter: {
+    toggleStartPanel: 'Փոխարկել սկզբնական վահանակը',
+    toggleEndPanel: 'Փոխարկել վերջնական վահանակը',
   },
   Transfer: {
     titles: ['', ''],

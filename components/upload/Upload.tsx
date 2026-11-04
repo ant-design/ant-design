@@ -55,6 +55,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     onDownload,
     onChange,
     onDrop,
+    onFocus,
     previewFile,
     disabled: customDisabled,
     locale: propLocale,
@@ -397,6 +398,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   } as any;
 
   delete rcUploadProps.className;
+  delete rcUploadProps.onFocus;
   delete rcUploadProps.style;
 
   // Remove id to avoid open by label when trigger is hidden
@@ -493,7 +495,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     );
 
     return (
-      <span className={mergedRootCls} ref={wrapRef} style={mergedRootStyle}>
+      <span className={mergedRootCls} ref={wrapRef} style={mergedRootStyle} onFocus={onFocus}>
         <div
           className={dragCls}
           style={mergedStyles.trigger}
@@ -528,14 +530,14 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   if (listType === 'picture-card' || listType === 'picture-circle') {
     return (
-      <span className={mergedRootCls} ref={wrapRef} style={mergedRootStyle}>
+      <span className={mergedRootCls} ref={wrapRef} style={mergedRootStyle} onFocus={onFocus}>
         {renderUploadList(uploadButton, !!children)}
       </span>
     );
   }
 
   return (
-    <span className={mergedRootCls} ref={wrapRef} style={mergedRootStyle}>
+    <span className={mergedRootCls} ref={wrapRef} style={mergedRootStyle} onFocus={onFocus}>
       {uploadButton}
       {renderUploadList()}
     </span>
