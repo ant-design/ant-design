@@ -250,7 +250,10 @@ const getColumnKeyMap = <RecordType extends AnyObject = AnyObject>(
   (columns || []).forEach((column, index) => {
     const columnPos = getColumnPos(index, pos);
     const key = getColumnKey(column, columnPos);
-    if (!keyMap.has(key)) {
+    // Only filter columns can keep a filter state, as in `collectFilterStates`
+    const isFilterColumn =
+      column.filters || column.filterDropdown !== undefined || 'onFilter' in column;
+    if (isFilterColumn && !keyMap.has(key)) {
       keyMap.set(key, column);
     }
     if ('children' in column) {

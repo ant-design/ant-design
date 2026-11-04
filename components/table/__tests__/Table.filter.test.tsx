@@ -642,6 +642,54 @@ describe('Table.filter', () => {
     jest.restoreAllMocks();
   });
 
+  it.each<[string, (col: ColumnType<any>) => ColumnsType<any>, ColumnsType<any>]>([
+    [
+      'its column is removed and a column without key or dataIndex has the same key',
+      (col) => [
+        { title: 'Group', children: [{ title: 'Age', render: () => 'age' }] },
+        { ...col, key: '0-0' },
+      ],
+      [{ title: 'Group', children: [{ title: 'Age', render: () => 'age' }] }],
+    ],
+    [
+      'its column is no longer filterable',
+      (col) => [{ ...col, key: 'name' }],
+      [{ title: 'Name', dataIndex: 'name', key: 'name' }],
+    ],
+  ])('should not keep a filter state when %s', (_, getColumns, newColumns) => {
+    const nameColumn: ColumnType<any> = {
+      title: 'Name',
+      dataIndex: 'name',
+      filters: [
+        { text: 'Jack', value: 'Jack' },
+        { text: 'Lucy', value: 'Lucy' },
+      ],
+      onFilter: filterFn,
+    };
+    // Another filter column, so that the table still has filter states
+    const otherColumn: ColumnType<any> = {
+      title: 'Other',
+      key: 'other',
+      filters: [{ text: 'All', value: 'all' }],
+      onFilter: () => true,
+    };
+    const { container, rerender } = render(
+      createTable({ columns: [...getColumns(nameColumn), otherColumn] }),
+    );
+
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+    fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
+    fireEvent.click(
+      container.querySelector(
+        '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
+      )!,
+    );
+    expect(container.querySelectorAll('tbody tr')).toHaveLength(1);
+
+    rerender(createTable({ columns: [...newColumns, otherColumn] }));
+    expect(container.querySelectorAll('tbody tr')).toHaveLength(4);
+  });
+
   it('should handle filteredValue and non-array filterValue as expected', () => {
     let filterKeys = new Set();
 
