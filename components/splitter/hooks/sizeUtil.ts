@@ -78,7 +78,8 @@ export function autoPtgSizes(
   let limitMax = 1;
   for (const index of undefinedIndexes) {
     const min = minPtgSizes[index] || 0;
-    const max = maxPtgSizes[index] ?? 1;
+    // Retain the pre-measurement NaN fallback while preserving a zero maximum.
+    const max = maxPtgSizes[index] === 0 ? 0 : maxPtgSizes[index] || 1;
     sumMin += min;
     sumMax += max;
     limitMin = Math.max(limitMin, min);
@@ -104,7 +105,7 @@ export function autoPtgSizes(
   for (let i = 0; i < undefinedCount; i += 1) {
     const index = undefinedIndexes[i];
     const min = minPtgSizes[index] || 0;
-    const max = maxPtgSizes[index] ?? 1;
+    const max = maxPtgSizes[index] === 0 ? 0 : maxPtgSizes[index] || 1;
 
     result[index] = min;
 
