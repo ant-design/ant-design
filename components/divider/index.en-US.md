@@ -45,7 +45,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | size | The size of divider. Only valid for horizontal layout | `small` \| `medium` \| `large` | - | 5.25.0 | × |
 | titlePlacement | The position of title inside divider | `start` \| `end` \| `center` | `center` | - | × |
 | ~~type~~ | The direction type of divider | `horizontal` \| `vertical` | `horizontal` | - | × |
-| variant | Whether line is dashed, dotted or solid | `dashed` \| `dotted` \| `solid` | solid | 5.20.0 | × |
+| variant | Whether line is dashed, dotted or solid | `dashed` \| `dotted` \| `solid` | solid | 5.20.0 | 6.7.0 |
 | vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | - | × |
 
 ## Semantic DOM

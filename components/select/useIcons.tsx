@@ -6,15 +6,17 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import { isReactRenderable } from '@rc-component/util';
 
 import fallbackProp from '../_util/fallbackProp';
+import { isFunction } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 
 type RenderNode = React.ReactNode | ((props: any) => React.ReactNode);
 
 export default function useIcons({
-  suffixIcon,
-  contextSuffixIcon,
+  suffix,
+  contextSuffix,
   clearIcon,
   contextClearIcon,
   menuItemSelectedIcon,
@@ -28,13 +30,13 @@ export default function useIcons({
   contextSearchIcon,
   multiple,
   hasFeedback,
-  showSuffixIcon,
+  showSuffix,
   feedbackIcon,
   showArrow,
   componentName,
 }: {
-  suffixIcon?: React.ReactNode;
-  contextSuffixIcon?: React.ReactNode;
+  suffix?: RenderNode;
+  contextSuffix?: RenderNode;
   clearIcon?: React.ReactNode;
   contextClearIcon?: React.ReactNode;
   menuItemSelectedIcon?: RenderNode;
@@ -50,7 +52,7 @@ export default function useIcons({
   hasFeedback?: boolean;
   feedbackIcon?: ReactNode;
   prefixCls: string;
-  showSuffixIcon?: boolean;
+  showSuffix?: boolean;
   showArrow?: boolean;
   componentName: string;
 }) {
@@ -65,32 +67,38 @@ export default function useIcons({
     const mergedClearIcon = fallbackProp(clearIcon, contextClearIcon, <CloseCircleFilled />);
 
     // Validation Feedback Icon
-    const getSuffixIconNode = (arrowIcon?: ReactNode) => {
-      if (suffixIcon === null && !hasFeedback && !showArrow) {
+    const getSuffixNode = (suffixNode?: ReactNode) => {
+      if (!isReactRenderable(suffixNode) && !hasFeedback && !showArrow) {
         return null;
       }
       return (
         <>
-          {showSuffixIcon !== false && arrowIcon}
+          {showSuffix !== false && suffixNode}
           {hasFeedback && feedbackIcon}
         </>
       );
     };
 
-    // Arrow item icon
-    let mergedSuffixIcon = null;
-    if (suffixIcon !== undefined) {
-      mergedSuffixIcon = getSuffixIconNode(suffixIcon);
+    // Suffix
+    let mergedSuffix: RenderNode = null;
+    if (suffix !== undefined) {
+      mergedSuffix = isFunction(suffix)
+        ? (props) => getSuffixNode(suffix(props))
+        : getSuffixNode(suffix);
     } else if (loading) {
-      mergedSuffixIcon = getSuffixIconNode(
+      mergedSuffix = getSuffixNode(
         fallbackProp(loadingIcon, contextLoadingIcon, <LoadingOutlined spin aria-hidden="true" />),
       );
     } else {
-      mergedSuffixIcon = ({ open, showSearch }: { open: boolean; showSearch: boolean }) => {
+      mergedSuffix = (props: { open: boolean; showSearch: boolean }) => {
+        const { open, showSearch } = props;
         if (open && showSearch) {
-          return getSuffixIconNode(fallbackProp(searchIcon, contextSearchIcon, <SearchOutlined aria-hidden="true" />));
+          return getSuffixNode(
+            fallbackProp(searchIcon, contextSearchIcon, <SearchOutlined aria-hidden="true" />),
+          );
         }
-        return getSuffixIconNode(fallbackProp(contextSuffixIcon, <DownOutlined aria-hidden="true" />));
+        const fallbackSuffix = fallbackProp(contextSuffix, <DownOutlined aria-hidden="true" />);
+        return getSuffixNode(isFunction(fallbackSuffix) ? fallbackSuffix(props) : fallbackSuffix);
       };
     }
 
@@ -104,13 +112,13 @@ export default function useIcons({
 
     return {
       clearIcon: mergedClearIcon,
-      suffixIcon: mergedSuffixIcon,
+      suffix: mergedSuffix,
       itemIcon: mergedItemIcon,
       removeIcon: mergedRemoveIcon,
     };
   }, [
-    suffixIcon,
-    contextSuffixIcon,
+    suffix,
+    contextSuffix,
     clearIcon,
     contextClearIcon,
     menuItemSelectedIcon,
@@ -124,7 +132,7 @@ export default function useIcons({
     contextSearchIcon,
     multiple,
     hasFeedback,
-    showSuffixIcon,
+    showSuffix,
     feedbackIcon,
     showArrow,
   ]);

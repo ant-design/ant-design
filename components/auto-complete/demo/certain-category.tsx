@@ -7,22 +7,12 @@ const useStyles = createStyles((props) => {
   const { css, prefixCls, cssVar } = props;
   return {
     categorySearch: css`
-      .${prefixCls}-select-dropdown-menu-item-group-title {
-        color: #666;
+      .${prefixCls}-select-item-group {
+        color: ${cssVar.colorTextSecondary};
         font-weight: ${cssVar.fontWeightStrong};
       }
-      .${prefixCls}-select-dropdown-menu-item-group {
-        border-bottom: ${cssVar.lineWidth} ${cssVar.lineType} #f6f6f6;
-      }
-      .${prefixCls}-select-dropdown-menu-item {
+      .${prefixCls}-select-item-option {
         padding-inline-start: ${cssVar.padding};
-      }
-      .${prefixCls}-select-dropdown-menu-item.show-all {
-        text-align: center;
-        cursor: default;
-      }
-      .${prefixCls}-select-dropdown-menu {
-        max-height: 300px;
       }
     `,
   };
