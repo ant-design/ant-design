@@ -35,6 +35,14 @@ function cleanup(node: HTMLElement) {
     .forEach((input) => {
       input.removeAttribute('value');
     });
+  // querySelectorAll does not match the node itself
+  if (
+    node.tagName === 'INPUT' &&
+    ['checkbox', 'radio'].includes((node as HTMLInputElement).type) &&
+    node.getAttribute('value') === ''
+  ) {
+    node.removeAttribute('value');
+  }
 
   const childList = Array.from(node.childNodes);
   node.innerHTML = '';
@@ -53,6 +61,9 @@ function normalizeSegmentedChecked(node: HTMLElement | Node[]) {
   roots.forEach((root) => {
     const rootEl = root as HTMLElement;
     if (typeof rootEl.querySelectorAll !== 'function') return;
+    if (/segmented-item-input/.test(rootEl.className)) {
+      rootEl.removeAttribute('checked');
+    }
     rootEl.querySelectorAll?.('input[type="radio"]').forEach((input) => {
       if (/segmented-item-input/.test(input.className)) {
         input.removeAttribute('checked');
