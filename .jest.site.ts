@@ -1,7 +1,11 @@
-const { moduleNameMapper, transformIgnorePatterns, modulePathIgnorePatterns } = require('./.jest');
+import type { Config } from 'jest';
+
+import jestConfig from './.jest.ts';
+
+const { moduleNameMapper, transformIgnorePatterns, modulePathIgnorePatterns } = jestConfig;
 
 // jest config for server render environment
-module.exports = {
+const config: Config = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'md'],
   moduleNameMapper,
   modulePathIgnorePatterns,
@@ -19,4 +23,6 @@ module.exports = {
       tsConfigFile: './tsconfig.test.json',
     },
   },
-};
+} satisfies Config;
+
+export default config;

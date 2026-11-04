@@ -66,11 +66,6 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken, CSSObject> = (token) => {
         flex: 'auto',
         minWidth: 0,
       },
-
-      '&-icon': {
-        marginBlockEnd: token.marginXS,
-        fontSize: token.controlHeight,
-      },
     },
     [`${componentCls}-borderless`]: {
       borderColor: 'transparent',

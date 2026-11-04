@@ -3,6 +3,13 @@ import * as React from 'react';
 import { isFunction, isNumber } from '../_util/is';
 import type { FormatConfig, valueType } from './utils';
 
+// `String(number)` uses exponential notation for very small or very large numbers.
+const plainNumberFormat = new Intl.NumberFormat('en-US', {
+  notation: 'standard',
+  useGrouping: false,
+  maximumSignificantDigits: 21,
+});
+
 interface NumberProps extends FormatConfig {
   value: valueType;
   prefixCls?: string;
@@ -29,7 +36,9 @@ const StatisticNumber: React.FC<NumberProps> = (props) => {
     valueNode = formatter(value);
   } else {
     // Internal formatter
-    const val = String(value);
+    const rawValue = String(value);
+    const val =
+      isNumber(value) && rawValue.includes('e') ? plainNumberFormat.format(value) : rawValue;
     const cells = val.match(/^(-?)(\d*)(\.(\d+))?$/);
 
     // Process if illegal number

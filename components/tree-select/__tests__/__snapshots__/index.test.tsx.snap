@@ -79,6 +79,7 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
     class="ant-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -137,6 +138,7 @@ exports[`TreeSelect rtl render component should be rendered correctly in RTL dir
     class="ant-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"

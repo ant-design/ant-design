@@ -19,6 +19,7 @@ const localeValues: Locale = {
     sortable: 'sortable',
     show: 'Show',
     hide: 'Hide',
+    clear: 'Clear',
   },
   Table: {
     filterTitle: 'Filter menu',
@@ -32,9 +33,14 @@ const localeValues: Locale = {
     selectInvert: 'Invert current page',
     selectNone: 'Clear all data',
     selectionAll: 'Select all data',
+    selectRow: 'Select row',
+    selectedRow: 'Row selected',
+    selectionMenu: 'Selection menu',
     sortTitle: 'Sort',
     expand: 'Expand row',
     collapse: 'Collapse row',
+    expandAll: 'Expand all rows',
+    collapseAll: 'Collapse all rows',
     triggerDesc: 'Click to sort descending',
     triggerAsc: 'Click to sort ascending',
     cancelSort: 'Click to cancel sorting',
@@ -52,6 +58,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Cancel',
+  },
+  Splitter: {
+    toggleStartPanel: 'Toggle start panel',
+    toggleEndPanel: 'Toggle end panel',
   },
   Transfer: {
     titles: ['', ''],
