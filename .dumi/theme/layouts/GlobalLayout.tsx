@@ -40,6 +40,10 @@ if (typeof window !== 'undefined') {
   }
 }
 
+const isColorTheme = (value?: string) => {
+  return value === 'light' || value === 'dark' || value === 'auto';
+};
+
 const getAlgorithm = (themes: ThemeName[] = [], systemTheme: 'dark' | 'light') =>
   themes
     .map((theme) => {
@@ -91,11 +95,7 @@ const GlobalLayout: React.FC = () => {
   // 颜色模式优先级：URL Query > Local Storage > auto。
   const urlColor = searchParams.getAll('theme').find((t) => t === 'light' || t === 'dark');
 
-  const colorTheme =
-    urlColor ||
-    (storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'auto'
-      ? storedTheme
-      : 'auto');
+  const colorTheme = urlColor || (isColorTheme(storedTheme) ? storedTheme : 'auto');
 
   const [systemTheme, setSystemTheme] = React.useState<'light' | 'dark'>(() => getSystemTheme());
   const isDark = isThemeDark(theme, systemTheme);
