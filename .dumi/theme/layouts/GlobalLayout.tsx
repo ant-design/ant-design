@@ -71,17 +71,14 @@ const isThemeDark = (theme: ThemeName[], systemTheme: 'dark' | 'light') => {
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [
-    { theme = [], direction, isMobile, bannerVisible = false, dynamicTheme, isDark = false },
-    setSiteState,
-  ] = useLayoutState<SiteState>({
-    isMobile: false,
-    direction: 'ltr',
-    theme: [],
-    isDark: false,
-    bannerVisible: false,
-    dynamicTheme: undefined,
-  });
+  const [{ theme = [], direction, isMobile, bannerVisible = false, dynamicTheme }, setSiteState] =
+    useLayoutState<SiteState>({
+      isMobile: false,
+      direction: 'ltr',
+      theme: [],
+      bannerVisible: false,
+      dynamicTheme: undefined,
+    });
 
   const [storedTheme] = useLocalStorage<ThemeName | undefined>(ANT_DESIGN_SITE_THEME, {
     initialValue: undefined,
@@ -101,6 +98,7 @@ const GlobalLayout: React.FC = () => {
       : 'auto');
 
   const [systemTheme, setSystemTheme] = React.useState<'light' | 'dark'>(() => getSystemTheme());
+  const isDark = isThemeDark(theme, systemTheme);
 
   const bannerData = getBannerData();
 
@@ -144,7 +142,7 @@ const GlobalLayout: React.FC = () => {
     updateSiteConfig({ isMobile: window.innerWidth < RESPONSIVE_MOBILE });
   }, [updateSiteConfig]);
 
-  // 设置 data-prefers-color 属性和 isDark 状态
+  // 设置 data-prefers-color 属性
   useEffect(() => {
     const color = theme.find((t) => t === 'light' || t === 'dark');
     const html = document.querySelector<HTMLHtmlElement>('html');
@@ -153,8 +151,6 @@ const GlobalLayout: React.FC = () => {
     } else if (color) {
       html?.setAttribute('data-prefers-color', color);
     }
-
-    setSiteState((prev) => ({ ...prev, isDark: isThemeDark(theme, systemTheme) }));
   }, [systemTheme, theme]);
 
   // 监听系统主题变化
