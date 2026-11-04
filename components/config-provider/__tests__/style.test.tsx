@@ -1307,6 +1307,7 @@ describe('ConfigProvider support style and className props', () => {
         <Table
           columns={[{ title: 'Address', dataIndex: 'address', key: 'address 1', ellipsis: true }]}
           dataSource={[{ key: '1', name: 'Jim Green', age: 40, address: 'test', tags: ['kawaii'] }]}
+          expandable={{ expandedRowRender: () => 'Expanded content' }}
         />
       </ConfigProvider>,
     );
@@ -1727,6 +1728,28 @@ describe('ConfigProvider support style and className props', () => {
     expect(container.querySelector('.ant-tree-list')).toHaveStyle(
       'color: rgb(255, 0, 0); font-size: 16px; position: relative;',
     );
+  });
+
+  it('Should TreeSelect className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        treeSelect={{ className: 'cp-tree-select', style: { backgroundColor: 'rgb(255, 0, 0)' } }}
+      >
+        <TreeSelect
+          treeData={[
+            {
+              value: 'test-value',
+              title: 'test-title',
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-tree-select')).toHaveClass('cp-tree-select');
+    expect(container.querySelector('.ant-tree-select')).toHaveStyle({
+      backgroundColor: 'rgb(255, 0, 0)',
+    });
   });
 
   it('Should ColorPicker className & style works', () => {

@@ -1,5 +1,5 @@
-jest.mock('../_util/getReactMajorVersionCanDelMe', () => {
-  return () => 17;
+jest.mock('../_util/getReactVersionCanDelMe', () => {
+  return () => [17, 0, 0];
 });
 
 describe('antd legacy', () => {
