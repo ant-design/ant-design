@@ -36,7 +36,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     onRemove,
     locale,
     iconRender,
-    isImageUrl: isImgUrl = isImageUrl,
+    isImageUrl: customIsImageUrl,
     prefixCls: customizePrefixCls,
     items: originalItems = [],
     showPreviewIcon = true,
@@ -74,6 +74,10 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     [originalItems],
   );
 
+  const getOriginalFile = (file: UploadFile) => originalFiles.current.get(file) ?? file;
+  const isImgUrl = (file: UploadFile) =>
+    customIsImageUrl ? customIsImageUrl(getOriginalFile(file)) : isImageUrl(file);
+
   const [, forceUpdate] = useForceUpdate();
   const [motionAppear, setMotionAppear] = React.useState(false);
   const isPictureCardOrCirle = ['picture-card', 'picture-circle'].includes(listType);
@@ -109,24 +113,24 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
       return;
     }
     e?.preventDefault();
-    return onPreview(originalFiles.current.get(file) ?? file);
+    return onPreview(getOriginalFile(file));
   };
 
   const onInternalDownload = (file: UploadFile) => {
     if (isFunction(onDownload)) {
-      onDownload(originalFiles.current.get(file) ?? file);
+      onDownload(getOriginalFile(file));
     } else if (file.url) {
       window.open(file.url, '_blank', 'noopener');
     }
   };
 
   const onInternalClose = (file: UploadFile) => {
-    onRemove?.(originalFiles.current.get(file) ?? file);
+    onRemove?.(getOriginalFile(file));
   };
 
   const internalIconRender = (file: UploadFile) => {
     if (iconRender) {
-      return iconRender(file, listType);
+      return iconRender(getOriginalFile(file), listType);
     }
     const isLoading = file.status === 'uploading';
     if (listType.startsWith('picture')) {
@@ -215,7 +219,8 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
             classNames={uploadListClassNames}
             styles={styles}
             file={file}
-            items={items}
+            originalFile={getOriginalFile(file)}
+            items={originalItems}
             progress={progress}
             listType={listType}
             isImgUrl={isImgUrl}
