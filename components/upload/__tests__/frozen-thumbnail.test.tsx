@@ -145,4 +145,57 @@ describe('Upload thumbnails with frozen controlled files', () => {
       expect(file.status).toBe('done');
     },
   );
+  it.each(['picture', 'picture-card', 'picture-circle'] as const)(
+    'preserves frozen file identity in render callbacks for %s',
+    async (listType) => {
+      const file = Object.freeze(createFile());
+      const files = [file];
+      const previewFile = jest.fn().mockResolvedValue('data:image/png;base64,aW1hZ2U=');
+      const isImageUrl = jest.fn((candidate: UploadFile) => candidate === file);
+      const iconRender = jest.fn((_file: UploadFile) => null);
+      const itemRender = jest.fn(
+        (node: React.ReactElement, _file: UploadFile, _files: UploadFile[]) => node,
+      );
+      const showIcon = jest.fn((candidate: UploadFile) => candidate === file);
+      const customIcon = jest.fn((_file: UploadFile) => <span>action</span>);
+      const extra = jest.fn((_file: UploadFile) => 'extra');
+      const { container } = render(
+        <Upload
+          fileList={files}
+          listType={listType}
+          previewFile={previewFile}
+          isImageUrl={isImageUrl}
+          iconRender={iconRender}
+          itemRender={itemRender}
+          showUploadList={{
+            showRemoveIcon: showIcon,
+            showDownloadIcon: showIcon,
+            showPreviewIcon: showIcon,
+            removeIcon: customIcon,
+            downloadIcon: customIcon,
+            previewIcon: customIcon,
+            extra,
+          }}
+        />,
+      );
+      await waitFor(() =>
+        expect(container.querySelector('img')?.getAttribute('src')).toBe(
+          'data:image/png;base64,aW1hZ2U=',
+        ),
+      );
+      expect(container.querySelector('button[title="Remove file"]')).not.toBeNull();
+      expect(container.querySelector('button[title="Download file"]')).not.toBeNull();
+      [isImageUrl, iconRender, showIcon, customIcon, extra].forEach((callback) => {
+        expect(callback).toHaveBeenCalled();
+        callback.mock.calls.forEach(([candidate]) => {
+          expect(candidate).toBe(file);
+        });
+      });
+      itemRender.mock.calls.forEach(([, candidate, candidates]) => {
+        expect(candidate).toBe(file);
+        expect(candidates).toBe(files);
+      });
+      expect(file.thumbUrl).toBeUndefined();
+    },
+  );
 });
