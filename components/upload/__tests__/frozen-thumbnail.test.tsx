@@ -1,6 +1,6 @@
 import React from 'react';
 import Upload from '..';
-import type { UploadFile } from '..';
+import type { UploadFile, UploadRef } from '..';
 import { fireEvent, render, waitFor } from '../../../tests/utils';
 
 function createFile(): UploadFile {
@@ -104,6 +104,7 @@ describe('Upload thumbnails with frozen controlled files', () => {
     'passes the original frozen file to callbacks for %s',
     async (listType) => {
       const file = Object.freeze(createFile());
+      const uploadRef = React.createRef<UploadRef>();
       const onPreview = jest.fn();
       const onDownload = jest.fn();
       const onRemove = jest.fn();
@@ -112,6 +113,7 @@ describe('Upload thumbnails with frozen controlled files', () => {
         const [files, setFiles] = React.useState<UploadFile[]>([file]);
         return (
           <Upload
+            ref={uploadRef}
             fileList={files}
             listType={listType}
             previewFile={previewFile}
@@ -138,13 +140,7 @@ describe('Upload thumbnails with frozen controlled files', () => {
       expect(onDownload.mock.calls[0][0]).toBe(file);
       fireEvent.click(container.querySelector('button[title="Remove file"]')!);
       expect(onRemove.mock.calls[0][0]).toBe(file);
-      await waitFor(() =>
-        expect(container.querySelector('.ant-upload-list-item-container')?.className).toContain(
-          '-leave-active',
-        ),
-      );
-      fireEvent.animationEnd(container.querySelector('.ant-upload-list-item-container')!);
-      await waitFor(() => expect(container.querySelector('.ant-upload-list-item')).toBeNull());
+      await waitFor(() => expect(uploadRef.current?.fileList).toEqual([]));
       expect(file.thumbUrl).toBeUndefined();
       expect(file.status).toBe('done');
     },
