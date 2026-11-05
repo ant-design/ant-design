@@ -56,6 +56,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
   } = props;
 
   const frozenFiles = React.useRef(new WeakMap<UploadFile, UploadFile>());
+  const originalFiles = React.useRef(new WeakMap<UploadFile, UploadFile>());
   const items = React.useMemo(
     () =>
       originalItems.map((file) => {
@@ -66,6 +67,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
         if (!cachedFile) {
           cachedFile = { ...file };
           frozenFiles.current.set(file, cachedFile);
+          originalFiles.current.set(cachedFile, file);
         }
         return cachedFile;
       }),
@@ -107,19 +109,19 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
       return;
     }
     e?.preventDefault();
-    return onPreview(file);
+    return onPreview(originalFiles.current.get(file) ?? file);
   };
 
   const onInternalDownload = (file: UploadFile) => {
     if (isFunction(onDownload)) {
-      onDownload(file);
+      onDownload(originalFiles.current.get(file) ?? file);
     } else if (file.url) {
       window.open(file.url, '_blank', 'noopener');
     }
   };
 
   const onInternalClose = (file: UploadFile) => {
-    onRemove?.(file);
+    onRemove?.(originalFiles.current.get(file) ?? file);
   };
 
   const internalIconRender = (file: UploadFile) => {
