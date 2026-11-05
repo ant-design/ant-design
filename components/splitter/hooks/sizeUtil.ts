@@ -1,5 +1,10 @@
 type SizeUnit = number | undefined;
 
+// Retain the pre-measurement NaN/undefined fallback while preserving a zero maximum.
+function normalizePtgMax(max: SizeUnit): number {
+  return max === 0 ? 0 : max || 1;
+}
+
 function fitPtgSizes(sizes: number[], minSizes: SizeUnit[], maxSizes: SizeUnit[]): number[] {
   // Collapsed panels should stay at 0 even when they have a min size.
   const mergedMinSizes = sizes.map((size, index) => (size === 0 ? 0 : minSizes[index] || 0));
@@ -87,8 +92,7 @@ export function autoPtgSizes(
   let sumMax = 0;
   for (const index of undefinedIndexes) {
     const min = minPtgSizes[index] || 0;
-    // Retain the pre-measurement NaN fallback while preserving a zero maximum.
-    const max = maxPtgSizes[index] === 0 ? 0 : maxPtgSizes[index] || 1;
+    const max = normalizePtgMax(maxPtgSizes[index]);
     sumMin += min;
     sumMax += max;
   }
@@ -113,7 +117,7 @@ export function autoPtgSizes(
 
     activeIndexes.forEach((index) => {
       const min = minPtgSizes[index] || 0;
-      const max = maxPtgSizes[index] === 0 ? 0 : maxPtgSizes[index] || 1;
+      const max = normalizePtgMax(maxPtgSizes[index]);
 
       if (max <= avg) {
         result[index] = max;
@@ -145,7 +149,7 @@ export function autoPtgSizes(
   for (let i = 0; i < undefinedCount; i += 1) {
     const index = undefinedIndexes[i];
     const min = minPtgSizes[index] || 0;
-    const max = maxPtgSizes[index] === 0 ? 0 : maxPtgSizes[index] || 1;
+    const max = normalizePtgMax(maxPtgSizes[index]);
 
     result[index] = min;
 
