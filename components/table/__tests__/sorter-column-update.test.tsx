@@ -115,4 +115,70 @@ describe('Table active sorter after column configuration changes', () => {
     expect(container.querySelectorAll('th[aria-sort="ascending"]')).toHaveLength(1);
     expect(container.querySelector('th')?.getAttribute('aria-sort')).toBe('ascending');
   });
+
+  it('retains and refreshes a sorter on the group header itself', () => {
+    const columns = (sorter: ColumnType<Row>['sorter']) => [
+      {
+        key: 'group',
+        title: 'Group',
+        sorter,
+        children: [{ key: 'name', title: 'Product', dataIndex: 'name' }],
+      },
+    ];
+    const { container, rerender } = render(
+      <Table<Row> pagination={false} dataSource={data} columns={columns(priceSorter)} />,
+    );
+    fireEvent.click(container.querySelector('thead th')!);
+    expect(names(container)).toEqual(['Banana', 'Apple']);
+    expect(container.querySelector('thead th')).toHaveAttribute('aria-sort', 'ascending');
+    rerender(<Table<Row> pagination={false} dataSource={data} columns={columns(stockSorter)} />);
+    expect(names(container)).toEqual(['Apple', 'Banana']);
+    expect(container.querySelector('thead th')).toHaveAttribute('aria-sort', 'ascending');
+  });
+
+  it('does not let an inactive single sorter block a later multiple sorter', () => {
+    const onChange = jest.fn();
+    const columns = (single: boolean): ColumnType<Row>[] => [
+      {
+        key: 'price',
+        title: 'Price',
+        dataIndex: 'name',
+        sorter: { compare: priceSorter, multiple: 1 },
+        defaultSortOrder: 'ascend',
+      },
+      {
+        key: 'stock',
+        title: 'Stock',
+        sorter: single ? stockSorter : { compare: stockSorter, multiple: 2 },
+        defaultSortOrder: 'ascend',
+      },
+      { key: 'later', title: 'Later', sorter: { compare: stockSorter, multiple: 3 } },
+    ];
+    const { container, rerender } = render(
+      <Table<Row>
+        pagination={false}
+        dataSource={data}
+        columns={columns(false)}
+        onChange={onChange}
+      />,
+    );
+    expect(container.querySelectorAll('th[aria-sort="ascending"]')).toHaveLength(2);
+    rerender(
+      <Table<Row>
+        pagination={false}
+        dataSource={data}
+        columns={columns(true)}
+        onChange={onChange}
+      />,
+    );
+    expect(names(container)).toEqual(['Banana', 'Apple']);
+    expect(container.querySelectorAll('th[aria-sort="ascending"]')).toHaveLength(1);
+    fireEvent.click(container.querySelectorAll('thead th')[2]);
+    expect(names(container)).toEqual(['Apple', 'Banana']);
+    expect(container.querySelectorAll('th[aria-sort="ascending"]')).toHaveLength(2);
+    expect(onChange.mock.calls[0][2]).toEqual([
+      expect.objectContaining({ columnKey: 'price', order: 'ascend' }),
+      expect.objectContaining({ columnKey: 'later', order: 'ascend' }),
+    ]);
+  });
 });
