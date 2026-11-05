@@ -23,6 +23,46 @@ interface SharedProps<DateType> {
   onChange: (year: DateType) => void;
 }
 
+const DATE_TIME_FIELDS = [
+  ['getYear', 'setYear'],
+  ['getMonth', 'setMonth'],
+  ['getDate', 'setDate'],
+  ['getHour', 'setHour'],
+  ['getMinute', 'setMinute'],
+  ['getSecond', 'setSecond'],
+  ['getMillisecond', 'setMillisecond'],
+] as const;
+
+// Copy the date and time of `target` into `date`, so the result keeps the locale of `date`
+function copyDateTime<DateType>(
+  date: DateType,
+  target: DateType,
+  generateConfig: GenerateConfig<DateType>,
+): DateType {
+  // Start from the first day of the month, so changing the year or month can't overflow
+  return DATE_TIME_FIELDS.reduce(
+    (result, [getter, setter]) => generateConfig[setter](result, generateConfig[getter](target)),
+    generateConfig.setDate(date, 1),
+  );
+}
+
+function clampDate<DateType>(
+  date: DateType,
+  generateConfig: GenerateConfig<DateType>,
+  validRange?: [DateType, DateType],
+): DateType {
+  if (validRange) {
+    const [startDate, endDate] = validRange;
+    if (generateConfig.isAfter(startDate, date)) {
+      return copyDateTime(date, startDate, generateConfig);
+    }
+    if (generateConfig.isAfter(date, endDate)) {
+      return copyDateTime(date, endDate, generateConfig);
+    }
+  }
+  return date;
+}
+
 function YearSelect<DateType>(props: SharedProps<DateType>) {
   const { fullscreen, validRange, generateConfig, locale, prefixCls, value, onChange, divRef } =
     props;
@@ -70,7 +110,7 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
           }
         }
 
-        onChange(newDate);
+        onChange(clampDate(newDate, generateConfig, validRange));
       }}
       getPopupContainer={() => divRef.current}
     />
@@ -112,7 +152,7 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
       value={month}
       options={options}
       onChange={(newMonth) => {
-        onChange(generateConfig.setMonth(value, newMonth));
+        onChange(clampDate(generateConfig.setMonth(value, newMonth), generateConfig, validRange));
       }}
       getPopupContainer={() => divRef.current}
     />
