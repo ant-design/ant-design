@@ -23,7 +23,14 @@ import type {
   TableLocale,
   TransformColumns,
 } from '../interface';
-import { getColumnKey, getColumnPos, renderColumnTitle, safeColumnTitle } from '../util';
+import type { ColumnPosNode } from '../util';
+import {
+  getColumnKey,
+  getColumnPos,
+  getColumnPosTree,
+  renderColumnTitle,
+  safeColumnTitle,
+} from '../util';
 
 const ASCEND = 'ascend';
 const DESCEND = 'descend';
@@ -123,9 +130,11 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
   tableShowSorterTooltip?: boolean | SorterTooltipProps,
   pos?: string,
   a11yLocale?: Locale['global'],
+  columnPosTree?: (ColumnPosNode | undefined)[],
 ): ColumnsType<RecordType> => {
   const finalColumns = (columns || []).map((column, index) => {
-    const columnPos = getColumnPos(index, pos);
+    const columnPosNode = columnPosTree?.[index];
+    const columnPos = columnPosNode?.pos ?? getColumnPos(index, pos);
     let newColumn: ColumnsType<RecordType>[number] = column;
     if (newColumn.sorter) {
       const sortDirections: SortOrder[] = newColumn.sortDirections || defaultSortDirections;
@@ -272,6 +281,7 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
           tableShowSorterTooltip,
           columnPos,
           a11yLocale,
+          columnPosNode?.children,
         ),
       };
     }
@@ -532,6 +542,7 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
       showSorterTooltip,
       undefined,
       globalLocale,
+      getColumnPosTree(innerColumns, collectColumns, mergedColumns),
     );
 
   const getSorters = () => generateSorterInfo(mergedSorterStates);
