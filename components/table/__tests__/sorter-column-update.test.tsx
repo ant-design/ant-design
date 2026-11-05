@@ -48,13 +48,13 @@ describe('Table active sorter after column configuration changes', () => {
     expect(names(container)).toEqual(['Apple', 'Banana']);
   });
 
-  it('refreshes a sorter inside grouped columns', () => {
+  it.each(['metric', '0'])('refreshes a grouped sorter with key %s', (key) => {
     const columns = (sorter: ColumnType<Row>['sorter']) => [
       {
         title: 'Group',
         children: [
           {
-            key: 'metric',
+            key,
             title: 'Product',
             dataIndex: 'name',
             sorter,
@@ -94,5 +94,25 @@ describe('Table active sorter after column configuration changes', () => {
     rerender(<Table<Row> pagination={false} dataSource={data} columns={columns(3)} />);
     expect(names(container)).toEqual(['Banana', 'Apple']);
     expect(container.querySelectorAll('th[aria-sort="ascending"]')).toHaveLength(2);
+  });
+
+  it.each([0, 1])('applies single-sort rules when column %s drops multiple', (singleIndex) => {
+    const columns = (single: boolean): ColumnType<Row>[] =>
+      [priceSorter, stockSorter].map((compare, index) => ({
+        key: String(index),
+        title: String(index),
+        dataIndex: index === 0 ? 'name' : undefined,
+        sorter: single && index === singleIndex ? compare : { compare, multiple: index + 1 },
+        defaultSortOrder: 'ascend',
+      }));
+    const { container, rerender } = render(
+      <Table<Row> pagination={false} dataSource={data} columns={columns(false)} />,
+    );
+    expect(names(container)).toEqual(['Apple', 'Banana']);
+    expect(container.querySelectorAll('th[aria-sort="ascending"]')).toHaveLength(2);
+    rerender(<Table<Row> pagination={false} dataSource={data} columns={columns(true)} />);
+    expect(names(container)).toEqual(['Banana', 'Apple']);
+    expect(container.querySelectorAll('th[aria-sort="ascending"]')).toHaveLength(1);
+    expect(container.querySelector('th')?.getAttribute('aria-sort')).toBe('ascending');
   });
 });
