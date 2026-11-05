@@ -262,4 +262,10 @@ describe('useSizes', () => {
   ])('fits sizes %j with an unbounded maximum', (...sizes) => {
     expect(autoPtgSizes(sizes, [0, 0], [Infinity, 0])).toEqual([1, 0]);
   });
+
+  it('keeps the other panels growing when one panel has a zero maximum', () => {
+    expect(autoPtgSizes([undefined, undefined, undefined], [0, 0, 0], [1, 0, 1])).toEqual([
+      0.5, 0, 0.5,
+    ]);
+  });
 });

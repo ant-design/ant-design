@@ -85,16 +85,12 @@ export function autoPtgSizes(
   // Check if limit exists
   let sumMin = 0;
   let sumMax = 0;
-  let limitMin = 0;
-  let limitMax = 1;
   for (const index of undefinedIndexes) {
     const min = minPtgSizes[index] || 0;
     // Retain the pre-measurement NaN fallback while preserving a zero maximum.
     const max = maxPtgSizes[index] === 0 ? 0 : maxPtgSizes[index] || 1;
     sumMin += min;
     sumMax += max;
-    limitMin = Math.max(limitMin, min);
-    limitMax = Math.min(limitMax, max);
   }
 
   // Impossible case, just average fill
@@ -103,14 +99,47 @@ export function autoPtgSizes(
     return ptgSizes.map((size) => (size === undefined ? avg : size));
   }
 
-  // Quickly fill if can
-  const restAvg = restPtg / undefinedCount;
-  if (limitMin <= restAvg && restAvg <= limitMax) {
-    return ptgSizes.map((size) => (size === undefined ? restAvg : size));
+  // Share the remaining space evenly, settling the panels whose maximum is below
+  // the even share first so that a zero maximum does not starve the panels that
+  // can still grow.
+  const result = [...ptgSizes] as number[];
+  let activeIndexes = [...undefinedIndexes];
+  let rest = restPtg;
+  let canShare = true;
+
+  while (activeIndexes.length) {
+    const avg = rest / activeIndexes.length;
+    const next: number[] = [];
+
+    activeIndexes.forEach((index) => {
+      const min = minPtgSizes[index] || 0;
+      const max = maxPtgSizes[index] === 0 ? 0 : maxPtgSizes[index] || 1;
+
+      if (max <= avg) {
+        result[index] = max;
+        rest -= max;
+      } else if (min > avg) {
+        canShare = false;
+      } else {
+        next.push(index);
+      }
+    });
+
+    if (!canShare || !next.length || next.length === activeIndexes.length) {
+      next.forEach((index) => {
+        result[index] = rest / next.length;
+      });
+      break;
+    }
+
+    activeIndexes = next;
+  }
+
+  if (canShare) {
+    return result;
   }
 
   // Greedy algorithm
-  const result = [...ptgSizes] as number[];
   let remain = restPtg - sumMin;
 
   for (let i = 0; i < undefinedCount; i += 1) {
