@@ -356,7 +356,7 @@ describe('Radio Group', () => {
       const radioInputs = screen.getAllByRole('radio');
 
       radioInputs.forEach((input) => {
-        expect(input).toHaveAttribute('name', '["user","profile","preference"]');
+        expect(input).toHaveAttribute('name', 'user_profile_preference');
       });
     });
 
