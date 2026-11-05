@@ -434,12 +434,13 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
   ) => {
     columns.forEach((item, index) => {
       const columnPos = getColumnPos(index, pos);
-      const key = getColumnKey<RecordType>(item, columnPos);
-      if (!columnMap.has(key)) {
-        columnMap.set(key, item);
-      }
-      if (Array.isArray((item as ColumnGroupType<RecordType>).children)) {
+      if ((item as ColumnGroupType<RecordType>).children) {
         getColumnMap((item as ColumnGroupType<RecordType>).children, columnPos, columnMap);
+      } else if (item.sorter) {
+        const key = getColumnKey<RecordType>(item, columnPos);
+        if (!columnMap.has(key)) {
+          columnMap.set(key, item);
+        }
       }
     });
     return columnMap;
@@ -449,12 +450,12 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
     // Collect controlled `sortOrder` from the full (pre-responsive) column
     // set so that a controlled `sortOrder` on a hidden responsive column
     // still applies to the sorted data.
-    const collectedStates = collectSortStates<RecordType>(collectColumns, false);
+    let collectedStates = collectSortStates<RecordType>(collectColumns, false);
 
-    // Return if not controlled
+    // Refresh uncontrolled states before applying the same single/multiple-sort rules.
     if (!collectedStates.length) {
       const columnMap = getColumnMap(collectColumns);
-      return sortStates.flatMap((state) => {
+      collectedStates = sortStates.flatMap((state) => {
         const column = columnMap.get(state.key);
         return column?.sorter
           ? [{ ...state, column, multiplePriority: getMultiplePriority(column) }]
