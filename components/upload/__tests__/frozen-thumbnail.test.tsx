@@ -16,6 +16,43 @@ function createFile(): UploadFile {
 }
 
 describe('Upload thumbnails with frozen controlled files', () => {
+  it.each(['text', 'picture', 'picture-card', 'picture-circle'] as const)(
+    'preserves native File metadata in a frozen %s list',
+    (listType) => {
+      const file = Object.freeze(
+        Object.assign(new File(['image'], 'photo.png', { type: 'image/png', lastModified: 123 }), {
+          uid: 'native-file',
+          url: '/download/photo.bin',
+        }),
+      );
+      const previewFile = jest.fn();
+      const onPreview = jest.fn();
+      const { container } = render(
+        <Upload
+          fileList={[file]}
+          listType={listType}
+          previewFile={previewFile}
+          onPreview={onPreview}
+        />,
+      );
+
+      const fileName = container.querySelector('.ant-upload-list-item-name')!;
+      expect(fileName).toHaveTextContent('photo.png');
+      expect(fileName).toHaveAttribute('title', 'photo.png');
+      if (listType !== 'text') {
+        const thumbnail = container.querySelector('img');
+        expect(thumbnail).toHaveAttribute('alt', 'photo.png');
+        expect(thumbnail).toHaveAttribute('src', file.url);
+      }
+
+      fireEvent.click(fileName);
+      expect(onPreview.mock.calls[0][0]).toBe(file);
+      // Native File entries without originFileObj must not start thumbnail generation.
+      expect(previewFile).not.toHaveBeenCalled();
+      expect(file).not.toHaveProperty('thumbUrl');
+    },
+  );
+
   it('generates a preview for a mutable file as a control', async () => {
     const previewFile = jest.fn().mockResolvedValue('data:image/png;base64,aW1hZ2U=');
     const { container } = render(
