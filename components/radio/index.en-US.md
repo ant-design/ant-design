@@ -88,7 +88,7 @@ Radio group can wrap a group of `Radio`.
 | options | Set children optional | string\[] \| number\[] \| Array&lt;[CheckboxOptionType](#checkboxoptiontype)> | - |  |
 | optionType | Set Radio optionType | `default` \| `button` | `default` | 4.4.0 |
 | orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  |
-| size | The size of radio button style | `large` \| `medium` \| `small` | - |  |
+| size | The size of the Radio | `large` \| `medium` \| `small` | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-group), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-group), CSSProperties> | - | 6.7.0 |
 | value | Used for setting the currently selected value | any | - |  |
 | vertical | If true, the Radio group will be vertical. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | false |  |

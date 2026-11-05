@@ -1,26 +1,30 @@
 import React from 'react';
+import type { GetProps } from 'antd';
 import { Flex, Radio } from 'antd';
+
+const options = [
+  { label: 'Hangzhou', value: 'a' },
+  { label: 'Shanghai', value: 'b' },
+  { label: 'Beijing', value: 'c' },
+];
+
+const sharedProps: GetProps<typeof Radio.Group> = {
+  defaultValue: 'a',
+  options,
+};
+
+const renderGroup = (optionType?: 'button') => (
+  <>
+    <Radio.Group {...sharedProps} optionType={optionType} size="large" />
+    <Radio.Group {...sharedProps} optionType={optionType} />
+    <Radio.Group {...sharedProps} optionType={optionType} size="small" />
+  </>
+);
 
 const App: React.FC = () => (
   <Flex vertical gap="medium">
-    <Radio.Group defaultValue="a" size="large">
-      <Radio.Button value="a">Hangzhou</Radio.Button>
-      <Radio.Button value="b">Shanghai</Radio.Button>
-      <Radio.Button value="c">Beijing</Radio.Button>
-      <Radio.Button value="d">Chengdu</Radio.Button>
-    </Radio.Group>
-    <Radio.Group defaultValue="a">
-      <Radio.Button value="a">Hangzhou</Radio.Button>
-      <Radio.Button value="b">Shanghai</Radio.Button>
-      <Radio.Button value="c">Beijing</Radio.Button>
-      <Radio.Button value="d">Chengdu</Radio.Button>
-    </Radio.Group>
-    <Radio.Group defaultValue="a" size="small">
-      <Radio.Button value="a">Hangzhou</Radio.Button>
-      <Radio.Button value="b">Shanghai</Radio.Button>
-      <Radio.Button value="c">Beijing</Radio.Button>
-      <Radio.Button value="d">Chengdu</Radio.Button>
-    </Radio.Group>
+    {renderGroup()}
+    {renderGroup('button')}
   </Flex>
 );
 
