@@ -52,6 +52,11 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
         if (isPtg(item.max)) {
           return getPtg(item.max);
         }
+        // Before measurement the container is 0, so a numeric `max={0}` would divide
+        // 0 by 0 and reach the size hooks as NaN, which they read as "unbounded".
+        if (item.max === 0) {
+          return 0;
+        }
         return (item.max ?? mergedContainerSize) / mergedContainerSize;
       }),
     [items, mergedContainerSize],

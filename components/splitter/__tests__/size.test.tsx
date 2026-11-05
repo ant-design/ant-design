@@ -263,6 +263,13 @@ describe('useSizes', () => {
     expect(autoPtgSizes(sizes, [0, 0], [Infinity, 0])).toEqual([1, 0]);
   });
 
+  it('preserves a numeric zero maximum before the container is measured', () => {
+    const { result } = renderHook(() =>
+      useSizes([{ defaultSize: '0%', max: 0 }, { defaultSize: '0%' }]),
+    );
+    expect(result.current[2]).toEqual([0, 1]);
+  });
+
   it('keeps the other panels growing when one panel has a zero maximum', () => {
     expect(autoPtgSizes([undefined, undefined, undefined], [0, 0, 0], [1, 0, 1])).toEqual([
       0.5, 0, 0.5,
