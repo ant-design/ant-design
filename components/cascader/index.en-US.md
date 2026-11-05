@@ -52,7 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type | `clearIcon`: 6.4.0 |
+| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | true | - | 6.7.0 |
 | ~~autoClearSearchValue~~ | Whether the current search will be cleared on selecting an item. Only applies when `multiple` is `true` | boolean | true | 5.9.0 | × |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - | × |
 | changeOnSelect | Change value on each selection if set to true, see above demo for details | boolean | false |  | × |
@@ -61,7 +61,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  | × |
 | disabled | Whether disabled select | boolean | false |  | × |
 | displayRender | The render function of displaying selected options | (label, selectedOptions) => ReactNode | label => label.join(`/`) | `multiple`: 4.18.0 | × |
-| tagRender | Custom render function for tags in `multiple` mode | (label: string, onClose: function, value: string) => ReactNode | - |  | × |
+| tagRender | Custom render function for tags in `multiple` mode | ({ label: string, onClose: function, value: string }) => ReactNode | - |  | × |
 | ~~popupClassName~~ | The additional className of popup overlay, use `classNames.popup.root` instead | string | - | 4.23.0 | × |
 | ~~dropdownClassName~~ | The additional className of popup overlay, please use `classNames.popup.root` instead | string | - | - | × |
 | ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (menus: ReactElement) => ReactNode | - | 4.4.0 | × |
@@ -83,7 +83,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 | × |
 | prefix | The custom prefix | ReactNode | - | 5.22.0 | × |
 | ~~showArrow~~ | Whether to show the arrow icon, please use `suffix={null}` instead | boolean | true | - | × |
-| showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false |  | `searchIcon`: 6.4.0 |
+| showSearch | Whether show search input | boolean \| [Object](#showsearch) | false |  | `searchIcon`: 6.4.0 |
 | size | The input size | `large` \| `medium` \| `small` | `medium` |  | × |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |
@@ -104,6 +104,17 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~dropdownMenuColumnStyle~~ | The style of the drop-down menu column, use `styles.popup.listItem` instead | CSSProperties | - |  | × |
 | ~~popupMenuColumnStyle~~ | The style of the drop-down menu column, use `styles.popup.listItem` instead | CSSProperties | - |  | × |
 | optionRender | Customize the rendering dropdown options | (option: Option) => React.ReactNode | - | 5.16.0 | × |
+
+### AllowClearConfig
+
+Supports global configuration through `ConfigProvider.cascader.allowClear` (6.7.0). Fields use component values first, then global values, then defaults. `allowClear={true}` inherits global configuration; `disabled: false` and `tabIndex: 0` override global values.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | Custom clear icon | ReactNode | - | - | 6.7.0 (`cascader.allowClear.clearIcon`), 6.4.0 (`cascader.clearIcon`) |
+| disabled | When `true`, equivalent to `allowClear={false}` | boolean | false | 6.7.0 | 6.7.0 |
+| label | Accessible name of the clear button | string | Component locale text | 6.6.0 | 6.7.0 |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 6.7.0 | 6.7.0 |
 
 ### showSearch
 

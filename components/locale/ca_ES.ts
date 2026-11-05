@@ -34,6 +34,8 @@ const localeValues: Locale = {
     sortTitle: 'Ordenar',
     expand: 'Ampliar la fila',
     collapse: 'Plegar la fila',
+    expandAll: 'Ampliar totes les files',
+    collapseAll: 'Plegar totes les files',
     triggerDesc: 'Ordre descendent',
     triggerAsc: 'Ordre ascendent',
     cancelSort: 'Desactivar l’ordre',

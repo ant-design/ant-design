@@ -261,8 +261,8 @@ describe('Skeleton', () => {
 
   it('Elements should apply custom styles to semantic elements', () => {
     const elements = ['avatar', 'button', 'input', 'node', 'image'] as const;
-    const rootStyle = { background: 'pink' };
-    const elementStyle = { background: 'green' };
+    const rootStyle = { backgroundColor: 'rgb(255, 192, 203)' };
+    const elementStyle = { backgroundColor: 'rgb(0, 128, 0)' };
 
     type Elements = (typeof elements)[number];
     type SemanticRecord<T> = Partial<Record<Elements, Record<any, T>>>;

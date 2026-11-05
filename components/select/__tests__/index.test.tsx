@@ -13,7 +13,7 @@ import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import Input from '../../input';
-import deDE from '../../locale/de_DE';
+import jaJP from '../../locale/ja_JP';
 import zhCN from '../../locale/zh_CN';
 import Space from '../../space';
 
@@ -41,6 +41,38 @@ describe('Select', () => {
   afterEach(() => {
     jest.useRealTimers();
   });
+
+  it.each([undefined, 'multiple', 'tags'] as const)(
+    'should support autoComplete configuration in %s mode',
+    (mode) => {
+      const { getByRole, rerender } = render(<Select mode={mode} />);
+      expect(getByRole('combobox')).toHaveAttribute('autocomplete', 'new-password');
+
+      rerender(
+        <ConfigProvider select={{ autoComplete: 'off' }}>
+          <Select mode={mode} />
+        </ConfigProvider>,
+      );
+      expect(getByRole('combobox')).toHaveAttribute('autocomplete', 'off');
+
+      rerender(
+        <ConfigProvider select={{ autoComplete: 'off' }}>
+          <Select mode={mode} autoComplete="on" />
+        </ConfigProvider>,
+      );
+      expect(getByRole('combobox')).toHaveAttribute('autocomplete', 'on');
+
+      rerender(
+        <ConfigProvider select={{ autoComplete: 'off' }}>
+          <Select mode={mode} autoComplete={undefined} />
+        </ConfigProvider>,
+      );
+      expect(getByRole('combobox')).toHaveAttribute('autocomplete', 'off');
+
+      rerender(<Select mode={mode} />);
+      expect(getByRole('combobox')).toHaveAttribute('autocomplete', 'new-password');
+    },
+  );
 
   it('should have default notFoundContent', () => {
     const { container } = render(<Select mode="multiple" />);
@@ -508,10 +540,10 @@ describe('Select', () => {
     });
 
     it('should fall back to English for locales that do not translate `clear`', () => {
-      expect(deDE.global).not.toHaveProperty('clear');
+      expect(jaJP.global).not.toHaveProperty('clear');
 
       const { container } = render(
-        <ConfigProvider locale={deDE}>
+        <ConfigProvider locale={jaJP}>
           <Select {...props} allowClear />
         </ConfigProvider>,
       );
@@ -774,6 +806,17 @@ describe('Select', () => {
         </ConfigProvider>,
       );
       expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('bamboo');
+    });
+
+    it('should hide the default decorative icons from assistive technologies', () => {
+      const { container, rerender } = render(<Select />);
+      expect(container.querySelector('.anticon-down')).toHaveAttribute('aria-hidden', 'true');
+
+      rerender(<Select loading />);
+      expect(container.querySelector('.anticon-loading')).toHaveAttribute('aria-hidden', 'true');
+
+      rerender(<Select showSearch open />);
+      expect(container.querySelector('.anticon-search')).toHaveAttribute('aria-hidden', 'true');
     });
   });
 

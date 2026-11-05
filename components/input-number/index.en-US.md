@@ -47,7 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- | --- |
 | ~~addonAfter~~ | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | ReactNode | - | 4.17.0 | × |
 | ~~addonBefore~~ | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | ReactNode | - | 4.17.0 | × |
-| allowClear | Show a clear button. Supports a custom icon, disabled state, and accessible label. Clearing uses `null` | boolean \| { clearIcon?: ReactNode; disabled?: boolean; label?: string } | false | 6.7.0 | 6.7.0 |
+| allowClear | Whether to show a clear button (cleared value: `null`) | boolean \| [AllowClearConfig](#allowclearconfig) | false | 6.7.0 | 6.7.0 |
 | changeOnBlur | Trigger `onChange` when blur. e.g. reset value in range by blur | boolean | true | 5.11.0 | × |
 | changeOnWheel | Allows control with mouse wheel | boolean | - | 5.14.0 | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
@@ -78,6 +78,17 @@ Common props ref：[Common props](/docs/react/common-props)
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - | × |
 | onStep | The callback function that is triggered when click up or down buttons / Keyboard / Wheel | (value: number, info: { offset: number, type: 'up' \| 'down', emitter: 'handler' \| 'keydown' \| 'wheel' }) => void | - | - | × |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - | × |
+
+### AllowClearConfig
+
+Fields that support global configuration use component values first, then global values, then defaults. `allowClear={true}` inherits global configuration; `disabled: false` and `tabIndex: 0` override global values.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | Custom clear icon | ReactNode | - | 6.7.0 | 6.7.0 |
+| disabled | When `true`, equivalent to `allowClear={false}` | boolean | false | 6.7.0 | 6.7.0 |
+| label | Accessible name of the clear button | string | Component locale text | 6.7.0 | 6.7.0 |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 6.7.0 | 6.7.0 |
 
 ## Ref
 

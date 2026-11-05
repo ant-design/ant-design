@@ -95,13 +95,13 @@ dayjs.locale('zh-cn');
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 | 6.4.0 |
+| allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | true | - | 6.4.0 |
 | ~~bordered~~ | 是否带边框，请使用 `variant` 替代 | boolean | true | - | × |
 | className | 选择器 className | string | - |  | DatePicker: 5.7.0，RangePicker: 5.11.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | DatePicker: 5.25.0，RangePicker: 5.25.0 |
 | dateRender | 自定义日期单元格的内容，5.4.0 起用 `cellRender` 代替 | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 | × |
 | cellRender | 自定义单元格的内容 | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
-| components | 自定义面板 | Record<Panel \| 'input', React.ComponentType> | - | 5.14.0 | × |
+| components | 自定义面板、输入框和底部按钮 | [Components](#components) | - | 5.14.0 | × |
 | defaultOpen | 是否默认展开控制弹层 | boolean | - |  | × |
 | disabled | 禁用 | boolean | false |  | × |
 | disabledDate | 不可选择的日期 | (currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean | - | `info`: 5.14.0 | × |
@@ -142,6 +142,30 @@ dayjs.locale('zh-cn');
 | onOpenChange | 弹出日历和关闭日历的回调 | function(open) | - |  | × |
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  | × |
 | ~~onSelect~~ | 选中日期时的回调，请使用 `onCalendarChange` 替代 | function(value) | - | - | × |
+
+### Components
+
+`components` 支持按面板类型自定义面板组件，以及通过 `input` 自定义输入框组件，还支持以下底部按钮。这些配置同样适用于 RangePicker、TimePicker 和 TimePicker.RangePicker。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| nowButton | 自定义“今天／此刻”按钮 | React.ComponentType<any> \| string | `button` | 6.7.0 | × |
+| okButton | 自定义确认按钮 | React.ComponentType<any> \| string | 小号主按钮 | 6.7.0 | × |
+
+自定义按钮组件应将 `className`、`disabled`、`onClick` 和 `children` 传给实际渲染的按钮，并使用 `type="button"` 避免提交表单。
+
+`components.button` 已废弃，仍作为 `components.okButton` 的兼容回退；同时配置时，`components.okButton` 优先。`components.button` 不会自定义“今天／此刻”按钮。
+
+### AllowClearConfig
+
+支持全局配置的字段按组件配置、全局配置、默认值的顺序取值。`allowClear={true}` 继承全局配置；`disabled: false` 和 `tabIndex: 0` 可覆盖全局值。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | 自定义清除图标 | ReactNode | - | - | 6.4.0 |
+| disabled | `true` 时等同于 `allowClear={false}` | boolean | false | 6.7.0 | 6.7.0 |
+| label | 清除按钮的无障碍名称 | string | 组件的本地化文案 | 6.7.0 | 6.7.0 |
+| tabIndex | 清除按钮的 Tab 键顺序。`-1` 表示不参与 Tab 键导航 | number | 0 | 6.7.0 | 6.7.0 |
 
 ### 共同的方法 {#common-methods}
 

@@ -3,7 +3,7 @@ import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import CSSMotion from '@rc-component/motion';
-import { useDelayState } from '@rc-component/util';
+import { isReactRenderable, useDelayState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isFunction } from '../../_util/is';
@@ -180,7 +180,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     );
 
     const extraContent = isFunction(customExtra) ? customExtra(file) : customExtra;
-    const extra = extraContent && (
+    const extra = isReactRenderable(extraContent) && (
       <span className={`${prefixCls}-list-item-extra`}>{extraContent}</span>
     );
 

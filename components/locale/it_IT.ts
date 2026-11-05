@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Selezionare',
     close: 'Chiudi',
+    clear: 'Cancella',
     show: 'Mostra',
     hide: 'Nascondi',
     sortable: 'ordinabile',
@@ -38,6 +39,8 @@ const localeValues: Locale = {
     sortTitle: 'Ordina',
     expand: 'Espandi riga',
     collapse: 'Comprimi riga ',
+    expandAll: 'Espandi tutte le righe',
+    collapseAll: 'Comprimi tutte le righe',
     triggerDesc: 'Clicca per ordinare in modo discendente',
     triggerAsc: 'Clicca per ordinare in modo ascendente',
     cancelSort: "Clicca per eliminare l'ordinamento",
@@ -157,6 +160,9 @@ const localeValues: Locale = {
     transparent: 'Trasparente',
     singleColor: 'Tinta unita',
     gradientColor: 'Gradiente',
+  },
+  Input: {
+    otpCell: 'Carattere ${index} di ${total}',
   },
 };
 

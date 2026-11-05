@@ -19,9 +19,9 @@ describe('Empty.Semantic', () => {
     };
     const styles: EmptyProps['styles'] = (info) => {
       if (info.props.description) {
-        return { root: { background: 'red' } };
+        return { root: { backgroundColor: 'rgb(255, 0, 0)' } };
       }
-      return { root: { background: 'blue' } };
+      return { root: { backgroundColor: 'rgb(0, 0, 255)' } };
     };
 
     const { rerender, container } = render(
@@ -31,7 +31,9 @@ describe('Empty.Semantic', () => {
     );
 
     expect(container.querySelector('.empty-with-desc')).toBeTruthy();
-    expect(container.querySelector('.ant-empty')).toHaveStyle({ background: 'red' });
+    expect(container.querySelector('.ant-empty')).toHaveStyle({
+      backgroundColor: 'rgb(255, 0, 0)',
+    });
 
     rerender(
       <Empty classNames={classNames} styles={styles}>
@@ -39,7 +41,9 @@ describe('Empty.Semantic', () => {
       </Empty>,
     );
     expect(container.querySelector('.empty-no-desc')).toBeTruthy();
-    expect(container.querySelector('.ant-empty')).toHaveStyle({ background: 'blue' });
+    expect(container.querySelector('.ant-empty')).toHaveStyle({
+      backgroundColor: 'rgb(0, 0, 255)',
+    });
   });
 
   it('should apply object classNames and styles', () => {

@@ -85,7 +85,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | bordered | Whether to display the border | boolean | false |  | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.23.0 |
 | colon | Change default props `colon` value of Descriptions.Item. Indicates whether the colon after the label is displayed | boolean | true |  | × |
-| column | The number of `DescriptionItems` in a row, could be an object (like `{ xs: 8, sm: 16, md: 24}`, but must have `bordered={true}`) or a number | number \| [Record<Breakpoint, number>](https://github.com/ant-design/ant-design/blob/84ca0d23ae52e4f0940f20b0e22eabe743f90dca/components/descriptions/index.tsx#L111C21-L111C56) | 3 |  | × |
+| column | The number of `DescriptionItems` in a row, could be an object (like `{ xs: 8, sm: 16, md: 24}`) or a number | number \| [Partial<Record<Breakpoint, number>>](https://github.com/ant-design/ant-design/blob/84ca0d23ae52e4f0940f20b0e22eabe743f90dca/components/descriptions/index.tsx#L111C21-L111C56) | 3 |  | × |
 | ~~contentStyle~~ | Customize content style, Please use `styles.content` instead | CSSProperties | - | 4.10.0 | × |
 | extra | The action area of the description list, placed at the top-right | ReactNode | - | 4.5.0 | × |
 | items | Describe the contents of the list item | [DescriptionsItem](#descriptionitem)[] | - | 5.8.0 | × |

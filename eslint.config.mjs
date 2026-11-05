@@ -156,23 +156,6 @@ export default antfu(
     },
   },
   {
-    files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
-    rules: {
-      // Use the JavaScript rule to avoid type-only reference false positives in typescript-eslint.
-      'unused-imports/no-unused-vars': 'off',
-      'no-unused-vars': [
-        'error',
-        {
-          args: 'after-used',
-          argsIgnorePattern: '^_',
-          ignoreRestSiblings: true,
-          vars: 'all',
-          varsIgnorePattern: '^_',
-        },
-      ],
-    },
-  },
-  {
     // tests
     files: [
       '**/*.test.ts',

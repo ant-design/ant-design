@@ -5,6 +5,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { OTPProps } from '../OTP';
 
 const { OTP } = Input;
@@ -69,6 +70,69 @@ describe('Input.OTP', () => {
     expect(getText(container)).toBe('1234');
     expect(document.activeElement).toBe(inputs[4]);
   });
+
+  it.each(['123 456', '123-456', '1 2 3 4 5 6'])(
+    'should format pasted text before limiting its length: %s',
+    (text) => {
+      const onChange = jest.fn();
+      const onInput = jest.fn();
+      const { container } = render(
+        <OTP
+          formatter={(value) => value.replace(/\D/g, '')}
+          onChange={onChange}
+          onInput={onInput}
+        />,
+      );
+      const inputs = container.querySelectorAll('input');
+
+      fireEvent.input(inputs[0], { target: { value: text } });
+
+      expect(getText(container)).toBe('123456');
+      expect(onInput).toHaveBeenCalledTimes(1);
+      expect(onInput).toHaveBeenCalledWith(['1', '2', '3', '4', '5', '6']);
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledWith('123456');
+      expect(document.activeElement).toBe(inputs[5]);
+    },
+  );
+
+  it('should preserve preceding cells when pasting filtered text into a middle cell', () => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <OTP defaultValue="12" formatter={(value) => value.replace(/\D/g, '')} onChange={onChange} />,
+    );
+    const inputs = container.querySelectorAll('input');
+    inputs[2].focus();
+
+    fireEvent.input(inputs[2], { target: { value: '3-456' } });
+
+    expect(getText(container)).toBe('123456');
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith('123456');
+    expect(document.activeElement).toBe(inputs[5]);
+  });
+
+  it.each(['123456789', '123 456 789'])(
+    'should limit formatted pasted text to the OTP length: %s',
+    (text) => {
+      const onChange = jest.fn();
+      const onInput = jest.fn();
+      const { container } = render(
+        <OTP
+          length={4}
+          formatter={(value) => value.replace(/\D/g, '')}
+          onChange={onChange}
+          onInput={onInput}
+        />,
+      );
+
+      fireEvent.input(container.querySelector('input')!, { target: { value: text } });
+
+      expect(getText(container)).toBe('1234');
+      expect(onInput).toHaveBeenCalledWith(['1', '2', '3', '4']);
+      expect(onChange).toHaveBeenCalledWith('1234');
+    },
+  );
 
   it('fill step by step', () => {
     const CODE = 'BAMBOO';
@@ -305,6 +369,28 @@ describe('Input.OTP', () => {
     });
   });
 
+  it('renders separator when separator returns numeric zero', () => {
+    const { container } = render(<OTP length={4} separator={(index: number) => index} />);
+    const separators = container.querySelectorAll(`.ant-otp-separator`);
+
+    expect(separators.length).toBe(3);
+    expect(Array.from(separators).map((separator) => separator.textContent)).toEqual([
+      '0',
+      '1',
+      '2',
+    ]);
+  });
+
+  it('renders separator when separator is numeric zero', () => {
+    const { container } = render(<OTP length={4} separator={0} />);
+    const separators = container.querySelectorAll(`.ant-otp-separator`);
+
+    expect(separators.length).toBe(3);
+    separators.forEach((separator) => {
+      expect(separator.textContent).toBe('0');
+    });
+  });
+
   it('support function classNames and styles', () => {
     const functionClassNames = (info: { props: OTPProps }) => {
       const { props } = info;
@@ -364,5 +450,52 @@ describe('Input.OTP', () => {
     expect(root).toHaveStyle('color: rgb(0, 255, 0)');
     expect(input).toHaveStyle('color: rgb(255, 0, 0)');
     expect(separator).toHaveStyle('color: rgb(0, 0, 255)');
+  });
+
+  it('should apply rootClassName to the root element', () => {
+    const { container } = render(<OTP rootClassName="bamboo" />);
+    expect(container.querySelector('.ant-otp')).toHaveClass('bamboo');
+  });
+});
+
+describe('Input.OTP a11y', () => {
+  it('should name each cell from the locale', () => {
+    const { container, rerender } = render(<Input.OTP length={4} />);
+    const getLabels = () =>
+      Array.from(container.querySelectorAll('input')).map((input) => input.getAttribute('aria-label'));
+    expect(getLabels()).toEqual([
+      'Character 1 of 4',
+      'Character 2 of 4',
+      'Character 3 of 4',
+      'Character 4 of 4',
+    ]);
+
+    rerender(
+      // eslint-disable-next-line no-template-curly-in-string
+      <ConfigProvider locale={{ locale: 'fr', Input: { otpCell: 'Chiffre ${index} sur ${total}' } }}>
+        <Input.OTP length={2} />
+      </ConfigProvider>,
+    );
+    expect(getLabels()).toEqual(['Chiffre 1 sur 2', 'Chiffre 2 sur 2']);
+  });
+
+  it('should set aria-invalid on the cells, not on the group', () => {
+    const { container, rerender } = render(<Input.OTP aria-invalid />);
+    const group = container.querySelector('[role="group"]')!;
+    const inputs = () => Array.from(container.querySelectorAll('input'));
+    expect(group).not.toHaveAttribute('aria-invalid');
+    inputs().forEach((input) => {
+      expect(input).toHaveAttribute('aria-invalid', 'true');
+    });
+
+    rerender(<Input.OTP status="error" />);
+    inputs().forEach((input) => {
+      expect(input).toHaveAttribute('aria-invalid', 'true');
+    });
+
+    rerender(<Input.OTP />);
+    inputs().forEach((input) => {
+      expect(input).not.toHaveAttribute('aria-invalid');
+    });
   });
 });

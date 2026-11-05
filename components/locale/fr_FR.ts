@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Fermer',
+    clear: 'Effacer',
     show: 'Afficher',
     hide: 'Masquer',
     placeholder: 'Veuillez sélectionner',
@@ -38,6 +39,8 @@ const localeValues: Locale = {
     sortTitle: 'Trier',
     expand: 'Développer la ligne',
     collapse: 'Réduire la ligne',
+    expandAll: 'Développer toutes les lignes',
+    collapseAll: 'Réduire toutes les lignes',
     triggerDesc: 'Trier par ordre décroissant',
     triggerAsc: 'Trier par ordre croissant',
     cancelSort: 'Annuler le tri',
@@ -157,6 +160,9 @@ const localeValues: Locale = {
     transparent: 'Transparente',
     singleColor: 'Couleur unique',
     gradientColor: 'Couleur dégradée',
+  },
+  Input: {
+    otpCell: 'Caractère ${index} sur ${total}',
   },
 };
 

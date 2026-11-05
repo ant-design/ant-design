@@ -138,6 +138,7 @@ exports[`renders components/select/demo/_semantic.tsx correctly 1`] = `
             style="margin-inline-end: 24px;"
           >
             <span
+              aria-hidden="true"
               aria-label="search"
               class="anticon anticon-search"
               role="img"

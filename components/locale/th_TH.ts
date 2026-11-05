@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'เรียง',
     expand: 'แสดงแถวข้อมูล',
     collapse: 'ย่อแถวข้อมูล',
+    expandAll: 'ขยายแถวทั้งหมด',
+    collapseAll: 'ย่อแถวทั้งหมด',
     triggerDesc: 'คลิกเรียงจากมากไปน้อย',
     triggerAsc: 'คลิกเรียงจากน้อยไปมาก',
     cancelSort: 'คลิกเพื่อยกเลิกการเรียง',

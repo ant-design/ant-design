@@ -159,14 +159,8 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       allowClear,
       contextAllowClear,
       componentName: 'InputNumber',
+      defaultLabel: locale.clear,
     });
-    const clearConfig = mergedAllowClear && {
-      ...(isPlainObject(mergedAllowClear) ? mergedAllowClear : {}),
-      label:
-        (isPlainObject(allowClear) ? allowClear.label : undefined) ??
-        (isPlainObject(contextAllowClear) ? contextAllowClear.label : undefined) ??
-        locale.clear,
-    };
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
@@ -209,7 +203,7 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       size: mergedSize,
       disabled: mergedDisabled,
       controls: mergedControls,
-      allowClear: clearConfig,
+      allowClear: mergedAllowClear,
     };
 
     const contextStyleRoot = useSemanticRootStyle(contextStyle);
@@ -253,7 +247,7 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
         controls={controlsTemp}
         prefix={prefix}
         suffix={suffixNode}
-        allowClear={clearConfig}
+        allowClear={mergedAllowClear}
         classNames={mergedClassNames}
         styles={mergedStyles}
         {...others}

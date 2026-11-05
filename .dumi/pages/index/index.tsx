@@ -3,14 +3,14 @@ import { theme } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 import useLocale from '../../hooks/useLocale';
+import LazyPromptDrawer from '../../theme/common/ThemeSwitch/LazyPromptDrawer';
+import SiteContext from '../../theme/slots/SiteContext';
+import type { SiteContextProps } from '../../theme/slots/SiteContext';
 import { DarkContext } from './../../hooks/useDark';
 import BannerRecommends from './components/BannerRecommends';
 import Group from './components/Group';
 import PreviewBanner from './components/PreviewBanner';
 import ThemePreview from './components/ThemePreview';
-import PromptDrawer from '../../theme/common/ThemeSwitch/PromptDrawer';
-import SiteContext from '../../theme/slots/SiteContext';
-import type { SiteContextProps } from '../../theme/slots/SiteContext';
 
 const ComponentsList = React.lazy(() => import('./components/ComponentsList'));
 const DesignFramework = React.lazy(() => import('./components/DesignFramework'));
@@ -65,7 +65,7 @@ const Homepage: React.FC = () => {
       <ThemePreview onOpenPromptDrawer={handlePromptDrawerOpen} />
 
       {/* AI 生成主题抽屉 */}
-      <PromptDrawer
+      <LazyPromptDrawer
         open={promptDrawerOpen}
         onClose={handlePromptDrawerClose}
         onThemeChange={handleThemeChange}

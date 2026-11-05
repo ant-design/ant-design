@@ -623,20 +623,16 @@ Array [
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Днес
-                </a>
-              </li>
-            </ul>
+                Днес
+              </button>
+            </div>
           </div>
         </div>
       </div>

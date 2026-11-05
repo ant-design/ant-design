@@ -21,11 +21,12 @@ import useSize from '../../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
+import useSelectIcons from '../../select/useIcons';
 import { useCompactItemContext } from '../../space/Compact';
 import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getPlaceholder, useIcons } from '../util';
+import { getPlaceholder } from '../util';
 import {
   MONTH,
   MONTHPICKER,
@@ -185,8 +186,16 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         }
       };
 
+      const [contextLocale] = useLocale('DatePicker', enUS);
+
+      const locale = merge(contextLocale, (props.locale || {}) as PickerLocale);
+
       // ===================== Icon =====================
-      const [, removeIcon] = useIcons(props, prefixCls);
+      const { removeIcon } = useSelectIcons({
+        componentName: displayName,
+        removeIcon: props.removeIcon,
+        prefixCls,
+      });
 
       const mergedAllowClear = useAllowClear({
         componentName: displayName,
@@ -195,6 +204,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         contextAllowClear,
         contextClearIcon,
         defaultAllowClear: true,
+        defaultLabel: locale.lang.clear,
       });
 
       // ================== components ==================
@@ -210,9 +220,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         feedbackIcon,
         suffix: fallbackProp(customSuffix, customSuffixIcon, contextSuffix, contextSuffixIcon),
       });
-      const [contextLocale] = useLocale('DatePicker', enUS);
-
-      const locale = merge(contextLocale, (props.locale || {}) as PickerLocale);
 
       // ============================ zIndex ============================
       const [zIndex] = useZIndex('DatePicker', mergedStyles?.popup?.root?.zIndex as number);

@@ -31,6 +31,7 @@ Array [
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -250,6 +251,7 @@ Array [
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -777,6 +779,7 @@ Array [
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -1495,6 +1498,7 @@ Array [
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -1929,6 +1933,7 @@ Array [
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2282,6 +2287,7 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2465,6 +2471,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -2589,6 +2596,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -2709,6 +2717,7 @@ exports[`renders components/tree-select/demo/style-class.tsx extend context corr
       style="color: rgb(24, 144, 255);"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2849,6 +2858,7 @@ exports[`renders components/tree-select/demo/style-class.tsx extend context corr
       style="color: rgb(114, 46, 209);"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -3347,6 +3357,7 @@ Array [
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -3699,6 +3710,7 @@ Array [
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -4019,6 +4031,7 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -4172,6 +4185,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -4281,6 +4295,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -4390,6 +4405,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -4499,6 +4515,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"

@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Bitte auswählen',
     close: 'Schließen',
+    clear: 'Löschen',
     show: 'Anzeigen',
     hide: 'Ausblenden',
     sortable: 'sortierbar',
@@ -37,6 +38,8 @@ const localeValues: Locale = {
     emptyText: 'Keine Daten',
     expand: 'Zeile erweitern',
     collapse: 'Zeile reduzieren',
+    expandAll: 'Alle Zeilen erweitern',
+    collapseAll: 'Alle Zeilen reduzieren',
     triggerDesc: 'Klicken zur absteigenden Sortierung',
     triggerAsc: 'Klicken zur aufsteigenden Sortierung',
     cancelSort: 'Klicken zum Abbrechen der Sortierung',
@@ -157,6 +160,9 @@ const localeValues: Locale = {
     transparent: 'Transparent',
     singleColor: 'Einfarbig',
     gradientColor: 'Farbverlauf',
+  },
+  Input: {
+    otpCell: 'Zeichen ${index} von ${total}',
   },
 };
 

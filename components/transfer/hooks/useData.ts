@@ -38,7 +38,7 @@ const useData = <RecordType extends AnyObject>(
     return [leftData, rightData] as const;
   }, [mergedDataSource, targetKeys]);
 
-  return [mergedDataSource, leftDataSource.filter(Boolean), rightDataSource.filter(Boolean)];
+  return [mergedDataSource, leftDataSource, rightDataSource.filter(Boolean)];
 };
 
 export default useData;

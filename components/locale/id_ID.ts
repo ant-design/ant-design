@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Urutkan',
     expand: 'Perluas baris',
     collapse: 'Perkecil baris',
+    expandAll: 'Perluas semua baris',
+    collapseAll: 'Perkecil semua baris',
     triggerDesc: 'Klik untuk mengurutkan secara menurun',
     triggerAsc: 'Klik untuk mengurutkan secara menaik',
     cancelSort: 'Klik untuk membatalkan pengurutan',

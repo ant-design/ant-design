@@ -30,7 +30,7 @@ export function getPaginationParam(
 
 function usePagination(
   total: number,
-  onChange: (current: number, pageSize: number) => void,
+  onChange: (current: number, pageSize: number, info?: { recommendPage?: number }) => void,
   pagination?: TablePaginationConfig | false,
 ): readonly [TablePaginationConfig, (current?: number, pageSize?: number) => void] {
   const { total: paginationTotal = 0, ...paginationObj } = isPlainObject(pagination)
@@ -64,12 +64,20 @@ function usePagination(
     });
   };
 
-  const onInternalChange: PaginationProps['onChange'] = (current, pageSize) => {
+  const onInternalChange: PaginationProps['onChange'] = (current, pageSize, info) => {
     if (pagination) {
-      pagination.onChange?.(current, pageSize);
+      if (info) {
+        pagination.onChange?.(current, pageSize, info);
+      } else {
+        pagination.onChange?.(current, pageSize);
+      }
     }
     refreshPagination(current, pageSize);
-    onChange(current, pageSize || mergedPagination?.pageSize!);
+    if (info) {
+      onChange(current, pageSize || mergedPagination?.pageSize!, info);
+    } else {
+      onChange(current, pageSize || mergedPagination?.pageSize!);
+    }
   };
 
   if (pagination === false) {
