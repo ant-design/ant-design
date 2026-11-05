@@ -2,8 +2,15 @@ type SizeUnit = number | undefined;
 
 function fitPtgSizes(sizes: number[], minSizes: SizeUnit[], maxSizes: SizeUnit[]): number[] {
   // Collapsed panels should stay at 0 even when they have a min size.
-  const mergedMinSizes = sizes.map((size, index) => (size === 0 ? 0 : (minSizes[index] ?? 0)));
-  const mergedMaxSizes = sizes.map((size, index) => (size === 0 ? 0 : (maxSizes[index] ?? 1)));
+  const mergedMinSizes = sizes.map((size, index) => (size === 0 ? 0 : minSizes[index] || 0));
+  const mergedMaxSizes = sizes.map((size, index) => {
+    const max = maxSizes[index];
+    // Unmeasured pixel limits can be NaN or Infinity.
+    if (size === 0 || max === 0) {
+      return 0;
+    }
+    return max === Infinity ? 1 : max || 1;
+  });
 
   const invalidLimits = mergedMinSizes.some((min, index) => min > mergedMaxSizes[index]);
   const totalMin = mergedMinSizes.reduce((sum, size) => sum + size, 0);
@@ -57,7 +64,11 @@ export function autoPtgSizes(
     // Handle the case when all sizes are 0
     if (currentTotalPtg === 0) {
       const avg = 1 / ptgSizes.length;
-      return ptgSizes.map(() => avg);
+      return fitPtgSizes(
+        ptgSizes.map(() => avg),
+        minPtgSizes,
+        maxPtgSizes,
+      );
     }
     const scale = 1 / currentTotalPtg;
     // We know `size` is a number here because undefinedIndexes is empty.

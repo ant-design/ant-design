@@ -1,4 +1,5 @@
 import { renderHook } from '../../../tests/utils';
+import { autoPtgSizes } from '../hooks/sizeUtil';
 import useSizes from '../hooks/useSizes';
 
 describe('useSizes', () => {
@@ -217,5 +218,48 @@ describe('useSizes', () => {
   it.each([0, '0%'])('honors a zero max threshold %s during auto allocation', (max) => {
     const { result } = renderHook(() => useSizes([{ max }, {}], 1000));
     expect(result.current[1]).toEqual([0, 1000]);
+  });
+
+  it.each([0, '0%'])('honors a zero max %s when all default sizes are zero', (max) => {
+    const { result } = renderHook(() =>
+      useSizes([{ defaultSize: 0, max }, { defaultSize: 0 }], containerSize),
+    );
+    expect(result.current[1]).toEqual([0, 1000]);
+  });
+
+  it('preserves equal sizes when zero defaults have impossible limits', () => {
+    const { result } = renderHook(() =>
+      useSizes(
+        [
+          { defaultSize: 0, max: 200 },
+          { defaultSize: 0, max: 200 },
+        ],
+        containerSize,
+      ),
+    );
+    expect(result.current[1]).toEqual([500, 500]);
+  });
+
+  it('preserves equal proportions for zero percentage defaults before measurement', () => {
+    const { result } = renderHook(() => useSizes([{ defaultSize: '0%' }, { defaultSize: '0%' }]));
+    expect(result.current[2]).toEqual([0.5, 0.5]);
+  });
+
+  it('allocates zero percentage defaults with mixed max units before measurement', () => {
+    const { result } = renderHook(() =>
+      useSizes([
+        { defaultSize: '0%', max: 500 },
+        { defaultSize: '0%', max: '0%' },
+      ]),
+    );
+    expect(result.current[2]).toEqual([1, 0]);
+    expect(result.current[4]).toEqual([Infinity, 0]);
+  });
+
+  it.each([
+    [0, 0],
+    [0.1, 0.1],
+  ])('fits sizes %j with an unbounded maximum', (...sizes) => {
+    expect(autoPtgSizes(sizes, [0, 0], [Infinity, 0])).toEqual([1, 0]);
   });
 });

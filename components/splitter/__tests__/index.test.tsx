@@ -86,6 +86,16 @@ describe('Splitter', () => {
     expect(panels[1]).toHaveStyle('flex-basis: 100px');
   });
 
+  it.each([0, '0%'])('honors a zero panel max %s when all default sizes are zero', async (max) => {
+    const { container } = render(
+      <SplitterDemo items={[{ defaultSize: 0, max }, { defaultSize: 0 }]} />,
+    );
+    await resizeSplitter();
+    const panels = container.querySelectorAll('.ant-splitter-panel');
+    expect(panels[0]).toHaveStyle('flex-basis: 0px');
+    expect(panels[1]).toHaveStyle('flex-basis: 100px');
+  });
+
   it('should support nativeElement ref', () => {
     const ref = React.createRef<React.ComponentRef<typeof Splitter>>();
     const { container } = render(
