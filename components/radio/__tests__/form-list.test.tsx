@@ -85,3 +85,40 @@ it.each([false, true])(
     expect(inputs[0].name).not.toBe(inputs[2].name);
   },
 );
+
+it.each([false, true])(
+  'preserves native submission keys outside Form.List (noStyle=%s)',
+  (noStyle) => {
+    const { container } = render(
+      <Form initialValues={{ user: { profile: { preference: 'card' } } }}>
+        <Form.Item noStyle={noStyle} name={['user', 'profile', 'preference']}>
+          <Radio.Group options={['card', 'cash']} />
+        </Form.Item>
+      </Form>,
+    );
+    const inputs = container.querySelectorAll('input');
+    fireEvent.click(inputs[1]);
+    expect(new FormData(container.querySelector('form')!).get('user_profile_preference')).toBe(
+      'cash',
+    );
+  },
+);
+
+it('preserves an explicit native submission key inside Form.List', () => {
+  const { container } = render(
+    <Form initialValues={{ billing: [{ method: 'card' }] }}>
+      <Form.List name="billing">
+        {(fields) =>
+          fields.map((field) => (
+            <Form.Item key={field.key} name={[field.name, 'method']}>
+              <Radio.Group name="billing-method" options={['card', 'cash']} />
+            </Form.Item>
+          ))
+        }
+      </Form.List>
+    </Form>,
+  );
+  const inputs = container.querySelectorAll('input');
+  fireEvent.click(inputs[1]);
+  expect(new FormData(container.querySelector('form')!).get('billing-method')).toBe('cash');
+});
