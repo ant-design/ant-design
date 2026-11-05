@@ -434,13 +434,14 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
   ) => {
     columns.forEach((item, index) => {
       const columnPos = getColumnPos(index, pos);
-      if ((item as ColumnGroupType<RecordType>).children) {
-        getColumnMap((item as ColumnGroupType<RecordType>).children, columnPos, columnMap);
-      } else if (item.sorter) {
+      if (item.sorter) {
         const key = getColumnKey<RecordType>(item, columnPos);
         if (!columnMap.has(key)) {
           columnMap.set(key, item);
         }
+      }
+      if ((item as ColumnGroupType<RecordType>).children) {
+        getColumnMap((item as ColumnGroupType<RecordType>).children, columnPos, columnMap);
       }
     });
     return columnMap;
@@ -478,6 +479,10 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
 
     let multipleMode: boolean | null = null;
     collectedStates.forEach((state) => {
+      if (!state.sortOrder) {
+        patchStates(state);
+        return;
+      }
       if (multipleMode === null) {
         patchStates(state);
 
