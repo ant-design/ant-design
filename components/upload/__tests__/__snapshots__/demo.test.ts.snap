@@ -1593,7 +1593,7 @@ exports[`renders components/upload/demo/drag-sorting.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
-        aria-describedby="DndDescribedBy-0"
+        aria-describedby="DndDescribedBy"
         aria-disabled="false"
         aria-roledescription="sortable"
         role="button"
@@ -1677,7 +1677,7 @@ exports[`renders components/upload/demo/drag-sorting.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
-        aria-describedby="DndDescribedBy-0"
+        aria-describedby="DndDescribedBy"
         aria-disabled="false"
         aria-roledescription="sortable"
         role="button"
@@ -1761,7 +1761,7 @@ exports[`renders components/upload/demo/drag-sorting.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
-        aria-describedby="DndDescribedBy-0"
+        aria-describedby="DndDescribedBy"
         aria-disabled="false"
         aria-roledescription="sortable"
         role="button"
@@ -1845,7 +1845,7 @@ exports[`renders components/upload/demo/drag-sorting.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
-        aria-describedby="DndDescribedBy-0"
+        aria-describedby="DndDescribedBy"
         aria-disabled="false"
         aria-roledescription="sortable"
         role="button"
@@ -1929,7 +1929,7 @@ exports[`renders components/upload/demo/drag-sorting.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
-        aria-describedby="DndDescribedBy-0"
+        aria-describedby="DndDescribedBy"
         aria-disabled="false"
         aria-roledescription="sortable"
         role="button"
