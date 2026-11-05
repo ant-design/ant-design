@@ -58,3 +58,30 @@ it.each(['shouldUpdate', 'dependencies'])(
     expect(new FormData(container.querySelector('form')!).get('preference')).toBe('cash');
   },
 );
+
+it.each([false, true])(
+  'keeps a list field independent from a matching flat name (noStyle=%s)',
+  (noStyle) => {
+    const { container } = render(
+      <Form initialValues={{ billing: [{ method: 'card' }], billing_0_method: 'card' }}>
+        <Form.List name="billing">
+          {(fields) =>
+            fields.map((field) => (
+              <Form.Item noStyle={noStyle} key={field.key} name={[field.name, 'method']}>
+                <Radio.Group options={['card', 'cash']} />
+              </Form.Item>
+            ))
+          }
+        </Form.List>
+        <Form.Item name="billing_0_method">
+          <Radio.Group options={['card', 'cash']} />
+        </Form.Item>
+      </Form>,
+    );
+    const inputs = container.querySelectorAll('input');
+    fireEvent.click(inputs[3]);
+    expect(inputs[0]).toBeChecked();
+    expect(inputs[3]).toBeChecked();
+    expect(inputs[0].name).not.toBe(inputs[2].name);
+  },
+);
