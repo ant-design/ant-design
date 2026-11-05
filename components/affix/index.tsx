@@ -38,15 +38,9 @@ export interface AffixProps {
   children: React.ReactNode;
 }
 
-const AFFIX_STATUS_NONE = 0;
-const AFFIX_STATUS_PREPARE = 1;
-
-type AffixStatus = typeof AFFIX_STATUS_NONE | typeof AFFIX_STATUS_PREPARE;
-
 interface AffixState {
   affixStyle?: React.CSSProperties;
   placeholderStyle?: React.CSSProperties;
-  status: AffixStatus;
   lastAffix: boolean;
 }
 
@@ -86,8 +80,6 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   const [affixStyle, setAffixStyle] = React.useState<React.CSSProperties>();
   const [placeholderStyle, setPlaceholderStyle] = React.useState<React.CSSProperties>();
 
-  const statusRef = React.useRef<AffixStatus>(AFFIX_STATUS_NONE);
-
   const prevTargetRef = React.useRef<Window | HTMLElement | null>(null);
   const prevListenerRef = React.useRef<EventListener>(null);
 
@@ -101,19 +93,13 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
 
   // =================== Measure ===================
   const measure = () => {
-    if (
-      statusRef.current !== AFFIX_STATUS_PREPARE ||
-      !fixedNodeRef.current ||
-      !placeholderNodeRef.current
-    ) {
+    if (!fixedNodeRef.current || !placeholderNodeRef.current) {
       return;
     }
 
     const targetNode = targetFunc();
     if (targetNode) {
-      const newState: Partial<AffixState> = {
-        status: AFFIX_STATUS_NONE,
-      };
+      const newState: Partial<AffixState> = {};
       const placeholderRect = getTargetRect(placeholderNodeRef.current);
 
       if (
@@ -148,7 +134,6 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
         onChange?.(newState.lastAffix);
       }
 
-      statusRef.current = newState.status!;
       setAffixStyle(newState.affixStyle);
       setPlaceholderStyle(newState.placeholderStyle);
       setLastAffix(newState.lastAffix);
@@ -156,7 +141,6 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   };
 
   const prepareMeasure = () => {
-    statusRef.current = AFFIX_STATUS_PREPARE;
     measure();
     if (process.env.NODE_ENV === 'test') {
       onTestUpdatePosition?.();
