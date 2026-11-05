@@ -65,7 +65,15 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
         }
         let cachedFile = frozenFiles.current.get(file);
         if (!cachedFile) {
-          cachedFile = { ...file };
+          cachedFile = {
+            ...file,
+            // Native File metadata is exposed through prototype accessors.
+            lastModified: file.lastModified,
+            lastModifiedDate: file.lastModifiedDate,
+            name: file.name,
+            size: file.size,
+            type: file.type,
+          };
           frozenFiles.current.set(file, cachedFile);
           originalFiles.current.set(cachedFile, file);
         }
