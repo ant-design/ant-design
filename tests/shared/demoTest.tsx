@@ -10,7 +10,6 @@ import { renderToString } from 'react-dom/server';
 import { resetWarned } from '../../components/_util/warning';
 import { act, fireEvent, render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
-import { excludeWarning } from './excludeWarning';
 import rootPropsTest from './rootPropsTest';
 
 export { rootPropsTest };
@@ -49,7 +48,7 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
       () => {
         resetWarned();
 
-        const errSpy = excludeWarning();
+        const errSpy = jest.spyOn(console, 'error');
 
         const mockNow = new Date('2016-11-22').getTime();
         Date.now = jest.fn(() => mockNow);
@@ -184,8 +183,6 @@ export function semanticDemoTest(component: string, options: Options = {}) {
     testMethod(`renders ${file} correctly`, async () => {
       resetWarned();
 
-      const errSpy = excludeWarning();
-
       const mockNow = new Date('2016-11-22').getTime();
       Date.now = jest.fn(() => mockNow);
       jest.useFakeTimers().setSystemTime(mockNow);
@@ -211,7 +208,6 @@ export function semanticDemoTest(component: string, options: Options = {}) {
       expect({ type: 'demo', html: container.innerHTML }).toMatchSnapshot();
 
       jest.clearAllTimers();
-      errSpy.mockRestore();
     });
     jest.useRealTimers();
   });
