@@ -28,7 +28,7 @@ const getResponsiveMap = (token: GlobalToken): BreakpointMap => ({
  * Ensures that the breakpoints token are valid, in good order
  * For each breakpoint : screenMin <= screen <= screenMax and screenMax <= nextScreenMin
  */
-const validateBreakpoints = (token: GlobalToken) => {
+export const validateBreakpoints = (token: GlobalToken) => {
   const indexableToken: any = token;
   const revBreakpoints = [...responsiveArray].reverse();
 
