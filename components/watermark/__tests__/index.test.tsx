@@ -140,6 +140,28 @@ describe('Watermark', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('should regenerate clips when image changes', async () => {
+    let counter = 0;
+    const spyCanvas = spyElementPrototypes(HTMLCanvasElement, {
+      toDataURL(originDescriptor: any) {
+        counter += 1;
+        return originDescriptor.value.call(this);
+      },
+    });
+
+    try {
+      const { rerender } = render(<Watermark image="https://test-a.svg" />);
+      await waitFakeTimer();
+      expect(counter).toBe(1);
+
+      rerender(<Watermark image="https://test-b.svg" />);
+      await waitFakeTimer();
+      expect(counter).toBe(2);
+    } finally {
+      spyCanvas.mockRestore();
+    }
+  });
+
   it('Invalid image watermark', () => {
     mockSrcSet.mockImplementation(function fn() {
       // @ts-ignore
