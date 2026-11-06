@@ -237,11 +237,11 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   React.useEffect(() => {
     addListeners();
     return () => removeListeners();
-  }, [target, affixStyle, lastAffix, offsetTop, offsetBottom]);
+  }, [targetFunc, affixStyle, lastAffix, offsetTop, offsetBottom]);
 
   React.useEffect(() => {
     updatePosition();
-  }, [target, offsetTop, offsetBottom]);
+  }, [targetFunc, offsetTop, offsetBottom]);
 
   const [hashId, cssVarCls] = useStyle(affixPrefixCls);
 
