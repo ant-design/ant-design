@@ -291,6 +291,52 @@ describe('Tooltip', () => {
     }).not.toThrow();
   });
 
+  it('keeps numeric shift thresholds for cardinal placements', () => {
+    const placements = getPlacements({
+      arrowWidth: 16,
+      borderRadius: 6,
+      offset: 4,
+      autoAdjustOverflow: true,
+    });
+
+    expect(placements.top.overflow?.shiftX).toBe(40);
+    expect(placements.bottom.overflow?.shiftX).toBe(40);
+    expect(placements.left.overflow?.shiftY).toBe(32);
+    expect(placements.right.overflow?.shiftY).toBe(32);
+  });
+
+  it('keeps cardinal placement arrows within the popup edge', () => {
+    const { rerender } = render(
+      <Tooltip title={0} open placement="bottom" autoAdjustOverflow={{ shiftX: true }}>
+        <span />
+      </Tooltip>,
+    );
+
+    expect(document.querySelector('.ant-tooltip-arrow')).toHaveStyle({
+      left: 'clamp(12px, var(--arrow-x), calc(100% - 12px))',
+    });
+
+    rerender(
+      <Tooltip title={0} open placement="right" autoAdjustOverflow={{ shiftY: true }}>
+        <span />
+      </Tooltip>,
+    );
+
+    expect(document.querySelector('.ant-tooltip-arrow')).toHaveStyle({
+      top: 'clamp(8px, var(--arrow-y), calc(100% - 8px))',
+    });
+  });
+
+  it('keeps default cardinal arrow positioning unchanged', () => {
+    render(
+      <Tooltip title={0} open placement="bottom">
+        <span />
+      </Tooltip>,
+    );
+
+    expect(document.querySelector('.ant-tooltip-arrow')).toHaveStyle({ left: '0px' });
+  });
+
   describe('support other placement when mouse enter', () => {
     const placementList = [
       'top',
