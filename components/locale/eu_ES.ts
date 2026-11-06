@@ -159,6 +159,7 @@ const localeValues: Locale = {
     transparent: 'Gardena',
     singleColor: 'Kolore bakarra',
     gradientColor: 'Gradiente kolorea',
+    clear: 'Garbitu kolorea',
   },
 };
 
