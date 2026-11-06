@@ -828,12 +828,12 @@ Array [
     class="ant-tooltip-css-var css-var-test-id ant-tooltip ant-tooltip-pure ant-tooltip-placement-top ant-tooltip-pink"
   >
     <div
-      class="ant-tooltip-arrow"
-    />
-    <div
       class="ant-tooltip-container"
       role="tooltip"
     >
+      <div
+        class="ant-tooltip-arrow"
+      />
       Hello, Pink Pure Panel!
     </div>
   </div>,
@@ -842,13 +842,13 @@ Array [
     style="--ant-tooltip-arrow-background-color:#f50"
   >
     <div
-      class="ant-tooltip-arrow"
-    />
-    <div
       class="ant-tooltip-container"
       role="tooltip"
       style="background:#f50;--ant-tooltip-overlay-color:#FFF"
     >
+      <div
+        class="ant-tooltip-arrow"
+      />
       Hello, Customize Color Pure Panel!
     </div>
   </div>,
@@ -856,13 +856,13 @@ Array [
     class="ant-tooltip-css-var css-var-test-id ant-tooltip ant-tooltip-pure ant-tooltip-placement-bottomLeft"
   >
     <div
-      class="ant-tooltip-arrow"
-    />
-    <div
       class="ant-tooltip-container"
       role="tooltip"
       style="width:200px"
     >
+      <div
+        class="ant-tooltip-arrow"
+      />
       Hello, Pure Panel!
     </div>
   </div>,

@@ -82,18 +82,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           <span>
             prompt text
           </span>
@@ -114,18 +113,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           <span>
             prompt text
           </span>
@@ -146,18 +144,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           <span>
             prompt text
           </span>
@@ -186,18 +183,17 @@ Array [
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
-            class="ant-tooltip-arrow"
-            style="position: absolute;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
             class="ant-tooltip-container"
             id="test-id"
             role="tooltip"
           >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
             <span>
               prompt text
             </span>
@@ -218,18 +214,17 @@ Array [
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; right: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
             class="ant-tooltip-container"
             id="test-id"
             role="tooltip"
           >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
             <span>
               prompt text
             </span>
@@ -250,18 +245,17 @@ Array [
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
-            class="ant-tooltip-arrow"
-            style="position: absolute;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
             class="ant-tooltip-container"
             id="test-id"
             role="tooltip"
           >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
             <span>
               prompt text
             </span>
@@ -286,18 +280,17 @@ Array [
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
-            class="ant-tooltip-arrow"
-            style="position: absolute;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
             class="ant-tooltip-container"
             id="test-id"
             role="tooltip"
           >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
             <span>
               prompt text
             </span>
@@ -318,18 +311,17 @@ Array [
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
             class="ant-tooltip-container"
             id="test-id"
             role="tooltip"
           >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
             <span>
               prompt text
             </span>
@@ -350,18 +342,17 @@ Array [
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
-            class="ant-tooltip-arrow"
-            style="position: absolute;"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
             class="ant-tooltip-container"
             id="test-id"
             role="tooltip"
           >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
             <span>
               prompt text
             </span>
@@ -388,18 +379,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           <span>
             prompt text
           </span>
@@ -420,18 +410,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           <span>
             prompt text
           </span>
@@ -452,18 +441,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           <span>
             prompt text
           </span>
@@ -497,18 +485,17 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-tooltip-arrow"
-        style="position: absolute;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
         class="ant-tooltip-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         Prompt Text
       </div>
     </div>
@@ -530,18 +517,17 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-tooltip-arrow"
-        style="position: absolute;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
         class="ant-tooltip-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         Prompt Text
       </div>
     </div>
@@ -580,18 +566,17 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; right: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           Prompt Text
         </div>
       </div>
@@ -609,18 +594,17 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; right: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           Prompt Text
         </div>
       </div>
@@ -651,18 +635,17 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; right: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           Prompt Text
         </div>
       </div>
@@ -680,18 +663,17 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; right: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           Prompt Text
         </div>
       </div>
@@ -714,18 +696,17 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
-      class="ant-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    >
-      <span
-        class="ant-tooltip-arrow-content"
-      />
-    </div>
-    <div
       class="ant-tooltip-container"
       id="test-id"
       role="tooltip"
     >
+      <div
+        class="ant-tooltip-arrow"
+      >
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
       prompt text
     </div>
   </div>,
@@ -773,18 +754,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -806,18 +786,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -839,18 +818,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -872,18 +850,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -905,18 +882,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -938,18 +914,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -971,18 +946,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -1004,18 +978,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -1037,18 +1010,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -1070,18 +1042,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -1103,18 +1074,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -1136,18 +1106,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -1169,18 +1138,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -1223,19 +1191,18 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --ant-tooltip-arrow-background-color: #f50;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
           style="background: rgb(255, 85, 0); --ant-tooltip-overlay-color: #FFF;"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -1257,19 +1224,18 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --ant-tooltip-arrow-background-color: #2db7f5;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
           style="background: rgb(45, 183, 245); --ant-tooltip-overlay-color: #000;"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -1291,19 +1257,18 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --ant-tooltip-arrow-background-color: #87d068;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
           style="background: rgb(135, 208, 104); --ant-tooltip-overlay-color: #000;"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -1325,19 +1290,18 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --ant-tooltip-arrow-background-color: #108ee9;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
           style="background: rgb(16, 142, 233); --ant-tooltip-overlay-color: #FFF;"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           prompt text
         </div>
       </div>
@@ -1360,18 +1324,17 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
-      class="ant-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    >
-      <span
-        class="ant-tooltip-arrow-content"
-      />
-    </div>
-    <div
       class="ant-tooltip-container"
       id="test-id"
       role="tooltip"
     >
+      <div
+        class="ant-tooltip-arrow"
+      >
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
       prompt text
     </div>
   </div>,
@@ -1396,18 +1359,18 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
-      class="ant-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    >
-      <span
-        class="ant-tooltip-arrow-content"
-      />
-    </div>
-    <div
       class="ant-tooltip-container"
       id="test-id"
       role="tooltip"
-    />
+    >
+      <div
+        class="ant-tooltip-arrow"
+      >
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
+    </div>
   </div>,
 ]
 `;
@@ -1436,18 +1399,17 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
         class="ant-tooltip-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         Thanks for using antd. Have a nice day !
       </div>
     </div>
@@ -1468,18 +1430,17 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
         class="ant-tooltip-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         Thanks for using antd. Have a nice day !
       </div>
     </div>
@@ -1505,18 +1466,17 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
         class="ant-tooltip-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         Thanks for using antd. Have a nice day !
       </div>
     </div>
@@ -1543,18 +1503,17 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
         class="ant-tooltip-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         Thanks for using antd. Have a nice day !
       </div>
     </div>
@@ -1677,18 +1636,17 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
         class="ant-tooltip-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         Thanks for using antd. Have a nice day !
       </div>
     </div>
@@ -1759,18 +1717,17 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-tooltip-arrow"
-        style="position: absolute;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
         class="ant-tooltip-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         <span>
           prompt text
         </span>
@@ -1791,18 +1748,17 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
         class="ant-tooltip-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         <span>
           prompt text
         </span>
@@ -1823,18 +1779,17 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-tooltip-arrow"
-        style="position: absolute;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
         class="ant-tooltip-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         <span>
           prompt text
         </span>
@@ -1863,18 +1818,17 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           <span>
             prompt text
           </span>
@@ -1895,18 +1849,17 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; right: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           <span>
             prompt text
           </span>
@@ -1927,18 +1880,17 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           <span>
             prompt text
           </span>
@@ -1963,18 +1915,17 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           <span>
             prompt text
           </span>
@@ -1995,18 +1946,17 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           <span>
             prompt text
           </span>
@@ -2027,18 +1977,17 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
           <span>
             prompt text
           </span>
@@ -2065,18 +2014,17 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-tooltip-arrow"
-        style="position: absolute;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
         class="ant-tooltip-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         <span>
           prompt text
         </span>
@@ -2097,18 +2045,17 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; top: 0px; left: 0px;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
         class="ant-tooltip-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         <span>
           prompt text
         </span>
@@ -2129,18 +2076,17 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-tooltip-arrow"
-        style="position: absolute;"
-      >
-        <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
-      <div
         class="ant-tooltip-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
         <span>
           prompt text
         </span>
@@ -2158,12 +2104,12 @@ Array [
     class="ant-tooltip-css-var css-var-test-id ant-tooltip ant-tooltip-pure ant-tooltip-placement-top ant-tooltip-pink"
   >
     <div
-      class="ant-tooltip-arrow"
-    />
-    <div
       class="ant-tooltip-container"
       role="tooltip"
     >
+      <div
+        class="ant-tooltip-arrow"
+      />
       Hello, Pink Pure Panel!
     </div>
   </div>,
@@ -2172,13 +2118,13 @@ Array [
     style="--ant-tooltip-arrow-background-color: #f50;"
   >
     <div
-      class="ant-tooltip-arrow"
-    />
-    <div
       class="ant-tooltip-container"
       role="tooltip"
       style="background: rgb(255, 85, 0); --ant-tooltip-overlay-color: #FFF;"
     >
+      <div
+        class="ant-tooltip-arrow"
+      />
       Hello, Customize Color Pure Panel!
     </div>
   </div>,
@@ -2186,13 +2132,13 @@ Array [
     class="ant-tooltip-css-var css-var-test-id ant-tooltip ant-tooltip-pure ant-tooltip-placement-bottomLeft"
   >
     <div
-      class="ant-tooltip-arrow"
-    />
-    <div
       class="ant-tooltip-container"
       role="tooltip"
       style="width: 200px;"
     >
+      <div
+        class="ant-tooltip-arrow"
+      />
       Hello, Pure Panel!
     </div>
   </div>,
@@ -2319,18 +2265,17 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
-      class="ant-tooltip-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    >
-      <span
-        class="ant-tooltip-arrow-content"
-      />
-    </div>
-    <div
       class="ant-tooltip-container"
       id="test-id"
       role="tooltip"
     >
+      <div
+        class="ant-tooltip-arrow"
+      >
+        <span
+          class="ant-tooltip-arrow-content"
+        />
+      </div>
       prompt text
     </div>
   </div>,

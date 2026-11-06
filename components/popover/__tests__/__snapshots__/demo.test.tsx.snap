@@ -631,12 +631,12 @@ Array [
     class="ant-popover ant-popover-pure ant-popover-placement-top css-var-test-id"
   >
     <div
-      class="ant-popover-arrow"
-    />
-    <div
       class="ant-popover-container"
       role="tooltip"
     >
+      <div
+        class="ant-popover-arrow"
+      />
       <div
         class="ant-popover-title"
       >
@@ -661,13 +661,13 @@ Array [
     style="width:250px"
   >
     <div
-      class="ant-popover-arrow"
-    />
-    <div
       class="ant-popover-container"
       role="tooltip"
       style="width:250px"
     >
+      <div
+        class="ant-popover-arrow"
+      />
       <div
         class="ant-popover-title"
       >
@@ -856,12 +856,12 @@ Array [
     class="ant-popover ant-popover-pure ant-popover-placement-top css-var-test-id"
   >
     <div
-      class="ant-popover-arrow"
-    />
-    <div
       class="ant-popover-container"
       role="tooltip"
     >
+      <div
+        class="ant-popover-arrow"
+      />
       <div
         class="ant-popover-title"
       >
@@ -886,13 +886,13 @@ Array [
     style="width:250px"
   >
     <div
-      class="ant-popover-arrow"
-    />
-    <div
       class="ant-popover-container"
       role="tooltip"
       style="width:250px"
     >
+      <div
+        class="ant-popover-arrow"
+      />
       <div
         class="ant-popover-title"
       >
@@ -1026,12 +1026,12 @@ Array [
     class="ant-popover ant-popover-pure ant-popover-placement-top css-var-test-id"
   >
     <div
-      class="ant-popover-arrow"
-    />
-    <div
       class="ant-popover-container"
       role="tooltip"
     >
+      <div
+        class="ant-popover-arrow"
+      />
       <div
         class="ant-popover-title"
       >
@@ -1056,13 +1056,13 @@ Array [
     style="width:250px"
   >
     <div
-      class="ant-popover-arrow"
-    />
-    <div
       class="ant-popover-container"
       role="tooltip"
       style="width:250px"
     >
+      <div
+        class="ant-popover-arrow"
+      />
       <div
         class="ant-popover-title"
       >
