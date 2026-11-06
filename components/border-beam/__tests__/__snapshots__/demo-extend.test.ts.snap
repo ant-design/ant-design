@@ -232,7 +232,6 @@ exports[`renders components/border-beam/demo/customized-color.tsx extend context
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
