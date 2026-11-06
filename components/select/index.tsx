@@ -377,6 +377,9 @@ const InternalSelect = <
     {
       popup: {
         _default: 'root',
+        root: {},
+        listItem: {},
+        list: {},
       },
     },
   );

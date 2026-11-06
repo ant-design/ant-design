@@ -148,6 +148,24 @@ describe('DatePicker.Semantic', () => {
     expect(suffixElement).toHaveStyle('font-size: 20px');
   });
 
+  it('preserves global popup styles when local styles override one property', () => {
+    render(
+      <ConfigProvider
+        datePicker={{
+          styles: { popup: { root: { color: 'red', padding: 12 }, content: { margin: 8 } } },
+        }}
+      >
+        <DatePicker open styles={{ popup: { root: { color: 'blue' } } }} />
+      </ConfigProvider>,
+    );
+
+    expect(document.body.querySelector('.ant-picker-dropdown')).toHaveStyle({
+      color: 'rgb(0, 0, 255)',
+      padding: '12px',
+    });
+    expect(document.body.querySelector('.ant-picker-content')).toHaveStyle({ margin: '8px' });
+  });
+
   it('should support semantic classNames as function', () => {
     const classNamesFn = (info: { props: Record<string, unknown> }) => {
       if (info.props.disabled) {
