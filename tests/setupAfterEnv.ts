@@ -61,7 +61,9 @@ function normalizeSegmentedChecked(node: Node | Node[]) {
   const roots: Node[] = Array.isArray(node) ? node : [node];
   roots.forEach((root) => {
     const rootEl = root as HTMLElement;
-    if (!isFunction(rootEl.querySelectorAll)) return;
+    if (!isFunction(rootEl.querySelectorAll)) {
+      return;
+    }
     if (/segmented-item-input/.test(rootEl.className)) {
       rootEl.removeAttribute('checked');
     }
