@@ -521,10 +521,11 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
 
   const triggerSorter = (sortState: SortState<RecordType>) => {
     let newSorterStates: SortState<RecordType>[];
+    const activeSorterState = mergedSorterStates.find(({ sortOrder }) => sortOrder);
     if (
       sortState.multiplePriority === false ||
-      !mergedSorterStates.length ||
-      mergedSorterStates[0].multiplePriority === false
+      !activeSorterState ||
+      activeSorterState.multiplePriority === false
     ) {
       newSorterStates = [sortState];
     } else {

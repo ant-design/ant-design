@@ -180,5 +180,20 @@ describe('Table active sorter after column configuration changes', () => {
       expect.objectContaining({ columnKey: 'price', order: 'ascend' }),
       expect.objectContaining({ columnKey: 'later', order: 'ascend' }),
     ]);
+
+    fireEvent.click(container.querySelectorAll('thead th')[0]);
+    expect(names(container)).toEqual(['Apple', 'Banana']);
+    expect(onChange.mock.calls[1][2]).toEqual([
+      expect.objectContaining({ columnKey: 'later', order: 'ascend' }),
+      expect.objectContaining({ columnKey: 'price', order: 'descend' }),
+    ]);
+
+    fireEvent.click(container.querySelectorAll('thead th')[2]);
+    expect(names(container)).toEqual(['Banana', 'Apple']);
+    expect(container.querySelectorAll('th[aria-sort="descending"]')).toHaveLength(2);
+    expect(onChange.mock.calls[2][2]).toEqual([
+      expect.objectContaining({ columnKey: 'price', order: 'descend' }),
+      expect.objectContaining({ columnKey: 'later', order: 'descend' }),
+    ]);
   });
 });
