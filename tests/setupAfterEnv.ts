@@ -3,6 +3,7 @@ import '@testing-library/jest-dom';
 import { toHaveNoViolations } from 'jest-axe';
 import format, { plugins } from 'pretty-format';
 
+import { isFunction } from '../components/_util/is';
 import { defaultConfig } from '../components/theme/internal';
 
 // Not use dynamic hashed for test env since version will change hash dynamically.
@@ -60,13 +61,13 @@ function normalizeSegmentedChecked(node: Node | Node[]) {
   const roots: Node[] = Array.isArray(node) ? node : [node];
   roots.forEach((root) => {
     const rootEl = root as HTMLElement;
-    if (typeof rootEl.querySelectorAll !== 'function') {
+    if (!isFunction(rootEl.querySelectorAll)) {
       return;
     }
     if (/segmented-item-input/.test(rootEl.className)) {
       rootEl.removeAttribute('checked');
     }
-    rootEl.querySelectorAll?.('input[type="radio"]').forEach((input) => {
+    rootEl.querySelectorAll('input[type="radio"]').forEach((input) => {
       if (/segmented-item-input/.test(input.className)) {
         input.removeAttribute('checked');
       }
