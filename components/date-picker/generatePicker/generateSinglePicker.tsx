@@ -192,7 +192,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       // ===================== Icon =====================
       const { removeIcon } = useSelectIcons({
-        componentName: displayName,
         removeIcon: props.removeIcon,
         prefixCls,
       });
