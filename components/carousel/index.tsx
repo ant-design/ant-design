@@ -16,8 +16,10 @@ export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPlacement = 'top' | 'bottom' | 'start' | 'end';
 
 // Carousel
-export interface CarouselProps
-  extends Omit<Settings, 'dots' | 'dotsClass' | 'autoplay' | 'verticalSwiping'> {
+export interface CarouselProps extends Omit<
+  Settings,
+  'dots' | 'dotsClass' | 'autoplay' | 'verticalSwiping'
+> {
   effect?: CarouselEffect;
   style?: React.CSSProperties;
   prefixCls?: string;
@@ -51,6 +53,22 @@ interface ArrowType extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const ArrowButton: React.FC<ArrowType> = ({ currentSlide, slideCount, ...rest }) => (
   <button type="button" {...rest} />
 );
+
+const syncHiddenSlideInert = (root: HTMLElement | null) => {
+  if (!root) {
+    return;
+  }
+  root.querySelectorAll<HTMLElement>('.slick-slide').forEach((slide) => {
+    const hidden = slide.getAttribute('aria-hidden') === 'true';
+    // Keep focus out of aria-hidden slides (incl. infinite clones).
+    // react-slick only sets aria-hidden / tabIndex on the slide root.
+    if (hidden) {
+      slide.setAttribute('inert', '');
+    } else {
+      slide.removeAttribute('inert');
+    }
+  });
+};
 
 const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const {
@@ -126,6 +144,26 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     }
   }, [initialSlide, isRTL]);
 
+  // Keep inert in sync with react-slick's aria-hidden so focusable children
+  // inside inactive / cloned slides are not reachable via Tab (#59805).
+  React.useLayoutEffect(() => {
+    const root = nativeElementRef.current;
+    if (!root) {
+      return;
+    }
+    syncHiddenSlideInert(root);
+    const observer = new MutationObserver(() => {
+      syncHiddenSlideInert(root);
+    });
+    observer.observe(root, {
+      subtree: true,
+      childList: true,
+      attributes: true,
+      attributeFilter: ['aria-hidden'],
+    });
+    return () => observer.disconnect();
+  }, [count]);
+
   // ========================== Warn ==========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Carousel');
@@ -181,8 +219,16 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
         dots={enableDots}
         dotsClass={dsClass}
         arrows={arrows}
-        prevArrow={prevArrow ?? <ArrowButton aria-label={isRTL ? contextLocale.nextSlide : contextLocale.prevSlide} />}
-        nextArrow={nextArrow ?? <ArrowButton aria-label={isRTL ? contextLocale.prevSlide : contextLocale.nextSlide} />}
+        prevArrow={
+          prevArrow ?? (
+            <ArrowButton aria-label={isRTL ? contextLocale.nextSlide : contextLocale.prevSlide} />
+          )
+        }
+        nextArrow={
+          nextArrow ?? (
+            <ArrowButton aria-label={isRTL ? contextLocale.prevSlide : contextLocale.nextSlide} />
+          )
+        }
         draggable={draggable}
         verticalSwiping={mergedVertical}
         autoplaySpeed={autoplaySpeed}
