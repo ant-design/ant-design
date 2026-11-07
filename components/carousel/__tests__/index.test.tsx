@@ -465,4 +465,79 @@ describe('Carousel', () => {
       expect(container.querySelectorAll('.slick-dots li')[0]).toHaveClass('slick-active');
     });
   });
+
+  describe('hidden slide focus (#59805)', () => {
+    it('should mark aria-hidden slides (including clones) as inert', () => {
+      const { container } = render(
+        <Carousel>
+          <div>
+            <button type="button">Slide 1</button>
+          </div>
+          <div>
+            <button type="button">Slide 2</button>
+          </div>
+          <div>
+            <button type="button">Slide 3</button>
+          </div>
+        </Carousel>,
+      );
+
+      const slides = Array.from(container.querySelectorAll<HTMLElement>('.slick-slide'));
+      expect(slides.length).toBeGreaterThan(3); // originals + infinite clones
+
+      slides.forEach((slide) => {
+        const hidden = slide.getAttribute('aria-hidden') === 'true';
+        if (hidden) {
+          expect(slide).toHaveAttribute('inert');
+        } else {
+          expect(slide).not.toHaveAttribute('inert');
+        }
+      });
+
+      const activeButtons = container.querySelectorAll(
+        '.slick-slide:not([aria-hidden="true"]) button',
+      );
+      expect(activeButtons.length).toBeGreaterThan(0);
+      activeButtons.forEach((btn) => {
+        expect(btn.closest('[inert]')).toBeNull();
+      });
+
+      const hiddenButtons = container.querySelectorAll('.slick-slide[aria-hidden="true"] button');
+      expect(hiddenButtons.length).toBeGreaterThan(0);
+      hiddenButtons.forEach((btn) => {
+        expect(btn.closest('[inert]')).not.toBeNull();
+      });
+    });
+
+    it('should update inert after navigating to another slide', async () => {
+      const ref = React.createRef<CarouselRef>();
+      const { container } = render(
+        <Carousel ref={ref}>
+          <div>
+            <button type="button">Slide 1</button>
+          </div>
+          <div>
+            <button type="button">Slide 2</button>
+          </div>
+          <div>
+            <button type="button">Slide 3</button>
+          </div>
+        </Carousel>,
+      );
+
+      ref.current?.goTo(1);
+      await waitFakeTimer();
+
+      const slides = Array.from(container.querySelectorAll<HTMLElement>('.slick-slide'));
+      slides.forEach((slide) => {
+        const hidden = slide.getAttribute('aria-hidden') === 'true';
+        if (hidden) {
+          expect(slide).toHaveAttribute('inert');
+        } else {
+          expect(slide).not.toHaveAttribute('inert');
+          expect(slide.textContent).toContain('Slide 2');
+        }
+      });
+    });
+  });
 });
