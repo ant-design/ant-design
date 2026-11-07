@@ -275,4 +275,51 @@ describe('useSizes', () => {
       0.5, 0, 0.5,
     ]);
   });
+
+  it.each([0, '0%'])(
+    'redistributes the share after settling max %s before applying minimums',
+    (max) => {
+      const { result } = renderHook(() => useSizes([{ max }, { min: 400 }, {}], 1000));
+      expect(result.current[2]).toEqual([0, 0.5, 0.5]);
+    },
+  );
+
+  it.each([
+    [
+      [undefined, undefined, undefined],
+      [0.4, 0, 0],
+      [1, 0, 1],
+      [0.5, 0, 0.5],
+    ],
+    [
+      [0.2, undefined, undefined, undefined],
+      [0, 0, 0.3, 0],
+      [1, 0, 1, 1],
+      [0.2, 0, 0.4, 0.4],
+    ],
+    [
+      [undefined, undefined, undefined, undefined],
+      [0, 0, 0.4, 0],
+      [0, 0, 1, 1],
+      [0, 0, 0.5, 0.5],
+    ],
+    [
+      [undefined, undefined, undefined, undefined],
+      [0, 0, 0.5, 0],
+      [0, 0.2, 1, 1],
+      [0, 0.2, 0.5, 0.3],
+    ],
+    [
+      [undefined, undefined, undefined, undefined],
+      [0, 0, 0.8, 0],
+      [0, 0.3, 1, 1],
+      [0, 0.1, 0.8, 0.1],
+    ],
+  ])(
+    'distributes undefined sizes with zero caps while preserving minimums',
+    (sizes, mins, maxes, expected) => {
+      const result = autoPtgSizes(sizes, mins, maxes);
+      result.forEach((size, index) => expect(size).toBeCloseTo(expected[index]));
+    },
+  );
 });

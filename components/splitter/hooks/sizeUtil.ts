@@ -103,6 +103,30 @@ export function autoPtgSizes(
     return ptgSizes.map((size) => (size === undefined ? avg : size));
   }
 
+  // For zero-capped panels, find the common share after applying all bounds.
+  if (
+    undefinedIndexes.some((index) => normalizePtgMax(maxPtgSizes[index]) === 0) &&
+    sumMin <= restPtg &&
+    sumMax >= restPtg &&
+    undefinedIndexes.every((index) => {
+      const min = minPtgSizes[index] || 0;
+      return min >= 0 && min <= normalizePtgMax(maxPtgSizes[index]);
+    })
+  ) {
+    const bound = (index: number, share: number) =>
+      Math.min(normalizePtgMax(maxPtgSizes[index]), Math.max(minPtgSizes[index] || 0, share));
+    let low = 0;
+    let high = restPtg;
+    for (let i = 0; i < 60; i += 1) {
+      const mid = (low + high) / 2;
+      const total = undefinedIndexes.reduce((sum, index) => sum + bound(index, mid), 0);
+      if (total < restPtg) low = mid;
+      else high = mid;
+    }
+    const share = (low + high) / 2;
+    return ptgSizes.map((size, index) => (size === undefined ? bound(index, share) : size));
+  }
+
   // Share the remaining space evenly, settling the panels whose maximum is below
   // the even share first so that a zero maximum does not starve the panels that
   // can still grow.
