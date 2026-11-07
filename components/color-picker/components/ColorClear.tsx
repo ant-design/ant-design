@@ -22,12 +22,14 @@ const ColorClear: FC<ColorClearProps> = ({
   style,
   disabled,
 }) => {
+  const canClear = !!onChange && !!value && !value.cleared;
+
   const onClick = () => {
     if (disabled) {
       return;
     }
 
-    if (onChange && value && !value.cleared) {
+    if (canClear) {
       const hsba = value.toHsb();
       hsba.a = 0;
       const genColor = generateColor(hsba);
@@ -38,7 +40,7 @@ const ColorClear: FC<ColorClearProps> = ({
   };
 
   const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
+    if (canClear && !event.repeat && (event.key === 'Enter' || event.key === ' ')) {
       event.preventDefault();
       onClick();
     }
@@ -46,10 +48,10 @@ const ColorClear: FC<ColorClearProps> = ({
 
   return (
     <div
-      role="button"
-      aria-label="Clear color"
-      aria-disabled={disabled || undefined}
-      tabIndex={disabled ? -1 : 0}
+      role={canClear ? 'button' : undefined}
+      aria-label={canClear ? 'Clear color' : undefined}
+      aria-disabled={canClear ? disabled || undefined : undefined}
+      tabIndex={canClear ? (disabled ? -1 : 0) : undefined}
       className={clsx(`${prefixCls}-clear`, className, {
         [`${prefixCls}-clear-disabled`]: disabled,
       })}
