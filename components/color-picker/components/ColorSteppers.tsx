@@ -1,9 +1,10 @@
 import type { FC } from 'react';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { clsx } from 'clsx';
 
 import type { InputNumberProps } from '../../input-number';
 import InputNumber from '../../input-number';
+import { PanelPickerContext } from '../context';
 
 interface ColorSteppersProps {
   prefixCls: string;
@@ -25,6 +26,8 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
   className,
   formatter,
 }) => {
+  const { controls } = useContext(PanelPickerContext);
+
   const colorSteppersPrefixCls = `${prefixCls}-steppers`;
   const [internalValue, setInternalValue] = useState<number | undefined>(0);
 
@@ -33,6 +36,7 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
   return (
     <InputNumber
       className={clsx(colorSteppersPrefixCls, className)}
+      controls={controls}
       min={min}
       max={max}
       value={stepValue}
