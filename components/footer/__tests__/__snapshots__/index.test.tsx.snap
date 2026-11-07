@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Footer rtl render component should be rendered correctly in RTL direction 1`] = `
+<footer
+  class="ant-footer ant-footer css-var-root ant-footer-rtl ant-footer-dark"
+>
+  <section
+    class="ant-footer-container"
+  />
+</footer>
+`;
