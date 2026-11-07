@@ -23,6 +23,7 @@ exports[`renders components/qr-code/demo/base.tsx correctly 1`] = `
       style="background-color:transparent;width:160px;height:160px"
     >
       <canvas
+        aria-label="https://ant.design/"
         height="160"
         role="img"
         width="160"
@@ -55,6 +56,7 @@ exports[`renders components/qr-code/demo/customColor.tsx correctly 1`] = `
       style="background-color:transparent;width:160px;height:160px"
     >
       <canvas
+        aria-label="https://ant.design/"
         height="160"
         role="img"
         width="160"
@@ -69,6 +71,7 @@ exports[`renders components/qr-code/demo/customColor.tsx correctly 1`] = `
       style="background-color:#f5f5f5;width:160px;height:160px"
     >
       <canvas
+        aria-label="https://ant.design/"
         height="160"
         role="img"
         width="160"
@@ -155,6 +158,7 @@ Array [
     style="background-color:transparent;width:160px;height:160px"
   >
     <canvas
+      aria-label="https://ant.design/"
       height="160"
       role="img"
       width="160"
@@ -223,6 +227,7 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx correctly 1`] = 
       </div>
     </div>
     <canvas
+      aria-label="https://ant.design"
       height="160"
       role="img"
       width="160"
@@ -291,6 +296,7 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx correctly 1`] = 
       </div>
     </div>
     <canvas
+      aria-label="https://ant.design"
       height="160"
       role="img"
       width="160"
@@ -329,6 +335,7 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx correctly 1`] = 
       </div>
     </div>
     <canvas
+      aria-label="https://ant.design"
       height="160"
       role="img"
       width="160"
@@ -397,6 +404,7 @@ exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
         style="background-color:rgba(255,255,255,0.5);margin-bottom:16px;width:160px;height:160px"
       >
         <canvas
+          aria-label="https://ant.design/"
           height="160"
           role="img"
           width="160"
@@ -428,6 +436,7 @@ Array [
     style="background-color:transparent;margin-bottom:16px;width:160px;height:160px"
   >
     <canvas
+      aria-label="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
       height="160"
       role="img"
       width="160"
@@ -514,6 +523,7 @@ exports[`renders components/qr-code/demo/icon.tsx correctly 1`] = `
   style="background-color:transparent;width:160px;height:160px"
 >
   <canvas
+    aria-label="https://ant.design/"
     height="160"
     role="img"
     width="160"
@@ -566,6 +576,7 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
       </div>
     </div>
     <canvas
+      aria-label="https://ant.design"
       height="160"
       role="img"
       width="160"
@@ -616,6 +627,7 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
       </button>
     </div>
     <canvas
+      aria-label="https://ant.design"
       height="160"
       role="img"
       width="160"
@@ -635,6 +647,7 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
       </p>
     </div>
     <canvas
+      aria-label="https://ant.design"
       height="160"
       role="img"
       width="160"
@@ -652,6 +665,7 @@ exports[`renders components/qr-code/demo/style-class.tsx correctly 1`] = `
     style="background-color:rgb(24, 144, 255, 0.1);border:2px solid #1890ff;border-radius:8px;padding:16px;width:160px;height:160px"
   >
     <canvas
+      aria-label="https://ant.design/"
       height="160"
       role="img"
       width="160"
@@ -662,6 +676,7 @@ exports[`renders components/qr-code/demo/style-class.tsx correctly 1`] = `
     style="background-color:rgba(255, 77, 79, 0.1);border:2px solid #ff4d4f;border-radius:8px;padding:16px;width:160px;height:160px"
   >
     <canvas
+      aria-label="https://ant.design/"
       height="160"
       role="img"
       width="160"
@@ -688,6 +703,7 @@ exports[`renders components/qr-code/demo/type.tsx correctly 1`] = `
       style="background-color:transparent;width:160px;height:160px"
     >
       <canvas
+        aria-label="https://ant.design/"
         height="160"
         role="img"
         width="160"
@@ -702,6 +718,7 @@ exports[`renders components/qr-code/demo/type.tsx correctly 1`] = `
       style="background-color:transparent;width:160px;height:160px"
     >
       <svg
+        aria-label="https://ant.design/"
         height="160"
         role="img"
         viewBox="0 0 25 25"

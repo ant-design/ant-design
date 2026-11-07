@@ -45,6 +45,7 @@ exports[`renders components/qr-code/demo/_semantic.tsx correctly 1`] = `
           </div>
         </div>
         <canvas
+          aria-label="https://ant.design"
           height="160"
           role="img"
           width="160"
