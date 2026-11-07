@@ -2505,6 +2505,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
             class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
+              aria-hidden="true"
               class="ant-empty-image"
             >
               <svg
@@ -2630,6 +2631,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
             class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
+              aria-hidden="true"
               class="ant-empty-image"
             >
               <svg
@@ -4219,6 +4221,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
           class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg
@@ -4329,6 +4332,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
           class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg
@@ -4439,6 +4443,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
           class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg
@@ -4549,6 +4554,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
           class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg
