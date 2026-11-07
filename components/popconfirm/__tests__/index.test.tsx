@@ -220,6 +220,38 @@ describe('Popconfirm', () => {
     expect(onOpenChange).toHaveBeenLastCalledWith(false);
   });
 
+  it('should allow retry after onConfirm throws synchronously', async () => {
+    const error = new Error('Confirm failed');
+    const onConfirm = jest.fn().mockImplementationOnce(() => {
+      throw error;
+    });
+    const onOpenChange = jest.fn();
+    const onError = jest.fn((event: ErrorEvent) => event.preventDefault());
+    window.addEventListener('error', onError);
+
+    try {
+      const { container } = render(
+        <Popconfirm title="Confirm" defaultOpen onConfirm={onConfirm} onOpenChange={onOpenChange}>
+          <span>Delete</span>
+        </Popconfirm>,
+      );
+      const okButton = container.querySelector('.ant-btn-primary')!;
+
+      fireEvent.click(okButton);
+
+      expect(onError).toHaveBeenCalled();
+      expect(onError.mock.calls[0][0].error).toBe(error);
+      expect(onOpenChange).not.toHaveBeenCalled();
+
+      fireEvent.click(okButton);
+
+      expect(onConfirm).toHaveBeenCalledTimes(2);
+      expect(onOpenChange).toHaveBeenLastCalledWith(false);
+    } finally {
+      window.removeEventListener('error', onError);
+    }
+  });
+
   it('should support onConfirm to return Promise', async () => {
     const confirm = () =>
       new Promise((res) => {
