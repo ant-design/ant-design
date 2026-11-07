@@ -4,6 +4,7 @@ import { clsx } from 'clsx';
 
 import { isPlainObject } from '../_util/is';
 import type { BreadcrumbProps, InternalRouteType, ItemType } from './Breadcrumb';
+import { replaceParams } from './util';
 
 type AddParameters<TFunction extends (...args: any) => any, TParameters extends [...args: any]> = (
   ...args: [...Parameters<TFunction>, ...TParameters]
@@ -16,13 +17,7 @@ function getBreadcrumbName(route: InternalRouteType, params: any) {
   if (!isReactRenderable(route.title)) {
     return null;
   }
-  const paramsKeys = Object.keys(params).join('|');
-  return isPlainObject(route.title)
-    ? route.title
-    : String(route.title).replace(
-        new RegExp(`:(${paramsKeys})`, 'g'),
-        (replacement, key) => params[key] || replacement,
-      );
+  return isPlainObject(route.title) ? route.title : replaceParams(String(route.title), params);
 }
 
 export function renderItem(
