@@ -33,8 +33,13 @@ const localeValues: Locale = {
     emptyText: 'Nincs adat',
     selectNone: 'Minden adat törlése',
     selectionAll: 'Válassza ki az összes adatot',
+    selectRow: 'Sor kiválasztása',
+    selectedRow: 'Sor kiválasztva',
+    selectionMenu: 'Kijelölési menü',
     expand: 'Sor kibontása',
     collapse: 'Sor összecsukása',
+    expandAll: 'Összes sor kibontása',
+    collapseAll: 'Összes sor összecsukása',
     triggerDesc: 'Kattintson ide a csökkenő sorrendbe rendezéshez',
     triggerAsc: 'Kattintson a növekvő sorrendbe rendezéshez',
     cancelSort: 'Kattintson a rendezés megszakításához',
@@ -47,6 +52,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Alkalmazás',
     cancelText: 'Visszavonás',
+  },
+  Splitter: {
+    toggleStartPanel: 'Kezdőpanel váltása',
+    toggleEndPanel: 'Zárópanel váltása',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Másolva',
     expand: 'Bontsa ki',
     collapse: 'Összeomlás',
+  },
+  Carousel: {
+    prevSlide: 'Előző dia',
+    nextSlide: 'Következő dia',
   },
   Form: {
     optional: '(választható)',

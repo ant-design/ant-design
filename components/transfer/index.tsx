@@ -1,13 +1,13 @@
 import type { ChangeEvent, CSSProperties } from 'react';
-import React, { useCallback, useContext } from 'react';
-import { pickAttrs } from '@rc-component/util';
+import React, { useCallback, useContext, useRef } from 'react';
+import { isNonNullable, pickAttrs, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMultipleSelect } from '../_util/hooks';
 import type { PrevSelectedIndex } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction, isNonNullable } from '../_util/is';
+import { isFunction } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
@@ -141,10 +141,8 @@ export interface TransferSearchOption {
   defaultValue?: string;
 }
 
-export interface TransferProps<RecordType = any> extends Omit<
-  React.HTMLAttributes<HTMLDivElement>,
-  'onChange' | 'onScroll' | 'children'
-> {
+export interface TransferProps<RecordType = any>
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onScroll' | 'children'> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -191,8 +189,13 @@ export interface TransferProps<RecordType = any> extends Omit<
   selectionsIcon?: React.ReactNode;
 }
 
-const Transfer = <RecordType extends TransferItem = TransferItem>(
+export interface TransferRef {
+  nativeElement: HTMLDivElement;
+}
+
+const InternalTransfer = <RecordType extends TransferItem = TransferItem>(
   props: TransferProps<RecordType>,
+  ref: React.ForwardedRef<TransferRef>,
 ) => {
   const {
     prefixCls: customizePrefixCls,
@@ -287,6 +290,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     TransferKey
   >((item) => item.key);
 
+  const prevDataKeysRef = useRef<Record<TransferDirection, TransferKey[]>>({ left: [], right: [] });
+
   const setStateKeys = useCallback(
     (
       direction: TransferDirection,
@@ -309,16 +314,13 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     updatePrevSelectedIndex(value);
   };
 
-  const handleSelectChange = useCallback(
-    (direction: TransferDirection, holder: TransferKey[]) => {
-      if (direction === 'left') {
-        onSelectChange?.(holder, targetSelectedKeys);
-      } else {
-        onSelectChange?.(sourceSelectedKeys, holder);
-      }
-    },
-    [sourceSelectedKeys, targetSelectedKeys],
-  );
+  const handleSelectChange = useEvent((direction: TransferDirection, holder: TransferKey[]) => {
+    if (direction === 'left') {
+      onSelectChange?.(holder, targetSelectedKeys);
+    } else {
+      onSelectChange?.(sourceSelectedKeys, holder);
+    }
+  });
 
   const getTitles = (transferLocale: TransferLocale): React.ReactNode[] =>
     titles ?? transferLocale.titles ?? [];
@@ -393,13 +395,25 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     checkAll,
   ) => onItemSelectAll('right', keys, checkAll);
 
-  const leftFilter = (e: ChangeEvent<HTMLInputElement>) => onSearch?.('left', e.target.value);
+  const leftFilter = (e: ChangeEvent<HTMLInputElement>) => {
+    setPrevSelectedIndex('left', null);
+    onSearch?.('left', e.target.value);
+  };
 
-  const rightFilter = (e: ChangeEvent<HTMLInputElement>) => onSearch?.('right', e.target.value);
+  const rightFilter = (e: ChangeEvent<HTMLInputElement>) => {
+    setPrevSelectedIndex('right', null);
+    onSearch?.('right', e.target.value);
+  };
 
-  const handleLeftClear = () => onSearch?.('left', '');
+  const handleLeftClear = () => {
+    setPrevSelectedIndex('left', null);
+    onSearch?.('left', '');
+  };
 
-  const handleRightClear = () => onSearch?.('right', '');
+  const handleRightClear = () => {
+    setPrevSelectedIndex('right', null);
+    onSearch?.('right', '');
+  };
 
   const handleSingleSelect = (
     direction: TransferDirection,
@@ -435,16 +449,24 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     selectedKey: TransferKey,
     checked: boolean,
     multiple?: boolean,
+    filteredItems?: KeyWise<RecordType>[],
   ) => {
     const isLeftDirection = direction === 'left';
     const holder = isLeftDirection ? sourceSelectedKeys : targetSelectedKeys;
     const holderSet = new Set(holder);
-    const data: KeyWise<RecordType>[] = (isLeftDirection ? leftDataSource : rightDataSource).filter(
+    const data = (filteredItems ?? (isLeftDirection ? leftDataSource : rightDataSource)).filter(
       (item): item is KeyWise<RecordType> => !item.disabled,
     );
     const currentSelectedIndex = data.findIndex((item) => item.key === selectedKey);
+    const dataKeys = data.map((item) => item.key);
+    const prevDataKeys = prevDataKeysRef.current[direction];
+    const isSameData =
+      dataKeys.length === prevDataKeys.length &&
+      dataKeys.every((key, index) => key === prevDataKeys[index]);
+    prevDataKeysRef.current[direction] = dataKeys;
+
     // multiple select by hold down the shift key
-    if (multiple && holder.length > 0) {
+    if (multiple && holder.length > 0 && isSameData) {
       handleMultipleSelect(direction, data, holderSet, currentSelectedIndex);
     } else {
       handleSingleSelect(direction, holderSet, selectedKey, checked, currentSelectedIndex);
@@ -460,20 +482,25 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     selectedKey,
     checked,
     e,
+    filteredItems,
   ) => {
-    onItemSelect('left', selectedKey, checked, e?.shiftKey);
+    onItemSelect('left', selectedKey, checked, e?.shiftKey, filteredItems);
   };
 
   const onRightItemSelect: TransferListProps<KeyWise<RecordType>>['onItemSelect'] = (
     selectedKey,
     checked,
     e,
+    filteredItems,
   ) => {
-    onItemSelect('right', selectedKey, checked, e?.shiftKey);
+    onItemSelect('right', selectedKey, checked, e?.shiftKey, filteredItems);
   };
 
   const onRightItemRemove = (keys: TransferKey[]) => {
     setStateKeys('right', []);
+    if (targetSelectedKeys.length > 0) {
+      handleSelectChange('right', []);
+    }
     onChange?.(
       targetKeys.filter((key) => !keys.includes(key)),
       'left',
@@ -595,6 +622,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     data: true,
   });
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Transfer');
@@ -612,7 +645,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   // ====================== Render ======================
   return (
-    <div {...rootProps} className={cls} style={mergedStyles.root}>
+    <div ref={nativeElementRef} {...rootProps} className={cls} style={mergedStyles.root}>
       <Section<KeyWise<RecordType>>
         prefixCls={prefixCls}
         style={handleListStyle('left')}
@@ -685,6 +718,19 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     </div>
   );
 };
+
+const Transfer = React.forwardRef(InternalTransfer) as unknown as (<
+  RecordType extends TransferItem = TransferItem,
+>(
+  props: TransferProps<RecordType> & {
+    ref?: React.ForwardedRef<TransferRef>;
+  },
+) => ReturnType<typeof InternalTransfer>) &
+  Pick<React.FC, 'displayName'> & {
+    List: typeof Section;
+    Search: typeof Search;
+    Operation: typeof Actions;
+  };
 
 if (process.env.NODE_ENV !== 'production') {
   Transfer.displayName = 'Transfer';

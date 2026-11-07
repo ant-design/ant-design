@@ -30,9 +30,14 @@ const localeValues: Locale = {
     selectNone: 'Ryd alt data',
     selectInvert: 'Invertér valg',
     selectionAll: 'Vælg alt data',
+    selectRow: 'Vælg række',
+    selectedRow: 'Række valgt',
+    selectionMenu: 'Valgmenu',
     sortTitle: 'Sortér',
     expand: 'Udvid række',
     collapse: 'Flet række',
+    expandAll: 'Udvid alle rækker',
+    collapseAll: 'Fold alle rækker sammen',
     triggerDesc: 'Klik for at sortere faldende',
     triggerAsc: 'Klik for at sortere stigende',
     cancelSort: 'Klik for at annullere sortering',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Afbryd',
+  },
+  Splitter: {
+    toggleStartPanel: 'Skift startpanelet',
+    toggleEndPanel: 'Skift slutpanelet',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Kopieret',
     expand: 'Udvid',
     collapse: 'Kollaps',
+  },
+  Carousel: {
+    prevSlide: 'Forrige slide',
+    nextSlide: 'Næste slide',
   },
   Form: {
     optional: '(valgfrit)',

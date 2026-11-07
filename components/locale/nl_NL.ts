@@ -23,8 +23,10 @@ const localeValues: Locale = {
   Table: {
     cancelSort: 'Klik om sortering te annuleren',
     collapse: 'Rij inklappen',
+    collapseAll: 'Alle rijen inklappen',
     emptyText: 'Geen data',
     expand: 'Rij uitklappen',
+    expandAll: 'Alle rijen uitklappen',
     filterConfirm: 'OK',
     filterEmptyText: 'Geen filters',
     filterReset: 'Reset',
@@ -33,6 +35,9 @@ const localeValues: Locale = {
     selectInvert: 'Keer volgorde om',
     selectNone: 'Maak selectie leeg',
     selectionAll: 'Selecteer alle data',
+    selectRow: 'Rij selecteren',
+    selectedRow: 'Rij geselecteerd',
+    selectionMenu: 'Selectiemenu',
     sortTitle: 'Sorteren',
     triggerAsc: 'Klik om oplopend te sorteren',
     triggerDesc: 'Klik om aflopend te sorteren',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Annuleer',
+  },
+  Splitter: {
+    toggleStartPanel: 'Beginpaneel omschakelen',
+    toggleEndPanel: 'Eindpaneel omschakelen',
   },
   Transfer: {
     itemUnit: 'item',
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Gekopieerd',
     expand: 'Uitklappen',
     collapse: 'Samenvouwen',
+  },
+  Carousel: {
+    prevSlide: 'Vorige dia',
+    nextSlide: 'Volgende dia',
   },
   Form: {
     optional: '(optioneel)',

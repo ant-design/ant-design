@@ -2,13 +2,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import sortBy from 'lodash/sortBy';
 import unionBy from 'lodash/unionBy';
-import simpleGit from 'simple-git';
+import { simpleGit } from 'simple-git';
 
 const cwd = process.cwd();
 
 const git = simpleGit(cwd);
 
-const excludes = [
+const botExcludes = [
   'users.noreply.github.com',
   'gitter.im',
   '.local',
@@ -23,6 +23,9 @@ const excludes = [
   'dependabot',
   'dependabot[bot]',
   'gemini-code-assist[bot]',
+  'dependabot-preview',
+  'dependabot-preview[bot]',
+  'depfu[bot]',
 ];
 
 async function execute() {
@@ -31,7 +34,7 @@ async function execute() {
   const filtered = logResult.all.filter(({ author_name, author_email }) => {
     const name = author_name.toLowerCase();
     const email = author_email.toLowerCase();
-    return !excludes.some((item) => email.includes(item) || name.includes(item));
+    return !botExcludes.some((item) => email.includes(item) || name.includes(item));
   });
 
   const all = sortBy(unionBy(filtered, 'author_email'), 'author_name');

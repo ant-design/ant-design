@@ -33,8 +33,13 @@ const localeValues: Locale = {
     emptyText: 'Sen datos',
     selectNone: 'Borrar todos os datos',
     selectionAll: 'Seleccione todos os datos',
+    selectRow: 'Seleccionar fila',
+    selectedRow: 'Fila seleccionada',
+    selectionMenu: 'Menú de selección',
     expand: 'Expandir fila',
     collapse: 'Contraer fila',
+    expandAll: 'Expandir todas as filas',
+    collapseAll: 'Contraer todas as filas',
     triggerDesc: 'Fai clic para ordenar descendente',
     triggerAsc: 'Fai clic para ordenar ascendente',
     cancelSort: 'Fai clic para cancelar a clasificación',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Aceptar',
     cancelText: 'Cancelar',
+  },
+  Splitter: {
+    toggleStartPanel: 'Alternar o panel inicial',
+    toggleEndPanel: 'Alternar o panel final',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'copiado',
     expand: 'expandir',
     collapse: 'Colapsar',
+  },
+  Carousel: {
+    prevSlide: 'Diapositiva anterior',
+    nextSlide: 'Diapositiva seguinte',
   },
   Form: {
     optional: '(opcional)',

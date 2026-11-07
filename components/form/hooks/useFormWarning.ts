@@ -1,12 +1,18 @@
 import * as React from 'react';
 
-import { devUseWarning } from '../../_util/warning';
+import { useDevWarning } from '../../_util/warning';
 import type { FormProps } from '../Form';
 
 const names: Record<string, number> = {};
 
-export default function useFormWarning({ name }: FormProps) {
-  const warning = devUseWarning('Form');
+export default function useFormWarning({ name, labelAlign }: FormProps) {
+  const warning = useDevWarning('Form');
+
+  warning.deprecated(
+    labelAlign !== 'left' && labelAlign !== 'right',
+    'labelAlign=left|right',
+    'labelAlign=start|end',
+  );
 
   React.useEffect(() => {
     if (name) {

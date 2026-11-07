@@ -5,6 +5,11 @@ import type { FloatButtonGroupProps, FloatButtonProps } from '..';
 import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 import type { ButtonProps } from '../../button/Button';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('FloatButton.Semantic', () => {
   it('should update classNames when props change (FloatButton)', () => {
@@ -188,5 +193,25 @@ describe('FloatButton.Semantic', () => {
     const { container } = render(<FloatButton classNames={classNames} styles={styles} />);
     expect(container.querySelector('.float-btn-custom')).toBeTruthy();
     expect(container.querySelector('.float-btn-icon-custom')).toBeTruthy();
+  });
+
+  it('FloatButton.Group should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        floatButtonGroup={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <FloatButton.Group
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        >
+          <FloatButton />
+        </FloatButton.Group>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-float-btn-group'));
   });
 });

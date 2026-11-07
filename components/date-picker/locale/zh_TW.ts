@@ -10,12 +10,12 @@ const locale: PickerLocale = {
     yearPlaceholder: '請選擇年份',
     quarterPlaceholder: '請選擇季度',
     monthPlaceholder: '請選擇月份',
-    weekPlaceholder: '請選擇周',
+    weekPlaceholder: '請選擇週',
     rangePlaceholder: ['開始日期', '結束日期'],
     rangeYearPlaceholder: ['開始年份', '結束年份'],
     rangeMonthPlaceholder: ['開始月份', '結束月份'],
     rangeQuarterPlaceholder: ['開始季度', '結束季度'],
-    rangeWeekPlaceholder: ['開始周', '結束周'],
+    rangeWeekPlaceholder: ['開始週', '結束週'],
     ...CalendarLocale,
   },
   timePickerLocale: {
@@ -23,7 +23,7 @@ const locale: PickerLocale = {
   },
 };
 
-locale.lang.ok = '確 定';
+locale.lang.ok = '確定';
 
 // All settings at:
 // https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json

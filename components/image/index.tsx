@@ -4,7 +4,7 @@ import type { ImageProps as RcImageProps } from '@rc-component/image';
 import { clsx } from 'clsx';
 
 import type { MaskType } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -217,9 +217,14 @@ const Image: CompositionImage<ImageProps> = (props) => {
     [contextClassNames, classNames, mergedLegacyClassNames, mergedPopupClassNames],
   );
 
+  const contextImageStyle = useSemanticRootStyle(contextStyle, 'image');
+  const imageStyle = useSemanticRootStyle(style, 'image');
+  const contextRootStyle = useSemanticRootStyle(contextStyle);
+  const rootStyle = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     internalClassNames,
-    [contextStyles, { root: wrapperStyle }, styles],
+    [contextStyles, { root: wrapperStyle }, contextImageStyle, styles, imageStyle],
     {
       props: mergedProps,
     },
@@ -229,7 +234,23 @@ const Image: CompositionImage<ImageProps> = (props) => {
     },
   );
 
-  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
+  const [, progressMergedStyles] = useMergeSemantic<
+    ImageSemanticAllType['classNames'],
+    ImageSemanticAllType['styles'],
+    ImageProps
+  >(
+    [],
+    [contextStyles, contextRootStyle, { root: wrapperStyle }, styles, rootStyle],
+    {
+      props: mergedProps,
+    },
+    {
+      popup: { _default: 'root' },
+      placeholder: {},
+    },
+  );
+
+  const { image: mergedImageStyle, ...restMergedStyles } = mergedStyles;
   const mergedFallback: RcImageProps['fallback'] = fallback ?? contextFallback;
 
   // ============================= Progress ==============================
@@ -242,7 +263,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const progressClassNames = mergedClassNames?.placeholder?.progress as
     | ProgressClassNames
     | undefined;
-  const progressStyles = mergedStyles?.placeholder?.progress as ProgressStyles | undefined;
+  const progressStyles = progressMergedStyles?.placeholder?.progress as ProgressStyles | undefined;
 
   // ============================== Render ==============================
   const { width, height, src, ...restOtherProps } = otherProps;
@@ -267,10 +288,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
         classNames={progressClassNames}
         styles={progressStyles}
         rootClassName={clsx(mergedRootClassName, mergedClassName)}
-        rootStyle={{
-          ...mergedStyle,
-          ...mergedStyles?.root,
-        }}
+        rootStyle={progressMergedStyles?.root}
         width={width}
         height={height}
       />
@@ -283,7 +301,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       preview={mergedPreviewConfig || false}
       rootClassName={mergedRootClassName}
       className={mergedClassName}
-      style={mergedStyle}
+      style={mergedImageStyle}
       fallback={mergedFallback}
       placeholder={placeholderNode}
       width={width}
@@ -291,7 +309,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       src={src}
       {...restOtherProps}
       classNames={mergedClassNames}
-      styles={mergedStyles}
+      styles={restMergedStyles}
     />
   );
 };

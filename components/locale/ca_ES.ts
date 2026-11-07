@@ -28,9 +28,14 @@ const localeValues: Locale = {
     selectAll: 'Seleccionar la pàgina actual',
     selectInvert: 'Invertir la selecció',
     selectionAll: 'Seleccionar-ho tot',
+    selectRow: 'Selecciona la fila',
+    selectedRow: 'Fila seleccionada',
+    selectionMenu: 'Menú de selecció',
     sortTitle: 'Ordenar',
     expand: 'Ampliar la fila',
     collapse: 'Plegar la fila',
+    expandAll: 'Ampliar totes les files',
+    collapseAll: 'Plegar totes les files',
     triggerDesc: 'Ordre descendent',
     triggerAsc: 'Ordre ascendent',
     cancelSort: 'Desactivar l’ordre',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'D’acord',
     cancelText: 'Cancel·lar',
+  },
+  Splitter: {
+    toggleStartPanel: 'Commuta el panell inicial',
+    toggleEndPanel: 'Commuta el panell final',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Copiat',
     expand: 'Ampliar',
     collapse: 'Col·lapse',
+  },
+  Carousel: {
+    prevSlide: 'Diapositiva anterior',
+    nextSlide: 'Diapositiva següent',
   },
   Form: {
     optional: '(opcional)',

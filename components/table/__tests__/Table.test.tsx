@@ -549,6 +549,30 @@ describe('Table', () => {
     expect(typeof tblRef.current?.scrollTo === 'function').toBeTruthy();
   });
 
+  it('support reference scrollTo', () => {
+    const tblRef = React.createRef<TableRef>();
+    const { container } = render(
+      <Table
+        ref={tblRef}
+        scroll={{ y: 100 }}
+        columns={[{ dataIndex: 'key' }]}
+        dataSource={[{ key: 'bamboo' }]}
+      />,
+    );
+    const body = container.querySelector<HTMLDivElement>('.ant-table-body')!;
+    body.scrollTo = jest.fn();
+
+    tblRef.current?.scrollTo({ top: 100 });
+    expect(body.scrollTo).toHaveBeenCalledWith({ top: 100 });
+
+    const row = container.querySelector<HTMLElement>('[data-row-key="bamboo"]')!;
+    const scrollIntoView = jest.spyOn(row, 'scrollIntoView');
+
+    tblRef.current?.scrollTo({ key: 'bamboo' });
+    expect(scrollIntoView).toHaveBeenCalledWith({ block: 'nearest' });
+    scrollIntoView.mockRestore();
+  });
+
   it('support hidden columns', () => {
     const columns = [
       {
@@ -635,6 +659,32 @@ describe('Table', () => {
 
     fireEvent.mouseEnter(cell);
     expect(container.querySelectorAll('.ant-table-cell-row-hover')).toHaveLength(0);
+  });
+
+  it('should add no-header class only when header and title are absent', () => {
+    const columns = [{ title: 'Name', dataIndex: 'name' }];
+    const dataSource = [{ key: 1, name: 'Jack' }];
+    const { container, rerender } = render(
+      <Table bordered showHeader={false} columns={columns} dataSource={dataSource} />,
+    );
+
+    expect(container.querySelector('.ant-table')).toHaveClass('ant-table-no-header');
+
+    rerender(<Table bordered showHeader columns={columns} dataSource={dataSource} />);
+
+    expect(container.querySelector('.ant-table')).not.toHaveClass('ant-table-no-header');
+
+    rerender(
+      <Table
+        bordered
+        showHeader={false}
+        title={() => 'Title'}
+        columns={columns}
+        dataSource={dataSource}
+      />,
+    );
+
+    expect(container.querySelector('.ant-table')).not.toHaveClass('ant-table-no-header');
   });
 
   it('rowSelection should support align', () => {

@@ -35,7 +35,7 @@ demo:
 
 ### Breadcrumb
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
 | dropdownIcon | 自定义下拉图标 | ReactNode | `<DownOutlined />` | 6.2.0 | 6.2.0 |
@@ -54,10 +54,10 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | className | 自定义类名 | string | - |  |
-| dropdownProps | 弹出下拉菜单的自定义配置 | [Dropdown](/components/dropdown-cn) | - |  |
+| dropdownProps | 弹出下拉菜单的自定义配置 | [Dropdown](/components/dropdown) | - |  |
 | href | 链接的目的地，不能和 `path` 共用 | string | - |  |
 | path | 拼接路径，每一层都会拼接前一个 `path` 信息。不能和 `href` 共用 | string | - |  |
-| menu | 菜单配置项 | [MenuProps](/components/menu-cn/#api) | - | 4.24.0 |
+| menu | 菜单配置项 | [MenuProps](/components/menu/#api) | - | 4.24.0 |
 | onClick | 单击事件 | (e:MouseEvent) => void | - |  |
 | title | 名称 | ReactNode | - | 5.3.0 |
 

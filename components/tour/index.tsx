@@ -4,12 +4,16 @@ import type { TourProps as RcTourProps } from '@rc-component/tour';
 import { clsx } from 'clsx';
 
 import { useZIndex } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import {
+  resolveStyleOrClass,
+  useMergeSemantic,
+  useSemanticRootStyle,
+} from '../_util/hooks/useMergeSemantic';
 import getPlacements from '../_util/placements';
 import ZIndexContext from '../_util/zindexContext';
 import { useComponentConfig } from '../config-provider/context';
 import { useToken } from '../theme/internal';
-import type { TourProps, TourStepProps } from './interface';
+import type { TourProps, TourSemanticAllType, TourStepProps } from './interface';
 import TourPanel from './panelRender';
 import PurePanel from './PurePanel';
 import useStyle from './style';
@@ -66,9 +70,25 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     steps: mergedSteps,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const resolvedContextStyles = resolveStyleOrClass<TourSemanticAllType['styles'] | undefined>(
+    contextStyles,
+    { props: mergedProps },
+  );
+  const contextStylesRootMask = useSemanticRootStyle(resolvedContextStyles?.root, 'mask');
+  const contextStyleMask = useSemanticRootStyle(contextStyle, 'mask');
+  const resolvedStyles = resolveStyleOrClass<TourSemanticAllType['styles'] | undefined>(styles, {
+    props: mergedProps,
+  });
+  const stylesRootMask = useSemanticRootStyle(resolvedStyles?.root, 'mask');
+  const styleMask = useSemanticRootStyle(style, 'mask');
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TourSemanticAllType['classNames'],
+    TourSemanticAllType['styles'],
+    TourProps
+  >(
     [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStylesRootMask, contextStyles, contextStyleMask, stylesRootMask, styles, styleMask],
     {
       props: mergedProps,
     },
@@ -93,19 +113,9 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     className,
   );
 
-  const semanticStyles = {
-    ...mergedStyles,
-    mask: {
-      ...mergedStyles.root,
-      ...mergedStyles.mask,
-      ...contextStyle,
-      ...style,
-    },
-  };
-
   const mergedRenderPanel: RcTourProps['renderPanel'] = (stepProps, stepCurrent) => (
     <TourPanel
-      styles={semanticStyles}
+      styles={mergedStyles}
       classNames={mergedClassNames}
       type={type}
       stepProps={stepProps}
@@ -122,7 +132,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     <ZIndexContext.Provider value={contextZIndex}>
       <RCTour
         {...restProps}
-        styles={semanticStyles}
+        styles={mergedStyles}
         classNames={mergedClassNames}
         closeIcon={closeIcon ?? contextCloseIcon}
         keyboard={keyboard}

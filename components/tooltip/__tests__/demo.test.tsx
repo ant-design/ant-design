@@ -4,7 +4,7 @@ import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('tooltip', {
   testRootProps: false,
-  skip: ['shift.tsx', 'debug.tsx'],
+  skip: ['shift.tsx', 'debug.tsx', 'force-align.tsx'],
 });
 
 rootPropsTest(

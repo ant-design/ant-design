@@ -114,8 +114,20 @@ describe('Test ScrollTo function', () => {
 
   it('test cancel function returns undefined', () => {
     const cancel = scrollTo(1000);
-
     expect(() => cancel()).not.toThrow();
+    expect(cancel()).toBeUndefined();
+  });
+
+  it('test immediate scroll with callback', () => {
+    const callbackMock = jest.fn();
+    const div = document.createElement<'div'>('div');
+    const cancel = scrollTo(1000, {
+      callback: callbackMock,
+      duration: 0,
+      getContainer: () => div,
+    });
+    expect(div.scrollTop).toBe(1000);
+    expect(callbackMock).toHaveBeenCalledTimes(1);
     expect(cancel()).toBeUndefined();
   });
 });

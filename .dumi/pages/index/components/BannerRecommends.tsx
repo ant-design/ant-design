@@ -40,7 +40,7 @@ const useStyle = createStyles(({ cssVar, css, cx }) => {
         ${cssVar.colorBorderSecondary}
       );
       opacity: 0;
-      transition: all 0.3s ease;
+      transition: all ${cssVar.motionDurationSlow} ease;
       mask:
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);

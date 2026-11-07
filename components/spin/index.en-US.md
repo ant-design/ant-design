@@ -25,6 +25,7 @@ When part of the page is waiting for asynchronous data or during a rendering pro
 <code src="./demo/percent.tsx" version="5.18.0">Progress</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/fullscreen.tsx">Fullscreen</code>
+<code src="./demo/list-debug.tsx" debug>Nested in List debug</code>
 
 ## API
 

@@ -3,7 +3,13 @@ import { warning } from '@rc-component/util';
 
 import Drawer from '..';
 import type { DrawerProps } from '..';
+import {
+  expectSemanticRootStylePriority,
+  expectSemanticRootStyleWithRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 const { resetWarned } = warning;
 
@@ -25,7 +31,7 @@ describe('Drawer.Semantic', () => {
       root: { fontSize: '24px' },
       mask: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
       header: { borderBottom: '1px solid rgb(232, 232, 232)' },
-      title: { fontWeight: 'bold' },
+      title: { fontWeight: 700 },
       extra: { color: 'rgb(255, 0, 0)' },
       section: { padding: '24px' },
       body: { color: 'rgb(0, 255, 0)' },
@@ -73,7 +79,7 @@ describe('Drawer.Semantic', () => {
     expect(rootElement).toHaveStyle({ 'font-size': '24px' });
     expect(maskElement).toHaveStyle({ 'background-color': 'rgba(0, 0, 0, 0.5)' });
     expect(headerElement).toHaveStyle({ 'border-bottom': '1px solid rgb(232, 232, 232)' });
-    expect(titleElement).toHaveStyle({ 'font-weight': 'bold' });
+    expect(titleElement).toHaveStyle({ fontWeight: 700 });
     expect(extraElement).toHaveStyle({ color: 'rgb(255, 0, 0)' });
     expect(sectionElement).toHaveStyle({ padding: '24px' });
     expect(bodyElement).toHaveStyle({ color: 'rgb(0, 255, 0)' });
@@ -114,7 +120,7 @@ describe('Drawer.Semantic', () => {
             root: { padding: '20px' },
             mask: { backgroundColor: 'rgba(0, 0, 0, 0.8)' },
             header: { borderBottom: '1px solid rgb(250, 250, 250)' },
-            title: { fontWeight: 'normal' },
+            title: { fontWeight: 400 },
             extra: { color: 'rgb(0, 0, 255)' },
             section: { padding: '18px' },
             body: { color: 'rgb(0, 200, 0)' },
@@ -125,7 +131,7 @@ describe('Drawer.Semantic', () => {
             root: { padding: '24px' },
             mask: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
             header: { borderBottom: '1px solid rgb(232, 232, 232)' },
-            title: { fontWeight: 'bold' },
+            title: { fontWeight: 700 },
             extra: { color: 'rgb(255, 0, 0)' },
             section: { padding: '22px' },
             body: { color: 'rgb(0, 255, 0)' },
@@ -175,7 +181,7 @@ describe('Drawer.Semantic', () => {
     expect(rootElement).toHaveStyle({ padding: '20px' });
     expect(maskElement).toHaveStyle({ 'background-color': 'rgba(0, 0, 0, 0.8)' });
     expect(headerElement).toHaveStyle({ 'border-bottom': '1px solid rgb(250, 250, 250)' });
-    expect(titleElement).toHaveStyle({ 'font-weight': 'normal' });
+    expect(titleElement).toHaveStyle({ fontWeight: 400 });
     expect(extraElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
     expect(sectionElement).toHaveStyle({ padding: '18px' });
     expect(bodyElement).toHaveStyle({ color: 'rgb(0, 200, 0)' });
@@ -213,7 +219,7 @@ describe('Drawer.Semantic', () => {
     expect(rootElement).toHaveStyle({ padding: '24px' });
     expect(maskElement).toHaveStyle({ 'background-color': 'rgba(0, 0, 0, 0.5)' });
     expect(headerElement).toHaveStyle({ 'border-bottom': '1px solid rgb(232, 232, 232)' });
-    expect(titleElement).toHaveStyle({ 'font-weight': 'bold' });
+    expect(titleElement).toHaveStyle({ fontWeight: 700 });
     expect(extraElement).toHaveStyle({ color: 'rgb(255, 0, 0)' });
     expect(sectionElement).toHaveStyle({ padding: '22px' });
     expect(bodyElement).toHaveStyle({ color: 'rgb(0, 255, 0)' });
@@ -239,5 +245,48 @@ describe('Drawer.Semantic', () => {
     );
 
     errorSpy.mockRestore();
+  });
+
+  it('should follow section style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        drawer={{
+          styles: { section: semanticRootStylePriority.contextStyles.root },
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Drawer
+          open
+          getContainer={false}
+          styles={{ section: semanticRootStylePriority.styles.root }}
+          style={semanticRootStylePriority.style}
+        >
+          test
+        </Drawer>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-drawer-section'));
+  });
+
+  it('should let rootStyle override semantic root style', () => {
+    const { container } = render(
+      <ConfigProvider
+        drawer={{
+          styles: semanticRootStylePriority.contextStyles,
+        }}
+      >
+        <Drawer
+          open
+          getContainer={false}
+          styles={semanticRootStylePriority.styles}
+          rootStyle={semanticRootStylePriority.style}
+        >
+          test
+        </Drawer>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStyleWithRootStylePriority(container.querySelector('.ant-drawer'));
   });
 });

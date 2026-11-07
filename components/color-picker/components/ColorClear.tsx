@@ -11,10 +11,22 @@ interface ColorClearProps {
   onChange?: (value: AggregationColor) => void;
   className?: string;
   style?: React.CSSProperties;
+  disabled?: boolean;
 }
 
-const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange, className, style }) => {
+const ColorClear: FC<ColorClearProps> = ({
+  prefixCls,
+  value,
+  onChange,
+  className,
+  style,
+  disabled,
+}) => {
   const onClick = () => {
+    if (disabled) {
+      return;
+    }
+
     if (onChange && value && !value.cleared) {
       const hsba = value.toHsb();
       hsba.a = 0;
@@ -36,8 +48,11 @@ const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange, className
     <div
       role="button"
       aria-label="Clear color"
-      tabIndex={0}
-      className={clsx(`${prefixCls}-clear`, className)}
+      aria-disabled={disabled || undefined}
+      tabIndex={disabled ? -1 : 0}
+      className={clsx(`${prefixCls}-clear`, className, {
+        [`${prefixCls}-clear-disabled`]: disabled,
+      })}
       style={style}
       onClick={onClick}
       onKeyDown={onKeyDown}

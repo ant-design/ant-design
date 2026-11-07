@@ -26,12 +26,13 @@ demo:
 <code src="./demo/percent.tsx" version="5.18.0">进度</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/fullscreen.tsx">全屏</code>
+<code src="./demo/list-debug.tsx" debug>List 嵌套调试</code>
 
 ## API
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | delay | 延迟显示加载效果的时间（防止闪烁） | number (毫秒) | - |  | × |
@@ -45,7 +46,7 @@ demo:
 | ~~tip~~ | 当作为包裹元素时，可以自定义描述文案。已废弃，请使用 `description` | ReactNode | - |  | × |
 | ~~wrapperClassName~~ | 包装器的类属性。已废弃，请使用 `classNames.root` | string | - |  | × |
 
-### 静态方法
+### 静态方法 {#static-method}
 
 - `Spin.setDefaultIndicator(indicator: ReactNode)`
 

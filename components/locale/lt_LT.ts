@@ -32,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: 'Apversti pasirinkimą',
     selectNone: 'Išvalyti visus',
     selectionAll: 'Rinktis visus',
+    selectRow: 'Pasirinkti eilutę',
+    selectedRow: 'Eilutė pasirinkta',
+    selectionMenu: 'Pasirinkimo meniu',
     sortTitle: 'Rikiavimas',
     expand: 'Išskleisti',
     collapse: 'Suskleisti',
+    expandAll: 'Išskleisti visas eilutes',
+    collapseAll: 'Suskleisti visas eilutes',
     triggerDesc: 'Spustelėkite norėdami rūšiuoti mažėjančia tvarka',
     triggerAsc: 'Spustelėkite norėdami rūšiuoti didėjančia tvarka',
     cancelSort: 'Spustelėkite, kad atšauktumėte rūšiavimą',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Taip',
     cancelText: 'Atšaukti',
+  },
+  Splitter: {
+    toggleStartPanel: 'Perjungti pradžios skydelį',
+    toggleEndPanel: 'Perjungti pabaigos skydelį',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Nukopijuota',
     expand: 'Plačiau',
     collapse: 'Sutraukti',
+  },
+  Carousel: {
+    prevSlide: 'Ankstesnė skaidrė',
+    nextSlide: 'Kita skaidrė',
   },
   Form: {
     optional: '(neprivaloma)',

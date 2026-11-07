@@ -606,7 +606,7 @@ exports[`renders components/statistic/demo/timer.tsx correctly 1`] = `
         <div
           class="ant-statistic-title"
         >
-          Million Seconds
+          Milliseconds
         </div>
       </div>
       <div

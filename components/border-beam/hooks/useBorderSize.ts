@@ -1,47 +1,43 @@
 import React from 'react';
 
-export type BorderWidth = readonly [number, number, number, number];
+import { isNumber } from '../../_util/is';
+import { isSameBorderWidth } from '../util';
+import type { BorderWidth } from '../util';
 
-export type BorderInfo = {
-  borderWidth: BorderWidth;
-  borderRadius: string;
-};
+const DEFAULT_BORDER_WIDTH: BorderWidth = [0, 0, 0, 0];
 
-const DEFAULT_BORDER_INFO: BorderInfo = {
-  borderWidth: [0, 0, 0, 0],
-  borderRadius: '0px',
-};
-
-const parseBorderWidth = (value: string) => {
-  const size = Number.parseFloat(value);
-
-  return Number.isFinite(size) ? size : 0;
+const normalizeValue = (val: string) => {
+  const size = Number.parseFloat(val);
+  return isNumber(size) ? size : 0;
 };
 
 const useBorderSize = (domNode: Element | null) => {
-  const [borderInfo, setBorderInfo] = React.useState<BorderInfo>(DEFAULT_BORDER_INFO);
+  const [borderWidth, setBorderWidth] = React.useState<BorderWidth>(DEFAULT_BORDER_WIDTH);
+
+  const setIfChanged = (next: BorderWidth) => {
+    setBorderWidth((prev) => (isSameBorderWidth(prev, next) ? prev : next));
+  };
 
   React.useEffect(() => {
     if (!domNode) {
-      setBorderInfo(DEFAULT_BORDER_INFO);
+      setIfChanged(DEFAULT_BORDER_WIDTH);
       return;
     }
 
-    const { borderTopWidth, borderRightWidth, borderBottomWidth, borderLeftWidth, borderRadius } =
+    const { borderTopWidth, borderRightWidth, borderBottomWidth, borderLeftWidth } =
       getComputedStyle(domNode);
 
-    setBorderInfo({
-      borderWidth: [
-        parseBorderWidth(borderTopWidth),
-        parseBorderWidth(borderRightWidth),
-        parseBorderWidth(borderBottomWidth),
-        parseBorderWidth(borderLeftWidth),
-      ],
-      borderRadius,
-    });
+    const nextBorderWidth: BorderWidth = [
+      normalizeValue(borderTopWidth),
+      normalizeValue(borderRightWidth),
+      normalizeValue(borderBottomWidth),
+      normalizeValue(borderLeftWidth),
+    ];
+
+    setIfChanged(nextBorderWidth);
   }, [domNode]);
 
-  return borderInfo;
+  return borderWidth;
 };
 
 export default useBorderSize;

@@ -8,6 +8,7 @@
     "experimentalDecorators": true,
     "module": "esnext",
     "moduleResolution": "Bundler",
+    "rewriteRelativeImportExtensions": true,
     "paths": {
       "@@/*": ["./.dumi/tmp/*"],
       "antd": ["./components/index.ts"],
@@ -25,6 +26,6 @@
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "include": [".dumirc.ts", "**/*"],
+  "include": [".dumirc.ts", ".jest*.ts", "**/*"],
   "exclude": ["node_modules", "lib", "es"]
 }

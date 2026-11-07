@@ -1,7 +1,12 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
-import { genBasicInputStyle, genPlaceholderStyle, initInputToken } from '../../input/style';
+import {
+  genAllowClearStyle,
+  genBasicInputStyle,
+  genPlaceholderStyle,
+  initInputToken,
+} from '../../input/style';
 import {
   genBorderlessStyle,
   genFilledStyle,
@@ -155,11 +160,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
               appearance: 'none',
             },
         },
-        [`&:hover ${componentCls}-handler-wrap, &-focused ${componentCls}-handler-wrap`]: {
-          width: token.handleWidth,
-          opacity: 1,
-        },
-
         // ======================= Disabled =======================
         [`&-disabled ${componentCls}-input`]: {
           cursor: 'not-allowed',
@@ -179,7 +179,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
 
           userSelect: 'none',
           overflow: 'hidden',
-          fontWeight: 'bold',
+          fontWeight: 700,
           lineHeight: 0,
           textAlign: 'center',
           cursor: 'pointer',
@@ -281,6 +281,10 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
             textAlign: 'center',
             paddingInline: varRef('input-padding-inline'),
           },
+
+          [`${componentCls}-suffix`]: {
+            marginInlineEnd: varRef('input-padding-inline'),
+          },
         },
       },
     },
@@ -315,6 +319,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
     // ==========================================================
     {
       [componentCls]: {
+        ...genAllowClearStyle(token),
+
         [`${componentCls}-prefix, ${componentCls}-suffix`]: {
           display: 'flex',
           flex: 'none',
@@ -331,11 +337,22 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
           height: '100%',
           marginInlineStart: inputAffixPadding,
           transition: `margin ${motionDurationMid}`,
+
+          [`${componentCls}-clear-icon`]: {
+            flex: 'none',
+            pointerEvents: 'auto',
+          },
         },
 
-        [`&:hover:not(${componentCls}-without-controls)`]: {
+        [`&-mode-input:not(${componentCls}-without-controls)`]: {
           [`${componentCls}-suffix`]: {
-            marginInlineEnd: token.handleWidth,
+            marginInlineEnd: token.handleVisibleWidth,
+          },
+
+          [`&:hover, &${componentCls}-focused`]: {
+            [`${componentCls}-suffix`]: {
+              marginInlineEnd: token.handleWidth,
+            },
           },
         },
       },

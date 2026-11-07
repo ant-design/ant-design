@@ -30,9 +30,14 @@ const localeValues: Locale = {
     selectInvert: 'បញ្ច្រាសក្នុងទំព័រនេះ',
     selectNone: 'លុបចេញទាំងអស់',
     selectionAll: 'រើសយកទាំងអស់',
+    selectRow: 'ជ្រើសរើសជួរដេក',
+    selectedRow: 'បានជ្រើសរើសជួរដេក',
+    selectionMenu: 'ម៉ឺនុយជម្រើស',
     sortTitle: 'តម្រៀប',
     expand: 'ពន្លាត',
     collapse: 'បិតបាំង',
+    expandAll: 'ពន្លាតជួរដេកទាំងអស់',
+    collapseAll: 'បិតបាំងជួរដេកទាំងអស់',
     triggerDesc: 'ចុចដើម្បីរៀបតាមលំដាប់ធំ',
     triggerAsc: 'ចុចដើម្បីរៀបតាមលំដាប់តូច​',
     cancelSort: 'ចុចដើម្បីបោះបង់',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'យល់ព្រម',
     cancelText: 'បោះបង់',
+  },
+  Splitter: {
+    toggleStartPanel: 'បិទ/បើកផ្ទាំងចាប់ផ្តើម',
+    toggleEndPanel: 'បិទ/បើកផ្ទាំងបញ្ចប់',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'ចម្លង',
     expand: 'ពង្រីក',
     collapse: 'ដួលរលំ',
+  },
+  Carousel: {
+    prevSlide: 'ស្លាយមុន',
+    nextSlide: 'ស្លាយបន្ទាប់',
   },
   Form: {
     optional: '(ស្រេចចិត្ត)',

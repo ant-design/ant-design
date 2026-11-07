@@ -20,6 +20,26 @@ describe('List Item Layout', () => {
     },
   ];
 
+  it('should support List.Item.Meta nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof List.Item.Meta>>();
+    const { container } = render(<List.Item.Meta ref={ref} title="Title" />);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-list-item-meta'));
+  });
+
+  it('should render numeric zero Meta content and remove it for empty values', () => {
+    const { container, rerender } = render(<List.Item.Meta avatar={0} title={0} description={0} />);
+
+    expect(container.querySelector('.ant-list-item-meta-avatar')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-list-item-meta-title')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-list-item-meta-description')?.textContent).toBe('0');
+
+    rerender(<List.Item.Meta avatar={false} title="" description={null} />);
+
+    expect(container.querySelector('.ant-list-item-meta-avatar')).toBeNull();
+    expect(container.querySelector('.ant-list-item-meta-content')).toBeNull();
+  });
+
   it('horizontal itemLayout List which contains string nodes should not be flex container', () => {
     const { container } = render(
       <List
@@ -87,6 +107,25 @@ describe('List Item Layout', () => {
       />,
     );
     expect(container.querySelectorAll('.ant-list-item')[0]).toHaveClass('ant-list-item-no-flex');
+  });
+
+  it('should render numeric zero as vertical extra and remove it for empty values', () => {
+    const getList = (extra: React.ReactNode) => (
+      <List
+        itemLayout="vertical"
+        dataSource={[0]}
+        renderItem={() => <List.Item extra={extra}>content</List.Item>}
+      />
+    );
+    const { container, rerender } = render(getList(0));
+
+    expect(container.querySelector('.ant-list-item-extra')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-list-item')).not.toHaveClass('ant-list-item-no-flex');
+
+    rerender(getList(false));
+
+    expect(container.querySelector('.ant-list-item-extra')).toBeNull();
+    expect(container.querySelector('.ant-list-item')).toHaveClass('ant-list-item-no-flex');
   });
 
   it('horizontal itemLayout List should accept extra node', () => {
@@ -223,6 +262,36 @@ describe('List Item Layout', () => {
     rerender(getDom(3));
     rerender(getDom(5));
     expect(loadId).toEqual([1, 3, 5]);
+  });
+
+  it('should preserve an item with numeric zero rowKey when data is reordered', () => {
+    const mountedIds: number[] = [];
+
+    const Demo = ({ id }: { id: number }) => {
+      useEffect(() => {
+        mountedIds.push(id);
+      }, []);
+
+      return <div>{id}</div>;
+    };
+
+    const getDom = (dataSource: Array<{ id: number }>) => (
+      <List
+        dataSource={dataSource}
+        rowKey={(item) => item.id}
+        renderItem={(item) => (
+          <List.Item>
+            <Demo id={item.id} />
+          </List.Item>
+        )}
+      />
+    );
+
+    const { rerender } = pureRender(getDom([{ id: 0 }, { id: 1 }]));
+    expect(mountedIds).toEqual([0, 1]);
+
+    rerender(getDom([{ id: 1 }, { id: 0 }]));
+    expect(mountedIds).toEqual([0, 1]);
   });
 
   it('List.Item.Meta title should have no default margin', () => {

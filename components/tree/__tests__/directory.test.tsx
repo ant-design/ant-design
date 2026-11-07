@@ -146,6 +146,114 @@ describe('Directory Tree', () => {
     expect(leaf3).not.toHaveClass('ant-tree-node-selected');
   });
 
+  it.each([false, true])('skip unselectable nodes in shift selection (reverse: %s)', (reverse) => {
+    const onSelect = jest.fn();
+    const treeData = [
+      { title: 'A', key: 'a' },
+      {
+        title: 'B',
+        key: 'b',
+        selectable: false,
+        children: [{ title: 'B child', key: 'b-child' }],
+      },
+      {
+        title: 'D',
+        key: 'd',
+        disabled: true,
+        children: [{ title: 'D child', key: 'd-child' }],
+      },
+      { title: 'C', key: 'c' },
+    ];
+    const { container, getByText } = render(
+      <DirectoryTree
+        multiple
+        defaultExpandAll
+        expandAction={false}
+        treeData={treeData}
+        onSelect={onSelect}
+      />,
+    );
+
+    fireEvent.click(getByText('B'));
+    fireEvent.click(getByText('D'));
+    expect(onSelect).not.toHaveBeenCalled();
+
+    fireEvent.click(getByText(reverse ? 'C' : 'A'));
+    fireEvent.click(getByText(reverse ? 'A' : 'C'), { shiftKey: true });
+
+    expect(onSelect).toHaveBeenLastCalledWith(
+      reverse ? ['c', 'a', 'b-child', 'd-child'] : ['a', 'b-child', 'd-child', 'c'],
+      expect.objectContaining({
+        selectedNodes: [
+          treeData[0],
+          treeData[1].children![0],
+          treeData[2].children![0],
+          treeData[3],
+        ],
+      }),
+    );
+    expect(
+      Array.from(container.querySelectorAll('.ant-tree-node-selected .ant-tree-title')).map(
+        (node) => node.textContent,
+      ),
+    ).toEqual(['A', 'B child', 'D child', 'C']);
+  });
+
+  it('select range when the first selected key is 0', () => {
+    const onSelect = jest.fn();
+    const treeData = [
+      { title: 'Zero', key: 0 },
+      { title: 'One', key: 1 },
+      { title: 'Two', key: 2 },
+    ];
+    const { container } = render(
+      <DirectoryTree multiple treeData={treeData} onSelect={onSelect} />,
+    );
+    const nodes = container.querySelectorAll('.ant-tree-node-content-wrapper');
+
+    fireEvent.click(nodes[0]);
+    fireEvent.click(nodes[2], { shiftKey: true });
+
+    expect(container.querySelectorAll('.ant-tree-node-selected')).toHaveLength(3);
+    expect(onSelect).toHaveBeenLastCalledWith(
+      [0, 1, 2],
+      expect.objectContaining({ selectedNodes: treeData }),
+    );
+  });
+
+  it('selects a range of numeric keys with defaultExpandAll', () => {
+    const onSelect = jest.fn();
+    const treeData = [
+      {
+        key: 1,
+        title: 'Folder',
+        children: [
+          { key: 2, title: 'File A' },
+          { key: 3, title: 'File B' },
+          { key: 4, title: 'File C' },
+        ],
+      },
+    ];
+    const { getByText, container } = render(
+      <DirectoryTree
+        multiple
+        defaultExpandAll
+        expandAction="doubleClick"
+        treeData={treeData}
+        onSelect={onSelect}
+      />,
+    );
+
+    fireEvent.click(getByText('File A'));
+    fireEvent.click(getByText('File C'), { shiftKey: true });
+
+    expect(container.querySelectorAll('.ant-tree-node-selected')).toHaveLength(3);
+    expect(onSelect).toHaveBeenLastCalledWith(
+      [2, 3, 4],
+      expect.objectContaining({ selectedNodes: treeData[0].children }),
+    );
+  });
+
   it('DirectoryTree should expend all when use treeData and defaultExpandAll is true', () => {
     const treeData = [
       {
@@ -285,6 +393,53 @@ describe('Directory Tree', () => {
     expect(onSelect).toHaveBeenCalledWith(
       ['0-0-2'],
       expect.objectContaining({ event: 'select', nativeEvent: expect.anything() }),
+    );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/49668
+  it('should stay uncontrolled when expandedKeys is undefined', () => {
+    const { container } = render(createTree({ expandedKeys: undefined }));
+    expect(container.querySelectorAll('[role="treeitem"]')).toHaveLength(2);
+
+    fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelectorAll('[role="treeitem"]')).toHaveLength(4);
+  });
+
+  it('should stay controlled when expandedKeys is provided', () => {
+    const onExpand = jest.fn();
+    const { container } = render(createTree({ expandedKeys: [], onExpand }));
+    expect(container.querySelectorAll('[role="treeitem"]')).toHaveLength(2);
+
+    fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    // The caller owns the state, so nothing expands until it feeds new keys back in
+    expect(onExpand).toHaveBeenCalledWith(['0-0'], expect.anything());
+    expect(container.querySelectorAll('[role="treeitem"]')).toHaveLength(2);
+  });
+
+  it('should support shift range selection when expandedKeys is undefined', () => {
+    const onSelect = jest.fn();
+    const treeData = [
+      { title: 'Zero', key: 0 },
+      { title: 'One', key: 1 },
+      { title: 'Two', key: 2 },
+    ];
+    const { container } = render(
+      <DirectoryTree multiple expandedKeys={undefined} treeData={treeData} onSelect={onSelect} />,
+    );
+    const nodes = container.querySelectorAll('.ant-tree-node-content-wrapper');
+
+    fireEvent.click(nodes[0]);
+    fireEvent.click(nodes[2], { shiftKey: true });
+
+    expect(onSelect).toHaveBeenLastCalledWith(
+      [0, 1, 2],
+      expect.objectContaining({ selectedNodes: treeData }),
     );
   });
 

@@ -1,9 +1,9 @@
 import React, { useMemo, useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import { omit } from '@rc-component/util';
+import { isNonNullable, isReactRenderable, omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isFunction, isNonNullable, isNumber, isPlainObject, isString } from '../_util/is';
+import { isFunction, isNumber, isPlainObject, isString } from '../_util/is';
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
@@ -82,6 +82,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
     key: TransferKey,
     check: boolean,
     e?: React.MouseEvent<Element, MouseEvent>,
+    filteredItems?: RecordType[],
   ) => void;
   onItemSelectAll: (dataSource: TransferKey[], checkAll: boolean | 'replace') => void;
   onItemRemove?: (keys: TransferKey[]) => void;
@@ -109,8 +110,8 @@ export interface TransferListProps<RecordType> extends TransferLocale {
 
 export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {}
 
-const getShowSearchOption = (showSearch: boolean | TransferSearchOption) => {
-  if (isPlainObject(showSearch)) {
+const getShowSearchOption = (showSearch: boolean | TransferSearchOption): TransferSearchOption => {
+  if (isPlainObject<TransferSearchOption>(showSearch)) {
     return {
       ...showSearch,
       defaultValue: showSearch.defaultValue || '',
@@ -166,7 +167,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   const listPrefixCls = `${prefixCls}-list`;
 
   const searchOptions = getShowSearchOption(showSearch);
-  const [filterValue, setFilterValue] = useState<string>(searchOptions.defaultValue);
+  const [filterValue, setFilterValue] = useState<string>(searchOptions.defaultValue ?? '');
   const listBodyRef = useRef<ListBodyRef<RecordType>>({});
 
   const internalHandleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -236,13 +237,13 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
       filterRenderItems.push(renderedItem);
     });
     return [filterItems, filterRenderItems] as const;
-  }, [dataSource, filterValue, filterOption, direction]);
+  }, [dataSource, filterValue, filterOption, direction, render]);
 
   const checkedActiveItems = useMemo<RecordType[]>(() => {
     return filteredItems.filter((item) => checkedKeys.includes(item.key) && !item.disabled);
   }, [checkedKeys, filteredItems]);
 
-  const checkStatus = useMemo<string>(() => {
+  const checkStatus = useMemo<'none' | 'all' | 'part'>(() => {
     if (checkedActiveItems.length === 0) {
       return 'none';
     }
@@ -304,7 +305,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
 
   const checkBox = (
     <Checkbox
-      disabled={!dataSource.some((d) => !d.disabled) || disabled}
+      disabled={!filteredItems.some((d) => !d.disabled) || disabled}
       checked={checkStatus === 'all'}
       indeterminate={checkStatus === 'part'}
       className={`${listPrefixCls}-checkbox`}
@@ -316,7 +317,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   );
 
   const getSelectAllLabel = (selectedCount: number, totalCount: number): React.ReactNode => {
-    if (selectAllLabel) {
+    if (isReactRenderable(selectAllLabel)) {
       return isFunction(selectAllLabel)
         ? selectAllLabel({ selectedCount, totalCount })
         : selectAllLabel;
@@ -330,7 +331,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   };
 
   // Custom Layout
-  const footerDom = footer && (footer.length < 2 ? footer(props) : footer(props, { direction }));
+  const footerDom = footer?.(props, { direction });
 
   // Get filtered, checked item list
   const listFooter = footerDom ? (
@@ -374,7 +375,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
         label: checkStatus === 'all' ? deselectAll : selectAll,
         onClick() {
           const keys = getEnabledItemKeys(filteredItems);
-          onItemSelectAll?.(keys, keys.length !== checkedKeys.length);
+          onItemSelectAll?.(keys, checkStatus !== 'all');
         },
       },
       pagination

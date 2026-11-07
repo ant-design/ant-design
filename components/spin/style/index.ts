@@ -57,7 +57,7 @@ const genSpinStyle: GenerateStyle<SpinToken, CSSObject> = (token) => {
       },
 
       // ========================== Section ===========================
-      [`&${sectionCls}, ${sectionCls}`]: {
+      [`&${sectionCls}, > ${sectionCls}`]: {
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
@@ -69,7 +69,7 @@ const genSpinStyle: GenerateStyle<SpinToken, CSSObject> = (token) => {
         display: 'inline-flex',
       },
 
-      [sectionCls]: {
+      [`> ${sectionCls}`]: {
         position: 'absolute',
         top: '50%',
         left: {
@@ -141,7 +141,7 @@ const genSpinStyle: GenerateStyle<SpinToken, CSSObject> = (token) => {
           pointerEvents: 'auto',
         },
 
-        [sectionCls]: {
+        [`> ${sectionCls}`]: {
           color: token.colorWhite,
 
           [`${componentCls}-description`]: {

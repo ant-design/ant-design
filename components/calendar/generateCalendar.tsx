@@ -6,7 +6,7 @@ import type { CellRenderInfo } from '@rc-component/picker/interface';
 import { merge, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
 import type { AnyObject } from '../_util/type';
@@ -85,6 +85,10 @@ export interface CalendarProps<DateType> {
   onSelect?: (date: DateType, selectInfo: SelectInfo) => void;
 }
 
+export interface CalendarRef {
+  nativeElement: HTMLDivElement;
+}
+
 const isSameYear = <T extends AnyObject>(date1: T, date2: T, config: GenerateConfig<T>) => {
   const { getYear } = config;
   return date1 && date2 && getYear(date1) === getYear(date2);
@@ -101,7 +105,10 @@ const isSameDate = <T extends AnyObject>(date1: T, date2: T, config: GenerateCon
 };
 
 const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateConfig<DateType>) => {
-  const Calendar: React.FC<Readonly<CalendarProps<DateType>>> = (props) => {
+  const InternalCalendar = (
+    props: Readonly<CalendarProps<DateType>>,
+    ref: React.ForwardedRef<CalendarRef>,
+  ) => {
     const {
       prefixCls: customizePrefixCls,
       className,
@@ -144,13 +151,16 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       showWeek,
     };
 
-    const [mergedClassNames, mergedStyles] = useMergeSemantic(
-      [contextClassNames, classNames],
-      [contextStyles, styles],
-      {
-        props: mergedProps,
-      },
-    );
+    const contextStyleRoot = useSemanticRootStyle(contextStyle);
+    const styleRoot = useSemanticRootStyle(style);
+
+    const [mergedClassNames, mergedStyles] = useMergeSemantic<
+      CalendarSemanticAllType<DateType>['classNames'],
+      CalendarSemanticAllType<DateType>['styles'],
+      CalendarProps<DateType>
+    >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+      props: mergedProps,
+    });
 
     const [rootCls, headerCls, panelClassNames, rootStyle, headerStyle, panelStyles] =
       React.useMemo(() => {
@@ -351,8 +361,15 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       }
     };
 
+    const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+    React.useImperativeHandle(ref, () => ({
+      nativeElement: nativeElementRef.current!,
+    }));
+
     return (
       <div
+        ref={nativeElementRef}
         className={clsx(
           calendarPrefixCls,
           {
@@ -367,7 +384,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           hashId,
           cssVarCls,
         )}
-        style={{ ...rootStyle, ...contextStyle, ...style }}
+        style={rootStyle}
       >
         {headerRender ? (
           headerRender({
@@ -413,6 +430,10 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       </div>
     );
   };
+
+  const Calendar = React.forwardRef(InternalCalendar) as React.ForwardRefExoticComponent<
+    Readonly<CalendarProps<DateType>> & React.RefAttributes<CalendarRef>
+  >;
 
   if (process.env.NODE_ENV !== 'production') {
     Calendar.displayName = 'Calendar';

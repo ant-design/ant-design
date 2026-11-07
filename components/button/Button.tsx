@@ -1,16 +1,24 @@
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { omit, toArray, useComposeRef, useLayoutEffect } from '@rc-component/util';
+import {
+  isReactRenderable,
+  omit,
+  toArray,
+  useComposeRef,
+  useDelayState,
+  useLayoutEffect,
+} from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNumber, isPlainObject, isReactRenderable } from '../_util/is';
+import { isNumber, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
+import useVariant from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
 import Group, { GroupSizeContext } from './ButtonGroup';
 import type {
@@ -20,7 +28,12 @@ import type {
   ButtonType,
   ButtonVariantType,
 } from './buttonHelpers';
-import { isTwoCNChar, isUnBorderedButtonVariant, spaceChildren } from './buttonHelpers';
+import {
+  _ButtonVariantTypes,
+  isTwoCNChar,
+  isUnBorderedButtonVariant,
+  spaceChildren,
+} from './buttonHelpers';
 import DefaultLoadingIcon from './DefaultLoadingIcon';
 import IconWrapper from './IconWrapper';
 import useStyle from './style';
@@ -166,10 +179,13 @@ const InternalCompoundedButton = React.forwardRef<
     loadingIcon: contextLoadingIcon,
     shape: contextShape,
     color: contextColor,
-    variant: contextVariant,
   } = useComponentConfig('button');
 
   const mergedShape = customizeShape || contextShape || 'default';
+  const [contextVariant, , isVariantConfigured] = useVariant('button', variant, {
+    variants: _ButtonVariantTypes,
+    defaultVariant: 'outlined',
+  });
 
   const [parsedColor, parsedVariant] = useMemo<ColorVariantPairType>(() => {
     // >>>>> Local
@@ -192,7 +208,7 @@ const InternalCompoundedButton = React.forwardRef<
     }
 
     // >>> Context fallback
-    if (contextColor && contextVariant) {
+    if (contextColor && isVariantConfigured) {
       return [contextColor, contextVariant];
     }
 
@@ -200,8 +216,8 @@ const InternalCompoundedButton = React.forwardRef<
       return ['primary', contextVariant];
     }
 
-    return ['default', 'outlined'];
-  }, [color, variant, type, danger, contextColor, contextVariant, mergedType]);
+    return ['default', contextVariant];
+  }, [color, variant, type, danger, contextColor, contextVariant, isVariantConfigured, mergedType]);
 
   const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
     if (ghost && parsedVariant === 'solid') {
@@ -226,7 +242,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
 
-  const [innerLoading, setInnerLoading] = useState<boolean>(loadingOrDelay.loading);
+  const [innerLoading, setInnerLoading] = useDelayState<boolean>(loadingOrDelay.loading);
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
@@ -252,24 +268,11 @@ const InternalCompoundedButton = React.forwardRef<
   // Loading. Should use `useLayoutEffect` to avoid low perf multiple click issue.
   // https://github.com/ant-design/ant-design/issues/51325
   useLayoutEffect(() => {
-    let delayTimer: ReturnType<typeof setTimeout> | null = null;
     if (loadingOrDelay.delay > 0) {
-      delayTimer = setTimeout(() => {
-        delayTimer = null;
-        setInnerLoading(true);
-      }, loadingOrDelay.delay);
+      setInnerLoading(true, { ms: loadingOrDelay.delay });
     } else {
-      setInnerLoading(loadingOrDelay.loading);
+      setInnerLoading(loadingOrDelay.loading, true);
     }
-
-    function cleanupTimer() {
-      if (delayTimer) {
-        clearTimeout(delayTimer);
-        delayTimer = null;
-      }
-    }
-
-    return cleanupTimer;
   }, [loadingOrDelay.delay, loadingOrDelay.loading]);
 
   // Two chinese characters check
@@ -437,7 +440,7 @@ const InternalCompoundedButton = React.forwardRef<
   let iconNode: React.ReactNode;
   if (icon && !innerLoading) {
     iconNode = iconWrapperElement(icon);
-  } else if (loading && mergedLoadingIcon) {
+  } else if (innerLoading && mergedLoadingIcon) {
     iconNode = iconWrapperElement(mergedLoadingIcon);
   } else {
     iconNode = defaultLoadingIconElement;
@@ -461,7 +464,7 @@ const InternalCompoundedButton = React.forwardRef<
         style={mergedStyles.root}
         onClick={handleClick}
         ref={mergedRef as React.Ref<HTMLAnchorElement>}
-        tabIndex={mergedDisabled ? -1 : 0}
+        tabIndex={mergedDisabled ? -1 : (linkButtonRestProps.tabIndex ?? 0)}
         aria-disabled={mergedDisabled}
       >
         {iconNode}

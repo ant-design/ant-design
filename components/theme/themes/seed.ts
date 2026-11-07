@@ -78,6 +78,9 @@ const seedToken: SeedToken = {
   // Wireframe
   wireframe: false,
 
+  // Focus Outline
+  focusOutline: true,
+
   // Motion
   motion: true,
 };

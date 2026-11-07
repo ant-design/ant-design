@@ -13,6 +13,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'ہفتہ منتخب کریں',
     rangePlaceholder: ['شروع کرنے کی تاریخ', 'آخری تاریخ'],
     rangeYearPlaceholder: ['آغاز سال', 'آخر سال'],
+    rangeQuarterPlaceholder: ['آغاز کوارٹر', 'آخر کوارٹر'],
     rangeMonthPlaceholder: ['مہینہ شروع', 'اختتامی مہینہ'],
     rangeWeekPlaceholder: ['ہفتے شروع کریں', 'اختتام ہفتہ'],
     ...CalendarLocale,

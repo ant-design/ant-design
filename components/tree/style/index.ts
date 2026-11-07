@@ -156,6 +156,14 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
       },
 
+      [`${treeCls}-list-scrollbar`]: {
+        cursor: 'pointer',
+
+        '&:hover': {
+          backgroundColor: token.colorFillQuaternary,
+        },
+      },
+
       [`${treeCls}-list-holder-inner`]: {
         alignItems: 'flex-start',
       },
@@ -214,6 +222,16 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           },
         },
 
+        // Unselectable (non-checkable mode with `selectable={false}`)
+        // Apply the same disabled style as `&-disabled`.
+        [`&-unselectable ${treeCls}-node-content-wrapper`]: {
+          color: token.colorTextDisabled,
+          cursor: 'not-allowed',
+          '&:hover': {
+            background: 'transparent',
+          },
+        },
+
         [`${treeCls}-checkbox-disabled + ${treeCls}-node-selected,&${treeNodeCls}-disabled${treeNodeCls}-selected ${treeCls}-node-content-wrapper`]:
           {
             backgroundColor: controlItemBgActiveDisabled,
@@ -226,7 +244,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
 
         // not disable
-        [`&:not(${treeNodeCls}-disabled)`]: {
+        [`&:not(${treeNodeCls}-disabled):not(${treeNodeCls}-unselectable)`]: {
           // >>> Title
           [`${treeCls}-node-content-wrapper`]: {
             '&:hover': {

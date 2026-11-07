@@ -18,7 +18,7 @@ import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { getLocalizedPathname, isZhCN } from '../../utils';
 import Link from '../Link';
-import PromptDrawer from './PromptDrawer';
+import LazyPromptDrawer from './LazyPromptDrawer';
 import ThemeIcon from './ThemeIcon';
 
 export type ThemeName = 'light' | 'dark' | 'auto' | 'compact' | 'motion-off' | 'happy-work';
@@ -31,13 +31,18 @@ export interface ThemeSwitchProps {
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
   const { pathname, search } = useLocation();
-  const { theme, updateSiteConfig, dynamicTheme } = use<SiteContextProps>(SiteContext);
-  const toggleAnimationTheme = useThemeAnimation();
+  const {
+    theme,
+    updateSiteConfig,
+    dynamicTheme,
+    isDark = false,
+  } = use<SiteContextProps>(SiteContext);
+  const toggleAnimationTheme = useThemeAnimation(isDark);
   const lastThemeKeyRef = useRef<string>(theme.includes('dark') ? 'dark' : 'light');
   const [isMarketDrawerOpen, setIsMarketDrawerOpen] = useState(false);
 
-  const [, setTheme] = useLocalStorage<ThemeName>(ANT_DESIGN_SITE_THEME, {
-    defaultValue: undefined,
+  const [, setTheme] = useLocalStorage<ThemeName | undefined>(ANT_DESIGN_SITE_THEME, {
+    initialValue: undefined,
   });
 
   const badge = <Badge color="blue" style={{ marginTop: -1 }} />;
@@ -154,18 +159,21 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
         return;
       }
 
-      // 亮色/暗色模式切换时应用动画效果
-      if (['light', 'dark'].includes(key)) {
-        lastThemeKeyRef.current = key;
-        toggleAnimationTheme(domEvent, theme.includes('dark'));
-      }
-
       const filteredTheme = theme.filter((t) => !['light', 'dark', 'auto'].includes(t));
       const newTheme = [...filteredTheme, themeKey];
 
-      setTheme(themeKey);
+      const updateTheme = () => {
+        setTheme(themeKey);
+        updateSiteConfig({ theme: newTheme });
+      };
 
-      updateSiteConfig({ theme: newTheme });
+      // 仅在实际颜色模式变化时播放动画，包括跟随系统模式的情况。
+      if (['light', 'dark'].includes(key) && (key === 'dark') !== isDark) {
+        lastThemeKeyRef.current = key;
+        toggleAnimationTheme(domEvent, updateTheme);
+      } else {
+        updateTheme();
+      }
     } else {
       // 其他主题选项是开关式的
       const hasTheme = theme.includes(themeKey);
@@ -185,7 +193,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
         <Button type="text" icon={<ThemeIcon />} style={{ fontSize: 16 }} />
       </Dropdown>
 
-      <PromptDrawer
+      <LazyPromptDrawer
         open={isMarketDrawerOpen}
         onClose={() => setIsMarketDrawerOpen(false)}
         onThemeChange={(nextTheme) => {

@@ -19,6 +19,7 @@ const localeValues: Locale = {
     show: 'Zobrazit',
     hide: 'Skrýt',
     sortable: 'seřadit',
+    clear: 'Vymazat',
   },
   Table: {
     filterTitle: 'Filtr',
@@ -32,9 +33,14 @@ const localeValues: Locale = {
     selectInvert: 'Invertovat výběr na současné stránce',
     selectNone: 'Odznačit vše',
     selectionAll: 'Vybrat všechny řádky',
+    selectRow: 'Vybrat řádek',
+    selectedRow: 'Řádek vybrán',
+    selectionMenu: 'Nabídka výběru',
     sortTitle: 'Řadit',
     expand: 'Rozbalit řádek',
     collapse: 'Zabalit řádek',
+    expandAll: 'Rozbalit všechny řádky',
+    collapseAll: 'Zabalit všechny řádky',
     triggerDesc: 'Klikni pro sestupné řazení',
     triggerAsc: 'Klikni pro vzestupné řazení',
     cancelSort: 'Klikni pro zrušení řazení',
@@ -53,18 +59,22 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Zrušit',
   },
+  Splitter: {
+    toggleStartPanel: 'Přepnout počáteční panel',
+    toggleEndPanel: 'Přepnout koncový panel',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Vyhledávání',
     itemUnit: 'položka',
     itemsUnit: 'položek',
     remove: 'Odstranit',
-    selectCurrent: 'Vybrat aktuální stranu',
-    removeCurrent: 'Smazat aktuální stranu',
+    selectCurrent: 'Vybrat aktuální stránku',
+    removeCurrent: 'Odstranit aktuální stránku',
     selectAll: 'Označit vše',
-    removeAll: 'Odznačit vše',
+    removeAll: 'Odstranit vše',
     selectInvert: 'Opačný výběr',
-    deselectAll: 'Zrušte výběr všech dat',
+    deselectAll: 'Zrušit výběr všech',
   },
   Upload: {
     uploading: 'Nahrávání...',
@@ -82,9 +92,13 @@ const localeValues: Locale = {
   Text: {
     edit: 'Upravit',
     copy: 'Kopírovat',
-    copied: 'Zkopírované',
-    expand: 'Zvětšit',
-    collapse: 'kolaps',
+    copied: 'Zkopírováno',
+    expand: 'Rozbalit',
+    collapse: 'Sbalit',
+  },
+  Carousel: {
+    prevSlide: 'Předchozí snímek',
+    nextSlide: 'Další snímek',
   },
   Form: {
     optional: '(nepovinné)',
@@ -146,6 +160,9 @@ const localeValues: Locale = {
     transparent: 'Průhledné',
     singleColor: 'Jednobarevné',
     gradientColor: 'Přechodové',
+  },
+  Input: {
+    otpCell: 'Znak ${index} z ${total}',
   },
 };
 

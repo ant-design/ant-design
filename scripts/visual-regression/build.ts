@@ -12,7 +12,7 @@ import filter from 'lodash/filter';
 import minimist from 'minimist';
 import { PNG } from 'pngjs';
 import sharp from 'sharp';
-import simpleGit from 'simple-git';
+import { simpleGit } from 'simple-git';
 
 import markdown2Html from './convert';
 import { generate as genAlternativeReport } from './reportAdapter';

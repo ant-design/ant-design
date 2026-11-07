@@ -1,7 +1,12 @@
 import React, { useRef } from 'react';
 
 import Tour from '..';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { TourProps } from '../interface';
 
 describe('Tour.Semantic', () => {
@@ -110,5 +115,75 @@ describe('Tour.Semantic', () => {
     expect(indicatorElement).toHaveStyle({ color: 'rgb(0, 128, 0)' });
     expect(indicatorsElement).toHaveStyle({ color: 'rgb(255, 255, 0)' });
     expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 255, 0)' });
+  });
+
+  it('should follow mask style priority', () => {
+    const Demo: React.FC = () => {
+      const btnRef = useRef<HTMLButtonElement>(null);
+
+      return (
+        <ConfigProvider
+          tour={{
+            styles: { mask: semanticRootStylePriority.contextStyles.root },
+            style: semanticRootStylePriority.contextStyle,
+          }}
+        >
+          <button ref={btnRef} type="button">
+            Target
+          </button>
+          <Tour
+            open
+            styles={{ mask: semanticRootStylePriority.styles.root }}
+            style={semanticRootStylePriority.style}
+            steps={[
+              {
+                title: 'Title',
+                description: 'Description',
+                target: () => btnRef.current!,
+              },
+            ]}
+          />
+        </ConfigProvider>
+      );
+    };
+
+    render(<Demo />);
+
+    expectSemanticRootStylePriority(document.querySelector('.ant-tour-mask'));
+  });
+
+  it('should follow root style priority on mask', () => {
+    const Demo: React.FC = () => {
+      const btnRef = useRef<HTMLButtonElement>(null);
+
+      return (
+        <ConfigProvider
+          tour={{
+            styles: semanticRootStylePriority.contextStyles,
+            style: semanticRootStylePriority.contextStyle,
+          }}
+        >
+          <button ref={btnRef} type="button">
+            Target
+          </button>
+          <Tour
+            open
+            styles={semanticRootStylePriority.styles}
+            style={semanticRootStylePriority.style}
+            steps={[
+              {
+                title: 'Title',
+                description: 'Description',
+                target: () => btnRef.current!,
+              },
+            ]}
+          />
+        </ConfigProvider>
+      );
+    };
+
+    render(<Demo />);
+
+    expectSemanticRootStylePriority(document.querySelector('.ant-tour-mask'));
   });
 });

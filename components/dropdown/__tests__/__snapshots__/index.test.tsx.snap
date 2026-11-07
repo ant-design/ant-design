@@ -27,7 +27,7 @@ Array [
       >
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-1"
+          data-menu-id="rc-menu-uuid-test-id-1"
           role="menuitem"
           tabindex="-1"
         >
@@ -72,7 +72,7 @@ Array [
     >
       <li
         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-        data-menu-id="rc-menu-uuid-1"
+        data-menu-id="rc-menu-uuid-test-id-1"
         role="menuitem"
         tabindex="-1"
       >

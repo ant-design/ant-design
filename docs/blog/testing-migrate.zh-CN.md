@@ -7,9 +7,9 @@ yuque_url: https://www.yuque.com/ant-design/ant-design/bunxvp7nz4y7bbhi
 juejin_url: https://juejin.cn/post/7179115861176188983
 ---
 
-大家好，我是 **[@li-jia-nan](https://github.com/li-jia-nan)**。也是前几个月新加入 antd 的 Collaborator，有幸作为 Collaborators 之一，我开发了 **[FloatButton](/components/float-button-cn)** 组件和 **[QRCode](/components/qrcode-cn)** 组件，以及一些其它维护工作，下面分享一下 antd 测试库迁移的那些事儿～
+大家好，我是 **[@li-jia-nan](https://github.com/li-jia-nan)**。也是前几个月新加入 antd 的 Collaborator，有幸作为 Collaborators 之一，我开发了 **[FloatButton](/components/float-button)** 组件和 **[QRCode](/components/qr-code)** 组件，以及一些其它维护工作，下面分享一下 antd 测试库迁移的那些事儿～
 
-## 引言
+## 引言 {#introduction}
 
 在 `antd@4.x` 中，使用 **[enzyme](https://enzymejs.github.io/enzyme)** 作为测试框架，然而由于 enzyme 缺乏维护，到了 React 18 时代已经很难⽀持。也因此不得不开始为 antd 开启漫⻓的 **[@testing-lib](https://testing-library.com/docs/react-testing-library/intro)** 迁移之路。
 
@@ -23,7 +23,7 @@ juejin_url: https://juejin.cn/post/7179115861176188983
 
 ![image](https://user-images.githubusercontent.com/49217418/207530507-412f0244-3d88-4500-9eb4-054f3e112731.png)
 
-## 起步
+## 起步 {#start}
 
 在迁移之前，我们需要先搞清楚迁移的目的是什么。在 `enzyme` 中，大多数场景是测试了组件中的状态是否正确，或者 class 上的静态属性是否正常被赋值，这其实是不合理的，因为我们更重要的是需要关心“功能”是否正常，而非“属性”是否正确，因为源代码对使用者来说是黑盒，用户只关心组件是否正确。
 
@@ -31,9 +31,9 @@ juejin_url: https://juejin.cn/post/7179115861176188983
 
 当然了，这只是放弃 `enzyme` 的其中一个原因。更重要的是它缺乏维护，并且不支持 React 18 了。
 
-## 迁移
+## 迁移 {#migrate}
 
-### 一、渲染：
+### 一、渲染： {#render}
 
 `enzyme` 支持三种方式的渲染：
 
@@ -57,7 +57,7 @@ juejin_url: https://juejin.cn/post/7179115861176188983
     );
 ```
 
-### 二、交互 & 事件
+### 二、交互 & 事件 {#interact-event}
 
 `enzyme` 提供了 `simulate(event)` 方法来模拟事件触发和用户交互，`event` 为事件名称，而在 `@testing-library` 中对应的则是 `fireEvent` 方法：
 
@@ -68,7 +68,7 @@ juejin_url: https://juejin.cn/post/7179115861176188983
 ++  fireEvent.click(container.querySelector('.ant-handle'));
 ```
 
-### 三、DOM 元素
+### 三、DOM 元素 {#dom-element}
 
 在 `enzyme` 中，提供了一些内置的 api 来操作 dom，或者查找组件：
 
@@ -95,7 +95,7 @@ juejin_url: https://juejin.cn/post/7179115861176188983
 ++  expect(container.querySelector('.ant-popover-inner-content')).toBeTruthy();
 ```
 
-### 四、兼容性测试
+### 四、兼容性测试 {#compatibility-test}
 
 在大版本升级的同时，废弃了部分组件，但是并没有在 antd 中移除，比如 BackTop 组件，需要在组件中加入 warning 以保证兼容性，所以还需要对 warning 编写专门的单元测试:
 
@@ -112,7 +112,7 @@ juejin_url: https://juejin.cn/post/7179115861176188983
     });
 ```
 
-## Diff 之谜
+## Diff 之谜 {#diff-mystery}
 
 在转换过程中，发现了⼀个神奇的现象，有些情况下，同样的 case 生成的 DOM 快照会不一样，也因此开始探索 React 18 到底变化了什么：
 
@@ -256,7 +256,7 @@ export default App;
 
 ![WX20230319-145539@2x](https://user-images.githubusercontent.com/49217418/226159376-497fd490-153e-4e88-92e2-29dda50b3426.png)
 
-## ⼀个解法
+## ⼀个解法 {#a-solution}
 
 antd 需要对 React16、17、18 都进⾏测试，如果 snapshot 不可⾏会造成太⼤成本。所以我们需要对 jest 进⾏改造。`enzyme-to-json` 则给了我灵感，我们可以修改 snapshot ⽣成逻辑来抹平 React 不同版本之间的 diff：
 
@@ -289,6 +289,6 @@ expect.addSnapshotSerializer({
 });
 ```
 
-## 收工
+## 收工 {#knock-off}
 
 以上，是 antd 测试框架迁移时遇到的一些问题，希望对于需要迁移或者尚未开始编写测试用例的同学提供帮助。也欢迎大家加入 antd 社区，共同为开源奉献自己的力量。

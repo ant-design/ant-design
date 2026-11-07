@@ -54,9 +54,17 @@ export interface TableLocale {
   selectNone?: React.ReactNode;
   selectInvert?: React.ReactNode;
   selectionAll?: React.ReactNode;
+  /** Accessible label for a selectable row. */
+  selectRow?: string;
+  /** Accessible label for a selected row. */
+  selectedRow?: string;
+  /** Accessible label for the custom selection menu trigger. */
+  selectionMenu?: string;
   sortTitle?: string;
   expand?: string;
   collapse?: string;
+  expandAll?: string;
+  collapseAll?: string;
   triggerDesc?: string;
   triggerAsc?: string;
   cancelSort?: string;
@@ -191,7 +199,7 @@ export interface ColumnType<RecordType = AnyObject>
    * @deprecated Please use `filterDropdownProps.onOpenChange` instead.
    * @since 4.23.0
    */
-  onFilterDropdownOpenChange?: (visible: boolean) => void;
+  onFilterDropdownOpenChange?: (open: boolean) => void;
 }
 
 export interface ColumnGroupType<RecordType = AnyObject>

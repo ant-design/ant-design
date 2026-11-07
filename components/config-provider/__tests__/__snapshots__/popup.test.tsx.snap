@@ -10,7 +10,6 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-activedescendant="test-id_list_0"
@@ -32,6 +31,7 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -60,7 +60,6 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -81,6 +80,7 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -109,7 +109,6 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -130,6 +129,7 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -163,7 +163,6 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-activedescendant="test-id_list_0"
@@ -185,6 +184,7 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -213,7 +213,6 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -234,6 +233,7 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -262,7 +262,6 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -283,6 +282,7 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -316,7 +316,6 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-activedescendant="test-id_list_0"
@@ -338,6 +337,7 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -366,7 +366,6 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -387,6 +386,7 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -415,7 +415,6 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       />
       <input
         aria-autocomplete="list"
@@ -436,6 +435,7 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"

@@ -87,6 +87,31 @@ describe('Modal.hook', () => {
     jest.useRealTimers();
   });
 
+  it('support falsy button text', async () => {
+    jest.useFakeTimers();
+
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+
+      React.useEffect(() => {
+        const instance = modal.confirm({ cancelText: false, okText: 0 });
+        return () => instance.destroy();
+      }, []);
+
+      return <ConfigWarp>{contextHolder}</ConfigWarp>;
+    };
+
+    const { unmount } = render(<Demo />);
+    await waitFakeTimer();
+    const btns = document.body.querySelectorAll('.ant-modal-confirm-btns .ant-btn');
+
+    expect(btns[0].textContent).toBe('');
+    expect(btns[1].textContent).toBe('0');
+
+    unmount();
+    jest.useRealTimers();
+  });
+
   it('destroyAll works with contextHolder', () => {
     const modalTypes = ['info', 'success', 'warning', 'error'] as const;
 

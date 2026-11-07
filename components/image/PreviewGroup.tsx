@@ -105,7 +105,7 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     prefixCls,
     mergedRootClassName,
     getContextPopupContainer,
-    icons,
+    memoizedIcons,
   );
 
   const { mask: mergedMask, blurClassName } = mergedPreview ?? {};

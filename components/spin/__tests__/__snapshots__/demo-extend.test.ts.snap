@@ -223,6 +223,87 @@ Array [
 
 exports[`renders components/spin/demo/fullscreen.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/spin/demo/list-debug.tsx extend context correctly 1`] = `
+<div
+  aria-busy="false"
+  aria-live="polite"
+  class="ant-spin css-var-test-id"
+>
+  <div
+    class="ant-spin-container"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
+      >
+        Apple
+        <div
+          aria-busy="true"
+          aria-live="polite"
+          class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-section css-var-test-id"
+        >
+          <span
+            class="ant-spin-dot-holder"
+          >
+            <span
+              class="ant-spin-dot ant-spin-dot-spin"
+            >
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
+      >
+        Banana
+        <div
+          aria-busy="true"
+          aria-live="polite"
+          class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-section css-var-test-id"
+        >
+          <span
+            class="ant-spin-dot-holder"
+          >
+            <span
+              class="ant-spin-dot ant-spin-dot-spin"
+            >
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/spin/demo/list-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/spin/demo/nested.tsx extend context correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"

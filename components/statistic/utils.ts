@@ -29,7 +29,7 @@ const timeUnits: [string, number][] = [
   ['H', 1000 * 60 * 60], // hours
   ['m', 1000 * 60], // minutes
   ['s', 1000], // seconds
-  ['S', 1], // million seconds
+  ['S', 1], // milliseconds
 ];
 
 export function formatTimeStr(duration: number, format: string) {

@@ -3,7 +3,7 @@ import React from 'react';
 import Space from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 import AutoComplete from '../../auto-complete';
 import Button from '../../button';
 import Cascader from '../../cascader';
@@ -14,6 +14,7 @@ import Dropdown from '../../dropdown';
 import Input from '../../input';
 import InputNumber from '../../input-number';
 import Modal from '../../modal';
+import Popover from '../../popover';
 import Select from '../../select';
 import TimePicker from '../../time-picker';
 import Tooltip from '../../tooltip';
@@ -38,6 +39,30 @@ describe('Space.Compact', () => {
     const { container } = render(<Space.Compact />);
 
     expect(container.children.length).toBe(0);
+  });
+
+  it('should ref work', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Space.Compact>>();
+    const { container } = render(
+      <Space.Compact ref={ref}>
+        <Input />
+      </Space.Compact>,
+    );
+
+    expect(ref.current?.nativeElement).toBe(container.firstChild);
+  });
+
+  it('should work as Popover trigger', () => {
+    const { container } = render(
+      <Popover trigger="click" content="123">
+        <Space.Compact>
+          <Input />
+        </Space.Compact>
+      </Popover>,
+    );
+
+    fireEvent.click(container.querySelector('.ant-space-compact')!);
+    expect(document.body.querySelector('.ant-popover')).toBeTruthy();
   });
 
   it('block className', () => {

@@ -5,6 +5,7 @@ import { render as testLibRender } from '@testing-library/react';
 import notification from '..';
 import { act, fireEvent, pureRender, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import zhTW from '../../locale/zh_TW';
 
 describe('notification.hooks', () => {
   beforeEach(() => {
@@ -91,6 +92,34 @@ describe('notification.hooks', () => {
     expect(document.querySelectorAll('.my-test-notification-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.anticon-check-circle')).toHaveLength(1);
     expect(document.querySelector('.hook-test-result')!.textContent).toBe('bamboo');
+  });
+
+  it('should use the locale around the context holder for the close button', () => {
+    const Demo = () => {
+      const [api, holder] = notification.useNotification();
+
+      return (
+        <>
+          <button
+            type="button"
+            onClick={() => {
+              api.open({ title: 'Notification', duration: 0 });
+            }}
+          >
+            Open notification
+          </button>
+          <ConfigProvider locale={zhTW}>{holder}</ConfigProvider>
+        </>
+      );
+    };
+
+    const { getByRole } = render(<Demo />);
+    fireEvent.click(getByRole('button', { name: 'Open notification' }));
+
+    expect(document.querySelector('.ant-notification-notice-close')).toHaveAttribute(
+      'aria-label',
+      '關閉',
+    );
   });
 
   it('should be same hook', () => {

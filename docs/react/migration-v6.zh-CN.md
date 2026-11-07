@@ -10,9 +10,9 @@ title: 从 v5 到 v6
 
 ## 推荐使用 CLI 辅助升级 {#use-cli}
 
-在手动核对下方清单前，推荐先使用 [Ant Design CLI](/docs/react/cli-cn) 辅助升级。CLI 可以基于项目代码检查废弃 API、组件用法与版本差异，避免只依赖文档逐项对照而遗漏。具体安装与使用方式请参考 [CLI 文档](/docs/react/cli-cn)。
+在手动核对下方清单前，推荐先使用 [Ant Design CLI](/docs/react/cli) 辅助升级。CLI 可以基于项目代码检查废弃 API、组件用法与版本差异，避免只依赖文档逐项对照而遗漏。具体安装与使用方式请参考 [CLI 文档](/docs/react/cli)。
 
-## 升级准备
+## 升级准备 {#before-you-upgrade}
 
 1. 请先升级到 **v5 最新版本**，按照控制台 warning 信息处理已废弃 API。
 2. 确认项目可以运行在 **React 18 及以上**版本，v6 不再支持 React 17 及以下。
@@ -26,9 +26,9 @@ yarn add antd@6
 pnpm add antd@6
 ```
 
-## v6 有哪些不兼容的变化
+## v6 有哪些不兼容的变化 {#v6-incompatible-changes}
 
-### React 版本支持调整
+### React 版本支持调整 {#react-version-support}
 
 - `antd@6` 要求 React 版本 >= 18，不再支持 React 17 及以下。
 - 不再需要 `@ant-design/v5-patch-for-react-19` 来兼容 React 19，如果使用可以移除该依赖。
@@ -37,7 +37,7 @@ pnpm add antd@6
 - import '@ant-design/v5-patch-for-react-19';
 ```
 
-### @ant-design/icons 版本升级
+### @ant-design/icons 版本升级 {#ant-designicons-version-upgrade}
 
 - `antd@6` 要求 `@ant-design/icons` 版本 >= 6.0.0。
 - ⚠️ **重要**：`@ant-design/icons@6` 与 `antd@5` 不兼容，请确保同时升级两个包。
@@ -53,13 +53,13 @@ pnpm add @ant-design/icons@6
 
 如果你在升级过程中遇到构建错误，请检查 `@ant-design/icons` 版本是否与 `antd` 版本匹配。
 
-### DOM 调整
+### DOM 调整 {#dom-adjustments}
 
 - v6 对大量组件的 DOM 结构进行了升级和优化，以提升可维护性和一致性。
 - 对于大多数正常使用 antd 样式的项目，这不会产生影响。
 - ⚠️ 如果你的项目中存在针对组件内部 DOM 节点的自定义样式（例如依赖特定选择器或层级结构），升级后可能需要手动检查并调整样式。
 
-### API 调整
+### API 调整 {#api-adjustments}
 
 ⚠️ 下列 API 已被标记为**废弃（Deprecated）**。尽管这些属性当前仍可使用，但控制台会提示弃用警告，并将在 7.0 中被移除。为保持代码的可维护性和兼容性，**建议尽快迁移到对应的替代属性**。
 
@@ -349,7 +349,7 @@ pnpm add @ant-design/icons@6
   - `bordered` 弃用，变为 `variant`。
   - `showArrow` 弃用，将变为默认行为，可通过设置 `suffixIcon` 为 `null` 隐藏。
 
-### 弹层类组件（Modal、Drawer 等）
+### 弹层类组件（Modal、Drawer 等） {#overlay-components}
 
 - 新增 `mask` 蒙层功能，并支持模糊效果。
 - v6.0.0 ~ v6.2.x 默认开启模糊，v6.3.0 起**改为默认关闭**。如需开启模糊：
@@ -376,7 +376,7 @@ export default () => (
 );
 ```
 
-### Tag margin 调整
+### Tag margin 调整 {#tag-margin-adjustment}
 
 v6 移除了 `Tag` 组件末尾的默认外边距（以前 Tag 末尾会额外留出一段 `margin-inline-end`）。如果你的布局或自定义样式依赖这一行为，请使用 `ConfigProvider` 的 `tag.styles` 进行补充：
 
@@ -400,7 +400,7 @@ export default () => (
 );
 ```
 
-### Form `onFinish` 取值不再包含 Form.List 全部数据
+### Form `onFinish` 取值不再包含 Form.List 全部数据 {#onfinish-excludes-formlist-data}
 
 v5 版本中，Form.List 会被认为是一个 Field，以至于提交时会包含 Form.List 下的所有数据结构即便其子元素的 Form.Item 没有注册过。在 v6 中，Form.List 不再包含未注册的子项数据。因而你不再需要通过 `getFieldsValue({ strict: true })` 来过滤未注册字段。
 
@@ -441,16 +441,16 @@ v6 逐步统一了组件 `size` 枚举值为 `'large' | 'medium' | 'small'`。�
 
 - `Splitter` 的 `collapsibleIcon` 弃用，变为 `collapsible.icon`。
 
-### 浏览器支持调整
+### 浏览器支持调整 {#browser-support-changes}
 
 - 默认开启 **CSS variables**，仅支持现代浏览器。
 - IE 浏览器不再支持，部分旧版国产浏览器可能存在兼容性问题，请在应用发布前确认目标浏览器的支持情况。
 
-### 原子级通过别名安装 v6
+### 原子级通过别名安装 v6 {#atomic-migration-via-alias}
 
 - 如果你需要控制升级的影响范围，可以尝试[原子级迁移](https://github.com/ant-design/ant-design/discussions/55957)方案。请注意，这并非我们推荐的升级路径。
 
-## 升级影响排查 Checklist
+## 升级影响排查 Checklist {#upgrade-checklist}
 
 为了确保升级到 v6 后项目正常运行，请参考以下检查清单逐项确认：
 
@@ -462,6 +462,6 @@ v6 逐步统一了组件 `size` 枚举值为 `'large' | 'medium' | 'small'`。�
 - **构建工具配置**：确认升级后构建无报错，CSS 变量和 CSS-in-JS 能正常工作。
 - **控制台 warning**：运行应用并观察控制台，处理所有 `legacy API` 的提示。
 
-## 遇到问题
+## 遇到问题 {#need-help}
 
 如果您在升级过程中遇到问题，请到 [GitHub issues](https://new-issue.ant.design/) 进行反馈。我们会尽快响应并在文档中完善相关说明。

@@ -4,7 +4,7 @@ import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
 
-export default function markdown2Html(content: string) {
+const markdown2Html = (content: string) => {
   return remark()
     .use(remarkGfm)
     .use(remarkRehype)
@@ -12,4 +12,6 @@ export default function markdown2Html(content: string) {
     .use(rehypeStringify)
     .processSync(content)
     .toString();
-}
+};
+
+export default markdown2Html;

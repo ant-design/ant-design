@@ -44,7 +44,6 @@ const App: React.FC = () => {
       <FloatButton
         type="primary"
         classNames={classNames}
-        href="https://ant.design/index-cn"
         styles={stylesFn}
         tooltip={<div>custom style class</div>}
       />

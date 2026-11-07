@@ -3,11 +3,18 @@ import type { BasicDataNode } from '@rc-component/tree';
 
 import type { DataNode } from '..';
 import Tree from '..';
-import { render } from '../../../tests/utils';
+import { render, renderHook } from '../../../tests/utils';
 
 const { DirectoryTree } = Tree;
 
 describe('Tree.TypeScript', () => {
+  it('support useTree', () => {
+    const { result } = renderHook(() =>
+      Tree.useTree([{ key: 'bamboo', children: [{ key: 'little' }] }], {}),
+    );
+    expect(result.current.getPath('little').map(({ key }) => key)).toEqual(['bamboo', 'little']);
+  });
+
   it('without generic', () => {
     const { container } = render(
       <Tree

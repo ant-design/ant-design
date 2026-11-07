@@ -1,6 +1,7 @@
+import type React from 'react';
 import { fillFieldNames } from '@rc-component/tree';
 import type { DataNode } from '@rc-component/tree';
-import type React from 'react';
+import { isNonNullable } from '@rc-component/util';
 
 import type { TreeProps } from '../Tree';
 
@@ -47,11 +48,11 @@ export function calcRangeKeys({
   const keys: React.Key[] = [];
   let record: Record = RECORD_NONE;
 
-  if (startKey && startKey === endKey) {
-    return [startKey];
-  }
-  if (!startKey || !endKey) {
+  if (!isNonNullable(startKey) || !isNonNullable(endKey)) {
     return [];
+  }
+  if (startKey === endKey) {
+    return [startKey];
   }
 
   function matchKey(key: React.Key) {
@@ -60,7 +61,7 @@ export function calcRangeKeys({
 
   traverseNodesKey(
     treeData,
-    (key) => {
+    (key, node) => {
       if (record === RECORD_END) {
         return false;
       }
@@ -75,7 +76,7 @@ export function calcRangeKeys({
           record = RECORD_END;
           return false;
         }
-      } else if (record === RECORD_START) {
+      } else if (record === RECORD_START && !node.disabled && node.selectable !== false) {
         // Append selection
         keys.push(key as any);
       }

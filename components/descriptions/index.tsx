@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import * as React from 'react';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
@@ -90,7 +91,11 @@ export interface DescriptionsProps extends Omit<React.HTMLAttributes<HTMLDivElem
   items?: DescriptionsItemType[];
 }
 
-const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) => {
+export interface DescriptionsRef {
+  nativeElement: HTMLDivElement;
+}
+
+const Descriptions = React.forwardRef<DescriptionsRef, DescriptionsProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     title,
@@ -199,9 +204,19 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     ],
   );
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
+  const hasTitle = isReactRenderable(title);
+  const hasExtra = isReactRenderable(extra);
+
   return (
     <DescriptionsContext.Provider value={memoizedValue}>
       <div
+        ref={nativeElementRef}
         className={clsx(
           prefixCls,
           contextClassName,
@@ -220,12 +235,12 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
         style={mergedStyles.root}
         {...restProps}
       >
-        {(title || extra) && (
+        {(hasTitle || hasExtra) && (
           <div
             className={clsx(`${prefixCls}-header`, mergedClassNames.header)}
             style={mergedStyles.header}
           >
-            {title && (
+            {hasTitle && (
               <div
                 className={clsx(`${prefixCls}-title`, mergedClassNames.title)}
                 style={mergedStyles.title}
@@ -233,7 +248,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
                 {title}
               </div>
             )}
-            {extra && (
+            {hasExtra && (
               <div
                 className={clsx(`${prefixCls}-extra`, mergedClassNames.extra)}
                 style={mergedStyles.extra}
@@ -263,7 +278,8 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
       </div>
     </DescriptionsContext.Provider>
   );
-};
+}) as React.ForwardRefExoticComponent<DescriptionsProps & React.RefAttributes<DescriptionsRef>> &
+  CompoundedComponent;
 
 if (process.env.NODE_ENV !== 'production') {
   Descriptions.displayName = 'Descriptions';

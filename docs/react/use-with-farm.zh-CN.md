@@ -7,7 +7,7 @@ title: 在 Farm 中使用
 
 [Farm](https://www.farmfe.org/) 是一个基于 Rust 实现的极速构建引擎，帮助您更快地构建 Web 程序 和 JavaScript 库，本文会尝试使用 `Farm` 创建一个项目，并引入 antd。
 
-## 安装和初始化
+## 安装和初始化 {#install-and-initialization}
 
 在开始之前，你可能需要安装 [yarn](https://github.com/yarnpkg/yarn) 或者 [pnpm](https://pnpm.io/zh) 或者 [bun](https://bun.sh)。
 
@@ -27,7 +27,7 @@ $ npm start
 
 此时访问浏览器 http://localhost:9000, 看到 `Farm with React` 的界面就算成功了。
 
-## 引入 antd
+## 引入 antd {#import-antd}
 
 现在从 yarn 或 npm 或 pnpm 或 bun 安装并引入 antd。
 
@@ -50,7 +50,7 @@ export function Main() {
 
 好了，现在你应该能看到页面上已经有了 antd 的蓝色按钮组件，接下来就可以继续选用其他组件开发应用了。其它开发流程你可以参考 Farm 的[官方文档](https://www.farmfe.org/zh/)。
 
-### 自定义主题
+### 自定义主题 {#customize-theme}
 
 参考 [配置主题](/docs/react/customize-theme)，通过 ConfigProvider 进行主题配置：
 

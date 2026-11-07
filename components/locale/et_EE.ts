@@ -32,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: 'Inverteeri valik',
     selectNone: 'Kustuta kõik andmed',
     selectionAll: 'Vali kõik andmed',
+    selectRow: 'Vali rida',
+    selectedRow: 'Rida valitud',
+    selectionMenu: 'Valikumenüü',
     sortTitle: 'Sorteeri',
     expand: 'Laienda rida',
     collapse: 'Ahenda rida',
+    expandAll: 'Laienda kõik read',
+    collapseAll: 'Ahenda kõik read',
     triggerDesc: 'Klõpsa kahanevalt sortimiseks',
     triggerAsc: 'Klõpsa kasvavalt sortimiseks',
     cancelSort: 'Klõpsa sortimise tühistamiseks',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Tühista',
+  },
+  Splitter: {
+    toggleStartPanel: 'Lülita alguspaneeli',
+    toggleEndPanel: 'Lülita lõpupaneeli',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Kopeeritud',
     expand: 'Laienda',
     collapse: 'Ahenda',
+  },
+  Carousel: {
+    prevSlide: 'Eelmine slaid',
+    nextSlide: 'Järgmine slaid',
   },
   Form: {
     optional: '(valikuline)',

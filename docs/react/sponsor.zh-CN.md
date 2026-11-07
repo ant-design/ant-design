@@ -34,7 +34,7 @@ Ant Design 使用 MIT 协议开源并永久免费使用。维护与演进一个�
 | **OpenCollective** | [主页](https://opencollective.com/ant-design) | [所有赞助方式](https://opencollective.com/ant-design/contribute) |
 | **GitHub Sponsors** | [主页](https://github.com/sponsors/ant-design) | [立即赞助](https://github.com/sponsors/ant-design) |
 
-### OpenCollective 赞助方式
+### OpenCollective 赞助方式 {#opencollective-options}
 
 | 方式 | 主页 | 付款入口 |
 | --- | --- | --- |

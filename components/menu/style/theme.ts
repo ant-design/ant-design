@@ -195,6 +195,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
             position: 'absolute',
             insetInline: itemPaddingInline,
             bottom: 0,
+            pointerEvents: 'none',
             borderBottom: `${unit(activeBarHeight)} solid transparent`,
             transition: `border-color ${motionDurationSlow} ${motionEaseInOut}`,
             content: '""',

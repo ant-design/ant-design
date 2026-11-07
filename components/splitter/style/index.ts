@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { resetComponent } from '../../style';
+import { genFocusOutline, resetComponent } from '../../style';
 import { genNoMotionStyle } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
@@ -178,6 +178,8 @@ const genSplitterStyle: GenerateStyle<SplitterToken, CSSObject> = (token) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+
+          '&:focus-visible': genFocusOutline(token),
 
           // Hover
           [`&:hover:not(${splitBarCls}-collapse-bar-customize)`]: {

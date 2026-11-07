@@ -8,12 +8,12 @@ const useStyles = createStyles((props) => {
   return {
     dynamicDeleteButton: css`
       position: relative;
-      top: 4px;
+      top: ${cssVar.marginXXS};
       margin: 0 ${cssVar.marginXS};
       color: #999;
       font-size: 24px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all ${cssVar.motionDurationSlow} ease;
       &:hover {
         color: #777;
       }

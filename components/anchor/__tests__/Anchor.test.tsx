@@ -671,6 +671,54 @@ describe('Anchor Render', () => {
       expect(onChange).toHaveBeenLastCalledWith(`#${hash2}`);
     });
 
+    it('should trigger onChange when a raw link matches the mapped active link', () => {
+      const hash1 = getHashUrl();
+      const hash2 = getHashUrl();
+      const onChange = jest.fn();
+      const { container } = render(
+        <Anchor
+          onChange={onChange}
+          getCurrentAnchor={(link) => (link === `#${hash1}` ? `#${hash2}` : link)}
+          items={[
+            { key: hash1, href: `#${hash1}`, title: hash1 },
+            { key: hash2, href: `#${hash2}`, title: hash2 },
+          ]}
+        />,
+      );
+
+      fireEvent.click(container.querySelector(`a[href="#${hash1}"]`)!);
+      expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash2);
+      expect(onChange).toHaveBeenLastCalledWith(`#${hash1}`);
+      onChange.mockClear();
+      fireEvent.click(container.querySelector(`a[href="#${hash2}"]`)!);
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledWith(`#${hash2}`);
+    });
+
+    it('should not trigger onChange repeatedly when scrolling with getCurrentAnchor', () => {
+      const hash1 = getHashUrl();
+      const hash2 = getHashUrl();
+      const onChange = jest.fn();
+      const getCurrentAnchor = jest.fn(() => `#${hash2}`);
+      render(
+        <Anchor
+          onChange={onChange}
+          getCurrentAnchor={getCurrentAnchor}
+          items={[
+            { key: hash1, href: `#${hash1}`, title: hash1 },
+            { key: hash2, href: `#${hash2}`, title: hash2 },
+          ]}
+        />,
+      );
+
+      onChange.mockClear();
+      getCurrentAnchor.mockClear();
+      fireEvent.scroll(window);
+      fireEvent.scroll(window);
+      expect(getCurrentAnchor).toHaveBeenCalledTimes(2);
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
     // https://github.com/ant-design/ant-design/issues/34784
     it('getCurrentAnchor have default link as argument', () => {
       const hash1 = getHashUrl();
@@ -708,6 +756,40 @@ describe('Anchor Render', () => {
       const { container, rerender } = render(<Demo current={hash1} />);
       expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash1);
       rerender(<Demo current={hash2} />);
+      expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash2);
+    });
+
+    it('should apply getCurrentAnchor once when it changes', () => {
+      const hash1 = getHashUrl();
+      const hash2 = getHashUrl();
+      const hash3 = getHashUrl();
+      interface DemoProps {
+        mappedLink: string;
+      }
+
+      const Demo: React.FC<DemoProps> = ({ mappedLink }) => (
+        <Anchor
+          getCurrentAnchor={(link) => {
+            if (link === `#${hash1}`) {
+              return `#${hash2}`;
+            }
+            if (link === `#${hash2}`) {
+              return `#${mappedLink}`;
+            }
+            return link;
+          }}
+          items={[
+            { key: hash1, href: `#${hash1}`, title: hash1 },
+            { key: hash2, href: `#${hash2}`, title: hash2 },
+            { key: hash3, href: `#${hash3}`, title: hash3 },
+          ]}
+        />
+      );
+      const { container, rerender } = render(<Demo mappedLink={hash2} />);
+      fireEvent.click(container.querySelector(`a[href="#${hash1}"]`)!);
+      expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash2);
+
+      rerender(<Demo mappedLink={hash3} />);
       expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash2);
     });
 

@@ -1,13 +1,15 @@
 import React, { useRef, useState } from 'react';
-import { Button, Modal } from 'antd';
+import { Button, ConfigProvider, Modal } from 'antd';
 import type { DraggableData, DraggableEvent } from 'react-draggable';
 import Draggable from 'react-draggable';
 
 const App: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const [disabled, setDisabled] = useState(true);
   const [bounds, setBounds] = useState({ left: 0, top: 0, bottom: 0, right: 0 });
   const draggleRef = useRef<HTMLDivElement>(null!);
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('modal');
+  const dragHandle = `.${prefixCls}-draggable-title`;
 
   const showModal = () => {
     setOpen(true);
@@ -39,34 +41,17 @@ const App: React.FC = () => {
     <>
       <Button onClick={showModal}>Open Draggable Modal</Button>
       <Modal
-        title={
-          <div
-            style={{ width: '100%', cursor: 'move' }}
-            onMouseOver={() => {
-              if (disabled) {
-                setDisabled(false);
-              }
-            }}
-            onMouseOut={() => {
-              setDisabled(true);
-            }}
-            // fix eslintjsx-a11y/mouse-events-have-key-events
-            // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/mouse-events-have-key-events.md
-            onFocus={() => {}}
-            onBlur={() => {}}
-            // end
-          >
-            Draggable Modal
-          </div>
-        }
+        title="Draggable Modal"
         open={open}
         onOk={handleOk}
         onCancel={handleCancel}
+        classNames={{ title: dragHandle.slice(1) }}
+        styles={{ title: { cursor: 'move' } }}
         modalRender={(modal) => (
           <Draggable
-            disabled={disabled}
             bounds={bounds}
             nodeRef={draggleRef}
+            handle={dragHandle}
             onStart={(event, uiData) => onStart(event, uiData)}
           >
             <div ref={draggleRef}>{modal}</div>

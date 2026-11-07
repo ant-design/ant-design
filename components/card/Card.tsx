@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Tab, TabBarExtraContent } from '@rc-component/tabs';
-import { omit, toArray } from '@rc-component/util';
+import { isReactRenderable, omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
@@ -184,6 +184,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   }
 
   const onTabChange = (key: string) => {
+    tabProps.onChange?.(key);
     props.onTabChange?.(key);
   };
 
@@ -208,7 +209,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     ...tabProps,
     [hasActiveTabKey ? 'activeKey' : 'defaultActiveKey']: hasActiveTabKey
       ? activeTabKey
-      : defaultActiveTabKey,
+      : (defaultActiveTabKey ?? tabProps.defaultActiveKey),
     tabBarExtraContent,
   };
 
@@ -223,7 +224,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
       items={tabList.map(({ tab, ...item }) => ({ label: tab, ...item }))}
     />
   ) : null;
-  if (title || extra || tabs) {
+  if (isReactRenderable(title) || isReactRenderable(extra) || tabs) {
     const headClasses = clsx(`${prefixCls}-head`, mergedClassNames.header);
     const titleClasses = clsx(`${prefixCls}-head-title`, mergedClassNames.title);
     const extraClasses = clsx(`${prefixCls}-extra`, mergedClassNames.extra);
@@ -234,12 +235,12 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     head = (
       <div className={headClasses} style={mergedHeadStyle}>
         <div className={`${prefixCls}-head-wrapper`}>
-          {title && (
+          {isReactRenderable(title) && (
             <div className={titleClasses} style={mergedStyles.title}>
               {title}
             </div>
           )}
-          {extra && (
+          {isReactRenderable(extra) && (
             <div className={extraClasses} style={mergedStyles.extra}>
               {extra}
             </div>
@@ -250,7 +251,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     );
   }
   const coverClasses = clsx(`${prefixCls}-cover`, mergedClassNames.cover);
-  const coverDom = cover ? (
+  const coverDom = isReactRenderable(cover) ? (
     <div className={coverClasses} style={mergedStyles.cover}>
       {cover}
     </div>

@@ -256,4 +256,24 @@ describe('Popover', () => {
     const arrow = container.querySelector('.ant-popover-arrow');
     expect(arrow).not.toHaveStyle({ background: 'red' });
   });
+
+  it('should apply preset color background to panel container', () => {
+    render(
+      <Popover color="blue" content="hello" open>
+        <span>Show</span>
+      </Popover>,
+    );
+
+    // The panel is colored by a stylesheet rule, so both the rendered element
+    // and the rule must agree on the same class
+    expect(
+      document.body.querySelector('.ant-popover-blue .ant-popover-container'),
+    ).toBeInTheDocument();
+
+    const styleText = Array.from(document.querySelectorAll('style'))
+      .map((s) => s.textContent)
+      .join('');
+    expect(styleText).toContain('ant-popover-blue .ant-popover-container');
+    expect(styleText).not.toContain('ant-popover-blue .ant-popover-inner');
+  });
 });

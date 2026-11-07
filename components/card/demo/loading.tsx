@@ -12,7 +12,11 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   return (
     <Flex gap="medium" align="start" vertical>
-      <Switch checked={!loading} onChange={(checked) => setLoading(!checked)} />
+      <Switch
+        aria-label="Show card content"
+        checked={!loading}
+        onChange={(checked) => setLoading(!checked)}
+      />
       <Card loading={loading} actions={actions} style={{ minWidth: 300 }}>
         <Card.Meta
           avatar={<Avatar src="https://api.dicebear.com/10.x/lorelei/svg?seed=1" />}

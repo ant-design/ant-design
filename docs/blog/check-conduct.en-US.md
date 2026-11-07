@@ -36,7 +36,7 @@ When there is no scrolling, the user can't realize that the upper `disabled` is 
 
 <img alt="Tree" height="300" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xTqPQbdX6B0AAAAAAAAAAAAADrJ8AQ/original" />
 
-### Check only reachable checkable nodes
+### Check only reachable checkable nodes {#reachable-checkable-nodes}
 
 This is also the current strategy of antd, when a node is checked, it will propagate upwards and downwards from the node until `disabled` stops. When there are multiple `disabled` in the node, they will each check the status management:
 

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import convertToTooltipProps from '../_util/convertToTooltipProps';
@@ -59,23 +60,21 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     tooltip: contextTooltip,
   } = React.useContext<FormContextProps>(FormContext);
 
-  if (!label) {
+  if (!isReactRenderable(label)) {
     return null;
   }
 
   const mergedLabelCol: ColProps = labelCol || contextLabelCol || {};
 
   const mergedLabelAlign: FormLabelAlign | undefined = labelAlign || contextLabelAlign;
+  const isStartAlign = mergedLabelAlign === 'left' || mergedLabelAlign === 'start';
 
   const labelClsBasic = `${prefixCls}-item-label`;
-  const labelColClassName = clsx(
-    labelClsBasic,
-    mergedLabelAlign === 'left' && `${labelClsBasic}-left`,
-    mergedLabelCol.className,
-    {
-      [`${labelClsBasic}-wrap`]: !!labelWrap,
-    },
-  );
+  const labelColClassName = clsx(labelClsBasic, mergedLabelCol.className, {
+    // Remove the legacy `-left` class in v7.
+    [`${labelClsBasic}-start ${labelClsBasic}-left`]: isStartAlign,
+    [`${labelClsBasic}-wrap`]: labelWrap,
+  });
 
   let labelChildren: React.ReactNode = label;
 
@@ -85,7 +84,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
 
   // Remove duplicated user input colon
   if (haveColon && typeof label === 'string' && label.trim()) {
-    labelChildren = label.replace(/[:|：]\s*$/, '');
+    labelChildren = label.replace(/[:：]\s*$/, '');
   }
 
   const tooltipProps = convertToTooltipProps<FormTooltipProps>(tooltip, contextTooltip);

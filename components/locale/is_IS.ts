@@ -32,9 +32,14 @@ const localeValues: Locale = {
     emptyText: 'Engin gögn',
     selectNone: 'Hreinsaðu öll gögn',
     selectionAll: 'Veldu öll gögn',
+    selectRow: 'Velja röð',
+    selectedRow: 'Röð valin',
+    selectionMenu: 'Valmynd fyrir val',
     sortTitle: 'Raða',
     expand: 'Stækkaðu röð',
     collapse: 'Draga saman röð',
+    expandAll: 'Stækka allar raðir',
+    collapseAll: 'Draga saman allar raðir',
     triggerDesc: 'Smelltu til að raða lækkandi',
     triggerAsc: 'Smelltu til að flokka hækkandi',
     cancelSort: 'Smelltu til að hætta við flokkun',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Áfram',
     cancelText: 'Hætta við',
+  },
+  Splitter: {
+    toggleStartPanel: 'Víxla upphafsspjaldinu',
+    toggleEndPanel: 'Víxla lokaspjaldinu',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Afritað',
     expand: 'Stækkaðu',
     collapse: 'Hrun',
+  },
+  Carousel: {
+    prevSlide: 'Fyrri skyggna',
+    nextSlide: 'Næsta skyggna',
   },
   Form: {
     optional: '（Valfrjálst）',
@@ -121,7 +134,7 @@ const localeValues: Locale = {
       },
       number: {
         len: '${label} verður að vera jafngildi ${len}',
-        min: 'Lágmarksgildi ${label} er ${mín}',
+        min: 'Lágmarksgildi ${label} er ${min}',
         max: 'Hámarksgildi ${label} er ${max}',
         range: '${label} verður að vera á milli ${min}-${max}',
       },

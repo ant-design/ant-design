@@ -64,6 +64,10 @@ export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> 
   rootClassName?: string;
 }
 
+export interface SpaceCompactRef {
+  nativeElement: HTMLDivElement;
+}
+
 const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>> = (props) => {
   const { children, ...others } = props;
   return (
@@ -75,7 +79,7 @@ const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>
   );
 };
 
-const Compact: React.FC<SpaceCompactProps> = (props) => {
+const Compact = React.forwardRef<SpaceCompactRef, SpaceCompactProps>((props, ref) => {
   const { getPrefixCls, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {
@@ -116,6 +120,12 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
 
   const compactItemContext = React.useContext(SpaceCompactItemContext);
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   const childNodes = toArray(children);
 
   const nodes = React.useMemo(
@@ -145,10 +155,10 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
   }
 
   return (
-    <div className={clx} {...restProps}>
+    <div ref={nativeElementRef} className={clx} {...restProps}>
       {nodes}
     </div>
   );
-};
+});
 
 export default Compact;

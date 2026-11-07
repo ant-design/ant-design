@@ -47,6 +47,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 <code src="./demo/prefixCls.tsx" debug>prefixCls</code>
 <code src="./demo/useConfig.tsx" debug>useConfig</code>
 <code src="./demo/warning.tsx" debug>warning</code>
+<code src="./demo/focus-outline-debug.tsx" debug>Focus outline debug</code>
 
 ## API
 
@@ -114,6 +115,7 @@ The following config keys set common props for corresponding components or globa
 - `alert`: [Alert](/components/alert#api) (supported since 5.7.0)
 - `anchor`: [Anchor](/components/anchor#api) (supported since 6.0.0)
 - `app`: [App](/components/app#api) (supported since 6.3.0)
+- `autoComplete`: [AutoComplete](/components/auto-complete#allowclearconfig) (supported since 6.7.0, only supports `allowClear`)
 - `avatar`: [Avatar](/components/avatar#api) (supported since 5.7.0)
 - `badge`: [Badge](/components/badge#api) (supported since 5.7.0)
 - `borderBeam`: [BorderBeam](/components/border-beam#api) (supported since 6.4.0)
@@ -147,6 +149,7 @@ The following config keys set common props for corresponding components or globa
 - `textArea`: [Input.TextArea](/components/input#inputtextarea) (supported since 5.15.0)
 - `layout`: [Layout](/components/layout#api) (supported since 5.7.0)
 - `list`: [List](/components/list#api) (supported since 5.7.0)
+- `listy`: [Listy](/components/listy#api) (supported since 6.6.0)
 - `masonry`: [Masonry](/components/masonry#api) (supported since 6.0.0)
 - `menu`: [Menu](/components/menu#api) (supported since 5.15.0)
 - `mentions`: [Mentions](/components/mentions#api) (supported since 5.13.0)
@@ -199,11 +202,11 @@ The following config keys set common props for corresponding components or globa
 
 ### How to contribute a new language? {#faq-add-locale}
 
-See [&lt;Adding new language&gt;](/docs/react/i18n#adding-newplanguage).
+See [&lt;Adding new language&gt;](/docs/react/i18n#adding-new-language).
 
 ### Date-related components locale is not working? {#faq-locale-not-work}
 
-See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
+See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-locale-not-working)
 
 ### Modal throw error when setting `getPopupContainer`? {#faq-get-popup-container}
 

@@ -14,12 +14,12 @@ const genSkeleton = (props?: SkeletonProps) => render(<Skeleton {...props} />);
 
 describe('Skeleton.Semantic', () => {
   it('Skeleton should apply custom styles to semantic elements', () => {
-    const rootStyle = { background: 'pink' };
-    const headerStyle = { background: 'green' };
-    const sectionStyle = { background: 'yellow' };
-    const avatarStyle = { background: 'blue' };
-    const titleStyle = { background: 'red' };
-    const paragraphStyle = { background: 'orange' };
+    const rootStyle = { backgroundColor: 'rgb(255, 192, 203)' };
+    const headerStyle = { backgroundColor: 'rgb(0, 128, 0)' };
+    const sectionStyle = { backgroundColor: 'rgb(255, 255, 0)' };
+    const avatarStyle = { backgroundColor: 'rgb(0, 0, 255)' };
+    const titleStyle = { backgroundColor: 'rgb(255, 0, 0)' };
+    const paragraphStyle = { backgroundColor: 'rgb(255, 165, 0)' };
 
     const customClassNames: Required<GetProp<SkeletonProps, 'classNames', 'Return'>> = {
       root: 'custom-root',

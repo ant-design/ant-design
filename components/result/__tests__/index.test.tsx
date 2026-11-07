@@ -31,6 +31,13 @@ describe('Result', () => {
   mountTest(Result);
   rtlTest(Result);
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Result>>();
+    const { container } = render(<Result ref={ref} />);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-result'));
+  });
+
   it('🙂  successPercent should decide the progress status when it exists', () => {
     const { container } = render(
       <Result
@@ -130,5 +137,10 @@ describe('Result', () => {
 
     const root = getByLabelText('操作结果');
     expect(root).toHaveAttribute('aria-describedby', 'result-description');
+  });
+
+  it('should render numeric 0 icon', () => {
+    const { container } = render(<Result status="success" icon={0} />);
+    expect(container.querySelector('.ant-result-icon')?.textContent).toBe('0');
   });
 });

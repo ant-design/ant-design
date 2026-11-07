@@ -42,13 +42,24 @@ export type PaginationSemanticType = {
 export type PaginationSemanticAllType = GenerateSemantic<PaginationSemanticType, PaginationProps>;
 
 export interface PaginationProps
-  extends Omit<RcPaginationProps, 'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles'> {
+  extends Omit<
+    RcPaginationProps,
+    'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles' | 'sizeChangerRender'
+  > {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
   size?: SizeType;
   responsive?: boolean;
   role?: string;
   totalBoundaryShowSizeChanger?: number;
   rootClassName?: string;
+  components?: {
+    sizeChanger?: React.ComponentType<{
+      value: number;
+      onChange: (value: number) => void;
+      disabled: boolean;
+      className: string;
+    }>;
+  };
   showSizeChanger?: boolean | SelectProps;
   /** @deprecated Not official support. Will be removed in next major version. */
   selectComponentClass?: any;
@@ -78,6 +89,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     locale: customLocale,
     responsive,
     showSizeChanger,
+    components,
     selectComponentClass,
     pageSizeOptions,
     styles,
@@ -159,6 +171,18 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       className: sizeChangerClassName,
       options,
     } = info;
+
+    const SizeChangerComponent = components?.sizeChanger;
+    if (SizeChangerComponent) {
+      return (
+        <SizeChangerComponent
+          value={pageSize}
+          onChange={onSizeChange}
+          disabled={!!disabled}
+          className={sizeChangerClassName}
+        />
+      );
+    }
 
     const { className: propSizeChangerClassName, onChange: propSizeChangerOnChange } =
       mergedShowSizeChangerSelectProps || {};

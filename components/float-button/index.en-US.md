@@ -28,6 +28,7 @@ demo:
 <code src="./demo/placement.tsx" iframe="380" version="5.21.0">placement</code>
 <code src="./demo/draggable.tsx" iframe="380">draggable</code>
 <code src="./demo/back-top.tsx" iframe="360">BackTop</code>
+<code src="./demo/progress-ring.tsx" iframe="360" version="6.6.0">Progress ring</code>
 <code src="./demo/badge.tsx" iframe="360">badge</code>
 <code src="./demo/badge-debug.tsx" iframe="360" debug>debug dot</code>
 <code src="./demo/style-class.tsx" iframe="360" version="6.0.0">Custom semantic dom styling</code>
@@ -74,7 +75,8 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| duration | Time to return to top（ms） | number | 450 |  |
+| duration | Time to return to top (ms). This property is ignored when enables reduced motion (`prefers-reduced-motion: reduce`) | number | 450 |  |
+| showProgress | Show the current scroll progress ring around the BackTop button edge | boolean | false | 6.6.0 |
 | target | Specifies the scrollable area dom node | () => HTMLElement | () => window |  |
 | visibilityHeight | The BackTop button will not show until the scroll height reaches this value | number | 400 |  |
 | onClick | A callback function, which can be executed when you click the button | () => void | - |  |

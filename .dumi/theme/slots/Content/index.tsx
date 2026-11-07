@@ -114,7 +114,7 @@ const Content: React.FC<ContentProps> = ({ children, className }) => {
           )}
           <div style={{ minHeight: 'calc(100vh - 64px)' }}>
             {children}
-            <FloatButton.BackTop />
+            <FloatButton.BackTop showProgress />
           </div>
           <ColumnCard
             zhihuLink={meta.frontmatter.zhihu_url}

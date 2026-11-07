@@ -15,6 +15,8 @@ export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
   mask?: boolean | string;
 }
 
+const DEFAULT_MASK_VALUE = '•';
+
 const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   const {
     className,
@@ -26,11 +28,12 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
     onFocus,
     onCompositionStart,
     onCompositionEnd,
+    type,
     ...restProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('otp');
-  const maskValue = typeof mask === 'string' ? mask : value;
+  const maskValue = typeof mask === 'string' ? mask : DEFAULT_MASK_VALUE;
 
   // ========================== Ref ===========================
   const inputRef = React.useRef<InputRef>(null);
@@ -68,17 +71,15 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   const onInternalCompositionEnd: React.CompositionEventHandler<HTMLInputElement> = (e) => {
     composingRef.current = false;
     const nextValue = (e.target as HTMLInputElement).value;
+    composedValueRef.current = nextValue;
 
     if (nextValue !== value) {
-      composedValueRef.current = nextValue;
       onChange(index, nextValue);
-
-      raf(() => {
-        composedValueRef.current = null;
-      });
-    } else {
-      composedValueRef.current = null;
     }
+
+    raf(() => {
+      composedValueRef.current = null;
+    });
 
     onCompositionEnd?.(e);
   };
@@ -126,9 +127,8 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
       )}
 
       <Input
-        aria-label={`OTP Input ${index + 1}`}
-        type={mask === true ? 'password' : 'text'}
         {...restProps}
+        type={type ?? (mask ? 'password' : 'text')}
         ref={inputRef}
         value={value}
         onInput={onInternalChange}

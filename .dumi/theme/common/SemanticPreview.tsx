@@ -107,13 +107,13 @@ function HighlightExample(props: {
     return Prism.highlight(code, Prism.languages.jsx || Prism.languages.javascript, 'jsx');
   }, [componentName, itemsAPI, semanticName]);
 
-  return (
-    <div dangerouslySetInnerHTML={{ __html: highlightCode }} />
-  );
+  return <div dangerouslySetInnerHTML={{ __html: highlightCode }} />;
 }
 
 const getMarkClassName = (semanticKey: string) =>
   `semantic-mark-${semanticKey}`.replace(/\./g, '-');
+
+export const SemanticActiveContext = React.createContext<string | null>(null);
 
 export interface SemanticPreviewProps {
   componentName: string;
@@ -186,7 +186,9 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
           className={clsx(styles.colWrap, padding === false && styles.colWrapPaddingLess)}
           style={style}
         >
-          <ConfigProvider theme={{ token: { motion } }}>{cloneNode}</ConfigProvider>
+          <ConfigProvider theme={{ token: { motion } }}>
+            <SemanticActiveContext value={mergedSemantic}>{cloneNode}</SemanticActiveContext>
+          </ConfigProvider>
         </Col>
         <Col span={8}>
           <ul className={clsx(styles.listWrap)}>

@@ -32,9 +32,14 @@ const localeValues: Locale = {
     emptyText: 'Nav datu',
     selectNone: 'Notīrīt visus datus',
     selectionAll: 'Atlasiet visus datus',
+    selectRow: 'Atlasīt rindu',
+    selectedRow: 'Rinda atlasīta',
+    selectionMenu: 'Atlases izvēlne',
     sortTitle: 'Kārtot',
     expand: 'Izvērst rindu',
     collapse: 'Sakļaut rindu',
+    expandAll: 'Izvērst visas rindas',
+    collapseAll: 'Sakļaut visas rindas',
     triggerDesc: 'Noklikšķiniet, lai kārtotu dilstošā secībā',
     triggerAsc: 'Noklikšķiniet, lai kārtotu augošā secībā',
     cancelSort: 'Noklikšķiniet, lai atceltu kārtošanu',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Atcelt',
+  },
+  Splitter: {
+    toggleStartPanel: 'Pārslēgt sākuma paneli',
+    toggleEndPanel: 'Pārslēgt beigu paneli',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Kopēts',
     expand: 'Izvērst',
     collapse: 'Sakļaut',
+  },
+  Carousel: {
+    prevSlide: 'Iepriekšējais slaids',
+    nextSlide: 'Nākamais slaids',
   },
   Form: {
     optional: '(pēc izvēles)',

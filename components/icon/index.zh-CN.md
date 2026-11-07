@@ -42,7 +42,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAA
 
 ### 通用图标 {#common-icon}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | className | 设置图标的样式名 | string | - |  | × |
 | rotate | 图标旋转角度（IE9 无效） | number | - |  | × |
@@ -62,7 +62,7 @@ import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
 
 ### 自定义 Icon {#custom-icon}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 React 组件 | ComponentType&lt;CustomIconComponentProps> | - |  | × |
 | rotate | 图标旋转角度（IE9 无效） | number | - |  | × |
@@ -119,7 +119,7 @@ ReactDOM.createRoot(mountNode).render(<MyIcon type="icon-example" />);
 
 options 的配置项如下：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | extraCommonProps | 给所有的 `svg` 图标 `<Icon />` 组件设置额外的属性 | { \[key: string]: any } | {} |  | × |
 | scriptUrl | [iconfont.cn](https://iconfont.cn/) 项目在线生成的 js 地址，`@ant-design/icons@4.1.0` 之后支持 `string[]` 类型 | string \| string\[] | - |  | × |
@@ -178,7 +178,7 @@ ReactDOM.createRoot(mountNode).render(<Icon component={MessageSvg} />);
 
 `Icon` 中的 `component` 组件的接受的属性如下：
 
-| 字段 | 说明 | 类型 | 只读值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 字段 | 说明 | 类型 | 只读值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | className | 计算后的 `svg` 类名 | string | - |  | × |
 | fill | `svg` 元素填充的颜色 | string | `currentColor` |  | × |

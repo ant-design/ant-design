@@ -42,10 +42,12 @@ function renderCells(
       },
       index,
     ) => {
+      const mergedKey = key ?? index;
+
       if (typeof component === 'string') {
         return (
           <Cell
-            key={`${type}-${key || index}`}
+            key={`${type}-${mergedKey}`}
             className={className}
             style={style}
             classNames={classNames}
@@ -91,7 +93,7 @@ function renderCells(
       };
       return [
         <Cell
-          key={`label-${key || index}`}
+          key={`label-${mergedKey}`}
           className={className}
           style={style}
           classNames={classNames}
@@ -105,7 +107,7 @@ function renderCells(
           type="label"
         />,
         <Cell
-          key={`content-${key || index}`}
+          key={`content-${mergedKey}`}
           className={className}
           style={style}
           classNames={classNames}

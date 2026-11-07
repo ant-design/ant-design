@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
 import CSSMotion from '@rc-component/motion';
+import { isNonNullable, isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable, isNumber, isPlainObject, isReactRenderable, isString } from '../_util/is';
+import { isNumber, isPlainObject, isString } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -106,14 +107,6 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
     showZero,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
-
   // ================================ Misc ================================
   const numberedDisplayCount = (
     (count as number) > (overflowCount as number) ? `${overflowCount}+` : count
@@ -127,6 +120,43 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
   const hasStatus = (isNonNullable(status) || isNonNullable(color)) && ignoreCount;
 
   const hasStatusValue = isNonNullable(status) || !isZero;
+
+  const isStatusBadge = Boolean(!children && hasStatus && (text || hasStatusValue));
+
+  // =============================== Styles ===============================
+  const offsetStyle = useMemo<React.CSSProperties | undefined>(() => {
+    if (!offset) {
+      return undefined;
+    }
+
+    const horizontalOffset = Number.parseFloat(offset[0] as string);
+
+    return {
+      marginTop: offset[1],
+      insetInlineEnd: -horizontalOffset,
+    };
+  }, [offset]);
+
+  const mergedStyle = useMemo<React.CSSProperties>(
+    () => ({ ...offsetStyle, ...contextStyle, ...style }),
+    [offsetStyle, style, contextStyle],
+  );
+
+  const legacyStyleKey = isStatusBadge ? 'root' : 'indicator';
+  const contextLegacyStyle = useSemanticRootStyle(contextStyle, legacyStyleKey);
+  const componentLegacyStyle = useSemanticRootStyle(style, legacyStyleKey);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    BadgeSemanticAllType['classNames'],
+    BadgeSemanticAllType['styles'],
+    BadgeProps
+  >(
+    [contextClassNames, classNames],
+    [contextStyles, contextLegacyStyle, styles, componentLegacyStyle],
+    {
+      props: mergedProps,
+    },
+  );
 
   const showAsDot = dot && !isZero;
 
@@ -157,22 +187,6 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
     isDotRef.current = showAsDot;
   }
 
-  // =============================== Styles ===============================
-  const mergedStyle = useMemo<React.CSSProperties>(() => {
-    if (!offset) {
-      return { ...contextStyle, ...style };
-    }
-
-    const horizontalOffset = Number.parseInt(offset[0] as string, 10);
-
-    const offsetStyle: React.CSSProperties = {
-      marginTop: offset[1],
-      insetInlineEnd: -horizontalOffset,
-    };
-
-    return { ...offsetStyle, ...contextStyle, ...style };
-  }, [offset, style, contextStyle]);
-
   // =============================== Render ===============================
   // >>> Title
   const fallbackTitleNode =
@@ -182,7 +196,12 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
   // >>> Status Text
   const showStatusTextNode = !isHidden && (text === 0 ? showZero : !!text && text !== true);
   const statusTextNode = !showStatusTextNode ? null : (
-    <span className={`${prefixCls}-status-text`}>{text}</span>
+    <span
+      style={isStatusBadge ? { color: mergedStyles.root?.color } : undefined}
+      className={`${prefixCls}-status-text`}
+    >
+      {text}
+    </span>
   );
 
   // >>> Display Component
@@ -224,21 +243,16 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
   );
 
   // <Badge status="success" />
-  if (!children && hasStatus && (text || hasStatusValue || !ignoreCount)) {
-    const statusTextColor = mergedStyle.color;
+  if (isStatusBadge) {
     return (
       <span
         ref={ref}
         {...restProps}
         className={badgeClassName}
-        style={{ ...mergedStyles.root, ...mergedStyle }}
+        style={{ ...offsetStyle, ...mergedStyles.root }}
       >
         <span className={statusCls} style={{ ...mergedStyles.indicator, ...statusStyle }} />
-        {showStatusTextNode && (
-          <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
-            {text}
-          </span>
-        )}
+        {statusTextNode}
       </span>
     );
   }
@@ -270,13 +284,12 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
             [`${prefixCls}-color-${color}`]: isInternalColor,
           });
 
-          let scrollNumberStyle: React.CSSProperties = {
+          const scrollNumberStyle: React.CSSProperties = {
+            ...offsetStyle,
             ...mergedStyles.indicator,
-            ...mergedStyle,
           };
 
           if (color && !isInternalColor) {
-            scrollNumberStyle = scrollNumberStyle || {};
             scrollNumberStyle.background = color;
           }
 

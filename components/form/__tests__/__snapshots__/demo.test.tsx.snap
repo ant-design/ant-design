@@ -111,6 +111,7 @@ Array [
                       class="ant-select-suffix"
                     >
                       <span
+                        aria-hidden="true"
                         aria-label="down"
                         class="anticon anticon-down"
                         role="img"
@@ -281,6 +282,7 @@ Array [
                       class="ant-select-suffix"
                     >
                       <span
+                        aria-hidden="true"
                         aria-label="down"
                         class="anticon anticon-down"
                         role="img"
@@ -838,6 +840,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -1150,6 +1153,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -1294,7 +1298,6 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility:visible"
                 >
                   Select a option and change input text above
                 </div>
@@ -1316,6 +1319,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -1540,6 +1544,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
                 class="ant-mentions-suffix"
               >
                 <button
+                  aria-label="Clear"
                   class="ant-mentions-clear-icon ant-mentions-clear-icon-has-suffix"
                   type="button"
                 >
@@ -1691,6 +1696,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`]
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -1966,7 +1972,6 @@ Array [
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility:visible"
                   />
                   <input
                     aria-autocomplete="list"
@@ -1986,6 +1991,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -2044,7 +2050,6 @@ Array [
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility:visible"
                   />
                   <input
                     aria-autocomplete="list"
@@ -2064,6 +2069,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -2122,7 +2128,6 @@ Array [
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility:visible"
                   />
                   <input
                     aria-autocomplete="list"
@@ -2142,6 +2147,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -2282,7 +2288,7 @@ Array [
                   class="ant-picker-range-separator"
                 >
                   <span
-                    aria-label="to"
+                    aria-hidden="true"
                     class="ant-picker-separator"
                   >
                     <span
@@ -2526,6 +2532,7 @@ Array [
                         type="file"
                       />
                       <button
+                        disabled=""
                         style="color:inherit;cursor:inherit;border:0;background:none"
                         type="button"
                       >
@@ -2688,10 +2695,11 @@ Array [
                 class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var ant-color-picker-trigger-disabled"
               >
                 <div
+                  aria-disabled="true"
                   aria-label="Clear color"
-                  class="ant-color-picker-clear"
+                  class="ant-color-picker-clear ant-color-picker-clear-disabled"
                   role="button"
-                  tabindex="0"
+                  tabindex="-1"
                 />
               </div>
             </div>
@@ -6466,7 +6474,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
       class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap css-var-test-id"
+        class="ant-col ant-form-item-label ant-form-item-label-start ant-form-item-label-left ant-form-item-label-wrap css-var-test-id"
         style="flex:0 0 110px"
       >
         <label
@@ -6506,7 +6514,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
       class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap css-var-test-id"
+        class="ant-col ant-form-item-label ant-form-item-label-start ant-form-item-label-left ant-form-item-label-wrap css-var-test-id"
         style="flex:0 0 110px"
       >
         <label
@@ -6546,7 +6554,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
       class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap css-var-test-id"
+        class="ant-col ant-form-item-label ant-form-item-label-start ant-form-item-label-left ant-form-item-label-wrap css-var-test-id"
         style="flex:0 0 110px"
       >
         <label
@@ -6585,7 +6593,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
       class="ant-row ant-form-item-row css-var-test-id"
     >
       <div
-        class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap css-var-test-id"
+        class="ant-col ant-form-item-label ant-form-item-label-start ant-form-item-label-left ant-form-item-label-wrap css-var-test-id"
         style="flex:0 0 110px"
       >
         <label
@@ -7755,6 +7763,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -7774,8 +7783,10 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                   </svg>
                 </span>
               </div>
-              <div
+              <button
+                aria-label="Clear"
                 class="ant-select-clear"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -7797,7 +7808,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </div>
+              </button>
             </div>
           </div>
         </div>
@@ -7862,6 +7873,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -8023,6 +8035,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -8205,6 +8218,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -8826,7 +8840,6 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility:visible"
                 />
                 <input
                   aria-autocomplete="list"
@@ -8845,6 +8858,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -8903,7 +8917,6 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility:visible"
                 />
                 <input
                   aria-autocomplete="list"
@@ -8922,6 +8935,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -8980,7 +8994,6 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility:visible"
                 />
                 <input
                   aria-autocomplete="list"
@@ -8999,6 +9012,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -9543,7 +9557,7 @@ Array [
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-filled"
                     type="reset"
                   >
                     <span>
@@ -9830,7 +9844,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
                 class="ant-picker-range-separator"
               >
                 <span
-                  aria-label="to"
+                  aria-hidden="true"
                   class="ant-picker-separator"
                 >
                   <span
@@ -9948,7 +9962,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
                 class="ant-picker-range-separator"
               >
                 <span
-                  aria-label="to"
+                  aria-hidden="true"
                   class="ant-picker-separator"
                 >
                   <span
@@ -10494,7 +10508,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility:visible"
                 >
                   Please select a country
                 </div>
@@ -10516,6 +10529,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -10579,7 +10593,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility:visible"
                   >
                     Please select favourite colors
                   </div>
@@ -10606,6 +10619,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -11997,7 +12011,6 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility:visible"
                 />
                 <input
                   aria-autocomplete="list"
@@ -12016,6 +12029,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx correctly 1`]
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -12770,7 +12784,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 class="ant-picker-range-separator"
               >
                 <span
-                  aria-label="to"
+                  aria-hidden="true"
                   class="ant-picker-separator"
                 >
                   <span
@@ -12914,6 +12928,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -12957,8 +12972,10 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                   </span>
                 </span>
               </div>
-              <div
+              <button
+                aria-label="Clear"
                 class="ant-select-clear"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -12980,7 +12997,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </div>
+              </button>
             </div>
           </div>
         </div>
@@ -13020,7 +13037,6 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility:visible"
                 >
                   I'm Cascader
                 </div>
@@ -13041,6 +13057,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -13123,7 +13140,6 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility:visible"
                 >
                   I'm TreeSelect
                 </div>
@@ -13144,6 +13160,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -13513,6 +13530,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 class="ant-input-suffix"
               >
                 <button
+                  aria-label="Clear"
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
                   type="button"
                 >
@@ -13703,6 +13721,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 class="ant-input-suffix"
               >
                 <button
+                  aria-label="Clear"
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
                   type="button"
                 >
@@ -13823,7 +13842,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 1"
+                  aria-label="Character 1 of 6"
                   class="ant-input ant-input-outlined ant-input-status-success ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -13835,7 +13854,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 2"
+                  aria-label="Character 2 of 6"
                   class="ant-input ant-input-outlined ant-input-status-success ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -13847,7 +13866,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 3"
+                  aria-label="Character 3 of 6"
                   class="ant-input ant-input-outlined ant-input-status-success ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -13859,7 +13878,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 4"
+                  aria-label="Character 4 of 6"
                   class="ant-input ant-input-outlined ant-input-status-success ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -13871,7 +13890,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 5"
+                  aria-label="Character 5 of 6"
                   class="ant-input ant-input-outlined ant-input-status-success ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -13883,7 +13902,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 6"
+                  aria-label="Character 6 of 6"
                   class="ant-input ant-input-outlined ant-input-status-success ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -13930,7 +13949,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 1"
+                  aria-label="Character 1 of 6"
                   class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -13942,7 +13961,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 2"
+                  aria-label="Character 2 of 6"
                   class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -13954,7 +13973,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 3"
+                  aria-label="Character 3 of 6"
                   class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -13966,7 +13985,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 4"
+                  aria-label="Character 4 of 6"
                   class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -13978,7 +13997,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 5"
+                  aria-label="Character 5 of 6"
                   class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -13990,7 +14009,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 6"
+                  aria-label="Character 6 of 6"
                   class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -14037,7 +14056,8 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 1"
+                  aria-invalid="true"
+                  aria-label="Character 1 of 6"
                   class="ant-input ant-input-outlined ant-input-status-error ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -14049,7 +14069,8 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 2"
+                  aria-invalid="true"
+                  aria-label="Character 2 of 6"
                   class="ant-input ant-input-outlined ant-input-status-error ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -14061,7 +14082,8 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 3"
+                  aria-invalid="true"
+                  aria-label="Character 3 of 6"
                   class="ant-input ant-input-outlined ant-input-status-error ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -14073,7 +14095,8 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 4"
+                  aria-invalid="true"
+                  aria-label="Character 4 of 6"
                   class="ant-input ant-input-outlined ant-input-status-error ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -14085,7 +14108,8 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 5"
+                  aria-invalid="true"
+                  aria-label="Character 5 of 6"
                   class="ant-input ant-input-outlined ant-input-status-error ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -14097,7 +14121,8 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 role="presentation"
               >
                 <input
-                  aria-label="OTP Input 6"
+                  aria-invalid="true"
+                  aria-label="Character 6 of 6"
                   class="ant-input ant-input-outlined ant-input-status-error ant-otp-input css-var-test-id ant-input-css-var"
                   size="1"
                   type="text"
@@ -14212,6 +14237,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 class="ant-input-suffix"
               >
                 <button
+                  aria-label="Clear"
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
                   type="button"
                 >
@@ -14497,10 +14523,9 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
                   </div>
                 </label>
                 <label
-                  class="ant-segmented-item ant-segmented-item-selected"
+                  class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
                 >
                   <input
-                    checked=""
                     class="ant-segmented-item-input"
                     name="test-id"
                     type="radio"
@@ -14801,7 +14826,6 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility:visible"
                 />
                 <input
                   aria-autocomplete="list"
@@ -14821,6 +14845,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -14880,7 +14905,6 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility:visible"
                 />
                 <input
                   aria-autocomplete="list"
@@ -14900,6 +14924,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -14959,7 +14984,6 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility:visible"
                 />
                 <input
                   aria-autocomplete="list"
@@ -14979,6 +15003,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -15123,7 +15148,7 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
                 class="ant-picker-range-separator"
               >
                 <span
-                  aria-label="to"
+                  aria-hidden="true"
                   class="ant-picker-separator"
                 >
                   <span

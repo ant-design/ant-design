@@ -17,7 +17,7 @@ title: Ant Design of React
 
 ---
 
-## ✨ 特性
+## ✨ 特性 {#features}
 
 - 🌈 提炼自企业级中后台产品的交互语言和视觉风格。
 - 📦 开箱即用的高质量 React 组件。
@@ -26,7 +26,7 @@ title: Ant Design of React
 - 🌍 数十个国际化语言支持。
 - 🎨 深入每个细节的主题定制能力。
 
-## 兼容环境
+## 兼容环境 {#environment-support}
 
 - 现代浏览器
 - 支持服务端渲染。
@@ -38,15 +38,15 @@ title: Ant Design of React
 
 > `antd 2.0` 之后不再支持 IE8。 `antd 4.0` 之后不再支持 React 15 和 IE9/10。 `antd 5.0` 之后不再支持 IE。`antd 6.0` 之后不再支持 React 16/17。
 
-## 版本
+## 版本 {#version}
 
 - 稳定版：[![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 
 你可以订阅：https://github.com/ant-design/ant-design/releases.atom 来获得版本发布的通知。
 
-## 安装
+## 安装 {#installation}
 
-### 使用 npm 或 yarn 或 pnpm 或 bun 安装
+### 使用 npm 或 yarn 或 pnpm 或 bun 安装 {#using-npm-or-yarn-or-pnpm-or-bun}
 
 **我们推荐使用 [npm](https://www.npmjs.com/) 或 [yarn](https://github.com/yarnpkg/yarn/) 或 [pnpm](https://pnpm.io/zh/) 或 [bun](https://bun.sh/) 的方式进行开发**，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用，享受整个生态圈和工具链带来的诸多好处。
 
@@ -54,7 +54,7 @@ title: Ant Design of React
 
 如果你的网络环境不佳，推荐使用 [cnpm](https://github.com/cnpm/cnpm)。
 
-### 浏览器引入
+### 浏览器引入 {#import-in-browser}
 
 在浏览器中使用 `script` 和 `link` 标签直接引入文件，并使用全局变量 `antd`。
 
@@ -64,7 +64,7 @@ title: Ant Design of React
 
 > 注意：`antd.js` 和 `antd.min.js` 依赖 `react`、`react-dom`、`dayjs`，请确保提前引入这些文件。
 
-## 示例
+## 示例 {#usage}
 
 ```jsx
 import React from 'react';
@@ -77,7 +77,7 @@ const App = () => {
 export default App;
 ```
 
-### 按需加载
+### 按需加载 {#use-modularized-antd}
 
 `antd` 默认支持基于 ES modules 的 tree shaking。
 
@@ -85,10 +85,10 @@ export default App;
 
 `antd` 使用 TypeScript 进行书写并提供了完整的定义文件（不要引用 `@types/antd`）。
 
-## 链接
+## 链接 {#links}
 
-- [首页](/index-cn)
-- [所有组件](/components/overview-cn)
+- [首页](/index)
+- [所有组件](/components/overview)
 - [国内镜像](https://github.com/ant-design/ant-design/issues/25661)
 - [更新日志](/changelog)
 - [React 底层基础组件](https://react-component.github.io/)
@@ -114,21 +114,21 @@ export default App;
 - [定制主题](/docs/react/customize-theme)
 - [成为社区协作成员](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
-## 非 React 的实现
+## 非 React 的实现 {#non-react-implementations}
 
-我们采用 React 封装了一套 Ant Design 的组件库，其他语言的 UI 实现可以参考[此处](/docs/spec/introduce-cn#%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0)。
+我们采用 React 封装了一套 Ant Design 的组件库，其他语言的 UI 实现可以参考[此处](/docs/spec/introduce#front-end-implementation)。
 
-## 谁在使用
+## 谁在使用 {#companies-using-antd}
 
 Ant Design 广泛用于国内外的企业级网站搭建，可以查看 [wappalyzer](https://www.wappalyzer.com/technologies/ui-frameworks/ant-design) 作为参考数据。如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
 
-## 如何贡献
+## 如何贡献 {#contributing}
 
 在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md)。如果你希望参与贡献，欢迎提交 [Pull Request](https://github.com/ant-design/ant-design/pulls)，或给我们 [报告 Bug](https://new-issue.ant.design/)。
 
 > 强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](https://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html)、[《如何向开源项目提交无法解答的问题》](https://zhuanlan.zhihu.com/p/25795393)，更好的问题更容易获得帮助。
 
-## 社区互助
+## 社区互助 {#need-help}
 
 如果您在使用的过程中碰到问题，可以通过下面几个途径寻求帮助，同时我们也鼓励资深用户通过下面的途径给新人提供帮助。
 

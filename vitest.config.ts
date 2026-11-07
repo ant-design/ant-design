@@ -1,7 +1,7 @@
 import { resolve } from 'node:path';
 import { defineConfig } from 'vitest/config';
 
-// POC: 对标 .jest.js 的 moduleNameMapper / LIB_DIR 机制。
+// POC: 对标 .jest.ts 的 moduleNameMapper / LIB_DIR 机制。
 // LIB_DIR=es|lib 时让 antd 指向对应产物目录，否则指向源码 components。
 // 注：dist/dist-min（UMD 产物 dist/antd.js、dist/antd.min.js）的映射与源码不同，
 // 本 POC 未验证，故不纳入；仅支持 es/lib 与默认 components。
@@ -77,6 +77,7 @@ export default defineConfig({
       'components/_util/__tests__/wave.test.tsx',
       'components/_util/__tests__/wave-util.test.tsx',
       'components/anchor/__tests__/Anchor.test.tsx',
+      'components/app/__tests__/legacy.test.tsx',
       'components/auto-complete/__tests__/index.test.tsx',
       'components/auto-complete/__tests__/semantic.test.tsx',
       'components/avatar/__tests__/Avatar.test.tsx',
@@ -115,6 +116,7 @@ export default defineConfig({
       'components/grid/__tests__/server.test.tsx',
       'components/input/__tests__/textarea.test.tsx',
       'components/layout/__tests__/index.test.tsx',
+      'components/listy/__tests__/token.test.tsx',
       'components/locale/__tests__/config.test.tsx',
       'components/masonry/__tests__/index.test.tsx',
       'components/mentions/__tests__/index.test.tsx',

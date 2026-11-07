@@ -30,7 +30,7 @@ demo:
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | checked | 指定当前是否选中 | boolean | false |  | × |
 | checkedChildren | 选中时的内容 | ReactNode | - |  | × |
@@ -46,7 +46,7 @@ demo:
 | onChange | 变化时的回调函数 | function(checked: boolean, event: Event) | - |  | × |
 | onClick | 点击时的回调函数 | function(checked: boolean, event: Event) | - |  | × |
 
-## 方法
+## 方法 {#methods}
 
 | 名称    | 描述     |
 | ------- | -------- |

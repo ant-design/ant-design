@@ -156,6 +156,10 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
           ...getItemSelectedStyle(token),
           color: token.itemSelectedColor,
         },
+        '&-selected-text': {
+          color: token.itemSelectedColor,
+          transition: `color ${motionDurationMid}`,
+        },
 
         '&-focused': genFocusOutline(token),
 
@@ -177,19 +181,20 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
             .join(', '),
         },
 
-        [`&:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
-          '&:hover, &:active': {
-            color: token.itemHoverColor,
+        [`&:not(${componentCls}-item-selected):not(${componentCls}-item-selected-text):not(${componentCls}-item-disabled)`]:
+          {
+            '&:hover, &:active': {
+              color: token.itemHoverColor,
+            },
+            '&:hover::after': {
+              opacity: 1,
+              backgroundColor: token.itemHoverBg,
+            },
+            '&:active::after': {
+              opacity: 1,
+              backgroundColor: token.itemActiveBg,
+            },
           },
-          '&:hover::after': {
-            opacity: 1,
-            backgroundColor: token.itemHoverBg,
-          },
-          '&:active::after': {
-            opacity: 1,
-            backgroundColor: token.itemActiveBg,
-          },
-        },
 
         '&-label': {
           minHeight: labelHeight,
@@ -201,6 +206,22 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
         // syntactic sugar to add `icon` for Segmented Item
         '&-icon + *': {
           marginInlineStart: token.calc(token.marginSM).div(2).equal(),
+        },
+
+        // Icons from third-party libraries render as a bare `<svg>` inside the icon wrapper,
+        // which the `.anticon` reset never reaches. An `<svg>` has no baseline of its own, so it
+        // is aligned by its bottom margin edge (CSS 2.1 §10.8.1) and rides above the label.
+        // `display: inline-block` keeps it an atomic inline box so `vertical-align` still applies
+        // even under a CSS reset that forces `svg { display: block }` (e.g. Tailwind Preflight),
+        // which would otherwise drop the icon onto its own line. `vertical-align: middle` centres its
+        // margin box on the x-height line; `margin-block-end` then lifts it by half its own value onto
+        // the cap-height centre (capHeight − xHeight ≈ 0.2em across typical fonts), keeping it centred
+        // at any icon size.
+        // Only matches a bare `<svg>`: an `.anticon` keeps its `<svg>` one level deeper.
+        '&-icon > svg': {
+          display: 'inline-block',
+          verticalAlign: 'middle',
+          marginBlockEnd: '0.2em',
         },
 
         '&-input': {

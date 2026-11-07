@@ -207,7 +207,7 @@ Chinese:
 
 文案校验时逐条追问："用户或开发者看到的变化是什么？" 如果答案只是"传递某配置"、"修改某 runtime"、"增加某 metadata"、"调整内部结构"，说明文案仍是实现视角，必须改写为可感知效果。
 
-**Emoji 规范**（完整版，从 CLAUDE.md 同步）：
+**Emoji 规范**（完整版，从 AGENTS.md 同步）：
 
 | Emoji  | 用途                   |
 | ------ | ---------------------- |
@@ -351,7 +351,7 @@ const componentNames = [
 - Chinese: 修复 Select value 为空时高度不正确的问题
 ```
 
-**CLAUDE.md 规范引用：**参考项目根目录 `CLAUDE.md` 中的 Changelog 规范（核心原则、格式规范、Emoji 规范、句式规范）。
+**AGENTS.md 规范引用：**参考项目根目录 `AGENTS.md` 中的 Changelog 规范（核心原则、格式规范、Emoji 规范、句式规范）。
 
 根据规范，对 `~changelog.md` 中的条目进行过滤、分组、格式检查，并在必要时进行交互式确认和修改。
 

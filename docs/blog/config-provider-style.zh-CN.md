@@ -9,7 +9,7 @@ Ant Design v5 提供了 Design Token 模型，支持自定义算法实现主题�
 
 而今天，我们现在放下算法部分。讲讲如何通过 ConfigProvider 来拓展主题。
 
-## 一个例子
+## 一个例子 {#an-example}
 
 这是我通过 ConfigProvider 来拓展主题的示例，你可以直接在[这里](https://github.com/zombieJ/antd-geek-theme-sample)查看完整的代码（[在线演示](https://zombiej.github.io/antd-geek-theme-sample/demos/theme)）：
 
@@ -17,7 +17,7 @@ Ant Design v5 提供了 Design Token 模型，支持自定义算法实现主题�
 
 以下会聊聊在 Ant Design 中如何使用 ConfigProvider 拓展主题。当然这篇文章并不是 CSS 的教程，所以不会去介绍上面的样式实现。如果有兴趣可以直接看看上面的代码地址。
 
-## Token 之痛
+## Token 之痛 {#limitation-of-token}
 
 Design Token 提供了非常强大的拓展能力，但是同样它也有限制。例如当 Token 并没有支持某些配置时，开发者就变得无能为力了。更有甚者，某些主题实现不能单纯依赖某种 Token 就会变得十分困难。例如在上面例子中的各种渐变边框色不能简单的通过 `border-color` 来实现，它需要一些 CSS 小技巧。而如[《快乐工作主题》](/docs/blog/happy-work)我们提到，将一些具体实现落地到 Design Token 会使得代码质量迅速劣化。因而我们需要一些其他的方式来拓展主题，可以统一的修改某个组件的样式。而 ConfigProvider 就是这样的一个入口。
 
@@ -45,7 +45,7 @@ Design Token 提供了非常强大的拓展能力，但是同样它也有限制�
 
 如果你的项目只由你一个人来维护，这是个不错的主意。但是如果你的项目是一个大型项目，那么你就会发现这样的做法会导致样式冲突。尤其在多人协作的情况下，随意修改样式会出现非预期的结果，而其他人为了覆盖你的样式不得不使用更加复杂的选择器。而 ConfigProvider 则可以很好的解决这个问题，它可以将样式隔离在 ConfigProvider 内部，不会影响到其他组件。
 
-## 主题拓展
+## 主题拓展 {#theme-extension}
 
 上面的示例看起来实现很容易，但是真实场景下你会发现对于层级结构而言不免也有一些不足。比如说 `ant-` 前缀可以通过 ConfigProvider 的 `prefixCls` 修改，所以语义化结构的前缀可能从 `ant-btn-icon` 变成 `abc-btn-icon`。那么仅通过 `my-button` 是不足以实现覆盖的：
 
@@ -110,6 +110,6 @@ const GeekProvider: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
 export default GeekProvider;
 ```
 
-## 总结
+## 总结 {#summary}
 
 通过 ConfigProvider 可以进一步拓展主题，它可以很好的隔离样式，避免样式冲突。赶快动手试试吧！

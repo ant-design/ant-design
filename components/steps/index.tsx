@@ -5,7 +5,7 @@ import type { StepsProps as RcStepsProps } from '@rc-component/steps';
 import RcSteps from '@rc-component/steps';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
 import type { GetProp } from '../_util/type';
@@ -15,6 +15,7 @@ import { TARGET_CLS } from '../_util/wave/interface';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
+import useVariant from '../form/hooks/useVariants';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import Tooltip from '../tooltip';
@@ -153,7 +154,7 @@ const Steps = (props: StepsProps) => {
     className,
     rootClassName,
     style,
-    variant = 'filled',
+    variant: customVariant,
     type,
     classNames,
     styles,
@@ -193,6 +194,11 @@ const Steps = (props: StepsProps) => {
     className: contextClassName,
     style: contextStyle,
   } = contextContent;
+
+  const [variant] = useVariant('steps', customVariant, {
+    variants: ['filled', 'outlined'],
+    defaultVariant: 'filled',
+  });
 
   let contextClassNames: StepsProps['classNames'];
   let contextStyles: StepsProps['styles'];
@@ -298,9 +304,12 @@ const Steps = (props: StepsProps) => {
   };
 
   // ============================ Styles ============================
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [waveEffectClassNames, contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextStyles, contextStyleRoot, styles, styleRoot],
     {
       props: mergedProps,
     },
@@ -410,8 +419,6 @@ const Steps = (props: StepsProps) => {
   // ============================ Styles ============================
   const mergedStyle: React.CSSProperties = {
     [varName('items-offset')]: `${offset}`,
-    ...contextStyle,
-    ...style,
   };
 
   const stepsClassName = clsx(

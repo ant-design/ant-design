@@ -30,9 +30,14 @@ const localeValues: Locale = {
     selectInvert: 'നിലവിലെ പേജിൽ ഇല്ലാത്തത് തിരഞ്ഞെടുക്കുക',
     selectNone: 'എല്ലാ ഡാറ്റയും നീക്കം ചെയ്യുക',
     selectionAll: 'എല്ലാ ഡാറ്റയും തിരഞ്ഞെടുക്കുക',
+    selectRow: 'വരി തിരഞ്ഞെടുക്കുക',
+    selectedRow: 'വരി തിരഞ്ഞെടുത്തു',
+    selectionMenu: 'തിരഞ്ഞെടുക്കൽ മെനു',
     sortTitle: 'ക്രമമാക്കുക',
     expand: 'വരി വികസിപ്പിക്കുക',
     collapse: 'വരി ചുരുക്കുക',
+    expandAll: 'എല്ലാ വരികളും വികസിപ്പിക്കുക',
+    collapseAll: 'എല്ലാ വരികളും ചുരുക്കുക',
     triggerDesc: 'അവരോഹണ ക്രമത്തിനായി ക്ലിക്ക് ചെയ്യുക',
     triggerAsc: 'ആരോഹണ ക്രമത്തിനായി ക്ലിക്ക് ചെയ്യുക',
     cancelSort: 'ക്രമീകരണം ഒഴിവാക്കുന്നതിനായി ക്ലിക്ക് ചെയ്യുക',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'ശരിയാണ്',
     cancelText: 'റദ്ദാക്കുക',
+  },
+  Splitter: {
+    toggleStartPanel: 'ആരംഭ പാനൽ ടോഗിൾ ചെയ്യുക',
+    toggleEndPanel: 'അവസാന പാനൽ ടോഗിൾ ചെയ്യുക',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'കോപ്പി ചെയ്തു',
     expand: 'വികസിപ്പിക്കുക',
     collapse: 'ചുരുക്കുക',
+  },
+  Carousel: {
+    prevSlide: 'മുൻപത്തെ സ്ലൈഡ്',
+    nextSlide: 'അടുത്ത സ്ലൈഡ്',
   },
   Form: {
     optional: '(optional)',

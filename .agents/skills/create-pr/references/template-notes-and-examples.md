@@ -208,7 +208,7 @@ git merge-base HEAD <candidate-branch>
 英文：
 
 - `fix: improve TreeSelect code`
-- `docs: add CLAUDE.md for AI assistant context`
+- `docs: add AGENTS.md for AI assistant context`
 - `refactor(Image): extract normalizePlaceholder to usePlaceholderConfig hook`
 - `site: fix ThemePreview copy button in dark theme`
 - `feat: add Typography.Shimmer component`

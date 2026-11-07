@@ -373,7 +373,7 @@ describe('Table.sorter', () => {
     expect(sorter.columnKey).toBe(undefined);
 
     // change page
-    fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
+    fireEvent.click(container.querySelector('.ant-pagination-item-2 > :is(a, button)')!);
     expect(handleChange).toHaveBeenCalledTimes(4);
     sorter = handleChange.mock.calls[3][2];
 
@@ -997,6 +997,20 @@ describe('Table.sorter', () => {
     );
     fireEvent.click(container.querySelector('th')!);
     expect(onClick).toHaveBeenCalled();
+  });
+
+  it('should trigger onHeaderCell onKeyDown for every key in sort column', () => {
+    const onKeyDown = jest.fn();
+    const { container } = render(createTable({}, { onHeaderCell: () => ({ onKeyDown }) }));
+    const headerCell = container.querySelector('th')!;
+
+    fireEvent.keyDown(headerCell, { key: 'Escape' });
+    expect(onKeyDown).toHaveBeenCalledTimes(1);
+    expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+
+    fireEvent.keyDown(headerCell, { key: 'Enter', keyCode: 13 });
+    expect(onKeyDown).toHaveBeenCalledTimes(2);
+    expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
   });
 
   it('could sort data with children', () => {

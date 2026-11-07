@@ -82,10 +82,13 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorWarningAffix: mergedToken.colorWarning,
 
     // Font
+    fontHeight: Math.round(mergedToken.fontSize * mergedToken.lineHeight),
+    fontHeightSM: Math.round(mergedToken.fontSizeSM * mergedToken.lineHeightSM),
+    fontHeightLG: Math.round(mergedToken.fontSizeLG * mergedToken.lineHeightLG),
     fontSizeIcon: mergedToken.fontSizeSM,
 
     // Line
-    lineWidthFocus: mergedToken.lineWidth * 3,
+    lineWidthFocus: mergedToken.focusOutline === false ? 0 : mergedToken.lineWidth * 3,
 
     // Control
     lineWidth: mergedToken.lineWidth,

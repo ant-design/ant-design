@@ -3,6 +3,11 @@ import React from 'react';
 import { render } from '../../../tests/utils';
 import Spin from '..';
 import type { SpinProps } from '..';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
+import ConfigProvider from '../../config-provider';
 
 describe('Spin.Semantic', () => {
   it('supports object classNames and styles for default mode', () => {
@@ -168,5 +173,24 @@ describe('Spin.Semantic', () => {
     expect(container.querySelector('.ant-spin-description')).toHaveClass('custom-tip');
     expect(container.querySelector('.ant-spin-description')).toHaveStyle(styles.tip);
     expect(indicator).toHaveStyle(styles.indicator);
+  });
+
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        spin={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Spin
+          spinning
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-spin'));
   });
 });

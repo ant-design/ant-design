@@ -1,10 +1,4 @@
-export const isNonNullable = <T>(val: T): val is NonNullable<T> => {
-  return val !== undefined && val !== null;
-};
-
-export const isReactRenderable = <T>(val: T): val is Exclude<NonNullable<T>, false | ''> => {
-  return isNonNullable(val) && val !== false && val !== '';
-};
+import { isNonNullable } from '@rc-component/util';
 
 export const isNumber = (val: any): val is number => {
   return typeof val === 'number' && !Number.isNaN(val);
@@ -34,4 +28,29 @@ export const isPrimitive = (val: any) => {
 
 export const isTransitionEvent = (event: Event): event is TransitionEvent => {
   return isPlainObject(event) && 'propertyName' in event && isString(event.propertyName);
+};
+
+export const isWindow = (val?: any): val is Window => {
+  if (!isNonNullable(val)) {
+    return false;
+  }
+  return val === val.window;
+};
+
+export const isDocument = (val: Document | HTMLElement | null): val is Document => {
+  if (!isNonNullable(val)) {
+    return false;
+  }
+  return (
+    val instanceof Document ||
+    val.constructor.name === 'HTMLDocument' ||
+    val.nodeType === window.Node.DOCUMENT_NODE
+  );
+};
+
+export const isHTMLElement = (val?: unknown): val is HTMLElement => {
+  if (!isNonNullable(val)) {
+    return false;
+  }
+  return typeof HTMLElement !== 'undefined' && val instanceof HTMLElement;
 };

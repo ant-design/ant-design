@@ -1,6 +1,6 @@
 import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
 import React, { useContext } from 'react';
-import { toArray } from '@rc-component/util';
+import { isReactRenderable, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isString } from '../_util/is';
@@ -43,36 +43,44 @@ export interface ListItemMetaProps {
   title?: ReactNode;
 }
 
+export interface ListItemMetaRef {
+  nativeElement: HTMLDivElement;
+}
+
 type ListItemClassNamesModule = keyof Exclude<ListItemProps['classNames'], undefined>;
 type ListItemStylesModule = keyof Exclude<ListItemProps['styles'], undefined>;
 
-export const Meta: React.FC<ListItemMetaProps> = ({
-  prefixCls: customizePrefixCls,
-  className,
-  avatar,
-  title,
-  description,
-  ...others
-}) => {
+export const Meta = React.forwardRef<ListItemMetaRef, ListItemMetaProps>((props, ref) => {
+  const { prefixCls: customizePrefixCls, className, avatar, title, description, ...others } = props;
   const { getPrefixCls } = useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
   const classString = clsx(`${prefixCls}-item-meta`, className);
 
+  const nativeElementRef = React.useRef<HTMLDivElement>(null);
+
+  const hasAvatar = isReactRenderable(avatar);
+  const hasTitle = isReactRenderable(title);
+  const hasDescription = isReactRenderable(description);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   const content = (
     <div className={`${prefixCls}-item-meta-content`}>
-      {title && <h4 className={`${prefixCls}-item-meta-title`}>{title}</h4>}
-      {description && <div className={`${prefixCls}-item-meta-description`}>{description}</div>}
+      {hasTitle && <h4 className={`${prefixCls}-item-meta-title`}>{title}</h4>}
+      {hasDescription && <div className={`${prefixCls}-item-meta-description`}>{description}</div>}
     </div>
   );
 
   return (
-    <div {...others} className={classString}>
-      {avatar && <div className={`${prefixCls}-item-meta-avatar`}>{avatar}</div>}
-      {(title || description) && content}
+    <div ref={nativeElementRef} {...others} className={classString}>
+      {hasAvatar && <div className={`${prefixCls}-item-meta-avatar`}>{avatar}</div>}
+      {(hasTitle || hasDescription) && content}
     </div>
   );
-};
+});
 
 const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref) => {
   const {
@@ -88,6 +96,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
   } = props;
   const { grid, itemLayout } = useContext(ListContext);
   const { getPrefixCls, list } = useContext(ConfigContext);
+  const hasExtra = isReactRenderable(extra);
 
   const moduleClass = (moduleName: ListItemClassNamesModule) =>
     clsx(list?.item?.classNames?.[moduleName], customizeClassNames?.[moduleName]);
@@ -105,7 +114,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
 
   const isFlexMode = () => {
     if (itemLayout === 'vertical') {
-      return !!extra;
+      return hasExtra;
     }
     return !isItemContainsTextNodeAndNotSingular();
   };
@@ -139,7 +148,7 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
         className,
       )}
     >
-      {itemLayout === 'vertical' && extra
+      {itemLayout === 'vertical' && hasExtra
         ? [
             <div className={`${prefixCls}-item-main`} key="content">
               {children}

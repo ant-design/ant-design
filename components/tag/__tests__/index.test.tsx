@@ -191,6 +191,12 @@ describe('Tag', () => {
       expect(onClose).not.toHaveBeenCalled();
       expect(onClick).not.toHaveBeenCalled();
     });
+
+    it('should render numeric 0 inside content span when icon is present', () => {
+      const { container } = render(<Tag icon={<span className="my-icon" />}>{0}</Tag>);
+      expect(container.querySelector('.ant-tag')?.textContent).toContain('0');
+      expect(container.querySelector('.ant-tag > span:not(.my-icon)')?.textContent).toBe('0');
+    });
   });
 
   describe('CheckableTag', () => {
@@ -215,6 +221,18 @@ describe('Tag', () => {
       const { container } = render(<Tag.CheckableTag checked={false} onChange={onChange} />);
       fireEvent.keyDown(container.querySelector('.ant-tag')!, { key: ' ' });
       expect(onChange).toHaveBeenCalledWith(true);
+    });
+
+    it('should ignore repeated Space key activation', () => {
+      const onChange = jest.fn();
+      const { container } = render(<Tag.CheckableTag checked={false} onChange={onChange} />);
+      const tag = container.querySelector('.ant-tag')!;
+      const keyDownEvent = createEvent.keyDown(tag, { key: ' ', repeat: true });
+
+      fireEvent(tag, keyDownEvent);
+
+      expect(onChange).not.toHaveBeenCalled();
+      expect(keyDownEvent.defaultPrevented).toBe(true);
     });
 
     it('should not trigger onChange when key event is prevented', () => {
@@ -334,6 +352,19 @@ describe('Tag', () => {
     expect(onClose).toHaveBeenCalled();
     expect(onClose.mock.calls[0][0].type).toBe('click');
     expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(0);
+  });
+
+  it.each(['Enter', ' '])('should ignore repeated %s key activation on close controls', (key) => {
+    const onClose = jest.fn();
+    const { container } = render(<Tag closable onClose={onClose} />);
+    const closeIcon = container.querySelector('.ant-tag-close-icon')!;
+    const keyDownEvent = createEvent.keyDown(closeIcon, { key, repeat: true });
+
+    fireEvent(closeIcon, keyDownEvent);
+
+    expect(onClose).not.toHaveBeenCalled();
+    expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
+    expect(keyDownEvent.defaultPrevented).toBe(true);
   });
   it('should not close when closeIcon key event is prevented', () => {
     const onClose = jest.fn();

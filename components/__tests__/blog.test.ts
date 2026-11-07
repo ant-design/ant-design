@@ -14,7 +14,8 @@ describe('Chinese detected in en-US blog', () => {
   it('should not include Chinese in en-US blog', () => {
     for (const blog of blogList) {
       const data = fs.readFileSync(blog, 'utf-8');
-      const includeChinese = /[\u4E00-\u9FA5]/.test(data);
+      const contentWithoutCodeBlocks = data.replace(/```[\s\S]*?```/g, '');
+      const includeChinese = /[\u4E00-\u9FA5]/.test(contentWithoutCodeBlocks);
       if (includeChinese) {
         console.error('❌ 检测到中文：', blog);
       }

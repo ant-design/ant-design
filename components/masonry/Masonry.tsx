@@ -5,7 +5,7 @@ import ResizeObserver from '@rc-component/resize-observer';
 import { composeRef, isEqual, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber } from '../_util/is';
 import { responsiveArray } from '../_util/responsiveObserver';
@@ -156,13 +156,16 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     columns: columnCount,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    MasonrySemanticAllType['classNames'],
+    MasonrySemanticAllType['styles'],
+    MasonryProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   // ================== Items Position ==================
   const [itemHeights, setItemHeights] = React.useState<ItemHeightData[]>([]);
@@ -243,7 +246,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
           cssVarCls,
           { [`${prefixCls}-rtl`]: direction === 'rtl' },
         )}
-        style={{ height: totalHeight, ...mergedStyles.root, ...contextStyle, ...style }}
+        style={{ height: totalHeight, ...mergedStyles.root }}
         // Listen for image events
         onLoad={collectItemSize}
         onError={collectItemSize}

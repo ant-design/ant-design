@@ -353,7 +353,7 @@ const genDropdownStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
           margin: 0,
           padding: `${unit(token.paddingXXS)} ${unit(token.paddingSM)}`,
           color: token.colorText,
-          fontWeight: 'normal',
+          fontWeight: 400,
           fontSize: token.fontSize,
           lineHeight: token.lineHeight,
           cursor: 'pointer',
@@ -768,6 +768,22 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
         [`${tabCls}-icon:not(:last-child)`]: {
           marginInlineEnd: token.marginSM,
         },
+
+        // Icons from third-party libraries render as a bare `<svg>` inside the icon wrapper,
+        // which the `.anticon` reset never reaches. An `<svg>` has no baseline of its own, so it
+        // is aligned by its bottom margin edge (CSS 2.1 §10.8.1) and rides above the label.
+        // `display: inline-block` keeps it an atomic inline box so `vertical-align` still applies
+        // even under a CSS reset that forces `svg { display: block }` (e.g. Tailwind Preflight),
+        // which would otherwise drop the icon onto its own line. `vertical-align: middle` centres its
+        // margin box on the x-height line; `margin-block-end` then lifts it by half its own value onto
+        // the cap-height centre (capHeight − xHeight ≈ 0.2em across typical fonts), keeping it centred
+        // at any icon size.
+        // Only matches a bare `<svg>`: an `.anticon` keeps its `<svg>` one level deeper.
+        [`${tabCls}-icon > svg`]: {
+          display: 'inline-block',
+          verticalAlign: 'middle',
+          marginBlockEnd: '0.2em',
+        },
       },
 
       '&-remove': {
@@ -809,7 +825,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
         cursor: 'not-allowed',
       },
 
-      [`&${tabCls}-disabled ${tabCls}-btn, &${tabCls}-disabled ${componentCls}-remove`]: {
+      [`&${tabCls}-disabled ${tabCls}-btn`]: {
         '&:focus, &:active': {
           color: token.colorTextDisabled,
         },
@@ -922,15 +938,6 @@ const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
 
     [`${componentCls}-dropdown-rtl`]: {
       direction: 'rtl',
-    },
-
-    [`${componentCls}-menu-item`]: {
-      [`${componentCls}-dropdown-rtl`]: {
-        textAlign: {
-          _skip_check_: true,
-          value: 'right',
-        },
-      },
     },
   };
 };

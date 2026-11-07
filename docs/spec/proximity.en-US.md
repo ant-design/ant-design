@@ -29,7 +29,7 @@ In the case that the three formats are applicable, the hierarchy of information 
 
 ---
 
-## Relationship of horizontal spacing
+## Relationship of horizontal spacing {#horizontal-spacing-relationship}
 
 <ImagePreview>
   <img class="preview-img" alt="Example of combination and configuration" src="https://gw.alipayobjects.com/zos/rmsportal/uYvsqAUXNaqURGIhZhxz.png">

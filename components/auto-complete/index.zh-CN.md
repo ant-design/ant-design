@@ -35,7 +35,9 @@ demo:
 <code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
 <code src="./demo/allowClear.tsx">自定义清除按钮</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
+<code src="./demo/customize-clear-debug.tsx" debug>自定义输入组件配合清除按钮 Debug</code>
 <code src="./demo/disabled-custom-debug.tsx" debug>禁用自定义输入 Debug</code>
+<code src="./demo/disabled-in-form-debug.tsx" debug>禁用文字颜色在 Form 中 Debug</code>
 <code src="./demo/filled-custom-debug.tsx" debug>填充形态自定义输入 Debug</code>
 <code src="./demo/form-debug.tsx" debug>在 Form 中 Debug</code>
 <code src="./demo/AutoComplete-and-Select.tsx" debug>AutoComplete 和 Select</code>
@@ -47,7 +49,7 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| allowClear | 支持清除 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象形式 |
+| allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | false | - |
 | backfill | 使用键盘选择选项的时候把选中项回填到输入框中 | boolean | false |  |
 | children | 自定义输入框 | HTMLInputElement \| HTMLTextAreaElement \| React.ReactElement&lt;InputProps> | &lt;Input /> |  |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
@@ -58,8 +60,8 @@ demo:
 | disabled | 是否禁用 | boolean | false |  |
 | ~~dropdownClassName~~ | 下拉菜单的 className 属性，请使用 `classNames.popup.root` 替代 | string | - | - |
 | ~~dropdownMatchSelectWidth~~ | 下拉菜单和输入框是否同宽，请使用 `popupMatchSelectWidth` 替代 | boolean \| number | true | - |
-| ~~dropdownRender~~ | 自定义下拉框内容，使用 `popupRender` 替换 | (originNode: ReactNode) => ReactNode | - | 4.24.0 |
-| popupRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
+| ~~dropdownRender~~ | 自定义下拉框内容，使用 `popupRender` 替换 | (originNode: ReactElement) => ReactNode | - | 4.24.0 |
+| popupRender | 自定义下拉框内容 | (originNode: ReactElement) => ReactNode | - |  |
 | ~~popupClassName~~ | 下拉菜单的 className 属性，使用 `classNames.popup.root` 替换 | string | - | 4.23.0 |
 | ~~dropdownStyle~~ | 下拉菜单的 style 属性，使用 `styles.popup.root` 替换 | CSSProperties | - |  |
 | popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true |  |
@@ -70,9 +72,11 @@ demo:
 | options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | { label, value }\[] | - |  |
 | placeholder | 输入框提示 | string | - |  |
 | showSearch | 搜索配置 | true \| [Object](#showsearch) | true |  |
-| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | size | 控件大小 | `large` \| `medium` \| `small` | - |  |
+| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| suffix | 自定义后缀 | ReactNode \| (props) => ReactNode | - | 6.7.0 |
+| ~~suffixIcon~~ | 自定义后缀图标，请使用 `suffix` 替代 | ReactNode | - | - |
 | value | 指定当前选中的条目 | string | - |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
@@ -86,6 +90,17 @@ demo:
 | onClear | 清除内容时的回调 | function | - | 4.6.0 |
 | onInputKeyDown | 按键按下时回调 | (event: KeyboardEvent) => void | - |  |
 | onPopupScroll | 下拉列表滚动时的回调 | (event: UIEvent) => void | - |  |
+
+### AllowClearConfig
+
+支持通过 `ConfigProvider.autoComplete.allowClear` 全局配置（6.7.0）。字段按组件配置、全局配置、默认值的顺序取值。`allowClear={true}` 继承全局配置；`disabled: false` 和 `tabIndex: 0` 可覆盖全局值。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | 自定义清除图标 | ReactNode | - | - | 6.7.0 |
+| disabled | `true` 时等同于 `allowClear={false}` | boolean | false | 6.7.0 | 6.7.0 |
+| label | 清除按钮的无障碍名称 | string | 组件的本地化文案 | 6.6.0 | 6.7.0 |
+| tabIndex | 清除按钮的 Tab 键顺序。`-1` 表示不参与 Tab 键导航 | number | 0 | 6.7.0 | 6.7.0 |
 
 ### showSearch
 
@@ -111,12 +126,12 @@ demo:
 
 ## FAQ
 
-### 为何受控状态下使用 onSearch 无法输入中文？ {#faq-controlled-onsearch-composition}
+### 为何受控状态下使用 onSearch 无法输入中文？ {#faq-onsearch-composition}
 
 请使用 `onChange` 进行受控管理。`onSearch` 触发于搜索输入，与 `onChange` 时机不同。此外，点击选项时也不会触发 `onSearch` 事件。
 
 相关 issue：[#18230](https://github.com/ant-design/ant-design/issues/18230) [#17916](https://github.com/ant-design/ant-design/issues/17916)
 
-### 为何 options 为空时，受控 open 展开不会显示下拉菜单？ {#faq-empty-options-controlled-open}
+### 为何 options 为空时，受控 open 展开不会显示下拉菜单？ {#faq-empty-options-open}
 
 AutoComplete 组件本质上是 Input 输入框的一种扩展，当 `options` 为空时，显示空文本会让用户误以为该组件不可操作，实际上它仍然可以进行文本输入操作。因此，为了避免给用户带来困惑，当 `options` 为空时，`open` 属性为 `true` 也不会展示下拉菜单，需要与 `options` 属性配合使用。

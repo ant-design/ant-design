@@ -149,6 +149,9 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
       width: 88px;
       min-width: 88px; // 这个宽度需要和 Empty 状态的宽度保持一致
       margin-inline-end: 6px;
+      input {
+        scroll-margin-top: 0;
+      }
       .rc-virtual-list {
         .rc-virtual-list-holder {
           scrollbar-width: thin;
@@ -222,12 +225,12 @@ const Header: React.FC = () => {
 
   const { styles } = useStyle();
 
-  const [, setTopBannerDay] = useLocalStorage<string>(ANT_DESIGN_NOT_SHOW_BANNER, {
-    defaultValue: undefined,
+  const [, setTopBannerDay] = useLocalStorage<string | undefined>(ANT_DESIGN_NOT_SHOW_BANNER, {
+    initialValue: undefined,
   });
 
-  const [, setLocalType] = useLocalStorage<string>(ANT_LOCAL_TYPE_KEY, {
-    defaultValue: undefined,
+  const [, setLocalType] = useLocalStorage<string | undefined>(ANT_LOCAL_TYPE_KEY, {
+    initialValue: undefined,
   });
 
   const handleHideMenu = useCallback(() => {
@@ -238,8 +241,8 @@ const Header: React.FC = () => {
     setHeaderState((prev) => ({ ...prev, windowWidth: window.innerWidth }));
   }, []);
 
-  const onMenuVisibleChange = useCallback((visible: boolean) => {
-    setHeaderState((prev) => ({ ...prev, menuVisible: visible }));
+  const onMenuOpenChange = useCallback((open: boolean) => {
+    setHeaderState((prev) => ({ ...prev, menuVisible: open }));
   }, []);
 
   const onDirectionChange = () => {
@@ -298,7 +301,7 @@ const Header: React.FC = () => {
         window.location.pathname,
         utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname), search).pathname,
       );
-  }, [pathname, search]);
+  }, [pathname, search, setLocalType]);
 
   const nextDirectionText = useMemo<string>(
     () => (direction !== 'rtl' ? 'RTL' : 'LTR'),
@@ -419,7 +422,7 @@ const Header: React.FC = () => {
           trigger="click"
           open={menuVisible}
           arrow={{ pointAtCenter: true }}
-          onOpenChange={onMenuVisibleChange}
+          onOpenChange={onMenuOpenChange}
         >
           <MenuOutlined className="nav-phone-icon" />
         </Popover>

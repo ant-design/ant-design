@@ -1,6 +1,10 @@
 import React from 'react';
 
 import message, { actWrapper } from '..';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 import { act, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
@@ -53,7 +57,7 @@ describe('Message.semantic', () => {
           },
           styles: {
             wrapper: { backgroundColor: 'rgb(255, 0, 0)', padding: '10px' },
-            title: { color: 'rgb(255, 255, 255)', fontWeight: 'bold' },
+            title: { color: 'rgb(255, 255, 255)', fontWeight: 700 },
             icon: { color: 'rgb(0, 0, 255)', fontSize: '24px' },
             root: { border: '2px solid rgb(0, 255, 0)' },
           },
@@ -112,7 +116,7 @@ describe('Message.semantic', () => {
     expect(successIcon).toBeTruthy();
     expect(successRoot).toBeTruthy();
     expect(successWrapper).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)', padding: '10px' });
-    expect(successTitle).toHaveStyle({ color: 'rgb(255, 255, 255)', fontWeight: 'bold' });
+    expect(successTitle).toHaveStyle({ color: 'rgb(255, 255, 255)', fontWeight: 700 });
     expect(successIcon).toHaveStyle({ color: 'rgb(0, 0, 255)', fontSize: '24px' });
     expect(successRoot).toHaveStyle({ border: '2px solid rgb(0, 255, 0)' });
 
@@ -176,7 +180,7 @@ describe('Message.semantic', () => {
             title: 'override-title',
           },
           styles: {
-            title: { color: 'purple', fontWeight: 'bold' },
+            title: { color: 'purple', fontWeight: 700 },
           },
         });
 
@@ -224,7 +228,7 @@ describe('Message.semantic', () => {
     expect(document.querySelector('.override-title')).toBeTruthy();
     expect(document.querySelector('.override-title')).toHaveStyle({
       color: 'rgb(128, 0, 128)',
-      fontWeight: 'bold',
+      fontWeight: 700,
     });
 
     expect(document.querySelector('.warning-function-override')).toBeTruthy();
@@ -267,7 +271,7 @@ describe('Message.semantic', () => {
           styles: {
             title: {
               color: 'rgb(4, 5, 6)',
-              fontWeight: 'bold',
+              fontWeight: 700,
             },
           },
         }}
@@ -281,8 +285,40 @@ describe('Message.semantic', () => {
     expect(title).toHaveClass('provider-title');
     expect(title).toHaveStyle({
       color: 'rgb(1, 2, 3)',
-      fontWeight: 'bold',
+      fontWeight: 700,
     });
+
+    message.destroy();
+  });
+
+  it('should follow notice root style priority', () => {
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+
+      React.useEffect(() => {
+        api.info({
+          content: 'Message with root style priority',
+          duration: 0,
+          styles: semanticRootStylePriority.styles,
+          style: semanticRootStylePriority.style,
+        });
+      }, []);
+
+      return <div>{holder}</div>;
+    };
+
+    render(
+      <ConfigProvider
+        message={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Demo />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(document.querySelector('.ant-message-notice'));
 
     message.destroy();
   });

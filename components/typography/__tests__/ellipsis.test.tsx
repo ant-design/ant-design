@@ -159,6 +159,41 @@ describe('Typography.Ellipsis', () => {
     ellipsisSpy.mockRestore();
   });
 
+  it('should only measure native ellipsis while the typography is hovered', async () => {
+    const ellipsisSpy = jest.spyOn(baseUtil, 'isEleEllipsis').mockReturnValue(true);
+    const ref = React.createRef<HTMLElement>();
+
+    const { baseElement } = render(
+      <Base ellipsis={{ tooltip: true }} component="p" ref={ref}>
+        {fullStr}
+      </Base>,
+    );
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
+    expect(ellipsisSpy).not.toHaveBeenCalled();
+
+    fireEvent.mouseEnter(ref.current!);
+    expect(ellipsisSpy).toHaveBeenCalledTimes(1);
+    await waitFor(() => {
+      expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+    });
+
+    ellipsisSpy.mockReturnValue(false);
+    offsetWidth = 101;
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+    expect(ellipsisSpy).toHaveBeenCalledTimes(2);
+    expect(baseElement.querySelector('.ant-tooltip-open')).toBeNull();
+
+    fireEvent.mouseLeave(ref.current!);
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+    expect(ellipsisSpy).toHaveBeenCalledTimes(2);
+    ellipsisSpy.mockRestore();
+  });
+
   it('string with parentheses', async () => {
     const parenthesesStr = `Ant Design, a design language (for background applications, is refined by
         Ant UED Team. Ant Design, a design language for background applications,
@@ -329,8 +364,9 @@ describe('Typography.Ellipsis', () => {
     });
 
     // https://github.com/ant-design/ant-design/issues/36786
-    it('Tooltip should recheck on parent visible change', () => {
+    it('Tooltip should measure on hover and recheck on parent visible change', () => {
       const originIntersectionObserver = global.IntersectionObserver;
+      const ellipsisSpy = jest.spyOn(baseUtil, 'isEleEllipsis').mockReturnValue(true);
 
       let elementChangeCallback: () => void;
       const observeFn = jest.fn();
@@ -354,14 +390,23 @@ describe('Typography.Ellipsis', () => {
 
       expect(observeFn).toHaveBeenCalled();
 
-      // Hide first
+      const typography = container.querySelector<HTMLElement>('.ant-typography')!;
+      Object.defineProperty(typography, 'offsetParent', {
+        configurable: true,
+        get: () => null,
+      });
+
+      // offsetParent can stay null for a hoverable element, such as fixed positioned content.
       act(() => {
         elementChangeCallback?.();
       });
+      fireEvent.mouseEnter(typography);
+      expect(ellipsisSpy).toHaveBeenCalledTimes(1);
 
       // Trigger visible should trigger recheck
       let getOffsetParent = false;
-      Object.defineProperty(container.querySelector('.ant-typography'), 'offsetParent', {
+      Object.defineProperty(typography, 'offsetParent', {
+        configurable: true,
         get: () => {
           getOffsetParent = true;
           return document.body;
@@ -372,10 +417,12 @@ describe('Typography.Ellipsis', () => {
       });
 
       expect(getOffsetParent).toBeTruthy();
+      expect(ellipsisSpy).toHaveBeenCalledTimes(2);
 
       unmount();
       expect(disconnectFn).toHaveBeenCalled();
 
+      ellipsisSpy.mockRestore();
       global.IntersectionObserver = originIntersectionObserver;
     });
 

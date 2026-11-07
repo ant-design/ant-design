@@ -29,9 +29,14 @@ const localeValues: Locale = {
     selectAll: 'Барлығын таңдау',
     selectInvert: 'Таңдауды төңкеру',
     selectionAll: 'Барлық деректерді таңдаңыз',
+    selectRow: 'Жолды таңдау',
+    selectedRow: 'Жол таңдалды',
+    selectionMenu: 'Таңдау мәзірі',
     sortTitle: 'Сұрыптау',
     expand: 'Жолды жазу',
     collapse: 'Жолды бүктеу',
+    expandAll: 'Барлық жолдарды жазу',
+    collapseAll: 'Барлық жолдарды бүктеу',
     triggerDesc: 'Төмендеуді сұрыптау үшін басыңыз',
     triggerAsc: 'Өсу ретімен сұрыптау үшін басыңыз',
     cancelSort: 'Сұрыптаудан бас тарту үшін басыңыз',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Жарайды',
     cancelText: 'Болдырмау',
+  },
+  Splitter: {
+    toggleStartPanel: 'Бастапқы панельді ауыстыру',
+    toggleEndPanel: 'Соңғы панельді ауыстыру',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Көшірілді',
     expand: 'Жазу',
     collapse: 'Жыйрату',
+  },
+  Carousel: {
+    prevSlide: 'Алдыңғы слайд',
+    nextSlide: 'Келесі слайд',
   },
   Form: {
     optional: '(міндетті емес)',

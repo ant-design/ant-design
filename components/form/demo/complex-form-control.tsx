@@ -13,14 +13,14 @@ const App: React.FC = () => (
     wrapperCol={{ span: 16 }}
     style={{ maxWidth: 600 }}
   >
-    <Form.Item label="Username">
+    <Form.Item label="Username" htmlFor="username">
       <Space>
         <Form.Item
           name="username"
           noStyle
           rules={[{ required: true, message: 'Username is required' }]}
         >
-          <Input style={{ width: 160 }} placeholder="Please input" />
+          <Input id="username" style={{ width: 160 }} placeholder="Please input" />
         </Form.Item>
         <Tooltip title="Useful information">
           <Typography.Link href="#API">Need Help?</Typography.Link>

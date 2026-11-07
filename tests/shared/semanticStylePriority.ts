@@ -6,7 +6,6 @@ export const semanticRootStylePriority = {
       backgroundColor: 'rgb(255, 0, 0)',
       marginTop: '1px',
       paddingTop: '1px',
-      borderTopWidth: '1px',
     },
   },
   contextStyle: {
@@ -35,6 +34,13 @@ export const expectSemanticRootStylePriority = (element: Element | null) => {
     backgroundColor: semanticRootStylePriority.style.backgroundColor,
     marginTop: semanticRootStylePriority.styles.root.marginTop,
     paddingTop: semanticRootStylePriority.contextStyle.paddingTop,
-    borderTopWidth: semanticRootStylePriority.contextStyles.root.borderTopWidth,
+  });
+};
+
+export const expectSemanticRootStyleWithRootStylePriority = (element: Element | null) => {
+  expect(element).toHaveStyle({
+    backgroundColor: semanticRootStylePriority.style.backgroundColor,
+    marginTop: semanticRootStylePriority.styles.root.marginTop,
+    paddingTop: semanticRootStylePriority.contextStyles.root.paddingTop,
   });
 };

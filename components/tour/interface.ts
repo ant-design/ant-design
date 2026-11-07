@@ -5,6 +5,7 @@ import type {
 } from '@rc-component/tour';
 
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import type { ButtonProps } from '../button';
 
 export type TourSemanticType = {
   classNames?: {
@@ -45,7 +46,7 @@ export interface TourProps extends Omit<RCTourProps, 'renderPanel' | 'classNames
   current?: number;
   keyboard?: boolean;
   indicatorsRender?: (current: number, total: number) => ReactNode;
-  actionsRender?: TourStepProps['actionsRender'];
+  actionsRender?: (originNode: ReactNode, info: { current: number; total: number }) => ReactNode;
   type?: 'default' | 'primary'; //	default type, affects the background color and text color
   classNames?: TourSemanticAllType['classNamesAndFn'];
   styles?: TourSemanticAllType['stylesAndFn'];
@@ -57,18 +58,16 @@ export interface TourStepProps extends Omit<RCTourStepProps, 'styles' | 'classNa
   cover?: ReactNode; // Display pictures or videos
   nextButtonProps?: {
     children?: ReactNode;
-    onClick?: () => void;
+    onClick?: ButtonProps['onClick'];
     className?: string;
     style?: React.CSSProperties;
   };
   prevButtonProps?: {
     children?: ReactNode;
-    onClick?: () => void;
+    onClick?: ButtonProps['onClick'];
     className?: string;
     style?: React.CSSProperties;
   };
-  indicatorsRender?: (current: number, total: number) => ReactNode;
-  actionsRender?: (originNode: ReactNode, info: { current: number; total: number }) => ReactNode;
   type?: 'default' | 'primary'; //	default type, affects the background color and text color
   classNames?: TourSemanticAllType['classNames'];
   styles?: TourSemanticAllType['styles'];

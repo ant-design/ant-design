@@ -20,10 +20,10 @@ demo:
 <code src="./demo/basic.tsx">Basic usage</code>
 <code src="./demo/size.tsx">Three sizes of Input</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
+<code src="./demo/search-variant-debug.tsx" debug>Variant Config Debug</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/addon.tsx" debug>Pre / Post tab</code>
 <code src="./demo/compact-style.tsx">Compact Style</code>
-<code src="./demo/group.tsx" debug>Input Group</code>
 <code src="./demo/search-input.tsx">Search box</code>
 <code src="./demo/search-input-loading.tsx">Search box with loading</code>
 <code src="./demo/textarea.tsx">TextArea</code>
@@ -54,7 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- | --- |
 | ~~addonAfter~~ | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | ReactNode | - |  | × |
 | ~~addonBefore~~ | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | ReactNode | - |  | × |
-| allowClear | Whether to show a clear icon to remove input content | boolean \| { clearIcon: ReactNode, disabled?: boolean } | - | disabled: 6.4.0 | 5.15.0 |
+| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | - | - | ✔ |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | 4.5.0 | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-input), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-input), string> | - | 5.4.0 | 5.7.0 |
 | count | Character count config | [CountConfig](#countconfig) | - | 5.10.0 | × |
@@ -78,6 +78,17 @@ Common props ref：[Common props](/docs/react/common-props)
 > When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` props defined then `value`, `defaultValue`, and `id` props of `Input` are automatically set.
 
 The rest of the props of Input are exactly the same as the original [input](https://react.dev/reference/react-dom/components/input).
+
+#### AllowClearConfig
+
+Fields that support global configuration use component values first, then global values, then defaults. `allowClear={true}` inherits global configuration; `disabled: false` and `tabIndex: 0` override global values.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | Custom clear icon | ReactNode | - | - | ✔ |
+| disabled | When `true`, equivalent to `allowClear={false}` | boolean | false | 6.4.0 | 6.4.0 |
+| label | Accessible name of the clear button | string | Component locale text | 6.7.0 | 6.7.0 |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 6.7.0 | 6.7.0 |
 
 #### CountConfig
 
@@ -116,6 +127,7 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 | onSearch | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event, { source: "input" \| "clear" }) | - |  | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-search), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-search), CSSProperties> | - | 6.0.0 | 6.0.0 |
 | searchIcon | Customize the search icon | ReactNode | - | 6.4.0 | 6.4.0 |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 6.6.0 |
 
 Supports all props of `Input`.
 
@@ -126,6 +138,7 @@ Supports all props of `Input`.
 | classNames | Semantic DOM class | Record<[SemanticDOM](#semantic-password), string> | - | 5.4.0 | 6.4.0 |
 | iconRender | Custom toggle button | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 | 6.4.0 |
 | styles | Semantic DOM style | Record<[SemanticDOM](#semantic-password), CSSProperties> | - | 5.4.0 | 6.4.0 |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 6.6.0 |
 | visibilityToggle | Whether show toggle button or control password visible | boolean \| [VisibilityToggle](#visibilitytoggle) | true |  | × |
 
 ### Input.OTP
@@ -149,7 +162,7 @@ Added in `5.16.0`.
 | length | The number of input elements | number | 6 |  | × |
 | status | Set validation status | 'error' \| 'warning' | - |  | × |
 | size | The size of the input box | `small` \| `medium` \| `large` | `medium` |  | × |
-| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | `underlined`: 5.24.0 | × |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | `underlined`: 5.24.0 | 6.6.0 |
 | value | The input content value | string | - |  | × |
 | onChange | Trigger when all the fields are filled | (value: string) => void | - |  | × |
 | onInput | Trigger when the input value changes | (value: string[]) => void | - | `5.22.0` | × |

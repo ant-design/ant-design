@@ -28,7 +28,7 @@ exports[`renders components/border-beam/demo/basic.tsx extend context correctly 
     <div
       aria-hidden="true"
       class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      style="--ant-border-beam-inset-offset: -0px -0px -0px -0px;"
     />
   </div>
 </div>
@@ -72,7 +72,7 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
       <div
         aria-hidden="true"
         class="ant-border-beam css-var-test-id"
-        style="--ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+        style="--ant-border-beam-inset-offset: -0px -0px -0px -0px;"
       />
     </div>
   </div>
@@ -107,7 +107,7 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
       <div
         aria-hidden="true"
         class="ant-border-beam css-var-test-id"
-        style="--ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+        style="--ant-border-beam-inset-offset: -0px -0px -0px -0px;"
       />
     </div>
   </div>
@@ -115,6 +115,84 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
 `;
 
 exports[`renders components/border-beam/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/border-beam/demo/count.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
+>
+  <div
+    class="ant-card ant-card-bordered css-var-test-id"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Multiple beams
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      Set count to distribute multiple beams evenly around the container border.
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-border-beam css-var-test-id"
+      style="--ant-border-beam-inset-offset: -0px -0px -0px -0px;"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-border-beam css-var-test-id"
+      style="--ant-border-beam-delay: -2s; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-border-beam css-var-test-id"
+      style="--ant-border-beam-delay: -4s; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
+    />
+  </div>
+  <div
+    class="ant-card ant-card-bordered css-var-test-id"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Configured beams
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      Use items to customize the color and size of each beam.
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-border-beam css-var-test-id"
+      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff 0%, #1677ff 70%, transparent); --ant-border-beam-size: 48px; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-border-beam css-var-test-id"
+      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #52c41a 0%, #52c41a 70%, transparent); --ant-border-beam-size: 72px; --ant-border-beam-delay: -3s; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/border-beam/demo/count.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/border-beam/demo/custom-container.tsx extend context correctly 1`] = `
 <div
@@ -128,7 +206,7 @@ exports[`renders components/border-beam/demo/custom-container.tsx extend context
   <div
     aria-hidden="true"
     class="ant-border-beam css-var-test-id"
-    style="--ant-border-beam-inset-offset: -1px -1px -1px -1px; --ant-border-beam-border-radius: 8px;"
+    style="--ant-border-beam-inset-offset: -1px -1px -1px -1px;"
   />
 </div>
 `;
@@ -151,10 +229,9 @@ exports[`renders components/border-beam/demo/customized-color.tsx extend context
       class="ant-segmented-group"
     >
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -309,7 +386,7 @@ exports[`renders components/border-beam/demo/customized-color.tsx extend context
     <div
       aria-hidden="true"
       class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff 0%, #36cfc9 36.4%, #95de64 70%, transparent); --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff 0%, #36cfc9 36.4%, #95de64 70%, transparent); --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
     />
   </div>
 </div>
@@ -362,7 +439,7 @@ exports[`renders components/border-beam/demo/duration.tsx extend context correct
       <div
         aria-hidden="true"
         class="ant-border-beam css-var-test-id"
-        style="--ant-border-beam-duration: 3s; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+        style="--ant-border-beam-duration: 3s; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
       />
     </div>
   </div>
@@ -406,7 +483,7 @@ exports[`renders components/border-beam/demo/duration.tsx extend context correct
       <div
         aria-hidden="true"
         class="ant-border-beam css-var-test-id"
-        style="--ant-border-beam-duration: 6s; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+        style="--ant-border-beam-duration: 6s; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
       />
     </div>
   </div>
@@ -450,7 +527,7 @@ exports[`renders components/border-beam/demo/duration.tsx extend context correct
       <div
         aria-hidden="true"
         class="ant-border-beam css-var-test-id"
-        style="--ant-border-beam-duration: 12s; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+        style="--ant-border-beam-duration: 12s; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
       />
     </div>
   </div>
@@ -484,7 +561,7 @@ exports[`renders components/border-beam/demo/hover.tsx extend context correctly 
   <div
     aria-hidden="true"
     class="ant-border-beam css-var-test-id"
-    style="--ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+    style="--ant-border-beam-inset-offset: -0px -0px -0px -0px;"
   />
 </div>
 `;
@@ -520,7 +597,7 @@ exports[`renders components/border-beam/demo/line-width.tsx extend context corre
     <div
       aria-hidden="true"
       class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-line-width: 2px; --ant-border-beam-inset-offset: -2px -2px -2px -2px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+      style="--ant-border-beam-line-width: 2px; --ant-border-beam-inset-offset: -2px -2px -2px -2px;"
     />
   </div>
 </div>
@@ -581,7 +658,7 @@ exports[`renders components/border-beam/demo/non-uniform-radius.tsx extend conte
     <div
       aria-hidden="true"
       class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-inset-offset: -0px; --ant-border-beam-border-radius: 20px 20px 0 0;"
+      style="--ant-border-beam-inset-offset: -0px;"
     />
   </div>
 </div>
@@ -632,7 +709,7 @@ exports[`renders components/border-beam/demo/size.tsx extend context correctly 1
       <div
         aria-hidden="true"
         class="ant-border-beam css-var-test-id"
-        style="--ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+        style="--ant-border-beam-inset-offset: -0px -0px -0px -0px;"
       />
     </div>
   </div>
@@ -675,7 +752,7 @@ exports[`renders components/border-beam/demo/size.tsx extend context correctly 1
       <div
         aria-hidden="true"
         class="ant-border-beam css-var-test-id"
-        style="--ant-border-beam-size: 56px; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+        style="--ant-border-beam-size: 56px; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
       />
     </div>
   </div>
@@ -720,7 +797,7 @@ exports[`renders components/border-beam/demo/size.tsx extend context correctly 1
       <div
         aria-hidden="true"
         class="ant-border-beam css-var-test-id"
-        style="--ant-border-beam-size: 160px; --ant-border-beam-inset-offset: -0px -0px -0px -0px; --ant-border-beam-border-radius: var(--ant-border-radius-lg);"
+        style="--ant-border-beam-size: 160px; --ant-border-beam-inset-offset: -0px -0px -0px -0px;"
       />
     </div>
   </div>

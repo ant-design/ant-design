@@ -11,7 +11,7 @@ Contrast is one of the effective ways to add visual interest to your page, and t
 
 ---
 
-## The Contrast of major and minor relationship
+## The Contrast of major and minor relationship {#major-minor-contrast}
 
 <ImagePreview>
 <img class="preview-img good" alt="good example" src="https://gw.alipayobjects.com/zos/rmsportal/DXDSNzVmrVwVRJCTyaTH.png">

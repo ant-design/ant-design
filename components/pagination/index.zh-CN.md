@@ -27,6 +27,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 <code src="./demo/total.tsx">总数</code>
 <code src="./demo/all.tsx">全部展示</code>
 <code src="./demo/itemRender.tsx">上一步和下一步</code>
+<code src="./demo/components.tsx" version="6.6.0">定制组件</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/variant-debug.tsx" debug>变体 Debug</code>
@@ -40,10 +41,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 <Pagination onChange={onChange} total={50} />
 ```
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | align | 对齐方式 | start \| center \| end | - | 5.19.0 | × |
 | classNames | 自定义组件内部各语义化结构的类名。支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
+| components | 自定义内部组件 | { sizeChanger?: React.ComponentType } | - | 6.6.0 | × |
 | current | 当前页数 | number | - |  | × |
 | defaultCurrent | 默认的当前页数 | number | 1 |  | × |
 | defaultPageSize | 默认的每页条数 | number | 10 |  | × |
@@ -55,7 +57,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 | responsive | 当 size 未指定时，根据屏幕宽度自动调整尺寸 | boolean | - |  | × |
 | showLessItems | 是否显示较少页面内容 | boolean | false |  | × |
 | showQuickJumper | 是否可以快速跳转至某页 | boolean \| { goButton: ReactNode } | false |  | × |
-| showSizeChanger | 是否展示 `pageSize` 切换器 | boolean \| [SelectProps](/components/select-cn#api) | - | SelectProps: 5.21.0 | 4.21.0，SelectProps: 5.21.0 |
+| showSizeChanger | 是否展示 `pageSize` 切换器 | boolean \| [SelectProps](/components/select#api) | - | SelectProps: 5.21.0 | 4.21.0，SelectProps: 5.21.0 |
 | showTitle | 是否显示原生 tooltip 页码提示 | boolean | true |  | × |
 | showTotal | 用于显示数据总量和当前数据顺序 | function(total, range) | - |  | × |
 | simple | 当添加该属性时，显示为简单分页 | boolean \| { readOnly?: boolean } | - |  | × |
@@ -63,7 +65,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 | styles | 自定义组件内部各语义化结构的内联样式。支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | total | 数据总数 | number | 0 |  | × |
 | totalBoundaryShowSizeChanger | 当 `total` 大于该值时，`showSizeChanger` 默认为 true | number | 50 |  | 6.2.0 |
-| onChange | 页码或 `pageSize` 改变的回调，参数是改变后的页码及每页条数 | function(page, pageSize) | - |  | × |
+| onChange | 页码或 `pageSize` 改变的回调。当 `pageSize` 改变时，第三个参数 `info.recommendPage` 会提供基于新页面大小的推荐页码，帮助保留用户当前的数据位置 | function(page, pageSize, info?) | - | info: 6.7.0 | × |
 | onShowSizeChange | pageSize 变化的回调 | function(current, size) | - |  | × |
 
 ## Semantic DOM

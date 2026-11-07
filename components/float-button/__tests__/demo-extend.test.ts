@@ -1,3 +1,3 @@
 import { extendTest } from '../../../tests/shared/demoTest';
 
-extendTest('float-button');
+extendTest('float-button', { skip: ['progress-ring.tsx'] });

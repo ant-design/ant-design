@@ -66,7 +66,7 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
         },
 
         '&:focus-visible': {
-          outline: `${unit(token.lineWidth)} dashed ${token.starColor}`,
+          outline: `${unit(token.lineWidthFocus)} dashed ${token.starColor}`,
           transform: token.starHoverScale,
         },
       },
@@ -147,14 +147,19 @@ const genRateStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
 };
 
 // ============================== Export ==============================
-export const prepareComponentToken: GetDefaultToken<'Rate'> = (token) => ({
-  starColor: token.yellow6,
-  starSize: token.controlHeight * 0.625,
-  starSizeSM: token.controlHeightSM * 0.625,
-  starSizeLG: token.controlHeightLG * 0.625,
-  starHoverScale: 'scale(1.1)',
-  starBg: token.colorFillContent,
-});
+export const prepareComponentToken: GetDefaultToken<'Rate'> = (token) => {
+  const componentToken = {
+    lineWidthFocus: token.lineWidthFocus === 0 ? 0 : token.lineWidth,
+    starColor: token.yellow6,
+    starSize: token.controlHeight * 0.625,
+    starSizeSM: token.controlHeightSM * 0.625,
+    starSizeLG: token.controlHeightLG * 0.625,
+    starHoverScale: 'scale(1.1)',
+    starBg: token.colorFillContent,
+  };
+
+  return componentToken;
+};
 
 export default genStyleHooks(
   'Rate',

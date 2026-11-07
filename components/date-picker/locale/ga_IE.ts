@@ -13,6 +13,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'Roghnaigh seachtain',
     rangePlaceholder: ['Dáta tosaigh', 'Dáta deiridh'],
     rangeYearPlaceholder: ['Tús na bliana', 'Deireadh na bliana'],
+    rangeQuarterPlaceholder: ['Tús na ráithe', 'Deireadh na ráithe'],
     rangeMonthPlaceholder: ['Tosaigh mhí', 'Deireadh mhí'],
     rangeWeekPlaceholder: ['Tosaigh an tseachtain', 'Deireadh na seachtaine'],
     ...CalendarLocale,

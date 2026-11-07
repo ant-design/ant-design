@@ -1,16 +1,16 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import type { PopconfirmProps, PopconfirmSemanticAllType } from '.';
 import ActionButton from '../_util/ActionButton';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
-import { isReactRenderable } from '../_util/is';
 import Button from '../button/Button';
 import { convertLegacyProps } from '../button/buttonHelpers';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type { PopconfirmProps, PopconfirmSemanticAllType } from '.';
 import PopoverPurePanel from '../popover/PurePanel';
 import useStyle from './style';
 
@@ -68,6 +68,11 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
   const titleNode = getRenderPropValue(title);
   const descriptionNode = getRenderPropValue(description);
 
+  const onInternalCancel: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+    onCancel?.(event);
+    cancelButtonProps?.onClick?.(event);
+  };
+
   return (
     <div className={`${prefixCls}-inner-content`} onClick={onPopupClick}>
       <div className={`${prefixCls}-message`}>
@@ -97,7 +102,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
       </div>
       <div className={`${prefixCls}-buttons`}>
         {showCancel && (
-          <Button onClick={onCancel} size="small" {...cancelButtonProps}>
+          <Button size="small" {...cancelButtonProps} onClick={onInternalCancel}>
             {cancelText || contextLocale?.cancelText}
           </Button>
         )}

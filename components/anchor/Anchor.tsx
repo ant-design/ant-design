@@ -101,17 +101,6 @@ export interface AnchorProps {
   replace?: boolean;
 }
 
-export interface AnchorState {
-  activeLink: null | string;
-}
-
-export interface AnchorDefaultProps extends AnchorProps {
-  prefixCls: string;
-  affix: boolean;
-  showInkInFixed: boolean;
-  getContainer: () => AnchorContainer;
-}
-
 export type AnchorDirection = 'vertical' | 'horizontal';
 
 export interface AntAnchor {
@@ -167,6 +156,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const [links, setLinks] = React.useState<string[]>([]);
   const [activeLink, setActiveLink] = React.useState<string | null>(null);
   const activeLinkRef = React.useRef<string | null>(activeLink);
+  const rawActiveLinkRef = React.useRef<string | null>(activeLink);
 
   const wrapperRef = React.useRef<HTMLDivElement>(null);
   const spanLinkNodeRef = React.useRef<HTMLSpanElement>(null);
@@ -261,24 +251,28 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     return '';
   };
 
-  const setCurrentActiveLink = useEvent((link: string) => {
-    // FIXME: Seems a bug since this compare is not equals
-    // `activeLinkRef` is parsed value which will always trigger `onChange` event.
-    if (activeLinkRef.current === link) {
-      return;
-    }
+  const setCurrentActiveLink = useEvent((link: string, forceTriggerChange = false) => {
+    rawActiveLinkRef.current = link;
 
     // https://github.com/ant-design/ant-design/issues/30584
     const newLink = isFunction(getCurrentAnchor) ? getCurrentAnchor(link) : link;
-    setActiveLink(newLink);
-    activeLinkRef.current = newLink;
+    const isSameLink = activeLinkRef.current === newLink;
+
+    if (isSameLink && !forceTriggerChange) {
+      return;
+    }
+
+    if (!isSameLink) {
+      setActiveLink(newLink);
+      activeLinkRef.current = newLink;
+    }
 
     // onChange should respect the original link (which may caused by
     // window scroll or user click), not the new link
     onChange?.(link);
   });
 
-  const handleScroll = React.useCallback(() => {
+  const handleScroll = useEvent(() => {
     if (animatingRef.current) {
       return;
     }
@@ -291,44 +285,41 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     );
 
     setCurrentActiveLink(currentActiveLink);
-  }, [links, targetOffset, offsetTop, bounds]);
+  });
 
-  const handleScrollTo = React.useCallback<(link: string, targetOffsetParams?: number) => void>(
-    (link, targetOffsetParams) => {
-      const previousActiveLink = activeLinkRef.current;
-      setCurrentActiveLink(link);
-      const sharpLinkMatch = sharpMatcherRegex.exec(link);
-      if (!sharpLinkMatch) {
+  const handleScrollTo = useEvent((link: string, targetOffsetParams?: number) => {
+    const previousRawActiveLink = rawActiveLinkRef.current;
+    setCurrentActiveLink(link, previousRawActiveLink !== link);
+    const sharpLinkMatch = sharpMatcherRegex.exec(link);
+    if (!sharpLinkMatch) {
+      return;
+    }
+    const targetElement = document.getElementById(sharpLinkMatch[1]);
+    if (!targetElement) {
+      return;
+    }
+
+    if (animatingRef.current) {
+      if (previousRawActiveLink === link) {
         return;
       }
-      const targetElement = document.getElementById(sharpLinkMatch[1]);
-      if (!targetElement) {
-        return;
-      }
+      scrollRequestIdRef.current?.();
+    }
 
-      if (animatingRef.current) {
-        if (previousActiveLink === link) {
-          return;
-        }
-        scrollRequestIdRef.current?.();
-      }
-
-      const container = getCurrentContainer();
-      const scrollTop = getScroll(container);
-      const eleOffsetTop = getOffsetTop(targetElement, container);
-      let y = scrollTop + eleOffsetTop;
-      const finalTargetOffset = targetOffsetParams ?? targetOffset ?? offsetTop ?? 0;
-      y -= finalTargetOffset;
-      animatingRef.current = true;
-      scrollRequestIdRef.current = scrollTo(y, {
-        getContainer: getCurrentContainer,
-        callback() {
-          animatingRef.current = false;
-        },
-      });
-    },
-    [targetOffset, offsetTop],
-  );
+    const container = getCurrentContainer();
+    const scrollTop = getScroll(container);
+    const eleOffsetTop = getOffsetTop(targetElement, container);
+    let y = scrollTop + eleOffsetTop;
+    const finalTargetOffset = targetOffsetParams ?? targetOffset ?? offsetTop ?? 0;
+    y -= finalTargetOffset;
+    animatingRef.current = true;
+    scrollRequestIdRef.current = scrollTo(y, {
+      getContainer: getCurrentContainer,
+      callback() {
+        animatingRef.current = false;
+      },
+    });
+  });
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: AnchorProps = {
@@ -400,11 +391,11 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     return () => {
       scrollContainer?.removeEventListener('scroll', handleScroll);
     };
-  }, [dependencyListItem]);
+  }, [dependencyListItem, getCurrentContainer, handleScroll]);
 
   React.useEffect(() => {
     if (isFunction(getCurrentAnchor)) {
-      setCurrentActiveLink(getCurrentAnchor(activeLinkRef.current || ''));
+      setCurrentActiveLink(rawActiveLinkRef.current || '');
     }
   }, [getCurrentAnchor]);
 

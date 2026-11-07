@@ -32,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: 'වත්මන් පිටුව යටියනය',
     selectNone: 'සියළු දත්ත ඉවතලන්න',
     selectionAll: 'සියළු දත්ත තෝරන්න',
+    selectRow: 'පේළිය තෝරන්න',
+    selectedRow: 'පේළිය තෝරා ඇත',
+    selectionMenu: 'තේරීම් මෙනුව',
     sortTitle: 'පෙළගැසීම',
     expand: 'පේළිය දිගහරින්න',
     collapse: 'පේළිය හකුළන්න',
+    expandAll: 'සියලු පේළි දිගහරින්න',
+    collapseAll: 'සියලු පේළි හකුළන්න',
     triggerDesc: 'අවරෝහණව පෙළගැසීමට ඔබන්න',
     triggerAsc: 'ආරෝහණව පෙළගැසීමට ඔබන්න',
     cancelSort: 'පෙළගැසීම අවලංගු කිරීමට ඔබන්න',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'හරි',
     cancelText: 'අවලංගු කරන්න',
+  },
+  Splitter: {
+    toggleStartPanel: 'ආරම්භක පැනලය ටොගල් කරන්න',
+    toggleEndPanel: 'අවසාන පැනලය ටොගල් කරන්න',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'පිටපත් විය',
     expand: 'විහිදුවන්න',
     collapse: 'හකුළන්න',
+  },
+  Carousel: {
+    prevSlide: 'කලින් ස්ලයිඩ්',
+    nextSlide: 'ඊළඟ ස්ලයිඩ්',
   },
   Form: {
     optional: '(විකල්පයකි)',

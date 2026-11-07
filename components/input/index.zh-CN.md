@@ -21,10 +21,10 @@ demo:
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
+<code src="./demo/search-variant-debug.tsx" debug>变体配置 Debug</code>
 <code src="./demo/filled-debug.tsx" debug>面性变体 Debug</code>
 <code src="./demo/addon.tsx" debug>前置/后置标签</code>
 <code src="./demo/compact-style.tsx">紧凑模式</code>
-<code src="./demo/group.tsx" debug>输入框组合</code>
 <code src="./demo/search-input.tsx">搜索框</code>
 <code src="./demo/search-input-loading.tsx">搜索框 loading</code>
 <code src="./demo/textarea.tsx">文本域</code>
@@ -51,11 +51,11 @@ demo:
 
 ### Input
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | ~~addonAfter~~ | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | ReactNode | - |  | × |
 | ~~addonBefore~~ | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | ReactNode | - |  | × |
-| allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon: ReactNode, disabled?: boolean } | - | disabled: 6.4.0 | 5.15.0 |
+| allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | - | - | ✔ |
 | ~~bordered~~ | 是否有边框, 请使用 `variant` 替换 | boolean | true | 4.5.0 | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-input), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-input), string> | - | 5.4.0 | 5.7.0 |
 | count | 字符计数配置 | [CountConfig](#countconfig) | - | 5.10.0 | × |
@@ -80,6 +80,17 @@ demo:
 
 Input 的其他属性和 React 自带的 [input](https://zh-hans.react.dev/reference/react-dom/components/input) 一致。
 
+#### AllowClearConfig
+
+支持全局配置的字段按组件配置、全局配置、默认值的顺序取值。`allowClear={true}` 继承全局配置；`disabled: false` 和 `tabIndex: 0` 可覆盖全局值。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | 自定义清除图标 | ReactNode | - | - | ✔ |
+| disabled | `true` 时等同于 `allowClear={false}` | boolean | false | 6.4.0 | 6.4.0 |
+| label | 清除按钮的无障碍名称 | string | 组件的本地化文案 | 6.7.0 | 6.7.0 |
+| tabIndex | 清除按钮的 Tab 键顺序。`-1` 表示不参与 Tab 键导航 | number | 0 | 6.7.0 | 6.7.0 |
+
 #### CountConfig
 
 ```tsx
@@ -99,7 +110,7 @@ interface CountConfig {
 
 同 Input 属性，外加：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object | false |  | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-textarea), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-textarea), string> | - | 5.4.0 | 5.15.0 |
@@ -109,7 +120,7 @@ interface CountConfig {
 
 ### Input.Search
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-search), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-search), string> | - | 6.0.0 | 6.0.0 |
 | enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | ReactNode | false |  | × |
@@ -117,16 +128,18 @@ interface CountConfig {
 | onSearch | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event, { source: "input" \| "clear" }) | - |  | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-search) , CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-search) , CSSProperties> | - | 6.0.0 | 6.0.0 |
 | searchIcon | 自定义搜索图标 | ReactNode | - | 6.4.0 | 6.4.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 6.6.0 |
 
 其余属性和 Input 一致。
 
 ### Input.Password
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classNames | 语义化结构 class | Record<[SemanticDOM](#semantic-password), string> | - | 5.4.0 | 6.4.0 |
 | iconRender | 自定义切换按钮 | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 | 6.4.0 |
 | styles | 语义化结构 style | Record<[SemanticDOM](#semantic-password), CSSProperties> | - | 5.4.0 | 6.4.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 6.6.0 |
 | visibilityToggle | 是否显示切换按钮或者控制密码显隐 | boolean \| [VisibilityToggle](#visibilitytoggle) | true |  | × |
 
 ### Input.OTP
@@ -137,7 +150,7 @@ interface CountConfig {
 >
 > 当 `mask` 属性的类型为 string 时，我们强烈推荐接收单个字符或单个 emoji，如果传入多个字符或多个 emoji，则会在控制台抛出警告。
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | autoComplete | 输入元素的 autocomplete 属性，例如 `one-time-code` 可用于 OTP 自动填充 | string | - | 6.3.0 | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-otp), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-otp), string> | - | 6.0.0 | 6.0.0 |
@@ -150,18 +163,18 @@ interface CountConfig {
 | status | 设置校验状态 | 'error' \| 'warning' | - |  | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-otp) , CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-otp) , CSSProperties> | - | 6.0.0 | 6.0.0 |
 | size | 输入框大小 | `small` \| `medium` \| `large` | `medium` |  | × |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | `underlined`: 5.24.0 | × |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | `underlined`: 5.24.0 | 6.6.0 |
 | value | 输入框内容 | string | - |  | × |
 | onChange | 当输入框内容全部填充时触发回调 | (value: string) => void | - |  | × |
 | onInput | 输入值变化时触发的回调 | (value: string[]) => void | - | `5.22.0` | × |
 
 #### VisibilityToggle
 
-| 参数            | 说明                      | 类型              | 默认值 | 版本  |
-| --------------- | ------------------------- | ----------------- | ------ | ----- |
-| tabIndex        | 设置切换按钮的 `tabIndex` | number            | 0      | 6.5.0 |
-| visible         | 用于手动控制密码显隐      | boolean           | false  | 4.24  |
-| onVisibleChange | 显隐密码的回调            | (visible) => void | -      | 4.24  |
+| 参数            | 说明                      | 类型              | 默认值 | 版本   |
+| --------------- | ------------------------- | ----------------- | ------ | ------ |
+| tabIndex        | 设置切换按钮的 `tabIndex` | number            | 0      | 6.5.0  |
+| visible         | 用于手动控制密码显隐      | boolean           | false  | 4.24.0 |
+| onVisibleChange | 显隐密码的回调            | (visible) => void | -      | 4.24.0 |
 
 #### Input Methods
 

@@ -27,9 +27,14 @@ const localeValues: Locale = {
     selectAll: 'בחר הכל',
     selectInvert: 'הפוך בחירה',
     selectionAll: 'בחר את כל הנתונים',
+    selectRow: 'בחירת שורה',
+    selectedRow: 'השורה נבחרה',
+    selectionMenu: 'תפריט בחירה',
     sortTitle: 'מיון',
     expand: 'הרחב שורה',
     collapse: 'צמצם שורה',
+    expandAll: 'הרחב את כל השורות',
+    collapseAll: 'צמצם את כל השורות',
     triggerDesc: 'לחץ למיון לפי סדר יורד',
     triggerAsc: 'לחץ למיון לפי סדר עולה',
     cancelSort: 'לחץ כדי לבטל את המיון',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'אישור',
     cancelText: 'ביטול',
+  },
+  Splitter: {
+    toggleStartPanel: 'החלפת מצב הלוח ההתחלתי',
+    toggleEndPanel: 'החלפת מצב הלוח הסופי',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'הועתק',
     expand: 'הרחב',
     collapse: 'התמוטט',
+  },
+  Carousel: {
+    prevSlide: 'השקופית הקודמת',
+    nextSlide: 'השקופית הבאה',
   },
   Form: {
     optional: '(אופציונלי)',

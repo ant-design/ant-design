@@ -30,6 +30,14 @@ describe('Statistic', () => {
     expect(container.querySelector('.ant-statistic-content')!.textContent).toBe('-');
   });
 
+  it('renders semantic nodes for zero title, prefix, and suffix', () => {
+    const { container } = render(<Statistic title={0} prefix={0} suffix={0} />);
+
+    expect(container.querySelector('.ant-statistic-title')).toHaveTextContent('0');
+    expect(container.querySelector('.ant-statistic-content-prefix')).toHaveTextContent('0');
+    expect(container.querySelector('.ant-statistic-content-suffix')).toHaveTextContent('0');
+  });
+
   it('customize formatter', () => {
     const formatter = jest.fn(() => 93);
     const { container } = render(<Statistic value={1128} formatter={formatter} />);
@@ -54,6 +62,22 @@ describe('Statistic', () => {
       <StatisticNumber value=".5" prefixCls="ant-statistic" decimalSeparator="." />,
     );
     expect(container.textContent).toBe('0.5');
+  });
+
+  it('expand exponential notation', () => {
+    [
+      [0.0000001, 2, '0.00'],
+      [-0.00000012345, 9, '-0.000000123'],
+      [1.5e21, undefined, '1,500,000,000,000,000,000,000'],
+      [Number.MIN_VALUE, 2, '0.00'],
+    ].forEach(([value, precision, expectValue]) => {
+      const { container } = render(
+        <Statistic value={value as number} precision={precision as number} />,
+      );
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toBe(
+        expectValue,
+      );
+    });
   });
 
   it('not a number', () => {

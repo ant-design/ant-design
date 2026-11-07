@@ -18,7 +18,8 @@ exports[`Collapse Collapse.Panel usage 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -58,7 +59,8 @@ exports[`Collapse Collapse.Panel usage 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -95,6 +97,7 @@ exports[`Collapse could override default openMotion 1`] = `
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-controls="test-id"
       aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
@@ -105,7 +108,8 @@ exports[`Collapse could override default openMotion 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="expanded"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -133,6 +137,7 @@ exports[`Collapse could override default openMotion 1`] = `
     </div>
     <div
       class="ant-collapse-panel ant-collapse-panel-active"
+      id="test-id"
     >
       <div
         class="ant-collapse-body"
@@ -192,7 +197,8 @@ exports[`Collapse should render extra node of panel 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -241,7 +247,8 @@ exports[`Collapse should render extra node of panel 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >

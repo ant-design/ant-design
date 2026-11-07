@@ -11,7 +11,7 @@ Umi，中文发音为「乌米」，是可扩展的企业级前端应用框架�
 
 本文会引导你使用 Umi、Ant Design 和 [Ant Design Pro](https://pro.ant.design/) 从 0 开始创建一个简单应用。
 
-## 初始化项目
+## 初始化项目 {#initialization-project}
 
 推荐使用 [pnpm](https://pnpm.io/zh/) 创建 Umi 脚手架，执行以下命令。
 
@@ -80,7 +80,7 @@ ready - ║  > Network: http://*********:8000                  ║
 
 ![](https://img.alicdn.com/imgextra/i2/O1CN01hWo9eO1ji9BZ1YHju_!!6000000004581-2-tps-774-928.png)
 
-## 新建路由
+## 新建路由 {#create-new-routes}
 
 我们要写个应用来先显示产品列表。首先第一步是创建路由，路由可以想象成是组成应用的不同页面。Umi 用户通常不需要关心 Umi 背后的实现，但如果你想知道，Umi 的路由是基于 react-router@6.3 实现（注：不是最新的 6.4，6.4 包含的 loader 和 action 功能并不是 Umi 所需要的）。
 
@@ -124,7 +124,7 @@ export default defineConfig({
 
 ![](https://img.alicdn.com/imgextra/i2/O1CN01aNdyVG1bEMV7WEmBv_!!6000000003433-2-tps-712-276.png)
 
-## 实现 Product UI 组件
+## 实现 Product UI 组件 {#product-ui-components}
 
 随着应用的发展，你会需要在多个页面分享 UI 元素（或在一个页面使用多次），在 Umi 里你可以把这部分抽成 component 。我们来编写一个 ProductList 组件，这样就能在不同的地方显示产品列表了。
 
@@ -166,7 +166,7 @@ const ProductList: React.FC<{ products: DataType[]; onDelete: (id: string) => vo
 export default ProductList;
 ```
 
-## 准备 Mock 数据
+## 准备 Mock 数据 {#preparing-mock-data}
 
 假设我们已经和后端约定好了 API 接口，那现在就可以使用 Mock 数据来在本地模拟出 API 应该返回的数据，这样一来前后端开发就可以同时进行，不会因为后端 API 还在开发而导致前端的工作被阻塞。Umi 提供了开箱即用的 [Mock 功能](https://umijs.org/docs/guides/mock)，能够用方便简单的方式来完成 Mock 数据的设置。
 
@@ -203,7 +203,7 @@ export default defineMock({
 
 然后访问 http://localhost:8000/api/products ，就能看到接口响应结果了。
 
-## 完成 products 页
+## 完成 products 页 {#complete-products-page}
 
 完成了 UI 组件和 Mock 数据，是时候把他们结合到一起了。这里需要用到请求方案，我们在这里的选择是 react-query（如果你想说 @tanstack/react-query，没错，他们是同一个库，@tanstack/react-query 是 react-query 改名后的包）。所以在开始之前，需要修改配置启用一键启用 [Umi 的 react-query 插件](https://umijs.org/docs/max/react-query)。
 
@@ -338,7 +338,7 @@ export default function Layout() {
 
 ![](https://img.alicdn.com/imgextra/i2/O1CN01jLPfng1WljHFhj3mc_!!6000000002829-2-tps-1670-934.png)
 
-## 构建应用
+## 构建应用 {#build-application}
 
 完成开发并且在开发环境验证之后，就需要部署给我们的用户了，执行以下命令。
 
@@ -359,7 +359,7 @@ event - Build index.html
 
 构建会打包所有的资源，包含 JavaScript, CSS, Web Fonts, 图片, HTML 等。你可以在  `dist/`  目录下找到这些文件。
 
-## 下一步
+## 下一步 {#next-step}
 
 我们已经完成了一个简单应用，你可能还有很多疑问，比如：
 

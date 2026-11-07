@@ -30,7 +30,7 @@ export const mergeClassNames = <
             // Loop fill
             acc[key] = mergeClassNames(keySchema, acc[key], curVal);
           } else {
-            // Covert string to object structure
+            // Convert string to object structure
             const { _default: defaultField } = keySchema;
             if (defaultField) {
               acc[key] = acc[key] || {};
@@ -73,8 +73,14 @@ const useSemanticStyles = <StylesType extends AnyObject>(
   return React.useMemo(() => mergeStyles(...styles), [...styles]) as StylesType;
 };
 
-export const useSemanticRootStyle = (style?: React.CSSProperties) => {
-  return React.useMemo(() => (style ? { root: style } : undefined), [style]);
+export const useSemanticRootStyle = <Key extends string = 'root'>(
+  style?: React.CSSProperties,
+  key: Key = 'root' as Key,
+) => {
+  return React.useMemo(
+    () => (style ? ({ [key]: style } as Partial<Record<Key, React.CSSProperties>>) : undefined),
+    [style, key],
+  );
 };
 
 // =========================== Export ===========================

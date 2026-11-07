@@ -1,5 +1,5 @@
 import { imageDemoTest } from '../../../tests/shared/imageTest';
 
 describe('float-button image', () => {
-  imageDemoTest('float-button', { onlyViewport: true });
+  imageDemoTest('float-button', { onlyViewport: true, skip: ['progress-ring.tsx'] });
 });

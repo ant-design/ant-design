@@ -32,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: 'Inverser la sélection de la page actuelle',
     selectNone: 'Désélectionner toutes les données',
     selectionAll: 'Sélectionner toutes les données',
+    selectRow: 'Sélectionner la ligne',
+    selectedRow: 'Ligne sélectionnée',
+    selectionMenu: 'Menu de sélection',
     sortTitle: 'Trier',
     expand: 'Développer la ligne',
     collapse: 'Réduire la ligne',
+    expandAll: 'Développer toutes les lignes',
+    collapseAll: 'Réduire toutes les lignes',
     triggerDesc: 'Trier par ordre décroissant',
     triggerAsc: 'Trier par ordre croissant',
     cancelSort: 'Annuler le tri',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Annuler',
+  },
+  Splitter: {
+    toggleStartPanel: 'Basculer le panneau de début',
+    toggleEndPanel: 'Basculer le panneau de fin',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Copie effectuée',
     expand: 'Développer',
     collapse: 'Réduire',
+  },
+  Carousel: {
+    prevSlide: 'Diapositive précédente',
+    nextSlide: 'Diapositive suivante',
   },
   Form: {
     optional: '(optionnel)',

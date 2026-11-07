@@ -6,6 +6,7 @@ import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { AlertProps } from '../alert';
 import type { AnchorProps } from '../anchor';
+import type { AutoCompleteProps } from '../auto-complete';
 import type { BadgeProps } from '../badge';
 import type { RibbonProps } from '../badge/Ribbon';
 import type { BreadcrumbProps } from '../breadcrumb';
@@ -30,6 +31,7 @@ import type { InputProps, PasswordProps, SearchProps, TextAreaProps } from '../i
 import type { InputNumberProps } from '../input-number';
 import type { OTPProps } from '../input/OTP';
 import type { ListItemProps } from '../list';
+import type { ListyProps } from '../listy';
 import type { Locale } from '../locale';
 import type { MasonryProps } from '../masonry';
 import type { MentionsProps } from '../mentions';
@@ -56,6 +58,7 @@ import type { StepsProps } from '../steps';
 import type { SwitchProps } from '../switch';
 import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
+import type { MoreProps } from '@rc-component/tabs';
 import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TimePickerProps } from '../time-picker';
@@ -167,9 +170,8 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export interface TableConfig<
-  RecordType extends AnyObject = AnyObject,
-> extends ComponentStyleConfig {
+export interface TableConfig<RecordType extends AnyObject = AnyObject>
+  extends ComponentStyleConfig {
   expandable?: {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
@@ -190,6 +192,8 @@ export type CollapseConfig = ComponentStyleConfig &
   Pick<CollapseProps, 'expandIcon' | 'classNames' | 'styles'>;
 
 export type CheckboxConfig = ComponentStyleConfig & Pick<CheckboxProps, 'classNames' | 'styles'>;
+
+export type ListyConfig = ComponentStyleConfig & Pick<ListyProps, 'classNames' | 'styles'>;
 
 export type MasonryConfig = ComponentStyleConfig & Pick<MasonryProps, 'classNames' | 'styles'>;
 
@@ -227,20 +231,19 @@ export type ModalConfig = ComponentStyleConfig &
 export type TabsConfig = ComponentStyleConfig &
   Pick<
     TabsProps,
-    | 'indicator'
-    | 'indicatorSize'
-    | 'more'
-    | 'moreIcon'
-    | 'addIcon'
-    | 'removeIcon'
-    | 'classNames'
-    | 'styles'
-  >;
+    'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon' | 'removeIcon' | 'classNames' | 'styles'
+  > & {
+    more?: Omit<MoreProps, 'popupRender'>;
+  };
 
 export type AnchorStyleConfig = ComponentStyleConfig & Pick<AnchorProps, 'classNames' | 'styles'>;
 
 export type AlertConfig = ComponentStyleConfig &
-  Pick<AlertProps, 'variant' | 'closable' | 'closeIcon' | 'classNames' | 'styles'> & {
+  Pick<AlertProps, 'variant' | 'closeIcon' | 'classNames' | 'styles'> & {
+    closable?:
+      | boolean
+      | (Pick<Exclude<NonNullable<AlertProps['closable']>, boolean>, 'closeIcon'> &
+          React.AriaAttributes);
     successIcon?: React.ReactNode;
     infoIcon?: React.ReactNode;
     warningIcon?: React.ReactNode;
@@ -260,16 +263,18 @@ export type BreadcrumbConfig = ComponentStyleConfig &
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
+export type AutoCompleteConfig = Pick<AutoCompleteProps, 'allowClear'>;
+
 export type InputPasswordConfig = ComponentStyleConfig &
-  Pick<PasswordProps, 'classNames' | 'styles' | 'iconRender'>;
+  Pick<PasswordProps, 'classNames' | 'styles' | 'iconRender' | 'variant'>;
 
 export type InputSearchConfig = ComponentStyleConfig &
-  Pick<SearchProps, 'classNames' | 'styles' | 'searchIcon'>;
+  Pick<SearchProps, 'classNames' | 'styles' | 'searchIcon' | 'variant'>;
 
 export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
-export type OTPConfig = ComponentStyleConfig & Pick<OTPProps, 'classNames' | 'styles'>;
+export type OTPConfig = ComponentStyleConfig & Pick<OTPProps, 'classNames' | 'styles' | 'variant'>;
 
 export type ButtonConfig = ComponentStyleConfig &
   Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'> & {
@@ -298,7 +303,8 @@ export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classNa
 export type DrawerConfig = ComponentStyleConfig &
   Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'mask' | 'focusable'>;
 
-export type DividerConfig = ComponentStyleConfig & Pick<DividerProps, 'classNames' | 'styles'>;
+export type DividerConfig = ComponentStyleConfig &
+  Pick<DividerProps, 'classNames' | 'styles' | 'variant'>;
 
 export type DropdownConfig = ComponentStyleConfig & Pick<DropdownProps, 'classNames' | 'styles'>;
 
@@ -341,6 +347,7 @@ export type ProgressConfig = ComponentStyleConfig & Pick<ProgressProps, 'classNa
 export type SelectConfig = ComponentStyleConfig &
   Pick<
     SelectProps,
+    | 'autoComplete'
     | 'showSearch'
     | 'variant'
     | 'classNames'
@@ -350,6 +357,7 @@ export type SelectConfig = ComponentStyleConfig &
     | 'loadingIcon'
     | 'menuItemSelectedIcon'
     | 'removeIcon'
+    | 'suffix'
     | 'suffixIcon'
   >;
 
@@ -357,7 +365,14 @@ export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'clas
 
 export type TooltipConfig = Pick<
   TooltipProps,
-  'className' | 'style' | 'styles' | 'classNames' | 'arrow' | 'trigger'
+  | 'className'
+  | 'style'
+  | 'styles'
+  | 'classNames'
+  | 'arrow'
+  | 'trigger'
+  | 'mouseEnterDelay'
+  | 'mouseLeaveDelay'
 > & {
   /**
    * @descCN 是否开启 Tooltip 流畅过渡动画
@@ -369,12 +384,26 @@ export type TooltipConfig = Pick<
 
 export type PopoverConfig = Pick<
   PopoverProps,
-  'className' | 'style' | 'styles' | 'classNames' | 'arrow' | 'trigger'
+  | 'className'
+  | 'style'
+  | 'styles'
+  | 'classNames'
+  | 'arrow'
+  | 'trigger'
+  | 'mouseEnterDelay'
+  | 'mouseLeaveDelay'
 >;
 
 export type PopconfirmConfig = Pick<
   PopconfirmProps,
-  'className' | 'style' | 'styles' | 'classNames' | 'arrow' | 'trigger'
+  | 'className'
+  | 'style'
+  | 'styles'
+  | 'classNames'
+  | 'arrow'
+  | 'trigger'
+  | 'mouseEnterDelay'
+  | 'mouseLeaveDelay'
 >;
 
 export type QRcodeConfig = ComponentStyleConfig & Pick<QRCodeProps, 'classNames' | 'styles'>;
@@ -387,7 +416,8 @@ export type SplitterConfig = ComponentStyleConfig & Pick<SplitterProps, 'classNa
 
 export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classNames' | 'styles'>;
 
-export type StepsConfig = ComponentStyleConfig & Pick<StepsProps, 'classNames' | 'styles'>;
+export type StepsConfig = ComponentStyleConfig &
+  Pick<StepsProps, 'classNames' | 'styles' | 'variant'>;
 
 export type SpinConfig = ComponentStyleConfig &
   Pick<SpinProps, 'indicator' | 'classNames' | 'styles'>;
@@ -401,23 +431,31 @@ export type ResultConfig = ComponentStyleConfig & Pick<ResultProps, 'classNames'
 export type RadioConfig = ComponentStyleConfig & Pick<RadioProps, 'classNames' | 'styles'>;
 
 export type InputNumberConfig = ComponentStyleConfig &
-  Pick<InputNumberProps, 'variant' | 'classNames' | 'styles'>;
+  Pick<InputNumberProps, 'variant' | 'classNames' | 'styles' | 'allowClear'>;
 
 export type CascaderConfig = ComponentStyleConfig &
   Pick<
     CascaderProps,
-    'variant' | 'styles' | 'classNames' | 'expandIcon' | 'loadingIcon' | 'removeIcon' | 'suffixIcon'
+    | 'allowClear'
+    | 'variant'
+    | 'styles'
+    | 'classNames'
+    | 'expandIcon'
+    | 'loadingIcon'
+    | 'removeIcon'
+    | 'suffix'
+    | 'suffixIcon'
   > & { clearIcon?: React.ReactNode; searchIcon?: React.ReactNode };
 
 export type TreeSelectConfig = ComponentStyleConfig &
-  Pick<TreeSelectProps, 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;
+  Pick<TreeSelectProps, 'allowClear' | 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;
 
 export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | 'styles'>;
 
 export type DatePickerConfig = ComponentStyleConfig &
   Pick<
     DatePickerProps,
-    'variant' | 'classNames' | 'styles' | 'suffixIcon' | 'allowClear' | 'clearIcon'
+    'variant' | 'classNames' | 'styles' | 'suffix' | 'suffixIcon' | 'allowClear' | 'clearIcon'
   >;
 
 export type RangePickerConfig = ComponentStyleConfig &
@@ -426,10 +464,11 @@ export type RangePickerConfig = ComponentStyleConfig &
 export type TimePickerConfig = ComponentStyleConfig &
   Pick<
     TimePickerProps,
-    'variant' | 'classNames' | 'styles' | 'suffixIcon' | 'allowClear' | 'clearIcon'
+    'variant' | 'classNames' | 'styles' | 'suffix' | 'suffixIcon' | 'allowClear' | 'clearIcon'
   >;
 
-export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
+export type TimelineConfig = ComponentStyleConfig &
+  Pick<TimelineProps, 'classNames' | 'styles' | 'variant'>;
 
 export type MentionsConfig = ComponentStyleConfig &
   Pick<MentionsProps, 'variant' | 'classNames' | 'styles' | 'allowClear'>;
@@ -472,6 +511,7 @@ export interface WaveConfig {
 }
 
 export interface ConfigComponentProps {
+  autoComplete?: AutoCompleteConfig;
   input?: InputConfig;
   inputPassword?: InputPasswordConfig;
   inputSearch?: InputSearchConfig;
@@ -506,6 +546,7 @@ export interface ConfigComponentProps {
   image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ListConfig;
+  listy?: ListyConfig;
   mentions?: MentionsConfig;
   modal?: ModalConfig;
   progress?: ProgressConfig;

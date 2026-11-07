@@ -24,6 +24,13 @@ describe('Breadcrumb', () => {
     errorSpy.mockRestore();
   });
 
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Breadcrumb>>();
+    const { container } = render(<Breadcrumb ref={ref} items={[{ title: 'Home' }]} />);
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-breadcrumb'));
+  });
+
   it('warns on non-Breadcrumb.Item and non-Breadcrumb.Separator children', () => {
     const MyCom: React.FC = () => <div>foo</div>;
     render(
@@ -172,6 +179,27 @@ describe('Breadcrumb', () => {
     ];
     const { asFragment } = render(<Breadcrumb items={items} />);
     expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  it.each([
+    { item: {}, expectedHref: '/child' },
+    { item: { href: '/parent' }, expectedHref: '/parent/child' },
+    { item: { path: 'parent' }, expectedHref: '#/parent/child' },
+  ])('should render menu path as $expectedHref', ({ item, expectedHref }) => {
+    render(
+      <Breadcrumb
+        items={[
+          {
+            ...item,
+            title: 'Parent',
+            menu: { items: [{ path: '/child', title: 'Child' }] },
+            dropdownProps: { open: true },
+          },
+        ]}
+      />,
+    );
+
+    expect(screen.getByRole('link', { name: 'Child' })).toHaveAttribute('href', expectedHref);
   });
 
   it('should accept undefined items', () => {
@@ -444,5 +472,12 @@ describe('Breadcrumb', () => {
       </ConfigProvider>,
     );
     getByText('666');
+  });
+
+  it('supports numeric 0 separator', () => {
+    const { container } = render(
+      <Breadcrumb separator={0} items={[{ title: 'foo' }, { title: 'bar' }]} />,
+    );
+    expect(container.querySelector('.ant-breadcrumb-separator')?.textContent).toBe('0');
   });
 });

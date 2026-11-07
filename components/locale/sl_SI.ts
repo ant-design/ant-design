@@ -32,9 +32,14 @@ const localeValues: Locale = {
     emptyText: 'Ni podatkov',
     selectNone: 'Počisti vse podatke',
     selectionAll: 'Izberite vse podatke',
+    selectRow: 'Izberi vrstico',
+    selectedRow: 'Vrstica je izbrana',
+    selectionMenu: 'Meni za izbiro',
     sortTitle: 'Razvrsti',
     expand: 'Razširi vrstico',
     collapse: 'Strni vrstico',
+    expandAll: 'Razširi vse vrstice',
+    collapseAll: 'Strni vse vrstice',
     triggerDesc: 'Kliknite za razvrščanje padajoče',
     triggerAsc: 'Kliknite za razvrščanje naraščajoče',
     cancelSort: 'Kliknite za preklic razvrščanja',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'v redu',
     cancelText: 'Prekliči',
+  },
+  Splitter: {
+    toggleStartPanel: 'Preklopi začetno ploščo',
+    toggleEndPanel: 'Preklopi končno ploščo',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Kopirano',
     expand: 'Razširi',
     collapse: 'Strni',
+  },
+  Carousel: {
+    prevSlide: 'Prejšnja prosojnica',
+    nextSlide: 'Naslednja prosojnica',
   },
   Form: {
     optional: '(neobvezno)',

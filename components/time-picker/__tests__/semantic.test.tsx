@@ -5,6 +5,11 @@ import type { TimePickerProps } from '..';
 import TimePicker from '..';
 import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 
 describe('TimePicker.Semantic', () => {
   it('should support semantic classNames and styles with useMergeSemantic', () => {
@@ -19,7 +24,7 @@ describe('TimePicker.Semantic', () => {
     const semanticStyles = {
       root: { backgroundColor: 'rgb(240, 240, 240)' },
       prefix: { fontSize: '16px' },
-      input: { fontWeight: 'bold' },
+      input: { fontWeight: 700 },
       suffix: { opacity: 0.8 },
       popup: {
         root: { borderRadius: '8px' },
@@ -46,10 +51,28 @@ describe('TimePicker.Semantic', () => {
 
     const inputElement = container.querySelector('.ant-picker-input input');
     expect(inputElement).toHaveClass('semantic-input');
-    expect(inputElement).toHaveStyle('font-weight: bold');
+    expect(inputElement).toHaveStyle('font-weight: 700');
 
     const popupRoot = container.querySelector('.ant-picker-dropdown');
     expect(popupRoot).toHaveClass('semantic-popup-root');
     expect(popupRoot).toHaveStyle('border-radius: 8px');
+  });
+
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        timePicker={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <TimePicker
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-picker'));
   });
 });

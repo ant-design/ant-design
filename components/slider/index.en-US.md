@@ -48,7 +48,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | max | The maximum value the slider can slide to | number | 100 |  | × |
 | min | The minimum value the slider can slide to | number | 0 |  | × |
 | orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  | × |
-| range | Enable dual thumb mode for range selection | boolean | false |  | × |
+| range | Enable dual thumb mode for range selection | boolean \| [range](#range) | false |  | × |
 | reverse | Reverse the component | boolean | false |  | × |
 | step | The granularity the slider can step through values. Must be greater than 0, and be divisible by (max - min). When `step` is `null` and `marks` exist, valid points will only be marks, `min` and `max` | number \| null | 1 |  | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.23.0 |

@@ -17,7 +17,7 @@ In most business situations, Ant Design needs to solve a lot of information stor
 
 We name the divided area 'box'. We suggest four boxes for horizontal arrangement at most, one at least. Boxes are proportional to the entire screen as shown in the picture above. To ensure a high level of visual comfort, we customize the typography inside of the box based on the box unit.
 
-## Outline
+## Outline {#overview}
 
 In the grid system, we define the frame outside the information area based on `row` and `column`, to ensure that every area can have stable arrangement.
 
@@ -76,7 +76,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | order | Raster order | number | 0 |  | × |
 | pull | The number of cells that raster is moved to the left | number | 0 |  | × |
 | push | The number of cells that raster is moved to the right | number | 0 |  | × |
-| span | Raster number of cells to occupy, 0 corresponds to `display: none` | number | none |  | × |
+| span | Raster number of cells to occupy, 0 corresponds to `display: none` | number | - |  | × |
 | xs | `screen < 576px` and also default setting, could be a `span` value or an object containing above props | number \| object | - |  | × |
 | sm | `screen ≥ 576px`, could be a `span` value or an object containing above props | number \| object | - |  | × |
 | md | `screen ≥ 768px`, could be a `span` value or an object containing above props | number \| object | - |  | × |

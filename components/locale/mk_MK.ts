@@ -32,9 +32,14 @@ const localeValues: Locale = {
     emptyText: 'Нема податоци',
     selectNone: 'Исчистете ги сите податоци',
     selectionAll: 'Изберете ги сите податоци',
+    selectRow: 'Избери ред',
+    selectedRow: 'Редот е избран',
+    selectionMenu: 'Мени за избор',
     sortTitle: 'Подреди',
     expand: 'Проширете го редот',
     collapse: 'Собери ред',
+    expandAll: 'Проширете ги сите редови',
+    collapseAll: 'Соберете ги сите редови',
     triggerDesc: 'Кликнете за да сортирате опаѓачки',
     triggerAsc: 'Кликнете за да сортирате растечки',
     cancelSort: 'Кликнете за да го откажете сортирањето',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'ОК',
     cancelText: 'Откажи',
+  },
+  Splitter: {
+    toggleStartPanel: 'Префрли го почетниот панел',
+    toggleEndPanel: 'Префрли го крајниот панел',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Копирано',
     expand: 'Зголеми',
     collapse: 'Колапс',
+  },
+  Carousel: {
+    prevSlide: 'Претходен слајд',
+    nextSlide: 'Следен слајд',
   },
   Form: {
     optional: '(опционално)',

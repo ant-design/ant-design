@@ -1,7 +1,12 @@
 import React from 'react';
 
 import Badge from '..';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Badge.Semantic', () => {
   it('should support classNames and styles', () => {
@@ -61,5 +66,48 @@ describe('Badge.Semantic', () => {
     // function-based styles
     expect(element).toHaveStyle({ padding: '2px' });
     expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({ fontSize: '10px' });
+  });
+
+  it('should follow indicator style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        badge={{
+          styles: { indicator: semanticRootStylePriority.contextStyles.root },
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Badge
+          count={10}
+          offset={[8, 8]}
+          styles={{ indicator: semanticRootStylePriority.styles.root }}
+          style={semanticRootStylePriority.style}
+        >
+          test
+        </Badge>
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-badge-count'));
+  });
+
+  it('should follow status root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        badge={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Badge
+          status="success"
+          text="success"
+          offset={[8, 8]}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-badge'));
   });
 });

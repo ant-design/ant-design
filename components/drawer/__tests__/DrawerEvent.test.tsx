@@ -74,6 +74,16 @@ describe('Drawer', () => {
     expect(onClose).toHaveBeenCalled();
   });
 
+  it('disabled close button should not trigger onClose', () => {
+    const onClose = jest.fn();
+    const { container } = render(<DrawerTest closable={{ disabled: true }} onClose={onClose} />);
+    const closeButton = container.querySelector('.ant-drawer-close')!;
+
+    expect(closeButton).toBeDisabled();
+    fireEvent.click(closeButton);
+    expect(onClose).not.toHaveBeenCalled();
+  });
+
   it('maskClosable no trigger onClose', () => {
     const onClose = jest.fn();
     const { container } = render(<DrawerTest onClose={onClose} maskClosable={false} />);

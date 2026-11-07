@@ -2,7 +2,12 @@ import React from 'react';
 
 import Image from '..';
 import type { ImageProps } from '..';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
 const alt = 'test image';
@@ -202,5 +207,46 @@ describe('Image.Semantic', () => {
     );
 
     expect(container.innerHTML).toMatchSnapshot();
+  });
+
+  it('should follow image style priority', () => {
+    render(
+      <ConfigProvider
+        image={{
+          styles: { image: semanticRootStylePriority.contextStyles.root },
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Image
+          alt={alt}
+          src={src}
+          styles={{ image: semanticRootStylePriority.styles.root }}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(document.querySelector('.ant-image-img'));
+  });
+
+  it('should follow progress root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        image={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Image
+          alt={alt}
+          src={src}
+          placeholder={{ progress: true }}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-image-progress-wrapper'));
   });
 });

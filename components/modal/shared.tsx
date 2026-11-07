@@ -1,6 +1,8 @@
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import { isReactRenderable } from '@rc-component/util';
 
+import fallbackProp from '../_util/fallbackProp';
 import { isFunction } from '../_util/is';
 import { DisabledContextProvider } from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
@@ -14,7 +16,11 @@ import { getConfirmLocale } from './locale';
 export function renderCloseIcon(prefixCls: string, closeIcon?: React.ReactNode) {
   return (
     <span className={`${prefixCls}-close-x`}>
-      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
+      {isReactRenderable(closeIcon) ? (
+        closeIcon
+      ) : (
+        <CloseOutlined className={`${prefixCls}-close-icon`} />
+      )}
     </span>
   );
 }
@@ -52,8 +58,8 @@ export const Footer: React.FC<
   const [locale] = useLocale('Modal', getConfirmLocale());
 
   // ================== Locale Text ==================
-  const okTextLocale: React.ReactNode = okText || locale?.okText;
-  const cancelTextLocale = cancelText || locale?.cancelText;
+  const okTextLocale: React.ReactNode = fallbackProp(okText, locale?.okText);
+  const cancelTextLocale = fallbackProp(cancelText, locale?.cancelText);
 
   const memoizedValue = React.useMemo<ModalContextProps>(() => {
     return {

@@ -223,6 +223,30 @@ describe('hooks test', () => {
     expect(container.querySelector('.custom-close-wrapper')).toBeTruthy();
   });
 
+  it('should localize the close control without overriding a custom icon label', () => {
+    const [, closeIcon, , ariaProps] = computeClosable(
+      {
+        closable: true,
+        closeIcon: <span aria-label="Custom icon" />,
+      },
+      null,
+      {},
+      'Localized close',
+    );
+    const { container } = render(<>{closeIcon}</>);
+
+    expect(ariaProps).toEqual({ 'aria-label': 'Localized close' });
+    expect(container.querySelector('span')).toHaveAttribute('aria-label', 'Custom icon');
+
+    const [, , , customAriaProps] = computeClosable(
+      { closable: { 'aria-label': 'Custom close' } },
+      null,
+      {},
+      'Localized close',
+    );
+    expect(customAriaProps).toEqual({ 'aria-label': 'Custom close' });
+  });
+
   const computeClosableParams: { params: any[]; res: [boolean, string] }[] = [
     {
       params: [

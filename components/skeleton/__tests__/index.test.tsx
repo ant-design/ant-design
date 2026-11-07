@@ -1,10 +1,10 @@
 import React from 'react';
 
 import Skeleton from '..';
-import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { AvatarProps } from '../Avatar';
 import type { SkeletonButtonProps } from '../Button';
 import type { SkeletonImageProps } from '../Image';
@@ -22,6 +22,28 @@ describe('Skeleton', () => {
 
   mountTest(Skeleton);
   rtlTest(Skeleton);
+
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Skeleton>>();
+    const { container } = render(<Skeleton ref={ref} />);
+    expect(ref.current?.nativeElement).toBe(container.querySelector<HTMLElement>('.ant-skeleton'));
+  });
+
+  it('should return null nativeElement when not loading', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Skeleton>>();
+    render(<Skeleton ref={ref} loading={false} />);
+    expect(ref.current).not.toBeNull();
+    expect(ref.current?.nativeElement).toBeNull();
+  });
+
+  it('should update nativeElement when loading changes', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Skeleton>>();
+    const { rerender, container } = render(<Skeleton ref={ref} loading />);
+    expect(ref.current?.nativeElement).toBe(container.querySelector<HTMLElement>('.ant-skeleton'));
+    rerender(<Skeleton ref={ref} loading={false} />);
+    expect(ref.current).not.toBeNull();
+    expect(ref.current?.nativeElement).toBeNull();
+  });
 
   it('should without avatar and paragraph', () => {
     const { asFragment } = genSkeleton({ avatar: false, paragraph: false });
@@ -210,6 +232,15 @@ describe('Skeleton', () => {
       const { asFragment } = genSkeletonImage({});
       expect(asFragment().firstChild).toMatchSnapshot();
     });
+
+    it('should hide the placeholder illustration from assistive technology', () => {
+      const { container } = genSkeletonImage({});
+      const illustration = container.querySelector('.ant-skeleton-image-svg');
+
+      expect(illustration).toHaveAttribute('aria-hidden', 'true');
+      expect(illustration).toHaveAttribute('focusable', 'false');
+      expect(illustration).not.toHaveAccessibleName();
+    });
   });
 
   describe('custom node element', () => {
@@ -230,8 +261,8 @@ describe('Skeleton', () => {
 
   it('Elements should apply custom styles to semantic elements', () => {
     const elements = ['avatar', 'button', 'input', 'node', 'image'] as const;
-    const rootStyle = { background: 'pink' };
-    const elementStyle = { background: 'green' };
+    const rootStyle = { backgroundColor: 'rgb(255, 192, 203)' };
+    const elementStyle = { backgroundColor: 'rgb(0, 128, 0)' };
 
     type Elements = (typeof elements)[number];
     type SemanticRecord<T> = Partial<Record<Elements, Record<any, T>>>;

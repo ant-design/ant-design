@@ -250,6 +250,12 @@ describe('Theme', () => {
     expect(container.querySelector('.duration')?.textContent).toBe('0s');
   });
 
+  it('focusOutline false token', () => {
+    const { token } = getHookToken({ token: { focusOutline: false } });
+
+    expect(token.lineWidthFocus).toBe(0);
+  });
+
   describe('getDesignToken', () => {
     it('default', () => {
       const token = theme.getDesignToken();
@@ -271,6 +277,26 @@ describe('Theme', () => {
       expect(token.colorPrimary).toBe('#189cff');
     });
 
+    it('fontHeight should follow fontSize and lineHeight', () => {
+      const config: ThemeConfig = {
+        token: {
+          lineHeight: 2,
+          fontSizeSM: 12,
+          lineHeightSM: 1.5,
+          fontSizeLG: 20,
+          lineHeightLG: 1.6,
+        },
+      };
+      const expected = {
+        fontHeight: 28,
+        fontHeightSM: 18,
+        fontHeightLG: 32,
+      };
+
+      expect(theme.getDesignToken(config)).toEqual(expect.objectContaining(expected));
+      expect(getHookToken(config).token).toEqual(expect.objectContaining(expected));
+    });
+
     it('with custom algorithm', () => {
       const config: ThemeConfig = {
         token: {
@@ -284,6 +310,15 @@ describe('Theme', () => {
       const { token: hookToken } = getHookToken(config);
       expect(token).toEqual(hookToken);
       expect(token.colorPrimary).toBe('#1668dc');
+    });
+
+    // https://github.com/ant-design/ant-design/issues/59694
+    it('with empty algorithm array', () => {
+      const config: ThemeConfig = { algorithm: [] };
+      const token = theme.getDesignToken(config);
+      const { token: hookToken } = getHookToken(config);
+      expect(token).toEqual(hookToken);
+      expect(token.colorPrimary).toBe('#1677ff');
     });
   });
 

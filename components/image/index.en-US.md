@@ -90,9 +90,10 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
 | src | Custom preview src | string | - |  |
 | styles | Custom semantic structure styles | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| wheel | Whether to enable mouse wheel zoom | boolean | true | 6.6.0 |
 | ~~toolbarRender~~ | Custom toolbar; please use 'actionsRender' instead | (originalNode: React.ReactElement, info: Omit<ToolbarRenderInfoType, 'current' \| 'total'>) => React.ReactNode | - |  |
 | ~~visible~~ | Whether to show; please use 'open' instead | boolean | - |  |
-| onOpenChange | Callback when preview open state changes | (visible: boolean) => void | - |  |
+| onOpenChange | Callback when preview open state changes | (open: boolean) => void | - |  |
 | onTransform | Callback for preview transform changes | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - |  |
 | ~~onVisibleChange~~ | Callback when 'visible' changes; please use 'onOpenChange' instead | (visible: boolean, prevVisible: boolean) => void | - |  |
 
@@ -125,10 +126,11 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | open | Whether to display preview | boolean | - |  |
 | ~~rootClassName~~ | Root DOM class name for preview; applies to both image and preview wrapper. Use 'classNames.root' instead | string | - |  |
 | styles | Custom semantic structure styles | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| wheel | Whether to enable mouse wheel zoom | boolean | true | 6.6.0 |
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
 | ~~toolbarRender~~ | Custom toolbar; please use 'actionsRender' instead | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
 | ~~visible~~ | Whether to show; please use 'open' instead | boolean | - |  |
-| onOpenChange | Callback when preview open state changes, includes current preview index | (visible: boolean, info: { current: number }) => void | - |  |
+| onOpenChange | Callback when preview open state changes, includes current preview index | (open: boolean, info: { current: number }) => void | - |  |
 | onChange | Callback when changing preview image | (current: number, prevCurrent: number) => void | - |  |
 | onTransform | Callback for preview transform changes | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - |  |
 | ~~onVisibleChange~~ | Callback when 'visible' changes; please use 'onOpenChange' instead | (visible: boolean, prevVisible: boolean, current: number) => void | - |  |
@@ -164,7 +166,8 @@ type TransformAction =
   | 'wheel'
   | 'doubleClick'
   | 'move'
-  | 'dragRebound';
+  | 'dragRebound'
+  | 'reset';
 ```
 
 ### ToolbarRenderInfoType
@@ -192,6 +195,7 @@ type TransformAction =
   };
   transform: TransformType,
   current: number;
+  total: number;
   image: ImgInfo
 }
 ```

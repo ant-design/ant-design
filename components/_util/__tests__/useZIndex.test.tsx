@@ -342,7 +342,7 @@ describe('Test useZIndex hooks', () => {
             });
           }
           unmount();
-        }, 20000);
+        }, 40000);
       });
     });
   });

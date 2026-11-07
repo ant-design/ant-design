@@ -51,7 +51,7 @@ describe('Pagination', () => {
 
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
-    expect(onChange).toHaveBeenCalledWith(1, 20);
+    expect(onChange).toHaveBeenCalledWith(1, 20, expect.objectContaining({ recommendPage: 1 }));
   });
 
   it('should support custom selectComponentClass', () => {
@@ -135,5 +135,38 @@ describe('Pagination', () => {
 
     // Expect `input` is `readonly`
     expect(container.querySelector('.ant-select input')).toHaveAttribute('readonly');
+  });
+
+  it('should support custom size changer component', () => {
+    const onChange = jest.fn();
+    const onSizeChangerRender = jest.fn();
+    const { container } = render(
+      <Pagination
+        defaultCurrent={1}
+        total={500}
+        showSizeChanger
+        components={{
+          sizeChanger: (sizeChangerProps) => {
+            onSizeChangerRender(sizeChangerProps);
+            const { className, onChange: onSizeChange } = sizeChangerProps;
+            return (
+              <button className={className} type="button" onClick={() => onSizeChange(15)}>
+                Custom size changer
+              </button>
+            );
+          },
+        }}
+        onChange={onChange}
+      />,
+    );
+
+    expect(onSizeChangerRender).toHaveBeenLastCalledWith({
+      value: 10,
+      onChange: expect.any(Function),
+      disabled: false,
+      className: 'ant-pagination-options-size-changer',
+    });
+    fireEvent.click(container.querySelector('.ant-pagination-options-size-changer')!);
+    expect(onChange).toHaveBeenCalledWith(1, 15, expect.objectContaining({ recommendPage: 1 }));
   });
 });

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Flex, Segmented } from 'antd';
 
 import useLocale from '../../hooks/useLocale';
-import SemanticPreview from './SemanticPreview';
+import SemanticPreview, { SemanticActiveContext } from './SemanticPreview';
 
 export const locales = {
   cn: {
@@ -67,14 +67,18 @@ const Block: React.FC<BlockProps> = ({
   ...props
 }) => {
   const divRef = React.useRef<HTMLDivElement>(null);
+  const activeSemantic = use(SemanticActiveContext);
   // 多选模式下，优先使用 multipleProps 中的 defaultValue
   const multipleDefaultValue = (multipleProps as any)?.defaultValue;
   const initialValue = mode === 'single' ? defaultValue : multipleDefaultValue;
   const [value, setValue] = React.useState(initialValue);
+  const [valueMode, setValueMode] = React.useState(mode);
 
-  React.useEffect(() => {
-    setValue(mode === 'single' ? defaultValue : multipleDefaultValue);
-  }, [mode, defaultValue, multipleDefaultValue]);
+  // 单选和多选的取值结构不同，切换模式时同步重置，避免把上一个模式的值渲染出去
+  if (valueMode !== mode) {
+    setValueMode(mode);
+    setValue(initialValue);
+  }
 
   return (
     <Flex
@@ -98,12 +102,12 @@ const Block: React.FC<BlockProps> = ({
         {...props}
         open
         placement="bottomLeft"
-        value={value}
+        value={activeSemantic === 'placeholder' ? null : value}
         onChange={setValue}
         getPopupContainer={() => divRef.current}
         options={options}
         {...(mode === 'multiple' ? multipleProps : {})}
-        styles={{ popup: { zIndex: 1 } }}
+        styles={{ popup: { zIndex: 1 }, clear: { opacity: 1 }, suffix: { marginInlineEnd: 24 } }}
         maxTagCount={process.env.NODE_ENV === 'test' ? 1 : 'responsive'}
         placeholder="Please select"
         allowClear

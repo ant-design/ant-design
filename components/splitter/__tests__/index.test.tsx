@@ -18,6 +18,9 @@ import {
   waitFakeTimer,
 } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import enUS from '../../locale/en_US';
+import frFR from '../../locale/fr_FR';
+import zhTW from '../../locale/zh_TW';
 import type { SplitterSemanticAllType } from '../interface';
 import SplitBar from '../SplitBar';
 
@@ -73,6 +76,18 @@ describe('Splitter', () => {
   afterEach(() => {
     jest.clearAllTimers();
     jest.useRealTimers();
+  });
+
+  it('should support nativeElement ref', () => {
+    const ref = React.createRef<React.ComponentRef<typeof Splitter>>();
+    const { container } = render(
+      <Splitter ref={ref}>
+        <Splitter.Panel>First</Splitter.Panel>
+        <Splitter.Panel>Second</Splitter.Panel>
+      </Splitter>,
+    );
+
+    expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-splitter'));
   });
 
   it('should correct render', () => {
@@ -348,6 +363,39 @@ describe('Splitter', () => {
       expect(onResizeEnd).toHaveBeenCalledWith([0, 100]);
     });
 
+    it.each([false, true])('should finish a cancelled touch drag with lazy=%s', async (lazy) => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+      const { container } = render(
+        <SplitterDemo lazy={lazy} onResize={onResize} onResizeEnd={onResizeEnd} />,
+      );
+
+      await resizeSplitter();
+      const dragger = container.querySelector<HTMLElement>('.ant-splitter-bar-dragger')!;
+      fireEvent.touchStart(dragger, { touches: [{ pageX: 0, pageY: 0 }] });
+      fireEvent.touchMove(window, { touches: [{ pageX: 10, pageY: 0 }] });
+      expect(container.querySelector('.ant-splitter-mask')).toBeTruthy();
+      fireEvent.touchCancel(window);
+
+      expect(onResizeEnd).toHaveBeenCalledTimes(1);
+      expect(onResizeEnd).toHaveBeenCalledWith([60, 40]);
+      expect(container.querySelector('.ant-splitter-mask')).toBeFalsy();
+      expect(container.querySelector('.ant-splitter-bar-dragger-active')).toBeFalsy();
+      expect(container.querySelector('.ant-splitter-bar-preview-active')).toBeFalsy();
+
+      onResize.mockClear();
+      onResizeEnd.mockClear();
+      fireEvent.touchMove(window, { touches: [{ pageX: 30, pageY: 0 }] });
+      fireEvent.touchEnd(window);
+      expect(onResize).not.toHaveBeenCalled();
+      expect(onResizeEnd).not.toHaveBeenCalled();
+      expect(container.querySelector('.ant-splitter-panel')).toHaveStyle({ flexBasis: '60px' });
+
+      mockTouchDrag(dragger, -10);
+      expect(onResizeEnd).toHaveBeenCalledTimes(1);
+      expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
+    });
+
     it('with min', async () => {
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
@@ -361,6 +409,24 @@ describe('Splitter', () => {
       mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, -100);
       expect(onResize).toHaveBeenCalledWith([10, 90]);
       expect(onResizeEnd).toHaveBeenCalledWith([10, 90]);
+    });
+
+    it('should respect min when container shrinks after drag', async () => {
+      containerSize = 1000;
+
+      const { container } = render(<SplitterDemo items={[{ min: 200 }, {}]} />);
+
+      await resizeSplitter();
+
+      mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, -300);
+
+      containerSize = 600;
+      await resizeSplitter();
+
+      const panels = container.querySelectorAll<HTMLElement>('.ant-splitter-panel');
+
+      expect(Number.parseFloat(panels[0].style.flexBasis)).toBeCloseTo(200);
+      expect(Number.parseFloat(panels[1].style.flexBasis)).toBeCloseTo(400);
     });
 
     it('with max', async () => {
@@ -496,10 +562,122 @@ describe('Splitter', () => {
         '80',
       );
     });
+    it('should render correct aria attributes for dragger separator and collapsible buttons', async () => {
+      const { container, rerender } = render(
+        <SplitterDemo
+          items={[
+            { size: 20, collapsible: true, resizable: true },
+            { collapsible: true, resizable: false },
+          ]}
+        />,
+      );
+
+      await resizeSplitter();
+
+      const dragger = container.querySelector('.ant-splitter-bar-dragger');
+      expect(dragger).toHaveAttribute('role', 'separator');
+      expect(dragger).toHaveAttribute('aria-disabled', 'true');
+      expect(dragger).toHaveAttribute('aria-orientation', 'vertical');
+
+      const startCollapse = container.querySelector('.ant-splitter-bar-collapse-bar-start');
+      expect(startCollapse).toHaveAttribute('role', 'button');
+      expect(startCollapse).toHaveAttribute('aria-label', 'Toggle start panel');
+
+      const endCollapse = container.querySelector('.ant-splitter-bar-collapse-bar-end');
+      expect(endCollapse).toHaveAttribute('role', 'button');
+      expect(endCollapse).toHaveAttribute('aria-label', 'Toggle end panel');
+
+      rerender(
+        <SplitterDemo items={[{ resizable: true }, { resizable: true }]} orientation="vertical" />,
+      );
+
+      const verticalDragger = container.querySelector('.ant-splitter-bar-dragger');
+      expect(verticalDragger).toHaveAttribute('aria-disabled', 'false');
+      expect(verticalDragger).toHaveAttribute('aria-orientation', 'horizontal');
+    });
   });
 
   // ============================= Collapsible =============================
   describe('collapsible', () => {
+    it('should localize collapse control names', async () => {
+      const renderSplitter = (
+        locale = enUS,
+        orientation: Orientation = 'horizontal',
+        direction?: 'rtl',
+      ) => (
+        <ConfigProvider locale={locale} direction={direction}>
+          <SplitterDemo
+            orientation={orientation}
+            items={[{ collapsible: true }, { collapsible: true }]}
+          />
+        </ConfigProvider>
+      );
+      const { container, rerender } = render(renderSplitter());
+      await resizeSplitter();
+      const getControls = () =>
+        container.querySelectorAll<HTMLElement>('.ant-splitter-bar-collapse-bar');
+
+      expect(getControls()[0]).toHaveAttribute('aria-label', 'Toggle start panel');
+      expect(getControls()[1]).toHaveAttribute('aria-label', 'Toggle end panel');
+
+      rerender(renderSplitter(zhTW, 'vertical'));
+
+      expect(getControls()[0]).toHaveAttribute('aria-label', '切換起始面板');
+      expect(getControls()[1]).toHaveAttribute('aria-label', '切換結束面板');
+
+      rerender(renderSplitter(zhTW, 'horizontal', 'rtl'));
+
+      expect(getControls()[0]).toHaveAttribute('aria-label', '切換起始面板');
+      expect(getControls()[1]).toHaveAttribute('aria-label', '切換結束面板');
+    });
+
+    it('should localize collapse control names in French', async () => {
+      const { container } = render(
+        <ConfigProvider locale={frFR}>
+          <SplitterDemo items={[{ collapsible: true }, { collapsible: true }]} />
+        </ConfigProvider>,
+      );
+      await resizeSplitter();
+      const controls = container.querySelectorAll<HTMLElement>('.ant-splitter-bar-collapse-bar');
+
+      expect(controls[0]).toHaveAttribute('aria-label', 'Basculer le panneau de début');
+      expect(controls[1]).toHaveAttribute('aria-label', 'Basculer le panneau de fin');
+    });
+
+    it('should fall back to English collapse control names for a custom locale', async () => {
+      const { container } = render(
+        <ConfigProvider locale={{ locale: 'custom' }}>
+          <SplitterDemo items={[{ collapsible: true }, { collapsible: true }]} />
+        </ConfigProvider>,
+      );
+      await resizeSplitter();
+      const controls = container.querySelectorAll<HTMLElement>('.ant-splitter-bar-collapse-bar');
+
+      expect(controls[0]).toHaveAttribute('aria-label', 'Toggle start panel');
+      expect(controls[1]).toHaveAttribute('aria-label', 'Toggle end panel');
+    });
+
+    it('should use custom icon aria-labels for collapse controls', async () => {
+      const { container } = render(
+        <ConfigProvider locale={zhTW}>
+          <SplitterDemo
+            items={[{ collapsible: true }, { collapsible: true }]}
+            collapsible={{
+              icon: {
+                start: <CaretLeftOutlined aria-label="Toggle navigation" />,
+                end: 'custom end icon',
+              },
+            }}
+          />
+        </ConfigProvider>,
+      );
+      await resizeSplitter();
+      const controls = container.querySelectorAll<HTMLElement>('.ant-splitter-bar-collapse-bar');
+
+      expect(controls[0]).toHaveAttribute('aria-label', 'Toggle navigation');
+      expect(controls[1]).toHaveAttribute('aria-label', '切換結束面板');
+    });
+
     it('Basic', async () => {
       const { container, rerender } = render(
         <SplitterDemo items={[{ size: 20, collapsible: true }, { collapsible: true }]} />,

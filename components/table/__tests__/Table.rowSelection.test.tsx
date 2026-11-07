@@ -1,10 +1,15 @@
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 
 import type { TableProps } from '..';
 import Table from '..';
 import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import type { Locale } from '../../locale';
+import enUS from '../../locale/en_US';
+import frFR from '../../locale/fr_FR';
+import zhTW from '../../locale/zh_TW';
 import type { TableRowSelection } from '../interface';
 
 describe('Table.rowSelection', () => {
@@ -148,9 +153,9 @@ describe('Table.rowSelection', () => {
     // Skip the header checkbox, start from body checkboxes
     const checkboxes = container.querySelectorAll<HTMLInputElement>('tbody input[type="checkbox"]');
 
-    expect(checkboxes[0].getAttribute('aria-label')).toBe('Select row 1');
-    expect(checkboxes[1].getAttribute('aria-label')).toBe('Select row 2');
-    expect(checkboxes[2].getAttribute('aria-label')).toBe('Select row 3');
+    expect(checkboxes[0].getAttribute('aria-label')).toBe('Select row');
+    expect(checkboxes[1].getAttribute('aria-label')).toBe('Select row');
+    expect(checkboxes[2].getAttribute('aria-label')).toBe('Select row');
   });
 
   it('should support custom aria-label from getCheckboxProps', () => {
@@ -170,18 +175,162 @@ describe('Table.rowSelection', () => {
     const { container } = render(createTable({ rowSelection: { type: 'radio' } }));
     const radios = container.querySelectorAll<HTMLInputElement>('tbody input[type="radio"]');
 
-    expect(radios[0].getAttribute('aria-label')).toBe('Select row 1');
-    expect(radios[1].getAttribute('aria-label')).toBe('Select row 2');
-    expect(radios[2].getAttribute('aria-label')).toBe('Select row 3');
+    expect(radios[0].getAttribute('aria-label')).toBe('Select row');
+    expect(radios[1].getAttribute('aria-label')).toBe('Select row');
+    expect(radios[2].getAttribute('aria-label')).toBe('Select row');
   });
 
   it('should have selected aria-label when row is selected', () => {
     const { container } = render(createTable({ rowSelection: { defaultSelectedRowKeys: [0, 1] } }));
     const checkboxes = container.querySelectorAll<HTMLInputElement>('tbody input[type="checkbox"]');
 
-    expect(checkboxes[0].getAttribute('aria-label')).toBe('Row 1 selected');
-    expect(checkboxes[1].getAttribute('aria-label')).toBe('Row 2 selected');
-    expect(checkboxes[2].getAttribute('aria-label')).toBe('Select row 3');
+    expect(checkboxes[0].getAttribute('aria-label')).toBe('Row selected');
+    expect(checkboxes[1].getAttribute('aria-label')).toBe('Row selected');
+    expect(checkboxes[2].getAttribute('aria-label')).toBe('Select row');
+  });
+
+  it('should localize row selection accessible names', () => {
+    const { container, rerender } = render(
+      <ConfigProvider locale={zhTW}>
+        {createTable({ rowSelection: { defaultSelectedRowKeys: [0] } })}
+      </ConfigProvider>,
+    );
+    const checkboxes = container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
+
+    expect(checkboxes[0]).toHaveAttribute('aria-label', '選取目前頁面');
+    expect(checkboxes[1]).toHaveAttribute('aria-label', '列已選取');
+    expect(checkboxes[2]).toHaveAttribute('aria-label', '選取列');
+
+    rerender(
+      <ConfigProvider locale={zhTW}>
+        {createTable({ rowSelection: { type: 'radio' } })}
+      </ConfigProvider>,
+    );
+    const radios = container.querySelectorAll<HTMLInputElement>('input[type="radio"]');
+
+    expect(radios[0]).toHaveAttribute('aria-label', '選取列');
+    expect(radios[1]).toHaveAttribute('aria-label', '選取列');
+  });
+
+  it('should update row selection accessible names when locale changes', () => {
+    const rowSelection = { selections: true };
+    const customLocale = {
+      ...enUS,
+      locale: 'custom',
+      Table: {
+        ...enUS.Table,
+        selectAll: 'Choose all rows',
+        selectRow: 'Choose row',
+        selectedRow: 'Row chosen',
+        selectionMenu: 'Choose rows menu',
+      },
+    };
+    const renderTable = (locale: Locale) => (
+      <ConfigProvider locale={locale}>
+        <Table columns={columns} dataSource={data} pagination={false} rowSelection={rowSelection} />
+      </ConfigProvider>
+    );
+    const { container, rerender } = render(renderTable(customLocale));
+
+    expect(container.querySelector('thead input')).toHaveAttribute('aria-label', 'Choose all rows');
+    expect(container.querySelector('tbody input')).toHaveAttribute('aria-label', 'Choose row');
+    expect(container.querySelector('.ant-table-selection-extra [role="button"]')).toHaveAttribute(
+      'aria-label',
+      'Choose rows menu',
+    );
+
+    rerender(renderTable(zhTW));
+
+    expect(container.querySelector('thead input')).toHaveAttribute('aria-label', '選取目前頁面');
+    expect(container.querySelector('tbody input')).toHaveAttribute('aria-label', '選取列');
+    expect(container.querySelector('.ant-table-selection-extra [role="button"]')).toHaveAttribute(
+      'aria-label',
+      '選取選單',
+    );
+  });
+
+  it('should localize row selection accessible names in French', () => {
+    const { container } = render(
+      <ConfigProvider locale={frFR}>
+        {createTable({ rowSelection: { defaultSelectedRowKeys: [0], selections: true } })}
+      </ConfigProvider>,
+    );
+    const checkboxes = container.querySelectorAll<HTMLInputElement>('tbody input');
+
+    expect(checkboxes[0]).toHaveAttribute('aria-label', 'Ligne sélectionnée');
+    expect(checkboxes[1]).toHaveAttribute('aria-label', 'Sélectionner la ligne');
+    expect(container.querySelector('.ant-table-selection-extra [role="button"]')).toHaveAttribute(
+      'aria-label',
+      'Menu de sélection',
+    );
+  });
+
+  it.each([
+    ['missing', undefined],
+    ['undefined', { selectRow: undefined, selectedRow: undefined, selectionMenu: undefined }],
+  ] as const)(
+    'should fall back to English accessible names when custom locale labels are %s',
+    (_, tableLocale) => {
+      const { container } = render(
+        <ConfigProvider locale={{ locale: 'custom', Table: tableLocale }}>
+          {createTable({ rowSelection: { defaultSelectedRowKeys: [0], selections: true } })}
+        </ConfigProvider>,
+      );
+      const checkboxes = container.querySelectorAll<HTMLInputElement>('tbody input');
+
+      expect(checkboxes[0]).toHaveAttribute('aria-label', 'Row selected');
+      expect(checkboxes[1]).toHaveAttribute('aria-label', 'Select row');
+      expect(container.querySelector('.ant-table-selection-extra [role="button"]')).toHaveAttribute(
+        'aria-label',
+        'Selection menu',
+      );
+    },
+  );
+
+  it('should fall back when selectAll is not a string', () => {
+    const locale = {
+      ...enUS,
+      Table: {
+        ...enUS.Table,
+        selectAll: <span>Select all rows</span>,
+      },
+    };
+    const { container } = render(
+      <ConfigProvider locale={locale}>{createTable({ rowSelection: {} })}</ConfigProvider>,
+    );
+
+    expect(container.querySelector('thead input')).toHaveAttribute('aria-label', 'Select all');
+  });
+
+  it('should make the selection menu keyboard accessible', async () => {
+    const user = userEvent.setup();
+    const { container } = render(
+      <ConfigProvider locale={zhTW}>
+        {createTable({ pagination: false, rowSelection: { selections: true } })}
+      </ConfigProvider>,
+    );
+    const headerCheckbox = container.querySelector<HTMLInputElement>('thead input')!;
+    const menuTrigger = container.querySelector<HTMLElement>(
+      '.ant-table-selection-extra [role="button"]',
+    )!;
+
+    expect(menuTrigger.tagName).toBe('SPAN');
+    expect(headerCheckbox).toHaveAttribute('aria-label', '選取目前頁面');
+    expect(menuTrigger).toHaveAttribute('aria-label', '選取選單');
+    expect(menuTrigger).toHaveAttribute('aria-haspopup', 'menu');
+    expect(menuTrigger).toHaveAttribute('aria-expanded', 'false');
+
+    await user.tab();
+    expect(headerCheckbox).toHaveFocus();
+    await user.tab();
+    expect(menuTrigger).toHaveFocus();
+    await user.keyboard('{Enter}');
+    expect(menuTrigger).toHaveAttribute('aria-expanded', 'true');
+
+    await user.click(menuTrigger);
+    expect(menuTrigger).toHaveAttribute('aria-expanded', 'false');
+    await user.keyboard(' ');
+    expect(menuTrigger).toHaveAttribute('aria-expanded', 'true');
   });
 
   it("make getCheckboxProps's `indeterminate` override selectedRowKeys' effect", () => {
@@ -629,6 +778,91 @@ describe('Table.rowSelection', () => {
       expect(onChange).toHaveBeenCalledWith([0, 2], expect.anything(), { type: 'all' });
     });
 
+    it.each(['children', 'nodes'])(
+      'SELECTION_ALL should select tree descendants across pages with %s',
+      (childrenColumnName) => {
+        jest.useFakeTimers();
+        const onChange = jest.fn();
+        const grandchild = { key: 'grandchild', name: 'Grandchild' };
+        const child = { key: 'child', name: 'Child', [childrenColumnName]: [grandchild] };
+        const parent = { key: 'parent', name: 'Parent', [childrenColumnName]: [child] };
+        const disabledChild = { key: 'disabled', name: 'Disabled', disabled: true };
+        const selectedChild = { key: 'selected', name: 'Selected', disabled: true };
+        const otherChild = { key: 'other-child', name: 'Other child' };
+        const otherParent = {
+          key: 'other-parent',
+          name: 'Other parent',
+          [childrenColumnName]: [disabledChild, selectedChild, otherChild],
+        };
+        const { container } = render(
+          createTable({
+            dataSource: [parent, otherParent],
+            pagination: { pageSize: 1 },
+            expandable: { childrenColumnName, defaultExpandAllRows: true },
+            rowSelection: {
+              onChange,
+              defaultSelectedRowKeys: ['selected'],
+              getCheckboxProps: (record) => ({ disabled: record.disabled }),
+              selections: [Table.SELECTION_ALL],
+            },
+          }),
+        );
+
+        fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
+        act(() => {
+          jest.runAllTimers();
+        });
+        fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
+
+        expect(onChange).toHaveBeenCalledWith(
+          ['parent', 'child', 'grandchild', 'other-parent', 'selected', 'other-child'],
+          [parent, child, grandchild, otherParent, selectedChild, otherChild],
+          { type: 'all' },
+        );
+        expect(getSelections(container)).toEqual(['parent', 'child', 'grandchild']);
+        expect(
+          container.querySelector<HTMLInputElement>('thead input[type="checkbox"]')?.checked,
+        ).toBe(true);
+        expect(container.querySelector('thead .ant-checkbox-indeterminate')).toBeNull();
+
+        fireEvent.click(container.querySelector('.ant-pagination-item-2 > :is(a, button)')!);
+        fireEvent.click(container.querySelector('.ant-table-row-expand-icon')!);
+        expect(getSelections(container)).toEqual(['other-parent', 'selected', 'other-child']);
+      },
+    );
+
+    // https://github.com/ant-design/ant-design/issues/58842
+    it('SELECTION_ALL should skip disabled rows on other pages', () => {
+      jest.useFakeTimers();
+      const onChange = jest.fn();
+      const { container } = render(
+        createTable({
+          pagination: { pageSize: 2 },
+          rowSelection: {
+            onChange,
+            getCheckboxProps: (record) => ({ disabled: record.key === 3 }),
+            selections: [Table.SELECTION_ALL],
+          },
+        }),
+      );
+
+      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
+
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
+      expect(onChange).toHaveBeenCalledWith([0, 1, 2], expect.anything(), { type: 'all' });
+
+      fireEvent.click(container.querySelector('.ant-pagination-item-2 > :is(a, button)')!);
+      expect(
+        container.querySelector<HTMLInputElement>(
+          'tbody tr[data-row-key="3"] input[type="checkbox"]',
+        )?.checked,
+      ).toBe(false);
+    });
+
     it('SELECTION_INVERT', () => {
       jest.useFakeTimers();
       const onChange = jest.fn();
@@ -655,6 +889,63 @@ describe('Table.rowSelection', () => {
       expect(onChange).toHaveBeenCalledWith([0], expect.anything(), { type: 'invert' });
     });
 
+    it.each(['children', 'nodes'])(
+      'SELECTION_INVERT should invert current-page descendants with %s',
+      (childrenColumnName) => {
+        jest.useFakeTimers();
+        const onChange = jest.fn();
+        const grandchild = { key: 'grandchild', name: 'Grandchild' };
+        const child = { key: 'child', name: 'Child', [childrenColumnName]: [grandchild] };
+        const disabledChild = { key: 'disabled', name: 'Disabled', disabled: true };
+        const selectedChild = { key: 'selected', name: 'Selected', disabled: true };
+        const parent = {
+          key: 'parent',
+          name: 'Parent',
+          [childrenColumnName]: [child, disabledChild, selectedChild],
+        };
+        const otherParent = { key: 'other-parent', name: 'Other parent' };
+        const { container } = render(
+          createTable({
+            dataSource: [parent, otherParent],
+            pagination: { pageSize: 1 },
+            expandable: { childrenColumnName, defaultExpandAllRows: true },
+            rowSelection: {
+              onChange,
+              defaultSelectedRowKeys: ['child', 'selected', 'other-parent'],
+              getCheckboxProps: (record) => ({ disabled: record.disabled }),
+              selections: [Table.SELECTION_INVERT],
+            },
+          }),
+        );
+
+        fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
+        act(() => {
+          jest.runAllTimers();
+        });
+        fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
+
+        expect(onChange).toHaveBeenLastCalledWith(
+          ['selected', 'other-parent', 'parent', 'grandchild'],
+          [selectedChild, otherParent, parent, grandchild],
+          { type: 'invert' },
+        );
+        expect(getSelections(container)).toEqual(['parent', 'grandchild', 'selected']);
+
+        fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
+        act(() => {
+          jest.runAllTimers();
+        });
+        fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
+
+        expect(onChange).toHaveBeenLastCalledWith(
+          ['selected', 'other-parent', 'child'],
+          [selectedChild, otherParent, child],
+          { type: 'invert' },
+        );
+        expect(getSelections(container)).toEqual(['child', 'selected']);
+      },
+    );
+
     it('SELECTION_NONE', () => {
       jest.useFakeTimers();
       const onChange = jest.fn();
@@ -679,6 +970,55 @@ describe('Table.rowSelection', () => {
       fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
 
       expect(onChange).toHaveBeenCalledWith([1], expect.anything(), { type: 'none' });
+    });
+
+    it.each([1, 2])('SELECTION_NONE should preserve disabled rows from page %s', (current) => {
+      jest.useFakeTimers();
+      const onChange = jest.fn();
+      const { container } = render(
+        createTable({
+          dataSource: presetData,
+          pagination: { defaultCurrent: current, pageSize: 1 },
+          rowSelection: {
+            onChange,
+            defaultSelectedRowKeys: [0, 1, 2],
+            getCheckboxProps: (record) => ({ disabled: record.disabled }),
+            selections: [Table.SELECTION_NONE],
+          },
+        }),
+      );
+
+      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
+      act(() => {
+        jest.runAllTimers();
+      });
+      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
+
+      expect(onChange).toHaveBeenCalledWith([1], [presetData[1]], { type: 'none' });
+      fireEvent.click(container.querySelector('.ant-pagination-item-2 > :is(a, button)')!);
+      expect(getSelections(container)).toEqual([1]);
+    });
+
+    it('SELECTION_NONE should use preserved records and ignore missing records', () => {
+      jest.useFakeTimers();
+      const onChange = jest.fn();
+      const rowSelection = {
+        onChange,
+        defaultSelectedRowKeys: [1, 2, 'missing'],
+        preserveSelectedRowKeys: true,
+        getCheckboxProps: (record: (typeof presetData)[number]) => ({ disabled: record.disabled }),
+        selections: [Table.SELECTION_NONE],
+      };
+      const { container, rerender } = render(createTable({ dataSource: presetData, rowSelection }));
+
+      rerender(createTable({ dataSource: [presetData[0]], rowSelection }));
+      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
+      act(() => {
+        jest.runAllTimers();
+      });
+      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
+
+      expect(onChange).toHaveBeenCalledWith([1], [presetData[1]], { type: 'none' });
     });
   });
 
@@ -788,7 +1128,7 @@ describe('Table.rowSelection', () => {
         dataSource: newData,
       }),
     );
-    fireEvent.click(container.querySelectorAll('.ant-pagination-item')[1]); // switch to second page
+    fireEvent.click(container.querySelectorAll('.ant-pagination-item > a')[1]); // switch to second page
     fireEvent.click(container.querySelector('.ant-checkbox')!);
 
     expect(renderedNames(container)).toEqual([
@@ -1705,6 +2045,56 @@ describe('Table.rowSelection', () => {
         ['light', 'bamboo'],
         [{ name: 'light' }, { name: 'bamboo' }],
         { type: 'single' },
+      );
+    });
+
+    it('cache with preserveSelectedRowKeys in select events', () => {
+      const onSelect = jest.fn();
+      const onSelectMultiple = jest.fn();
+      const onSelectAll = jest.fn();
+      const rowSelection = {
+        onSelect,
+        onSelectMultiple,
+        onSelectAll,
+        preserveSelectedRowKeys: true,
+      };
+      const { container, rerender } = render(
+        <Table
+          dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
+          rowSelection={rowSelection}
+          rowKey="name"
+        />,
+      );
+
+      fireEvent.click(container.querySelector('tbody input')!);
+
+      rerender(
+        <Table
+          dataSource={[{ name: 'bamboo' }, { name: 'moon' }]}
+          rowSelection={rowSelection}
+          rowKey="name"
+        />,
+      );
+      fireEvent.click(container.querySelectorAll('tbody input')[0]);
+      expect(onSelect).toHaveBeenLastCalledWith(
+        { name: 'bamboo' },
+        true,
+        [{ name: 'light' }, { name: 'bamboo' }],
+        expect.anything(),
+      );
+
+      fireEvent.click(container.querySelectorAll('tbody input')[1], { shiftKey: true });
+      expect(onSelectMultiple).toHaveBeenCalledWith(
+        true,
+        [{ name: 'light' }, { name: 'bamboo' }, { name: 'moon' }],
+        [{ name: 'moon' }],
+      );
+
+      fireEvent.click(container.querySelector('th input')!);
+      expect(onSelectAll).toHaveBeenCalledWith(
+        false,
+        [{ name: 'light' }],
+        [{ name: 'bamboo' }, { name: 'moon' }],
       );
     });
 

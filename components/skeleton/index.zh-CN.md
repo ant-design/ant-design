@@ -31,13 +31,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-### 共同的 API
+### 共同的 API {#common-api}
 
 <embed src="./shared/sharedProps.zh-CN.md"></embed>
 
 ### Skeleton
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | active | 是否展示动画效果 | boolean | false |  | × |
 | avatar | 是否显示头像占位图 | boolean \| [SkeletonAvatar](#skeletonavatar) | false |  | × |

@@ -4,7 +4,7 @@ import { createStyles } from 'antd-style';
 
 const COLOR_BG = 'linear-gradient(135deg,#6253e1, #04befe)';
 
-const useStyle = createStyles(({ prefixCls, css }) => ({
+const useStyle = createStyles(({ cssVar, prefixCls, css }) => ({
   linearGradientButton: css`
     &.${prefixCls}-btn-primary:not([disabled]):not(.${prefixCls}-btn-dangerous) {
       > span {
@@ -17,7 +17,7 @@ const useStyle = createStyles(({ prefixCls, css }) => ({
         position: absolute;
         inset: -1px;
         opacity: 1;
-        transition: all 0.3s;
+        transition: all ${cssVar.motionDurationSlow};
         border-radius: inherit;
       }
 

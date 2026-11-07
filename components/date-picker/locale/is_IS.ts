@@ -7,7 +7,15 @@ import type { PickerLocale } from '../generatePicker';
 const locale: PickerLocale = {
   lang: {
     placeholder: 'Veldu dag',
+    yearPlaceholder: 'Veldu ár',
+    quarterPlaceholder: 'Veldu fjórðung',
+    monthPlaceholder: 'Veldu mánuð',
+    weekPlaceholder: 'Veldu viku',
     rangePlaceholder: ['Upphafsdagur', 'Lokadagur'],
+    rangeYearPlaceholder: ['Upphafsár', 'Lokaár'],
+    rangeQuarterPlaceholder: ['Upphafsfjórðungur', 'Lokafjórðungur'],
+    rangeMonthPlaceholder: ['Upphafsmánuður', 'Lokamánuður'],
+    rangeWeekPlaceholder: ['Upphafsvika', 'Lokavika'],
     ...CalendarLocale,
   },
   timePickerLocale: {

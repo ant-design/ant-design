@@ -90,6 +90,10 @@ export interface BreadcrumbProps<T extends AnyObject = AnyObject> {
   itemRender?: (route: ItemType, params: T, routes: ItemType[], paths: string[]) => React.ReactNode;
 }
 
+export interface BreadcrumbRef {
+  nativeElement: HTMLElement;
+}
+
 const getPath = <T extends AnyObject = AnyObject>(params: T, path?: string) => {
   if (path === undefined) {
     return path;
@@ -101,7 +105,10 @@ const getPath = <T extends AnyObject = AnyObject>(params: T, path?: string) => {
   return mergedPath;
 };
 
-const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) => {
+const InternalBreadcrumb = <T extends AnyObject = AnyObject>(
+  props: BreadcrumbProps<T>,
+  ref: React.ForwardedRef<BreadcrumbRef>,
+) => {
   const {
     prefixCls: customizePrefixCls,
     separator,
@@ -251,13 +258,13 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
       );
     });
   } else if (children) {
-    const childrenLength = toArray(children).length;
-    crumbs = toArray(children).map((element: any, index) => {
+    const childList = toArray(children);
+    crumbs = childList.map((element: any, index) => {
       if (!element) {
         return element;
       }
 
-      const isLastItem = index === childrenLength - 1;
+      const isLastItem = index === childList.length - 1;
       return cloneElement(element, {
         separator: isLastItem ? '' : mergedSeparator,
         // eslint-disable-next-line react/no-array-index-key
@@ -286,14 +293,32 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     [mergedClassNames, mergedStyles],
   );
 
+  const nativeElementRef = React.useRef<HTMLElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: nativeElementRef.current!,
+  }));
+
   return (
     <BreadcrumbContext.Provider value={memoizedValue}>
-      <nav className={breadcrumbClassName} style={mergedStyle} {...restProps}>
+      <nav
+        ref={nativeElementRef}
+        className={breadcrumbClassName}
+        style={mergedStyle}
+        {...restProps}
+      >
         <ol>{crumbs}</ol>
       </nav>
     </BreadcrumbContext.Provider>
   );
 };
+
+const Breadcrumb = React.forwardRef(InternalBreadcrumb) as (<T extends AnyObject = AnyObject>(
+  props: BreadcrumbProps<T> & {
+    ref?: React.ForwardedRef<BreadcrumbRef>;
+  },
+) => ReturnType<typeof InternalBreadcrumb>) &
+  Pick<React.FC, 'displayName'>;
 
 if (process.env.NODE_ENV !== 'production') {
   Breadcrumb.displayName = 'Breadcrumb';

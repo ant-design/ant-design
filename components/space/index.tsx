@@ -1,13 +1,12 @@
 import * as React from 'react';
-import { toArray } from '@rc-component/util';
+import { isReactRenderable, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
 import { useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -47,8 +46,7 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   direction?: Orientation;
   vertical?: boolean;
   orientation?: Orientation;
-  // No `stretch` since many components do not support that.
-  align?: 'start' | 'end' | 'center' | 'baseline';
+  align?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
   /** @deprecated please use `separator` instead */
   split?: React.ReactNode;
   separator?: React.ReactNode;
@@ -117,13 +115,16 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     align: mergedAlign,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const contextStyleRoot = useSemanticRootStyle(contextStyle);
+  const styleRoot = useSemanticRootStyle(style);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SpaceSemanticAllType['classNames'],
+    SpaceSemanticAllType['styles'],
+    SpaceProps
+  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
+    props: mergedProps,
+  });
 
   const rootClassNames = clsx(
     prefixCls,
@@ -205,7 +206,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     <div
       ref={ref}
       className={rootClassNames}
-      style={{ ...gapStyle, ...mergedStyles.root, ...contextStyle, ...style }}
+      style={{ ...gapStyle, ...mergedStyles.root }}
       {...restProps}
     >
       <SpaceContextProvider value={memoizedSpaceContext}>{renderedItems}</SpaceContextProvider>

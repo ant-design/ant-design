@@ -1,5 +1,14 @@
+import React from 'react';
+
 import type { MasonryProps } from '..';
+import Masonry from '..';
 import { isNumber } from '../../_util/is';
+import { render } from '../../../tests/utils';
+import {
+  expectSemanticRootStylePriority,
+  semanticRootStylePriority,
+} from '../../../tests/shared/semanticStylePriority';
+import ConfigProvider from '../../config-provider';
 
 describe('Masonry.Semantic', () => {
   it('should support classNames and styles props types', () => {
@@ -102,5 +111,30 @@ describe('Masonry.Semantic', () => {
     expect(responsiveClassNames.root).toBe('cols-responsive');
     expect(responsiveClassNames.item).toBe('gutter-0');
     expect(responsiveStyles.root.backgroundColor).toBe('#f6ffed');
+  });
+
+  it('should follow root style priority', () => {
+    const { container } = render(
+      <ConfigProvider
+        masonry={{
+          styles: semanticRootStylePriority.contextStyles,
+          style: semanticRootStylePriority.contextStyle,
+        }}
+      >
+        <Masonry
+          items={[
+            {
+              key: 'item',
+              data: 'item',
+              children: <div style={{ height: 20 }}>item</div>,
+            },
+          ]}
+          styles={semanticRootStylePriority.styles}
+          style={semanticRootStylePriority.style}
+        />
+      </ConfigProvider>,
+    );
+
+    expectSemanticRootStylePriority(container.querySelector('.ant-masonry'));
   });
 });
