@@ -151,6 +151,7 @@ const genNotificationItemStyle = (token: NotificationToken): CSSObject => {
   const {
     componentCls,
     progressBg,
+    progressTrackBg,
     notificationProgressHeight,
     fontSize,
     borderRadiusLG,
@@ -259,9 +260,16 @@ const genNotificationItemStyle = (token: NotificationToken): CSSObject => {
         value: borderRadiusLG,
       },
 
-      '&, &::-webkit-progress-bar': {
+      '&': {
         borderRadius: borderRadiusLG,
-        backgroundColor: 'rgba(0, 0, 0, 0.04)',
+        backgroundColor: progressTrackBg,
+      },
+
+      // Chromium paints an opaque default gray on the track pseudo-element
+      // without a declared background, so declare transparent explicitly
+      '&::-webkit-progress-bar': {
+        borderRadius: borderRadiusLG,
+        background: 'transparent',
       },
 
       '&::-moz-progress-bar': {
