@@ -146,7 +146,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       // >>> Sub Title
       [`${itemCls}-subtitle`]: {
         color: token.colorTextDescription,
-        fontWeight: 'normal',
+        fontWeight: 400,
         fontSize: varRef('subtitle-font-size'),
         lineHeight: varRef('subtitle-line-height'),
         marginInlineStart: token.marginXS,

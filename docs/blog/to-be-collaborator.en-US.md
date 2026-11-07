@@ -8,7 +8,7 @@ yuque_url: https://www.yuque.com/ant-design/ant-design/as5hro5edxcslweh
 
 Hello everyone, I am [heiyu](https://github.com/heiyu4585). About Ant Design, I believe everyone is very familiar with it. Before I contributed to Ant Design, I have used Ant Design in many background management system projects at work. The biggest feeling for me is that it is easy to use, beautiful, simple and stable. Now that the v5 version has been released, I strongly recommend everyone to try it. I am also fortunate to have developed the v5 version of the `Tour` component and `App` component, as well as some other maintenance work. Let me share with you the PR process of Ant Design, hoping to provide a reference for who are interested in building together for the community.
 
-### Read related articles to familiarize yourself with related concepts
+## Read related articles to familiarize yourself with related concepts {#read-related-articles}
 
 [Contributing](https://ant.design/docs/react/contributing)
 
@@ -22,7 +22,7 @@ Hello everyone, I am [heiyu](https://github.com/heiyu4585). About Ant Design, I 
 
 ## Pull Ant Design code to local
 
-### 1. Fork project
+### 1. Fork project {#fork-project}
 
 - First you need to fork the project, enter the [project page](https://github.com/ant-design/ant-design), click the [Fork button](https://github.com/ant-design/ant-design/fork)
 - Ant Design link will appear in your github account is https://github.com/heiyu4585/ant-design this project
@@ -34,7 +34,7 @@ git clone https://github.com/[yourGithubAccount]/ant-design.git
 
 Note: `[yourGithubAccount]` changed to your own github username
 
-### 2. Add remote branch address
+### 2. Add remote branch address {#add-remote-branch-address}
 
 - Go to the Ant Design folder and add the remote address of Ant Design
 
@@ -51,11 +51,11 @@ git pull upstream master
 
 Now we are on the master branch from the fork, and this master is reserved for remote code tracking upstream
 
-### 3. Create a new fix branch on github
+### 3. Create a new fix branch on github {#create-a-new-fix-branch}
 
 ![image-20221211130607684](https://user-images.githubusercontent.com/10607168/208016775-623abfe7-fa7f-438d-abc3-be445e52d8c5.png)
 
-### 4. Pull the new branch locally
+### 4. Pull the new branch locally {#pull-the-new-branch-locally}
 
 ```bash
 git pull
@@ -64,7 +64,7 @@ git checkout fix-branch
 
 Now we can change the code on the branch
 
-## Find the issue on the [Ant Design issue](https://github.com/ant-design/ant-design/issues) page and analyze the selection
+## Find the issue on the [Ant Design issue](https://github.com/ant-design/ant-design/issues) page and analyze the selection {#find-and-analyze-the-issue}
 
 To help you start your first attempt, we use [good first issues](https://github.com/ant-design/ant-design/issues?q=is%3Aissue+is%3Aopen+label%3A"good+first+issue") marks bugs and small features that are relatively easy to fix, and these issues are good as your first try. [help wanted](https://github.com/ant-design/ant-design/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) After all, it is easy to take over as a developer some problems.
 
@@ -75,7 +75,7 @@ To help you start your first attempt, we use [good first issues](https://github.
 1. `npm start` A website running Ant Design locally
 2. As issue mentioned. Debug, fixing or add new feature
 
-## Run test cases and specification checks
+## Run test cases and specification checks {#run-tests-and-lint-checks}
 
 1. When add new related test case, also make sure all tests pass `npm run test`. Tips: You can use `npm test -- --watch TestName` to run specified tests during development.
 2. Run `npm test -- -u` to update [jest snapshot](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) and put These updates are also committed (if any).
@@ -125,7 +125,7 @@ You can switch to the branches page on your github code repository page, click t
 
 ![image-20221210233540659](https://user-images.githubusercontent.com/10607168/208016178-5edb30af-7191-4ca0-a2d1-17c833f9ed92.png)
 
-## Accept the maintainer's review and modify it, and wait for the maintainer to merge after passing the test
+## Accept the maintainer's review and modify it, and wait for the maintainer to merge after passing the test {#accept-review-and-merge}
 
 ![image-20221216104628528](https://user-images.githubusercontent.com/10607168/208016926-f8ec6cf3-a599-481f-9611-d894975ab5f5.png)
 
@@ -156,7 +156,7 @@ After a period of continuous maintenance, Collaborators will start the invitatio
 
 ![Collaborators](https://user-images.githubusercontent.com/5378891/209089697-4fe3f3b3-ef44-4d63-94c2-d93d082c9951.png)
 
-## Don't be afraid to make mistakes, do it bravely, everyone is welcome in the open source world.
+## Don't be afraid to make mistakes, do it bravely, everyone is welcome in the open source world. {#dont-be-afraid-to-make-mistakes}
 
 ![giphy](https://user-images.githubusercontent.com/10607168/208015974-04c3f09b-b5e8-4ef7-af00-0bb5652ec619.gif)
 

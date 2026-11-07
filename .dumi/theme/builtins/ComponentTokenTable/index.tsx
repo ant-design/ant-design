@@ -36,8 +36,8 @@ const locales = {
     componentComment: '这里是你的组件 token',
     globalComment: '这里是你的全局 token',
     help: '如何定制？',
-    customizeTokenLink: '/docs/react/customize-theme-cn#修改主题变量',
-    customizeComponentTokenLink: '/docs/react/customize-theme-cn#修改组件变量',
+    customizeTokenLink: '/docs/react/customize-theme-cn#customize-design-token',
+    customizeComponentTokenLink: '/docs/react/customize-theme-cn#customize-component-token',
   },
   en: {
     token: 'Token Name',
@@ -50,7 +50,7 @@ const locales = {
     globalComment: 'here are your global tokens',
     help: 'How to use?',
     customizeTokenLink: '/docs/react/customize-theme#customize-design-token',
-    customizeComponentTokenLink: 'docs/react/customize-theme#customize-component-token',
+    customizeComponentTokenLink: '/docs/react/customize-theme#customize-component-token',
   },
 };
 

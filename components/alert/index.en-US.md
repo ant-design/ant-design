@@ -69,6 +69,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | afterClose | Called when close animation is finished | function | - | - |
 | closeIcon | Custom close icon | ReactNode | - | - |
+| disabled | Whether the close button is disabled | boolean | false | - |
 | onClose | Callback when Alert is closed | (e: MouseEvent) => void | - | - |
 
 ### Alert.ErrorBoundary

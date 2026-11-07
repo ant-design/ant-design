@@ -447,7 +447,7 @@ describe('notification', () => {
           styles: {
             root: { color: 'rgb(255, 0, 0)' },
             title: { fontSize: 23 },
-            description: { fontWeight: 'bold' },
+            description: { fontWeight: 700 },
             actions: { background: 'rgb(0, 255, 0)' },
             icon: { color: 'rgb(0, 0, 255)' },
           },
@@ -479,7 +479,7 @@ describe('notification', () => {
     await awaitPromise();
     expect(document.querySelector('.root-class')).toHaveStyle({ color: 'rgb(255, 0, 0)' });
     expect(document.querySelector('.title-class')).toHaveStyle({ fontSize: '23px' });
-    expect(document.querySelector('.description-class')).toHaveStyle({ fontWeight: 'bold' });
+    expect(document.querySelector('.description-class')).toHaveStyle({ fontWeight: 700 });
     expect(document.querySelector('.actions-class')).toHaveStyle({ background: 'rgb(0, 255, 0)' });
     expect(document.querySelector('.icon-class')).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });

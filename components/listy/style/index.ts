@@ -31,6 +31,8 @@ const genListyStyle: GenerateStyle<ListyToken, CSSObject> = (token) => {
     [componentCls]: {
       ...resetComponent(token),
       position: 'relative',
+      // fix https://github.com/ant-design/ant-design/issues/59633
+      ['--rc-virtual-list-scrollbar-bg' as const]: token.colorSplit,
       color: token.colorText,
       fontSize: token.fontSize,
       lineHeight: token.lineHeight,
@@ -39,10 +41,15 @@ const genListyStyle: GenerateStyle<ListyToken, CSSObject> = (token) => {
       [`${componentCls}-item`]: {
         padding: `${unit(itemPaddingBlock)} ${unit(itemPaddingInline)}`,
         borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
-        transition: `background-color ${token.motionDurationMid} ${token.motionEaseInOut}`,
+      },
 
-        '&:hover': {
-          backgroundColor: token.controlItemBgHover,
+      [`&${componentCls}-hoverable`]: {
+        [`${componentCls}-item`]: {
+          transition: `background-color ${token.motionDurationMid} ${token.motionEaseInOut}`,
+
+          '&:hover': {
+            backgroundColor: token.controlItemBgHover,
+          },
         },
       },
 

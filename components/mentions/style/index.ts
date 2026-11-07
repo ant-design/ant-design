@@ -109,7 +109,7 @@ const genDropdownStyle: GenerateStyle<MentionsToken, CSSObject> = (token) => {
             padding: `${unit(itemPaddingVertical)} ${unit(controlPaddingHorizontal)}`,
             color: colorText,
             borderRadius,
-            fontWeight: 'normal',
+            fontWeight: 400,
             lineHeight,
             cursor: 'pointer',
             transition: `background-color ${motionDurationSlow} ease`,

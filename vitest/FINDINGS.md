@@ -157,7 +157,7 @@ vitest/FINDINGS.md
 components/**/__tests__/__snapshots__/vitest/
 package.json
 eslint.config.mjs
-.jest.js / .jest.node.js / .jest.image.js / .jest.site.js
+.jest.ts / .jest.node.ts / .jest.image.ts / .jest.site.ts
 .github/workflows/test.yml
 ```
 

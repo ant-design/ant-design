@@ -63,7 +63,7 @@ Use simple, direct and easy-to-understand words. Indirect, ambiguous, obscure, a
 - Use consistent grammar, language and word orders of the context;
 - Use consistent operation names and page titles.
 
-### Place important information in a prominent position
+### Place important information in a prominent position {#info-in-prominent-place}
 
 <ImagePreview>
 <img class="preview-img good no-padding" alt="Correct Example" src="https://gw.alipayobjects.com/zos/antfincdn/ivTpE4BgSU/16dc61e6-f85c-43d1-9abd-86b046730a6a.png" description="Put important information first in a limited space (or make it more visible with highlights, blank space, etc.).">
@@ -92,7 +92,7 @@ When we want the user to take an action, we should focus on what the user can ge
 
 Error reporting is a common feature in the UI, and it is an important part of user experience. When the user inputs  the wrong content, your error message should be consistent with the user's cognition, and expressed in an easy-to-understand way.
 
-### Use words precisely and completely
+### Use words precisely and completely {#use-words-precisely}
 
 <ImagePreview>
 <img class="preview-img good no-padding" alt="Correct Example" src="https://gw.alipayobjects.com/zos/antfincdn/Txu5VxBFTF/ef2a61a7-8f65-4001-8018-53aa2fccb28d.png" description="Complete expression.">
@@ -203,7 +203,7 @@ The following elements need to be punctuated when they appear separately:
 - Multiple sentences or paragraphs
 - Any sentence before a link
 
-### Use exclamation marks with caution
+### Use exclamation marks with caution {#use-exclamation-marks-with-care}
 
 <ImagePreview>
 <img class="preview-img good no-padding" alt="Correct Example" src="https://gw.alipayobjects.com/zos/antfincdn/D3I1Y4%26mPt/13c2bf6a-c822-49c7-9959-46fdc3a07daf.png">

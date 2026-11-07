@@ -6,7 +6,7 @@ title: 阴影
 
 阴影来源于现实生活的反映物体与物体之间距离的物理现象。在界面中，我们往往通过模拟元素的投影直截了当的来告诉用户，元素之间的高度距离与层次关系。
 
-## 高度
+## 高度 {#height}
 
 阴影是由两个不同阶层的平面产生，且强度由两者之间的距离决定。所以物体的高度直接影响物体的阴影，对象离地面越远阴影越大，模糊值越高。我们将系统分为无、低、中、高四个 UI 层级，各自分布在不同的高度层级，阴影属性也有所不同。
 
@@ -38,7 +38,7 @@ title: 阴影
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*4pFoR4gWL2oAAAAAAAAAAABkARQnAQ" alt="高度">
 </div>
 
-## 光源
+## 光源 {#light-source}
 
 阴影的方向是由光源与物体的相对位置所决定的。假定光源所处高度不变，光源与物体的距离和物体与阴影的距离成正比。光源越远，则阴影距离物体越远。阴影的方向在界面里通常使用 `X, Y` 坐标轴来表示。
 
@@ -46,7 +46,7 @@ title: 阴影
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KgGmQ79c38oAAAAAAAAAAABkARQnAQ" alt="光源">
 </div>
 
-## 阴影值
+## 阴影值 {#shadow-values}
 
 综上可知。阴影由光照而产生。主要影响其值的是物体高度与光源位置：
 
@@ -67,7 +67,7 @@ title: 阴影
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1oijTJh2HEIAAAAAAAAAAABkARQnAQ" alt="阴影值">
 </div>
 
-### 常用阴影设计表
+### 常用阴影设计表 {#common-shadow-usage-design-table}
 
 **第一层：**
 

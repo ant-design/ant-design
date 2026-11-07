@@ -14,11 +14,11 @@ skip: true
 
 ---
 
-## 导航菜单（Menu）
+## 导航菜单（Menu） {#menu}
 
 导航菜单是将内容信息友好地展示给用户的有效方式。在确定好网站的信息架构后，应当按需选取适当的导航菜单样式。
 
-### 顶部导航菜单
+### 顶部导航菜单 {#top-navigation}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/pWbHrSnmicFxcgmWIFst.png">
@@ -26,7 +26,7 @@ skip: true
 
 顶部导航菜单的形式就是把超链接连成一行，信息内容层级比较简单明了，适用在浏览性强的门户性质以及比较前台化的应用。一级类目建议在 2-7 个以内。标题长度 4-15 个字符长度为好，中文字长 2-6 个。
 
-### 侧边导航菜单
+### 侧边导航菜单 {#side-navigation}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/VvajPSfjYcVNiNoxZFVH.png">
@@ -38,7 +38,7 @@ skip: true
 
 ---
 
-## 面包屑（Breadcrumb）
+## 面包屑（Breadcrumb） {#breadcrumb}
 
 面包屑导航的作用是告诉用户当前页面在系统层级结构中的位置以及父子级页面间的关系。
 
@@ -53,11 +53,11 @@ skip: true
 
 ---
 
-## 标签页（Tabs）
+## 标签页（Tabs） {#tabs}
 
 标签页把大量信息进行分类展示，用户可以方便地切换标签，而不必跳转页面进行比较浏览，可以在有限的显示区域内展示更多信息。分类可根据业务类别、业务状态或者操作类型等并列关系来分，分类标题长度为 2-6 个中文字。
 
-### 基本样式
+### 基本样式 {#basic}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/dPpWpAhQYzJOWMCeKqhe.png">
@@ -65,7 +65,7 @@ skip: true
 
 引领整个页面的内容，用于主功能切换。
 
-### 卡片样式
+### 卡片样式 {#card}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/aJypXYetynQcJxohHefp.png">
@@ -73,7 +73,7 @@ skip: true
 
 用于页面中局部展示，包裹型容器能很好的和其它内容隔离。
 
-### 胶囊型样式
+### 胶囊型样式 {#pill}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/QsgJeCmaQkoRLgGRxUim.png" description="一般用于小版块内，或与基本样式、卡片样式搭配使用。">
@@ -81,7 +81,7 @@ skip: true
 
 用于卡片内的选项切换，经常和其它组件结合使用，让用户快速切换对应内容。
 
-### 竖状样式
+### 竖状样式 {#vertical}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/WvnEwzlmauGlKByAxZJH.png">
@@ -91,11 +91,11 @@ skip: true
 
 ---
 
-## 步骤条（Steps）
+## 步骤条（Steps） {#steps}
 
 步骤条是引导用户按照流程完成任务的导航条，可以帮助用户对操作流程长度和步骤有个预期，并且知道自己当前在哪个步骤，同时也可以对用户的任务完成度有明确的度量。当任务复杂或者存在先后关系时，将其分解成一系列步骤。
 
-### 横向流程步骤条
+### 横向流程步骤条 {#horizontal}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/ugeAGDXQQYkZIbCAGlIP.png">
@@ -103,7 +103,7 @@ skip: true
 
 步骤多于 2 步时使用，但建议不超过 5 步，每阶段文字长度保持在 12 个字符以内。
 
-### 竖向流程步骤条
+### 竖向流程步骤条 {#vertical-1}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/PnDNqhBRyWLLLgQSVwvF.png">
@@ -113,11 +113,11 @@ skip: true
 
 ---
 
-## 分页器（Pagination）
+## 分页器（Pagination） {#pagination}
 
 当有大量内容需要展现时进行分页加载处理，分页器可以让用户清楚的知道自己所要浏览的内容有多少、已经浏览了多少、还剩余多少。
 
-### 标准样式
+### 标准样式 {#basic-1}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/MlxHpEgkFHhIVaxpaiYJ.png" description="当页数超过 5 页时，可以提供快速跳转页面的功能。">
@@ -125,7 +125,7 @@ skip: true
 
 当信息条目较多的时候，可以允许用户自定义每页的行数，以提高用户查看和检索信息的效率和灵活性，常与表格、卡片搭配使用。
 
-### 迷你样式
+### 迷你样式 {#mini}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/GtIWNdAtogjxXJNuuqTE.png">
@@ -133,7 +133,7 @@ skip: true
 
 一般用于卡片或者浮层。
 
-### 简易样式
+### 简易样式 {#simple}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/LCUZrQJyHQXplzEzDrub.png">

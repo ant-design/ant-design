@@ -100,7 +100,7 @@ interface CardToken extends FullToken<'Card'> {
 
 // ============================== Head ==============================
 const genCardHeadStyle: GenerateStyle<CardToken, CSSObject> = (token) => {
-  const { antCls, componentCls, headerHeight, headerPadding, tabsMarginBottom } = token;
+  const { antCls, headerHeight, headerPadding, tabsMarginBottom } = token;
 
   return {
     display: 'flex',
@@ -129,10 +129,7 @@ const genCardHeadStyle: GenerateStyle<CardToken, CSSObject> = (token) => {
       flex: 1,
       ...textEllipsis,
 
-      [`
-          > ${componentCls}-typography,
-          > ${componentCls}-typography-edit-content
-        `]: {
+      [`> ${antCls}-typography`]: {
         insetInlineStart: 0,
         marginTop: 0,
         marginBottom: 0,
@@ -143,12 +140,8 @@ const genCardHeadStyle: GenerateStyle<CardToken, CSSObject> = (token) => {
       clear: 'both',
       marginBottom: tabsMarginBottom,
       color: token.colorText,
-      fontWeight: 'normal',
+      fontWeight: 400,
       fontSize: token.fontSize,
-
-      '&-bar': {
-        borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorderSecondary}`,
-      },
     },
   };
 };
@@ -336,7 +329,7 @@ const genCardStyle: GenerateStyle<CardToken, CSSObject> = (token) => {
         // https://stackoverflow.com/a/22429853/3040605
         marginInlineStart: 'auto',
         color: extraColor,
-        fontWeight: 'normal',
+        fontWeight: 400,
         fontSize: token.fontSize,
       },
 

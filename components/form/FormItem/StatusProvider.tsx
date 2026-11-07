@@ -44,14 +44,7 @@ function StatusProvider({
   const itemPrefixCls = `${prefixCls}-item`;
   const { feedbackIcons } = React.useContext(FormContext);
 
-  const mergedValidateStatus = getStatus(
-    errors,
-    warnings,
-    meta,
-    null,
-    !!hasFeedback,
-    validateStatus,
-  );
+  const selfValidateStatus = getStatus(errors, warnings, meta, null, !!hasFeedback, validateStatus);
 
   const {
     isFormItemInput: parentIsFormItemInput,
@@ -60,6 +53,12 @@ function StatusProvider({
     feedbackIcon: parentFeedbackIcon,
     name: parentName,
   } = React.useContext(FormItemInputContext);
+
+  // A touched `noStyle` field is implicitly `success`, so it follows the parent status instead
+  const mergedValidateStatus =
+    noStyle && parentStatus && validateStatus === undefined && selfValidateStatus === 'success'
+      ? parentStatus
+      : selfValidateStatus;
 
   // ====================== Context =======================
   const formItemStatusContext = React.useMemo<FormItemStatusContextProps>(() => {

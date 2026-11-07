@@ -24,7 +24,6 @@ exports[`renders components/segmented/demo/_semantic.tsx correctly 1`] = `
             class="ant-segmented-item semantic-mark-item ant-segmented-item-selected ant-segmented-item-selected-text"
           >
             <input
-              checked=""
               class="ant-segmented-item-input"
               name="test-id"
               type="radio"

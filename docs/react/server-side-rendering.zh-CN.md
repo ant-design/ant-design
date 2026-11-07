@@ -10,7 +10,7 @@ title: 服务端渲染
 - **内联样式**：在渲染时无需额外请求样式文件，好处是减少额外的网络请求，缺点则是会使得 HTML 体积增大，影响首屏渲染速度，相关讨论参考：[#39891](https://github.com/ant-design/ant-design/issues/39891)
 - **整体导出**：提前烘焙 antd 组件样式为 css 文件，在页面中时引入。好处是打开任意页面时如传统 css 方案一样都会复用同一套 css 文件以命中缓存，缺点是如果页面中存在多主题，则需要额外进行烘焙
 
-## 内联样式
+## 内联样式 {#inline-style}
 
 使用 `@ant-design/cssinjs@2.x` 将所需样式抽离：
 
@@ -49,7 +49,7 @@ const App = () => {
 export default App;
 ```
 
-## 整体导出
+## 整体导出 {#whole-export}
 
 如果你想要将样式文件抽离到 css 文件中，可以尝试使用以下方案：
 
@@ -170,7 +170,7 @@ export default function App({ Component, pageProps }: AppProps) {
 }
 ```
 
-### 自定义主题
+### 自定义主题 {#custom-theme}
 
 如果你的项目中使用了自定义主题，可以尝试通过以下方式进行烘焙：
 
@@ -191,7 +191,7 @@ const cssText = extractStyle((node) => (
 ));
 ```
 
-### 混合主题
+### 混合主题 {#mixed-theme}
 
 如果你的项目中使用了混合主题，可以尝试通过以下方式进行烘焙：
 
@@ -233,7 +233,7 @@ const cssText = extractStyle((node) => (
 
 更多`static-style-extract`的实现细节请看：[static-style-extract](https://github.com/ant-design/static-style-extract)。
 
-## 按需抽取
+## 按需抽取 {#extract-on-demand}
 
 ```tsx
 // scripts/genAntdCss.tsx

@@ -28,8 +28,8 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
         // https://github.com/ant-design/ant-design/issues/30969
         [`
-          &${componentCls}-cell-fix-left:hover,
-          &${componentCls}-cell-fix-right:hover
+          &${componentCls}-cell-fix-start:hover,
+          &${componentCls}-cell-fix-end:hover
         `]: {
           background: token.tableFixedHeaderSortActiveBg,
         },

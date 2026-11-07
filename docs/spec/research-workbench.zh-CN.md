@@ -9,11 +9,11 @@ title: 工作台
 
 ---
 
-## 设计目标
+## 设计目标 {#design-goals}
 
 用户侧：提供处理和查看信息的捷径，并为用户提供必要的帮助；<br/> 产品侧：与用户更好地沟通，适当宣传产品的新动向等运营内容。
 
-## 设计原则
+## 设计原则 {#design-principles}
 
 <div class="design-inline-cards">
   <div>
@@ -32,9 +32,9 @@ title: 工作台
   </div>
 </div>
 
-## 如何设计
+## 如何设计 {#how-to-design}
 
-#### 模板 - 工作台
+#### 模板 - 工作台 {#template---workbench}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8s67TL62WEoAAAAAAAAAAABkARQnAQ">
@@ -55,7 +55,7 @@ title: 工作台
 - 尽量在首屏呈现最常使用的内容；
 - 提供基于角色的差异化视图。
 
-#### 模板 - 新手引导
+#### 模板 - 新手引导 {#template---new-user-guide}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*LQBmQauTEAsAAAAAAAAAAABkARQnAQ">
@@ -75,9 +75,9 @@ title: 工作台
 - 向用户介绍平台用途，并引导用户开始工作；
 - 如果需要用户管理复杂的对象，提供 Demo 预览入口；
 
-### 设计建议
+### 设计建议 {#design-suggestions}
 
-#### 选择合适的导航方式
+#### 选择合适的导航方式 {#choose-navigation-method}
 
 这类页面一般会提供两类导航形式。<br/>
 
@@ -93,7 +93,7 @@ title: 工作台
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*9nKdRJBAu8sAAAAAAAAAAABkARQnAQ">
 </div>
 
-#### 按照使用频次布置内容
+#### 按照使用频次布置内容 {#arrange-content-by-frequency}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1tfiR5-xKUQAAAAAAAAAAABkARQnAQ">
@@ -101,7 +101,7 @@ title: 工作台
 
 用户在日常工作中最常使用的内容，按照使用频次将内容布置以下各区域。
 
-#### 考虑异常状态
+#### 考虑异常状态 {#consider-error-states}
 
 详见异常页
 

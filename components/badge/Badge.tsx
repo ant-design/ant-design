@@ -121,7 +121,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
 
   const hasStatusValue = isNonNullable(status) || !isZero;
 
-  const isStatusBadge = Boolean(!children && hasStatus && (text || hasStatusValue || !ignoreCount));
+  const isStatusBadge = Boolean(!children && hasStatus && (text || hasStatusValue));
 
   // =============================== Styles ===============================
   const offsetStyle = useMemo<React.CSSProperties | undefined>(() => {
@@ -196,7 +196,12 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
   // >>> Status Text
   const showStatusTextNode = !isHidden && (text === 0 ? showZero : !!text && text !== true);
   const statusTextNode = !showStatusTextNode ? null : (
-    <span className={`${prefixCls}-status-text`}>{text}</span>
+    <span
+      style={isStatusBadge ? { color: mergedStyles.root?.color } : undefined}
+      className={`${prefixCls}-status-text`}
+    >
+      {text}
+    </span>
   );
 
   // >>> Display Component
@@ -239,7 +244,6 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
 
   // <Badge status="success" />
   if (isStatusBadge) {
-    const statusTextColor = mergedStyles.root?.color;
     return (
       <span
         ref={ref}
@@ -248,11 +252,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
         style={{ ...offsetStyle, ...mergedStyles.root }}
       >
         <span className={statusCls} style={{ ...mergedStyles.indicator, ...statusStyle }} />
-        {showStatusTextNode && (
-          <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
-            {text}
-          </span>
-        )}
+        {statusTextNode}
       </span>
     );
   }
@@ -284,13 +284,12 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
             [`${prefixCls}-color-${color}`]: isInternalColor,
           });
 
-          let scrollNumberStyle: React.CSSProperties = {
+          const scrollNumberStyle: React.CSSProperties = {
             ...offsetStyle,
             ...mergedStyles.indicator,
           };
 
           if (color && !isInternalColor) {
-            scrollNumberStyle = scrollNumberStyle || {};
             scrollNumberStyle.background = color;
           }
 

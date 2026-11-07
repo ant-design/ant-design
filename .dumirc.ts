@@ -5,9 +5,11 @@ import * as fs from 'fs-extra';
 
 import rehypeAntd from './.dumi/rehypeAntd';
 import rehypeChangelog from './.dumi/rehypeChangelog';
-import remarkAnchor from './.dumi/remarkAnchor';
 import remarkAntd from './.dumi/remarkAntd';
 import { version } from './package.json';
+
+const alibabaSansBoldFont =
+  'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*E_cxRbMlZqUAAAAAQuAAAAgAegCCAQ/AlibabaSans-Bold.woff2';
 
 const alibabaSansFonts = [
   {
@@ -20,15 +22,15 @@ const alibabaSansFonts = [
   },
   {
     weight: 500,
-    url: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*E_cxRbMlZqUAAAAAQuAAAAgAegCCAQ/AlibabaSans-Medium.woff2',
+    url: alibabaSansBoldFont,
   },
   {
     weight: 600,
-    url: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*E_cxRbMlZqUAAAAAQuAAAAgAegCCAQ/AlibabaSans-Bold.woff2',
+    url: alibabaSansBoldFont,
   },
   {
     weight: 700,
-    url: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*E_cxRbMlZqUAAAAAQuAAAAgAegCCAQ/AlibabaSans-Heavy.woff2',
+    url: alibabaSansBoldFont,
   },
 ] as const;
 
@@ -74,6 +76,7 @@ export default defineConfig({
   mako: isCloudflarePages && ['Darwin', 'Linux'].includes(os.type()) ? {} : false,
   utoopack: {
     devServer: {
+      lazyDynamicImports: true,
       dynamicHmrChunkLists: true,
     },
     watch: {
@@ -104,7 +107,7 @@ export default defineConfig({
     antd: path.join(__dirname, 'components'),
   },
   extraRehypePlugins: [rehypeAntd, rehypeChangelog],
-  extraRemarkPlugins: [remarkAntd, remarkAnchor],
+  extraRemarkPlugins: [remarkAntd],
   metas: [
     { name: 'theme-color', content: '#1677ff' },
     { name: 'build-time', content: Date.now().toString() },
@@ -120,71 +123,15 @@ export default defineConfig({
       : {
           analyzerPort: 'auto',
         },
-  links: [
-    ...alibabaSansFonts.map(({ url }) => ({
+  links: alibabaSansFonts
+    .filter(({ weight }) => weight === 400 || weight === 600)
+    .map(({ url }) => ({
       rel: 'preload',
       as: 'font',
       href: url,
       type: 'font/woff2',
       crossorigin: 'anonymous',
     })),
-    {
-      rel: 'prefetch',
-      as: 'font',
-      href: '//at.alicdn.com/t/webfont_6e11e43nfj.woff2',
-      type: 'font/woff2',
-      crossorigin: 'anonymous',
-    },
-    {
-      rel: 'prefetch',
-      as: 'font',
-      href: '//at.alicdn.com/t/webfont_6e11e43nfj.woff',
-      type: 'font/woff',
-      crossorigin: 'anonymous',
-    },
-    {
-      rel: 'prefetch',
-      as: 'font',
-      href: '//at.alicdn.com/t/webfont_6e11e43nfj.ttf',
-      type: 'font/ttf',
-      crossorigin: 'anonymous',
-    },
-    {
-      rel: 'prefetch',
-      as: 'font',
-      href: '//at.alicdn.com/t/webfont_exesdog9toj.woff2',
-      type: 'font/woff2',
-      crossorigin: 'anonymous',
-    },
-    {
-      rel: 'prefetch',
-      as: 'font',
-      href: '//at.alicdn.com/t/webfont_exesdog9toj.woff',
-      type: 'font/woff',
-      crossorigin: 'anonymous',
-    },
-    {
-      rel: 'prefetch',
-      as: 'font',
-      href: '//at.alicdn.com/t/webfont_exesdog9toj.ttf',
-      type: 'font/ttf',
-      crossorigin: 'anonymous',
-    },
-    {
-      rel: 'preload',
-      as: 'font',
-      href: '//at.alicdn.com/wf/webfont/exMpJIukiCms/Gsw2PSKrftc1yNWMNlXgw.woff2',
-      type: 'font/woff2',
-      crossorigin: 'anonymous',
-    },
-    {
-      rel: 'preload',
-      as: 'font',
-      href: '//at.alicdn.com/wf/webfont/exMpJIukiCms/vtu73by4O2gEBcvBuLgeu.woff',
-      type: 'font/woff2',
-      crossorigin: 'anonymous',
-    },
-  ],
   headScripts: [
     `
     (function () {
@@ -242,9 +189,6 @@ export default defineConfig({
     `,
   ],
   scripts: [
-    {
-      src: 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4',
-    },
     {
       async: true,
       content: fs

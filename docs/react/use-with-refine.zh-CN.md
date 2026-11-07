@@ -11,7 +11,7 @@ title: 使用 Refine
 
 本文将指导您使用 Refine 和 Ant Design 引导一个功能齐全的 CRUD 应用示例。
 
-## 安装和初始化
+## 安装和初始化 {#install-and-initialization}
 
 Refine 通过一个简单的路由接口与 Vite、Next.js、Remix、React Native 和 Electron 等平台轻松集成，无需额外设置。
 
@@ -36,7 +36,7 @@ $ npm run dev
 
 ![Refine Ant Design 示例](https://refine.ams3.cdn.digitaloceanspaces.com/example-readmes/antd-list-example.png)
 
-## 查看代码
+## 查看代码 {#inspection-the-code}
 
 让我们看看 CLI 命令生成的示例组件中 Ant Design 的使用。
 
@@ -63,7 +63,7 @@ export const CategoryCreate = () => {
 
 Refine 的集成仅提供组件和钩子，以便更轻松地在结合 Refine 的功能和特性时使用 Ant Design 组件。
 
-## 如何向现有 Refine 项目添加 Ant Design
+## 如何向现有 Refine 项目添加 Ant Design {#add-antd-to-refine-project}
 
 您可以按照 [Refine Ant Design 官方指南](https://refine.dev/docs/ui-integrations/ant-design/introduction/) 将 Ant Design 添加到现有的 Refine 项目中。
 

@@ -155,15 +155,15 @@ describe('Upload.Semantic', () => {
       <ConfigProvider
         upload={{
           styles: {
-            root: { borderWidth: '2px' },
+            root: { margin: '2px' },
             list: { padding: '10px' },
           },
         }}
       >
         <Upload
           styles={{
-            root: { backgroundColor: 'red' },
-            item: { color: 'blue' },
+            root: { backgroundColor: 'rgb(255, 0, 0)' },
+            item: { color: 'rgb(0, 0, 255)' },
           }}
           defaultFileList={[{ uid: '1', name: 'test.txt', status: 'done' }]}
         >
@@ -174,7 +174,7 @@ describe('Upload.Semantic', () => {
 
     const rootElement = container.querySelector('.ant-upload-wrapper');
     expect(rootElement).toBeTruthy();
-    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)', borderWidth: '2px' });
+    expect(rootElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)', margin: '2px' });
 
     const listElement = container.querySelector('.ant-upload-list');
     expect(listElement).toBeTruthy();

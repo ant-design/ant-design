@@ -104,7 +104,7 @@ const Watermark = React.forwardRef<WatermarkRef, WatermarkProps>((props, ref) =>
   const {
     color = token.colorFill,
     fontSize = token.fontSizeLG,
-    fontWeight = 'normal',
+    fontWeight = 400,
     fontStyle = 'normal',
     fontFamily = 'sans-serif',
     textAlign = 'center',

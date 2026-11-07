@@ -55,7 +55,7 @@ target.insertBefore(holder, target.firstChild);
 
 However, this `div` is absolutely positioned and therefore does not participate in normal layout. It cannot create another `gap`. After temporarily removing Wave, the issue remained.
 
-## 14px and 8px
+## 14px and 8px {#size-14px-and-8px}
 
 With no extra gap appearing from nowhere, we returned to the Loading icon itself.
 

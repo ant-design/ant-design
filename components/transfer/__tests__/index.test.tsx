@@ -232,6 +232,26 @@ describe('Transfer', () => {
     expect(onSelectChange).not.toHaveBeenCalled();
   });
 
+  it('should update both lists when render changes', () => {
+    const props = {
+      dataSource: listCommonProps.dataSource,
+      targetKeys: listCommonProps.targetKeys,
+    };
+    const { getByText, queryByText, rerender } = render(
+      <Transfer {...props} render={(item) => item.title} />,
+    );
+
+    expect(getByText('a')).toBeInTheDocument();
+    expect(getByText('b')).toBeInTheDocument();
+
+    rerender(<Transfer {...props} render={(item) => `updated-${item.title}`} />);
+
+    expect(getByText('updated-a')).toBeInTheDocument();
+    expect(getByText('updated-b')).toBeInTheDocument();
+    expect(queryByText('a')).not.toBeInTheDocument();
+    expect(queryByText('b')).not.toBeInTheDocument();
+  });
+
   it('multiple select/deselect by hold down the shift key', () => {
     const handleSelectChange = jest.fn();
     const { getByText } = render(
@@ -1016,6 +1036,31 @@ describe('Transfer', () => {
     expect(getByText('1 of 2')).toBeTruthy();
   });
 
+  it.each<[string, SelectAllLabel, string[]]>([
+    ['numeric zero', 0, ['0', '0']],
+    ['string zero', '0', ['0', '0']],
+    ['callback returning zero', () => 0, ['0', '0']],
+    ['undefined', undefined, ['1 item', '0 item']],
+    ['null', null, ['1 item', '0 item']],
+    ['false', false, ['1 item', '0 item']],
+    ['empty string', '', ['1 item', '0 item']],
+  ])('should render selectAllLabels with %s', (_, label, expected) => {
+    const { container } = render(
+      <Transfer
+        dataSource={[{ key: 'a', title: 'a' }]}
+        selectAllLabels={[label, label]}
+        render={(item) => item.title}
+      />,
+    );
+
+    expect(
+      Array.from(
+        container.querySelectorAll('.ant-transfer-list-header-selected'),
+        (element) => element.textContent,
+      ),
+    ).toEqual(expected);
+  });
+
   it('should disable transfer operation button when some items are set to selected but also disabled', () => {
     const dataSource = listDisabledProps.dataSource.map((d) => ({
       ...d,
@@ -1095,17 +1140,62 @@ describe('Transfer', () => {
 
   it('should use the component locale for one-way item removal', () => {
     const onChange = jest.fn();
+    const onSelectChange = jest.fn();
     const { getByRole } = render(
       <Transfer
         {...listCommonProps}
         locale={{ remove: 'Remove target item' }}
         onChange={onChange}
+        onSelectChange={onSelectChange}
         oneWay
       />,
     );
 
     fireEvent.click(getByRole('button', { name: 'Remove target item' }));
     expect(onChange).toHaveBeenCalledWith([], 'left', ['b']);
+    expect(onSelectChange).not.toHaveBeenCalled();
+  });
+
+  it('should clear controlled target selection when removing a one-way item', () => {
+    const onChange = jest.fn();
+    const onSelectChange = jest.fn();
+
+    const App = () => {
+      const [targetKeys, setTargetKeys] = useState<React.Key[]>(['b']);
+      const [selectedKeys, setSelectedKeys] = useState<React.Key[]>(['a', 'b']);
+
+      return (
+        <Transfer
+          dataSource={[
+            { key: 'a', title: 'a' },
+            { key: 'b', title: 'b' },
+          ]}
+          targetKeys={targetKeys}
+          selectedKeys={selectedKeys}
+          oneWay
+          locale={{ remove: 'Remove target item' }}
+          render={(item) => item.title}
+          onChange={(nextTargetKeys, direction, moveKeys) => {
+            onChange(nextTargetKeys, direction, moveKeys);
+            setTargetKeys(nextTargetKeys);
+          }}
+          onSelectChange={(sourceSelectedKeys, targetSelectedKeys) => {
+            onSelectChange(sourceSelectedKeys, targetSelectedKeys);
+            setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
+          }}
+        />
+      );
+    };
+
+    const { getByRole, getByText } = render(<App />);
+    fireEvent.click(getByRole('button', { name: 'Remove target item' }));
+
+    expect(onChange).toHaveBeenCalledWith([], 'left', ['b']);
+    expect(onSelectChange).toHaveBeenCalledWith(['a'], []);
+    expect(onSelectChange).toHaveBeenCalledTimes(1);
+    expect(
+      getByText('b').closest('.ant-transfer-list-content-item')?.querySelector('input'),
+    ).not.toBeChecked();
   });
 
   it('control mode select all should not throw warning', () => {

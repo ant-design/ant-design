@@ -70,6 +70,7 @@ group:
 | ---------- | ---------------------------- | ----------------------- | ------ | ---- |
 | afterClose | 关闭动画结束后触发的回调函数 | function                | -      | -    |
 | closeIcon  | 自定义关闭图标               | ReactNode               | -      | -    |
+| disabled   | 是否禁用关闭按钮             | boolean                 | false  | -    |
 | onClose    | 关闭时触发的回调函数         | (e: MouseEvent) => void | -      | -    |
 
 ### Alert.ErrorBoundary

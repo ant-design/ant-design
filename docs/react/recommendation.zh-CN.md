@@ -51,7 +51,7 @@ title: 社区精选组件
 | PDF | [react-pdf](https://github.com/diegomura/react-pdf) [@react-pdf/renderer](https://github.com/diegomura/react-pdf) |
 | React 手势库 | [use-gesture](https://use-gesture.netlify.app) |
 
-## 推荐产品 ✨
+## 推荐产品 ✨ {#products-we-are-using-}
 
 还有一些常用的前端/设计/产品相关的工具推荐给大家使用。
 

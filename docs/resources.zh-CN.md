@@ -4,7 +4,7 @@ title: 资源
 description: 这里汇总了与 Ant Design 相关的所有资源。
 ---
 
-## 设计资源
+## 设计资源 {#design-resources}
 
 这里提供 Ant Design 相关设计资源和设计工具的下载，更多设计资源正在整理和完善中。你可以在这个[地址](https://www.yuque.com/kitchen/topics/216)中反馈对新版本 Sketch Symbols 组件的意见。
 
@@ -75,13 +75,13 @@ description: 这里汇总了与 Ant Design 相关的所有资源。
   - https://www.raycast.com/crazyair/antd-open-browser
 </ResourceCards>
 
-## 文章
+## 文章 {#articles}
 
 想要了解 Ant Design 设计体系背后的故事？如何才能更好的应用 Ant Design？你可以查阅下述我们为你精挑细选的文章。也欢迎关注 [Ant Design 官方专栏](https://www.zhihu.com/column/c_1310524851418480640)，这里常有关于 Ant Design 设计体系下相关话题内容的最新分享和讨论，如 Ant Design、AntV 可视化、Kitchen 设计插件、B 端产品设计、SaaS 产品设计、自然交互、增长设计、智能设计、设计工程化等。
 
 <ResourceArticles></ResourceArticles>
 
-## 致敬
+## 致敬 {#reference}
 
 在 Ant Design 4.0 的改版中，我们汲取顶级设计体系的精华，同时结合我们自身业务特性做了大量优化。我们希望通过不断努力和打磨，成为世界级设计体系的一份子，为「用户」和「设计者」带来极致体验。如果你也想追求卓越，建议去研究这些体系： [Fiori Design](https://experience.sap.com/fiori-design-web/)、 [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)、 [Lightning Design System](https://lightningdesignsystem.com/getting-started/)、 [Material Design](https://material.io/)
 
@@ -118,11 +118,11 @@ description: 这里汇总了与 Ant Design 相关的所有资源。
   - http://book.douban.com/subject/4886100/
 </ResourceCards>
 
-## 加入我们
+## 加入我们 {#join-us}
 
 蚂蚁集团 Ant Design 团队是一支兼具设计视角和工程视角的横向组织，服务蚂蚁集团上百个中后台系统，主打产品 Ant Design 服务全球 100 万设计师和工程师，是西湖区学院路西侧最具影响力的设计语言。欢迎来这里和我们一起打造优雅高效的人机设计/研发体系。
 
-### UI/UE 设计师
+### UI/UE 设计师 {#ux-designer}
 
 简历和作品集请投递：jiayin.liu#antgroup.com
 
@@ -145,7 +145,7 @@ description: 这里汇总了与 Ant Design 相关的所有资源。
 - One More Thing ❤️ ：
   - 你们总是为世界带去美好，但总是忘却你们也需要美好。我们正在努力打造 [🍳 Kitchen：一款为设计师提效的 Sketch 工具集](https://kitchen.alipay.com/)等专属设计师的产品，让设计真正变成财富。期待志同道合的你，一道给设计行业带来「微小而美好的改变」。
 
-### 前端工程师
+### 前端工程师 {#frontend-engineer}
 
 简历请投递：afc163+antd@gmail.com
 
@@ -162,7 +162,7 @@ description: 这里汇总了与 Ant Design 相关的所有资源。
   - 负责 Ant Design 前端基础设施研发。
   - 负责中后台设计/前端工具体系建设。
 
-### Node.js 工程师
+### Node.js 工程师 {#nodejs-engineer}
 
 简历请投递：zhubin.gzb@antgroup.com
 
@@ -179,7 +179,7 @@ description: 这里汇总了与 Ant Design 相关的所有资源。
   - 负责 Node.js 前端基础设施研发。
   - 负责大前端工具体系建设。
 
-### ADI（Artificial Design Intelligence） 工程师
+### ADI（Artificial Design Intelligence） 工程师 {#adi-engineer}
 
 简历和作品集请投递：jiayin.liu#antgroup.com
 

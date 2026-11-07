@@ -498,6 +498,9 @@ const InternalTransfer = <RecordType extends TransferItem = TransferItem>(
 
   const onRightItemRemove = (keys: TransferKey[]) => {
     setStateKeys('right', []);
+    if (targetSelectedKeys.length > 0) {
+      handleSelectChange('right', []);
+    }
     onChange?.(
       targetKeys.filter((key) => !keys.includes(key)),
       'left',
