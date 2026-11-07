@@ -11921,6 +11921,7 @@ Array [
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="topLeft"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -11929,6 +11930,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         topLeft
@@ -11941,6 +11943,7 @@ Array [
         class="ant-radio-button"
       >
         <input
+          aria-label="topRight"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -11948,6 +11951,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         topRight
@@ -11960,6 +11964,7 @@ Array [
         class="ant-radio-button"
       >
         <input
+          aria-label="bottomLeft"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -11967,6 +11972,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         bottomLeft
@@ -11979,6 +11985,7 @@ Array [
         class="ant-radio-button"
       >
         <input
+          aria-label="bottomRight"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -11986,6 +11993,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         bottomRight
@@ -12154,6 +12162,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="TL"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -12162,6 +12171,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             TL
@@ -12174,6 +12184,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
             class="ant-radio-button"
           >
             <input
+              aria-label="TR"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -12181,6 +12192,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             TR
@@ -12193,6 +12205,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
             class="ant-radio-button"
           >
             <input
+              aria-label="BL"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -12200,6 +12213,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             BL
@@ -12212,6 +12226,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
             class="ant-radio-button"
           >
             <input
+              aria-label="BR"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -12219,6 +12234,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             BR
@@ -14710,6 +14726,7 @@ Array [
         class="ant-radio-button"
       >
         <input
+          aria-label="Large"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -14717,6 +14734,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Large
@@ -14729,6 +14747,7 @@ Array [
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Medium"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -14737,6 +14756,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Medium
@@ -14749,6 +14769,7 @@ Array [
         class="ant-radio-button"
       >
         <input
+          aria-label="Small"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -14756,6 +14777,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Small

@@ -110,6 +110,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
           class="ant-radio-button ant-radio-button-checked"
         >
           <input
+            aria-label="Month"
             checked=""
             class="ant-radio-button-input"
             name="test-id"
@@ -118,6 +119,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Month
@@ -130,6 +132,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
           class="ant-radio-button"
         >
           <input
+            aria-label="Year"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -137,6 +140,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Year
@@ -1027,6 +1031,7 @@ exports[`Calendar Calendar should support locale 1`] = `
           class="ant-radio-button ant-radio-button-checked"
         >
           <input
+            aria-label="月"
             checked=""
             class="ant-radio-button-input"
             name="test-id"
@@ -1035,6 +1040,7 @@ exports[`Calendar Calendar should support locale 1`] = `
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           月
@@ -1047,6 +1053,7 @@ exports[`Calendar Calendar should support locale 1`] = `
           class="ant-radio-button"
         >
           <input
+            aria-label="年"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -1054,6 +1061,7 @@ exports[`Calendar Calendar should support locale 1`] = `
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           年
@@ -1944,6 +1952,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
           class="ant-radio-button ant-radio-button-checked"
         >
           <input
+            aria-label="Month"
             checked=""
             class="ant-radio-button-input"
             name="test-id"
@@ -1952,6 +1961,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Month
@@ -1964,6 +1974,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
           class="ant-radio-button"
         >
           <input
+            aria-label="Year"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -1971,6 +1982,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Year
@@ -2861,6 +2873,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
           class="ant-radio-button ant-radio-button-checked"
         >
           <input
+            aria-label="Month"
             checked=""
             class="ant-radio-button-input"
             name="test-id"
@@ -2869,6 +2882,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Month
@@ -2881,6 +2895,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
           class="ant-radio-button"
         >
           <input
+            aria-label="Year"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -2888,6 +2903,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Year

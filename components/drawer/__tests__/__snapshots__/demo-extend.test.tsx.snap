@@ -349,6 +349,7 @@ Array [
             class="ant-radio ant-wave-target"
           >
             <input
+              aria-label="top"
               class="ant-radio-input"
               name="test-id"
               type="radio"
@@ -356,6 +357,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             top
@@ -368,6 +370,7 @@ Array [
             class="ant-radio ant-wave-target ant-radio-checked"
           >
             <input
+              aria-label="right"
               checked=""
               class="ant-radio-input"
               name="test-id"
@@ -376,6 +379,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             right
@@ -388,6 +392,7 @@ Array [
             class="ant-radio ant-wave-target"
           >
             <input
+              aria-label="bottom"
               class="ant-radio-input"
               name="test-id"
               type="radio"
@@ -395,6 +400,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             bottom
@@ -407,6 +413,7 @@ Array [
             class="ant-radio ant-wave-target"
           >
             <input
+              aria-label="left"
               class="ant-radio-input"
               name="test-id"
               type="radio"
@@ -414,6 +421,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             left
@@ -3178,6 +3186,7 @@ Array [
             class="ant-radio ant-wave-target"
           >
             <input
+              aria-label="top"
               class="ant-radio-input"
               name="test-id"
               type="radio"
@@ -3185,6 +3194,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             top
@@ -3197,6 +3207,7 @@ Array [
             class="ant-radio ant-wave-target"
           >
             <input
+              aria-label="right"
               class="ant-radio-input"
               name="test-id"
               type="radio"
@@ -3204,6 +3215,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             right
@@ -3216,6 +3228,7 @@ Array [
             class="ant-radio ant-wave-target"
           >
             <input
+              aria-label="bottom"
               class="ant-radio-input"
               name="test-id"
               type="radio"
@@ -3223,6 +3236,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             bottom
@@ -3235,6 +3249,7 @@ Array [
             class="ant-radio ant-wave-target ant-radio-checked"
           >
             <input
+              aria-label="left"
               checked=""
               class="ant-radio-input"
               name="test-id"
@@ -3243,6 +3258,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             left
@@ -3461,6 +3477,7 @@ Array [
             class="ant-radio ant-wave-target"
           >
             <input
+              aria-label="top"
               class="ant-radio-input"
               name="test-id"
               type="radio"
@@ -3468,6 +3485,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             top
@@ -3480,6 +3498,7 @@ Array [
             class="ant-radio ant-wave-target ant-radio-checked"
           >
             <input
+              aria-label="right"
               checked=""
               class="ant-radio-input"
               name="test-id"
@@ -3488,6 +3507,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             right
@@ -3500,6 +3520,7 @@ Array [
             class="ant-radio ant-wave-target"
           >
             <input
+              aria-label="bottom"
               class="ant-radio-input"
               name="test-id"
               type="radio"
@@ -3507,6 +3528,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             bottom
@@ -3519,6 +3541,7 @@ Array [
             class="ant-radio ant-wave-target"
           >
             <input
+              aria-label="left"
               class="ant-radio-input"
               name="test-id"
               type="radio"
@@ -3526,6 +3549,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             left
@@ -3968,6 +3992,7 @@ Array [
             class="ant-radio ant-wave-target"
           >
             <input
+              aria-label="Large Size (736px)"
               class="ant-radio-input"
               name="test-id"
               type="radio"
@@ -3975,6 +4000,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             Large Size (736px)
@@ -3987,6 +4013,7 @@ Array [
             class="ant-radio ant-wave-target"
           >
             <input
+              aria-label="Default Size (378px)"
               class="ant-radio-input"
               name="test-id"
               type="radio"
@@ -3994,6 +4021,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             Default Size (378px)
@@ -4006,6 +4034,7 @@ Array [
             class="ant-radio ant-wave-target"
           >
             <input
+              aria-label="256"
               class="ant-radio-input"
               name="test-id"
               type="radio"
@@ -4013,6 +4042,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             256
@@ -4025,6 +4055,7 @@ Array [
             class="ant-radio ant-wave-target"
           >
             <input
+              aria-label="500px"
               class="ant-radio-input"
               name="test-id"
               type="radio"
@@ -4032,6 +4063,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             500px
@@ -4044,6 +4076,7 @@ Array [
             class="ant-radio ant-wave-target"
           >
             <input
+              aria-label="50%"
               class="ant-radio-input"
               name="test-id"
               type="radio"
@@ -4051,6 +4084,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             50%
@@ -4063,6 +4097,7 @@ Array [
             class="ant-radio ant-wave-target"
           >
             <input
+              aria-label="20vw"
               class="ant-radio-input"
               name="test-id"
               type="radio"
@@ -4070,6 +4105,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-label"
           >
             20vw
