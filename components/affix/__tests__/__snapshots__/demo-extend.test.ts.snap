@@ -96,6 +96,104 @@ exports[`renders components/affix/demo/on-change.tsx extend context correctly 1`
 
 exports[`renders components/affix/demo/on-change.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/affix/demo/stackable.tsx extend context correctly 1`] = `
+<div
+  style="width: 100%; height: 300px; overflow: auto; box-shadow: 0 0 0 1px #1677ff; scrollbar-width: thin; scrollbar-gutter: stable;"
+>
+  <div
+    style="height: 600px; padding: 8px;"
+  >
+    <div
+      class="ant-space ant-space-vertical css-var-test-id"
+      style="column-gap: 100px; row-gap: 100px;"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class=""
+        >
+          <div
+            class=""
+          >
+            <button
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+              type="button"
+            >
+              <span>
+                Affix top 1
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class=""
+        >
+          <div
+            class=""
+          >
+            <button
+              class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+              type="button"
+            >
+              <span>
+                Affix top 2
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class=""
+        >
+          <div
+            class=""
+          >
+            <button
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+              type="button"
+            >
+              <span>
+                Affix bottom 1
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class=""
+        >
+          <div
+            class=""
+          >
+            <button
+              class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+              type="button"
+            >
+              <span>
+                Affix bottom 2
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/affix/demo/stackable.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/affix/demo/target.tsx extend context correctly 1`] = `
 <div
   style="width: 100%; height: 100px; overflow: auto; box-shadow: 0 0 0 1px #1677ff; scrollbar-width: thin; scrollbar-gutter: stable;"
