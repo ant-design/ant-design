@@ -258,6 +258,7 @@ const InternalSplitter = (
                 prefixCls={prefixCls}
                 rootPrefixCls={rootPrefixCls}
                 vertical={isVertical}
+                reverse={reverse}
                 resizable={resizableInfo.resizable}
                 draggerStyle={mergedStyles.dragger}
                 draggerClassName={mergedClassNames.dragger}
