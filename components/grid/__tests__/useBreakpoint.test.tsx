@@ -201,13 +201,14 @@ describe('useBreakpoint', () => {
     const Demo: React.FC = () => <Row gutter={{ xs: 8, md: 24 }} />;
     const container = document.createElement('div');
     container.innerHTML = renderToString(<Demo />);
-    expect(container.firstElementChild).toHaveStyle({ marginInline: '-12px' });
+    const row = container.querySelector<HTMLDivElement>('.ant-row')!;
+    expect(row.style.marginInline).toBe('-12px');
     expect(window.matchMedia).not.toHaveBeenCalled();
     const onRecoverableError = jest.fn();
 
     const { unmount } = render(<Demo />, { container, hydrate: true, onRecoverableError });
     expect(onRecoverableError).not.toHaveBeenCalled();
-    expect(container.firstElementChild).toHaveStyle({ marginInline: '-4px' });
+    expect(row.style.marginInline).toBe('-4px');
     unmount();
   });
 });
