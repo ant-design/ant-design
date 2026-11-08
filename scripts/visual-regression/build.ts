@@ -82,25 +82,25 @@ const prettyList = (list: string[]) => list.map((i) => ` * ${i}`).join('\n');
 
 const ossDomain = `https://${ALI_OSS_BUCKET}.oss-accelerate.aliyuncs.com`;
 
-async function downloadFile(url: string, destPath: string) {
+const downloadFile = async (url: string, destPath: string) => {
   const response = await fetch(url);
   if (!response.ok || response.status !== 200) {
     throw new Error(`Download file failed: ${new URL(url).pathname}`);
   }
   const body = Readable.fromWeb(response.body as any);
   await finished(body.pipe(fs.createWriteStream(destPath)));
-}
+};
 
-async function getBranchLatestRef(branchName: string) {
+const getBranchLatestRef = async (branchName: string) => {
   const baseImageRefUrl = `${ossDomain}/${branchName}/visual-regression-ref.txt`;
   // get content from baseImageRefText
   const res = await fetch(baseImageRefUrl);
   const text = await res.text();
   const ref = text.trim();
   return ref;
-}
+};
 
-async function ossSnapshotExists(ref: string) {
+const ossSnapshotExists = async (ref: string) => {
   const imageSnapshotsUrl = `${ossDomain}/${ref}/imageSnapshots.tar.gz`;
   try {
     const res = await fetch(imageSnapshotsUrl, { method: 'HEAD' });
@@ -108,9 +108,9 @@ async function ossSnapshotExists(ref: string) {
   } catch {
     return false;
   }
-}
+};
 
-async function downloadBaseSnapshots(ref: string, targetDir: string) {
+const downloadBaseSnapshots = async (ref: string, targetDir: string) => {
   const tar = await import('tar');
   // download imageSnapshotsUrl
   const imageSnapshotsUrl = `${ossDomain}/${ref}/imageSnapshots.tar.gz`;
@@ -123,14 +123,14 @@ async function downloadBaseSnapshots(ref: string, targetDir: string) {
     C: targetDir,
     file: targzPath,
   });
-}
+};
 
 interface IImageDesc {
   src: string;
   alt: string;
 }
 
-function getMdImageTag(desc: IImageDesc, extraCaption?: boolean) {
+const getMdImageTag = (desc: IImageDesc, extraCaption?: boolean) => {
   const { src, alt } = desc;
   if (!extraCaption || !alt) {
     // in md2html report, we use `@microflash/rehype-figure` to generate a figure
@@ -138,7 +138,7 @@ function getMdImageTag(desc: IImageDesc, extraCaption?: boolean) {
   }
   // show caption with image in github markdown comment
   return `![${alt}](${src}) ${alt}`;
-}
+};
 
 export interface IBadCase {
   type: 'removed' | 'changed' | 'added';
@@ -155,7 +155,7 @@ export interface IBadCase {
 
 const git = simpleGit();
 
-async function parseArgs() {
+const parseArgs = async () => {
   // parse args from -- --pr-id=123 --base_ref=feature --base-sha=abc123 --max-workers=2
   const argv = minimist(process.argv.slice(2));
   const prId = argv['pr-id'];
@@ -176,17 +176,17 @@ async function parseArgs() {
     prId,
     baseRef,
     baseSha,
-    currentRef: latest?.hash.slice(0, 8) || '',
+    currentRef: latest?.hash?.slice(0, 8) || '',
     maxWorkers,
   };
-}
+};
 
-function generateLineReport(
+const generateLineReport = (
   badCase: IBadCase,
   publicPath: string,
   currentRef: string,
   extraCaption?: boolean,
-) {
+) => {
   const { filename, type, targetFilename } = badCase;
 
   let lineHTMLReport = '';
@@ -247,9 +247,9 @@ function generateLineReport(
     lineHTMLReport += ' |\n';
   }
   return lineHTMLReport;
-}
+};
 
-function generateReport(
+const generateReport = (
   badCases: IBadCase[],
   targetBranch: string,
   targetRef: string,
@@ -257,7 +257,7 @@ function generateReport(
   prId: string,
   publicPath = '.',
   baselineStale = false,
-): [string, string] {
+) => {
   const passed = badCases.length === 0;
 
   const staleWarning = baselineStale
@@ -304,7 +304,7 @@ function generateReport(
       ].join('\n'),
     ].join('\n');
 
-    return [mdStr, markdown2Html(mdStr)];
+    return [mdStr, markdown2Html(mdStr)] as const;
   }
 
   const summaryHeader = '<!-- summary -->';
@@ -432,9 +432,9 @@ function generateReport(
 
   // convert fullVersionMd to html
   return [reportMdStr, markdown2Html(fullVersionMd)];
-}
+};
 
-async function boot() {
+const boot = async () => {
   const args = await parseArgs();
   console.log(`Args: ${JSON.stringify(args)}`);
 
@@ -676,6 +676,6 @@ async function boot() {
 
   // let job failed. Skip to let CI/CD to handle it
   // process.exit(1);
-}
+};
 
 boot();
