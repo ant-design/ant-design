@@ -16,6 +16,11 @@ const compileModules = [
   '@exodus',
   'jsdom',
   '@csstools',
+  // jsdom 31's CSS language selectors use bcp-47, bcp-47-match, and their ESM dependencies.
+  'bcp-47',
+  'is-alphabetical',
+  'is-alphanumerical',
+  'is-decimal',
 ];
 
 // cnpm use `_` as prefix
