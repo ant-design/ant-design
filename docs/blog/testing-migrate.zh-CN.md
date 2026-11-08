@@ -11,7 +11,7 @@ juejin_url: https://juejin.cn/post/7179115861176188983
 
 ## 引言 {#introduction}
 
-在 `antd@4.x` 中，使用 **[enzyme](https://enzymejs.github.io/enzyme)** 作为测试框架，然而由于 enzyme 缺乏维护，到了 React 18 时代已经很难⽀持。也因此不得不开始为 antd 开启漫⻓的 **[@testing-lib](https://testing-library.com/docs/react-testing-library/intro)** 迁移之路。
+在 `antd@4.x` 中，使用 **[enzyme](https://enzymejs.github.io/enzyme)** 作为测试框架，然而由于 enzyme 缺乏维护，到了 React 18 时代已经很难支持。也因此不得不开始为 antd 开启漫长的 **[@testing-lib](https://testing-library.com/docs/react-testing-library/intro)** 迁移之路。
 
 在迁移过程中，我承担了大概 antd 四分之一的工作量，这里主要记录一下迁移过程中遇到的问题。
 
@@ -114,9 +114,9 @@ juejin_url: https://juejin.cn/post/7179115861176188983
 
 ## Diff 之谜 {#diff-mystery}
 
-在转换过程中，发现了⼀个神奇的现象，有些情况下，同样的 case 生成的 DOM 快照会不一样，也因此开始探索 React 18 到底变化了什么：
+在转换过程中，发现了一个神奇的现象，有些情况下，同样的 case 生成的 DOM 快照会不一样，也因此开始探索 React 18 到底变化了什么：
 
-过去 `enzyme` 的 `snapshot` 对⽐是通过 `enzyme-to-json` 插件将 `enzyme object` 转换成序列化对象：
+过去 `enzyme` 的 `snapshot` 对比是通过 `enzyme-to-json` 插件将 `enzyme object` 转换成序列化对象：
 
 ```js
 // jest.config.js
@@ -126,7 +126,7 @@ module.exports = {
 };
 ```
 
-到了 `@testing-library/react` 则直接通过调用 `render` 产⽣ dom 元素，然后对 dom 进⾏对⽐：
+到了 `@testing-library/react` 则直接通过调用 `render` 产生 dom 元素，然后对 dom 进行对比：
 
 ```diff
 --  import { mount } from 'enzyme';
@@ -143,7 +143,7 @@ module.exports = {
 
 ```
 
-有趣的是，在⼀些测试⽤例中。它会挂掉，区别在于 React 18 有时候会少⼀些空⾏：
+有趣的是，在一些测试用例中。它会挂掉，区别在于 React 18 有时候会少一些空行：
 
 ```diff
     <div>
@@ -152,19 +152,19 @@ module.exports = {
     </div>
 ```
 
-通过测试 dom 的 `innerHTML` 后发现，17 和 18 是⼀样的。所以在遇到问题之初，我们只是将测试用例简单的改成⽐较 `innerHTML` :
+通过测试 dom 的 `innerHTML` 后发现，17 和 18 是一样的。所以在遇到问题之初，我们只是将测试用例简单的改成比较 `innerHTML` :
 
 ```ts
 expect(container.querySelector('.className').innerHTML).toMatchSnapshot();
 ```
 
-但是，随着迁移变多，会逐渐发现这种情况不断发⽣。比较 `innerHTML` 也不是长久之计。于是开始探索为什么会出现这种情况。
+但是，随着迁移变多，会逐渐发现这种情况不断发生。比较 `innerHTML` 也不是长久之计。于是开始探索为什么会出现这种情况。
 
 ## pretty-format
 
-`pretty-format` 是⼀个很有意思的库，它可以将任意对象转换成字符串。它的⼀个⽤途就是⽤于 jest 的 snapshot 对⽐。它的⼀个特点是可以⾃定义转换规则。
+`pretty-format` 是一个很有意思的库，它可以将任意对象转换成字符串。它的一个用途就是用于 jest 的 snapshot 对比。它的一个特点是可以自定义转换规则。
 
-`jest` 中对⽐ `snapshot` 会先做⼀步 `format`，对于原⽣ `dom`、`object` 等常⻅对象。它已经内置了⼀套 `plugins` ⽤以做格式化转换：
+`jest` 中对比 `snapshot` 会先做一步 `format`，对于原生 `dom`、`object` 等常见对象。它已经内置了一套 `plugins` 用以做格式化转换：
 
 ```html
 <div>
@@ -178,7 +178,7 @@ expect(container.querySelector('.className').innerHTML).toMatchSnapshot();
 </div>
 ```
 
-出现多余空格第⼀反应就是是否是因为 17 & 18 引⼊的 `@testing-lib/react` 版本不同，导致影响了 `jest` 依赖的 `pretty-format` 版本，经过检查都是⼀致的：
+出现多余空格第一反应就是确认是否是因为 17 & 18 引入的 `@testing-lib/react` 版本不同，导致影响了 `jest` 依赖的 `pretty-format` 版本，经过检查都是一致的：
 
 ```json
 {
@@ -189,7 +189,7 @@ expect(container.querySelector('.className').innerHTML).toMatchSnapshot();
 }
 ```
 
-这个判断不对后，那就是另⼀种情况。dom 中存在`空元素`，使得 `pretty-format` 可以感知，但是本身却不影响 `innerHTML` ，于是就写了⼀个简单的 test case：
+这个判断不对后，那就是另一种情况。dom 中存在`空元素`，使得 `pretty-format` 可以感知，但是本身却不影响 `innerHTML` ，于是就写了一个简单的 test case：
 
 ```ts
 const holder = document.createElement('div');
@@ -214,7 +214,7 @@ exports[`debug exports modules correctly 1`] = `
 <a></a>
 ```
 
-和设想的⼀致，那么就很简单了。那么⼤概率就是 `React 18` 的 `render` 会忽略空元素。我们做⼀个简单的实验：
+和设想的一致，那么就很简单了。那么大概率就是 `React 18` 的 `render` 会忽略空元素。我们做一个简单的实验：
 
 ```tsx
 import React, { useEffect, useRef, version } from 'react';
@@ -240,7 +240,7 @@ export default App;
 | ----------------------- | -------------- |
 | NodeList(2) \[text, p\] | NodeList \[p\] |
 
-检查⼀下 `Fiber` 节点信息，可以发现 `React 17` 会把空元素也作为 `Fiber` 节点，而 `React 18` 则会忽略空元素：
+检查一下 `Fiber` 节点信息，可以发现 `React 17` 会把空元素也作为 `Fiber` 节点，而 `React 18` 则会忽略空元素：
 
 > React 17:
 
@@ -256,20 +256,20 @@ export default App;
 
 ![WX20230319-145539@2x](https://user-images.githubusercontent.com/49217418/226159376-497fd490-153e-4e88-92e2-29dda50b3426.png)
 
-## ⼀个解法 {#a-solution}
+## 一个解法 {#a-solution}
 
-antd 需要对 React16、17、18 都进⾏测试，如果 snapshot 不可⾏会造成太⼤成本。所以我们需要对 jest 进⾏改造。`enzyme-to-json` 则给了我灵感，我们可以修改 snapshot ⽣成逻辑来抹平 React 不同版本之间的 diff：
+antd 需要对 React16、17、18 都进行测试，如果 snapshot 不可行会造成太大成本。所以我们需要对 jest 进行改造。`enzyme-to-json` 则给了我灵感，我们可以修改 snapshot 生成逻辑来抹平 React 不同版本之间的 diff：
 
 ```ts
 expect.addSnapshotSerializer({
-  // 判断⼀下是否是 dom 元素，如果是的就⾛我们⾃⼰的序列化逻辑
+  // 判断一下是否是 dom 元素，如果是的就走我们自己的序列化逻辑
   // 代码简化过，真实判断需要更多逻辑，可以参考 antd 的 setupAfterEnv.ts
   test: (element) => element instanceof HTMLElement,
   // ...
 });
 ```
 
-然后接⼊ `pretty-format`，添加⾃⼰的逻辑：
+然后接入 `pretty-format`，添加自己的逻辑：
 
 ```ts
 const htmlContent = format(element, {
