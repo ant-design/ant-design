@@ -13,7 +13,7 @@ import type {
   ProgressProps,
   ProgressSemanticAllType,
 } from './progress';
-import { getPercentage, getSize, getStrokeColor } from './utils';
+import { getPercentage, getSize, getStrokeColor, validProgress } from './utils';
 
 const CIRCLE_MIN_STROKE_WIDTH = 3;
 
@@ -46,6 +46,7 @@ const Circle: React.FC<CircleProps> = (props) => {
     children,
     success,
     size = originWidth,
+    startPosition = 0,
     steps,
   } = props;
 
@@ -61,6 +62,7 @@ const Circle: React.FC<CircleProps> = (props) => {
   }
 
   const circleStyle: React.CSSProperties = { width, height, fontSize: width * 0.15 + 6 };
+  const rotateDegree = validProgress(startPosition) * 3.6;
 
   const realGapDegree = React.useMemo<RcProgressProps['gapDegree']>(() => {
     // Support gapDeg = 0 when type = 'dashboard'
@@ -110,6 +112,11 @@ const Circle: React.FC<CircleProps> = (props) => {
       prefixCls={prefixCls}
       gapDegree={realGapDegree}
       gapPosition={gapPos}
+      style={
+        type === 'circle' && rotateDegree
+          ? { transform: `rotate(${rotateDegree}deg)`, transformOrigin: 'center' }
+          : undefined
+      }
       classNames={omit(classNames, OMIT_SEMANTIC_NAMES)}
       styles={omit(styles, OMIT_SEMANTIC_NAMES)}
     />
