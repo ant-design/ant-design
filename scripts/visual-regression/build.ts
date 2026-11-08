@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { Readable } from 'node:stream';
 import { finished } from 'node:stream/promises';
-import blazediff from '@blazediff/core';
+import { diff } from '@blazediff/core';
 import chalk from 'chalk';
 import fse from 'fs-extra';
 import difference from 'lodash/difference';
@@ -12,6 +12,7 @@ import filter from 'lodash/filter';
 import minimist from 'minimist';
 import { PNG } from 'pngjs';
 import sharp from 'sharp';
+import type { ResizeOptions } from 'sharp';
 import { simpleGit } from 'simple-git';
 
 import markdown2Html from './convert';
@@ -39,12 +40,12 @@ const compareScreenshots = async (
   const targetHeight = Math.max(basePng.height, currentPng.height);
 
   // fill color for transparent png
-  const fillColor =
+  const fillColor: ResizeOptions['background'] =
     baseImgPath.endsWith('dark.png') || baseImgPath.endsWith('dark.css-var.png')
       ? { r: 0, g: 0, b: 0, alpha: 255 }
       : { r: 255, g: 255, b: 255, alpha: 255 };
 
-  const resizeOptions = {
+  const resizeOptions: ResizeOptions = {
     width: targetWidth,
     height: targetHeight,
     position: 'left top',
@@ -62,21 +63,17 @@ const compareScreenshots = async (
 
   const diffPng = new PNG({ width: targetWidth, height: targetHeight });
 
-  const mismatchedPixels = blazediff(
-    resizedBasePng.data,
-    resizedCurrentPng.data,
-    diffPng.data,
-    targetWidth,
-    targetHeight,
-    { threshold: 0.1, diffMask: false },
-  );
+  const result = diff(resizedBasePng, resizedCurrentPng, { threshold: 0.1, output: diffPng });
+  if (result.kind === 'dimension-mismatch') {
+    throw new Error(`Screenshot dimensions do not match: ${baseImgPath} and ${currentImgPath}`);
+  }
 
   // if mismatched then write diff image
-  if (mismatchedPixels) {
+  if (result.count) {
     diffPng.pack().pipe(fs.createWriteStream(diffImagePath));
   }
 
-  return mismatchedPixels / (targetWidth * targetHeight);
+  return result.count / (targetWidth * targetHeight);
 };
 
 const readPngs = (dir: string) => fs.readdirSync(dir).filter((n) => n.endsWith('.png'));
@@ -90,8 +87,7 @@ async function downloadFile(url: string, destPath: string) {
   if (!response.ok || response.status !== 200) {
     throw new Error(`Download file failed: ${new URL(url).pathname}`);
   }
-  // @ts-ignore
-  const body = Readable.fromWeb(response.body);
+  const body = Readable.fromWeb(response.body as any);
   await finished(body.pipe(fs.createWriteStream(destPath)));
 }
 
