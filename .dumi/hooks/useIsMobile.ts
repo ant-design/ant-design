@@ -4,7 +4,9 @@ const breakPoint = 768;
 
 const useIsMobile = () => {
   const mediaQuery = React.useMemo(() => {
-    return typeof window === 'undefined' ? null : window.matchMedia(`(max-width: ${breakPoint}px)`);
+    return typeof window === 'undefined'
+      ? null
+      : window.matchMedia(`not all and (min-width: ${breakPoint}px)`);
   }, []);
 
   const subscribe = React.useCallback(
