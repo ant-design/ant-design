@@ -15,18 +15,15 @@ import dayjs from 'dayjs';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
 
 import { DarkContext } from '../../hooks/useDark';
+import useIsMobile from '../../hooks/useIsMobile';
 import useLayoutState from '../../hooks/useLayoutState';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import { getBannerData } from '../../pages/index/components/util';
 import { ANT_DESIGN_SITE_THEME } from '../common/ThemeSwitch';
 import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
-import type { SimpleComponentClassNames, SiteContextProps } from '../slots/SiteContext';
+import type { SimpleComponentClassNames, SiteContextProps, SiteState } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
-
-type SiteState = Partial<Omit<SiteContextProps, 'updateSiteConfig'>>;
-
-const RESPONSIVE_MOBILE = 768;
 
 export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
 
@@ -75,9 +72,9 @@ const isThemeDark = (theme: ThemeName[], systemTheme: 'dark' | 'light') => {
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [{ theme = [], direction, isMobile, bannerVisible = false, dynamicTheme }, setSiteState] =
+  const isMobile = useIsMobile();
+  const [{ theme = [], direction, bannerVisible = false, dynamicTheme }, setSiteState] =
     useLayoutState<SiteState>({
-      isMobile: false,
       direction: 'ltr',
       theme: [],
       bannerVisible: false,
@@ -138,10 +135,6 @@ const GlobalLayout: React.FC = () => {
     [searchParams, setSearchParams],
   );
 
-  const updateMobileMode = useCallback(() => {
-    updateSiteConfig({ isMobile: window.innerWidth < RESPONSIVE_MOBILE });
-  }, [updateSiteConfig]);
-
   // 设置 data-prefers-color 属性
   useEffect(() => {
     const color = theme.find((t) => t === 'light' || t === 'dark');
@@ -194,20 +187,12 @@ const GlobalLayout: React.FC = () => {
       bannerVisible: hasBannerContent && (bannerLastTime ? !!storedBannerVisible : true),
     }));
 
-    // Handle isMobile
-    updateMobileMode();
-
     // 配合 dumi 的 mirror-notify 脚本使用
     const retrieveMirrorNotification = (window as any)[Symbol.for('antd.mirror-notify')];
     if (typeof retrieveMirrorNotification === 'function') {
       retrieveMirrorNotification();
     }
-
-    window.addEventListener('resize', updateMobileMode);
-    return () => {
-      window.removeEventListener('resize', updateMobileMode);
-    };
-  }, [bannerData, bannerLastTime, searchParams, updateMobileMode]);
+  }, [bannerData, bannerLastTime, searchParams]);
 
   // 颜色偏好变化只更新颜色模式，保留动态主题和当前的其他主题设置。
   useEffect(() => {
@@ -226,7 +211,7 @@ const GlobalLayout: React.FC = () => {
       updateSiteConfig,
       theme: theme!,
       isDark: isDark!,
-      isMobile: isMobile!,
+      isMobile,
       bannerVisible,
       dynamicTheme,
     }),
