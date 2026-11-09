@@ -1469,7 +1469,6 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
           class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
         >
           <input
-            checked=""
             class="ant-segmented-item-input"
             name="test-id"
             type="radio"
@@ -1560,7 +1559,6 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
           class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
         >
           <input
-            checked=""
             class="ant-segmented-item-input"
             name="test-id"
             type="radio"
