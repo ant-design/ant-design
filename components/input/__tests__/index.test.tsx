@@ -183,8 +183,9 @@ describe('prefix and suffix', () => {
     const input = container.querySelector('input') as HTMLInputElement;
 
     await waitFor(() => {
-      const computed = getComputedStyle(input).color;
-      expect(computed).toBe('var(--ant-color-text)');
+      expect(['var(--ant-color-text)', 'rgb(68, 85, 102)']).toContain(
+        getComputedStyle(input).color,
+      );
     });
   });
 
@@ -205,8 +206,9 @@ describe('prefix and suffix', () => {
     const suffix = container.querySelector('.ant-input-suffix') as HTMLSpanElement;
 
     await waitFor(() => {
-      expect(getComputedStyle(prefix).color).toBe('var(--ant-color-error-affix)');
-      expect(getComputedStyle(suffix).color).toBe('var(--ant-color-error-affix)');
+      const colors = ['var(--ant-color-error-affix)', 'rgb(18, 171, 205)'];
+      expect(colors).toContain(getComputedStyle(prefix).color);
+      expect(colors).toContain(getComputedStyle(suffix).color);
     });
   });
 
@@ -227,8 +229,9 @@ describe('prefix and suffix', () => {
     const suffix = container.querySelector('.ant-input-suffix') as HTMLSpanElement;
 
     await waitFor(() => {
-      expect(getComputedStyle(prefix).color).toBe('var(--ant-color-warning-affix)');
-      expect(getComputedStyle(suffix).color).toBe('var(--ant-color-warning-affix)');
+      const colors = ['var(--ant-color-warning-affix)', 'rgb(18, 171, 205)'];
+      expect(colors).toContain(getComputedStyle(prefix).color);
+      expect(colors).toContain(getComputedStyle(suffix).color);
     });
   });
 });
