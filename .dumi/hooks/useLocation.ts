@@ -3,11 +3,11 @@ import { useLocation as useDumiLocation } from 'dumi';
 
 import useLocale from './useLocale';
 
-function clearPath(path: string) {
+const clearPath = (path: string) => {
   return path.replace('-cn', '').replace(/\/$/, '');
-}
+};
 
-export default function useLocation() {
+const useLocation = () => {
   const location = useDumiLocation();
   const { search } = location;
   const [, localeType] = useLocale();
@@ -45,4 +45,6 @@ export default function useLocation() {
     pathname: clearPath(location.pathname),
     getLink,
   };
-}
+};
+
+export default useLocation;
