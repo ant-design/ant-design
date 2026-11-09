@@ -37,7 +37,7 @@ tag: 6.6.0
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| classNames | 语义化结构 class | `{ root?, item?, groupHeader? }` | - | 6.6.0 | 6.6.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.6.0 | 6.6.0 |
 | group | 分组配置，见下方 [Group](#group) | `Group<T, K>` | - | 6.6.0 | × |
 | height | 滚动容器高度，内容超出后滚动 | number | - | 6.6.0 | × |
 | itemRender | 渲染单行 | `(item: T, index: number) => ReactNode` | - | 6.6.0 | × |
@@ -46,7 +46,7 @@ tag: 6.6.0
 | rowKey | 每一项的唯一键，字段名或取值函数 | `keyof T \| (item: T, index: number) => Key` | - | 6.6.0 | × |
 | scrollWidth | 内容的横向滚动宽度，超出容器宽度时可横向滚动，仅在 `virtual` 下生效 | number | - | 6.7.0 | × |
 | sticky | 分组标题是否吸顶 | boolean | false | 6.6.0 | × |
-| styles | 语义化结构 style | `{ root?, item?, groupHeader? }` | - | 6.6.0 | 6.6.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.6.0 | 6.6.0 |
 | virtual | 是否开启虚拟滚动，仅渲染视口内的行，需配合 `height` 使用 | boolean | false | 6.6.0 | × |
 | onScroll | 原生滚动事件回调 | `React.UIEventHandler<HTMLElement>` | - | 6.6.0 | × |
 

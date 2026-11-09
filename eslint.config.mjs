@@ -52,6 +52,7 @@ export default antfu(
     typescript: true,
     react: true,
     rules: {
+      curly: ['error', 'all'],
       'react/jsx-key-before-spread': 'off',
       'node/prefer-global/process': 'off', // TODO: remove this
       'node/prefer-global/buffer': 'off', // TODO: remove this
