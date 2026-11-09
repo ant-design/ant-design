@@ -164,17 +164,13 @@ describe('Divider', () => {
   });
 
   it('support bool dashed', () => {
-    const { container } = render(<Divider dashed>test test test</Divider>);
-    expect(container?.querySelector<HTMLSpanElement>('.ant-divider-dashed')).toHaveStyle({
-      borderStyle: 'dashed',
-    });
+    const { getByRole } = render(<Divider dashed />);
+    expect(getByRole('separator')).toHaveStyle({ borderTopStyle: 'dashed' });
   });
 
   it('support string variant', () => {
-    const { container } = render(<Divider variant="dotted">test dotted</Divider>);
-    expect(container?.querySelector<HTMLSpanElement>('.ant-divider-dotted')).toHaveStyle({
-      borderStyle: 'dotted',
-    });
+    const { getByRole } = render(<Divider variant="dotted" />);
+    expect(getByRole('separator')).toHaveStyle({ borderTopStyle: 'dotted' });
   });
 
   it('should apply the componentSize of ConfigProvider', () => {

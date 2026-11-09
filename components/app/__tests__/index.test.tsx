@@ -160,14 +160,20 @@ describe('App', () => {
     await waitFakeTimer();
 
     expect(consumedConfig?.notification).toStrictEqual(config);
-    expect(document.querySelector('.ant-notification-topRight')).not.toBeInTheDocument();
-    expect(document.querySelector('.ant-notification-bottomLeft')).toHaveStyle({
+    expect(
+      document.querySelector<HTMLElement>('.ant-notification-topRight'),
+    ).not.toBeInTheDocument();
+    const notification = document.querySelector<HTMLElement>('.ant-notification-bottomLeft')!;
+    expect(notification).toHaveStyle({
       top: 'auto',
       left: '0px',
-      bottom:
-        'calc(var(--notification-bottom, var(--notification-margin-edge, 0px)) - var(--notification-margin-edge, 0px))',
       '--notification-bottom': '50px',
     });
+    // jsdom 31 resolves the offset against the 24px edge margin.
+    expect([
+      'calc(var(--notification-bottom, var(--notification-margin-edge, 0px)) - var(--notification-margin-edge, 0px))',
+      '26px',
+    ]).toContain(getComputedStyle(notification).bottom);
   });
 
   it('support className', () => {
