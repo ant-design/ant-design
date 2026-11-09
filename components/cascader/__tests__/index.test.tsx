@@ -3,7 +3,6 @@ import React from 'react';
 import type { DefaultOptionType } from '..';
 import Cascader from '..';
 import { resetWarned } from '../../_util/warning';
-import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -92,8 +91,6 @@ function filter<OptionType extends DefaultOptionType = DefaultOptionType>(
 }
 
 describe('Cascader', () => {
-  excludeAllWarning();
-
   focusTest(Cascader, { refFocus: true });
   mountTest(Cascader);
   rtlTest(Cascader);

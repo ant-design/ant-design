@@ -1,7 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 
 const subscribe = () => () => {};
 
+// 客户端渲染时，使用 window.location.hostname 作为快照
 const getSnapshot = () => {
   const { hostname } = window.location;
   return (
@@ -10,8 +11,11 @@ const getSnapshot = () => {
   );
 };
 
+// 服务端渲染时，默认返回 true
 const getServerSnapshot = () => true;
 
-export default function useIsPreviewSite() {
-  return React.useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-}
+const useIsPreviewSite = () => {
+  return React.useSyncExternalStore<boolean>(subscribe, getSnapshot, getServerSnapshot);
+};
+
+export default useIsPreviewSite;
