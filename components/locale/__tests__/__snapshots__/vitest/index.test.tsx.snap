@@ -55756,7 +55756,7 @@ exports[`Locale Provider > should display the text as id 1`] = `
               class="ant-input-suffix"
             >
               <button
-                aria-label="Clear"
+                aria-label="Hapus"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -55990,7 +55990,7 @@ exports[`Locale Provider > should display the text as id 1`] = `
               class="ant-input-suffix"
             >
               <button
-                aria-label="Clear"
+                aria-label="Hapus"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >

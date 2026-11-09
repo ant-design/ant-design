@@ -8122,7 +8122,7 @@ exports[`renders components/form/demo/dynamic-form-items-drag-sorting.tsx extend
     </div>
   </div>
   <div
-    id="DndDescribedBy-0"
+    id="DndDescribedBy"
     style="display: none;"
   >
     To pick up a draggable item, press the space bar.
@@ -8132,7 +8132,7 @@ exports[`renders components/form/demo/dynamic-form-items-drag-sorting.tsx extend
   <div
     aria-atomic="true"
     aria-live="assertive"
-    id="DndLiveRegion-0"
+    id="DndLiveRegion"
     role="status"
     style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
   />
@@ -35223,7 +35223,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                   class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
                 >
                   <input
-                    checked=""
                     class="ant-segmented-item-input"
                     name="test-id"
                     type="radio"

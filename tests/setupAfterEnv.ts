@@ -3,6 +3,7 @@ import '@testing-library/jest-dom';
 import { toHaveNoViolations } from 'jest-axe';
 import format, { plugins } from 'pretty-format';
 
+import { isFunction } from '../components/_util/is';
 import { defaultConfig } from '../components/theme/internal';
 
 // Not use dynamic hashed for test env since version will change hash dynamically.
@@ -27,6 +28,23 @@ if (process.env.LIB_DIR === 'dist') {
 type SnapshotTarget = HTMLElement | DocumentFragment | HTMLCollection | NodeList | Node[];
 
 function cleanup(node: HTMLElement) {
+  // Normalize React 18 & 19 diff: React 18 always renders `value=""` on
+  // checkbox/radio inputs without a value prop, while React 19 omits it.
+  // Remove it from the clone so snapshots match across both versions.
+  node
+    .querySelectorAll?.('input[type="checkbox"][value=""], input[type="radio"][value=""]')
+    .forEach((input) => {
+      input.removeAttribute('value');
+    });
+  // querySelectorAll does not match the node itself
+  if (
+    node.tagName === 'INPUT' &&
+    ['checkbox', 'radio'].includes((node as HTMLInputElement).type) &&
+    node.getAttribute('value') === ''
+  ) {
+    node.removeAttribute('value');
+  }
+
   const childList = Array.from(node.childNodes);
   node.innerHTML = '';
   childList.forEach((child) => {
@@ -39,6 +57,24 @@ function cleanup(node: HTMLElement) {
   return node;
 }
 
+function normalizeSegmentedChecked(node: Node | Node[]) {
+  const roots: Node[] = Array.isArray(node) ? node : [node];
+  roots.forEach((root) => {
+    const rootEl = root as HTMLElement;
+    if (!isFunction(rootEl.querySelectorAll)) {
+      return;
+    }
+    if (/segmented-item-input/.test(rootEl.className)) {
+      rootEl.removeAttribute('checked');
+    }
+    rootEl.querySelectorAll('input[type="radio"]').forEach((input) => {
+      if (/segmented-item-input/.test(input.className)) {
+        input.removeAttribute('checked');
+      }
+    });
+  });
+}
+
 function formatHTML(nodes: SnapshotTarget) {
   let cloneNodes: Node | Node[];
   if (Array.isArray(nodes) || nodes instanceof HTMLCollection || nodes instanceof NodeList) {
@@ -46,6 +82,8 @@ function formatHTML(nodes: SnapshotTarget) {
   } else {
     cloneNodes = cleanup(nodes.cloneNode(true) as HTMLElement);
   }
+
+  normalizeSegmentedChecked(cloneNodes);
 
   const htmlContent = format(cloneNodes, {
     plugins: [plugins.DOMCollection, plugins.DOMElement],
@@ -56,7 +94,7 @@ function formatHTML(nodes: SnapshotTarget) {
     .filter((line) => line.trim())
     .join('\n');
 
-  return filtered;
+  return filtered.replace(/(Dnd(?:LiveRegion|DescribedBy))-\d+/g, '$1');
 }
 
 /**
