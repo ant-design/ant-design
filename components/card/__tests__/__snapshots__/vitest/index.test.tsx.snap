@@ -23,7 +23,7 @@ exports[`Card > correct pass tabList props 1`] = `
         >
           <div
             class="ant-tabs-nav-list"
-            style="transform: translate(0px, 0px);"
+            style="transform: translate(0px);"
           >
             <div
               class="ant-tabs-tab ant-tabs-tab-with-remove ant-tabs-tab-active"
