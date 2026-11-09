@@ -361,6 +361,16 @@ describe('Sider', () => {
     expect(onBreakpoint).toHaveBeenCalledWith(true);
   });
 
+  it('should collapse below the xxxl breakpoint width (1920px)', () => {
+    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+
+    render(<Sider breakpoint="xxxl">Sider</Sider>);
+
+    expect(matchMediaSpy).toHaveBeenCalledWith('screen and (max-width: 1919.98px)');
+
+    matchMediaSpy.mockRestore();
+  });
+
   it('should controlled collapse work when using with Layout.Sider', () => {
     const Demo = () => {
       const [collapsed, setCollapsed] = useState(false);
