@@ -9,6 +9,8 @@ export type SimpleComponentClassNames = Partial<
   Record<keyof ConfigComponentProps, Record<string, string>>
 >;
 
+export type SiteState = Partial<Omit<SiteContextProps, 'isMobile' | 'updateSiteConfig'>>;
+
 export interface SiteContextProps {
   isMobile: boolean;
   bannerVisible: boolean;
@@ -17,7 +19,7 @@ export interface SiteContextProps {
   // 主题存在跟随系统模式，解耦实际生效主题
   // 应使用 isDark 而非 theme.includes('dark') 等来判断当前主题
   isDark?: boolean;
-  updateSiteConfig: (props: Partial<SiteContextProps>) => void;
+  updateSiteConfig: (props: SiteState) => void;
   dynamicTheme?: {
     algorithm?: 'light' | 'dark';
     token: Record<string, string | number>;
