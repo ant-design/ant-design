@@ -3,14 +3,15 @@ import * as React from 'react';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import { ConfigProvider } from 'antd';
 import { globSync } from 'glob';
+
 import 'isomorphic-fetch';
+
 import kebabCase from 'lodash/kebabCase';
 import { renderToString } from 'react-dom/server';
 
 import { resetWarned } from '../../components/_util/warning';
 import { act, fireEvent, render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
-import { excludeWarning } from './excludeWarning';
 import rootPropsTest from './rootPropsTest';
 
 export { rootPropsTest };
@@ -49,7 +50,7 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
       () => {
         resetWarned();
 
-        const errSpy = excludeWarning();
+        const errSpy = doInject ? jest.spyOn(console, 'error') : undefined;
 
         const mockNow = new Date('2016-11-22').getTime();
         Date.now = jest.fn(() => mockNow);
@@ -79,14 +80,26 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
           const { container } = render(Demo);
           expect({ type: 'demo', html: container.innerHTML }).toMatchSnapshot();
         } else {
-          const html = renderToString(Demo);
-          expect({ type: 'demo', html }).toMatchSnapshot();
+          const originalConsoleError = console.error;
+          const ssrErrorSpy = React.version.startsWith('18.')
+            ? jest.spyOn(console, 'error').mockImplementation((message, ...args) => {
+                if (!String(message).includes('useLayoutEffect does nothing on the server')) {
+                  originalConsoleError(message, ...args);
+                }
+              })
+            : undefined;
+          try {
+            const html = renderToString(Demo);
+            expect({ type: 'demo', html }).toMatchSnapshot();
+          } finally {
+            ssrErrorSpy?.mockRestore();
+          }
         }
 
         jest.clearAllTimers();
 
         // Snapshot of warning info
-        if (doInject) {
+        if (errSpy) {
           const errorMessageSet = new Set(errSpy.mock.calls.map((args) => args[0]));
           const errorMessages = Array.from(errorMessageSet).sort();
 
@@ -96,9 +109,8 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
           }
 
           expect(errorMessages).toMatchSnapshot();
+          errSpy.mockRestore();
         }
-
-        errSpy.mockRestore();
       },
     );
     jest.useRealTimers();
@@ -184,8 +196,6 @@ export function semanticDemoTest(component: string, options: Options = {}) {
     testMethod(`renders ${file} correctly`, async () => {
       resetWarned();
 
-      const errSpy = excludeWarning();
-
       const mockNow = new Date('2016-11-22').getTime();
       Date.now = jest.fn(() => mockNow);
       jest.useFakeTimers().setSystemTime(mockNow);
@@ -211,7 +221,6 @@ export function semanticDemoTest(component: string, options: Options = {}) {
       expect({ type: 'demo', html: container.innerHTML }).toMatchSnapshot();
 
       jest.clearAllTimers();
-      errSpy.mockRestore();
     });
     jest.useRealTimers();
   });
