@@ -609,18 +609,7 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
 };
 
 const genPickerPanelStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
-  const {
-    componentCls,
-    textHeight,
-    lineWidth,
-    paddingSM,
-    antCls,
-    colorPrimary,
-    cellActiveWithRangeBg,
-    colorPrimaryBorder,
-    lineType,
-    colorSplit,
-  } = token;
+  const { componentCls, textHeight, lineWidth, paddingSM, lineType, colorSplit } = token;
 
   return {
     [`${componentCls}-dropdown`]: {
@@ -664,14 +653,6 @@ const genPickerPanelStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
             pointerEvents: 'none',
             color: token.colorTextDisabled,
           },
-        },
-
-        // https://github.com/ant-design/ant-design/issues/23687
-        [`${componentCls}-preset > ${antCls}-tag-blue`]: {
-          color: colorPrimary,
-          background: cellActiveWithRangeBg,
-          borderColor: colorPrimaryBorder,
-          cursor: 'pointer',
         },
 
         [`${componentCls}-ok`]: {

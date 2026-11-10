@@ -5,7 +5,7 @@ import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
 const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
-  const { componentCls, motionDurationMid, lineWidth, lineType, tableBorderColor, calc } = token;
+  const { componentCls, motionDurationMid, lineWidth, lineType, tableBorderColor } = token;
 
   const tableBorder = `${unit(lineWidth)} ${lineType} ${tableBorderColor}`;
 
@@ -67,14 +67,6 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
           [`${componentCls}-cell`]: {
             borderInlineEnd: tableBorder,
-
-            [`&${componentCls}-cell-fix-right-first:before`]: {
-              content: '""',
-              position: 'absolute',
-              insetBlock: 0,
-              insetInlineStart: calc(lineWidth).mul(-1).equal(),
-              borderInlineStart: tableBorder,
-            },
           },
         },
 
