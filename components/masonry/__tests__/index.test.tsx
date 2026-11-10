@@ -173,7 +173,11 @@ describe('Masonry', () => {
     });
     expect(container.querySelector('.ant-masonry')).toHaveStyle({ height: '480px' });
     expect(onLayoutChange).toHaveBeenCalled();
-    expect(errorSpy).not.toHaveBeenCalled();
+    // React 18 warns about layout effects in `renderToString`, React 19 no longer does
+    const errors = errorSpy.mock.calls.filter(
+      ([message]) => !String(message).includes('useLayoutEffect does nothing on the server'),
+    );
+    expect(errors).toEqual([]);
   });
 
   it('should animate items added and removed after mounting', async () => {
