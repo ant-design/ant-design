@@ -159,6 +159,7 @@ const localeValues: Locale = {
     transparent: 'Transparente',
     singleColor: 'Simples',
     gradientColor: 'Gradiente',
+    clear: 'Limpar cor',
   },
 };
 

@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import React from 'react';
 import { clsx } from 'clsx';
 
+import { useLocale } from '../../locale';
 import type { AggregationColor } from '../color';
 import { generateColor } from '../util';
 
@@ -22,6 +23,8 @@ const ColorClear: FC<ColorClearProps> = ({
   style,
   disabled,
 }) => {
+  const [locale] = useLocale('ColorPicker');
+
   const onClick = () => {
     if (disabled) {
       return;
@@ -47,7 +50,7 @@ const ColorClear: FC<ColorClearProps> = ({
   return (
     <div
       role="button"
-      aria-label="Clear color"
+      aria-label={locale.clear}
       aria-disabled={disabled || undefined}
       tabIndex={disabled ? -1 : 0}
       className={clsx(`${prefixCls}-clear`, className, {
