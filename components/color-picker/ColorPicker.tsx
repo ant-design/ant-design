@@ -325,6 +325,7 @@ const ColorPicker: CompoundedComponent = (props) => {
         <ColorTrigger
           activeIndex={popupOpen ? activeIndex : -1}
           open={popupOpen}
+          onOpenChange={triggerOpenChange}
           className={mergedCls}
           classNames={mergedClassNames}
           styles={mergedStyles}
