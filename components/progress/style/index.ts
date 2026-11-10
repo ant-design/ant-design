@@ -292,9 +292,6 @@ const genCircleStyle: GenerateStyle<ProgressToken, CSSObject> = (token) => {
     },
     [`${progressCls}-inline-circle`]: {
       lineHeight: 1,
-      [`${progressCls}-inner`]: {
-        verticalAlign: 'bottom',
-      },
     },
   };
 };
