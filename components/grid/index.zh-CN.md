@@ -47,6 +47,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DLUwQ4B2_zQAAA
 <code src="./demo/responsive-more.tsx">其他属性的响应式</code>
 <code src="./demo/playground.tsx">栅格配置器</code>
 <code src="./demo/useBreakpoint.tsx">useBreakpoint Hook</code>
+<code src="./demo/grid.tsx" version="6.5.0">CSS Grid 布局</code>
 
 ## API
 
@@ -59,22 +60,32 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 
 ### Row
 
+> 注意：grid 模式下，以下属性不生效：`align`、`justify`、`wrap`
+
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | align | 垂直对齐方式 | `top` \| `middle` \| `bottom` \| `stretch` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'top' \| 'middle' \| 'bottom' \| 'stretch'}` | `top` | object: 4.24.0 | × |
-| gutter | 栅格间隔，可以写成[字符串CSS单位](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Values_and_Units)或支持响应式的对象写法来设置水平间隔 { xs: 8, sm: 16, md: 24}。或者使用数组形式同时设置 `[水平间距, 垂直间距]` | number \| string \| object \| array | 0 | string: 5.28.0 | × |
+| areas | grid 模式下定义 `grid-template-areas`，二维数组会按行拼接成多行字符串，字符串原样透传 | string\[\]\[\] \| string | - | 6.5.0 | × |
+| columns | grid 模式下列数或列模板，数字对应 `repeat(N, 1fr)`，字符串原样透传，对象按响应式断点取值 | number \| string \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: number \| string}` | 24 | 6.5.0 | × |
+| grid | 启用 CSS Grid 布局 | boolean | false | 6.5.0 | × |
+| gutter | 栅格间隔，可以写成[字符串CSS单位](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Values_and_Units)或支持响应式的对象写法来设置水平间隔 { xs: 8, sm: 16, md: 24}。或者使用数组形式同时设置 `[水平间距, 垂直间距]`。grid 模式下等价于 `column-gap`/`row-gap` | number \| string \| object \| array | 0 | string: 5.28.0 | × |
 | justify | 水平排列方式 | `start` \| `end` \| `center` \| `space-around` \| `space-between` \| `space-evenly` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly'}` | `start` | object: 4.24.0 | × |
+| rows | grid 模式下行模板，数字对应 `repeat(N, 1fr)`，字符串原样透传 | number \| string | - | 6.5.0 | × |
 | wrap | 是否自动换行 | boolean | true | 4.8.0 | × |
 
 ### Col
 
+> 注意：grid 模式下，以下响应式属性不生效：`flex`、`offset`、`order`、`pull`、`push`、`xs`、`sm`、`md`、`lg`、`xl`、`xxl`、`xxxl`
+
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
+| area | grid 模式下命名区域，映射为 `gridArea`，需配合 Row 的 `areas` 使用 | string | - | 6.5.0 | × |
 | flex | flex 布局属性。数字类型对应 'flex: n n auto'；字符串类型直接透传（例如纯数字字符串 'n' 对应 'flex: n 1 0'） | string \| number | - |  | × |
 | offset | 栅格左侧的间隔格数，间隔内不可以有栅格 | number | 0 |  | × |
 | order | 栅格顺序 | number | 0 |  | × |
 | pull | 栅格向左移动格数 | number | 0 |  | × |
 | push | 栅格向右移动格数 | number | 0 |  | × |
+| rowSpan | grid 模式下跨行数，映射为 `gridRow: span N` | number | - | 6.5.0 | × |
 | span | 栅格占位格数，为 0 时相当于 `display: none` | number | - |  | × |
 | xs | `窗口宽度 < 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  | × |
 | sm | `窗口宽度 ≥ 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  | × |
@@ -87,6 +98,16 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 您可以使用 [主题定制](/docs/react/customize-theme) 修改 `screen[XS|SM|MD|LG|XL|XXL|XXXL]` 来修改断点值（自 5.1.0 起，[codesandbox demo](https://codesandbox.io/s/antd-reproduction-template-forked-dlq3r9?file=/index.js)）。
 
 响应式栅格的断点扩展自 [BootStrap 4 的规则](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints)（不包含链接里 `occasionally` 的部分)。
+
+### Grid 模式注意事项 {#grid-mode-notes}
+
+grid 模式默认使用 24 列(`repeat(24, 1fr)`),与 24 栅格心智一致,`span={N}` 直接对应 `gridColumn: span N`。可用 `columns` 自定义列数,如 `columns={4}` 等价于 `repeat(4, 1fr)`;也支持响应式对象 `columns={{ xs: 1, md: 4 }}`。
+
+响应式布局通过 `columns` 配置列数,并确保 `span` 值不超过列数。例如 `columns={12}` 时,`span={6}` 占一半宽度。
+
+模板区域用 `areas` 配置,`Col` 通过 `area` 属性命名定位,通过 `rowSpan` 跨行。进阶定位(如网格线区间 `gridColumn: '2 / span 4'`)可直接用 `style` 兜底,`style` 优先级最高,会覆盖 `span`/`rowSpan`/`area` 产生的值。
+
+`span={0}` 仍然会隐藏元素(`display: none`)。
 
 ## 主题变量（Design Token）{#design-token}
 
