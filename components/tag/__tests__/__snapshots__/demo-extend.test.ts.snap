@@ -949,6 +949,240 @@ exports[`renders components/tag/demo/customize.tsx extend context correctly 1`] 
 
 exports[`renders components/tag/demo/customize.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/tag/demo/dark.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-plain"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      Filled
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+  >
+    <span
+      class="ant-tag ant-tag-filled ant-tag-magenta css-var-test-id"
+    >
+      magenta
+    </span>
+    <span
+      class="ant-tag ant-tag-filled ant-tag-red css-var-test-id"
+    >
+      red
+    </span>
+    <span
+      class="ant-tag ant-tag-filled ant-tag-volcano css-var-test-id"
+    >
+      volcano
+    </span>
+    <span
+      class="ant-tag ant-tag-filled ant-tag-orange css-var-test-id"
+    >
+      orange
+    </span>
+    <span
+      class="ant-tag ant-tag-filled ant-tag-gold css-var-test-id"
+    >
+      gold
+    </span>
+    <span
+      class="ant-tag ant-tag-filled ant-tag-lime css-var-test-id"
+    >
+      lime
+    </span>
+    <span
+      class="ant-tag ant-tag-filled ant-tag-green css-var-test-id"
+    >
+      green
+    </span>
+    <span
+      class="ant-tag ant-tag-filled ant-tag-cyan css-var-test-id"
+    >
+      cyan
+    </span>
+    <span
+      class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+    >
+      blue
+    </span>
+    <span
+      class="ant-tag ant-tag-filled ant-tag-geekblue css-var-test-id"
+    >
+      geekblue
+    </span>
+    <span
+      class="ant-tag ant-tag-filled ant-tag-purple css-var-test-id"
+    >
+      purple
+    </span>
+  </div>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-plain"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      Solid
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+  >
+    <span
+      class="ant-tag ant-tag-solid ant-tag-magenta css-var-test-id"
+    >
+      magenta
+    </span>
+    <span
+      class="ant-tag ant-tag-solid ant-tag-red css-var-test-id"
+    >
+      red
+    </span>
+    <span
+      class="ant-tag ant-tag-solid ant-tag-volcano css-var-test-id"
+    >
+      volcano
+    </span>
+    <span
+      class="ant-tag ant-tag-solid ant-tag-orange css-var-test-id"
+    >
+      orange
+    </span>
+    <span
+      class="ant-tag ant-tag-solid ant-tag-gold css-var-test-id"
+    >
+      gold
+    </span>
+    <span
+      class="ant-tag ant-tag-solid ant-tag-lime css-var-test-id"
+    >
+      lime
+    </span>
+    <span
+      class="ant-tag ant-tag-solid ant-tag-green css-var-test-id"
+    >
+      green
+    </span>
+    <span
+      class="ant-tag ant-tag-solid ant-tag-cyan css-var-test-id"
+    >
+      cyan
+    </span>
+    <span
+      class="ant-tag ant-tag-solid ant-tag-blue css-var-test-id"
+    >
+      blue
+    </span>
+    <span
+      class="ant-tag ant-tag-solid ant-tag-geekblue css-var-test-id"
+    >
+      geekblue
+    </span>
+    <span
+      class="ant-tag ant-tag-solid ant-tag-purple css-var-test-id"
+    >
+      purple
+    </span>
+  </div>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-plain"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      Outlined
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+  >
+    <span
+      class="ant-tag ant-tag-outlined ant-tag-magenta css-var-test-id"
+    >
+      magenta
+    </span>
+    <span
+      class="ant-tag ant-tag-outlined ant-tag-red css-var-test-id"
+    >
+      red
+    </span>
+    <span
+      class="ant-tag ant-tag-outlined ant-tag-volcano css-var-test-id"
+    >
+      volcano
+    </span>
+    <span
+      class="ant-tag ant-tag-outlined ant-tag-orange css-var-test-id"
+    >
+      orange
+    </span>
+    <span
+      class="ant-tag ant-tag-outlined ant-tag-gold css-var-test-id"
+    >
+      gold
+    </span>
+    <span
+      class="ant-tag ant-tag-outlined ant-tag-lime css-var-test-id"
+    >
+      lime
+    </span>
+    <span
+      class="ant-tag ant-tag-outlined ant-tag-green css-var-test-id"
+    >
+      green
+    </span>
+    <span
+      class="ant-tag ant-tag-outlined ant-tag-cyan css-var-test-id"
+    >
+      cyan
+    </span>
+    <span
+      class="ant-tag ant-tag-outlined ant-tag-blue css-var-test-id"
+    >
+      blue
+    </span>
+    <span
+      class="ant-tag ant-tag-outlined ant-tag-geekblue css-var-test-id"
+    >
+      geekblue
+    </span>
+    <span
+      class="ant-tag ant-tag-outlined ant-tag-purple css-var-test-id"
+    >
+      purple
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders components/tag/demo/dark.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tag/demo/disabled.tsx extend context correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
