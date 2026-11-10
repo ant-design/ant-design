@@ -120,8 +120,11 @@ export function autoPtgSizes(
     for (let i = 0; i < 60; i += 1) {
       const mid = (low + high) / 2;
       const total = undefinedIndexes.reduce((sum, index) => sum + bound(index, mid), 0);
-      if (total < restPtg) low = mid;
-      else high = mid;
+      if (total < restPtg) {
+        low = mid;
+      } else {
+        high = mid;
+      }
     }
     const share = (low + high) / 2;
     return ptgSizes.map((size, index) => (size === undefined ? bound(index, share) : size));
