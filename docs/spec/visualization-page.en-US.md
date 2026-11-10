@@ -200,4 +200,4 @@ After designing the draft layout, select related visualization charts based on h
 
 ### Relative Modules or Components
 
-- [AntV Chart Samples](https://g2plot.antv.vision/en/examples/gallery)
+- [AntV Chart Samples](https://g2plot.antv.antgroup.com/en/examples)
