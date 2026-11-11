@@ -382,3 +382,87 @@ describe('ColorPicker.gradient', () => {
     expect(document.querySelector('.ant-color-picker-presets-color-checked')).toBeTruthy();
   });
 });
+
+const handleSelector = '.ant-color-picker-gradient-slider [role="slider"]';
+const colors = [
+  { color: '#ff0000', percent: 0 },
+  { color: '#0000ff', percent: 100 },
+];
+
+describe('ColorPicker gradient keyboard deletion', () => {
+  it.each(['Delete', 'Backspace'])('keeps at least two gradient stops on %s', (key) => {
+    const onChange = jest.fn();
+    const onChangeComplete = jest.fn();
+    const { container } = render(
+      <ColorPicker
+        open
+        mode="gradient"
+        defaultValue={colors}
+        onChange={onChange}
+        onChangeComplete={onChangeComplete}
+      />,
+    );
+
+    container.querySelectorAll(handleSelector).forEach((handle) => {
+      fireEvent.keyDown(handle, { key });
+    });
+
+    expect(container.querySelectorAll(handleSelector)).toHaveLength(2);
+    expect(onChange).not.toHaveBeenCalled();
+    expect(onChangeComplete).not.toHaveBeenCalled();
+  });
+
+  it('does not emit an invalid controlled gradient', () => {
+    const onChange = jest.fn();
+    const onChangeComplete = jest.fn();
+    const { container } = render(
+      <ColorPicker
+        open
+        mode="gradient"
+        value={colors}
+        onChange={onChange}
+        onChangeComplete={onChangeComplete}
+      />,
+    );
+
+    fireEvent.keyDown(container.querySelector(handleSelector)!, { key: 'Delete' });
+
+    expect(onChange).not.toHaveBeenCalled();
+    expect(onChangeComplete).not.toHaveBeenCalled();
+  });
+
+  it('can delete a third stop and continue editing the remaining gradient', () => {
+    const onChange = jest.fn();
+    const onChangeComplete = jest.fn();
+    const { container } = render(
+      <ColorPicker
+        open
+        mode="gradient"
+        defaultValue={[colors[0], { color: '#00ff00', percent: 50 }, colors[1]]}
+        onChange={onChange}
+        onChangeComplete={onChangeComplete}
+      />,
+    );
+
+    const lastHandle = container.querySelectorAll(handleSelector)[2];
+    fireEvent.focus(lastHandle);
+    fireEvent.keyDown(lastHandle, { key: 'Delete' });
+
+    expect(container.querySelectorAll(handleSelector)).toHaveLength(2);
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.anything(),
+      'linear-gradient(90deg, rgb(255,0,0) 0%, rgb(0,255,0) 50%)',
+    );
+    expect(
+      onChangeComplete.mock.calls[onChangeComplete.mock.calls.length - 1][0].getColors(),
+    ).toHaveLength(2);
+
+    fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
+      target: { value: 'ffffff' },
+    });
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.anything(),
+      'linear-gradient(90deg, rgb(255,0,0) 0%, rgb(255,255,255) 50%)',
+    );
+  });
+});
