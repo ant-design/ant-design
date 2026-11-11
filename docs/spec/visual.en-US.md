@@ -11,8 +11,8 @@ At the same time, this is a dynamically updated design document, your reading an
 
 We provide comprehensive design principles & guidelines and design resource files (Sketch), as well as a complete graphical usage note to help users quickly understand charts and design high quality visualization charts.
 
-- [Design Principles](https://antv.vision/zh/docs/specification/principles/basic)
-- [Design Resources](https://antv.vision/zh/docs/specification/resources)
+- [Design Principles](https://antv.antgroup.com/en/specification/principles/basic)
+- [Design Resources](https://antv.antgroup.com/en/specification/resources)
 - [Charts Usage](https://antv-2018.alipay.com/zh-cn/vis/chart/index.html)
 
 ## Front end implementation
@@ -22,7 +22,7 @@ We encapsulate a set of AntV component libraries based on native JavaScript, whi
 - [G2: Grammar of Graphics](https://g2.antv.vision/en)
 - [G2Plot: a charting library](https://g2plot.antv.vision/en) 🔥
 - [G6: Graph Visualization Framework](https://g6.antv.vision/en)
-- [F2: Mobile Charts](https://f2.antv.vision/en)
+- [F2: Mobile Charts](https://f2.antv.antgroup.com/en)
 - [L7: Geospatial Visualization Analysis](https://l7.antv.vision/en)
 - [React AntV](https://charts.ant.design/en)
 
@@ -93,7 +93,7 @@ For more chart usage content, go to [AntV Chart usage](https://antv-2018.alipay.
 <img class="preview-img no-padding" description="AntV Example of official default colour swatches" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Skn6TZsQ7ksAAAAAAAAAAABkARQnAQ" />
 </ImagePreview>
 
-AntV provides a default set of chart colours, including colour usage.For more colour swatches, go to [AntV - Design language - Vision](https://antv.vision/specification/language/palette)
+AntV provides a default set of chart colours, including colour usage.For more colour swatches, go to [AntV - Design language - Vision](https://antv.antgroup.com/en/specification/language/palette)
 
 ### Component Usage Recommendations
 
@@ -175,4 +175,4 @@ Different from the relatively static presentation of traditional data reports, i
 
 In data visualisation, we break down the interaction actions into three layers, namely "data acquisition", "information processing" and "knowledge flow", according to the user's level of consciousness and the goals corresponding to each level. It matches the motto of "overview first, focus on filtering, and then view the details as needed" in visual information retrieval. It is also in line with the basic logic of human seeking information: first general, then local, and then focus on the point of interest to explore, which is a process from the surface to the inside.
 
-For more interactive charts go to [AntV - Design language - Interaction](https://antv.vision/zh/docs/specification/language/interact)
+For more interactive charts go to [AntV - Design language - Interaction](https://antv.antgroup.com/en/specification/language/interact)

@@ -151,7 +151,9 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
     const code = generateThemeCode(themeConfig);
     const success = await copy(code);
     if (success) {
-      if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+      if (copyTimerRef.current) {
+        clearTimeout(copyTimerRef.current);
+      }
       setCopied(true);
       copyTimerRef.current = setTimeout(() => setCopied(false), 2000);
     }
@@ -159,7 +161,9 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
 
   useEffect(
     () => () => {
-      if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+      if (copyTimerRef.current) {
+        clearTimeout(copyTimerRef.current);
+      }
     },
     [],
   );

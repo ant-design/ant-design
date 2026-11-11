@@ -916,7 +916,7 @@ exports[`renders components/drawer/demo/style-class.tsx correctly 1`] = `
 
 exports[`renders components/drawer/demo/user-profile.tsx correctly 1`] = `
 <div
-  class="ant-listy acss-12oadjh css-var-test-id ant-listy-css-var"
+  class="ant-listy acss-12oadjh ant-listy-hoverable css-var-test-id ant-listy-css-var"
   style="overflow-anchor:none"
 >
   <div

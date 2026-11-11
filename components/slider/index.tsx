@@ -98,6 +98,7 @@ export interface SliderBaseProps {
   tabIndex?: SliderProps['tabIndex'];
   ariaLabelForHandle?: SliderProps['ariaLabelForHandle'];
   ariaLabelledByForHandle?: SliderProps['ariaLabelledByForHandle'];
+  ariaDescribedByForHandle?: SliderProps['ariaDescribedByForHandle'];
   ariaRequired?: SliderProps['ariaRequired'];
   ariaValueTextFormatterForHandle?: SliderProps['ariaValueTextFormatterForHandle'];
 }

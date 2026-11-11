@@ -12,7 +12,7 @@ import RcSelect, { OptGroup, Option } from '@rc-component/select';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { usePopupScope, useZIndex } from '../_util/hooks';
+import { useAllowClear, usePopupScope, useZIndex } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
@@ -32,6 +32,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariants from '../form/hooks/useVariants';
+import { useLocale } from '../locale';
 import { useCompactItemContext } from '../space/Compact';
 import { useToken } from '../theme/internal';
 import mergedBuiltinPlacements from './mergedBuiltinPlacements';
@@ -106,6 +107,9 @@ export interface InternalSelectProps<
   > {
   rootClassName?: string;
   prefix?: React.ReactNode;
+  /** @since 6.7.0 */
+  suffix?: RcSelectProps<ValueType, OptionType>['suffix'];
+  /** @deprecated Please use `suffix` instead. */
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
@@ -114,7 +118,7 @@ export interface InternalSelectProps<
   bordered?: boolean;
   /**
    * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
-   *   default behavior, you can hide it by setting `suffixIcon` to null.
+   *   default behavior, you can hide it by setting `suffix` to null.
    */
   showArrow?: boolean;
   /**
@@ -133,15 +137,15 @@ export interface SelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
-  InternalSelectProps<ValueType, OptionType>,
-  | 'mode'
-  | 'getInputElement'
-  | 'getRawInputElement'
-  | 'backfill'
-  | 'placement'
-  | 'dropdownClassName'
-  | 'dropdownStyle'
-> {
+    InternalSelectProps<ValueType, OptionType>,
+    | 'mode'
+    | 'getInputElement'
+    | 'getRawInputElement'
+    | 'backfill'
+    | 'placement'
+    | 'dropdownClassName'
+    | 'dropdownStyle'
+  > {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
@@ -198,6 +202,8 @@ const InternalSelect = <
     tagRender,
     maxCount,
     prefix,
+    suffix: customSuffix,
+    suffixIcon: customSuffixIcon,
     dropdownRender,
     /**
      * @since 5.25.0
@@ -209,7 +215,9 @@ const InternalSelect = <
     styles,
     classNames,
     clearIcon,
+    showArrow,
     showSearch,
+    autoComplete: customAutoComplete,
     ...rest
   } = props;
 
@@ -221,9 +229,13 @@ const InternalSelect = <
     virtual,
     popupMatchSelectWidth: contextPopupMatchSelectWidth,
     popupOverflow,
+    autoComplete,
   } = React.useContext(ConfigContext);
 
+  const [locale] = useLocale('global');
+
   const {
+    autoComplete: contextAutoComplete,
     showSearch: contextShowSearch,
     allowClear: contextAllowClear,
     style: contextStyle,
@@ -234,6 +246,7 @@ const InternalSelect = <
     loadingIcon: contextLoadingIcon,
     menuItemSelectedIcon: contextMenuItemSelectedIcon,
     removeIcon: contextRemoveIcon,
+    suffix: contextSuffix,
     suffixIcon: contextSuffixIcon,
   } = useComponentConfig('select');
 
@@ -280,7 +293,8 @@ const InternalSelect = <
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
 
-  const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
+  const mergedCustomSuffix = customSuffix !== undefined ? customSuffix : customSuffixIcon;
+  const showSuffix = useShowArrow(mergedCustomSuffix, showArrow);
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
@@ -306,34 +320,39 @@ const InternalSelect = <
 
   // ===================== Icons =====================
   const {
-    suffixIcon,
+    suffix: mergedSuffix,
     itemIcon,
     removeIcon,
-    clearIcon: mergedClearIcon,
   } = useIcons({
+    componentName: 'Select',
     ...rest,
+    suffix: mergedCustomSuffix,
     multiple: isMultiple,
     hasFeedback,
     feedbackIcon,
-    showSuffixIcon,
+    showSuffix,
+    showArrow,
     prefixCls,
-    componentName: 'Select',
-    clearIcon,
     searchIcon: normalizeIcon(showSearch, 'searchIcon'),
-    contextClearIcon,
     contextLoadingIcon,
     contextMenuItemSelectedIcon,
     contextRemoveIcon,
     contextSearchIcon: normalizeIcon(contextShowSearch, 'searchIcon'),
-    contextSuffixIcon,
+    contextSuffix: contextSuffix !== undefined ? contextSuffix : contextSuffixIcon,
   });
 
-  const finalAllowClear = allowClear ?? contextAllowClear;
-  const mergedAllowClear =
-    finalAllowClear === true ? { clearIcon: mergedClearIcon } : finalAllowClear;
+  const mergedAllowClear = useAllowClear({
+    allowClear,
+    clearIcon,
+    // AutoComplete uses its own allowClear configuration instead of Select's.
+    contextAllowClear: mode === 'combobox' ? autoComplete?.allowClear : contextAllowClear,
+    contextClearIcon,
+    defaultLabel: locale.clear,
+    componentName: 'Select',
+  });
   const mergedShowSearch = showSearch ?? contextShowSearch;
 
-  const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
+  const selectProps = omit(rest, ['suffix', 'suffixIcon', 'itemIcon' as any]);
 
   const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
@@ -427,6 +446,7 @@ const InternalSelect = <
       dropdownRender: 'popupRender',
       onDropdownVisibleChange: 'onOpenChange',
       bordered: 'variant',
+      suffixIcon: 'suffix',
     };
 
     Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
@@ -436,7 +456,7 @@ const InternalSelect = <
     warning(
       !('showArrow' in props),
       'deprecated',
-      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffix` to null.',
     );
 
     warning(
@@ -460,6 +480,7 @@ const InternalSelect = <
       classNames={mergedClassNames}
       styles={mergedStyles}
       showSearch={mergedShowSearch}
+      autoComplete={customAutoComplete ?? contextAutoComplete}
       {...selectProps}
       style={mergedStyles.root}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
@@ -472,7 +493,7 @@ const InternalSelect = <
       placement={memoPlacement}
       direction={direction}
       prefix={prefix}
-      suffixIcon={suffixIcon}
+      suffix={mergedSuffix}
       menuItemSelectedIcon={itemIcon}
       removeIcon={removeIcon}
       allowClear={mergedAllowClear}

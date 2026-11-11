@@ -18,6 +18,7 @@ import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
+import useVariant from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
 import Group, { GroupSizeContext } from './ButtonGroup';
 import type {
@@ -27,7 +28,12 @@ import type {
   ButtonType,
   ButtonVariantType,
 } from './buttonHelpers';
-import { isTwoCNChar, isUnBorderedButtonVariant, spaceChildren } from './buttonHelpers';
+import {
+  _ButtonVariantTypes,
+  isTwoCNChar,
+  isUnBorderedButtonVariant,
+  spaceChildren,
+} from './buttonHelpers';
 import DefaultLoadingIcon from './DefaultLoadingIcon';
 import IconWrapper from './IconWrapper';
 import useStyle from './style';
@@ -173,10 +179,13 @@ const InternalCompoundedButton = React.forwardRef<
     loadingIcon: contextLoadingIcon,
     shape: contextShape,
     color: contextColor,
-    variant: contextVariant,
   } = useComponentConfig('button');
 
   const mergedShape = customizeShape || contextShape || 'default';
+  const [contextVariant, , isVariantConfigured] = useVariant('button', variant, {
+    variants: _ButtonVariantTypes,
+    defaultVariant: 'outlined',
+  });
 
   const [parsedColor, parsedVariant] = useMemo<ColorVariantPairType>(() => {
     // >>>>> Local
@@ -199,7 +208,7 @@ const InternalCompoundedButton = React.forwardRef<
     }
 
     // >>> Context fallback
-    if (contextColor && contextVariant) {
+    if (contextColor && isVariantConfigured) {
       return [contextColor, contextVariant];
     }
 
@@ -207,8 +216,8 @@ const InternalCompoundedButton = React.forwardRef<
       return ['primary', contextVariant];
     }
 
-    return ['default', 'outlined'];
-  }, [color, variant, type, danger, contextColor, contextVariant, mergedType]);
+    return ['default', contextVariant];
+  }, [color, variant, type, danger, contextColor, contextVariant, isVariantConfigured, mergedType]);
 
   const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
     if (ghost && parsedVariant === 'solid') {

@@ -37,7 +37,7 @@ const HorizontalLayoutDemo = () => {
   return (
     <ColorPicker
       defaultValue={token.colorPrimary}
-      styles={{ popupOverlayInner: { width: 480 } }}
+      styles={{ popup: { container: { width: 480 } } }}
       presets={presets}
       panelRender={customPanelRender}
     />
