@@ -40,14 +40,15 @@ demo:
 
 ### Mentions
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon?: ReactNode, disabled?: boolean } | false | 5.13.0, disabled: 6.4.0 | 6.4.0 |
+| allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | false | - | 6.4.0 |
 | autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object | false |  | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | defaultValue | 默认值 | string | - |  | × |
 | filterOption | 自定义过滤逻辑 | false \| (input: string, option: OptionProps) => boolean | - |  | × |
 | getPopupContainer | 指定建议框挂载的 HTML 节点 | () => HTMLElement | - |  | × |
+| loading | 加载中状态 | boolean | false |  | × |
 | notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `暂无数据` |  | × |
 | placement | 弹出层展示位置 | `top` \| `bottom` | `bottom` |  | × |
 | popupRender | 自定义下拉菜单渲染 | (menu: React.ReactElement) => ReactNode | - | 6.6.0 | × |
@@ -55,7 +56,7 @@ demo:
 | split | 设置选中项前后分隔符 | string | ` ` |  | × |
 | size | 控件大小 | `large` \| `medium` \| `small` | - |  | × |
 | status | 设置校验状态 | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 | × |
-| validateSearch | 自定义触发验证逻辑 | (text: string, props: MentionsProps) => void | - |  | × |
+| validateSearch | 自定义搜索文本的校验逻辑，返回 false 时不显示建议列表 | (text: string, split?: string) => boolean | - |  | × |
 | value | 设置值 | string | - |  | × |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onBlur | 失去焦点时触发 | () => void | - |  | × |
@@ -68,6 +69,17 @@ demo:
 | onPopupScroll | 滚动时触发 | (event: Event) => void | - | 5.23.0 | × |
 | options | 选项配置 | [Options](#option) | [] | 5.1.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
+
+### AllowClearConfig
+
+支持全局配置的字段按组件配置、全局配置、默认值的顺序取值。`allowClear={true}` 继承全局配置；`disabled: false` 和 `tabIndex: 0` 可覆盖全局值。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | 自定义清除图标 | ReactNode | - | - | 6.4.0 |
+| disabled | `true` 时等同于 `allowClear={false}` | boolean | false | 6.4.0 | 6.4.0 |
+| label | 清除按钮的无障碍名称 | string | 组件的本地化文案 | 6.7.0 | 6.7.0 |
+| tabIndex | 清除按钮的 Tab 键顺序。`-1` 表示不参与 Tab 键导航 | number | 0 | 6.7.0 | 6.7.0 |
 
 ### Mentions 方法 {#mention-methods}
 

@@ -169,6 +169,7 @@ export const getFilterData = <RecordType extends AnyObject = AnyObject>(
   filterStates: FilterState<RecordType>[],
   childrenColumnName: string,
 ) => {
+  let childrenFiltered = false;
   const filterDatas = filterStates.reduce<RecordType[]>((currentData, filterState) => {
     const {
       column: { onFilter, filters },
@@ -196,7 +197,7 @@ export const getFilterData = <RecordType extends AnyObject = AnyObject>(
         subset.reduce<RecordType[]>((acc, record) => {
           const clonedRecord = { ...record } as any;
 
-          if (clonedRecord[childrenColumnName]) {
+          if (!childrenFiltered && clonedRecord[childrenColumnName]) {
             clonedRecord[childrenColumnName] = getFilterData(
               clonedRecord[childrenColumnName],
               filterStates,
@@ -210,7 +211,10 @@ export const getFilterData = <RecordType extends AnyObject = AnyObject>(
           return acc;
         }, []);
 
-      return internalFilter(currentData);
+      const filteredData = internalFilter(currentData);
+      // Descendants already passed all filters during the first active filter.
+      childrenFiltered = true;
+      return filteredData;
     }
 
     return currentData;
@@ -223,6 +227,8 @@ export interface FilterConfig<RecordType = AnyObject> {
   prefixCls: string;
   dropdownPrefixCls: string;
   mergedColumns: ColumnsType<RecordType>;
+  /** Columns before applying the responsive filter. */
+  baseColumns?: ColumnsType<RecordType>;
   locale: TableLocale;
   onFilterChange: (
     filters: Record<string, FilterValue | null>,
@@ -253,6 +259,7 @@ const useFilter = <RecordType extends AnyObject = AnyObject>(
     prefixCls,
     dropdownPrefixCls,
     mergedColumns: rawMergedColumns,
+    baseColumns,
     onFilterChange,
     getPopupContainer,
     locale: tableLocale,
@@ -261,8 +268,8 @@ const useFilter = <RecordType extends AnyObject = AnyObject>(
   const warning = devUseWarning('Table');
 
   const mergedColumns = React.useMemo(
-    () => getMergedColumns<RecordType>(rawMergedColumns || []),
-    [rawMergedColumns],
+    () => getMergedColumns<RecordType>(baseColumns ?? rawMergedColumns ?? []),
+    [baseColumns, rawMergedColumns],
   );
 
   const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(() =>

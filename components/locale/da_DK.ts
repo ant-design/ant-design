@@ -36,6 +36,8 @@ const localeValues: Locale = {
     sortTitle: 'Sortér',
     expand: 'Udvid række',
     collapse: 'Flet række',
+    expandAll: 'Udvid alle rækker',
+    collapseAll: 'Fold alle rækker sammen',
     triggerDesc: 'Klik for at sortere faldende',
     triggerAsc: 'Klik for at sortere stigende',
     cancelSort: 'Klik for at annullere sortering',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Kopieret',
     expand: 'Udvid',
     collapse: 'Kollaps',
+  },
+  Carousel: {
+    prevSlide: 'Forrige slide',
+    nextSlide: 'Næste slide',
   },
   Form: {
     optional: '(valgfrit)',

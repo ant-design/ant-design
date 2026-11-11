@@ -13,7 +13,7 @@ title: 巧用过渡
 
 ---
 
-## 在视图变化时保持上下文
+## 在视图变化时保持上下文 {#maintain-context-when-switching}
 
 <video class="transition-video-player" alt="滑入与滑出示例" src="https://os.alipayobjects.com/rmsportal/EejaUGsyExkXyXr.mp4"></video>
 
@@ -35,7 +35,7 @@ title: 巧用过渡
 
 ---
 
-## 解释刚刚发生了什么
+## 解释刚刚发生了什么 {#explain-what-just-happened}
 
 <video class="transition-video-player" alt="对象增加示例" description="新增一条对象时，该行「高亮」告知用户这是新增项；几秒后「高亮」消失，以免过度干扰用户。" src="https://os.alipayobjects.com/rmsportal/FqkQMyFqNqielOw.mp4"></video>
 
@@ -61,7 +61,7 @@ title: 巧用过渡
 
 ---
 
-## 改善感知性能
+## 改善感知性能 {#improve-perceived-performance}
 
 当无法有效提升「实际性能」时，可以考虑适当转移用户的注意力，来缩短某项操作的感知时间，改善感知性能。
 
@@ -69,6 +69,6 @@ title: 巧用过渡
 
 ---
 
-## 自然运动
+## 自然运动 {#natural-motion}
 
 参见 [Ant Motion 动画语言](https://motion.ant.design/language/basic-cn)。

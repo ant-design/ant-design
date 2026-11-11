@@ -41,7 +41,7 @@ group:
 
 ### Anchor Props
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | affix | 固定模式 | boolean \| Omit<AffixProps, 'offsetTop' \| 'target' \| 'children'> | true | object: 5.19.0 | × |
 | bounds | 锚点区域边界 | number | 5 |  | × |

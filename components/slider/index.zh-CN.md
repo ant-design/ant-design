@@ -37,7 +37,7 @@ demo:
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.23.0 |
 | defaultValue | 设置初始取值。当 `range` 为 false 时，使用 number，否则用 \[number, number] | number \| \[number, number] | 0 \| \[0, 0] |  | × |
@@ -67,7 +67,7 @@ demo:
 
 | 参数           | 说明                                               | 类型    | 默认值 | 版本   |
 | -------------- | -------------------------------------------------- | ------- | ------ | ------ |
-| draggableTrack | 范围刻度是否可被拖拽                               | boolean | false  |        |
+| draggableTrack | 范围刻度是否可被拖拽                               | boolean | false  | -      |
 | editable       | 启动动态增减节点，不能和 `draggableTrack` 一同使用 | boolean | false  | 5.20.0 |
 | minCount       | 配置 `editable` 时，最小节点数量                   | number  | 0      | 5.20.0 |
 | maxCount       | 配置 `editable` 时，最大节点数量                   | number  | -      | 5.20.0 |
@@ -78,7 +78,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | autoAdjustOverflow | 是否自动调整弹出位置 | boolean | true | 5.8.0 |
 | open | 值为 true 时，Tooltip 将会始终显示；否则始终不显示，哪怕在拖拽及移入时 | boolean | - | 4.23.0 |
-| placement | 设置 Tooltip 展示位置。参考 [Tooltip](/components/tooltip-cn) | string | - | 4.23.0 |
+| placement | 设置 Tooltip 展示位置。参考 [Tooltip](/components/tooltip) | string | - | 4.23.0 |
 | getPopupContainer | Tooltip 渲染父节点，默认渲染到 body 上 | (triggerNode) => HTMLElement | () => document.body | 4.23.0 |
 | formatter | Slider 会把当前值传给 `formatter`，并在 Tooltip 中显示 `formatter` 的返回值，若为 null，则隐藏 Tooltip | value => ReactNode \| null | IDENTITY | 4.23.0 |
 

@@ -14,7 +14,7 @@ title: 概览
 
 同时，这是一份动态更新的设计文档，您的阅读和反馈是我们前进的动力，[GitHub 反馈地址](https://github.com/ant-design/ant-design/issues)。
 
-## 框架信息
+## 框架信息 {#framework-information}
 
 ![结构图](https://gw.alipayobjects.com/zos/rmsportal/NyWYOFQxJYElAwtUfSdv.png)
 
@@ -27,10 +27,10 @@ title: 概览
   - 业务组件/模块：块级示例，通常由多个组件组成。
 - 一般概念：保证 ETC 系统化的一些约定，例如排版、字体和文案。
 
-## 资源
+## 资源 {#resources}
 
 我们与工程师合作，将设计模式转化为可重用的代码，最大限度地提高您的生产力和沟通效率。
 
 - [Ant Design Pro](https://pro.ant.design/)：具有 20 多个模板和 10 多个业务组件的开箱即用解决方案。
-- [React 官方实现](/components/overview-cn)：Ant Design 的 React UI 库拥有 60 多个基础组件。
+- [React 官方实现](/components/overview)：Ant Design 的 React UI 库拥有 60 多个基础组件。
 - [Axure 设计库](http://library.ant.design/)：代码中包含 Axure 资源包，使您的原型看起来像一个视觉草稿，包括模板、组件等。

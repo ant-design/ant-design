@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Ordenar',
     expand: 'Expandir fila',
     collapse: 'Colapsar fila',
+    expandAll: 'Expandir todas las filas',
+    collapseAll: 'Colapsar todas las filas',
     triggerDesc: 'Click para ordenar en orden descendente',
     triggerAsc: 'Click para ordenar en orden ascendente',
     cancelSort: 'Click para cancelar ordenamiento',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Copiado',
     expand: 'Expandir',
     collapse: 'Colapso',
+  },
+  Carousel: {
+    prevSlide: 'Diapositiva anterior',
+    nextSlide: 'Diapositiva siguiente',
   },
   Form: {
     optional: '(opcional)',

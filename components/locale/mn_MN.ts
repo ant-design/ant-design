@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Эрэмбэлэх',
     expand: 'Мөрийг өргөжүүлэх',
     collapse: 'Мөрийг буулгах',
+    expandAll: 'Бүх мөрийг өргөжүүлэх',
+    collapseAll: 'Бүх мөрийг хумих',
     triggerDesc: 'Буурах байдлаар эрэмбэлэхийн тулд товшино уу',
     triggerAsc: 'Өсөхөөр эрэмбэлэхийн тулд товшино уу',
     cancelSort: 'Эрэмбэлэхийг цуцлахын тулд товшино уу',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Хуулсан',
     expand: 'Өргөтгөх',
     collapse: 'Нурах',
+  },
+  Carousel: {
+    prevSlide: 'Өмнөх слайд',
+    nextSlide: 'Дараагийн слайд',
   },
   Form: {
     optional: '(сонголттой)',

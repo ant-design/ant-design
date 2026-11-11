@@ -13,7 +13,8 @@ export const normalizeMaskConfig = (mask?: MaskType, maskClosable?: boolean): Ma
   let maskConfig: MaskConfig = {};
 
   if (isPlainObject(mask)) {
-    maskConfig = mask;
+    // Copy so that filling `closable` below never writes back to the user's `mask` object
+    maskConfig = { ...mask };
   }
   if (typeof mask === 'boolean') {
     maskConfig = {

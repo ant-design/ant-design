@@ -226,7 +226,8 @@ const genFormItemStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
         textAlign: 'end',
         verticalAlign: 'middle',
 
-        '&-left': {
+        // TODO: Remove the legacy `&-left` selector in v7.
+        '&-start, &-left': {
           textAlign: 'start',
         },
 
@@ -277,10 +278,6 @@ const genFormItemStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
             display: 'inline-block',
             marginInlineStart: token.marginXXS,
             color: token.colorTextDescription,
-
-            [`&${formItemCls}-required-mark-hidden`]: {
-              display: 'none',
-            },
           },
 
           // Optional mark
@@ -560,6 +557,7 @@ const genVerticalStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
 
       [`${formItemCls}-control`]: {
         width: '100%',
+        flex: 'none',
       },
       [`> ${formItemCls}-row > ${formItemCls}-label,
         > ${formItemCls}-row > ${antCls}-col-24${formItemCls}-label,

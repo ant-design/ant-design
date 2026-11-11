@@ -6,14 +6,14 @@ import type {
   SegmentedRawOption,
 } from '@rc-component/segmented';
 import RcSegmented from '@rc-component/segmented';
-import { useId } from '@rc-component/util';
+import { isReactRenderable, useId } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isPlainObject, isReactRenderable } from '../_util/is';
+import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';

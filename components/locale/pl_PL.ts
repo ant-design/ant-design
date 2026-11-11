@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Sortowanie',
     expand: 'Rozwiń wiersz',
     collapse: 'Zwiń wiersz',
+    expandAll: 'Rozwiń wszystkie wiersze',
+    collapseAll: 'Zwiń wszystkie wiersze',
     triggerDesc: 'Sortuj malejąco',
     triggerAsc: 'Sortuj rosnąco',
     cancelSort: 'Usuń sortowanie',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Skopiowany',
     expand: 'Rozwiń',
     collapse: 'Zwiń',
+  },
+  Carousel: {
+    prevSlide: 'Poprzedni slajd',
+    nextSlide: 'Następny slajd',
   },
   Form: {
     optional: '(opcjonalne)',

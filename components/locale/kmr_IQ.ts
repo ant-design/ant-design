@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Sort',
     expand: 'Rêzê berfireh bike',
     collapse: 'Rêzê hilweşîne',
+    expandAll: 'Hemî rêzan berfireh bike',
+    collapseAll: 'Hemî rêzan veşêre',
     triggerDesc: 'Bikirtînin ji bo rêzkirina daketî',
     triggerAsc: 'Ji bo rêzkirina hilkişînê bikirtînin',
     cancelSort: 'Ji bo betalkirina dabeşkirinê bikirtînin',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Kopî kirin',
     expand: 'Zêdetir nîşan bide',
     collapse: 'Hilweşîn',
+  },
+  Carousel: {
+    prevSlide: 'Slayda berê',
+    nextSlide: 'Slayda pêş',
   },
   Form: {
     optional: '(dilxwaz)',

@@ -36,6 +36,8 @@ const localeValues: Locale = {
     sortTitle: 'Sortiraj',
     expand: 'Proširi red',
     collapse: 'Skupi red',
+    expandAll: 'Proširi sve redove',
+    collapseAll: 'Skupi sve redove',
     triggerDesc: 'Klikni da sortiraš po padajućem redosledu',
     triggerAsc: 'Klikni da sortiraš po rastućem redosledu',
     cancelSort: 'Klikni da otkažeš sortiranje',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Kopirano',
     expand: 'Proširi',
     collapse: 'Колапс',
+  },
+  Carousel: {
+    prevSlide: 'Prethodni slajd',
+    nextSlide: 'Sledeći slajd',
   },
   Form: {
     optional: '(opcionalno)',

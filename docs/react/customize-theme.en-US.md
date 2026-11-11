@@ -178,7 +178,7 @@ If you want to use in preprocess style framework like less, use less-loader for 
 }
 ```
 
-Compatible package provide convert function to transform to v4 less variable. Read [this](/docs/react/migration-v5) for detail.
+Compatible package provide convert function to transform to v4 less variable. Read [this](https://5x.ant.design/docs/react/migration-v5) for detail.
 
 ### Theme editor
 
@@ -291,6 +291,6 @@ const theme = {
 
 ## FAQ
 
-### Why component re-mounted when `theme` changed from `undefined` to some object or to `undefined`?
+### Why component re-mounted when `theme` changed from `undefined` to some object or to `undefined`? {#faq-theme-change-remount}
 
 In ConfigProvider, we pass context through `DesignTokenContext`. When `theme` is `undefined`, a layer of Provider will not be set, so React VirtualDOM structure changes from scratch or from existence to nothing, causing components to be re-mounted. Solution: Replace `undefined` with an empty object `{}`.

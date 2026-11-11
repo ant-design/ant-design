@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Сортиране',
     expand: 'Разширяване на реда',
     collapse: 'Свиване на ред',
+    expandAll: 'Разширяване на всички редове',
+    collapseAll: 'Свиване на всички редове',
     triggerDesc: 'Кликнете, за да сортирате в низходящ ред',
     triggerAsc: 'Кликнете, за да сортирате във възходящ ред',
     cancelSort: 'Кликнете, за да отмените сортирането',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Копирано',
     expand: 'Разширяване',
     collapse: 'Свиване',
+  },
+  Carousel: {
+    prevSlide: 'Предишен слайд',
+    nextSlide: 'Следващ слайд',
   },
   Form: {
     optional: '（по желание）',

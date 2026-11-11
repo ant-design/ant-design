@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Urutkan',
     expand: 'Buka',
     collapse: 'Tutup',
+    expandAll: 'Buka semua baris',
+    collapseAll: 'Tutup semua baris',
     triggerDesc: 'Turun',
     triggerAsc: 'Naik',
     cancelSort: 'Batal Urut',
@@ -93,6 +95,10 @@ const localeValues: Locale = {
     copied: 'Berjaya menyalin',
     expand: 'Kembang',
     collapse: 'Runtuh',
+  },
+  Carousel: {
+    prevSlide: 'Slaid sebelumnya',
+    nextSlide: 'Slaid seterusnya',
   },
   Form: {
     optional: '(Opsional)',

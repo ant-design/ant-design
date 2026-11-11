@@ -39,6 +39,8 @@ const localeValues: Locale = {
     sortTitle: '排序',
     expand: '展開列',
     collapse: '收合列',
+    expandAll: '展開所有列',
+    collapseAll: '收合所有列',
     triggerDesc: '點擊以遞減排序',
     triggerAsc: '點擊以遞增排序',
     cancelSort: '點擊以取消排序',
@@ -93,6 +95,10 @@ const localeValues: Locale = {
     copied: '複製成功',
     expand: '展開',
     collapse: '收合',
+  },
+  Carousel: {
+    prevSlide: '上一張投影片',
+    nextSlide: '下一張投影片',
   },
   Form: {
     optional: '（選填）',

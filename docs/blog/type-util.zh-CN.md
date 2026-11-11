@@ -31,7 +31,7 @@ type SelectOption<T> = NonNullable<SelectProps<T>['options']>[number];
 
 这对于 TypeScript 熟悉的朋友而言，应该不是什么难事。但是对于 TypeScript 初学者而言，这可能是一道难题。因此，我们推出了一个工具类型库，帮助开发者简化抽取类型的过程。
 
-### 工具类型
+### 工具类型 {#type-util}
 
 现在在 antd 中，我们额外提供了 3 个工具类型：
 
@@ -41,7 +41,7 @@ type SelectOption<T> = NonNullable<SelectProps<T>['options']>[number];
 
 前两者用户帮助开发者抽取组件的 props 类型，最后一个用于抽取组件的 ref 类型。我们可以通过下面的例子来理解这些类型的用法：
 
-#### GetProps 获取属性定义
+#### GetProps 获取属性定义 {#get-props-definition-by-getprops}
 
 antd 中，对于一些组件的子组件定义不一定被导出。你可以直接通过 `GetProps` 来获取：
 
@@ -51,7 +51,7 @@ import type { Checkbox, GetProps } from 'antd';
 type CheckboxGroupType = GetProps<typeof Checkbox.Group>;
 ```
 
-#### GetProp 获取属性类型
+#### GetProp 获取属性类型 {#get-property-type-by-getprop}
 
 对于组件的属性类型，我们可以通过 `GetProp` 来获取。它已经将 `NonNullable` 进行了封装。所以不用再考虑为空的情况：
 
@@ -63,7 +63,7 @@ type SelectOptionType1 = GetProp<SelectProps, 'options'>[number];
 type SelectOptionType2 = GetProp<typeof Select, 'options'>[number];
 ```
 
-#### GetRef 获取 ref 类型
+#### GetRef 获取 ref 类型 {#get-ref-definition-by-getref}
 
 通过 `GetRef`，你不用再记忆组件的 ref 类型到底是 HTMLElement 或者什么特别的定义。直接用就完了：
 
@@ -77,6 +77,6 @@ const Div = forwardRef<HTMLDivElement>((_, ref) => <div ref={ref} />);
 type DomRefType = GetRef<typeof Div>; // HTMLDivElement
 ```
 
-### 最后
+### 最后 {#the-end}
 
 以上就是我们推出的工具类型，希望能够帮助到大家。如果你有更好的想法，欢迎在 GitHub 上提出 issue 或者 PR。

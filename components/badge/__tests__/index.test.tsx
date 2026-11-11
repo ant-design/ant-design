@@ -154,6 +154,14 @@ describe('Badge', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should preserve fractional offset values', () => {
+    const { container } = render(<Badge count={1} offset={[10.5, 20.5]} />);
+    const badge = container.querySelector<HTMLElement>('.ant-badge-count')!;
+
+    expect(badge.style.insetInlineEnd).toBe('-10.5px');
+    expect(badge.style.marginTop).toBe('20.5px');
+  });
+
   // https://github.com/ant-design/ant-design/issues/15349
   it('should color style  works on Badge', () => {
     const { container } = render(

@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Rikiavimas',
     expand: 'Išskleisti',
     collapse: 'Suskleisti',
+    expandAll: 'Išskleisti visas eilutes',
+    collapseAll: 'Suskleisti visas eilutes',
     triggerDesc: 'Spustelėkite norėdami rūšiuoti mažėjančia tvarka',
     triggerAsc: 'Spustelėkite norėdami rūšiuoti didėjančia tvarka',
     cancelSort: 'Spustelėkite, kad atšauktumėte rūšiavimą',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Nukopijuota',
     expand: 'Plačiau',
     collapse: 'Sutraukti',
+  },
+  Carousel: {
+    prevSlide: 'Ankstesnė skaidrė',
+    nextSlide: 'Kita skaidrė',
   },
   Form: {
     optional: '(neprivaloma)',

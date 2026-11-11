@@ -1,12 +1,11 @@
 import * as React from 'react';
 import type { CheckboxRef } from '@rc-component/checkbox';
 import RcCheckbox from '@rc-component/checkbox';
-import { useComposeRef, useControlledState, useEvent } from '@rc-component/util';
+import { isReactRenderable, useComposeRef, useControlledState, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
@@ -81,6 +80,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   props,
   ref,
 ) => {
+  // Pointer events are not part of `CheckboxProps`, but triggers such as Tooltip pass them
   const {
     prefixCls: customizePrefixCls,
 
@@ -89,6 +89,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
 
     onMouseEnter,
     onMouseLeave,
+    onPointerEnter,
+    onPointerLeave,
     skipGroup = false,
     disabled,
 
@@ -111,7 +113,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     onChange,
 
     ...restProps
-  } = props;
+  } = props as CheckboxProps &
+    Pick<React.DOMAttributes<HTMLElement>, 'onPointerEnter' | 'onPointerLeave'>;
   const {
     getPrefixCls,
     direction,
@@ -244,6 +247,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
         style={mergedStyles.root}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
+        onPointerEnter={onPointerEnter}
+        onPointerLeave={onPointerLeave}
         onClick={onLabelClick}
       >
         <RcCheckbox

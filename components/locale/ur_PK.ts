@@ -36,6 +36,8 @@ const localeValues: Locale = {
     sortTitle: 'ترتیب دیں',
     expand: 'پھیلائیں',
     collapse: 'سمیٹیں',
+    expandAll: 'تمام قطاریں پھیلائیں',
+    collapseAll: 'تمام قطاریں سمیٹیں',
     triggerDesc: 'نزولی کو ترتیب دینے کیلئے کلک کریں',
     triggerAsc: 'چڑھنے کو ترتیب دینے کیلئے کلک کریں',
     cancelSort: 'ترتیب کو منسوخ کرنے کیلئے دبائیں',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'کاپی ہوگیا',
     expand: 'پھیلائیں',
     collapse: 'سمٹنا',
+  },
+  Carousel: {
+    prevSlide: 'پچھلی سلائیڈ',
+    nextSlide: 'اگلی سلائیڈ',
   },
   Form: {
     optional: '(اختیاری)',

@@ -31,7 +31,7 @@ https://ant.design/design.md
 
 ## 通过 CLI 获取 {#cli}
 
-如果工具无法直接读取 URL，也可以通过 [`@ant-design/cli`](/docs/react/cli-cn) 获取同一份内容：
+如果工具无法直接读取 URL，也可以通过 [`@ant-design/cli`](/docs/react/cli) 获取同一份内容：
 
 ```bash
 antd design.md
@@ -61,6 +61,6 @@ antd design.md --lang zh      # 中文描述
 
 ## 相关文档 {#related}
 
-- [For Agents](/docs/react/for-agents-cn)
-- [LLMs.txt](/docs/react/llms-cn)
-- [Ant Design CLI](/docs/react/cli-cn)
+- [For Agents](/docs/react/for-agents)
+- [LLMs.txt](/docs/react/llms)
+- [Ant Design CLI](/docs/react/cli)

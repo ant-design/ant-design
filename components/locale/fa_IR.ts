@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'مرتب سازی',
     expand: 'باز شدن ردیف',
     collapse: 'بستن ردیف',
+    expandAll: 'باز کردن همه ردیف‌ها',
+    collapseAll: 'بستن همه ردیف‌ها',
     triggerDesc: 'ترتیب نزولی',
     triggerAsc: 'ترتیب صعودی',
     cancelSort: 'لغوِ ترتیبِ داده شده',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'کپی شد',
     expand: 'توسعه',
     collapse: 'بستن',
+  },
+  Carousel: {
+    prevSlide: 'اسلاید قبلی',
+    nextSlide: 'اسلاید بعدی',
   },
   Form: {
     optional: '(اختیاری)',

@@ -70,6 +70,34 @@ describe('Alert', () => {
     errSpy.mockRestore();
   });
 
+  it('should not close while closable.disabled is true and close after it is false', async () => {
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    const onClose = jest.fn();
+    const afterClose = jest.fn();
+    const { rerender } = render(
+      <Alert title="Notice" closable={{ disabled: true, onClose, afterClose }} />,
+    );
+
+    expect(screen.getByRole('button')).toBeDisabled();
+    await user.click(screen.getByRole('button'));
+    await waitFakeTimer();
+
+    expect(screen.getByRole('alert')).toBeInTheDocument();
+    expect(onClose).not.toHaveBeenCalled();
+    expect(afterClose).not.toHaveBeenCalled();
+
+    rerender(<Alert title="Notice" closable={{ disabled: false, onClose, afterClose }} />);
+
+    expect(screen.getByRole('button')).toBeEnabled();
+    await user.click(screen.getByRole('button'));
+    await waitFakeTimer();
+    fireEvent.transitionEnd(screen.getByRole('alert'));
+
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    expect(onClose).toHaveBeenCalledTimes(1);
+    expect(afterClose).toHaveBeenCalledTimes(1);
+  });
+
   it('custom action', () => {
     const { container } = render(
       <Alert

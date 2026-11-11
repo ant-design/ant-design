@@ -63,7 +63,7 @@ While Refine's integration offers a set of components and hooks, it is not a rep
 
 Refine's integration only provides components and hooks for an easier usage of Ant Design components in combination with Refine's features and functionalities.
 
-## How to Add Ant Design to an Existing Refine Project
+## How to Add Ant Design to an Existing Refine Project {#add-antd-to-refine-project}
 
 You can follow the [Refine Ant Design official guide](https://refine.dev/docs/ui-integrations/ant-design/introduction/) to add Ant Design to an existing Refine project.
 

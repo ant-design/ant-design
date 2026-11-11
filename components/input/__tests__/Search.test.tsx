@@ -1,6 +1,6 @@
 import React from 'react';
 import { EditOutlined, UserOutlined } from '@ant-design/icons';
-import { fireEvent, render } from '@testing-library/react';
+import { createEvent, fireEvent, render } from '@testing-library/react';
 
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -198,6 +198,32 @@ describe('Input.Search', () => {
     expect(onButtonClick).toHaveBeenCalledTimes(1);
   });
 
+  it('should preserve custom button onMouseDown', () => {
+    let defaultPrevented: boolean | undefined;
+    const onMouseDown = jest.fn((event: React.MouseEvent<HTMLButtonElement>) => {
+      defaultPrevented = event.defaultPrevented;
+    });
+    const ref = React.createRef<InputRef>();
+    const { getByRole } = render(
+      <Search
+        ref={ref}
+        enterButton={
+          <button type="button" onMouseDown={onMouseDown}>
+            search
+          </button>
+        }
+      />,
+      { container: document.body },
+    );
+
+    ref.current?.focus();
+    const event = createEvent.mouseDown(getByRole('button'));
+    fireEvent(getByRole('button'), event);
+    expect(onMouseDown).toHaveBeenCalledTimes(1);
+    expect(defaultPrevented).toBe(false);
+    expect(event.defaultPrevented).toBe(true);
+  });
+
   it('should trigger onSearch when press enter', () => {
     const onSearch = jest.fn();
     const { container } = render(<Search defaultValue="search text" onSearch={onSearch} />);
@@ -300,6 +326,13 @@ describe('Input.Search', () => {
   // https://github.com/ant-design/ant-design/issues/27258
   it('Search with allowClear should have one className only', () => {
     const { container } = render(<Search allowClear className="bamboo" />);
+    expect(container.querySelectorAll('.bamboo')).toHaveLength(1);
+    expect(container.querySelector('.ant-input-search')).toHaveClass('bamboo');
+    expect(container.querySelector('.ant-input-affix-wrapper')).not.toHaveClass('bamboo');
+  });
+
+  it('Search with allowClear should have one rootClassName only', () => {
+    const { container } = render(<Search allowClear rootClassName="bamboo" />);
     expect(container.querySelectorAll('.bamboo')).toHaveLength(1);
     expect(container.querySelector('.ant-input-search')).toHaveClass('bamboo');
     expect(container.querySelector('.ant-input-affix-wrapper')).not.toHaveClass('bamboo');

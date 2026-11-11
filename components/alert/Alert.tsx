@@ -5,15 +5,16 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import CSSMotion from '@rc-component/motion';
-import { composeRef, pickAttrs } from '@rc-component/util';
+import { composeRef, isNonNullable, isReactRenderable, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { ClosableType } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable, isPlainObject, isReactRenderable } from '../_util/is';
+import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
+import useVariant from '../form/hooks/useVariants';
 import useStyle from './style';
 
 export interface AlertRef {
@@ -76,8 +77,8 @@ export interface AlertProps {
    * @deprecated please use `closable.onClose` instead.
    */
   onClose?: React.MouseEventHandler<HTMLButtonElement>;
-  /** Trigger when animation ending of Alert */
   /**
+   * Trigger when animation ending of Alert
    * @deprecated please use `closable.afterClose` instead.
    */
   afterClose?: () => void;
@@ -108,8 +109,6 @@ export interface AlertProps {
 interface IconNodeProps {
   type: AlertProps['type'];
   icon: AlertProps['icon'];
-  prefixCls: AlertProps['prefixCls'];
-  description: AlertProps['description'];
   className?: string;
   style?: React.CSSProperties;
   successIcon?: React.ReactNode;
@@ -135,6 +134,7 @@ const IconNode: React.FC<IconNodeProps> = (props) => {
 
 type CloseIconProps = {
   isClosable: boolean;
+  disabled?: boolean;
   prefixCls: AlertProps['prefixCls'];
   closeIcon: AlertProps['closeIcon'];
   handleClose: AlertProps['onClose'];
@@ -144,15 +144,16 @@ type CloseIconProps = {
 };
 
 const CloseIconNode: React.FC<CloseIconProps> = (props) => {
-  const { isClosable, prefixCls, closeIcon, handleClose, ariaProps, className, style } = props;
+  const { isClosable, disabled, prefixCls, closeIcon, handleClose, ariaProps, className, style } =
+    props;
   const mergedCloseIcon =
     closeIcon === true || closeIcon === undefined ? <CloseOutlined /> : closeIcon;
   return isClosable ? (
     <button
       type="button"
+      disabled={disabled}
       onClick={handleClose}
       className={clsx(`${prefixCls}-close-icon`, className)}
-      tabIndex={0}
       style={style}
       {...ariaProps}
     >
@@ -209,7 +210,6 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
   const {
     getPrefixCls,
     direction,
-    variant: contextVariant,
     closable: contextClosable,
     closeIcon: contextCloseIcon,
     className: contextClassName,
@@ -226,9 +226,11 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const { onClose: closableOnClose, afterClose: closableAfterClose } = isPlainObject(closable)
-    ? closable
-    : {};
+  const {
+    onClose: closableOnClose,
+    afterClose: closableAfterClose,
+    disabled: closeBtnIsDisabled,
+  } = isPlainObject(closable) ? closable : {};
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClosed(true);
@@ -243,7 +245,10 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     return banner ? 'warning' : 'info';
   }, [props.type, banner]);
 
-  const mergedVariant = props.variant ?? contextVariant ?? 'outlined';
+  const [mergedVariant] = useVariant('alert', props.variant, {
+    variants: ['outlined', 'filled'],
+    defaultVariant: 'outlined',
+  });
 
   // closeable when closeText or closeIcon is assigned
   const isClosable = React.useMemo<boolean>(() => {
@@ -361,9 +366,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
             <IconNode
               className={clsx(`${prefixCls}-icon`, mergedClassNames.icon)}
               style={mergedStyles.icon}
-              description={description}
               icon={props.icon}
-              prefixCls={prefixCls}
               type={type}
               successIcon={successIcon}
               infoIcon={infoIcon}
@@ -404,6 +407,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
             className={mergedClassNames.close}
             style={mergedStyles.close}
             isClosable={isClosable}
+            disabled={closeBtnIsDisabled}
             prefixCls={prefixCls}
             closeIcon={mergedCloseIcon}
             handleClose={handleClose}

@@ -22,9 +22,10 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
+import { useLocale } from '../locale';
+import usePopupRender from '../select/usePopupRender';
 import Spin from '../spin';
 import useStyle from './style';
-import usePopupRender from '../select/usePopupRender';
 
 export const { Option } = RcMentions;
 
@@ -35,8 +36,10 @@ function loadingFilterOption() {
 export type MentionPlacement = 'top' | 'bottom';
 
 export type MentionsOptionProps = NonNullable<RcMentionsProps['options']>[number];
+
 type RcMentionsRef = React.ComponentRef<typeof RcMentions>;
 
+/** @deprecated Please use the `options` prop with `MentionsOptionProps` instead. */
 export interface OptionProps {
   value: string;
   children: React.ReactNode;
@@ -185,7 +188,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     if (notFoundContent !== undefined) {
       return notFoundContent;
     }
-    return renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
+    return renderEmpty?.('Mentions') || <DefaultRenderEmpty componentName="Mentions" />;
   }, [notFoundContent, renderEmpty]);
 
   const mentionOptions = React.useMemo<React.ReactNode>(() => {
@@ -211,11 +214,13 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const mentionsfilterOption = loading ? loadingFilterOption : filterOption;
 
+  const [locale] = useLocale('global');
   const mergedAllowClear = useAllowClear({
     allowClear,
     contextAllowClear,
     defaultAllowClear: false,
     componentName: 'Mentions',
+    defaultLabel: locale.clear,
   });
 
   // Style

@@ -66,6 +66,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     prefixCls: customizePrefixCls,
     inputPrefixCls: customizeInputPrefixCls,
     className,
+    rootClassName,
     size: customizeSize,
     style,
     enterButton = false,
@@ -187,12 +188,15 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   if (isAntdButton || enterButtonAsElement.type === 'button') {
     const enterButtonProps = enterButtonAsElement.props as Pick<
       ButtonProps,
-      'className' | 'disabled' | 'loading'
+      'className' | 'disabled' | 'loading' | 'onMouseDown'
     >;
 
     button = cloneElement(enterButtonAsElement, {
       disabled: mergedDisabled || enterButtonProps.disabled || (!isAntdButton && loading),
-      onMouseDown,
+      onMouseDown: (e: React.MouseEvent<HTMLElement>) => {
+        enterButtonProps.onMouseDown?.(e);
+        onMouseDown(e);
+      },
       onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
         (
           enterButtonAsElement as React.ReactElement<{
@@ -250,6 +254,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
       [`${prefixCls}-with-button`]: !!enterButton,
     },
     className,
+    rootClassName,
     contextClassName,
     hashId,
     mergedClassNames.root,

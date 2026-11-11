@@ -353,7 +353,7 @@ const genDropdownStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
           margin: 0,
           padding: `${unit(token.paddingXXS)} ${unit(token.paddingSM)}`,
           color: token.colorText,
-          fontWeight: 'normal',
+          fontWeight: 400,
           fontSize: token.fontSize,
           lineHeight: token.lineHeight,
           cursor: 'pointer',
@@ -825,7 +825,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
         cursor: 'not-allowed',
       },
 
-      [`&${tabCls}-disabled ${tabCls}-btn, &${tabCls}-disabled ${componentCls}-remove`]: {
+      [`&${tabCls}-disabled ${tabCls}-btn`]: {
         '&:focus, &:active': {
           color: token.colorTextDisabled,
         },
@@ -938,15 +938,6 @@ const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
 
     [`${componentCls}-dropdown-rtl`]: {
       direction: 'rtl',
-    },
-
-    [`${componentCls}-menu-item`]: {
-      [`${componentCls}-dropdown-rtl`]: {
-        textAlign: {
-          _skip_check_: true,
-          value: 'right',
-        },
-      },
     },
   };
 };

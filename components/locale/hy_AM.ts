@@ -1,3 +1,5 @@
+import Pagination from '@rc-component/pagination/locale/hy_AM';
+
 import type { Locale } from '.';
 import type { PickerLocale } from '../date-picker/generatePicker';
 
@@ -7,7 +9,15 @@ const datePickerLocale: PickerLocale = {
   lang: {
     locale: 'hy-am',
     placeholder: 'Ընտրեք ամսաթիվը',
+    yearPlaceholder: 'Ընտրեք տարին',
+    quarterPlaceholder: 'Ընտրեք եռամսյակը',
+    monthPlaceholder: 'Ընտրեք ամիսը',
+    weekPlaceholder: 'Ընտրեք շաբաթը',
     rangePlaceholder: ['Մեկնարկի ամսաթիվ', 'Ավարտի ամսաթիվը'],
+    rangeYearPlaceholder: ['Մեկնարկի տարին', 'Ավարտի տարին'],
+    rangeQuarterPlaceholder: ['Մեկնարկի եռամսյակը', 'Ավարտի եռամսյակը'],
+    rangeMonthPlaceholder: ['Մեկնարկի ամիսը', 'Ավարտի ամիսը'],
+    rangeWeekPlaceholder: ['Մեկնարկի շաբաթը', 'Ավարտի շաբաթը'],
     today: 'Այսօր',
     now: 'Հիմա',
     backToToday: 'Վերադառնալ այսօր',
@@ -36,29 +46,17 @@ const datePickerLocale: PickerLocale = {
   },
   timePickerLocale: {
     placeholder: 'Ընտրեք ժամը',
+    rangePlaceholder: ['Մեկնարկի ժամը', 'Ավարտի ժամը'],
   },
 };
 
 const localeValues: Locale = {
   locale: 'hy-am',
-  Pagination: {
-    // Options.jsx
-    items_per_page: '/ էջ',
-    jump_to: 'Գնալ',
-    jump_to_confirm: 'հաստատել',
-    page: '',
-
-    // Pagination.jsx
-    prev_page: 'Նախորդ Էջ',
-    next_page: 'Հաջորդ Էջ',
-    prev_5: 'Նախորդ 5 Էջերը',
-    next_5: 'Հաջորդ 5 Էջերը',
-    prev_3: 'Նախորդ 3 Էջերը',
-    next_3: 'Հաջորդ 3 Էջերը',
-  },
+  Pagination,
   DatePicker: datePickerLocale,
   TimePicker: {
     placeholder: 'Ընտրեք ժամը',
+    rangePlaceholder: ['Մեկնարկի ժամը', 'Ավարտի ժամը'],
   },
   Calendar: datePickerLocale,
   global: {
@@ -77,6 +75,8 @@ const localeValues: Locale = {
     sortTitle: 'Տեսակավորել',
     expand: 'Ընդլայնեք տողը',
     collapse: 'Կրճատել տողը',
+    expandAll: 'Ընդլայնել բոլոր տողերը',
+    collapseAll: 'Կրճատել բոլոր տողերը',
     filterEmptyText: 'Զտիչներ չկան',
     filterCheckAll: 'Ընտրեք բոլոր տարրերը',
     filterSearchPlaceholder: 'Որոնել ֆիլտրերում',
@@ -140,6 +140,10 @@ const localeValues: Locale = {
     copied: 'Պատճենվել է',
     expand: 'Տեսնել ավելին',
     collapse: 'Փլուզում',
+  },
+  Carousel: {
+    prevSlide: 'Նախորդ սլայդը',
+    nextSlide: 'Հաջորդ սլայդը',
   },
   Form: {
     optional: '(ոչ պարտադիր)',

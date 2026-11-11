@@ -44,7 +44,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 
 整体步骤条。
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | current | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | number | 0 |  | × |
@@ -62,7 +62,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | titlePlacement | 指定标签放置位置，默认水平放图标右侧，可选 `vertical` 放图标下方 | string | `horizontal` |  | × |
 | type | 步骤条类型，可选 `default` `dot` `inline` `navigation` `panel` | string | `default` |  | × |
-| variant | 设置样式变体 | `filled` \| `outlined` | `filled` |  | × |
+| variant | 设置样式变体 | `filled` \| `outlined` | `filled` |  | 6.7.0 |
 | onChange | 点击切换步骤时触发 | (current) => void | - |  | × |
 | items | 配置选项卡内容 | [StepItem](#stepitem) | [] | 4.24.0 | × |
 

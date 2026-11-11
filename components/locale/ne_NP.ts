@@ -1,4 +1,4 @@
-import Pagination from '@rc-component/pagination/locale/en_US';
+import Pagination from '@rc-component/pagination/locale/ne_NP';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/en_US';
@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'क्रमबद्ध',
     expand: 'पङ्क्ति विस्तार गर्नुहोस्',
     collapse: 'पङ्क्ति बन्द गर्नुहोस्',
+    expandAll: 'सबै पङ्क्तिहरू विस्तार गर्नुहोस्',
+    collapseAll: 'सबै पङ्क्तिहरू बन्द गर्नुहोस्',
     triggerDesc: 'तल क्रमबद्ध गर्न क्लिक गर्नुहोस्',
     triggerAsc: 'बढ्दो अर्डर गर्न क्लिक गर्नुहोस्',
     cancelSort: 'क्रमबद्ध नगर्नुहोस्',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'सफलतापूर्वक प्रतिलिपि गरियो',
     expand: 'विस्तार गर्नुहोस्',
     collapse: 'बन्द',
+  },
+  Carousel: {
+    prevSlide: 'अघिल्लो स्लाइड',
+    nextSlide: 'अर्को स्लाइड',
   },
   Form: {
     optional: '（ऐच्छिक）',

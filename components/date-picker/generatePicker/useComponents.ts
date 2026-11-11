@@ -6,8 +6,8 @@ import PickerButton from '../PickerButton';
 export default function useComponents(components?: Components) {
   return useMemo(
     () => ({
-      button: PickerButton,
       ...components,
+      okButton: components?.okButton ?? components?.button ?? PickerButton,
     }),
     [components],
   );

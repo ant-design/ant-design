@@ -134,7 +134,7 @@ const ColorPickerPanel: React.FC<InternalColorPickerPanelProps> = (props) => {
 
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-  const rtlCls = { [`${prefixCls}-rtl`]: direction };
+  const rtlCls = { [`${prefixCls}-rtl`]: direction === 'rtl' };
   const mergedRootCls = clsx(rootClassName, cssVarCls, rootCls, rtlCls);
   const mergedCls = clsx(
     prefixCls,

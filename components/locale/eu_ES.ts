@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Ordenatu',
     expand: 'Zabaldu',
     collapse: 'Itxi',
+    expandAll: 'Zabaldu errenkada guztiak',
+    collapseAll: 'Itxi errenkada guztiak',
     triggerDesc: 'Egin klik beheranzko ordenean ordenatzeko',
     triggerAsc: 'Egin klik goranzko ordenean ordenatzeko',
     cancelSort: 'Egin klik ordenamendua ezeztatzeko',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Kopiatuta',
     expand: 'Zabaldu',
     collapse: 'Tolestu',
+  },
+  Carousel: {
+    prevSlide: 'Aurreko diapositiba',
+    nextSlide: 'Hurrengo diapositiba',
   },
   Form: {
     optional: '(aukerakoa)',

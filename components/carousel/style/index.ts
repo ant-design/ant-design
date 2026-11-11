@@ -81,10 +81,6 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = (token) => {
           outline: 'none',
         },
 
-        '&.dragging': {
-          cursor: 'pointer',
-        },
-
         '.slick-slide': {
           pointerEvents: 'none',
 
@@ -134,10 +130,6 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = (token) => {
 
         img: {
           display: 'block',
-        },
-
-        '&.dragging img': {
-          pointerEvents: 'none',
         },
       },
 
@@ -445,15 +437,6 @@ const genCarouselRtlStyle: GenerateStyle<CarouselToken> = (token) => {
     {
       [`${componentCls}-rtl`]: {
         direction: 'rtl',
-      },
-    },
-    {
-      [`${componentCls}-vertical`]: {
-        '.slick-dots': {
-          [`${componentCls}-rtl&`]: {
-            flexDirection: 'column',
-          },
-        },
       },
     },
   ];

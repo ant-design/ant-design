@@ -41,6 +41,8 @@ const localeValues: Locale = {
     selectionMenu: 'Valintavalikko',
     expand: 'Laajenna riviä',
     collapse: 'Tiivistä rivi',
+    expandAll: 'Laajenna kaikki rivit',
+    collapseAll: 'Tiivistä kaikki rivit',
   },
   Tour: {
     Next: 'Seuraava',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Kopioitu',
     expand: 'Näytä lisää',
     collapse: 'Kutista',
+  },
+  Carousel: {
+    prevSlide: 'Edellinen dia',
+    nextSlide: 'Seuraava dia',
   },
   Form: {
     optional: '(valinnainen)',

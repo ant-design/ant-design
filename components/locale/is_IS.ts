@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Raða',
     expand: 'Stækkaðu röð',
     collapse: 'Draga saman röð',
+    expandAll: 'Stækka allar raðir',
+    collapseAll: 'Draga saman allar raðir',
     triggerDesc: 'Smelltu til að raða lækkandi',
     triggerAsc: 'Smelltu til að flokka hækkandi',
     cancelSort: 'Smelltu til að hætta við flokkun',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Afritað',
     expand: 'Stækkaðu',
     collapse: 'Hrun',
+  },
+  Carousel: {
+    prevSlide: 'Fyrri skyggna',
+    nextSlide: 'Næsta skyggna',
   },
   Form: {
     optional: '（Valfrjálst）',

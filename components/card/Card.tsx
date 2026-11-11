@@ -1,11 +1,10 @@
 import * as React from 'react';
 import type { Tab, TabBarExtraContent } from '@rc-component/tabs';
-import { omit, toArray } from '@rc-component/util';
+import { isReactRenderable, omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isReactRenderable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
@@ -185,6 +184,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   }
 
   const onTabChange = (key: string) => {
+    tabProps.onChange?.(key);
     props.onTabChange?.(key);
   };
 
@@ -209,7 +209,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     ...tabProps,
     [hasActiveTabKey ? 'activeKey' : 'defaultActiveKey']: hasActiveTabKey
       ? activeTabKey
-      : defaultActiveTabKey,
+      : (defaultActiveTabKey ?? tabProps.defaultActiveKey),
     tabBarExtraContent,
   };
 

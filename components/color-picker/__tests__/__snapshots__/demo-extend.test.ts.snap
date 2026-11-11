@@ -164,6 +164,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -540,6 +541,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -921,6 +923,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -1294,6 +1297,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -1675,6 +1679,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -1973,6 +1978,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -2289,6 +2295,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -2677,6 +2684,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -3271,6 +3279,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -3798,10 +3807,9 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       </div>
                     </label>
                     <label
-                      class="ant-segmented-item ant-segmented-item-selected"
+                      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
                     >
                       <input
-                        checked=""
                         class="ant-segmented-item-input"
                         name="test-id"
                         type="radio"
@@ -3968,6 +3976,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -4398,6 +4407,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -4751,6 +4761,7 @@ exports[`renders components/color-picker/demo/panel.tsx extend context correctly
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -5159,6 +5170,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           class="ant-select-suffix"
                         >
                           <span
+                            aria-hidden="true"
                             aria-label="down"
                             class="anticon anticon-down"
                             role="img"
@@ -5449,6 +5461,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           class="ant-collapse-item ant-collapse-item-active"
                         >
                           <div
+                            aria-controls="test-id"
                             aria-disabled="false"
                             aria-expanded="true"
                             class="ant-collapse-header"
@@ -5492,6 +5505,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           </div>
                           <div
                             class="ant-collapse-panel ant-collapse-panel-active"
+                            id="test-id"
                           >
                             <div
                               class="ant-collapse-body"
@@ -5587,6 +5601,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           class="ant-collapse-item ant-collapse-item-active"
                         >
                           <div
+                            aria-controls="test-id"
                             aria-disabled="false"
                             aria-expanded="true"
                             class="ant-collapse-header"
@@ -5630,6 +5645,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           </div>
                           <div
                             class="ant-collapse-panel ant-collapse-panel-active"
+                            id="test-id"
                           >
                             <div
                               class="ant-collapse-body"
@@ -5725,6 +5741,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           class="ant-collapse-item ant-collapse-item-active"
                         >
                           <div
+                            aria-controls="test-id"
                             aria-disabled="false"
                             aria-expanded="true"
                             class="ant-collapse-header"
@@ -5768,6 +5785,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           </div>
                           <div
                             class="ant-collapse-panel ant-collapse-panel-active"
+                            id="test-id"
                           >
                             <div
                               class="ant-collapse-body"
@@ -5863,6 +5881,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           class="ant-collapse-item ant-collapse-item-active"
                         >
                           <div
+                            aria-controls="test-id"
                             aria-disabled="false"
                             aria-expanded="true"
                             class="ant-collapse-header"
@@ -5906,6 +5925,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           </div>
                           <div
                             class="ant-collapse-panel ant-collapse-panel-active"
+                            id="test-id"
                           >
                             <div
                               class="ant-collapse-body"
@@ -6122,6 +6142,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           class="ant-select-suffix"
                         >
                           <span
+                            aria-hidden="true"
                             aria-label="down"
                             class="anticon anticon-down"
                             role="img"
@@ -6502,6 +6523,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -6728,6 +6750,7 @@ Array [
                   class="ant-collapse-item ant-collapse-item-active"
                 >
                   <div
+                    aria-controls="test-id"
                     aria-disabled="false"
                     aria-expanded="true"
                     class="ant-collapse-header"
@@ -6771,6 +6794,7 @@ Array [
                   </div>
                   <div
                     class="ant-collapse-panel ant-collapse-panel-active"
+                    id="test-id"
                   >
                     <div
                       class="ant-collapse-body"
@@ -6866,6 +6890,7 @@ Array [
                   class="ant-collapse-item ant-collapse-item-active"
                 >
                   <div
+                    aria-controls="test-id"
                     aria-disabled="false"
                     aria-expanded="true"
                     class="ant-collapse-header"
@@ -6909,6 +6934,7 @@ Array [
                   </div>
                   <div
                     class="ant-collapse-panel ant-collapse-panel-active"
+                    id="test-id"
                   >
                     <div
                       class="ant-collapse-body"
@@ -7004,6 +7030,7 @@ Array [
                   class="ant-collapse-item ant-collapse-item-active"
                 >
                   <div
+                    aria-controls="test-id"
                     aria-disabled="false"
                     aria-expanded="true"
                     class="ant-collapse-header"
@@ -7047,6 +7074,7 @@ Array [
                   </div>
                   <div
                     class="ant-collapse-panel ant-collapse-panel-active"
+                    id="test-id"
                   >
                     <div
                       class="ant-collapse-body"
@@ -7310,6 +7338,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -7698,6 +7727,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -8071,6 +8101,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -8444,6 +8475,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -8830,6 +8862,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -9208,6 +9241,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -9586,6 +9620,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         class="ant-select-suffix"
                       >
                         <span
+                          aria-hidden="true"
                           aria-label="down"
                           class="anticon anticon-down"
                           role="img"
@@ -9966,6 +10001,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       class="ant-select-suffix"
                     >
                       <span
+                        aria-hidden="true"
                         aria-label="down"
                         class="anticon anticon-down"
                         role="img"
@@ -10335,6 +10371,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       class="ant-select-suffix"
                     >
                       <span
+                        aria-hidden="true"
                         aria-label="down"
                         class="anticon anticon-down"
                         role="img"
@@ -10733,6 +10770,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -11113,6 +11151,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -11510,6 +11549,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -11884,6 +11924,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -12260,6 +12301,7 @@ Array [
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"

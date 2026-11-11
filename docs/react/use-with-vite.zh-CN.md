@@ -7,7 +7,7 @@ title: 在 Vite 中使用
 
 [Vite](https://cn.vitejs.dev/) 是业界最优秀的 React 应用开发工具之一，本文会尝试在 Vite 创建的工程中使用 `antd` 组件，并自定义 Vite 的配置以满足各类工程化需求。
 
-## 安装和初始化
+## 安装和初始化 {#install-and-initialization}
 
 在开始之前，你可能需要安装 [yarn](https://github.com/yarnpkg/yarn/) 或者 [pnpm](https://pnpm.io/zh/) 或者 [bun](https://bun.sh/)。
 
@@ -25,7 +25,7 @@ $ npm run dev
 
 此时使用浏览器访问 http://localhost:5173/ ，看到 `Vite + React` 的界面就算成功了。
 
-## 引入 antd
+## 引入 antd {#import-antd}
 
 这是 vite 生成的默认目录结构。
 

@@ -3,7 +3,7 @@ import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import CSSMotion from '@rc-component/motion';
-import { useDelayState } from '@rc-component/util';
+import { isReactRenderable, useDelayState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isFunction } from '../../_util/is';
@@ -47,6 +47,7 @@ export interface ListItemProps {
   ) => React.ReactNode;
   itemRender?: ItemRender;
   onPreview: (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => void;
+  hasPreview?: boolean;
   onClose: (file: UploadFile) => void;
   onDownload: (file: UploadFile) => void;
   progress?: UploadListProgressProps;
@@ -77,6 +78,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       downloadIcon: customDownloadIcon,
       extra: customExtra,
       onPreview,
+      hasPreview,
       onDownload,
       onClose,
     },
@@ -178,7 +180,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     );
 
     const extraContent = isFunction(customExtra) ? customExtra(file) : customExtra;
-    const extra = extraContent && (
+    const extra = isReactRenderable(extraContent) && (
       <span className={`${prefixCls}-list-item-extra`}>{extraContent}</span>
     );
 
@@ -189,6 +191,14 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         onPreview(file, e);
       }
     };
+    const spanProps: React.HTMLAttributes<HTMLSpanElement> = hasPreview
+      ? {
+          role: 'button',
+          tabIndex: 0,
+          onClick: (e) => onPreview(file, e),
+          onKeyDown: onPreviewKeyDown,
+        }
+      : {};
     const fileName = file.url ? (
       <a
         key="view"
@@ -198,21 +208,18 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         title={file.name}
         {...linkProps}
         href={file.url}
-        onClick={(e) => onPreview(file, e)}
+        onClick={(e) => {
+          linkProps?.onClick?.(e);
+          if (!e.defaultPrevented) {
+            onPreview(file, e);
+          }
+        }}
       >
         {file.name}
         {extra}
       </a>
     ) : (
-      <span
-        key="view"
-        role="button"
-        tabIndex={0}
-        className={listItemNameClass}
-        onClick={(e) => onPreview(file, e)}
-        onKeyDown={onPreviewKeyDown}
-        title={file.name}
-      >
+      <span key="view" className={listItemNameClass} {...spanProps} title={file.name}>
         {file.name}
         {extra}
       </span>

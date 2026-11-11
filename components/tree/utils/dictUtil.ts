@@ -1,8 +1,8 @@
 import type React from 'react';
 import { fillFieldNames } from '@rc-component/tree';
 import type { DataNode } from '@rc-component/tree';
+import { isNonNullable } from '@rc-component/util';
 
-import { isNonNullable } from '../../_util/is';
 import type { TreeProps } from '../Tree';
 
 const RECORD_NONE = 0;
@@ -61,7 +61,7 @@ export function calcRangeKeys({
 
   traverseNodesKey(
     treeData,
-    (key) => {
+    (key, node) => {
       if (record === RECORD_END) {
         return false;
       }
@@ -76,7 +76,7 @@ export function calcRangeKeys({
           record = RECORD_END;
           return false;
         }
-      } else if (record === RECORD_START) {
+      } else if (record === RECORD_START && !node.disabled && node.selectable !== false) {
         // Append selection
         keys.push(key as any);
       }

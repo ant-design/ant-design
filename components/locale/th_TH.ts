@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'เรียง',
     expand: 'แสดงแถวข้อมูล',
     collapse: 'ย่อแถวข้อมูล',
+    expandAll: 'ขยายแถวทั้งหมด',
+    collapseAll: 'ย่อแถวทั้งหมด',
     triggerDesc: 'คลิกเรียงจากมากไปน้อย',
     triggerAsc: 'คลิกเรียงจากน้อยไปมาก',
     cancelSort: 'คลิกเพื่อยกเลิกการเรียง',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'คัดลอกแล้ว',
     expand: 'ขยาย',
     collapse: 'ย่อ',
+  },
+  Carousel: {
+    prevSlide: 'สไลด์ก่อนหน้า',
+    nextSlide: 'สไลด์ถัดไป',
   },
   Form: {
     optional: '(ไม่จำเป็น)',

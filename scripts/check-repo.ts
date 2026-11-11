@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import fetch from 'isomorphic-fetch';
 import ora from 'ora';
-import simpleGit from 'simple-git';
+import { simpleGit } from 'simple-git';
 import type { StatusResult } from 'simple-git';
 
 import { version } from '../package.json';

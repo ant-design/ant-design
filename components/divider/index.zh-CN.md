@@ -34,7 +34,7 @@ group:
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | children | 嵌套的标题 | ReactNode | - |  | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
@@ -46,7 +46,7 @@ group:
 | size | 间距大小，仅对水平布局有效 | `small` \| `medium` \| `large` | - | 5.25.0 | × |
 | titlePlacement | 分割线标题的位置 | `start` \| `end` \| `center` | `center` | - | × |
 | ~~type~~ | 水平还是垂直类型 | `horizontal` \| `vertical` | `horizontal` | - | × |
-| variant | 分割线是虚线、点线还是实线 | `dashed` \| `dotted` \| `solid` | solid | 5.20.0 | × |
+| variant | 分割线是虚线、点线还是实线 | `dashed` \| `dotted` \| `solid` | solid | 5.20.0 | 6.7.0 |
 | vertical | 是否垂直，和 orientation 同时配置以 orientation 优先 | boolean | false | - | × |
 
 ## Semantic DOM

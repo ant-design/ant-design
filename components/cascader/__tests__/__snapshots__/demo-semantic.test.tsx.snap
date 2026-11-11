@@ -29,7 +29,6 @@ exports[`renders components/cascader/demo/_semantic.tsx correctly 1`] = `
               class="ant-segmented-item"
             >
               <input
-                checked=""
                 class="ant-segmented-item-input"
                 name="test-id"
                 type="radio"
@@ -42,7 +41,7 @@ exports[`renders components/cascader/demo/_semantic.tsx correctly 1`] = `
               </div>
             </label>
             <label
-              class="ant-segmented-item ant-segmented-item-selected"
+              class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
             >
               <input
                 class="ant-segmented-item-input"
@@ -135,8 +134,10 @@ exports[`renders components/cascader/demo/_semantic.tsx correctly 1`] = `
           </div>
           <div
             class="ant-select-suffix semantic-mark-suffix"
+            style="margin-inline-end: 24px;"
           >
             <span
+              aria-hidden="true"
               aria-label="down"
               class="anticon anticon-down"
               role="img"
@@ -159,6 +160,7 @@ exports[`renders components/cascader/demo/_semantic.tsx correctly 1`] = `
           <button
             aria-label="Clear"
             class="ant-select-clear semantic-mark-clear"
+            style="opacity: 1;"
             type="button"
           >
             <span

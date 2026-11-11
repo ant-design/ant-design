@@ -36,7 +36,7 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
       // ======================== Selection ========================
       [`${componentCls}-selection-item`]: {
         flex: 1,
-        fontWeight: 'normal',
+        fontWeight: 400,
         position: 'relative',
         userSelect: 'none',
         ...textEllipsis,

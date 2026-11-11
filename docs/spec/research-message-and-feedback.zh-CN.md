@@ -7,11 +7,11 @@ title: 消息与反馈
 
 用于在必要时向用户反馈操作结果或传达消息。
 
-## 设计目标
+## 设计目标 {#design-goals}
 
 在不同事件下用户都能感知与操作场景和紧急程度匹配的结果反馈或消息提示，做到合理有效的信息传达。
 
-## 反馈方式
+## 反馈方式 {#feedback-methods}
 
 在设计时需要考虑用户试图完成的任务以及需要引起注意的方式，采用何种反馈方式。反馈方式列举如下图：
 
@@ -19,15 +19,15 @@ title: 消息与反馈
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*SKfjS7vyRP4AAAAAAAAAAABkARQnAQ">
 </div>
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 <div>
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vv37RaVAXhAAAAAAAAAAAABkARQnAQ">
 </div>
 
-### 成功
+### 成功 {#success}
 
-#### 留在原地
+#### 留在原地 {#stay-in-place}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*qQ8NTKMH-2IAAAAAAAAAAABkARQnAQ">
@@ -47,7 +47,7 @@ title: 消息与反馈
 
 在不希望在用户执行操作时中断用户前提下显示一条简短的成功消息。
 
-#### 跳转
+#### 跳转 {#redirect}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0EdyRa7WeUAAAAAAAAAAAABkARQnAQ">
@@ -68,9 +68,9 @@ title: 消息与反馈
 
 在不希望在用户执行操作时中断用户前提下显示一条简短的成功消息。
 
-### 失败
+### 失败 {#failure}
 
-#### 留在原地
+#### 留在原地 {#stay-in-place-1}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*S03WS5uHqDsAAAAAAAAAAABkARQnAQ">
@@ -113,7 +113,7 @@ title: 消息与反馈
 - 向用户告知重要的问题或失败状态，希望用户立马做出决策；
 - 反馈后台进程失败&告警结果。
 
-#### 跳转
+#### 跳转 {#redirect-1}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*7ES2TrY6UJgAAAAAAAAAAABkARQnAQ">
@@ -124,7 +124,7 @@ title: 消息与反馈
 - 长流程步骤表单最后出现第三方原因造成的失败结果（例如应用引擎创建失败）；
 - 需要展示失败详情。
 
-### 后台操作
+### 后台操作 {#background-operations}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*owL_SK1xmggAAAAAAAAAAABkARQnAQ">

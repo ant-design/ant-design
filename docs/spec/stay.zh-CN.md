@@ -13,7 +13,7 @@ title: 足不出户
 
 ---
 
-## 覆盖层
+## 覆盖层 {#overlays}
 
 <FlexWithImagePreview justify='space-between' title='二次确认覆盖层：避免滥用 Modal 进行二次确认，应该勇敢的让用户去尝试，给用户机会「撤销」即可。' description=''>
  <img class="preview-img good" alt="推荐示例" description="用户点击「删除」后，直接操作；出现 Message 告知用户操作成功，并提供用户「撤销」的按钮；用户进行下一个操作或者 1 分钟内不进行任何操作， Message 消失，用户无法再「撤销」。" src="https://gw.alipayobjects.com/zos/rmsportal/YfhMlEIayfwnxiILcebI.png">
@@ -37,7 +37,7 @@ title: 足不出户
 
 ---
 
-## 嵌入层
+## 嵌入层 {#inlays}
 
 <FlexWithImagePreview justify='space-between' title='列表嵌入层：在列表中，显示某条列表项的详情信息，保持上下文不中断。' description=''>
  <img class="preview-img" alt="列表嵌入层示例" src="https://gw.alipayobjects.com/zos/rmsportal/TgoEocLVYXfMKzFGwJar.png">
@@ -53,7 +53,7 @@ title: 足不出户
 
 ---
 
-## 虚拟页面
+## 虚拟页面 {#virtual-pages}
 
 在交互过程中，「覆盖层」可以在当前页面上方显示附加内容和交互链接；「嵌入层」可以在页面内部实现同样效果；而「虚拟页面」不局限机械时代的「页面」，可以利用信息时代的特点构建一种新型「页面」。
 
@@ -61,7 +61,7 @@ title: 足不出户
 
 ---
 
-## 流程处理
+## 流程处理 {#process-flows}
 
 长期以来，Web 实现流程的方式就是把每个步骤放在一个单独的页面上。虽然这种做法是分解问题最简单的方式，但并不是最佳解决方案。对于某些「流程处理」而言，让用户始终待在同一个页面上则更有必要。
 

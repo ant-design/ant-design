@@ -35,6 +35,8 @@ const localeValues: Locale = {
     sortTitle: 'Sırala',
     expand: 'Satırı genişlet',
     collapse: 'Satırı daralt',
+    expandAll: 'Tüm satırları genişlet',
+    collapseAll: 'Tüm satırları daralt',
     triggerDesc: 'Azalan düzende sırala',
     triggerAsc: 'Artan düzende sırala',
     cancelSort: 'Sıralamayı kaldır',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Kopyalandı',
     expand: 'Genişlet',
     collapse: 'Daralt',
+  },
+  Carousel: {
+    prevSlide: 'Önceki slayt',
+    nextSlide: 'Sonraki slayt',
   },
   Form: {
     optional: '(opsiyonel)',

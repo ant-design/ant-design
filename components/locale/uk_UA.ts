@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Сортувати',
     expand: 'Розгорнути рядок',
     collapse: 'Згорнути рядок',
+    expandAll: 'Розгорнути всі рядки',
+    collapseAll: 'Згорнути всі рядки',
     triggerDesc: 'Сортувати за спаданням',
     triggerAsc: 'Сортувати за зростанням',
     cancelSort: 'Відмінити сортування',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Скопійовано',
     expand: 'Розширити',
     collapse: 'Згорнути',
+  },
+  Carousel: {
+    prevSlide: 'Попередній слайд',
+    nextSlide: 'Наступний слайд',
   },
   Form: {
     optional: '(опціонально)',

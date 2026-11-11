@@ -954,6 +954,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             class="ant-input-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
               type="button"
             >
@@ -1455,6 +1456,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             class="ant-input-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
               type="button"
             >
@@ -3890,6 +3892,7 @@ Array [
               class="ant-input-suffix"
             >
               <button
+                aria-label="Clear"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -4200,6 +4203,7 @@ Array [
               class="ant-input-suffix"
             >
               <button
+                aria-label="Clear"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -4914,13 +4918,14 @@ Array [
                   class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
                 >
                   <li
-                    aria-disabled="true"
                     class="ant-pagination-prev ant-pagination-disabled"
-                    title="Previous Page"
                   >
                     <button
+                      aria-disabled="true"
+                      aria-label="Previous Page"
                       class="ant-pagination-item-link"
                       disabled=""
+                      role="button"
                       tabindex="-1"
                       type="button"
                     >
@@ -4947,35 +4952,39 @@ Array [
                   </li>
                   <li
                     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-                    tabindex="0"
                     title="1"
                   >
                     <a
+                      aria-current="page"
+                      aria-label="Page 1"
                       rel="nofollow"
+                      role="button"
+                      tabindex="0"
                     >
                       1
                     </a>
                   </li>
                   <li
                     class="ant-pagination-item ant-pagination-item-2"
-                    tabindex="0"
                     title="2"
                   >
                     <a
+                      aria-label="Page 2"
                       rel="nofollow"
+                      role="button"
+                      tabindex="0"
                     >
                       2
                     </a>
                   </li>
                   <li
-                    aria-disabled="false"
                     class="ant-pagination-next"
-                    tabindex="0"
-                    title="Next Page"
                   >
                     <button
+                      aria-label="Next Page"
                       class="ant-pagination-item-link"
-                      tabindex="-1"
+                      role="button"
+                      tabindex="0"
                       type="button"
                     >
                       <span
@@ -5517,13 +5526,14 @@ Array [
                   class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
                 >
                   <li
-                    aria-disabled="true"
                     class="ant-pagination-prev ant-pagination-disabled"
-                    title="Previous Page"
                   >
                     <button
+                      aria-disabled="true"
+                      aria-label="Previous Page"
                       class="ant-pagination-item-link"
                       disabled=""
+                      role="button"
                       tabindex="-1"
                       type="button"
                     >
@@ -5550,23 +5560,27 @@ Array [
                   </li>
                   <li
                     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-                    tabindex="0"
                     title="1"
                   >
                     <a
+                      aria-current="page"
+                      aria-label="Page 1"
                       rel="nofollow"
+                      role="button"
+                      tabindex="0"
                     >
                       1
                     </a>
                   </li>
                   <li
-                    aria-disabled="true"
                     class="ant-pagination-next ant-pagination-disabled"
-                    title="Next Page"
                   >
                     <button
+                      aria-disabled="true"
+                      aria-label="Next Page"
                       class="ant-pagination-item-link"
                       disabled=""
+                      role="button"
                       tabindex="-1"
                       type="button"
                     >
@@ -7460,13 +7474,14 @@ Array [
           class="ant-pagination ant-pagination-small ant-pagination-mini ant-transfer-list-pagination css-var-test-id ant-pagination-simple"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -7509,12 +7524,12 @@ Array [
             100
           </li>
           <li
-            aria-disabled="false"
             class="ant-pagination-next"
-            title="Next Page"
           >
             <button
+              aria-label="Next Page"
               class="ant-pagination-item-link"
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -7978,13 +7993,14 @@ Array [
           class="ant-pagination ant-pagination-small ant-pagination-mini ant-transfer-list-pagination css-var-test-id ant-pagination-simple"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -8027,12 +8043,12 @@ Array [
             100
           </li>
           <li
-            aria-disabled="false"
             class="ant-pagination-next"
-            title="Next Page"
           >
             <button
+              aria-label="Next Page"
               class="ant-pagination-item-link"
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -9082,6 +9098,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             class="ant-input-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
               type="button"
             >
@@ -9563,6 +9580,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             class="ant-input-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
               type="button"
             >
@@ -10425,6 +10443,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               class="ant-input-suffix"
             >
               <button
+                aria-label="Clear"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -10735,6 +10754,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               class="ant-input-suffix"
             >
               <button
+                aria-label="Clear"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -10835,7 +10855,7 @@ exports[`renders components/transfer/demo/style-class.tsx extend context correct
     >
       <div
         class="ant-transfer-list-header acss-r4s437"
-        style="font-weight: bold;"
+        style="font-weight: 700;"
       >
         <label
           class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
@@ -11273,7 +11293,7 @@ exports[`renders components/transfer/demo/style-class.tsx extend context correct
     >
       <div
         class="ant-transfer-list-header acss-r4s437"
-        style="font-weight: bold;"
+        style="font-weight: 700;"
       >
         <label
           class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
@@ -11610,7 +11630,7 @@ exports[`renders components/transfer/demo/style-class.tsx extend context correct
     >
       <div
         class="ant-transfer-list-header acss-r4s437"
-        style="color: rgb(141, 188, 199); font-weight: normal;"
+        style="color: rgb(141, 188, 199); font-weight: 400;"
       >
         <label
           class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
@@ -12049,7 +12069,7 @@ exports[`renders components/transfer/demo/style-class.tsx extend context correct
     >
       <div
         class="ant-transfer-list-header acss-r4s437"
-        style="color: rgb(141, 188, 199); font-weight: normal;"
+        style="color: rgb(141, 188, 199); font-weight: 400;"
       >
         <label
           class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
@@ -12447,6 +12467,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
               class="ant-input-suffix"
             >
               <button
+                aria-label="Clear"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -13118,13 +13139,14 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                   class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
                 >
                   <li
-                    aria-disabled="true"
                     class="ant-pagination-prev ant-pagination-disabled"
-                    title="Previous Page"
                   >
                     <button
+                      aria-disabled="true"
+                      aria-label="Previous Page"
                       class="ant-pagination-item-link"
                       disabled=""
+                      role="button"
                       tabindex="-1"
                       type="button"
                     >
@@ -13151,35 +13173,39 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                   </li>
                   <li
                     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-                    tabindex="0"
                     title="1"
                   >
                     <a
+                      aria-current="page"
+                      aria-label="Page 1"
                       rel="nofollow"
+                      role="button"
+                      tabindex="0"
                     >
                       1
                     </a>
                   </li>
                   <li
                     class="ant-pagination-item ant-pagination-item-2"
-                    tabindex="0"
                     title="2"
                   >
                     <a
+                      aria-label="Page 2"
                       rel="nofollow"
+                      role="button"
+                      tabindex="0"
                     >
                       2
                     </a>
                   </li>
                   <li
-                    aria-disabled="false"
                     class="ant-pagination-next"
-                    tabindex="0"
-                    title="Next Page"
                   >
                     <button
+                      aria-label="Next Page"
                       class="ant-pagination-item-link"
-                      tabindex="-1"
+                      role="button"
+                      tabindex="0"
                       type="button"
                     >
                       <span
@@ -13329,6 +13355,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
               class="ant-input-suffix"
             >
               <button
+                aria-label="Clear"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >

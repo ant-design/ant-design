@@ -39,14 +39,19 @@ describe('Layout', () => {
     unmount();
   });
 
-  it('umount from multiple siders', async () => {
+  it.each([
+    [0, 1],
+    [1, 0],
+  ])('keeps the sider layout until nested siders unmount in order %i, %i', (first, second) => {
     const App: React.FC = () => {
       const [hide1, setHide1] = useState(false);
       const [hide2, setHide2] = useState(false);
       return (
         <Layout>
-          {hide1 ? null : <Sider>Sider</Sider>}
-          {hide2 ? null : <Sider>Sider</Sider>}
+          <div>
+            {hide1 ? null : <Sider>Sider</Sider>}
+            {hide2 ? null : <Sider>Sider</Sider>}
+          </div>
           <Content>
             <button onClick={() => setHide1(true)} type="button">
               hide sider 1
@@ -62,11 +67,11 @@ describe('Layout', () => {
     expect(container.querySelector('.ant-layout')?.className.includes('ant-layout-has-sider')).toBe(
       true,
     );
-    fireEvent.click(container.querySelectorAll('button')[0]);
+    fireEvent.click(container.querySelectorAll<HTMLButtonElement>('button')[first]);
     expect(container.querySelector('.ant-layout')?.className.includes('ant-layout-has-sider')).toBe(
       true,
     );
-    fireEvent.click(container.querySelectorAll('button')[1]);
+    fireEvent.click(container.querySelectorAll<HTMLButtonElement>('button')[second]);
     expect(container.querySelector('.ant-layout')?.className.includes('ant-layout-has-sider')).toBe(
       false,
     );
@@ -150,6 +155,22 @@ describe('Layout', () => {
         onCollapse.mockReset();
         fireEvent.click(container.querySelector('.ant-layout-sider-zero-width-trigger')!);
         expect(onCollapse).toHaveBeenCalledTimes(1);
+      });
+
+      it('treats undefined collapsed as uncontrolled', () => {
+        const onCollapse = jest.fn();
+        const { container } = render(
+          <Sider collapsible collapsed={undefined} onCollapse={onCollapse}>
+            Sider
+          </Sider>,
+        );
+
+        fireEvent.click(container.querySelector('.ant-layout-sider-trigger')!);
+
+        expect(container.querySelector('.ant-layout-sider')).toHaveClass(
+          'ant-layout-sider-collapsed',
+        );
+        expect(onCollapse).toHaveBeenCalledWith(true, 'clickTrigger');
       });
 
       it('controlled', () => {

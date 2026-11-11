@@ -33,6 +33,8 @@ const localeValues: Locale = {
     sortTitle: 'Sort',
     expand: 'Expand row',
     collapse: 'Collapse row',
+    expandAll: 'Leathnaigh gach ró',
+    collapseAll: 'Laghdaigh gach ró',
     triggerDesc: 'Click to sort descending',
     triggerAsc: 'Click to sort ascending',
     cancelSort: 'Click to cancel sorting',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Copied',
     expand: 'Expand',
     collapse: 'Laghdaigh',
+  },
+  Carousel: {
+    prevSlide: 'An sleamhnán roimhe seo',
+    nextSlide: 'An chéad sleamhnán eile',
   },
   Form: {
     optional: '(roghnach)',

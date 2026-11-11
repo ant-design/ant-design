@@ -36,6 +36,8 @@ const localeValues: Locale = {
     sortTitle: 'द्वारा क्रमबद्ध करें',
     expand: 'पंक्ति का विस्तार करें',
     collapse: 'पंक्ति संक्षिप्त करें',
+    expandAll: 'सभी पंक्तियों का विस्तार करें',
+    collapseAll: 'सभी पंक्तियों को संक्षिप्त करें',
     triggerDesc: 'अवरोही क्रमित करने के लिए क्लिक करें',
     triggerAsc: 'आरोही क्रमित करने के लिए क्लिक करें',
     cancelSort: 'छँटाई रद्द करने के लिए क्लिक करें',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'कॉपी किया गया',
     expand: 'विस्तार',
     collapse: 'पतन',
+  },
+  Carousel: {
+    prevSlide: 'पिछली स्लाइड',
+    nextSlide: 'अगली स्लाइड',
   },
   Form: {
     optional: '(ऐच्छिक)',

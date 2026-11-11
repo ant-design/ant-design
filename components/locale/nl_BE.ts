@@ -23,8 +23,10 @@ const localeValues: Locale = {
   Table: {
     cancelSort: 'Klik om sortering te annuleren',
     collapse: 'Rij inklappen',
+    collapseAll: 'Alle rijen inklappen',
     emptyText: 'Geen data',
     expand: 'Rij uitklappen',
+    expandAll: 'Alle rijen uitklappen',
     filterConfirm: 'OK',
     filterEmptyText: 'Geen filters',
     filterReset: 'Reset',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Gekopieerd',
     expand: 'Uitklappen',
     collapse: 'Samenvouwen',
+  },
+  Carousel: {
+    prevSlide: 'Vorige dia',
+    nextSlide: 'Volgende dia',
   },
   Form: {
     optional: '(optioneel)',

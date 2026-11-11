@@ -7,11 +7,11 @@ zhihu_url: https://zhuanlan.zhihu.com/p/639266855
 
 大家好，我是 [Wxh16144](https://github.com/Wxh16144)，通过学习 Ant Design 的组件库和参与社区贡献，我发现了一些提高开发效率和代码质量的工具。借此机会，希望与大家分享我的经验，帮助大家更好地了解 Ant Design，并将这些技巧应用到自己的项目中。
 
-# 前言
+# 前言 {#preface}
 
 Ant Design 以开源的形式托管在 GitHub，方便更好的与全球开发者进行交流和合作，也方便开发者提交 issue 和 PR。同时借助 [GitHub Actions](https://github.com/features/actions) 和 CI/CD 能力，使得我们更好的管理代码仓库和自动化测试、部署等工作流程，本文将着重介绍 Actions 提供的能力。
 
-## 什么是 GitHub Actions
+## 什么是 GitHub Actions {#what-is-github-actions}
 
 GitHub Actions 是一个自动化软件开发工作流程的平台，从想法构建到生成，开发者只需在`.github/workflows` 目录中添加 `yml` 格式文件，定义 Workflow（工作流程） 去实现 CI（持续集成）通过 [了解 GitHub Actions](https://docs.github.com/zh/actions/learn-github-actions/understanding-github-actions)，我们可以掌握 Workflow 中一些概念。
 
@@ -23,7 +23,7 @@ GitHub Actions 是一个自动化软件开发工作流程的平台，从想法�
 
 ![overview-actions-simple](https://docs.github.com/assets/cb-25535/mw-1000/images/help/actions/overview-actions-simple.webp)
 
-# 如何使用
+# 如何使用 {#how-to-use}
 
 通过上述了解，我们可以知道 Ant Design 的所有 Workflow 都放置在 [`.github/workflows`](https://github.com/ant-design/ant-design/tree/master/.github/workflows) 目录中进行管理。
 
@@ -39,7 +39,7 @@ Ant Design 的 CI 覆盖了以下几个方面：
 
 issue 作为 GitHub 平台上的一个功能，它像一个信息汇总中心一样，收集社区反馈的问题。允许 `Collaborator` 添加标签、里程碑、指派人员等信息，以便更好地组织任务和项目。
 
-### 保证 issue 质量
+### 保证 issue 质量 {#ensuring-the-quality-of-issues}
 
 为了确保 issue 包含足够的信息，帮助 Ant Design 团队对 issue 进行分析和优先级排序，我们提供了 [issue 助手](http://new-issue.ant.design) 来规范创建 issue 的流程。同时，利用 GitHub Actions 对创建的 issue 进行检查。未通过助手创建的 issue 将会被关闭，并打上 [Invalid](https://github.com/ant-design/ant-design/issues?q=label%3AInvalid) 标签，然后以评论的形式提醒创建者需要如何进行提问。就像这样：
 
@@ -51,11 +51,11 @@ issue 作为 GitHub 平台上的一个功能，它像一个信息汇总中心一
 
 ![help-wanted-auto-comment-preview](https://user-images.githubusercontent.com/32004925/231673404-60b248cd-823f-4d31-8fff-d95b02b35fee.png)
 
-### 常见 issue 答疑
+### 常见 issue 答疑 {#common-issue-faq}
 
 对于一些常见的 issue，团队提供了详细的解答，以帮助开发者更快地解决问题。例如 issue 的 title 中包含有 `官网`、`网站`、`挂了`、`IE` 等类似关键词时，在 [issue-open-check.yml#L43-L94](https://github.com/ant-design/ant-design/blob/da83561f9cb57b0eb03d18543d96393689f799be/.github/workflows/issue-open-check.yml#L43-L94) Job 中详细记录了标准回复格式，并且将自动关闭 issue。
 
-### 定期清理 issue
+### 定期清理 issue {#regular-issue-cleanup}
 
 使用 GitHub Actions 定时任务来帮助管理和关闭 issue，这些自动化操作可以有效避免过多的未处理 issue 堆积。
 
@@ -68,7 +68,7 @@ issue 作为 GitHub 平台上的一个功能，它像一个信息汇总中心一
 
 Ant Design 团队非常鼓励社区参与 Pull Request (PR)，可以先阅读 [《贡献者开发维护指南》](./contributor-development-maintenance-guide-cn) 文档，注意 PR 提交时需要遵守一些规范以确保质量和沟通。同时，也会利用 GitHub Action 对 PR 进行一些要求和审核，以保证代码质量和项目的长期维护。
 
-### PR 预检
+### PR 预检 {#pr-pre-test}
 
 发起一个 PR 时，通过 PR 模板会自动生成描述内容，其中就包括更新日志这栏，需要开发者进行填写。[pr-open-check.yml](https://github.com/ant-design/ant-design/blob/3d627eb475e32daf3a47731140685124d568a495/.github/workflows/pr-open-check.yml) 这个 Job 将会对其进行检查，倘若未填，CI 将会以评论的方式进行提醒。就像这样：
 
@@ -78,13 +78,13 @@ Ant Design 团队非常鼓励社区参与 Pull Request (PR)，可以先阅读 [�
 
 [verify-files-modify.yml](https://github.com/ant-design/ant-design/blob/3d627eb475/.github/workflows/verify-files-modify.yml) 这个 Job 将会检查 PR 修改内容，如果包含特定目录（如：`./github/` 和 `scripts/`）或特定文件（如：`CHANGELOG.md`）则谢绝社区贡献，将自动关闭 PR 且指定给核心成员。
 
-### 代码规范检查
+### 代码规范检查 {#code-style-checking}
 
 在 [lint](https://github.com/ant-design/ant-design/blob/dedbdfddafc0134219e391473c109c14766f413d/.github/workflows/test.yml#L52-L75) Job 中，总是遵循着对每一位开发者提交的代码进行 lint 检查的流程。
 
 ![eslint-ci-preview](https://user-images.githubusercontent.com/32004925/234477805-5cf3cf89-6654-4329-882d-47b35964f6fc.png)
 
-### PR 部署预览
+### PR 部署预览 {#pr-deploy-preview}
 
 每创建一个 PR 时，利用 GitHub Action 自动尝试构建和部署该 PR。这样既可以确保文档正常，又可以预览该 PR 是否会对文档或者组件 Demo 产生影响。PR 部署分为多个 Job，具体流程如下：
 
@@ -95,20 +95,20 @@ Ant Design 团队非常鼓励社区参与 Pull Request (PR)，可以先阅读 [�
 - 同时 [preview-build.yml](https://github.com/ant-design/ant-design/blob/b7d1d7cdbd888a1d73b3a3bf87bf4977e9b9bf91/.github/workflows/preview-build.yml#L52-L77) Job 会对 site 进行构建操作。
 - 最后 [preview-deploy.yml](https://github.com/ant-design/ant-design/blob/c6a7dbc09e709a8905aaa6c073593a1fed6bea14/.github/workflows/preview-deploy.yml) Job 会等待 `preview-build.yml` 运行完成后进行对应的操作，如果构建成功则利用 [Surge](https://surge.sh/) 进行部署，部署地址规则：`https://preview-{PR-id}-ant-design.surge.sh`， 并将之前评论中占位图片修改为构建成功样式（点击该图片即可跳转具体地址）反之则标记为构建失败的图片。
 
-### 其他审查
+### 其他审查 {#other-reviews}
 
 - [size-limit.yml](https://github.com/ant-design/ant-design/blob/5dfce5443744271f778313c23eb8ec3a5af481f8/.github/workflows/size-limit.yml) Job 则是对 PR 的一个产物大小进行一个检查。
 - 最近比较火热的 chatGPT，团队也将它添加到 GitHub Action 中，用 AI 先对代码进行审查，具体 Job 可以参考 [chatgpt-cr.yml](https://github.com/ant-design/ant-design/blob/f7fd474cf8792ea01d03461d407c0edc11828a1c/.github/workflows/chatgpt-cr.yml) 文件。
 
-## 单元测试
+## 单元测试 {#unit-testing}
 
 单元测试作为组件库质量保证最重要的一环，当任何提交推送时都将触发该 CI 进行自动化测试，包括每位开发者发起的 PR，或者主分支更新。
 
-### 构建测试
+### 构建测试 {#build-testing}
 
 团队希望每次代码更新后，都能正常构建打包产物， Ant Design 在 test.yml 文件中添加了 [Dist Job](https://github.com/ant-design/ant-design/blob/master/.github/workflows/test.yml#L104-L138) 和 [Compile Job](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L254-L288) 以保证仓库可以进行正常打包构建。
 
-### 功能测试
+### 功能测试 {#function-testing}
 
 大家可能有留意到每次仅运行测试相关的 Job 就有多达 30 个。
 
@@ -118,25 +118,25 @@ Ant Design 团队非常鼓励社区参与 Pull Request (PR)，可以先阅读 [�
 
 所有这些功能都得益于 GitHub Action 的 [Job 矩阵策略](https://docs.github.com/zh/actions/using-jobs/using-a-matrix-for-your-jobs) ，使得我们可以一次性配置多个 Job 来执行测试任务，[Normal test](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L141-L223) 和 [Module test](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L294-L357) 是 Ant Design 利用矩阵策略测试相关的 Job。
 
-## 网站部署
+## 网站部署 {#website-deploy}
 
 这里的部署构建部分和前面提到的 PR 预览部署构建行为一致，只不过构建后产物部署目标有所差异。
 
-### 官网部署
+### 官网部署 {#official-website-deploy}
 
 [https://ant.design](https://ant.design) 官网使用 GitHub 提供的免费 [GitHub Pages](https://pages.github.com/) 功能，利用 Actions [Deploy to GitHub Pages](https://github.com/ant-design/ant-design/blob/dedbdfddafc0134219e391473c109c14766f413d/.github/workflows/site-deploy.yml#L73-L78) Job 直将构建的文档产物推送到[gh-pages](https://github.com/ant-design/ant-design/tree/gh-pages)分支实现。
 
-### 独立版本
+### 独立版本 {#standalone-versions}
 
 大家都知道 [https://ant.design](https://ant.design) 官网永远保持最新版本，但有时候仍还是需要查阅具体版本的文档，[Deploy to Surge](https://github.com/ant-design/ant-design/blob/5aad29d937baeba43ca8acde7f86450e9aec99f1/.github/workflows/site-deploy.yml#L80-L90) Job 则是每次发布新版本后将站点部署到 Surge， URL 规则为 `https://ant-design-{major}-{minor}-{patch}.surge.sh` 并将 url 评论在每一个发版 commit 上：
 
 ![everyone-version-preview](https://user-images.githubusercontent.com/32004925/234485713-4e93154c-d5a4-4cad-87b0-e76667ff237f.png)
 
-## 其他
+## 其他 {#other}
 
 上面的篇幅已经讲述了 Ant Design 利用 CI/CD 完成的大部分核心内容，但实际上还有一些 Job 没有具体介绍，这里再补充一些。
 
-### 接入 IM 通知
+### 接入 IM 通知 {#im-notification}
 
 为保证开发者和社区成员可以第一时间了解到相关信息，利用 Action 提供的 Event 实现 IM 接入：
 
@@ -146,15 +146,15 @@ Ant Design 团队非常鼓励社区参与 Pull Request (PR)，可以先阅读 [�
 
 - 其他未提及到的 Job 等待着大家去探索与发现...
 
-## 接入自己项目
+## 接入自己项目 {#apply-to-your-own-projects}
 
 前面向大家介绍了 Ant Design 使用 GitHub Action 的诸多场景，我们不妨实际动手尝试一下，运用到自己项目中，提高生产效率。下面通过一个简单的 Demo 进行演示。
 
-### 创建项目
+### 创建项目 {#creating-a-project}
 
 通过命令行 `pnpm create vite@latest my-react-app --template react-ts` 创建一个 Vite + React 项目。
 
-### 配置 CI Workflow
+### 配置 CI Workflow {#configuring-ci-workflow}
 
 在项目根目录里 `.github/workflows` 文件夹中新建 `ci.yml` ，代码如下：
 
@@ -221,7 +221,7 @@ jobs:
 
 ![test-CI-preview](https://user-images.githubusercontent.com/32004925/234609284-ec7b40f5-a221-4c8b-9093-ce68a1a545bb.png)
 
-### 添加缓存
+### 添加缓存 {#adding-caching}
 
 为了进一步优化安装依赖速度，我们可以添加 pnpm 缓存，然后发起一个 Pull Request 验证上一个步骤：
 
@@ -257,6 +257,6 @@ jobs:
 
 ![cache-pnpm-store](https://user-images.githubusercontent.com/32004925/234618808-46137b0d-27a0-4b01-b1a6-6e4931f6d388.png)
 
-## 总结
+## 总结 {#after-all}
 
 本次文章到这里就结束了，希望可以帮助大家更进一步了解 Ant Design，也欢迎大家前往 [讨论区](https://github.com/ant-design/ant-design/discussions) 参与讨论和建设。

@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
-import type { GetProp } from '../_util/type';
+import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -121,10 +121,10 @@ const ColorPicker: CompoundedComponent = (props) => {
   const [internalPopupOpen, setPopupOpen] = useControlledState(false, open);
 
   const popupOpen = !mergedDisabled && internalPopupOpen;
-  const triggerOpenChange = (visible: boolean) => {
-    if (!visible || !mergedDisabled) {
-      setPopupOpen(visible);
-      onOpenChange?.(visible);
+  const triggerOpenChange = (open: boolean) => {
+    if (!open || !mergedDisabled) {
+      setPopupOpen(open);
+      onOpenChange?.(open);
     }
   };
 
@@ -150,7 +150,7 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-  const rtlCls = { [`${prefixCls}-rtl`]: direction };
+  const rtlCls = { [`${prefixCls}-rtl`]: direction === 'rtl' };
   const mergedRootCls = clsx(rootClassName, cssVarCls, rootCls, rtlCls);
   const mergedCls = clsx(
     getStatusClassNames(prefixCls, contextStatus),
@@ -165,6 +165,17 @@ const ColorPicker: CompoundedComponent = (props) => {
     hashId,
   );
   const mergedPopupCls = clsx(prefixCls, mergedRootCls, mergedClassNames.popup?.root);
+
+  // ===================== Warning ======================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('ColorPicker');
+
+    warning.deprecated(
+      !mergedStyles.popupOverlayInner,
+      'styles.popupOverlayInner',
+      'styles.popup.container',
+    );
+  }
 
   const popoverProps: PopoverProps = {
     open: popupOpen,
@@ -181,10 +192,13 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   return (
     <Popover
-      classNames={{ root: mergedPopupCls }}
+      classNames={{ root: mergedPopupCls, container: mergedClassNames.popup?.container }}
       styles={{
         root: mergedStyles.popup?.root,
-        container: (styles as GetProp<ColorPickerProps, 'styles', 'Return'>)?.popupOverlayInner,
+        container: {
+          ...mergedStyles.popupOverlayInner,
+          ...mergedStyles.popup?.container,
+        },
       }}
       onOpenChange={triggerOpenChange}
       content={

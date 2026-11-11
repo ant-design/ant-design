@@ -100,7 +100,7 @@ describe('Radio.Semantic', () => {
             root: { backgroundColor: 'rgb(0, 255, 0)' },
             item: { color: 'rgb(255, 0, 0)' },
             itemIcon: { borderColor: 'rgb(0, 0, 255)' },
-            itemLabel: { fontWeight: 'bold' },
+            itemLabel: { fontWeight: 700 },
           }}
         />,
       );
@@ -123,7 +123,7 @@ describe('Radio.Semantic', () => {
       });
       labels.forEach((label) => {
         expect(label).toHaveClass('custom-group-item-label');
-        expect(label).toHaveStyle({ fontWeight: 'bold' });
+        expect(label).toHaveStyle({ fontWeight: 700 });
       });
     });
 
@@ -166,7 +166,7 @@ describe('Radio.Semantic', () => {
               padding: info.props.disabled ? '4px' : '8px',
             },
             itemLabel: {
-              fontWeight: info.props.optionType === 'button' ? 'normal' : 'bold',
+              fontWeight: info.props.optionType === 'button' ? 400 : 700,
             },
           })}
         />,
@@ -180,7 +180,7 @@ describe('Radio.Semantic', () => {
         expect(item).toHaveClass('item-default-horizontal');
       });
       container.querySelectorAll('.ant-radio-label').forEach((label) => {
-        expect(label).toHaveStyle({ fontWeight: 'bold' });
+        expect(label).toHaveStyle({ fontWeight: 700 });
       });
     });
 

@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'वर्गीकरण',
     expand: 'पंक्ती वाढवा',
     collapse: 'पंक्ती संकुचित करा',
+    expandAll: 'सर्व पंक्ती वाढवा',
+    collapseAll: 'सर्व पंक्ती संकुचित करा',
     triggerDesc: 'उतरत्या क्रमाने वर्गीकरण करण्यासाठी क्लिक करा',
     triggerAsc: 'वाढत्या क्रमाने वर्गीकरण करण्यासाठी क्लिक करा',
     cancelSort: 'वर्गीकरण रद्द करण्यासाठी क्लिक करा',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'कॉपी केली',
     expand: 'वाढवा',
     collapse: 'संकुचित करा',
+  },
+  Carousel: {
+    prevSlide: 'मागील स्लाइड',
+    nextSlide: 'पुढील स्लाइड',
   },
   Form: {
     optional: '(ऐच्छिक)',

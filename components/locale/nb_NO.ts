@@ -38,6 +38,8 @@ const localeValues: Locale = {
     sortTitle: 'Sorter',
     expand: 'Utvid rad',
     collapse: 'Skjul rad',
+    expandAll: 'Utvid alle rader',
+    collapseAll: 'Skjul alle rader',
     triggerDesc: 'Sorter data i synkende rekkefølge',
     triggerAsc: 'Sorterer data i stigende rekkefølge',
     cancelSort: 'Klikk for å avbryte sorteringen',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'Kopiert',
     expand: 'Utvid',
     collapse: 'Skjul',
+  },
+  Carousel: {
+    prevSlide: 'Forrige lysbilde',
+    nextSlide: 'Neste lysbilde',
   },
   Form: {
     optional: '(valgfritt)',

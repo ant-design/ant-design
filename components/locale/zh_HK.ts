@@ -39,6 +39,8 @@ const localeValues: Locale = {
     sortTitle: '排序',
     expand: '展開行',
     collapse: '關閉行',
+    expandAll: '展開所有行',
+    collapseAll: '收起所有行',
     triggerDesc: '點擊降序',
     triggerAsc: '點擊升序',
     cancelSort: '取消排序',
@@ -93,6 +95,10 @@ const localeValues: Locale = {
     copied: '複製成功',
     expand: '展開',
     collapse: '收起',
+  },
+  Carousel: {
+    prevSlide: '上一張幻燈片',
+    nextSlide: '下一張幻燈片',
   },
   Form: {
     optional: '（選填）',

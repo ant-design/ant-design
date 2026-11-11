@@ -3,7 +3,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import BarsOutlined from '@ant-design/icons/BarsOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
-import { omit } from '@rc-component/util';
+import { omit, useControlledState, useId } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
@@ -73,14 +73,6 @@ export interface SiderState {
   below: boolean;
 }
 
-const generateId = (() => {
-  let i = 0;
-  return (prefix = '') => {
-    i += 1;
-    return `${prefix}${i}`;
-  };
-})();
-
 const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
@@ -103,22 +95,13 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     ...otherProps
   } = props;
   const { siderHook } = useContext(LayoutContext);
+  const uniqueId = useId();
 
-  const [collapsed, setCollapsed] = useState(
-    'collapsed' in props ? props.collapsed : defaultCollapsed,
-  );
+  const [collapsed, setCollapsed] = useControlledState(defaultCollapsed, props.collapsed);
   const [below, setBelow] = useState(false);
 
-  useEffect(() => {
-    if ('collapsed' in props) {
-      setCollapsed(props.collapsed);
-    }
-  }, [props.collapsed]);
-
   const handleSetCollapsed = (value: boolean, type: CollapseType) => {
-    if (!('collapsed' in props)) {
-      setCollapsed(value);
-    }
+    setCollapsed(value);
     onCollapse?.(value, type);
   };
 
@@ -179,10 +162,11 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   }, [breakpoint]); // in order to accept dynamic 'breakpoint' property, we need to add 'breakpoint' into dependency array.
 
   useEffect(() => {
-    const uniqueId = generateId('ant-sider-');
     siderHook.addSider(uniqueId);
-    return () => siderHook.removeSider(uniqueId);
-  }, []);
+    return () => {
+      siderHook.removeSider(uniqueId);
+    };
+  }, [uniqueId, siderHook]);
 
   const toggle = () => {
     handleSetCollapsed(!collapsed, 'clickTrigger');

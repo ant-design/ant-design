@@ -33,6 +33,8 @@ const localeValues: Locale = {
     sortTitle: 'رتب',
     expand: 'توسيع الصف',
     collapse: 'طي الصف',
+    expandAll: 'توسيع كل الصفوف',
+    collapseAll: 'طي كل الصفوف',
     triggerDesc: 'ترتيب تنازلي',
     triggerAsc: 'ترتيب تصاعدي',
     cancelSort: 'إلغاء الترتيب',
@@ -92,6 +94,10 @@ const localeValues: Locale = {
     copied: 'نقل',
     expand: 'وسع',
     collapse: 'طي',
+  },
+  Carousel: {
+    prevSlide: 'الشريحة السابقة',
+    nextSlide: 'الشريحة التالية',
   },
   Form: {
     optional: '(اختياري)',

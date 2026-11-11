@@ -11,7 +11,7 @@ title: 对齐
 
 ---
 
-## 文案类对齐
+## 文案类对齐 {#text-alignment}
 
 <ImagePreview>
 <img class="preview-img good" alt="推荐示例" description="标题和正文左对齐，使用了一个视觉起点。" src="https://gw.alipayobjects.com/zos/rmsportal/lVDlIgxvuXSMQvJJVMnu.png">
@@ -22,7 +22,7 @@ title: 对齐
 
 ---
 
-## 表单类对齐
+## 表单类对齐 {#form-alignment}
 
 <ImagePreview>
 <img class="preview-img" alt="冒号对齐示例" src="https://gw.alipayobjects.com/zos/rmsportal/OaTkwGfGxRSFsvAlzZMq.png">
@@ -32,7 +32,7 @@ title: 对齐
 
 ---
 
-## 数字类对齐
+## 数字类对齐 {#numbers-alignment}
 
 <ImagePreview>
 <img class="preview-img good" alt="正确示例" src="https://gw.alipayobjects.com/zos/rmsportal/bIJAZcUmaRxJeFxZJwUp.png">

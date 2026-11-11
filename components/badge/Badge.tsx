@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
 import CSSMotion from '@rc-component/motion';
+import { isNonNullable, isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable, isNumber, isPlainObject, isReactRenderable, isString } from '../_util/is';
+import { isNumber, isPlainObject, isString } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -120,7 +121,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
 
   const hasStatusValue = isNonNullable(status) || !isZero;
 
-  const isStatusBadge = Boolean(!children && hasStatus && (text || hasStatusValue || !ignoreCount));
+  const isStatusBadge = Boolean(!children && hasStatus && (text || hasStatusValue));
 
   // =============================== Styles ===============================
   const offsetStyle = useMemo<React.CSSProperties | undefined>(() => {
@@ -128,7 +129,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
       return undefined;
     }
 
-    const horizontalOffset = Number.parseInt(offset[0] as string, 10);
+    const horizontalOffset = Number.parseFloat(offset[0] as string);
 
     return {
       marginTop: offset[1],
@@ -195,7 +196,12 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
   // >>> Status Text
   const showStatusTextNode = !isHidden && (text === 0 ? showZero : !!text && text !== true);
   const statusTextNode = !showStatusTextNode ? null : (
-    <span className={`${prefixCls}-status-text`}>{text}</span>
+    <span
+      style={isStatusBadge ? { color: mergedStyles.root?.color } : undefined}
+      className={`${prefixCls}-status-text`}
+    >
+      {text}
+    </span>
   );
 
   // >>> Display Component
@@ -238,7 +244,6 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
 
   // <Badge status="success" />
   if (isStatusBadge) {
-    const statusTextColor = mergedStyles.root?.color;
     return (
       <span
         ref={ref}
@@ -247,11 +252,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
         style={{ ...offsetStyle, ...mergedStyles.root }}
       >
         <span className={statusCls} style={{ ...mergedStyles.indicator, ...statusStyle }} />
-        {showStatusTextNode && (
-          <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
-            {text}
-          </span>
-        )}
+        {statusTextNode}
       </span>
     );
   }
@@ -283,13 +284,12 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
             [`${prefixCls}-color-${color}`]: isInternalColor,
           });
 
-          let scrollNumberStyle: React.CSSProperties = {
+          const scrollNumberStyle: React.CSSProperties = {
             ...offsetStyle,
             ...mergedStyles.indicator,
           };
 
           if (color && !isInternalColor) {
-            scrollNumberStyle = scrollNumberStyle || {};
             scrollNumberStyle.background = color;
           }
 
