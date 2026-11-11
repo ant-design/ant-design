@@ -298,20 +298,19 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
   const onReset = (
     { confirm, closeDropdown }: FilterResetProps = { confirm: false, closeDropdown: false },
   ) => {
+    const resetKeys = filterResetToDefaultFilteredValue
+      ? (defaultFilteredValue || []).map<string>(String)
+      : [];
+
     if (confirm) {
-      internalTriggerFilter([]);
+      internalTriggerFilter(resetKeys);
     }
     if (closeDropdown) {
       triggerOpen(false);
     }
 
     setSearchValue('');
-
-    if (filterResetToDefaultFilteredValue) {
-      setFilteredKeysSync((defaultFilteredValue || []).map<string>(String));
-    } else {
-      setFilteredKeysSync([]);
-    }
+    setFilteredKeysSync(resetKeys);
   };
 
   const doFilter = ({ closeDropdown } = { closeDropdown: true }) => {
