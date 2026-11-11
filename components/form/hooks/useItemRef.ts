@@ -18,7 +18,7 @@ const useItemRef = () => {
     const childrenRef: React.Ref<React.ReactElement<any>> =
       children && isPlainObject<React.ReactElement<any>>(children) && getNodeRef(children);
 
-    const nameStr = name.join('_');
+    const nameStr = JSON.stringify(name);
     if (cacheRef.current.name !== nameStr || cacheRef.current.originRef !== childrenRef) {
       cacheRef.current.name = nameStr;
       cacheRef.current.originRef = childrenRef;
