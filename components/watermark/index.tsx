@@ -300,7 +300,8 @@ const Watermark = React.forwardRef<WatermarkRef, WatermarkProps>((props, ref) =>
 
   useMutateObserver(targetElements, onMutate);
 
-  useEffect(syncWatermark, [
+  // Prop updates must not be skipped by the mutation observer's frame throttle.
+  useEffect(renderWatermark, [
     rotate,
     mergedZIndex,
     width,

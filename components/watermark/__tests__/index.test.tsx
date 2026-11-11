@@ -4,7 +4,7 @@ import { spyElementPrototypes } from '@rc-component/util';
 import Watermark from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, waitFakeTimer } from '../../../tests/utils';
+import { act, render, waitFakeTimer } from '../../../tests/utils';
 import Drawer from '../../drawer';
 import Modal from '../../modal';
 
@@ -286,5 +286,61 @@ describe('Watermark', () => {
     unmount();
     await waitFakeTimer();
     expect(onRemove).not.toHaveBeenCalled();
+  });
+});
+
+describe('Watermark content changes in one animation frame', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+  afterEach(() => {
+    jest.restoreAllMocks();
+    jest.useRealTimers();
+  });
+
+  it('draws content supplied by a parent mount effect', async () => {
+    const fillText = jest.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
+    function Demo() {
+      const [content, setContent] = React.useState('');
+      React.useEffect(() => {
+        setContent('Account 42');
+      }, []);
+      return (
+        <Watermark content={content}>
+          <span>Report</span>
+        </Watermark>
+      );
+    }
+    render(<Demo />);
+    await waitFakeTimer();
+    expect(fillText.mock.calls.some(([text]) => text === 'Account 42')).toBe(true);
+  });
+
+  it('uses the last content update when several updates arrive before the next frame', async () => {
+    const fillText = jest.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
+    const { rerender } = render(<Watermark content="first" />);
+    rerender(<Watermark content="second" />);
+    rerender(<Watermark content="final" />);
+    await waitFakeTimer();
+    const texts = fillText.mock.calls.map(([text]) => text);
+    expect(texts[texts.length - 1]).toBe('final');
+  });
+
+  it('restores the updated watermark after removal without continuously redrawing', async () => {
+    const fillText = jest.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
+    const { container, rerender } = render(<Watermark content="first" />);
+    rerender(<Watermark content="final" />);
+    await waitFakeTimer();
+
+    const watermark = container.querySelector('[style*="background-image"]')!;
+    expect(watermark).toBeTruthy();
+    act(() => watermark.remove());
+    await waitFakeTimer();
+
+    expect(container.contains(watermark)).toBe(true);
+    expect(fillText.mock.calls[fillText.mock.calls.length - 1][0]).toBe('final');
+    const drawCount = fillText.mock.calls.length;
+    await waitFakeTimer();
+    expect(fillText).toHaveBeenCalledTimes(drawCount);
   });
 });
