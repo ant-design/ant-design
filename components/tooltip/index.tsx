@@ -23,6 +23,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import TableMeasureRowContext from '../table/TableMeasureRowContext';
 import { useToken } from '../theme/internal';
 import useMergedArrow from './hook/useMergedArrow';
+import useSmartPlacement from './hook/useSmartPlacement';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 import UniqueProvider from './UniqueProvider';
@@ -127,6 +128,14 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
    */
   destroyOnHidden?: boolean;
 
+  /**
+   * Automatically select the best placement to avoid viewport overflow. When enabled,
+   * tries the requested placement first, then falls back to alternative placements
+   * if the tooltip would overflow the viewport.
+   * @since 5.27.0
+   */
+  smartPlacement?: boolean;
+
   // ===================== Legacy ==============================
   /** @deprecated Please use `destroyOnHidden` instead */
   destroyTooltipOnHide?: boolean | { keepParent?: boolean };
@@ -176,6 +185,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     placement = 'top',
     mouseEnterDelay,
     mouseLeaveDelay,
+    smartPlacement = false,
 
     rootClassName,
 
@@ -230,6 +240,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const warning = devUseWarning('Tooltip');
 
   const tooltipRef = React.useRef<RcTooltipRef>(null);
+  const triggerRef = React.useRef<HTMLElement>(null);
 
   const forceAlign = () => {
     tooltipRef.current?.forceAlign();
@@ -285,6 +296,44 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     );
   }, [mergedArrow, builtinPlacements, token, mergedShowArrow, autoAdjustOverflow]);
 
+  // Determine tempOpen early so it can be used in memoized values
+  let tempOpen = open;
+  // Hide tooltip when there is no title or in table measure row
+  if ((!('open' in props) && noTitle) || inTableMeasureRow) {
+    tempOpen = false;
+  }
+
+  // Get the best placement considering viewport collision when smartPlacement is enabled
+  const bestPlacement = useSmartPlacement(
+    smartPlacement ? placement : placement, // Only use smart placement if enabled
+    smartPlacement ? triggerRef : { current: null },
+    smartPlacement ? ({ current: tooltipRef.current?.popupElement } as React.RefObject<HTMLElement>) : { current: null },
+    smartPlacement
+      ? {
+          arrowWidth: mergedShowArrow ? token.sizePopupArrow : 0,
+          offset: token.marginXXS,
+        }
+      : undefined,
+  );
+
+  // Determine final placement based on smartPlacement setting and tooltip visibility
+  const finalPlacement = React.useMemo(() => {
+    if (!smartPlacement || !tempOpen) {
+      return placement;
+    }
+    // Use smart placement result if available, otherwise use requested placement
+    return bestPlacement || placement;
+  }, [smartPlacement, tempOpen, placement, bestPlacement]);
+
+  // Re-align tooltip when placement changes
+  React.useLayoutEffect(() => {
+    if (!smartPlacement || !tempOpen || bestPlacement === placement) {
+      return;
+    }
+    // Trigger re-alignment when smartPlacement calculated a different placement
+    tooltipRef.current?.forceAlign();
+  }, [smartPlacement, tempOpen, bestPlacement, placement]);
+
   const memoOverlay = React.useMemo<TooltipProps['overlay']>(() => {
     if (title === 0) {
       return title;
@@ -323,12 +372,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
 
   const rootPrefixCls = getPrefixCls();
-
-  let tempOpen = open;
-  // Hide tooltip when there is no title or in table measure row
-  if ((!('open' in props) && noTitle) || inTableMeasureRow) {
-    tempOpen = false;
-  }
 
   // ============================= Render =============================
   const child =
@@ -374,7 +417,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       {...restProps}
       zIndex={zIndex}
       showArrow={mergedShowArrow}
-      placement={placement}
+      placement={finalPlacement}
       mouseEnterDelay={mergedMouseEnterDelay}
       mouseLeaveDelay={mergedMouseLeaveDelay}
       prefixCls={prefixCls}
@@ -412,7 +455,44 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       getTooltipContainer={mergedGetPopupContainer}
       destroyOnHidden={mergedDestroyOnHidden}
     >
-      {tempOpen && !restProps.disabled ? cloneElement(child, { className: childCls }) : child}
+      {tempOpen && !restProps.disabled
+        ? cloneElement(child, (originProps: any) => ({
+            className: childCls,
+            ref: (node: any) => {
+              // Set our triggerRef
+              if (typeof triggerRef === 'function') {
+                triggerRef(node);
+              } else if (triggerRef) {
+                triggerRef.current = node;
+              }
+              // Also call the child's original ref if it exists
+              if (originProps.ref) {
+                if (typeof originProps.ref === 'function') {
+                  originProps.ref(node);
+                } else if (originProps.ref && 'current' in originProps.ref) {
+                  originProps.ref.current = node;
+                }
+              }
+            },
+          }))
+        : cloneElement(child, (originProps: any) => ({
+            ref: (node: any) => {
+              // Set our triggerRef
+              if (typeof triggerRef === 'function') {
+                triggerRef(node);
+              } else if (triggerRef) {
+                triggerRef.current = node;
+              }
+              // Also call the child's original ref if it exists
+              if (originProps.ref) {
+                if (typeof originProps.ref === 'function') {
+                  originProps.ref(node);
+                } else if (originProps.ref && 'current' in originProps.ref) {
+                  originProps.ref.current = node;
+                }
+              }
+            },
+          }))
     </RcTooltip>
   );
 
