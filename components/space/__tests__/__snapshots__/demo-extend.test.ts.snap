@@ -519,6 +519,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -734,6 +735,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -1073,6 +1075,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -1863,20 +1866,16 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
               <div
                 class="ant-picker-footer"
               >
-                <ul
+                <div
                   class="ant-picker-ranges"
                 >
-                  <li
+                  <button
                     class="ant-picker-now"
+                    type="button"
                   >
-                    <a
-                      aria-disabled="false"
-                      class="ant-picker-now-btn"
-                    >
-                      Today
-                    </a>
-                  </li>
-                </ul>
+                    Today
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -4347,6 +4346,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -4476,6 +4476,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -4613,6 +4614,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -4773,6 +4775,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -7236,33 +7239,25 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
               <div
                 class="ant-picker-footer"
               >
-                <ul
+                <div
                   class="ant-picker-ranges"
                 >
-                  <li
+                  <button
                     class="ant-picker-now"
+                    type="button"
                   >
-                    <a
-                      aria-disabled="false"
-                      class="ant-picker-now-btn"
-                    >
-                      Now
-                    </a>
-                  </li>
-                  <li
-                    class="ant-picker-ok"
+                    Now
+                  </button>
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                    disabled=""
+                    type="button"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                      disabled=""
-                      type="button"
-                    >
-                      <span>
-                        OK
-                      </span>
-                    </button>
-                  </li>
-                </ul>
+                    <span>
+                      OK
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -7297,6 +7292,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -9717,23 +9713,19 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                 <div
                   class="ant-picker-footer"
                 >
-                  <ul
+                  <div
                     class="ant-picker-ranges"
                   >
-                    <li
-                      class="ant-picker-ok"
+                    <button
+                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                      disabled=""
+                      type="button"
                     >
-                      <button
-                        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                        disabled=""
-                        type="button"
-                      >
-                        <span>
-                          OK
-                        </span>
-                      </button>
-                    </li>
-                  </ul>
+                      <span>
+                        OK
+                      </span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -9765,6 +9757,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -10445,6 +10438,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       class="ant-select-suffix"
                     >
                       <span
+                        aria-hidden="true"
                         aria-label="down"
                         class="anticon anticon-down"
                         role="img"
@@ -11948,6 +11942,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -12087,6 +12082,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -12552,6 +12548,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -13613,20 +13610,16 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                     <div
                       class="ant-picker-footer"
                     >
-                      <ul
+                      <div
                         class="ant-picker-ranges"
                       >
-                        <li
+                        <button
                           class="ant-picker-now"
+                          type="button"
                         >
-                          <a
-                            aria-disabled="false"
-                            class="ant-picker-now-btn"
-                          >
-                            Today
-                          </a>
-                        </li>
-                      </ul>
+                          Today
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -13735,6 +13728,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -13944,6 +13938,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -15369,6 +15364,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -15655,6 +15651,7 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
             class="ant-select-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="down"
               class="anticon anticon-down"
               role="img"
@@ -18120,33 +18117,25 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
               <div
                 class="ant-picker-footer"
               >
-                <ul
+                <div
                   class="ant-picker-ranges"
                 >
-                  <li
+                  <button
                     class="ant-picker-now"
+                    type="button"
                   >
-                    <a
-                      aria-disabled="false"
-                      class="ant-picker-now-btn"
-                    >
-                      Now
-                    </a>
-                  </li>
-                  <li
-                    class="ant-picker-ok"
+                    Now
+                  </button>
+                  <button
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                    disabled=""
+                    type="button"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                      disabled=""
-                      type="button"
-                    >
-                      <span>
-                        OK
-                      </span>
-                    </button>
-                  </li>
-                </ul>
+                    <span>
+                      OK
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -18208,6 +18197,7 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"

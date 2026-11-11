@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Selezionare',
     close: 'Chiudi',
+    clear: 'Cancella',
     show: 'Mostra',
     hide: 'Nascondi',
     sortable: 'ordinabile',
@@ -159,6 +160,9 @@ const localeValues: Locale = {
     transparent: 'Trasparente',
     singleColor: 'Tinta unita',
     gradientColor: 'Gradiente',
+  },
+  Input: {
+    otpCell: 'Carattere ${index} di ${total}',
   },
 };
 

@@ -1612,6 +1612,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -1657,6 +1658,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -2524,6 +2526,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -2858,6 +2861,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -2904,6 +2908,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3774,6 +3779,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -4109,6 +4115,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -4154,6 +4161,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -5021,6 +5029,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -5354,6 +5363,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -5399,6 +5409,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -6266,6 +6277,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize medium 
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -6599,6 +6611,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -6644,6 +6657,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -7511,6 +7525,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -7844,6 +7859,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -7889,6 +7905,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -8756,6 +8773,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -9089,6 +9107,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -9134,6 +9153,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -10001,6 +10021,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -11237,6 +11258,7 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -11286,6 +11308,7 @@ exports[`ConfigProvider components Cascader configProvider componentDisabled 1`]
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -11334,6 +11357,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -11382,6 +11406,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize medium 
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -11430,6 +11455,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize small 1
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -11478,6 +11504,7 @@ exports[`ConfigProvider components Cascader normal 1`] = `
     class="ant-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -11526,6 +11553,7 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
     class="prefix-Cascader-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -18213,13 +18241,14 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     class="config-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18246,23 +18275,27 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18315,6 +18348,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -18341,13 +18375,14 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18374,23 +18409,27 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18443,6 +18482,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -18474,13 +18514,14 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     class="config-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18507,23 +18548,27 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18577,6 +18622,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -18603,13 +18649,14 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18636,23 +18683,27 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18706,6 +18757,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -18737,13 +18789,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     class="config-pagination config-pagination-large css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18770,23 +18823,27 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18839,6 +18896,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -18865,13 +18923,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18898,23 +18957,27 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -18967,6 +19030,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -18998,13 +19062,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
     class="config-pagination config-pagination-medium css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19031,23 +19096,27 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19100,6 +19169,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -19126,13 +19196,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
     class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19159,23 +19230,27 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19228,6 +19303,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize mediu
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -19259,13 +19335,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19292,23 +19369,27 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19361,6 +19442,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -19387,13 +19469,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
-      aria-disabled="true"
       class="config-pagination-prev config-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19420,23 +19503,27 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     </li>
     <li
       class="config-pagination-item config-pagination-item-1 config-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="config-pagination-next config-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="config-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19489,6 +19576,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
           class="config-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -19520,13 +19608,14 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     class="ant-pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19553,23 +19642,27 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="ant-pagination-next ant-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19622,6 +19715,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -19648,13 +19742,14 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     class="ant-pagination ant-pagination-small ant-pagination-mini css-var-root"
   >
     <li
-      aria-disabled="true"
       class="ant-pagination-prev ant-pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19681,23 +19776,27 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="ant-pagination-next ant-pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="ant-pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19750,6 +19849,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -19781,13 +19881,14 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     class="prefix-Pagination css-var-root"
   >
     <li
-      aria-disabled="true"
       class="prefix-Pagination-prev prefix-Pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="prefix-Pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19814,23 +19915,27 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     </li>
     <li
       class="prefix-Pagination-item prefix-Pagination-item-1 prefix-Pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="prefix-Pagination-next prefix-Pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="prefix-Pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19883,6 +19988,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -19909,13 +20015,14 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     class="prefix-Pagination prefix-Pagination-small prefix-Pagination-mini css-var-root"
   >
     <li
-      aria-disabled="true"
       class="prefix-Pagination-prev prefix-Pagination-disabled"
-      title="Previous Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Previous Page"
         class="prefix-Pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -19942,23 +20049,27 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     </li>
     <li
       class="prefix-Pagination-item prefix-Pagination-item-1 prefix-Pagination-item-disabled"
-      tabindex="0"
       title="1"
     >
       <a
+        aria-disabled="true"
+        aria-label="Page 1"
         rel="nofollow"
+        role="button"
+        tabindex="-1"
       >
         1
       </a>
     </li>
     <li
-      aria-disabled="true"
       class="prefix-Pagination-next prefix-Pagination-disabled"
-      title="Next Page"
     >
       <button
+        aria-disabled="true"
+        aria-label="Next Page"
         class="prefix-Pagination-item-link"
         disabled=""
+        role="button"
         tabindex="-1"
         type="button"
       >
@@ -20011,6 +20122,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -23562,6 +23674,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -23611,6 +23724,7 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -23662,6 +23776,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -23713,6 +23828,7 @@ exports[`ConfigProvider components Select configProvider componentSize medium 1`
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -23764,6 +23880,7 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -23815,6 +23932,7 @@ exports[`ConfigProvider components Select normal 1`] = `
     class="ant-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -23866,6 +23984,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
     class="prefix-Select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -30394,32 +30513,24 @@ Array [
           <div
             class="config-picker-footer"
           >
-            <ul
+            <div
               class="config-picker-ranges"
             >
-              <li
+              <button
                 class="config-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="config-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="config-picker-ok"
+                Now
+              </button>
+              <button
+                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm config-picker-ok"
+                type="button"
               >
-                <button
-                  class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -32730,32 +32841,24 @@ Array [
           <div
             class="config-picker-footer"
           >
-            <ul
+            <div
               class="config-picker-ranges"
             >
-              <li
+              <button
                 class="config-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="config-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="config-picker-ok"
+                Now
+              </button>
+              <button
+                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm config-picker-ok"
+                type="button"
               >
-                <button
-                  class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -35018,32 +35121,24 @@ Array [
           <div
             class="config-picker-footer"
           >
-            <ul
+            <div
               class="config-picker-ranges"
             >
-              <li
+              <button
                 class="config-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="config-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="config-picker-ok"
+                Now
+              </button>
+              <button
+                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm config-picker-ok"
+                type="button"
               >
-                <button
-                  class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -37306,32 +37401,24 @@ Array [
           <div
             class="config-picker-footer"
           >
-            <ul
+            <div
               class="config-picker-ranges"
             >
-              <li
+              <button
                 class="config-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="config-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="config-picker-ok"
+                Now
+              </button>
+              <button
+                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm config-picker-ok"
+                type="button"
               >
-                <button
-                  class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -39594,32 +39681,24 @@ Array [
           <div
             class="ant-picker-footer"
           >
-            <ul
+            <div
               class="ant-picker-ranges"
             >
-              <li
+              <button
                 class="ant-picker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="ant-picker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="ant-picker-ok"
+                Now
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -41882,32 +41961,24 @@ Array [
           <div
             class="prefix-TimePicker-footer"
           >
-            <ul
+            <div
               class="prefix-TimePicker-ranges"
             >
-              <li
+              <button
                 class="prefix-TimePicker-now"
+                type="button"
               >
-                <a
-                  aria-disabled="false"
-                  class="prefix-TimePicker-now-btn"
-                >
-                  Now
-                </a>
-              </li>
-              <li
-                class="prefix-TimePicker-ok"
+                Now
+              </button>
+              <button
+                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm prefix-TimePicker-ok"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -45381,6 +45452,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -45431,6 +45503,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -45482,6 +45555,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -45533,6 +45607,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize mediu
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -45584,6 +45659,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
     class="config-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -45635,6 +45711,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
     class="ant-select-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"
@@ -45686,6 +45763,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
     class="prefix-TreeSelect-suffix"
   >
     <span
+      aria-hidden="true"
       aria-label="down"
       class="anticon anticon-down"
       role="img"

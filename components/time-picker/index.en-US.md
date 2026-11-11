@@ -56,6 +56,7 @@ dayjs.extend(customParseFormat)
 | cellRender | Custom rendering function for picker cells | (current: number, info: { originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
 | changeOnScroll | Trigger selection when scroll the column | boolean | false | 5.14.0 | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.25.0 |
+| components | Custom panels, input, and footer buttons. See [DatePicker Components](/components/date-picker#components) | [Components](/components/date-picker#components) | - | `nowButton` and `okButton`: 6.7.0 | × |
 | defaultValue | To set default time | [dayjs](https://day.js.org/) | - |  | × |
 | disabled | Determine whether the TimePicker is disabled | boolean | false |  | × |
 | disabledTime | To specify the time that cannot be selected | [DisabledTime](#disabledtime) | - | 4.19.0 | × |

@@ -10,7 +10,7 @@ import RcTreeSelect, {
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useZIndex } from '../_util/hooks';
+import { useAllowClear, useZIndex } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
@@ -226,6 +226,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     styles: contextStyles,
     classNames: contextClassNames,
     switcherIcon,
+    allowClear: contextAllowClear,
   } = useComponentConfig('treeSelect');
   const {
     renderEmpty,
@@ -365,7 +366,8 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
   // ===================== Icons =====================
-  const { suffix, removeIcon, clearIcon } = useIcons({
+  const { suffix, removeIcon } = useIcons({
+    componentName: 'TreeSelect',
     ...restProps,
     suffix: mergedCustomSuffix,
     multiple: isMultiple,
@@ -374,14 +376,15 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
     hasFeedback,
     feedbackIcon,
     prefixCls,
-    componentName: 'TreeSelect',
   });
 
-  const mergedAllowClear = allowClear && {
-    clearIcon,
-    label: locale.clear,
-    ...(typeof allowClear !== 'boolean' ? allowClear : {}),
-  };
+  const mergedAllowClear = useAllowClear({
+    allowClear,
+    contextAllowClear,
+    clearIcon: restProps.clearIcon,
+    defaultLabel: locale.clear,
+    componentName: 'TreeSelect',
+  });
 
   // ===================== Empty =====================
   let mergedNotFound: React.ReactNode;

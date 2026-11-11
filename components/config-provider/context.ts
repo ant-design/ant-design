@@ -6,6 +6,7 @@ import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { AlertProps } from '../alert';
 import type { AnchorProps } from '../anchor';
+import type { AutoCompleteProps } from '../auto-complete';
 import type { BadgeProps } from '../badge';
 import type { RibbonProps } from '../badge/Ribbon';
 import type { BreadcrumbProps } from '../breadcrumb';
@@ -262,6 +263,8 @@ export type BreadcrumbConfig = ComponentStyleConfig &
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
+export type AutoCompleteConfig = Pick<AutoCompleteProps, 'allowClear'>;
+
 export type InputPasswordConfig = ComponentStyleConfig &
   Pick<PasswordProps, 'classNames' | 'styles' | 'iconRender' | 'variant'>;
 
@@ -300,7 +303,8 @@ export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classNa
 export type DrawerConfig = ComponentStyleConfig &
   Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'mask' | 'focusable'>;
 
-export type DividerConfig = ComponentStyleConfig & Pick<DividerProps, 'classNames' | 'styles'>;
+export type DividerConfig = ComponentStyleConfig &
+  Pick<DividerProps, 'classNames' | 'styles' | 'variant'>;
 
 export type DropdownConfig = ComponentStyleConfig & Pick<DropdownProps, 'classNames' | 'styles'>;
 
@@ -343,6 +347,7 @@ export type ProgressConfig = ComponentStyleConfig & Pick<ProgressProps, 'classNa
 export type SelectConfig = ComponentStyleConfig &
   Pick<
     SelectProps,
+    | 'autoComplete'
     | 'showSearch'
     | 'variant'
     | 'classNames'
@@ -411,7 +416,8 @@ export type SplitterConfig = ComponentStyleConfig & Pick<SplitterProps, 'classNa
 
 export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classNames' | 'styles'>;
 
-export type StepsConfig = ComponentStyleConfig & Pick<StepsProps, 'classNames' | 'styles'>;
+export type StepsConfig = ComponentStyleConfig &
+  Pick<StepsProps, 'classNames' | 'styles' | 'variant'>;
 
 export type SpinConfig = ComponentStyleConfig &
   Pick<SpinProps, 'indicator' | 'classNames' | 'styles'>;
@@ -430,6 +436,7 @@ export type InputNumberConfig = ComponentStyleConfig &
 export type CascaderConfig = ComponentStyleConfig &
   Pick<
     CascaderProps,
+    | 'allowClear'
     | 'variant'
     | 'styles'
     | 'classNames'
@@ -441,7 +448,7 @@ export type CascaderConfig = ComponentStyleConfig &
   > & { clearIcon?: React.ReactNode; searchIcon?: React.ReactNode };
 
 export type TreeSelectConfig = ComponentStyleConfig &
-  Pick<TreeSelectProps, 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;
+  Pick<TreeSelectProps, 'allowClear' | 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;
 
 export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | 'styles'>;
 
@@ -460,7 +467,8 @@ export type TimePickerConfig = ComponentStyleConfig &
     'variant' | 'classNames' | 'styles' | 'suffix' | 'suffixIcon' | 'allowClear' | 'clearIcon'
   >;
 
-export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
+export type TimelineConfig = ComponentStyleConfig &
+  Pick<TimelineProps, 'classNames' | 'styles' | 'variant'>;
 
 export type MentionsConfig = ComponentStyleConfig &
   Pick<MentionsProps, 'variant' | 'classNames' | 'styles' | 'allowClear'>;
@@ -503,6 +511,7 @@ export interface WaveConfig {
 }
 
 export interface ConfigComponentProps {
+  autoComplete?: AutoCompleteConfig;
   input?: InputConfig;
   inputPassword?: InputPasswordConfig;
   inputSearch?: InputSearchConfig;

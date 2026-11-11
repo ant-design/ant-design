@@ -317,7 +317,8 @@ const fetcher = async (...args: Parameters<typeof fetch>) => {
   if (!response.ok) {
     throw new Error(`Failed to fetch contributors: ${response.status}`);
   }
-  return response.json();
+  const result = await response.json();
+  return result;
 };
 
 const swrConfig: SWRConfiguration<Contributor[], Error> = {
@@ -339,27 +340,25 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
 
   const { styles } = useStyle();
 
-  const {
-    data: contributors,
-    error,
-    isLoading,
-  } = useSWR<Contributor[], Error>(
-    'https://api.github.com/repos/ant-design/ant-design/contributors?per_page=100',
+  const { data, error, isLoading } = useSWR<Contributor[], Error>(
+    process.env.NODE_ENV === 'production'
+      ? ['https://api.github.com/repos/ant-design/ant-design/contributors?per_page=100']
+      : null,
     fetcher,
     swrConfig,
   );
 
   const avatarGroupList = useMemo(() => {
-    if (error) {
+    if (process.env.NODE_ENV !== 'production' || error) {
       return fallbackAvatarGroupList.map((src) => ({ src, name: 'Ant Design contributor' }));
     }
     if (isLoading) {
       return [];
     }
-    if (!Array.isArray(contributors) || !contributors?.length) {
+    if (!Array.isArray(data) || !data?.length) {
       return [];
     }
-    const filtered = contributors.filter((contributor) => {
+    const filtered = data.filter((contributor) => {
       const { login, type } = contributor;
       const name = login.toLowerCase();
       if (type === 'Bot') {
@@ -369,7 +368,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
     });
     const shuffled = filtered.sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 6).map((c) => ({ src: c.avatar_url, name: c.login }));
-  }, [contributors, error, isLoading]);
+  }, [data, error, isLoading]);
 
   const { theme, ...restConfig } = config || {};
 

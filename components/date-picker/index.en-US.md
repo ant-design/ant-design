@@ -100,7 +100,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | DatePicker: 5.25.0, RangePicker: 5.25.0 |
 | dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 | × |
 | cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
-| components | Custom panels | Record<Panel \| 'input', React.ComponentType> | - | 5.14.0 | × |
+| components | Custom panels, input, and footer buttons | [Components](#components) | - | 5.14.0 | × |
 | defaultOpen | Initial open state of picker | boolean | - |  | × |
 | disabled | Determine whether the DatePicker is disabled | boolean | false |  | × |
 | disabledDate | Specify the date that cannot be selected | (currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean | - | `info`: 5.14.0 | × |
@@ -141,6 +141,19 @@ The following APIs are shared by DatePicker, RangePicker.
 | onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  | × |
 | onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  | × |
 | ~~onSelect~~ | Callback when a date is selected, please use `onCalendarChange` instead | function(value) | - | - | × |
+
+### Components
+
+`components` supports custom panel components keyed by panel type and an `input` component, as well as the following footer buttons. These options also apply to RangePicker, TimePicker, and TimePicker.RangePicker.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| nowButton | Custom Today/Now button | React.ComponentType<any> \| string | `button` | 6.7.0 | × |
+| okButton | Custom confirmation button | React.ComponentType<any> \| string | Small primary Button | 6.7.0 | × |
+
+Custom button components should forward `className`, `disabled`, `onClick`, and `children` to the rendered button, and use `type="button"` to avoid submitting a form.
+
+`components.button` is deprecated. It remains supported as a fallback for `components.okButton`, which takes precedence when both are provided. It does not customize the Today/Now button.
 
 ### AllowClearConfig
 

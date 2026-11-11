@@ -32,6 +32,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -467,6 +468,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -1596,6 +1598,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -2031,6 +2034,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3159,6 +3163,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3594,6 +3599,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -4716,6 +4722,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -5151,6 +5158,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -6334,6 +6342,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
             class="ant-select-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="down"
               class="anticon anticon-down"
               role="img"
@@ -6805,6 +6814,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
             class="ant-select-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="down"
               class="anticon anticon-down"
               role="img"
@@ -7901,6 +7911,7 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -8336,6 +8347,7 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -9856,6 +9868,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -10291,6 +10304,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -11830,6 +11844,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -12265,6 +12280,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -13396,6 +13412,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -13831,6 +13848,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -14953,6 +14971,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -15388,6 +15407,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -16516,6 +16536,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -16951,6 +16972,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -18134,6 +18156,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -18569,6 +18592,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"

@@ -12,6 +12,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
 import Button from '../../button/index';
 import ConfigProvider from '../../config-provider';
+import Typography from '../../typography';
 
 describe('Card', () => {
   mountTest(Card);
@@ -41,6 +42,30 @@ describe('Card', () => {
       </Card>,
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  describe.each(['ant', 'custom'])('Typography title with %s prefix', (prefixCls) => {
+    it.each([
+      ['medium', false],
+      ['small', false],
+      ['medium', true],
+      ['small', true],
+    ] as const)('should reset margins for size=%s and tabs=%s', (size, withTabs) => {
+      render(
+        <ConfigProvider prefixCls={prefixCls} theme={{ hashed: true }}>
+          <Card
+            size={size}
+            title={<Typography.Title level={4}>Card title</Typography.Title>}
+            tabList={withTabs ? [{ key: 'tab', label: 'Tab' }] : undefined}
+          />
+        </ConfigProvider>,
+      );
+
+      expect(screen.getByRole('heading', { name: 'Card title' })).toHaveStyle({
+        marginTop: '0px',
+        marginBottom: '0px',
+      });
+    });
   });
 
   it('onTabChange should work', async () => {
@@ -130,6 +155,26 @@ describe('Card', () => {
       expect(screen.getByRole('tab', { name: 'Tab 2' })).toHaveAttribute('aria-selected', 'true');
     },
   );
+
+  it('should trigger tabProps.onChange when switching tabs', async () => {
+    const onTabPropsChange = jest.fn();
+    const onTabChange = jest.fn();
+    render(
+      <Card
+        tabList={[
+          { key: 'tab1', label: 'Tab 1' },
+          { key: 'tab2', label: 'Tab 2' },
+        ]}
+        tabProps={{ onChange: onTabPropsChange }}
+        onTabChange={onTabChange}
+      />,
+    );
+
+    await userEvent.setup({ delay: null }).click(screen.getByRole('tab', { name: 'Tab 2' }));
+
+    expect(onTabPropsChange).toHaveBeenCalledWith('tab2');
+    expect(onTabChange).toHaveBeenCalledWith('tab2');
+  });
 
   it('tab size extend card size', () => {
     const { container: largeContainer } = render(

@@ -7754,6 +7754,7 @@ exports[`renders components/date-picker/demo/switchable.tsx correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"

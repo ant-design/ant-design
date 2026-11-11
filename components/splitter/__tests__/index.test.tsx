@@ -363,6 +363,39 @@ describe('Splitter', () => {
       expect(onResizeEnd).toHaveBeenCalledWith([0, 100]);
     });
 
+    it.each([false, true])('should finish a cancelled touch drag with lazy=%s', async (lazy) => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+      const { container } = render(
+        <SplitterDemo lazy={lazy} onResize={onResize} onResizeEnd={onResizeEnd} />,
+      );
+
+      await resizeSplitter();
+      const dragger = container.querySelector<HTMLElement>('.ant-splitter-bar-dragger')!;
+      fireEvent.touchStart(dragger, { touches: [{ pageX: 0, pageY: 0 }] });
+      fireEvent.touchMove(window, { touches: [{ pageX: 10, pageY: 0 }] });
+      expect(container.querySelector('.ant-splitter-mask')).toBeTruthy();
+      fireEvent.touchCancel(window);
+
+      expect(onResizeEnd).toHaveBeenCalledTimes(1);
+      expect(onResizeEnd).toHaveBeenCalledWith([60, 40]);
+      expect(container.querySelector('.ant-splitter-mask')).toBeFalsy();
+      expect(container.querySelector('.ant-splitter-bar-dragger-active')).toBeFalsy();
+      expect(container.querySelector('.ant-splitter-bar-preview-active')).toBeFalsy();
+
+      onResize.mockClear();
+      onResizeEnd.mockClear();
+      fireEvent.touchMove(window, { touches: [{ pageX: 30, pageY: 0 }] });
+      fireEvent.touchEnd(window);
+      expect(onResize).not.toHaveBeenCalled();
+      expect(onResizeEnd).not.toHaveBeenCalled();
+      expect(container.querySelector('.ant-splitter-panel')).toHaveStyle({ flexBasis: '60px' });
+
+      mockTouchDrag(dragger, -10);
+      expect(onResizeEnd).toHaveBeenCalledTimes(1);
+      expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
+    });
+
     it('with min', async () => {
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();

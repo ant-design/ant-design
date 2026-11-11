@@ -28,7 +28,6 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
               class="ant-segmented-item"
             >
               <input
-                checked=""
                 class="ant-segmented-item-input"
                 name="test-id"
                 type="radio"
@@ -2386,23 +2385,19 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
                   <div
                     class="ant-picker-footer semantic-mark-popup-footer"
                   >
-                    <ul
+                    <div
                       class="ant-picker-ranges"
                     >
-                      <li
-                        class="ant-picker-ok"
+                      <button
+                        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-picker-ok"
+                        disabled=""
+                        type="button"
                       >
-                        <button
-                          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                          disabled=""
-                          type="button"
-                        >
-                          <span>
-                            OK
-                          </span>
-                        </button>
-                      </li>
-                    </ul>
+                        <span>
+                          OK
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

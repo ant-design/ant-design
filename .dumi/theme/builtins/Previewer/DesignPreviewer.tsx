@@ -4,7 +4,6 @@ import { CheckOutlined, SketchOutlined } from '@ant-design/icons';
 import { App } from 'antd';
 import { createStaticStyles } from 'antd-style';
 import copy from 'antd/lib/_util/copy';
-import { nodeToGroup } from 'html2sketch';
 
 import type { AntdPreviewerProps } from '.';
 import useLocale from '../../../hooks/useLocale';
@@ -81,6 +80,7 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
   const handleCopy = async () => {
     try {
       if (demoRef.current) {
+        const { nodeToGroup } = await import('html2sketch');
         const group = await nodeToGroup(demoRef.current);
         await copy(JSON.stringify(group.toSketchJSON()));
         setCopied(true);

@@ -379,6 +379,23 @@ describe('Button', () => {
     expect(wrapper.container.querySelector('.ant-btn')).toHaveClass('ant-btn-disabled');
   });
 
+  // https://github.com/ant-design/ant-design/issues/59731
+  it('should respect tabIndex when href is not undefined', () => {
+    const { container } = render(
+      <>
+        <Button href="https://ant.design" tabIndex={-1}>
+          link
+        </Button>
+        <Button href="https://ant.design" tabIndex={0} disabled>
+          disabled link
+        </Button>
+      </>,
+    );
+    const [link, disabledLink] = container.querySelectorAll('a');
+    expect(link).toHaveAttribute('tabindex', '-1');
+    expect(disabledLink).toHaveAttribute('tabindex', '-1');
+  });
+
   // https://github.com/ant-design/ant-design/issues/30953
   it('should handle fragment as children', () => {
     const wrapper = render(

@@ -280,6 +280,7 @@ gh repo view --json nameWithOwner
 3. 若 tracking remote 缺失、指向不明确、或不是预期 fork，先向用户确认，不要默认推送
 4. 只有在推送目标 remote 明确无误时，才推送当前分支
 5. 使用已确认过的标题和正文执行 `gh pr create`
+6. 默认创建 Ready PR，不传 `--draft`；仅在用户明确要求草稿 PR 时添加 `--draft`。标题、正文的内容草稿不代表 Draft PR。
 
 若需要推送，优先使用明确的远端与分支名，例如：
 

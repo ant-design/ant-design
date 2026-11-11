@@ -10,7 +10,7 @@ import RcCascader from '@rc-component/cascader';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useZIndex } from '../_util/hooks';
+import { useAllowClear, useZIndex } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber, isPlainObject, isString } from '../_util/is';
@@ -222,7 +222,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     expandIcon,
     placement,
     showSearch,
-    allowClear = true,
+    allowClear,
     notFoundContent,
     direction,
     getPopupContainer,
@@ -262,6 +262,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     expandIcon: contextExpandIcon,
     loadingIcon: contextLoadingIcon,
     clearIcon: contextClearIcon,
+    allowClear: contextAllowClear,
     removeIcon: contextRemoveIcon,
     suffix: contextSuffix,
     suffixIcon: contextSuffixIcon,
@@ -376,14 +377,9 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   // ===================== Icons =====================
   const mergedCustomSuffix = customSuffix !== undefined ? customSuffix : customSuffixIcon;
   const showSuffix = useShowArrow(mergedCustomSuffix, showArrow);
-  const {
-    suffix: mergedSuffix,
-    removeIcon: mergedRemoveIcon,
-    clearIcon: mergedClearIcon,
-  } = useSelectIcons({
+  const { suffix: mergedSuffix, removeIcon: mergedRemoveIcon } = useSelectIcons({
+    componentName: 'Cascader',
     ...props,
-    clearIcon,
-    contextClearIcon,
     removeIcon,
     contextRemoveIcon,
     loadingIcon: mergedLoadingIcon,
@@ -396,7 +392,6 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     showSuffix,
     multiple,
     prefixCls,
-    componentName: 'Cascader',
   });
 
   // ===================== Placement =====================
@@ -407,11 +402,15 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     return isRtl ? 'bottomRight' : 'bottomLeft';
   }, [placement, isRtl]);
 
-  const mergedAllowClear = allowClear && {
-    clearIcon: mergedClearIcon,
-    label: locale.clear,
-    ...(typeof allowClear !== 'boolean' ? allowClear : {}),
-  };
+  const mergedAllowClear = useAllowClear({
+    allowClear,
+    contextAllowClear,
+    defaultAllowClear: true,
+    clearIcon,
+    contextClearIcon,
+    defaultLabel: locale.clear,
+    componentName: 'Cascader',
+  });
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: CascaderProps<any> = {

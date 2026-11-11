@@ -3,7 +3,6 @@ import React from 'react';
 import type { DefaultOptionType } from '..';
 import Cascader from '..';
 import { resetWarned } from '../../_util/warning';
-import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -12,7 +11,7 @@ import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import Input from '../../input';
-import deDE from '../../locale/de_DE';
+import jaJP from '../../locale/ja_JP';
 import zhCN from '../../locale/zh_CN';
 import Space from '../../space';
 
@@ -92,8 +91,6 @@ function filter<OptionType extends DefaultOptionType = DefaultOptionType>(
 }
 
 describe('Cascader', () => {
-  excludeAllWarning();
-
   focusTest(Cascader, { refFocus: true });
   mountTest(Cascader);
   rtlTest(Cascader);
@@ -286,10 +283,10 @@ describe('Cascader', () => {
     });
 
     it('should fall back to English for locales that do not translate `clear`', () => {
-      expect(deDE.global).not.toHaveProperty('clear');
+      expect(jaJP.global).not.toHaveProperty('clear');
 
       const { container } = render(
-        <ConfigProvider locale={deDE}>
+        <ConfigProvider locale={jaJP}>
           <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} allowClear />
         </ConfigProvider>,
       );

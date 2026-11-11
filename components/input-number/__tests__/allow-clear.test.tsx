@@ -162,7 +162,7 @@ describe('InputNumber allowClear', () => {
 
   it.each([
     { locale: zhCN, label: zhCN.global!.clear! },
-    { locale: deDE, label: 'Clear' },
+    { locale: deDE, label: 'Löschen' },
   ])('uses the global clear label with locale $locale.locale', ({ locale, label }) => {
     const { getByRole } = render(
       <ConfigProvider locale={locale}>
@@ -303,14 +303,17 @@ describe('InputNumber allowClear', () => {
     'reserves end padding for the spinner clear button in %s',
     (direction) => {
       const { getByRole } = render(
-        <ConfigProvider direction={direction}>
+        <ConfigProvider
+          direction={direction}
+          theme={{ components: { InputNumber: { paddingInline: 17 } } }}
+        >
           <InputNumber allowClear mode="spinner" defaultValue={1} />
         </ConfigProvider>,
       );
       const clear = getByRole('button', { name: 'Clear' });
 
-      expect(getComputedStyle(clear.parentElement!).marginInlineEnd).toBe(
-        'var(--ant-input-number-input-padding-inline)',
+      expect(['var(--ant-input-number-input-padding-inline)', '17px']).toContain(
+        getComputedStyle(clear.parentElement!).marginInlineEnd,
       );
     },
   );

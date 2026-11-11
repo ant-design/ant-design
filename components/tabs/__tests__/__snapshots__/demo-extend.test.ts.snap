@@ -2861,7 +2861,6 @@ Array [
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -4348,6 +4347,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -4513,6 +4513,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -4678,6 +4679,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -4826,6 +4828,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"

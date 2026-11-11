@@ -39,7 +39,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type | × |
+| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | false | - | 6.7.0 |
 | ~~autoClearSearchValue~~ | If auto clear search input value when multiple select is selected/deselected | boolean | true |  | × |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.25.0 |
@@ -105,6 +105,17 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~onSearch~~ | A callback function, can be executed when the search input changes | function(value: string) | - |  | × |
 | onSelect | A callback function, can be executed when you select a treeNode | function(value, node, extra) | - |  | × |
 | onTreeExpand | A callback function, can be executed when treeNode expanded | function(expandedKeys) | - |  | × |
+
+### AllowClearConfig
+
+Supports global configuration through `ConfigProvider.treeSelect.allowClear` (6.7.0). Fields use component values first, then global values, then defaults. `allowClear={true}` inherits global configuration; `disabled: false` and `tabIndex: 0` override global values.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | Custom clear icon | ReactNode | - | - | 6.7.0 |
+| disabled | When `true`, equivalent to `allowClear={false}` | boolean | false | 6.7.0 | 6.7.0 |
+| label | Accessible name of the clear button | string | Component locale text | 6.6.0 | 6.7.0 |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 6.7.0 | 6.7.0 |
 
 ### showSearch
 

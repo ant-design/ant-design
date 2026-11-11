@@ -2204,7 +2204,6 @@ exports[`renders components/listy/demo/scroll-to.tsx correctly 1`] = `
           class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
         >
           <input
-            checked=""
             class="ant-segmented-item-input"
             name="test-id"
             type="radio"
@@ -2362,6 +2361,7 @@ exports[`renders components/listy/demo/scroll-to.tsx correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
