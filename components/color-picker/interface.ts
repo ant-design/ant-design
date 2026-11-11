@@ -113,7 +113,7 @@ export type ColorPickerProps = Omit<
   ) => React.ReactNode;
   /**
    * Whether to show the gradient angle input
-   * @since 6.7.0
+   * @since 6.8.0
    * @default false
    */
   showGradientAngle?: boolean;

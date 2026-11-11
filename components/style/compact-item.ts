@@ -7,11 +7,6 @@ interface CompactItemOptions {
 
   focus?: boolean;
   /**
-   * Some component borders are implemented on child elements
-   * like `Select`
-   */
-  borderElCls?: string;
-  /**
    * Some components have special `focus` className especially with popovers
    * like `Select` and `DatePicker`
    */
@@ -25,13 +20,11 @@ function compactItemBorder(
   options: CompactItemOptions,
   prefixCls: string,
 ): CSSObject {
-  const { focusElCls, focus, borderElCls } = options;
-  const childCombinator = borderElCls ? '> *' : '';
-  const suffix = childCombinator ? ` ${childCombinator}` : '';
+  const { focusElCls, focus } = options;
   const genEffects = (effects: (string | null)[]) =>
     effects
       .filter(Boolean)
-      .map((n) => `&:${n}${suffix}`)
+      .map((n) => `&:${n}`)
       .join(',');
   const hoverEffects = genEffects(['hover', focusElCls ? `hover${focusElCls}` : null]);
   const focusEffects = genEffects([focus ? 'focus' : null, 'active']);
@@ -62,7 +55,7 @@ function compactItemBorder(
           }
         : {}),
 
-      [`&[disabled] ${childCombinator}`]: {
+      '&[disabled]': {
         zIndex: 0,
       },
     },
@@ -70,33 +63,24 @@ function compactItemBorder(
 }
 
 // handle border-radius
-function compactItemBorderRadius(
-  prefixCls: string,
-  parentCls: string,
-  options: CompactItemOptions,
-): CSSObject {
-  const { borderElCls } = options;
-  const childCombinator = borderElCls ? `> ${borderElCls}` : '';
-
+function compactItemBorderRadius(prefixCls: string, parentCls: string): CSSObject {
   return {
-    [`&-item:not(${parentCls}-first-item):not(${parentCls}-last-item) ${childCombinator}`]: {
+    [`&-item:not(${parentCls}-first-item):not(${parentCls}-last-item)`]: {
       borderRadius: 0,
     },
 
     [`&-item:not(${parentCls}-last-item)${parentCls}-first-item`]: {
-      [`& ${childCombinator}, &${prefixCls}-sm ${childCombinator}, &${prefixCls}-lg ${childCombinator}`]:
-        {
-          borderStartEndRadius: 0,
-          borderEndEndRadius: 0,
-        },
+      [`&, &${prefixCls}-sm, &${prefixCls}-lg`]: {
+        borderStartEndRadius: 0,
+        borderEndEndRadius: 0,
+      },
     },
 
     [`&-item:not(${parentCls}-first-item)${parentCls}-last-item`]: {
-      [`& ${childCombinator}, &${prefixCls}-sm ${childCombinator}, &${prefixCls}-lg ${childCombinator}`]:
-        {
-          borderStartStartRadius: 0,
-          borderEndStartRadius: 0,
-        },
+      [`&, &${prefixCls}-sm, &${prefixCls}-lg`]: {
+        borderStartStartRadius: 0,
+        borderEndStartRadius: 0,
+      },
     },
   };
 }
@@ -115,7 +99,7 @@ export function genCompactItemStyle<T extends OverrideComponent>(
   return {
     [compactCls]: {
       ...compactItemBorder(token, compactCls, options, mergedComponentCls),
-      ...compactItemBorderRadius(mergedComponentCls, compactCls, options),
+      ...compactItemBorderRadius(mergedComponentCls, compactCls),
     },
   };
 }
