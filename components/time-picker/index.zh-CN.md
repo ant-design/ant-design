@@ -23,6 +23,7 @@ demo:
 <code src="./demo/need-confirm.tsx" version="5.14.0">选择确认</code>
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/hide-column.tsx">选择时分</code>
+<code src="./demo/multiple-formats.tsx">多种输入格式</code>
 <code src="./demo/interval-options.tsx">步长选项</code>
 <code src="./demo/addon.tsx">附加内容</code>
 <code src="./demo/12hours.tsx">12 小时制</code>
@@ -60,7 +61,7 @@ dayjs.extend(customParseFormat)
 | defaultValue | 默认时间 | [dayjs](https://day.js.org/) | - |  | × |
 | disabled | 禁用全部操作 | boolean | false |  | × |
 | disabledTime | 不可选择的时间 | [DisabledTime](#disabledtime) | - | 4.19.0 | × |
-| format | 展示的时间格式 | string | `HH:mm:ss` |  | × |
+| format | 设置时间格式。传入字符串数组时支持多种输入格式，使用第一个格式展示。 | [formatType](/components/date-picker-cn#formattype) | `HH:mm:ss` |  | × |
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | - |  | × |
 | hideDisabledOptions | 隐藏禁止选择的选项 | boolean | false |  | × |
 | hourStep | 小时选项间隔 | number | 1 |  | × |

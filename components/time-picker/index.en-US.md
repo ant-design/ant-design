@@ -22,6 +22,7 @@ By clicking the input box, you can select a time from a popup panel.
 <code src="./demo/need-confirm.tsx" version="5.14.0">Need Confirm</code>
 <code src="./demo/disabled.tsx">disabled</code>
 <code src="./demo/hide-column.tsx">Hour and minute</code>
+<code src="./demo/multiple-formats.tsx">Multiple input formats</code>
 <code src="./demo/interval-options.tsx">interval option</code>
 <code src="./demo/addon.tsx">Addon</code>
 <code src="./demo/12hours.tsx">12 hours</code>
@@ -60,7 +61,7 @@ dayjs.extend(customParseFormat)
 | defaultValue | To set default time | [dayjs](https://day.js.org/) | - |  | × |
 | disabled | Determine whether the TimePicker is disabled | boolean | false |  | × |
 | disabledTime | To specify the time that cannot be selected | [DisabledTime](#disabledtime) | - | 4.19.0 | × |
-| format | To set the time format | string | `HH:mm:ss` |  | × |
+| format | To set the time format. An array of strings accepts multiple input formats; the first format is used for display. | [formatType](/components/date-picker#formattype) | `HH:mm:ss` |  | × |
 | getPopupContainer | To set the container of the floating layer, while the default is to create a div element in body | function(trigger) | - |  | × |
 | hideDisabledOptions | Whether hide the options that can not be selected | boolean | false |  | × |
 | hourStep | Interval between hours in picker | number | 1 |  | × |
