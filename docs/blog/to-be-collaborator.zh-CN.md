@@ -78,7 +78,7 @@ git checkout fix-branch
 ## 五. 运行测试用例及规范检查 {#run-tests-and-lint-checks}
 
 1. 在添加 issue 相关测试用例同时，确认所有的测试都是通过的 `npm run test`。 小贴士：开发过程中可以用 `npm test -- --watch TestName` 来运行指定的测试。
-2. 运行 `npm test -- -u` 来更新 [jest snapshot](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) 并且把这些更新也提交上来（如果有的话）。
+2. 运行 `npm test -- -u` 来更新 [jest snapshot](https://jestjs.io/docs/snapshot-testing) 并且把这些更新也提交上来（如果有的话）。
 3. 确保你的代码通过了 lint 检查 `npm run lint`。
 
 ## 六. 合并修改 {#merge-changes}

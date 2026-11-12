@@ -15,18 +15,15 @@ import dayjs from 'dayjs';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
 
 import { DarkContext } from '../../hooks/useDark';
+import useIsMobile from '../../hooks/useIsMobile';
 import useLayoutState from '../../hooks/useLayoutState';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import { getBannerData } from '../../pages/index/components/util';
 import { ANT_DESIGN_SITE_THEME } from '../common/ThemeSwitch';
 import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
-import type { SimpleComponentClassNames, SiteContextProps } from '../slots/SiteContext';
+import type { SimpleComponentClassNames, SiteContextProps, SiteState } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
-
-type SiteState = Partial<Omit<SiteContextProps, 'updateSiteConfig'>>;
-
-const RESPONSIVE_MOBILE = 768;
 
 export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
 
@@ -39,6 +36,10 @@ if (typeof window !== 'undefined') {
     }
   }
 }
+
+const isColorTheme = (value?: string) => {
+  return value === 'light' || value === 'dark' || value === 'auto';
+};
 
 const getAlgorithm = (themes: ThemeName[] = [], systemTheme: 'dark' | 'light') =>
   themes
@@ -71,41 +72,30 @@ const isThemeDark = (theme: ThemeName[], systemTheme: 'dark' | 'light') => {
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [
-    { theme = [], direction, isMobile, bannerVisible = false, dynamicTheme, isDark = false },
-    setSiteState,
-  ] = useLayoutState<SiteState>({
-    isMobile: false,
-    direction: 'ltr',
-    theme: [],
-    isDark: false,
-    bannerVisible: false,
-    dynamicTheme: undefined,
+  const isMobile = useIsMobile();
+  const [{ theme = [], direction, bannerVisible = false, dynamicTheme }, setSiteState] =
+    useLayoutState<SiteState>({
+      direction: 'ltr',
+      theme: [],
+      bannerVisible: false,
+      dynamicTheme: undefined,
+    });
+
+  const [storedTheme] = useLocalStorage<ThemeName | undefined>(ANT_DESIGN_SITE_THEME, {
+    initialValue: undefined,
   });
 
-  const [storedTheme] = useLocalStorage<ThemeName>(ANT_DESIGN_SITE_THEME, {
-    defaultValue: undefined,
+  const [bannerLastTime] = useLocalStorage<string | undefined>(ANT_DESIGN_NOT_SHOW_BANNER, {
+    initialValue: undefined,
   });
 
-  const [bannerLastTime] = useLocalStorage<string>(ANT_DESIGN_NOT_SHOW_BANNER, {
-    defaultValue: undefined,
-  });
+  // 颜色模式优先级：URL Query > Local Storage > auto。
+  const urlColor = searchParams.getAll('theme').find((t) => t === 'light' || t === 'dark');
 
-  // 获取最终主题（优先级：URL Query > Local Storage > Site (Memory)）
-  const getFinalTheme = (urlTheme: ThemeName[]): ThemeName[] => {
-    // 只认 light/dark
-    const baseTheme = urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t));
-    const urlColor = urlTheme.find((t) => t === 'light' || t === 'dark');
-    if (urlColor) {
-      return [...baseTheme, urlColor];
-    }
-    if (['light', 'dark', 'auto'].includes(storedTheme)) {
-      return [...baseTheme, storedTheme];
-    }
-    return [...baseTheme, 'auto'];
-  };
+  const colorTheme = urlColor || (isColorTheme(storedTheme) ? storedTheme : 'auto');
 
   const [systemTheme, setSystemTheme] = React.useState<'light' | 'dark'>(() => getSystemTheme());
+  const isDark = isThemeDark(theme, systemTheme);
 
   const bannerData = getBannerData();
 
@@ -145,11 +135,7 @@ const GlobalLayout: React.FC = () => {
     [searchParams, setSearchParams],
   );
 
-  const updateMobileMode = useCallback(() => {
-    updateSiteConfig({ isMobile: window.innerWidth < RESPONSIVE_MOBILE });
-  }, [updateSiteConfig]);
-
-  // 设置 data-prefers-color 属性和 isDark 状态
+  // 设置 data-prefers-color 属性
   useEffect(() => {
     const color = theme.find((t) => t === 'light' || t === 'dark');
     const html = document.querySelector<HTMLHtmlElement>('html');
@@ -158,8 +144,6 @@ const GlobalLayout: React.FC = () => {
     } else if (color) {
       html?.setAttribute('data-prefers-color', color);
     }
-
-    setSiteState((prev) => ({ ...prev, isDark: isThemeDark(theme, systemTheme) }));
   }, [systemTheme, theme]);
 
   // 监听系统主题变化
@@ -185,9 +169,7 @@ const GlobalLayout: React.FC = () => {
   // 主题初始化
   useEffect(() => {
     const urlTheme = searchParams.getAll('theme') as ThemeName[];
-    const finalTheme = getFinalTheme(urlTheme);
     const _direction = searchParams.get('direction') as DirectionType;
-    const _isDark = isThemeDark(finalTheme, systemTheme);
 
     const storedBannerVisible = bannerLastTime && dayjs().diff(dayjs(bannerLastTime), 'day') >= 1;
 
@@ -195,27 +177,33 @@ const GlobalLayout: React.FC = () => {
 
     const hasBannerContent = isZhCN && !!bannerData;
 
-    setSiteState({
-      theme: finalTheme,
-      isDark: _isDark,
+    setSiteState((prev) => ({
+      ...prev,
+      theme: [
+        ...urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t)),
+        ...(prev.theme || []).filter((t) => ['light', 'dark', 'auto'].includes(t)),
+      ],
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
       bannerVisible: hasBannerContent && (bannerLastTime ? !!storedBannerVisible : true),
-    });
-
-    // Handle isMobile
-    updateMobileMode();
+    }));
 
     // 配合 dumi 的 mirror-notify 脚本使用
     const retrieveMirrorNotification = (window as any)[Symbol.for('antd.mirror-notify')];
     if (typeof retrieveMirrorNotification === 'function') {
       retrieveMirrorNotification();
     }
+  }, [bannerData, bannerLastTime, searchParams]);
 
-    window.addEventListener('resize', updateMobileMode);
-    return () => {
-      window.removeEventListener('resize', updateMobileMode);
-    };
-  }, [bannerData, bannerLastTime, searchParams, systemTheme, updateMobileMode]);
+  // 颜色偏好变化只更新颜色模式，保留动态主题和当前的其他主题设置。
+  useEffect(() => {
+    setSiteState((prev) => ({
+      ...prev,
+      theme: [
+        ...(prev.theme || []).filter((t) => !['light', 'dark', 'auto'].includes(t)),
+        colorTheme,
+      ],
+    }));
+  }, [colorTheme]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(
     () => ({
@@ -223,7 +211,7 @@ const GlobalLayout: React.FC = () => {
       updateSiteConfig,
       theme: theme!,
       isDark: isDark!,
-      isMobile: isMobile!,
+      isMobile,
       bannerVisible,
       dynamicTheme,
     }),

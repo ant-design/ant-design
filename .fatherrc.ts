@@ -29,7 +29,7 @@ const resolveAliasConfig = {
 export default defineConfig({
   umd: {
     entry: {
-      './index.js': {
+      './index.ts': {
         name: 'antd',
         sourcemap: true,
         generateUnminified: true,
@@ -42,7 +42,7 @@ export default defineConfig({
           ...resolveAliasConfig,
         },
       },
-      './index-with-locales.js': {
+      './index-with-locales.ts': {
         name: 'antd',
         sourcemap: true,
         generateUnminified: true,

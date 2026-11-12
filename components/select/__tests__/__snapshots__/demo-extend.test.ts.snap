@@ -72,7 +72,9 @@ Array [
       >
         <div
           aria-label="a10"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="26"
           id="test-id_list_0"
           role="option"
         >
@@ -80,7 +82,9 @@ Array [
         </div>
         <div
           aria-label="b11"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="26"
           id="test-id_list_1"
           role="option"
         >
@@ -464,7 +468,9 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="4"
             id="test-id_list_0"
             role="option"
           >
@@ -472,7 +478,9 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="true"
+            aria-setsize="4"
             id="test-id_list_1"
             role="option"
           >
@@ -630,7 +638,9 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
         >
           <div
             aria-label="Lucy"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="1"
             id="test-id_list_0"
             role="option"
           >
@@ -736,7 +746,9 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
         >
           <div
             aria-label="Lucy"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="1"
             id="test-id_list_0"
             role="option"
           >
@@ -868,7 +880,9 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
         >
           <div
             aria-label="Lucy"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="1"
             id="test-id_list_0"
             role="option"
           >
@@ -998,7 +1012,9 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx extend context co
         >
           <div
             aria-label="A very very very very very very very long selected label"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="2"
             id="test-id_list_0"
             role="option"
           >
@@ -1006,7 +1022,9 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx extend context co
           </div>
           <div
             aria-label="Short option"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="2"
             id="test-id_list_1"
             role="option"
           >
@@ -1134,7 +1152,9 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx extend context co
         >
           <div
             aria-label="A very very very very very very very long selected label"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="2"
             id="test-id_list_0"
             role="option"
           >
@@ -1142,7 +1162,9 @@ exports[`renders components/select/demo/clear-suffix-debug.tsx extend context co
           </div>
           <div
             aria-label="Short option"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="2"
             id="test-id_list_1"
             role="option"
           >
@@ -1275,7 +1297,9 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
         >
           <div
             aria-label="Zhejiang"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="2"
             id="test-id_list_0"
             role="option"
           >
@@ -1283,7 +1307,9 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
           </div>
           <div
             aria-label="Jiangsu"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="2"
             id="test-id_list_1"
             role="option"
           >
@@ -1406,7 +1432,9 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
         >
           <div
             aria-label="Hangzhou"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
@@ -1414,7 +1442,9 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
           </div>
           <div
             aria-label="Ningbo"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -1561,7 +1591,9 @@ Array [
       >
         <div
           aria-label="jack"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="2"
           id="test-id_list_0"
           role="option"
         >
@@ -1569,7 +1601,9 @@ Array [
         </div>
         <div
           aria-label="lucy"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="2"
           id="test-id_list_1"
           role="option"
         >
@@ -1754,7 +1788,9 @@ Array [
       >
         <div
           aria-label="gold"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="4"
           id="test-id_list_0"
           role="option"
         >
@@ -1762,7 +1798,9 @@ Array [
         </div>
         <div
           aria-label="lime"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="4"
           id="test-id_list_1"
           role="option"
         >
@@ -1992,14 +2030,18 @@ Array [
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-posinset="1"
           aria-selected="true"
+          aria-setsize="4"
           id="test-id_list_0"
           role="option"
         >
           gold
         </div>
         <div
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="4"
           id="test-id_list_1"
           role="option"
         >
@@ -2336,7 +2378,9 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
           >
             <div
               aria-label="Jack"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="5"
               id="test-id_list_0"
               role="option"
             >
@@ -2344,7 +2388,9 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
             </div>
             <div
               aria-label="Lucy"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="5"
               id="test-id_list_1"
               role="option"
             >
@@ -2563,7 +2609,9 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
           >
             <div
               aria-label="Jack"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="5"
               id="test-id_list_0"
               role="option"
             >
@@ -2571,7 +2619,9 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
             </div>
             <div
               aria-label="Lucy"
+              aria-posinset="2"
               aria-selected="true"
+              aria-setsize="5"
               id="test-id_list_1"
               role="option"
             >
@@ -2761,7 +2811,9 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
           >
             <div
               aria-label="Jack"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="5"
               id="test-id_list_0"
               role="option"
             >
@@ -2769,7 +2821,9 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
             </div>
             <div
               aria-label="Lucy"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="5"
               id="test-id_list_1"
               role="option"
             >
@@ -2989,7 +3043,9 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
         >
           <div
             aria-label="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="1"
             id="test-id_list_0"
             role="option"
           >
@@ -3228,14 +3284,18 @@ Array [
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="100"
           id="test-id_list_0"
           role="option"
         >
           0
         </div>
         <div
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="100"
           id="test-id_list_1"
           role="option"
         >
@@ -5035,7 +5095,9 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
@@ -5043,7 +5105,9 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="true"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -5198,7 +5262,9 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
@@ -5206,7 +5272,9 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="true"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -5355,7 +5423,9 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
@@ -5363,7 +5433,9 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="true"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -5544,7 +5616,9 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
@@ -5552,7 +5626,9 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="true"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -5702,7 +5778,9 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
@@ -5710,7 +5788,9 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="true"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -5865,7 +5945,9 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
@@ -5873,7 +5955,9 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="true"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -6042,7 +6126,9 @@ Array [
       >
         <div
           aria-label="Apples"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="4"
           id="test-id_list_0"
           role="option"
         >
@@ -6050,7 +6136,9 @@ Array [
         </div>
         <div
           aria-label="Nails"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="4"
           id="test-id_list_1"
           role="option"
         >
@@ -6186,7 +6274,9 @@ Array [
       >
         <div
           aria-label="Jack (100)"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="2"
           id="test-id_list_0"
           role="option"
         >
@@ -6194,7 +6284,9 @@ Array [
         </div>
         <div
           aria-label="Lucy (101)"
+          aria-posinset="2"
           aria-selected="true"
+          aria-setsize="2"
           id="test-id_list_1"
           role="option"
         >
@@ -6367,7 +6459,9 @@ Array [
       >
         <div
           aria-label="Ava Swift"
+          aria-posinset="1"
           aria-selected="true"
+          aria-setsize="9"
           id="test-id_list_0"
           role="option"
         >
@@ -6375,7 +6469,9 @@ Array [
         </div>
         <div
           aria-label="Cole Reed"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="9"
           id="test-id_list_1"
           role="option"
         >
@@ -6711,7 +6807,9 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
         >
           <div
             aria-label="a10"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="26"
             id="test-id_list_0"
             role="option"
           >
@@ -6719,7 +6817,9 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
           </div>
           <div
             aria-label="b11"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="26"
             id="test-id_list_1"
             role="option"
           >
@@ -7180,7 +7280,9 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
         >
           <div
             aria-label="a10"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="26"
             id="test-id_list_0"
             role="option"
           >
@@ -7188,7 +7290,9 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
           </div>
           <div
             aria-label="b11"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="26"
             id="test-id_list_1"
             role="option"
           >
@@ -7618,23 +7722,27 @@ Array [
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
-          aria-selected="false"
-          id="test-id_list_0"
-          role="presentation"
-        />
-        <div
-          aria-selected="false"
-          id="test-id_list_1"
-          role="option"
+          aria-label="manager"
+          role="group"
         >
-          Jack
-        </div>
-        <div
-          aria-selected="false"
-          id="test-id_list_2"
-          role="option"
-        >
-          Lucy
+          <div
+            aria-posinset="1"
+            aria-selected="false"
+            aria-setsize="4"
+            id="test-id_list_1"
+            role="option"
+          >
+            Jack
+          </div>
+          <div
+            aria-posinset="2"
+            aria-selected="false"
+            aria-setsize="4"
+            id="test-id_list_2"
+            role="option"
+          >
+            Lucy
+          </div>
         </div>
       </div>
       <div
@@ -7842,14 +7950,18 @@ Array [
             style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_0"
               role="option"
             >
               long
             </div>
             <div
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_1"
               role="option"
             >
@@ -7998,14 +8110,18 @@ Array [
             style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_0"
               role="option"
             >
               long
             </div>
             <div
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_1"
               role="option"
             >
@@ -8178,14 +8294,18 @@ Array [
             style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_0"
               role="option"
             >
               long
             </div>
             <div
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_1"
               role="option"
             >
@@ -8403,14 +8523,18 @@ Array [
             style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_0"
               role="option"
             >
               long
             </div>
             <div
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_1"
               role="option"
             >
@@ -8577,14 +8701,18 @@ Array [
             style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_0"
               role="option"
             >
               long
             </div>
             <div
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_1"
               role="option"
             >
@@ -9151,14 +9279,18 @@ Array [
             style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="3"
               id="test-id_list_0"
               role="option"
             >
               long
             </div>
             <div
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_1"
               role="option"
             >
@@ -9330,14 +9462,18 @@ Array [
             style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_0"
               role="option"
             >
               long
             </div>
             <div
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_1"
               role="option"
             >
@@ -9472,14 +9608,18 @@ Array [
             style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_0"
               role="option"
             >
               long
             </div>
             <div
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_1"
               role="option"
             >
@@ -9655,14 +9795,18 @@ Array [
             style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_0"
               role="option"
             >
               long
             </div>
             <div
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_1"
               role="option"
             >
@@ -9838,14 +9982,18 @@ Array [
             style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_0"
               role="option"
             >
               long
             </div>
             <div
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="3"
               id="test-id_list_1"
               role="option"
             >
@@ -10047,14 +10195,18 @@ Array [
                         style="height: 0px; width: 0px; overflow: hidden;"
                       >
                         <div
+                          aria-posinset="1"
                           aria-selected="false"
+                          aria-setsize="3"
                           id="bamboo_list_0"
                           role="option"
                         >
                           long
                         </div>
                         <div
+                          aria-posinset="2"
                           aria-selected="false"
+                          aria-setsize="3"
                           id="bamboo_list_1"
                           role="option"
                         >
@@ -10228,7 +10380,9 @@ Array [
                         style="height: 0px; width: 0px; overflow: hidden;"
                       >
                         <div
+                          aria-posinset="1"
                           aria-selected="false"
+                          aria-setsize="3"
                           id="bamboo_list_0"
                           role="option"
                         >
@@ -10342,6 +10496,7 @@ Array [
         class="ant-input-suffix"
       >
         <button
+          aria-label="Clear"
           class="ant-input-clear-icon ant-input-clear-icon-hidden"
           type="button"
         >
@@ -10432,14 +10587,18 @@ Array [
           style="height: 0px; width: 0px; overflow: hidden;"
         >
           <div
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
             long
           </div>
           <div
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -10610,14 +10769,18 @@ Array [
           style="height: 0px; width: 0px; overflow: hidden;"
         >
           <div
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
             long
           </div>
           <div
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -10771,14 +10934,18 @@ Array [
           style="height: 0px; width: 0px; overflow: hidden;"
         >
           <div
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
             long
           </div>
           <div
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -10919,14 +11086,18 @@ Array [
           style="height: 0px; width: 0px; overflow: hidden;"
         >
           <div
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
             long
           </div>
           <div
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -11125,14 +11296,18 @@ Array [
           style="height: 0px; width: 0px; overflow: hidden;"
         >
           <div
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
             long
           </div>
           <div
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -11326,14 +11501,18 @@ Array [
           style="height: 0px; width: 0px; overflow: hidden;"
         >
           <div
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
             long
           </div>
           <div
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -11515,7 +11694,9 @@ Array [
       >
         <div
           aria-label="Happy"
+          aria-posinset="1"
           aria-selected="true"
+          aria-setsize="5"
           id="test-id_list_0"
           role="option"
         >
@@ -11523,7 +11704,9 @@ Array [
         </div>
         <div
           aria-label="Sad"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="5"
           id="test-id_list_1"
           role="option"
         >
@@ -12140,7 +12323,9 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
       >
         <div
           aria-label="Option 0"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="3"
           id="test-id_list_0"
           role="option"
         >
@@ -12148,7 +12333,9 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
         </div>
         <div
           aria-label="Option 1"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="3"
           id="test-id_list_1"
           role="option"
         >
@@ -12316,7 +12503,9 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
         >
           <div
             aria-label="Long Label: a10"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="26"
             id="test-id_list_0"
             role="option"
           >
@@ -12324,7 +12513,9 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
           </div>
           <div
             aria-label="Long Label: b11"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="26"
             id="test-id_list_1"
             role="option"
           >
@@ -12843,7 +13034,9 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
         >
           <div
             aria-label="Long Label: a10"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="26"
             id="test-id_list_0"
             role="option"
           >
@@ -12851,7 +13044,9 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
           </div>
           <div
             aria-label="Long Label: b11"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="26"
             id="test-id_list_1"
             role="option"
           >
@@ -13268,7 +13463,9 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
         >
           <div
             aria-label="Long Label: a10"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="26"
             id="test-id_list_0"
             role="option"
           >
@@ -13276,7 +13473,9 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
           </div>
           <div
             aria-label="Long Label: b11"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="26"
             id="test-id_list_1"
             role="option"
           >
@@ -13786,7 +13985,9 @@ Array [
       >
         <div
           aria-label="Jack"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="3"
           id="test-id_list_0"
           role="option"
         >
@@ -13794,7 +13995,9 @@ Array [
         </div>
         <div
           aria-label="Lucy"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="3"
           id="test-id_list_1"
           role="option"
         >
@@ -13938,7 +14141,9 @@ Array [
       >
         <div
           aria-label="Jack"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="3"
           id="test-id_list_0"
           role="option"
         >
@@ -13946,7 +14151,9 @@ Array [
         </div>
         <div
           aria-label="Lucy"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="3"
           id="test-id_list_1"
           role="option"
         >
@@ -14090,7 +14297,9 @@ Array [
       >
         <div
           aria-label="a11"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="4"
           id="test-id_list_0"
           role="option"
         >
@@ -14098,7 +14307,9 @@ Array [
         </div>
         <div
           aria-label="b22"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="4"
           id="test-id_list_1"
           role="option"
         >
@@ -14260,7 +14471,9 @@ Array [
       >
         <div
           aria-label="Cancelled"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="6"
           id="test-id_list_0"
           role="option"
         >
@@ -14268,7 +14481,9 @@ Array [
         </div>
         <div
           aria-label="Closed"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="6"
           id="test-id_list_1"
           role="option"
         >
@@ -14615,7 +14830,9 @@ Array [
           >
             <div
               aria-label="a10"
+              aria-posinset="1"
               aria-selected="false"
+              aria-setsize="26"
               id="test-id_list_0"
               role="option"
             >
@@ -14623,7 +14840,9 @@ Array [
             </div>
             <div
               aria-label="b11"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="26"
               id="test-id_list_1"
               role="option"
             >
@@ -15241,7 +15460,9 @@ Array [
           >
             <div
               aria-label="a10"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="26"
               id="test-id_list_0"
               role="option"
             >
@@ -15249,7 +15470,9 @@ Array [
             </div>
             <div
               aria-label="b11"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="26"
               id="test-id_list_1"
               role="option"
             >
@@ -15763,7 +15986,9 @@ Array [
           >
             <div
               aria-label="a10"
+              aria-posinset="1"
               aria-selected="true"
+              aria-setsize="26"
               id="test-id_list_0"
               role="option"
             >
@@ -15771,7 +15996,9 @@ Array [
             </div>
             <div
               aria-label="b11"
+              aria-posinset="2"
               aria-selected="false"
+              aria-setsize="26"
               id="test-id_list_1"
               role="option"
             >
@@ -16468,7 +16695,9 @@ exports[`renders components/select/demo/style-class.tsx extend context correctly
       >
         <div
           aria-label="GuangZhou"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="2"
           id="test-id_list_0"
           role="option"
         >
@@ -16476,7 +16705,9 @@ exports[`renders components/select/demo/style-class.tsx extend context correctly
         </div>
         <div
           aria-label="ShenZhen"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="2"
           id="test-id_list_1"
           role="option"
         >
@@ -16622,7 +16853,9 @@ exports[`renders components/select/demo/style-class.tsx extend context correctly
       >
         <div
           aria-label="GuangZhou"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="2"
           id="test-id_list_0"
           role="option"
         >
@@ -16630,7 +16863,9 @@ exports[`renders components/select/demo/style-class.tsx extend context correctly
         </div>
         <div
           aria-label="ShenZhen"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="2"
           id="test-id_list_1"
           role="option"
         >
@@ -16792,7 +17027,9 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="4"
             id="test-id_list_0"
             role="option"
           >
@@ -16800,7 +17037,9 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="true"
+            aria-setsize="4"
             id="test-id_list_1"
             role="option"
           >
@@ -16956,7 +17195,9 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="4"
             id="test-id_list_0"
             role="option"
           >
@@ -16964,7 +17205,9 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="true"
+            aria-setsize="4"
             id="test-id_list_1"
             role="option"
           >
@@ -17121,7 +17364,9 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
         >
           <div
             aria-label="Lucy"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="1"
             id="test-id_list_0"
             role="option"
           >
@@ -17282,7 +17527,9 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="4"
             id="test-id_list_0"
             role="option"
           >
@@ -17290,7 +17537,9 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="true"
+            aria-setsize="4"
             id="test-id_list_1"
             role="option"
           >
@@ -17493,7 +17742,9 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="4"
             id="test-id_list_0"
             role="option"
           >
@@ -17501,7 +17752,9 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="true"
+            aria-setsize="4"
             id="test-id_list_1"
             role="option"
           >
@@ -17678,7 +17931,9 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
         >
           <div
             aria-label="Lucy"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="1"
             id="test-id_list_0"
             role="option"
           >
@@ -17821,7 +18076,9 @@ Array [
       >
         <div
           aria-label="a10"
+          aria-posinset="1"
           aria-selected="false"
+          aria-setsize="26"
           id="test-id_list_0"
           role="option"
         >
@@ -17829,7 +18086,9 @@ Array [
         </div>
         <div
           aria-label="b11"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="26"
           id="test-id_list_1"
           role="option"
         >
@@ -18217,7 +18476,9 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
@@ -18225,7 +18486,9 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -18406,7 +18669,9 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
@@ -18414,7 +18679,9 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="true"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -18566,7 +18833,9 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
@@ -18574,7 +18843,9 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -18755,7 +19026,9 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
@@ -18763,7 +19036,9 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="true"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -18915,7 +19190,9 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
@@ -18923,7 +19200,9 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -19104,7 +19383,9 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
@@ -19112,7 +19393,9 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="true"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -19264,7 +19547,9 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
@@ -19272,7 +19557,9 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >
@@ -19453,7 +19740,9 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         >
           <div
             aria-label="Jack"
+            aria-posinset="1"
             aria-selected="false"
+            aria-setsize="3"
             id="test-id_list_0"
             role="option"
           >
@@ -19461,7 +19750,9 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
           <div
             aria-label="Lucy"
+            aria-posinset="2"
             aria-selected="true"
+            aria-setsize="3"
             id="test-id_list_1"
             role="option"
           >

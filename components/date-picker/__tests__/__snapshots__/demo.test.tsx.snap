@@ -7566,7 +7566,7 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/date-picker/demo/suffixIcon-debug.tsx correctly 1`] = `
+exports[`renders components/date-picker/demo/suffix-debug.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >

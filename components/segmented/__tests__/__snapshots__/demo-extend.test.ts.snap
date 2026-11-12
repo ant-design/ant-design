@@ -15,7 +15,6 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`
       class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
-        checked=""
         class="ant-segmented-item-input"
         name="test-id"
         type="radio"
@@ -108,7 +107,6 @@ exports[`renders components/segmented/demo/block.tsx extend context correctly 1`
       class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
-        checked=""
         class="ant-segmented-item-input"
         name="test-id"
         type="radio"
@@ -172,7 +170,6 @@ Array [
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -261,7 +258,6 @@ Array [
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -355,7 +351,6 @@ exports[`renders components/segmented/demo/controlled.tsx extend context correct
       class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
-        checked=""
         class="ant-segmented-item-input"
         name="test-id"
         type="radio"
@@ -419,7 +414,6 @@ Array [
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -478,7 +472,6 @@ Array [
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -546,7 +539,6 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -724,7 +716,6 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -837,7 +828,6 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text ant-segmented-item-disabled"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           disabled=""
           name="test-id"
@@ -898,7 +888,6 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -997,7 +986,6 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -1069,7 +1057,6 @@ exports[`renders components/segmented/demo/icon-only.tsx extend context correctl
       class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
-        checked=""
         class="ant-segmented-item-input"
         name="test-id"
         type="radio"
@@ -1177,7 +1164,6 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -1220,7 +1206,6 @@ exports[`renders components/segmented/demo/shape.tsx extend context correctly 1`
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -1316,7 +1301,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -1404,7 +1388,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -1492,7 +1475,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -1591,7 +1573,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
           class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
         >
           <input
-            checked=""
             class="ant-segmented-item-input"
             name="test-id"
             type="radio"
@@ -1660,7 +1641,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
           class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
         >
           <input
-            checked=""
             class="ant-segmented-item-input"
             name="test-id"
             type="radio"
@@ -1728,7 +1708,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
           class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
         >
           <input
-            checked=""
             class="ant-segmented-item-input"
             name="test-id"
             type="radio"
@@ -1832,7 +1811,9 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
         >
           <div
             aria-label="Lucy"
+            aria-posinset="1"
             aria-selected="true"
+            aria-setsize="1"
             id="test-id_list_0"
             role="option"
           >
@@ -1900,7 +1881,6 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -2032,7 +2012,6 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
         style="text-align: start;"
       >
         <input
-          checked=""
           class="ant-segmented-item-input"
           name="test-id"
           type="radio"
@@ -2173,7 +2152,6 @@ exports[`renders components/segmented/demo/vertical.tsx extend context correctly
       class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
-        checked=""
         class="ant-segmented-item-input"
         name="test-id"
         type="radio"
@@ -2263,7 +2241,6 @@ exports[`renders components/segmented/demo/with-icon.tsx extend context correctl
       class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
-        checked=""
         class="ant-segmented-item-input"
         name="test-id"
         type="radio"
@@ -2399,7 +2376,6 @@ exports[`renders components/segmented/demo/with-name.tsx extend context correctl
       class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
-        checked=""
         class="ant-segmented-item-input"
         name="group"
         type="radio"
