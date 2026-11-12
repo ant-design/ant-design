@@ -50,7 +50,7 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
         ...rcForm,
         __INTERNAL__: {
           itemRef: (name: InternalNamePath) => (node: React.ReactElement) => {
-            const namePathStr = toNamePathStr(name);
+            const namePathStr = JSON.stringify(toArray(name));
             if (node) {
               itemsRef.current[namePathStr] = node;
             } else {
@@ -84,7 +84,7 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
           }
         },
         getFieldInstance: (name: NamePath) => {
-          const namePathStr = toNamePathStr(name);
+          const namePathStr = JSON.stringify(toArray(name));
           return itemsRef.current[namePathStr];
         },
       },

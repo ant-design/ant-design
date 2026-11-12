@@ -2945,3 +2945,82 @@ describe('Form', () => {
     expect(container.querySelector('.ant-input.ant-input-status-error')).toBeTruthy();
   });
 });
+
+describe('Form field references with underscore path segments', () => {
+  it('focuses a flat field independently of a similarly named nested field', () => {
+    const form = React.createRef<FormInstance>();
+    const { container } = render(
+      <Form ref={form}>
+        <Form.Item name="contact_email">
+          <Input id="flat-email" />
+        </Form.Item>
+        <Form.Item name={['contact', 'email']}>
+          <Input id="nested-email" />
+        </Form.Item>
+      </Form>,
+    );
+    form.current!.scrollToField('contact_email', { focus: true });
+    expect(scrollIntoView).toHaveBeenLastCalledWith(
+      container.querySelector('#flat-email'),
+      expect.anything(),
+    );
+    expect(document.activeElement).toBe(container.querySelector('#flat-email'));
+    form.current!.focusField(['contact', 'email']);
+    expect(document.activeElement).toBe(container.querySelector('#nested-email'));
+  });
+
+  it('retains the remaining field reference when a colliding field unmounts', () => {
+    const form = React.createRef<FormInstance>();
+    const view = (showNested: boolean) => (
+      <Form ref={form}>
+        <Form.Item name="contact_email">
+          <Input id="flat-email" />
+        </Form.Item>
+        {showNested && (
+          <Form.Item name={['contact', 'email']}>
+            <Input id="nested-email" />
+          </Form.Item>
+        )}
+      </Form>
+    );
+    const { container, rerender } = render(view(true));
+    rerender(view(false));
+    expect(form.current!.getFieldInstance('contact_email')?.input).toBe(
+      container.querySelector('#flat-email'),
+    );
+  });
+
+  it('updates the reference when a field changes to a path with the same underscore representation', () => {
+    const form = React.createRef<FormInstance>();
+    const view = (nested: boolean) => (
+      <Form ref={form}>
+        <Form.Item name={nested ? ['contact', 'email'] : 'contact_email'}>
+          <Input id="email" />
+        </Form.Item>
+      </Form>
+    );
+    const { container, rerender } = render(view(false));
+    expect(form.current!.getFieldInstance('contact_email')?.input).toBe(
+      container.querySelector('#email'),
+    );
+    rerender(view(true));
+    expect(form.current!.getFieldInstance('contact_email')).toBeUndefined();
+    expect(form.current!.getFieldInstance(['contact', 'email'])?.input).toBe(
+      container.querySelector('#email'),
+    );
+  });
+
+  it('preserves generated DOM ids and native radio names', () => {
+    const { container } = render(
+      <Form initialValues={{ account: { preference: 'email' } }}>
+        <Form.Item name={['account', 'preference']}>
+          <Radio.Group options={['email', 'phone']} />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('#account_preference')).toBeTruthy();
+    expect(container.querySelector('input')).toHaveAttribute('name', 'account_preference');
+    expect(new FormData(container.querySelector('form')!).get('account_preference')).toBe('email');
+  });
+});
