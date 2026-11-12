@@ -168,10 +168,6 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
 
       // ===== 设置浮层的颜色 =======
       // ！dark 模式会被popupBg 会被rest 为 darkPopupBg
-      [`&${componentCls}-popup > ${componentCls}`]: {
-        backgroundColor: popupBg,
-      },
-
       [`&${componentCls}-submenu-popup > ${componentCls}`]: {
         backgroundColor: popupBg,
       },
@@ -261,7 +257,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           },
         },
 
-        [`${componentCls}-selected, ${componentCls}-item-selected`]: {
+        [`${componentCls}-item-selected`]: {
           '&::after': {
             transform: 'scaleY(1)',
             opacity: 1,

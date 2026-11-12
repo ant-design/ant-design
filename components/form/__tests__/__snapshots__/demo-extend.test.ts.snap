@@ -5971,6 +5971,7 @@ Array [
                       >
                         <li
                           aria-describedby="test-id"
+                          aria-disabled="true"
                           class="ant-dropdown-menu-item ant-dropdown-menu-item-disabled ant-dropdown-menu-item-only-child"
                           data-menu-id="rc-menu-uuid-test-id-selectAll"
                           role="menuitem"
@@ -6002,6 +6003,7 @@ Array [
                         </div>
                         <li
                           aria-describedby="test-id"
+                          aria-disabled="true"
                           class="ant-dropdown-menu-item ant-dropdown-menu-item-disabled ant-dropdown-menu-item-only-child"
                           data-menu-id="rc-menu-uuid-test-id-selectInvert"
                           role="menuitem"
@@ -6559,6 +6561,7 @@ Array [
                       >
                         <li
                           aria-describedby="test-id"
+                          aria-disabled="true"
                           class="ant-dropdown-menu-item ant-dropdown-menu-item-disabled ant-dropdown-menu-item-only-child"
                           data-menu-id="rc-menu-uuid-test-id-selectAll"
                           role="menuitem"
@@ -6590,6 +6593,7 @@ Array [
                         </div>
                         <li
                           aria-describedby="test-id"
+                          aria-disabled="true"
                           class="ant-dropdown-menu-item ant-dropdown-menu-item-disabled ant-dropdown-menu-item-only-child"
                           data-menu-id="rc-menu-uuid-test-id-selectInvert"
                           role="menuitem"
