@@ -118,6 +118,25 @@ describe('Watermark', () => {
     }
   });
 
+  it.each([
+    ['left', 0],
+    ['start', 0],
+    ['center', 60],
+    ['right', 120],
+    ['end', 120],
+  ] as const)('should draw %s aligned text inside the watermark', async (textAlign, x) => {
+    const fillText = jest.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
+
+    try {
+      render(<Watermark width={120} content="Ant Design" font={{ textAlign }} />);
+      await waitFakeTimer();
+
+      expect(fillText).toHaveBeenLastCalledWith('Ant Design', x, 0);
+    } finally {
+      fillText.mockRestore();
+    }
+  });
+
   it('Interleaved watermark backgroundSize is correct', () => {
     const { container } = render(
       <Watermark
