@@ -293,21 +293,15 @@ const useFilter = <RecordType extends AnyObject = AnyObject>(
 
     // Return if not controlled
     if (filteredKeysIsAllNotControlled) {
-      // Filter column may have been removed
-      const keyList = (mergedColumns || []).map((column, index) =>
-        getColumnKey(column, getColumnPos(index)),
-      );
+      // Filter columns or their filtering configuration may have been removed.
+      const collectedStatesMap = new Map(collectedStates.map((state) => [state.key, state]));
       return filterStates.reduce<FilterState<RecordType>[]>((list, item) => {
-        const keyIndex = keyList.indexOf(item.key);
-        if (keyIndex !== -1) {
-          const col = mergedColumns[keyIndex];
+        const currentState = collectedStatesMap.get(item.key);
+        if (currentState) {
           list.push({
             ...item,
-            column: {
-              ...item.column,
-              ...col,
-            },
-            forceFiltered: col.filtered,
+            column: currentState.column,
+            forceFiltered: currentState.forceFiltered,
           });
         }
         return list;
