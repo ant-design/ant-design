@@ -36,9 +36,9 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     onRemove,
     locale,
     iconRender,
-    isImageUrl: isImgUrl = isImageUrl,
+    isImageUrl: customIsImageUrl,
     prefixCls: customizePrefixCls,
-    items = [],
+    items: originalItems = [],
     showPreviewIcon = true,
     showRemoveIcon = true,
     showDownloadIcon = false,
@@ -54,6 +54,37 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     classNames: uploadListClassNames,
     styles,
   } = props;
+
+  const frozenFiles = React.useRef(new WeakMap<UploadFile, UploadFile>());
+  const originalFiles = React.useRef(new WeakMap<UploadFile, UploadFile>());
+  const items = React.useMemo(
+    () =>
+      originalItems.map((file) => {
+        if (!Object.isFrozen(file)) {
+          return file;
+        }
+        let cachedFile = frozenFiles.current.get(file);
+        if (!cachedFile) {
+          cachedFile = {
+            ...file,
+            // Native File metadata is exposed through prototype accessors.
+            lastModified: file.lastModified,
+            lastModifiedDate: file.lastModifiedDate,
+            name: file.name,
+            size: file.size,
+            type: file.type,
+          };
+          frozenFiles.current.set(file, cachedFile);
+          originalFiles.current.set(cachedFile, file);
+        }
+        return cachedFile;
+      }),
+    [originalItems],
+  );
+
+  const getOriginalFile = (file: UploadFile) => originalFiles.current.get(file) ?? file;
+  const isImgUrl = (file: UploadFile) =>
+    customIsImageUrl ? customIsImageUrl(getOriginalFile(file)) : isImageUrl(file);
 
   const [, forceUpdate] = useForceUpdate();
   const [motionAppear, setMotionAppear] = React.useState(false);
@@ -90,24 +121,24 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
       return;
     }
     e?.preventDefault();
-    return onPreview(file);
+    return onPreview(getOriginalFile(file));
   };
 
   const onInternalDownload = (file: UploadFile) => {
     if (isFunction(onDownload)) {
-      onDownload(file);
+      onDownload(getOriginalFile(file));
     } else if (file.url) {
       window.open(file.url, '_blank', 'noopener');
     }
   };
 
   const onInternalClose = (file: UploadFile) => {
-    onRemove?.(file);
+    onRemove?.(getOriginalFile(file));
   };
 
   const internalIconRender = (file: UploadFile) => {
     if (iconRender) {
-      return iconRender(file, listType);
+      return iconRender(getOriginalFile(file), listType);
     }
     const isLoading = file.status === 'uploading';
     if (listType.startsWith('picture')) {
@@ -196,7 +227,8 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
             classNames={uploadListClassNames}
             styles={styles}
             file={file}
-            items={items}
+            originalFile={getOriginalFile(file)}
+            items={originalItems}
             progress={progress}
             listType={listType}
             isImgUrl={isImgUrl}
