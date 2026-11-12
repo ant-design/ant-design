@@ -183,6 +183,46 @@ describe('Input.OTP', () => {
     expect(onInput).not.toHaveBeenCalled();
   });
 
+  it.each(['ArrowLeft', 'ArrowRight', 'Backspace'])(
+    'should keep focus in the composing cell when pressing %s',
+    async (key) => {
+      const onInput = jest.fn();
+      const { container } = render(
+        <OTP length={4} defaultValue={key === 'ArrowRight' ? '12' : '1'} onInput={onInput} />,
+      );
+      const inputs = container.querySelectorAll('input');
+      const input = inputs[1];
+      input.focus();
+      await waitFakeTimer();
+
+      fireEvent.compositionStart(input);
+      fireEvent.input(input, { target: { value: 'ni' } });
+      fireEvent.keyDown(input, { key });
+      await waitFakeTimer();
+
+      expect(input).toHaveFocus();
+      expect(onInput).not.toHaveBeenCalled();
+
+      fireEvent.compositionEnd(input, { target: { value: '你' } });
+      expect(getText(container)).toBe('1你');
+      expect(onInput).toHaveBeenCalledTimes(1);
+      expect(inputs[2]).toHaveFocus();
+
+      fireEvent.keyDown(inputs[2], { key: 'ArrowLeft' });
+      expect(input).toHaveFocus();
+    },
+  );
+
+  it('should ignore navigation keys marked as composing by the native event', () => {
+    const { container } = render(<OTP defaultValue="1" />);
+    const input = container.querySelectorAll('input')[1];
+    input.focus();
+
+    fireEvent.keyDown(input, { key: 'ArrowLeft', isComposing: true });
+
+    expect(input).toHaveFocus();
+  });
+
   it('should not commit twice when input fires right after compositionend', () => {
     const onInput = jest.fn();
     const { container } = render(<OTP length={4} onInput={onInput} />);
