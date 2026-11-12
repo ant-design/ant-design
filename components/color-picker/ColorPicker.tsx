@@ -1,8 +1,7 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext } from 'react';
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import ContextIsolator from '../_util/ContextIsolator';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
@@ -16,22 +15,15 @@ import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import { useCompactItemContext } from '../space/Compact';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
-import { AggregationColor } from './color';
 import type { ColorPickerPanelProps } from './ColorPickerPanel';
 import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
-import useModeColor from './hooks/useModeColor';
-import type {
-  ColorFormatType,
-  ColorPickerProps,
-  ColorPickerSemanticAllType,
-  ModeType,
-  TriggerPlacement,
-} from './interface';
+import useColorPickerPanelState from './hooks/useColorPickerPanelState';
+import type { ColorPickerProps, ColorPickerSemanticAllType, TriggerPlacement } from './interface';
 import useStyle from './style';
-import { genAlphaColor, generateColor, getColorAlpha } from './util';
 
 type CompoundedComponent = React.FC<ColorPickerProps> & {
+  Panel: React.FC<ColorPickerPanelProps>;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
 
@@ -129,15 +121,6 @@ const ColorPicker: CompoundedComponent = (props) => {
   const [internalPopupOpen, setPopupOpen] = useControlledState(false, open);
 
   const popupOpen = !mergedDisabled && internalPopupOpen;
-  const [formatValue, setFormatValue] = useControlledState(defaultFormat, format);
-
-  const triggerFormatChange = (newFormat?: ColorFormatType) => {
-    setFormatValue(newFormat);
-    if (formatValue !== newFormat) {
-      onFormatChange?.(newFormat);
-    }
-  };
-
   const triggerOpenChange = (open: boolean) => {
     if (!open || !mergedDisabled) {
       setPopupOpen(open);
@@ -145,89 +128,20 @@ const ColorPicker: CompoundedComponent = (props) => {
     }
   };
 
-  // ================== Value & Mode =================
-  const [mergedColor, setColor, modeState, setModeState, modeOptions] = useModeColor(
-    defaultValue,
-    value,
-    mode,
+  const panelProps = useColorPickerPanelState(
+    {
+      mode,
+      value,
+      defaultValue,
+      format,
+      defaultFormat,
+      disabledAlpha,
+      onFormatChange,
+      onChange,
+      onChangeComplete,
+    },
+    'ColorPicker',
   );
-
-  const isAlphaColor = useMemo(() => getColorAlpha(mergedColor) < 100, [mergedColor]);
-
-  // ==================== Change =====================
-  // To enhance user experience, we cache the gradient color when switch from gradient to single
-  // If user not modify single color, we will use the cached gradient color.
-  const [cachedGradientColor, setCachedGradientColor] = React.useState<AggregationColor | null>(
-    null,
-  );
-
-  const onInternalChangeComplete: ColorPickerProps['onChangeComplete'] = (color) => {
-    if (onChangeComplete) {
-      let changeColor = generateColor(color);
-
-      // ignore alpha color
-      if (disabledAlpha && isAlphaColor) {
-        changeColor = genAlphaColor(color);
-      }
-      onChangeComplete(changeColor);
-    }
-  };
-
-  const onInternalChange: ColorPickerPanelProps['onChange'] = (data, changeFromPickerDrag) => {
-    let color: AggregationColor = generateColor(data as AggregationColor);
-
-    // ignore alpha color
-    if (disabledAlpha && isAlphaColor) {
-      color = genAlphaColor(color);
-    }
-
-    setColor(color);
-    setCachedGradientColor(null);
-
-    // Trigger change event
-    if (onChange) {
-      onChange(color, color.toCssString());
-    }
-
-    // Only for drag-and-drop color picking
-    if (!changeFromPickerDrag) {
-      onInternalChangeComplete(color);
-    }
-  };
-
-  // =================== Gradient ====================
-  const [activeIndex, setActiveIndex] = React.useState(0);
-  const [gradientDragging, setGradientDragging] = React.useState(false);
-
-  // Mode change should also trigger color change
-  const onInternalModeChange = (newMode: ModeType) => {
-    setModeState(newMode);
-
-    if (newMode === 'single' && mergedColor.isGradient()) {
-      setActiveIndex(0);
-      onInternalChange(new AggregationColor(mergedColor.getColors()[0].color));
-
-      // Should after `onInternalChange` since it will clear the cached color
-      setCachedGradientColor(mergedColor);
-    } else if (newMode === 'gradient' && !mergedColor.isGradient()) {
-      const baseColor = isAlphaColor ? genAlphaColor(mergedColor) : mergedColor;
-
-      onInternalChange(
-        new AggregationColor(
-          cachedGradientColor || [
-            {
-              percent: 0,
-              color: baseColor,
-            },
-            {
-              percent: 100,
-              color: baseColor,
-            },
-          ],
-        ),
-      );
-    }
-  };
 
   // ================== Form Status ==================
   const { status: contextStatus } = React.useContext(FormItemInputContext);
@@ -261,12 +175,6 @@ const ColorPicker: CompoundedComponent = (props) => {
       'styles.popupOverlayInner',
       'styles.popup.container',
     );
-
-    warning(
-      !(disabledAlpha && isAlphaColor),
-      'usage',
-      '`disabledAlpha` will make the alpha to be 100% when use alpha color.',
-    );
   }
 
   const popoverProps: PopoverProps = {
@@ -294,36 +202,23 @@ const ColorPicker: CompoundedComponent = (props) => {
       }}
       onOpenChange={triggerOpenChange}
       content={
-        <ContextIsolator form>
-          <ColorPickerPanel
-            mode={modeState}
-            onModeChange={onInternalModeChange}
-            modeOptions={modeOptions}
-            prefixCls={prefixCls}
-            value={mergedColor}
-            allowClear={allowClear}
-            disabled={mergedDisabled}
-            disabledAlpha={disabledAlpha}
-            presets={presets}
-            panelRender={panelRender}
-            format={formatValue}
-            onFormatChange={triggerFormatChange}
-            onChange={onInternalChange}
-            onChangeComplete={onInternalChangeComplete}
-            onClear={onClear}
-            activeIndex={activeIndex}
-            onActive={setActiveIndex}
-            gradientDragging={gradientDragging}
-            onGradientDragging={setGradientDragging}
-            disabledFormat={disabledFormat}
-          />
-        </ContextIsolator>
+        <ColorPickerPanel
+          _internalPanelState={panelProps}
+          prefixCls={customizePrefixCls}
+          allowClear={allowClear}
+          disabled={mergedDisabled}
+          disabledAlpha={disabledAlpha}
+          presets={presets}
+          panelRender={panelRender}
+          onClear={onClear}
+          disabledFormat={disabledFormat}
+        />
       }
       {...popoverProps}
     >
       {children || (
         <ColorTrigger
-          activeIndex={popupOpen ? activeIndex : -1}
+          activeIndex={popupOpen ? panelProps.activeIndex : -1}
           open={popupOpen}
           className={mergedCls}
           classNames={mergedClassNames}
@@ -331,9 +226,9 @@ const ColorPicker: CompoundedComponent = (props) => {
           prefixCls={prefixCls}
           disabled={mergedDisabled}
           showText={showText}
-          format={formatValue}
+          format={panelProps.format}
           {...rest}
-          color={mergedColor}
+          color={panelProps.value}
         />
       )}
     </Popover>
@@ -357,6 +252,7 @@ const PurePanel = genPurePanel(
   (prefixCls) => prefixCls,
 );
 
+ColorPicker.Panel = ColorPickerPanel as React.FC<ColorPickerPanelProps>;
 ColorPicker._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default ColorPicker;
