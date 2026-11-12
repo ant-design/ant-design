@@ -27,7 +27,7 @@ export interface ListItemProps {
   styles?: UploadSemanticAllType['styles'];
   locale: UploadLocale;
   file: UploadFile;
-  originalFile?: UploadFile;
+  originalFile: UploadFile;
   items: UploadFile[];
   listType?: UploadListType;
   isImgUrl?: (file: UploadFile) => boolean;
@@ -65,7 +65,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       locale,
       listType,
       file,
-      originalFile = file,
+      originalFile,
       items,
       progress: progressProps,
       iconRender,
