@@ -103,6 +103,49 @@ describe('Table.filter', () => {
     expect(container.querySelectorAll('.ant-table-filter-column')).toHaveLength(0);
   });
 
+  it('should stop local filtering when onFilter is removed', () => {
+    const onFilter = jest.fn(filterFn);
+    const localColumn = {
+      ...column,
+      filters: [{ text: 'Jack', value: 'Jack' }],
+      defaultFilteredValue: ['Jack'],
+      onFilter,
+    };
+    const { container, rerender } = render(createTable({ columns: [localColumn] }));
+    expect(renderedNames(container)).toEqual(['Jack']);
+
+    const { onFilter: _onFilter, ...serverColumn } = localColumn;
+    onFilter.mockClear();
+    rerender(createTable({ columns: [serverColumn] }));
+
+    expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    expect(onFilter).not.toHaveBeenCalled();
+    expect(container.querySelector('.ant-table-filter-trigger')).toHaveClass('active');
+  });
+
+  it('should drop a removed column filter while retaining other active filters', () => {
+    const columns: TableProps['columns'] = [
+      {
+        ...column,
+        filters: [{ text: 'Jack', value: 'Jack' }],
+        defaultFilteredValue: ['Jack'],
+      },
+      {
+        key: 'enabled',
+        filters: [{ text: 'Enabled', value: true }],
+        defaultFilteredValue: [true],
+        onFilter: (_value, record) => record.key !== 2,
+      },
+    ];
+    const { container, rerender } = render(createTable({ columns }));
+    expect(renderedNames(container)).toEqual(['Jack']);
+
+    rerender(createTable({ columns: [{ title: 'Name', dataIndex: 'name' }, columns[1]] }));
+
+    expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Jerry']);
+    expect(container.querySelectorAll('.ant-table-filter-trigger')).toHaveLength(1);
+  });
+
   // https://github.com/ant-design/ant-design/issues/26988
   it('not show filter icon when filter and filterDropdown is undefined', () => {
     const noFilterColumn = { ...column, filters: undefined, filterDropdown: undefined };
