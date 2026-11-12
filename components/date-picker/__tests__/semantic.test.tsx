@@ -132,6 +132,17 @@ describe('DatePicker.Semantic', () => {
     );
   });
 
+  it('should support custom time panel item text alignment', () => {
+    render(<DatePicker picker="time" open styles={{ popup: { item: { textAlign: 'end' } } }} />);
+
+    expect(document.body.querySelector('.ant-picker-time-panel-cell')).toHaveStyle(
+      'text-align: end',
+    );
+    expect(document.body.querySelector('.ant-picker-time-panel-cell-inner')).not.toHaveStyle(
+      'text-align: center',
+    );
+  });
+
   it('should support semantic styles', () => {
     const styles = {
       root: { backgroundColor: 'red' },
