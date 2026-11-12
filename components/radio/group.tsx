@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ListContext } from '@rc-component/form';
 import { pickAttrs, useControlledState, useId } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -25,8 +26,13 @@ import useStyle from './style';
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const { name: formItemName } = React.useContext(FormItemInputContext);
+  const listContext = React.useContext(ListContext);
 
-  const defaultName = useId(toNamePathStr(formItemName));
+  const defaultName = useId(
+    listContext && Array.isArray(formItemName) && formItemName.length > 1
+      ? JSON.stringify(formItemName)
+      : toNamePathStr(formItemName),
+  );
 
   const {
     prefixCls: customizePrefixCls,
