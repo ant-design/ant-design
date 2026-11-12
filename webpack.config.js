@@ -74,7 +74,7 @@ function addPluginsForProduction(config) {
 
 let webpackConfig = getWebpackConfig(false, {
   enabledReactCompiler: false,
-  overrideStrict: 'non-strict',
+  overrideStrict: 'strict',
 });
 
 if (process.env.PRODUCTION_ONLY) {
