@@ -213,4 +213,43 @@ describe('useSizes', () => {
     // Check if the `size` of the first panel gets priority.
     expect(postPxSizes).toEqual([600, 400]);
   });
+
+  it('should not produce negative sizes when minimums exceed the remaining space', () => {
+    // `size` leaves 10% for the other panels while their minimums add up to 70%
+    const items = [{ size: '90%' }, { min: '20%' }, { min: '50%' }];
+
+    const { result } = renderHook(() => useSizes(items, containerSize));
+    const [, postPxSizes] = result.current;
+
+    // The constraints cannot be satisfied, so the remaining 100px is shared evenly.
+    expect(postPxSizes[0]).toBeCloseTo(900);
+    expect(postPxSizes[1]).toBeCloseTo(50);
+    expect(postPxSizes[2]).toBeCloseTo(50);
+    expect(postPxSizes.reduce((sum, size) => sum + size, 0)).toBeCloseTo(containerSize);
+  });
+
+  it('should share the remaining space when maximums cannot fill it', () => {
+    // `size` leaves 90% while the other panels accept at most 40% in total
+    const items = [{ size: '10%' }, { max: '20%' }, { max: '20%' }];
+
+    const { result } = renderHook(() => useSizes(items, containerSize));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes[0]).toBeCloseTo(100);
+    expect(postPxSizes[1]).toBeCloseTo(450);
+    expect(postPxSizes[2]).toBeCloseTo(450);
+  });
+
+  it('should not treat floating point noise as unsatisfiable minimums', () => {
+    // 800px leaves exactly 200px for minimums of 50px + 150px, but `1 - 0.8`
+    // is 0.19999999999999996, which used to take the average-fill branch.
+    const items = [{ size: 800 }, { min: 50 }, { min: 150 }];
+
+    const { result } = renderHook(() => useSizes(items, 1000));
+    const [, postPxSizes] = result.current;
+
+    expect(postPxSizes[0]).toBeCloseTo(800);
+    expect(postPxSizes[1]).toBeCloseTo(50);
+    expect(postPxSizes[2]).toBeCloseTo(150);
+  });
 });
