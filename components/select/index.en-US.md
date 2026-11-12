@@ -33,7 +33,7 @@ demo:
 <code src="./demo/automatic-tokenization.tsx">Automatic tokenization</code>
 <code src="./demo/custom-tokenization.tsx" version="6.5.0">Custom tokenization</code>
 <code src="./demo/select-users.tsx">Search and Select Users</code>
-<code src="./demo/suffix.tsx" version="5.22.0">Prefix and Suffix</code>
+<code src="./demo/suffix.tsx" version="6.7.0">Prefix and Suffix</code>
 <code src="./demo/custom-dropdown-menu.tsx">Custom dropdown</code>
 <code src="./demo/hide-selected.tsx">Hide Already Selected</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
@@ -62,8 +62,9 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type | 6.4.0 |
+| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | false | - | 6.4.0 |
 | ~~autoClearSearchValue~~ | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true |  | × |
+| autoComplete | The HTML `autocomplete` attribute of the input | string | `new-password` | - | 6.7.0 |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - | × |
 | classNames | Customize class for each semantic structure inside the Select component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.25.0 |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  | × |
@@ -102,12 +103,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | prefix | The custom prefix | ReactNode | - | 5.22.0 | × |
 | removeIcon | The custom remove icon | ReactNode | `<CloseOutlined />` |  | 6.4.0 |
 | ~~searchValue~~ | The current input "search" text | string | - |  | × |
-| ~~showArrow~~ | Whether to show the arrow icon, please use `suffixIcon={null}` instead | boolean | true | - | × |
+| ~~showArrow~~ | Whether to show the arrow icon, please use `suffix={null}` instead | boolean | true | - | × |
 | showSearch | Whether select is searchable | boolean \| [Object](#showsearch) | single: false, multiple: true | Object: 6.0.0 | 6.4.0 |
 | size | Size of Select input | `large` \| `medium` \| `small` | `medium` |  | × |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 | × |
 | styles | Customize inline style for each semantic structure inside the Select component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |
-| suffixIcon | The custom suffix icon. Custom icons will not respond to clicks to open, because the replaced icon may be designed for other interactions. You can use `pointer-events: none` style to bypass | ReactNode | `<DownOutlined />` |  | 6.4.0 |
+| suffix | The custom suffix. Custom suffixes will not respond to clicks to open, because the replaced suffix may be designed for other interactions. You can use `pointer-events: none` style to bypass | ReactNode \| (props) => ReactNode | `<DownOutlined />` | 6.7.0 | 6.7.0 |
+| ~~suffixIcon~~ | The custom suffix icon. Please use `suffix` instead | ReactNode | `<DownOutlined />` |  | 6.4.0 |
 | tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) => ReactNode | - |  | × |
 | labelRender | Customize selected label render (LabelInValueType definition see [LabelInValueType](https://github.com/react-component/select/blob/b39c28aa2a94e7754ebc570f200ab5fd33bd31e7/src/Select.tsx#L70)) | (props: LabelInValueType) => ReactNode | - | 5.15.0 | × |
 | tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` or `mode="multiple"` | string[] \| ((input: string) => string[]) | - | function: 6.5.0 | × |
@@ -128,6 +130,17 @@ Common props ref：[Common props](/docs/react/common-props)
 | onSelect | Called when an option is selected, the params are option's value (or key) and option instance | function(value: string \| number \| LabeledValue, option: Option) | - |  | × |
 
 > Note, if you find that the drop-down menu scrolls with the page, or you need to trigger Select in other popup layers, please try to use `getPopupContainer={triggerNode => triggerNode.parentElement}` to fix the drop-down popup rendering node in the parent element of the trigger .
+
+### AllowClearConfig
+
+Fields that support global configuration use component values first, then global values, then defaults. `allowClear={true}` inherits global configuration; `disabled: false` and `tabIndex: 0` override global values.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | Custom clear icon | ReactNode | - | - | 6.4.0 |
+| disabled | When `true`, equivalent to `allowClear={false}` | boolean | false | 6.7.0 | 6.7.0 |
+| label | Accessible name of the clear button | string | Component locale text | 6.6.0 | 6.6.0 |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 6.7.0 | 6.7.0 |
 
 ### showSearch
 

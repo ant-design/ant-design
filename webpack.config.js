@@ -13,7 +13,7 @@ function addLocales(config) {
   if (newConfig.entry['antd.min']) {
     packageName += '.min';
   }
-  newConfig.entry[packageName] = './index-with-locales.js';
+  newConfig.entry[packageName] = './index-with-locales.ts';
   newConfig.output.filename = '[name].js';
   return newConfig;
 }

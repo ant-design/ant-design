@@ -22,6 +22,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
+import { useLocale } from '../locale';
 import { useCompactItemContext } from '../space/Compact';
 import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
@@ -153,10 +154,12 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   const [variant, enableVariantCls] = useVariant('textArea', customVariant, bordered);
 
+  const [locale] = useLocale('global');
   const mergedAllowClear = useAllowClear({
     allowClear,
     contextAllowClear,
     componentName: 'TextArea',
+    defaultLabel: locale.clear,
   });
 
   // ==================== Resize ====================

@@ -32,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: 'Opačný výber položiek',
     selectNone: 'Odznač všetko',
     selectionAll: 'Označ všetko',
+    selectRow: 'Vybrať riadok',
+    selectedRow: 'Riadok je vybraný',
+    selectionMenu: 'Ponuka výberu',
     sortTitle: 'Zoradiť',
     expand: 'Rozbaliť riadok',
     collapse: 'Zbaliť riadok',
+    expandAll: 'Rozbaliť všetky riadky',
+    collapseAll: 'Zbaliť všetky riadky',
     triggerDesc: 'Kliknutím zoradíš zostupne',
     triggerAsc: 'Kliknutím zoradíš vzostupne',
     cancelSort: 'Kliknutím zrušíš zoradenie',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Zrušiť',
+  },
+  Splitter: {
+    toggleStartPanel: 'Prepnúť úvodný panel',
+    toggleEndPanel: 'Prepnúť koncový panel',
   },
   Transfer: {
     titles: ['', ''],

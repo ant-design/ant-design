@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
-          node-version: 24
+          node-version: 26
       - uses: utooland/setup-utoo@e7aa4d726a17f79f68aed736476ea5bd68f8ba52 # v1
       - run: ut
       - run: ut lint
@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
-          node-version: 24
+          node-version: 26
       - uses: utooland/setup-utoo@e7aa4d726a17f79f68aed736476ea5bd68f8ba52 # v1
       - run: ut
       - name: report vitest include/exclude counts
@@ -66,6 +66,9 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - uses: utooland/setup-utoo@e7aa4d726a17f79f68aed736476ea5bd68f8ba52 # v1
       - run: ut
+      - name: install react 18
+        if: ${{ matrix.react == '18' }}
+        run: ut ut-install-react-18
       # dom test
       - name: dom test
         run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
@@ -168,6 +171,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 26
       - uses: utooland/setup-utoo@e7aa4d726a17f79f68aed736476ea5bd68f8ba52 # v1
       - run: ut
 
@@ -224,7 +230,7 @@ jobs:
         run: |
           zip -r oss-artifacts.zip dist locale es lib
           echo "🤖 Uploading"
-          node scripts/visual-regression/upload.js ./oss-artifacts.zip --ref=$HEAD_SHA
+          node scripts/visual-regression/upload.ts ./oss-artifacts.zip --ref=$HEAD_SHA
 
   test-lib-es:
     name: test lib/es module

@@ -17,6 +17,11 @@ export type SplitterSemanticType = {
 
 export type SplitterSemanticAllType = GenerateSemantic<SplitterSemanticType, SplitterProps>;
 
+export interface SplitterLocale {
+  toggleStartPanel?: string;
+  toggleEndPanel?: string;
+}
+
 export interface SplitterProps {
   prefixCls?: string;
   className?: string;

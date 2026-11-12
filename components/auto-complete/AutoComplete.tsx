@@ -122,6 +122,8 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     onOpenChange,
     styles,
     classNames,
+    suffix,
+    suffixIcon,
     popupMatchSelectWidth,
     dropdownMatchSelectWidth,
     allowClear,
@@ -196,6 +198,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       dropdownRender: 'popupRender',
       onDropdownVisibleChange: 'onOpenChange',
       dataSource: 'options',
+      suffixIcon: 'suffix',
     };
 
     Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
@@ -265,18 +268,21 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     [mergedStyles, style, dropdownStyle],
   );
 
+  const mergedSuffix = suffix !== undefined ? suffix : (suffixIcon ?? null);
+
   return (
     <Select
       ref={ref}
-      suffixIcon={null}
       {...omit(props, [
         'dataSource',
         'dropdownClassName',
         'popupClassName',
         'onDropdownVisibleChange',
         'onOpenChange',
+        'suffixIcon',
         'allowClear',
       ])}
+      suffix={mergedSuffix}
       prefixCls={prefixCls}
       classNames={finalClassNames}
       styles={finalStyles}
@@ -284,8 +290,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       popupRender={mergedPopupRender}
       onOpenChange={mergedOnOpenChange}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
-      // Keep AutoComplete's default `false` instead of inheriting ConfigProvider `select.allowClear`.
-      allowClear={allowClear ?? false}
+      allowClear={allowClear}
       {...{
         // Internal api
         getInputElement,

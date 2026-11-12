@@ -52,6 +52,7 @@ export default antfu(
     typescript: true,
     react: true,
     rules: {
+      curly: ['error', 'all'],
       'react/jsx-key-before-spread': 'off',
       'node/prefer-global/process': 'off', // TODO: remove this
       'node/prefer-global/buffer': 'off', // TODO: remove this
@@ -150,7 +151,15 @@ export default antfu(
   },
   {
     // commonjs, build entry, and script files
-    files: ['**/*.js', '**/*.cjs', '**/*.mjs', 'scripts/**/*.ts', 'scripts/**/*.tsx'],
+    files: [
+      '**/*.js',
+      '**/*.cjs',
+      '**/*.mjs',
+      'alias/**/*.ts',
+      'index*.ts',
+      'scripts/**/*.ts',
+      'scripts/**/*.tsx',
+    ],
     rules: {
       'ts/no-require-imports': 'off',
     },

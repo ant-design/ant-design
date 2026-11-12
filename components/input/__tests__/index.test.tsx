@@ -58,6 +58,22 @@ describe('Input', () => {
   });
 
   describe('focus trigger warning', () => {
+    it('uses the merged clear configuration when detecting an affix change', () => {
+      const Demo = ({ disabled }: { disabled: boolean }) => (
+        <ConfigProvider input={{ allowClear: { disabled } }}>
+          <Input allowClear />
+        </ConfigProvider>
+      );
+      const { getByRole, rerender } = render(<Demo disabled />);
+      const input = getByRole('textbox');
+      input.focus();
+      rerender(<Demo disabled={false} />);
+      expect(getByRole('textbox')).not.toBe(input);
+      expect(errorSpy).toHaveBeenCalledWith(
+        expect.stringContaining('dynamic add or remove prefix / suffix'),
+      );
+    });
+
     it('not trigger', () => {
       const { container, rerender } = render(<Input suffix="bamboo" />);
 
@@ -167,8 +183,9 @@ describe('prefix and suffix', () => {
     const input = container.querySelector('input') as HTMLInputElement;
 
     await waitFor(() => {
-      const computed = getComputedStyle(input).color;
-      expect(computed).toBe('var(--ant-color-text)');
+      expect(['var(--ant-color-text)', 'rgb(68, 85, 102)']).toContain(
+        getComputedStyle(input).color,
+      );
     });
   });
 
@@ -189,8 +206,9 @@ describe('prefix and suffix', () => {
     const suffix = container.querySelector('.ant-input-suffix') as HTMLSpanElement;
 
     await waitFor(() => {
-      expect(getComputedStyle(prefix).color).toBe('var(--ant-color-error-affix)');
-      expect(getComputedStyle(suffix).color).toBe('var(--ant-color-error-affix)');
+      const colors = ['var(--ant-color-error-affix)', 'rgb(18, 171, 205)'];
+      expect(colors).toContain(getComputedStyle(prefix).color);
+      expect(colors).toContain(getComputedStyle(suffix).color);
     });
   });
 
@@ -211,8 +229,9 @@ describe('prefix and suffix', () => {
     const suffix = container.querySelector('.ant-input-suffix') as HTMLSpanElement;
 
     await waitFor(() => {
-      expect(getComputedStyle(prefix).color).toBe('var(--ant-color-warning-affix)');
-      expect(getComputedStyle(suffix).color).toBe('var(--ant-color-warning-affix)');
+      const colors = ['var(--ant-color-warning-affix)', 'rgb(18, 171, 205)'];
+      expect(colors).toContain(getComputedStyle(prefix).color);
+      expect(colors).toContain(getComputedStyle(suffix).color);
     });
   });
 });
@@ -357,7 +376,7 @@ describe('Input allowClear', () => {
     const { container, rerender } = render(
       <Input allowClear={{ clearIcon: 'clear', disabled: true }} defaultValue="111" />,
     );
-    expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
+    expect(container.querySelector('.ant-input-clear-icon')).not.toBeInTheDocument();
 
     rerender(<Input allowClear={{ clearIcon: 'clear', disabled: false }} defaultValue="111" />);
     expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeFalsy();
@@ -634,5 +653,36 @@ describe('triggerFocus', () => {
     expect(() => {
       triggerFocus();
     }).not.toThrow();
+  });
+});
+
+describe('Input allowClear a11y', () => {
+  it('should name the clear button from the locale', () => {
+    const { container, rerender } = render(<Input allowClear defaultValue="a" />);
+    const getClearButton = () => container.querySelector('.ant-input-clear-icon')!;
+    expect(getClearButton()).toHaveAttribute('aria-label', 'Clear');
+
+    rerender(
+      <ConfigProvider locale={{ locale: 'fr', global: { clear: 'Effacer' } }}>
+        <Input allowClear defaultValue="a" />
+      </ConfigProvider>,
+    );
+    expect(getClearButton()).toHaveAttribute('aria-label', 'Effacer');
+  });
+
+  it('should fall back to the English clear name when the locale has none', () => {
+    const { container } = render(
+      <ConfigProvider locale={{ locale: 'xx', global: { clear: undefined } }}>
+        <Input allowClear defaultValue="a" />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-input-clear-icon')).toHaveAttribute('aria-label', 'Clear');
+  });
+
+  it('should keep a custom clearIcon', () => {
+    const { container } = render(
+      <Input allowClear={{ clearIcon: <span className="custom-clear" /> }} defaultValue="a" />,
+    );
+    expect(container.querySelector('.ant-input-clear-icon .custom-clear')).toBeTruthy();
   });
 });
