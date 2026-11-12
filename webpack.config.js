@@ -72,7 +72,10 @@ function addPluginsForProduction(config) {
   return newConfig;
 }
 
-let webpackConfig = getWebpackConfig(false);
+let webpackConfig = getWebpackConfig(false, {
+  enabledReactCompiler: false,
+  overrideStrict: 'non-strict',
+});
 
 if (process.env.PRODUCTION_ONLY) {
   console.log('🍐 Build production only');
