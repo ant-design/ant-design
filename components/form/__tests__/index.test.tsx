@@ -1167,6 +1167,32 @@ describe('Form', () => {
     );
   });
 
+  // https://github.com/ant-design/ant-design/issues/59678
+  it('`name` support template when it is a Form.List index', async () => {
+    const { container } = render(
+      // eslint-disable-next-line no-template-curly-in-string
+      <Form validateMessages={{ required: '${label} is good!' }} initialValues={{ list: ['', ''] }}>
+        <Form.List name="list">
+          {(fields) =>
+            fields.map((field) => (
+              <Form.Item key={field.key} name={field.name} rules={[{ required: true }]}>
+                <input />
+              </Form.Item>
+            ))
+          }
+        </Form.List>
+      </Form>,
+    );
+
+    fireEvent.submit(container.querySelector('form')!);
+    await waitFakeTimer();
+
+    const errors = Array.from(container.querySelectorAll('.ant-form-item-explain-error')).map(
+      (error) => error.textContent,
+    );
+    expect(errors).toEqual(['0 is good!', '1 is good!']);
+  });
+
   it('`messageVariables` support validate', async () => {
     const { container } = render(
       // eslint-disable-next-line no-template-curly-in-string
