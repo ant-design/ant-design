@@ -275,6 +275,60 @@ describe('Anchor Render', () => {
     replaceStateSpy.mockRestore();
   });
 
+  it.each(['_blank', 'preview'])('should preserve native navigation to target %s', (target) => {
+    const hash = getHashUrl();
+    const onClick = jest.fn();
+    const onChange = jest.fn();
+    const pushStateSpy = jest.spyOn(window.history, 'pushState');
+    const replaceStateSpy = jest.spyOn(window.history, 'replaceState');
+    const { container } = render(
+      <Anchor
+        onClick={onClick}
+        onChange={onChange}
+        items={[{ key: hash, href: `#${hash}`, title: hash, target }]}
+      />,
+    );
+    onChange.mockClear();
+
+    try {
+      expect(fireEvent.click(container.querySelector('a')!)).toBe(true);
+      expect(onClick).toHaveBeenCalledTimes(1);
+      expect(onChange).not.toHaveBeenCalled();
+      expect(pushStateSpy).not.toHaveBeenCalled();
+      expect(replaceStateSpy).not.toHaveBeenCalled();
+    } finally {
+      pushStateSpy.mockRestore();
+      replaceStateSpy.mockRestore();
+    }
+  });
+
+  it.each(['ctrlKey', 'metaKey', 'shiftKey', 'altKey'])(
+    'should preserve native navigation with %s',
+    (modifier) => {
+      const hash = getHashUrl();
+      const onClick = jest.fn();
+      const onChange = jest.fn();
+      const pushStateSpy = jest.spyOn(window.history, 'pushState');
+      const { container } = render(
+        <Anchor
+          onClick={onClick}
+          onChange={onChange}
+          items={[{ key: hash, href: `#${hash}`, title: hash }]}
+        />,
+      );
+      onChange.mockClear();
+
+      try {
+        expect(fireEvent.click(container.querySelector('a')!, { [modifier]: true })).toBe(true);
+        expect(onClick).toHaveBeenCalledTimes(1);
+        expect(onChange).not.toHaveBeenCalled();
+        expect(pushStateSpy).not.toHaveBeenCalled();
+      } finally {
+        pushStateSpy.mockRestore();
+      }
+    },
+  );
+
   it('targetOffset prop', async () => {
     const hash = getHashUrl();
 
