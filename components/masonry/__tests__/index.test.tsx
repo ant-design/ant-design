@@ -243,6 +243,48 @@ describe('Masonry', () => {
       expect(getGutter()).toEqual([8, 16]);
     });
 
+    it('should remeasure items when only the horizontal gutter changes', async () => {
+      let itemHeight = 80;
+      jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(
+        () =>
+          ({
+            height: itemHeight,
+            width: 200,
+          }) as DOMRect,
+      );
+
+      const items = Array.from({ length: 4 }, (_, key) => ({
+        key,
+        data: key,
+        children: 'Content',
+      }));
+      const renderMasonry = (horizontalGutter: number) => (
+        <Masonry columns={2} gutter={[horizontalGutter, 0]} items={items} />
+      );
+      const { container, rerender } = render(renderMasonry(0));
+      await waitFakeTimer();
+
+      const masonry = container.querySelector('.ant-masonry')!;
+      const secondRowItem = container.querySelectorAll('.ant-masonry-item')[2];
+      expect(masonry).toHaveStyle({ height: '160px' });
+      expect(secondRowItem).toHaveStyle({ top: '80px' });
+
+      // Narrower items wrap onto more lines without resizing the container.
+      itemHeight = 100;
+      rerender(renderMasonry(80));
+      await waitFakeTimer();
+
+      expect(masonry).toHaveStyle({ height: '200px' });
+      expect(secondRowItem).toHaveStyle({ top: '100px' });
+
+      itemHeight = 80;
+      rerender(renderMasonry(0));
+      await waitFakeTimer();
+
+      expect(masonry).toHaveStyle({ height: '160px' });
+      expect(secondRowItem).toHaveStyle({ top: '80px' });
+    });
+
     it('should handle responsive gutter', async () => {
       minWidth = '576px';
 
