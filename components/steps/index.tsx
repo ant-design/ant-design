@@ -188,12 +188,7 @@ const Steps = (props: StepsProps) => {
 
   const contextContent = useComponentConfig('steps');
 
-  const {
-    getPrefixCls,
-    direction: rtlDirection,
-    className: contextClassName,
-    style: contextStyle,
-  } = contextContent;
+  const { getPrefixCls, direction: rtlDirection } = contextContent;
 
   const [variant] = useVariant('steps', customVariant, {
     variants: ['filled', 'outlined'],
@@ -202,12 +197,20 @@ const Steps = (props: StepsProps) => {
 
   let contextClassNames: StepsProps['classNames'];
   let contextStyles: StepsProps['styles'];
+  let contextClassName: string | undefined;
+  let contextStyle: React.CSSProperties | undefined;
   let components: RcStepsProps['components'] = {};
 
+  // Timeline renders Steps internally and applies its own ConfigProvider config
   if (internalContent) {
     components = { root: internalContent.rootComponent, item: internalContent.itemComponent };
   } else {
-    ({ classNames: contextClassNames, styles: contextStyles } = contextContent);
+    ({
+      className: contextClassName,
+      style: contextStyle,
+      classNames: contextClassNames,
+      styles: contextStyles,
+    } = contextContent);
   }
 
   const rootPrefixCls = getPrefixCls();
