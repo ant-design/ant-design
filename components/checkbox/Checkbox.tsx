@@ -143,7 +143,13 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   const [innerChecked, setInnerChecked] = useControlledState(defaultChecked, checked);
   let mergedChecked = innerChecked;
 
+  const checkboxRef = React.useRef<CheckboxRef>(null);
+
   const onInternalChange = useEvent((event) => {
+    // Native checkbox activation clears indeterminate before firing change.
+    if (checkboxRef.current?.input) {
+      checkboxRef.current.input.indeterminate = indeterminate;
+    }
     setInnerChecked(event.target.checked);
     onChange?.(event);
 
@@ -157,7 +163,6 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     mergedChecked = checkboxGroup.value.includes(value);
   }
 
-  const checkboxRef = React.useRef<CheckboxRef>(null);
   const mergedRef = useComposeRef(ref, checkboxRef);
 
   React.useEffect(() => {
