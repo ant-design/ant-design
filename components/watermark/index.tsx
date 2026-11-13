@@ -219,8 +219,11 @@ const Watermark = React.forwardRef<WatermarkRef, WatermarkProps>((props, ref) =>
     null!,
   );
 
+  const renderIdRef = React.useRef(0);
+
   // Generate new Watermark content
   const renderWatermark = () => {
+    const renderId = ++renderIdRef.current;
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
 
@@ -229,6 +232,10 @@ const Watermark = React.forwardRef<WatermarkRef, WatermarkProps>((props, ref) =>
       const [markWidth, markHeight] = getMarkSize(ctx);
 
       const drawCanvas = (drawContent?: typeof contentLines | HTMLImageElement) => {
+        if (renderId !== renderIdRef.current) {
+          return;
+        }
+
         const params: ClipParams = [
           drawContent || [],
           rotate,
@@ -259,6 +266,10 @@ const Watermark = React.forwardRef<WatermarkRef, WatermarkProps>((props, ref) =>
         drawCanvas(contentLines);
       }
     }
+
+    return () => {
+      renderIdRef.current += 1;
+    };
   };
 
   const syncWatermark = useRafDebounce(renderWatermark);
@@ -300,7 +311,8 @@ const Watermark = React.forwardRef<WatermarkRef, WatermarkProps>((props, ref) =>
 
   useMutateObserver(targetElements, onMutate);
 
-  useEffect(syncWatermark, [
+  // Prop updates must not be skipped by the mutation observer's frame throttle.
+  useEffect(renderWatermark, [
     rotate,
     mergedZIndex,
     width,
