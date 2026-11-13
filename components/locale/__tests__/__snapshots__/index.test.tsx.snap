@@ -91745,7 +91745,7 @@ exports[`Locale Provider should display the text as eu 1`] = `
                     tabindex="-1"
                     type="button"
                   >
-                    Sep
+                    ira.
                   </button>
                 </div>
                 <button
@@ -91778,25 +91778,25 @@ exports[`Locale Provider should display the text as eu 1`] = `
                   <thead>
                     <tr>
                       <th>
-                        Su
+                        ig
                       </th>
                       <th>
-                        Mo
+                        al
                       </th>
                       <th>
-                        Tu
+                        ar
                       </th>
                       <th>
-                        We
+                        az
                       </th>
                       <th>
-                        Th
+                        og
                       </th>
                       <th>
-                        Fr
+                        ol
                       </th>
                       <th>
-                        Sa
+                        lr
                       </th>
                     </tr>
                   </thead>
@@ -94686,7 +94686,7 @@ exports[`Locale Provider should display the text as eu 1`] = `
                         tabindex="-1"
                         type="button"
                       >
-                        Sep
+                        ira.
                       </button>
                     </div>
                     <button
@@ -94721,25 +94721,25 @@ exports[`Locale Provider should display the text as eu 1`] = `
                       <thead>
                         <tr>
                           <th>
-                            Su
+                            ig
                           </th>
                           <th>
-                            Mo
+                            al
                           </th>
                           <th>
-                            Tu
+                            ar
                           </th>
                           <th>
-                            We
+                            az
                           </th>
                           <th>
-                            Th
+                            og
                           </th>
                           <th>
-                            Fr
+                            ol
                           </th>
                           <th>
-                            Sa
+                            lr
                           </th>
                         </tr>
                       </thead>
@@ -95230,7 +95230,7 @@ exports[`Locale Provider should display the text as eu 1`] = `
                         tabindex="-1"
                         type="button"
                       >
-                        Oct
+                        urr.
                       </button>
                     </div>
                     <button
@@ -95263,25 +95263,25 @@ exports[`Locale Provider should display the text as eu 1`] = `
                       <thead>
                         <tr>
                           <th>
-                            Su
+                            ig
                           </th>
                           <th>
-                            Mo
+                            al
                           </th>
                           <th>
-                            Tu
+                            ar
                           </th>
                           <th>
-                            We
+                            az
                           </th>
                           <th>
-                            Th
+                            og
                           </th>
                           <th>
-                            Fr
+                            ol
                           </th>
                           <th>
-                            Sa
+                            lr
                           </th>
                         </tr>
                       </thead>
@@ -96285,9 +96285,9 @@ exports[`Locale Provider should display the text as eu 1`] = `
       >
         <div
           class="ant-select-content ant-select-content-has-value"
-          title="Sep"
+          title="ira."
         >
-          Sep
+          ira.
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -96387,25 +96387,25 @@ exports[`Locale Provider should display the text as eu 1`] = `
             <thead>
               <tr>
                 <th>
-                  Su
+                  ig
                 </th>
                 <th>
-                  Mo
+                  al
                 </th>
                 <th>
-                  Tu
+                  ar
                 </th>
                 <th>
-                  We
+                  az
                 </th>
                 <th>
-                  Th
+                  og
                 </th>
                 <th>
-                  Fr
+                  ol
                 </th>
                 <th>
-                  Sa
+                  lr
                 </th>
               </tr>
             </thead>
@@ -276678,7 +276678,7 @@ exports[`Locale Provider should display the text as my 1`] = `
                     tabindex="-1"
                     type="button"
                   >
-                    Sep
+                    စက်
                   </button>
                   <button
                     aria-label="နှစ်ကိုရွေး"
@@ -276719,25 +276719,25 @@ exports[`Locale Provider should display the text as my 1`] = `
                   <thead>
                     <tr>
                       <th>
-                        Su
+                        နွေ
                       </th>
                       <th>
-                        Mo
+                        လာ
                       </th>
                       <th>
-                        Tu
+                        ဂါ
                       </th>
                       <th>
-                        We
+                        ဟူး
                       </th>
                       <th>
-                        Th
+                        ကြာ
                       </th>
                       <th>
-                        Fr
+                        သော
                       </th>
                       <th>
-                        Sa
+                        နေ
                       </th>
                     </tr>
                   </thead>
@@ -279619,7 +279619,7 @@ exports[`Locale Provider should display the text as my 1`] = `
                         tabindex="-1"
                         type="button"
                       >
-                        Sep
+                        စက်
                       </button>
                       <button
                         aria-label="နှစ်ကိုရွေး"
@@ -279662,25 +279662,25 @@ exports[`Locale Provider should display the text as my 1`] = `
                       <thead>
                         <tr>
                           <th>
-                            Su
+                            နွေ
                           </th>
                           <th>
-                            Mo
+                            လာ
                           </th>
                           <th>
-                            Tu
+                            ဂါ
                           </th>
                           <th>
-                            We
+                            ဟူး
                           </th>
                           <th>
-                            Th
+                            ကြာ
                           </th>
                           <th>
-                            Fr
+                            သော
                           </th>
                           <th>
-                            Sa
+                            နေ
                           </th>
                         </tr>
                       </thead>
@@ -280163,7 +280163,7 @@ exports[`Locale Provider should display the text as my 1`] = `
                         tabindex="-1"
                         type="button"
                       >
-                        Oct
+                        အောက်
                       </button>
                       <button
                         aria-label="နှစ်ကိုရွေး"
@@ -280204,25 +280204,25 @@ exports[`Locale Provider should display the text as my 1`] = `
                       <thead>
                         <tr>
                           <th>
-                            Su
+                            နွေ
                           </th>
                           <th>
-                            Mo
+                            လာ
                           </th>
                           <th>
-                            Tu
+                            ဂါ
                           </th>
                           <th>
-                            We
+                            ဟူး
                           </th>
                           <th>
-                            Th
+                            ကြာ
                           </th>
                           <th>
-                            Fr
+                            သော
                           </th>
                           <th>
-                            Sa
+                            နေ
                           </th>
                         </tr>
                       </thead>
@@ -281226,9 +281226,9 @@ exports[`Locale Provider should display the text as my 1`] = `
       >
         <div
           class="ant-select-content ant-select-content-has-value"
-          title="Sep"
+          title="စက်"
         >
-          Sep
+          စက်
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -281328,25 +281328,25 @@ exports[`Locale Provider should display the text as my 1`] = `
             <thead>
               <tr>
                 <th>
-                  Su
+                  နွေ
                 </th>
                 <th>
-                  Mo
+                  လာ
                 </th>
                 <th>
-                  Tu
+                  ဂါ
                 </th>
                 <th>
-                  We
+                  ဟူး
                 </th>
                 <th>
-                  Th
+                  ကြာ
                 </th>
                 <th>
-                  Fr
+                  သော
                 </th>
                 <th>
-                  Sa
+                  နေ
                 </th>
               </tr>
             </thead>
@@ -336346,7 +336346,7 @@ exports[`Locale Provider should display the text as si 1`] = `
                     tabindex="-1"
                     type="button"
                   >
-                    Sep
+                    බින
                   </button>
                 </div>
                 <button
@@ -336379,25 +336379,25 @@ exports[`Locale Provider should display the text as si 1`] = `
                   <thead>
                     <tr>
                       <th>
-                        Su
+                        ඉ
                       </th>
                       <th>
-                        Mo
+                        ස
                       </th>
                       <th>
-                        Tu
+                        අ
                       </th>
                       <th>
-                        We
+                        බ
                       </th>
                       <th>
-                        Th
+                        බ්‍ර
                       </th>
                       <th>
-                        Fr
+                        සි
                       </th>
                       <th>
-                        Sa
+                        සෙ
                       </th>
                     </tr>
                   </thead>
@@ -339287,7 +339287,7 @@ exports[`Locale Provider should display the text as si 1`] = `
                         tabindex="-1"
                         type="button"
                       >
-                        Sep
+                        බින
                       </button>
                     </div>
                     <button
@@ -339322,25 +339322,25 @@ exports[`Locale Provider should display the text as si 1`] = `
                       <thead>
                         <tr>
                           <th>
-                            Su
+                            ඉ
                           </th>
                           <th>
-                            Mo
+                            ස
                           </th>
                           <th>
-                            Tu
+                            අ
                           </th>
                           <th>
-                            We
+                            බ
                           </th>
                           <th>
-                            Th
+                            බ්‍ර
                           </th>
                           <th>
-                            Fr
+                            සි
                           </th>
                           <th>
-                            Sa
+                            සෙ
                           </th>
                         </tr>
                       </thead>
@@ -339831,7 +339831,7 @@ exports[`Locale Provider should display the text as si 1`] = `
                         tabindex="-1"
                         type="button"
                       >
-                        Oct
+                        වප්
                       </button>
                     </div>
                     <button
@@ -339864,25 +339864,25 @@ exports[`Locale Provider should display the text as si 1`] = `
                       <thead>
                         <tr>
                           <th>
-                            Su
+                            ඉ
                           </th>
                           <th>
-                            Mo
+                            ස
                           </th>
                           <th>
-                            Tu
+                            අ
                           </th>
                           <th>
-                            We
+                            බ
                           </th>
                           <th>
-                            Th
+                            බ්‍ර
                           </th>
                           <th>
-                            Fr
+                            සි
                           </th>
                           <th>
-                            Sa
+                            සෙ
                           </th>
                         </tr>
                       </thead>
@@ -340886,9 +340886,9 @@ exports[`Locale Provider should display the text as si 1`] = `
       >
         <div
           class="ant-select-content ant-select-content-has-value"
-          title="Sep"
+          title="බින"
         >
-          Sep
+          බින
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -340988,25 +340988,25 @@ exports[`Locale Provider should display the text as si 1`] = `
             <thead>
               <tr>
                 <th>
-                  Su
+                  ඉ
                 </th>
                 <th>
-                  Mo
+                  ස
                 </th>
                 <th>
-                  Tu
+                  අ
                 </th>
                 <th>
-                  We
+                  බ
                 </th>
                 <th>
-                  Th
+                  බ්‍ර
                 </th>
                 <th>
-                  Fr
+                  සි
                 </th>
                 <th>
-                  Sa
+                  සෙ
                 </th>
               </tr>
             </thead>
@@ -407924,7 +407924,7 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                     tabindex="-1"
                     type="button"
                   >
-                    Sep
+                    Sen
                   </button>
                   <button
                     aria-label="Yilni tanlang"
@@ -407965,25 +407965,25 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                   <thead>
                     <tr>
                       <th>
-                        Su
+                        Ya
                       </th>
                       <th>
-                        Mo
+                        Du
                       </th>
                       <th>
-                        Tu
+                        Se
                       </th>
                       <th>
-                        We
+                        Cho
                       </th>
                       <th>
-                        Th
+                        Pa
                       </th>
                       <th>
-                        Fr
+                        Ju
                       </th>
                       <th>
-                        Sa
+                        Sha
                       </th>
                     </tr>
                   </thead>
@@ -410865,7 +410865,7 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                         tabindex="-1"
                         type="button"
                       >
-                        Sep
+                        Sen
                       </button>
                       <button
                         aria-label="Yilni tanlang"
@@ -410908,25 +410908,25 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                       <thead>
                         <tr>
                           <th>
-                            Su
+                            Ya
                           </th>
                           <th>
-                            Mo
+                            Du
                           </th>
                           <th>
-                            Tu
+                            Se
                           </th>
                           <th>
-                            We
+                            Cho
                           </th>
                           <th>
-                            Th
+                            Pa
                           </th>
                           <th>
-                            Fr
+                            Ju
                           </th>
                           <th>
-                            Sa
+                            Sha
                           </th>
                         </tr>
                       </thead>
@@ -411409,7 +411409,7 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                         tabindex="-1"
                         type="button"
                       >
-                        Oct
+                        Okt
                       </button>
                       <button
                         aria-label="Yilni tanlang"
@@ -411450,25 +411450,25 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
                       <thead>
                         <tr>
                           <th>
-                            Su
+                            Ya
                           </th>
                           <th>
-                            Mo
+                            Du
                           </th>
                           <th>
-                            Tu
+                            Se
                           </th>
                           <th>
-                            We
+                            Cho
                           </th>
                           <th>
-                            Th
+                            Pa
                           </th>
                           <th>
-                            Fr
+                            Ju
                           </th>
                           <th>
-                            Sa
+                            Sha
                           </th>
                         </tr>
                       </thead>
@@ -412472,9 +412472,9 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
       >
         <div
           class="ant-select-content ant-select-content-has-value"
-          title="Sep"
+          title="Sen"
         >
-          Sep
+          Sen
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -412574,25 +412574,25 @@ exports[`Locale Provider should display the text as uz-latn 1`] = `
             <thead>
               <tr>
                 <th>
-                  Su
+                  Ya
                 </th>
                 <th>
-                  Mo
+                  Du
                 </th>
                 <th>
-                  Tu
+                  Se
                 </th>
                 <th>
-                  We
+                  Cho
                 </th>
                 <th>
-                  Th
+                  Pa
                 </th>
                 <th>
-                  Fr
+                  Ju
                 </th>
                 <th>
-                  Sa
+                  Sha
                 </th>
               </tr>
             </thead>
