@@ -512,6 +512,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
+          aria-label="large"
           checked=""
           class="ant-radio-input"
           name="test-id"
@@ -520,6 +521,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         large
@@ -532,6 +534,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="medium"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -539,6 +542,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         medium
@@ -551,6 +555,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="small"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -558,6 +563,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         small
@@ -1604,6 +1610,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
+          aria-label="large"
           checked=""
           class="ant-radio-input"
           name="test-id"
@@ -1612,6 +1619,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         large
@@ -1624,6 +1632,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="medium"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -1631,6 +1640,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         medium
@@ -1643,6 +1653,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="small"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -1650,6 +1661,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         small
@@ -2061,6 +2073,7 @@ Array [
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
+          aria-label="horizontal"
           checked=""
           class="ant-radio-input"
           name="test-id"
@@ -2069,6 +2082,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         horizontal
@@ -2081,6 +2095,7 @@ Array [
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="vertical"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -2088,6 +2103,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         vertical

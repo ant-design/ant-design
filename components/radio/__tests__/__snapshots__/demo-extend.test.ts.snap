@@ -18,6 +18,7 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = 
           class="ant-radio-button"
         >
           <input
+            aria-label="Click Me"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -25,6 +26,7 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = 
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Click Me
@@ -59,6 +61,7 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = 
           class="ant-radio-button"
         >
           <input
+            aria-label="Not Me"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -66,6 +69,7 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = 
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Not Me
@@ -105,6 +109,7 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = 
           class="ant-radio-button"
         >
           <input
+            aria-label="Click Me"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -112,6 +117,7 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = 
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Click Me
@@ -146,6 +152,7 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = 
           class="ant-radio-button"
         >
           <input
+            aria-label="Hidden Badge"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -153,6 +160,7 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = 
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Hidden Badge
@@ -169,6 +177,7 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = 
           class="ant-radio-button"
         >
           <input
+            aria-label="Not Me"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -176,6 +185,7 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = 
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Not Me
@@ -214,11 +224,13 @@ exports[`renders components/radio/demo/basic.tsx extend context correctly 1`] = 
     class="ant-radio ant-wave-target"
   >
     <input
+      aria-label="Radio"
       class="ant-radio-input"
       type="radio"
     />
   </span>
   <span
+    aria-hidden="true"
     class="ant-radio-label"
   >
     Radio
@@ -242,12 +254,14 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
+          aria-label="Test"
           checked=""
           class="ant-radio-input"
           type="radio"
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Test
@@ -264,6 +278,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         class="ant-radio ant-wave-target ant-radio-checked ant-radio-disabled"
       >
         <input
+          aria-label="Disabled"
           checked=""
           class="ant-radio-input"
           disabled=""
@@ -271,6 +286,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Disabled
@@ -291,6 +307,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           class="ant-radio-button ant-radio-button-checked"
         >
           <input
+            aria-label="Hangzhou"
             checked=""
             class="ant-radio-button-input"
             name="test-id"
@@ -299,6 +316,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Hangzhou
@@ -311,6 +329,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           class="ant-radio-button"
         >
           <input
+            aria-label="Shanghai"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -318,6 +337,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Shanghai
@@ -330,6 +350,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           class="ant-radio-button"
         >
           <input
+            aria-label="Beijing"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -337,6 +358,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Beijing
@@ -349,6 +371,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           class="ant-radio-button"
         >
           <input
+            aria-label="Chengdu"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -356,6 +379,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Chengdu
@@ -377,6 +401,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           class="ant-radio-button ant-radio-button-checked ant-radio-button-disabled"
         >
           <input
+            aria-label="Hangzhou"
             checked=""
             class="ant-radio-button-input"
             disabled=""
@@ -386,6 +411,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Hangzhou
@@ -398,6 +424,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           class="ant-radio-button ant-radio-button-disabled"
         >
           <input
+            aria-label="Shanghai"
             class="ant-radio-button-input"
             disabled=""
             name="test-id"
@@ -406,6 +433,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Shanghai
@@ -418,6 +446,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           class="ant-radio-button ant-radio-button-disabled"
         >
           <input
+            aria-label="Beijing"
             class="ant-radio-button-input"
             disabled=""
             name="test-id"
@@ -426,6 +455,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Beijing
@@ -438,6 +468,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           class="ant-radio-button ant-radio-button-disabled"
         >
           <input
+            aria-label="Chengdu"
             class="ant-radio-button-input"
             disabled=""
             name="test-id"
@@ -446,6 +477,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Chengdu
@@ -467,6 +499,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           class="ant-radio-button ant-radio-button-checked"
         >
           <input
+            aria-label="Hangzhou"
             checked=""
             class="ant-radio-button-input"
             name="test-id"
@@ -475,6 +508,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Hangzhou
@@ -487,6 +521,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           class="ant-radio-button"
         >
           <input
+            aria-label="Shanghai"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -494,6 +529,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Shanghai
@@ -506,6 +542,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           class="ant-radio-button"
         >
           <input
+            aria-label="Beijing"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -513,6 +550,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Beijing
@@ -525,6 +563,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           class="ant-radio-button"
         >
           <input
+            aria-label="Chengdu"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -532,6 +571,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Chengdu
@@ -559,6 +599,7 @@ exports[`renders components/radio/demo/debug-group-width.tsx extend context corr
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
+          aria-label="Short"
           checked=""
           class="ant-radio-input"
           name="test-id"
@@ -567,6 +608,7 @@ exports[`renders components/radio/demo/debug-group-width.tsx extend context corr
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Short
@@ -579,6 +621,7 @@ exports[`renders components/radio/demo/debug-group-width.tsx extend context corr
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="Long label that may wrap in narrow container"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -586,6 +629,7 @@ exports[`renders components/radio/demo/debug-group-width.tsx extend context corr
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Long label that may wrap in narrow container
@@ -598,6 +642,7 @@ exports[`renders components/radio/demo/debug-group-width.tsx extend context corr
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="Medium"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -605,6 +650,7 @@ exports[`renders components/radio/demo/debug-group-width.tsx extend context corr
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Medium
@@ -645,11 +691,13 @@ exports[`renders components/radio/demo/debug-upload.tsx extend context correctly
               class="ant-radio ant-wave-target"
             >
               <input
+                aria-label="Radio"
                 class="ant-radio-input"
                 type="radio"
               />
             </span>
             <span
+              aria-hidden="true"
               class="ant-radio-label"
             >
               Radio
@@ -718,12 +766,14 @@ Array [
       class="ant-radio ant-wave-target ant-radio-disabled"
     >
       <input
+        aria-label="Disabled"
         class="ant-radio-input"
         disabled=""
         type="radio"
       />
     </span>
     <span
+      aria-hidden="true"
       class="ant-radio-label"
     >
       Disabled
@@ -736,6 +786,7 @@ Array [
       class="ant-radio ant-wave-target ant-radio-checked ant-radio-disabled"
     >
       <input
+        aria-label="Disabled"
         checked=""
         class="ant-radio-input"
         disabled=""
@@ -743,6 +794,7 @@ Array [
       />
     </span>
     <span
+      aria-hidden="true"
       class="ant-radio-label"
     >
       Disabled
@@ -778,6 +830,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Hangzhou"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -786,6 +839,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Hangzhou
@@ -798,6 +852,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         class="ant-radio-button"
       >
         <input
+          aria-label="Shanghai"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -805,6 +860,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Shanghai
@@ -817,6 +873,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         class="ant-radio-button"
       >
         <input
+          aria-label="Beijing"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -824,6 +881,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Beijing
@@ -836,6 +894,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         class="ant-radio-button"
       >
         <input
+          aria-label="Chengdu"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -843,6 +902,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Chengdu
@@ -860,6 +920,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Hangzhou"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -868,6 +929,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Hangzhou
@@ -880,6 +942,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         class="ant-radio-button ant-radio-button-disabled"
       >
         <input
+          aria-label="Shanghai"
           class="ant-radio-button-input"
           disabled=""
           name="test-id"
@@ -888,6 +951,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Shanghai
@@ -900,6 +964,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         class="ant-radio-button"
       >
         <input
+          aria-label="Beijing"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -907,6 +972,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Beijing
@@ -919,6 +985,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         class="ant-radio-button"
       >
         <input
+          aria-label="Chengdu"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -926,6 +993,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Chengdu
@@ -943,6 +1011,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         class="ant-radio-button ant-radio-button-checked ant-radio-button-disabled"
       >
         <input
+          aria-label="Hangzhou"
           checked=""
           class="ant-radio-button-input"
           disabled=""
@@ -952,6 +1021,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Hangzhou
@@ -964,6 +1034,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         class="ant-radio-button ant-radio-button-disabled"
       >
         <input
+          aria-label="Shanghai"
           class="ant-radio-button-input"
           disabled=""
           name="test-id"
@@ -972,6 +1043,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Shanghai
@@ -984,6 +1056,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         class="ant-radio-button ant-radio-button-disabled"
       >
         <input
+          aria-label="Beijing"
           class="ant-radio-button-input"
           disabled=""
           name="test-id"
@@ -992,6 +1065,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Beijing
@@ -1004,6 +1078,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         class="ant-radio-button ant-radio-button-disabled"
       >
         <input
+          aria-label="Chengdu"
           class="ant-radio-button-input"
           disabled=""
           name="test-id"
@@ -1012,6 +1087,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Chengdu
@@ -1038,6 +1114,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Hangzhou"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -1046,6 +1123,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Hangzhou
@@ -1058,6 +1136,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         class="ant-radio-button"
       >
         <input
+          aria-label="Shanghai"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1065,6 +1144,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Shanghai
@@ -1077,6 +1157,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         class="ant-radio-button"
       >
         <input
+          aria-label="Beijing"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1084,6 +1165,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Beijing
@@ -1096,6 +1178,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         class="ant-radio-button"
       >
         <input
+          aria-label="Chengdu"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1103,6 +1186,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Chengdu
@@ -1120,6 +1204,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         class="ant-radio-button"
       >
         <input
+          aria-label="Hangzhou"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1127,6 +1212,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Hangzhou
@@ -1139,6 +1225,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         class="ant-radio-button ant-radio-button-disabled"
       >
         <input
+          aria-label="Shanghai"
           class="ant-radio-button-input"
           disabled=""
           name="test-id"
@@ -1147,6 +1234,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Shanghai
@@ -1159,6 +1247,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Beijing"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -1167,6 +1256,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Beijing
@@ -1179,6 +1269,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         class="ant-radio-button"
       >
         <input
+          aria-label="Chengdu"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1186,6 +1277,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Chengdu
@@ -1395,6 +1487,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
+          aria-label="Apple"
           checked=""
           class="ant-radio-input"
           name="test-id"
@@ -1403,6 +1496,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Apple
@@ -1415,6 +1509,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="Pear"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -1422,6 +1517,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Pear
@@ -1434,6 +1530,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="Orange"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -1441,6 +1538,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Orange
@@ -1458,6 +1556,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Apple"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -1466,6 +1565,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Apple
@@ -1478,6 +1578,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         class="ant-radio-button"
       >
         <input
+          aria-label="Pear"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1485,6 +1586,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Pear
@@ -1497,6 +1599,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         class="ant-radio-button"
       >
         <input
+          aria-label="Orange"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1504,6 +1607,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Orange
@@ -1521,6 +1625,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         class="ant-radio-button"
       >
         <input
+          aria-label="Apple"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1528,6 +1633,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Apple
@@ -1540,6 +1646,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Pear"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -1548,6 +1655,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Pear
@@ -1560,6 +1668,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         class="ant-radio-button"
       >
         <input
+          aria-label="Orange"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1567,6 +1676,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Orange
@@ -1597,6 +1707,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
           class="ant-radio ant-wave-target ant-radio-checked"
         >
           <input
+            aria-label="Option A"
             checked=""
             class="ant-radio-input"
             name="test-id"
@@ -1605,6 +1716,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-label"
         >
           Option A
@@ -1618,6 +1730,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
           class="ant-radio ant-wave-target"
         >
           <input
+            aria-label="Option B"
             class="ant-radio-input"
             name="test-id"
             type="radio"
@@ -1625,6 +1738,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-label"
         >
           Option B
@@ -1638,6 +1752,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
           class="ant-radio ant-wave-target"
         >
           <input
+            aria-label="Option C"
             class="ant-radio-input"
             name="test-id"
             type="radio"
@@ -1645,6 +1760,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-label"
         >
           Option C
@@ -1686,6 +1802,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
           class="ant-radio-button"
         >
           <input
+            aria-label="Apple"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -1693,6 +1810,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Apple
@@ -1705,6 +1823,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
           class="ant-radio-button"
         >
           <input
+            aria-label="Pear"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -1712,6 +1831,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Pear
@@ -1725,6 +1845,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
           class="ant-radio-button"
         >
           <input
+            aria-label="Orange"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -1732,6 +1853,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Orange
@@ -1757,6 +1879,7 @@ Array [
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
+          aria-label="Apple"
           checked=""
           class="ant-radio-input"
           name="test-id"
@@ -1765,6 +1888,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Apple
@@ -1777,6 +1901,7 @@ Array [
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="Pear"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -1784,6 +1909,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Pear
@@ -1796,6 +1922,7 @@ Array [
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="Orange"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -1803,6 +1930,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Orange
@@ -1821,6 +1949,7 @@ Array [
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
+          aria-label="Apple"
           checked=""
           class="ant-radio-input"
           name="test-id"
@@ -1829,6 +1958,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Apple
@@ -1841,6 +1971,7 @@ Array [
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="Pear"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -1848,6 +1979,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Pear
@@ -1860,6 +1992,7 @@ Array [
         class="ant-radio ant-wave-target ant-radio-disabled"
       >
         <input
+          aria-label="Orange"
           class="ant-radio-input"
           disabled=""
           name="test-id"
@@ -1868,6 +2001,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         Orange
@@ -1887,6 +2021,7 @@ Array [
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Apple"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -1895,6 +2030,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Apple
@@ -1907,6 +2043,7 @@ Array [
         class="ant-radio-button"
       >
         <input
+          aria-label="Pear"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1914,6 +2051,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Pear
@@ -1927,6 +2065,7 @@ Array [
         class="ant-radio-button"
       >
         <input
+          aria-label="Orange"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1934,6 +2073,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Orange
@@ -1953,6 +2093,7 @@ Array [
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Apple"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -1961,6 +2102,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Apple
@@ -1973,6 +2115,7 @@ Array [
         class="ant-radio-button"
       >
         <input
+          aria-label="Pear"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1980,6 +2123,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Pear
@@ -1992,6 +2136,7 @@ Array [
         class="ant-radio-button ant-radio-button-disabled"
       >
         <input
+          aria-label="Orange"
           class="ant-radio-button-input"
           disabled=""
           name="test-id"
@@ -2000,6 +2145,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Orange
@@ -2023,6 +2169,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
       class="ant-radio ant-wave-target ant-radio-checked"
     >
       <input
+        aria-label="A"
         checked=""
         class="ant-radio-input"
         name="radiogroup"
@@ -2031,6 +2178,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
       />
     </span>
     <span
+      aria-hidden="true"
       class="ant-radio-label"
     >
       A
@@ -2043,6 +2191,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
       class="ant-radio ant-wave-target"
     >
       <input
+        aria-label="B"
         class="ant-radio-input"
         name="radiogroup"
         type="radio"
@@ -2050,6 +2199,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
       />
     </span>
     <span
+      aria-hidden="true"
       class="ant-radio-label"
     >
       B
@@ -2062,6 +2212,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
       class="ant-radio ant-wave-target"
     >
       <input
+        aria-label="C"
         class="ant-radio-input"
         name="radiogroup"
         type="radio"
@@ -2069,6 +2220,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
       />
     </span>
     <span
+      aria-hidden="true"
       class="ant-radio-label"
     >
       C
@@ -2081,6 +2233,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
       class="ant-radio ant-wave-target"
     >
       <input
+        aria-label="D"
         class="ant-radio-input"
         name="radiogroup"
         type="radio"
@@ -2088,6 +2241,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
       />
     </span>
     <span
+      aria-hidden="true"
       class="ant-radio-label"
     >
       D
@@ -2113,6 +2267,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Hangzhou"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -2121,6 +2276,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Hangzhou
@@ -2133,6 +2289,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         class="ant-radio-button"
       >
         <input
+          aria-label="Shanghai"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -2140,6 +2297,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Shanghai
@@ -2152,6 +2310,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         class="ant-radio-button"
       >
         <input
+          aria-label="Beijing"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -2159,6 +2318,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Beijing
@@ -2171,6 +2331,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         class="ant-radio-button"
       >
         <input
+          aria-label="Chengdu"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -2178,6 +2339,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Chengdu
@@ -2195,6 +2357,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Hangzhou"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -2203,6 +2366,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Hangzhou
@@ -2215,6 +2379,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         class="ant-radio-button"
       >
         <input
+          aria-label="Shanghai"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -2222,6 +2387,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Shanghai
@@ -2234,6 +2400,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         class="ant-radio-button"
       >
         <input
+          aria-label="Beijing"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -2241,6 +2408,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Beijing
@@ -2253,6 +2421,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         class="ant-radio-button"
       >
         <input
+          aria-label="Chengdu"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -2260,6 +2429,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Chengdu
@@ -2277,6 +2447,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Hangzhou"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -2285,6 +2456,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Hangzhou
@@ -2297,6 +2469,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         class="ant-radio-button"
       >
         <input
+          aria-label="Shanghai"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -2304,6 +2477,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Shanghai
@@ -2316,6 +2490,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         class="ant-radio-button"
       >
         <input
+          aria-label="Beijing"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -2323,6 +2498,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Beijing
@@ -2335,6 +2511,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         class="ant-radio-button"
       >
         <input
+          aria-label="Chengdu"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -2342,6 +2519,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Chengdu
@@ -2365,6 +2543,7 @@ exports[`renders components/radio/demo/style-class.tsx extend context correctly 
       style="border-radius: 6px;"
     >
       <input
+        aria-label="Object styles"
         checked=""
         class="ant-radio-input"
         name="style-class"
@@ -2372,6 +2551,7 @@ exports[`renders components/radio/demo/style-class.tsx extend context correctly 
       />
     </span>
     <span
+      aria-hidden="true"
       class="ant-radio-label"
       style="color: blue;"
     >
@@ -2385,12 +2565,14 @@ exports[`renders components/radio/demo/style-class.tsx extend context correctly 
       class="ant-radio acss-1sy50lm ant-wave-target"
     >
       <input
+        aria-label="Function classNames"
         class="ant-radio-input"
         name="style-class"
         type="radio"
       />
     </span>
     <span
+      aria-hidden="true"
       class="ant-radio-label acss-eesh8g"
     >
       Function classNames
@@ -2414,6 +2596,7 @@ Array [
         class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
+          aria-label="A"
           checked=""
           class="ant-radio-input"
           name="test-id"
@@ -2422,6 +2605,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         A
@@ -2434,6 +2618,7 @@ Array [
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="B"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -2441,6 +2626,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         B
@@ -2453,6 +2639,7 @@ Array [
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="C"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -2460,6 +2647,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         C
@@ -2472,6 +2660,7 @@ Array [
         class="ant-radio ant-wave-target"
       >
         <input
+          aria-label="D"
           class="ant-radio-input"
           name="test-id"
           type="radio"
@@ -2479,6 +2668,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         D
@@ -2497,6 +2687,7 @@ Array [
         class="ant-radio ant-wave-target ant-radio-checked ant-radio-disabled"
       >
         <input
+          aria-label="A"
           checked=""
           class="ant-radio-input"
           disabled=""
@@ -2506,6 +2697,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         A
@@ -2518,6 +2710,7 @@ Array [
         class="ant-radio ant-wave-target ant-radio-disabled"
       >
         <input
+          aria-label="B"
           class="ant-radio-input"
           disabled=""
           name="test-id"
@@ -2526,6 +2719,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         B
@@ -2538,6 +2732,7 @@ Array [
         class="ant-radio ant-wave-target ant-radio-disabled"
       >
         <input
+          aria-label="C"
           class="ant-radio-input"
           disabled=""
           name="test-id"
@@ -2546,6 +2741,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         C
@@ -2558,6 +2754,7 @@ Array [
         class="ant-radio ant-wave-target ant-radio-disabled"
       >
         <input
+          aria-label="D"
           class="ant-radio-input"
           disabled=""
           name="test-id"
@@ -2566,6 +2763,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-label"
       >
         D
