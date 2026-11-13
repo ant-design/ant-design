@@ -88,6 +88,27 @@ describe('Test copy', () => {
     expect(document.execCommand).toHaveBeenCalledWith('copy');
   });
 
+  it.each([true, false])(
+    'returns false when both clipboard methods fail (execCommand throws: %s)',
+    async (throws) => {
+      jest
+        .mocked(navigator.clipboard.writeText)
+        .mockRejectedValueOnce(new Error('Permission denied'));
+      jest.mocked(document.execCommand).mockImplementationOnce(() => {
+        if (throws) {
+          throw new Error('Copy command unavailable');
+        }
+        return false;
+      });
+      const removeListener = jest.spyOn(document, 'removeEventListener');
+
+      expect(await copy('Text to copy')).toBe(false);
+      expect(navigator.clipboard.writeText).toHaveBeenCalledWith('Text to copy');
+      expect(document.execCommand).toHaveBeenCalledWith('copy');
+      expect(removeListener).toHaveBeenCalledWith('copy', expect.any(Function), { capture: true });
+    },
+  );
+
   it('copy failed, When the cutting object is not a string', async () => {
     const mockWrite = jest.fn().mockImplementation(() => Promise.resolve());
     navigator.clipboard.write = mockWrite;
