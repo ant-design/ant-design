@@ -82,18 +82,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-popover-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
           class="ant-popover-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-popover-arrow"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
             class="ant-popover-title"
           >
@@ -130,18 +129,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-popover-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
           class="ant-popover-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-popover-arrow"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
             class="ant-popover-title"
           >
@@ -178,18 +176,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-popover-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
           class="ant-popover-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-popover-arrow"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
             class="ant-popover-title"
           >
@@ -234,18 +231,17 @@ Array [
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
-            class="ant-popover-arrow"
-            style="position: absolute;"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
             class="ant-popover-container"
             id="test-id"
             role="tooltip"
           >
+            <div
+              class="ant-popover-arrow"
+            >
+              <span
+                class="ant-popover-arrow-content"
+              />
+            </div>
             <div
               class="ant-popover-title"
             >
@@ -282,18 +278,17 @@ Array [
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
-            class="ant-popover-arrow"
-            style="position: absolute; top: 0px; right: 0px;"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
             class="ant-popover-container"
             id="test-id"
             role="tooltip"
           >
+            <div
+              class="ant-popover-arrow"
+            >
+              <span
+                class="ant-popover-arrow-content"
+              />
+            </div>
             <div
               class="ant-popover-title"
             >
@@ -330,18 +325,17 @@ Array [
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
-            class="ant-popover-arrow"
-            style="position: absolute;"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
             class="ant-popover-container"
             id="test-id"
             role="tooltip"
           >
+            <div
+              class="ant-popover-arrow"
+            >
+              <span
+                class="ant-popover-arrow-content"
+              />
+            </div>
             <div
               class="ant-popover-title"
             >
@@ -382,18 +376,17 @@ Array [
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
-            class="ant-popover-arrow"
-            style="position: absolute;"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
             class="ant-popover-container"
             id="test-id"
             role="tooltip"
           >
+            <div
+              class="ant-popover-arrow"
+            >
+              <span
+                class="ant-popover-arrow-content"
+              />
+            </div>
             <div
               class="ant-popover-title"
             >
@@ -430,18 +423,17 @@ Array [
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
-            class="ant-popover-arrow"
-            style="position: absolute; top: 0px; left: 0px;"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
             class="ant-popover-container"
             id="test-id"
             role="tooltip"
           >
+            <div
+              class="ant-popover-arrow"
+            >
+              <span
+                class="ant-popover-arrow-content"
+              />
+            </div>
             <div
               class="ant-popover-title"
             >
@@ -478,18 +470,17 @@ Array [
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
-            class="ant-popover-arrow"
-            style="position: absolute;"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
             class="ant-popover-container"
             id="test-id"
             role="tooltip"
           >
+            <div
+              class="ant-popover-arrow"
+            >
+              <span
+                class="ant-popover-arrow-content"
+              />
+            </div>
             <div
               class="ant-popover-title"
             >
@@ -532,18 +523,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-popover-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
           class="ant-popover-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-popover-arrow"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
             class="ant-popover-title"
           >
@@ -580,18 +570,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-popover-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
           class="ant-popover-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-popover-arrow"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
             class="ant-popover-title"
           >
@@ -628,18 +617,17 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-popover-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
           class="ant-popover-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-popover-arrow"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
             class="ant-popover-title"
           >
@@ -1102,18 +1090,17 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
-      class="ant-popover-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    >
-      <span
-        class="ant-popover-arrow-content"
-      />
-    </div>
-    <div
       class="ant-popover-container"
       id="test-id"
       role="tooltip"
     >
+      <div
+        class="ant-popover-arrow"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
       <div
         class="ant-popover-title"
       >
@@ -1148,12 +1135,12 @@ Array [
     class="ant-popover ant-popover-pure ant-popover-placement-top css-var-test-id"
   >
     <div
-      class="ant-popover-arrow"
-    />
-    <div
       class="ant-popover-container"
       role="tooltip"
     >
+      <div
+        class="ant-popover-arrow"
+      />
       <div
         class="ant-popover-title"
       >
@@ -1178,13 +1165,13 @@ Array [
     style="width: 250px;"
   >
     <div
-      class="ant-popover-arrow"
-    />
-    <div
       class="ant-popover-container"
       role="tooltip"
       style="width: 250px;"
     >
+      <div
+        class="ant-popover-arrow"
+      />
       <div
         class="ant-popover-title"
       >
@@ -1225,18 +1212,17 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
-      class="ant-popover-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    >
-      <span
-        class="ant-popover-arrow-content"
-      />
-    </div>
-    <div
       class="ant-popover-container"
       id="test-id"
       role="tooltip"
     >
+      <div
+        class="ant-popover-arrow"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
       <div
         class="ant-popover-title"
       >
@@ -1272,18 +1258,17 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1200;"
   >
     <div
-      class="ant-popover-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    >
-      <span
-        class="ant-popover-arrow-content"
-      />
-    </div>
-    <div
       class="ant-popover-container"
       id="test-id"
       role="tooltip"
     >
+      <div
+        class="ant-popover-arrow"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
       <div
         class="ant-popover-title"
       >
@@ -1308,18 +1293,17 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
-      class="ant-popover-arrow"
-      style="position: absolute; bottom: 0px; left: 0px;"
-    >
-      <span
-        class="ant-popover-arrow-content"
-      />
-    </div>
-    <div
       class="ant-popover-container"
       id="test-id"
       role="tooltip"
     >
+      <div
+        class="ant-popover-arrow"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
       <div
         class="ant-popover-title"
       >
@@ -1362,18 +1346,17 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-popover-arrow"
-        style="position: absolute;"
-      >
-        <span
-          class="ant-popover-arrow-content"
-        />
-      </div>
-      <div
         class="ant-popover-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-popover-arrow"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
           class="ant-popover-title"
         >
@@ -1410,18 +1393,17 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-popover-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-popover-arrow-content"
-        />
-      </div>
-      <div
         class="ant-popover-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-popover-arrow"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
           class="ant-popover-title"
         >
@@ -1458,18 +1440,17 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-popover-arrow"
-        style="position: absolute;"
-      >
-        <span
-          class="ant-popover-arrow-content"
-        />
-      </div>
-      <div
         class="ant-popover-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-popover-arrow"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
           class="ant-popover-title"
         >
@@ -1514,18 +1495,17 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-popover-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
           class="ant-popover-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-popover-arrow"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
             class="ant-popover-title"
           >
@@ -1562,18 +1542,17 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-popover-arrow"
-          style="position: absolute; top: 0px; right: 0px;"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
           class="ant-popover-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-popover-arrow"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
             class="ant-popover-title"
           >
@@ -1610,18 +1589,17 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-popover-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
           class="ant-popover-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-popover-arrow"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
             class="ant-popover-title"
           >
@@ -1662,18 +1640,17 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-popover-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
           class="ant-popover-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-popover-arrow"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
             class="ant-popover-title"
           >
@@ -1710,18 +1687,17 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-popover-arrow"
-          style="position: absolute; top: 0px; left: 0px;"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
           class="ant-popover-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-popover-arrow"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
             class="ant-popover-title"
           >
@@ -1758,18 +1734,17 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="ant-popover-arrow"
-          style="position: absolute;"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
           class="ant-popover-container"
           id="test-id"
           role="tooltip"
         >
+          <div
+            class="ant-popover-arrow"
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
             class="ant-popover-title"
           >
@@ -1812,18 +1787,17 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-popover-arrow"
-        style="position: absolute;"
-      >
-        <span
-          class="ant-popover-arrow-content"
-        />
-      </div>
-      <div
         class="ant-popover-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-popover-arrow"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
           class="ant-popover-title"
         >
@@ -1860,18 +1834,17 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-popover-arrow"
-        style="position: absolute; top: 0px; left: 0px;"
-      >
-        <span
-          class="ant-popover-arrow-content"
-        />
-      </div>
-      <div
         class="ant-popover-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-popover-arrow"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
           class="ant-popover-title"
         >
@@ -1908,18 +1881,17 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-popover-arrow"
-        style="position: absolute;"
-      >
-        <span
-          class="ant-popover-arrow-content"
-        />
-      </div>
-      <div
         class="ant-popover-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-popover-arrow"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
           class="ant-popover-title"
         >
@@ -1953,12 +1925,12 @@ Array [
     class="ant-popover ant-popover-pure ant-popover-placement-top css-var-test-id"
   >
     <div
-      class="ant-popover-arrow"
-    />
-    <div
       class="ant-popover-container"
       role="tooltip"
     >
+      <div
+        class="ant-popover-arrow"
+      />
       <div
         class="ant-popover-title"
       >
@@ -1983,13 +1955,13 @@ Array [
     style="width: 250px;"
   >
     <div
-      class="ant-popover-arrow"
-    />
-    <div
       class="ant-popover-container"
       role="tooltip"
       style="width: 250px;"
     >
+      <div
+        class="ant-popover-arrow"
+      />
       <div
         class="ant-popover-title"
       >
@@ -2139,18 +2111,17 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-popover-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-popover-arrow-content"
-        />
-      </div>
-      <div
         class="ant-popover-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-popover-arrow"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
           class="ant-popover-title"
         >
@@ -2188,18 +2159,17 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-popover-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-popover-arrow-content"
-        />
-      </div>
-      <div
         class="ant-popover-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-popover-arrow"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
           class="ant-popover-title"
         >
@@ -2237,18 +2207,17 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
-        class="ant-popover-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
-      >
-        <span
-          class="ant-popover-arrow-content"
-        />
-      </div>
-      <div
         class="ant-popover-container"
         id="test-id"
         role="tooltip"
       >
+        <div
+          class="ant-popover-arrow"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
           class="ant-popover-title"
         >
@@ -2280,12 +2249,12 @@ Array [
     class="ant-popover ant-popover-pure ant-popover-placement-top css-var-test-id"
   >
     <div
-      class="ant-popover-arrow"
-    />
-    <div
       class="ant-popover-container"
       role="tooltip"
     >
+      <div
+        class="ant-popover-arrow"
+      />
       <div
         class="ant-popover-title"
       >
@@ -2310,13 +2279,13 @@ Array [
     style="width: 250px;"
   >
     <div
-      class="ant-popover-arrow"
-    />
-    <div
       class="ant-popover-container"
       role="tooltip"
       style="width: 250px;"
     >
+      <div
+        class="ant-popover-arrow"
+      />
       <div
         class="ant-popover-title"
       >
