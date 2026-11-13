@@ -1136,6 +1136,45 @@ describe('Splitter', () => {
       expect(onResizeEnd).toHaveBeenCalledWith([500, 0]);
     });
 
+    it.each([
+      [false, undefined],
+      [true, undefined],
+      [false, '10%'],
+      [true, '10%'],
+    ] as const)(
+      'should respect both panel limits when expanding with reversed=%s and min=%s',
+      async (reversed, min) => {
+        const onResize = jest.fn();
+        const onResizeEnd = jest.fn();
+        const onCollapse = jest.fn();
+        const items: PanelProps[] = [
+          { defaultSize: 0, min, max: 60, collapsible: true },
+          { defaultSize: 100, max: 60, collapsible: true },
+        ];
+        const expectedSizes = reversed ? [60, 40] : [40, 60];
+        const { container } = render(
+          <SplitterDemo
+            items={reversed ? items.reverse() : items}
+            onResize={onResize}
+            onResizeEnd={onResizeEnd}
+            onCollapse={onCollapse}
+          />,
+        );
+
+        await resizeSplitter();
+        fireEvent.click(
+          container.querySelector(`.ant-splitter-bar-collapse-${reversed ? 'start' : 'end'}`)!,
+        );
+
+        expect(onResize).toHaveBeenCalledWith(expectedSizes);
+        expect(onResizeEnd).toHaveBeenCalledWith(expectedSizes);
+        expect(onCollapse).toHaveBeenCalledWith([false, false], expectedSizes);
+        container.querySelectorAll('.ant-splitter-panel').forEach((panel, index) => {
+          expect(panel).toHaveStyle({ flexBasis: `${expectedSizes[index]}px` });
+        });
+      },
+    );
+
     it('collapsible with min', async () => {
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
