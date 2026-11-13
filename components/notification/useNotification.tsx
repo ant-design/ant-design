@@ -156,7 +156,6 @@ export function useInternalNotification(
 ): readonly [NotificationInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
   const warning = devUseWarning('Notification');
-  const { notification: notificationContext } = React.useContext(ConfigContext);
   // ================================ API ================================
   const wrapAPI = React.useMemo<NotificationInstance>(() => {
     // Wrap with notification content
@@ -211,7 +210,7 @@ export function useInternalNotification(
       );
       const [rawClosable, mergedCloseIcon, , ariaProps] = computeClosable(
         pickClosable({ ...(notificationConfig || {}), ...config }),
-        pickClosable(notificationContext),
+        pickClosable(notification),
         {
           closable: true,
           closeIcon: realCloseIcon,
@@ -270,7 +269,7 @@ export function useInternalNotification(
     });
 
     return clone;
-  }, [notificationConfig, notificationContext]);
+  }, [notificationConfig]);
 
   // ============================== Return ===============================
   return [
