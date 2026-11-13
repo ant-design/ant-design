@@ -3,10 +3,7 @@ import type { AlignType, BuildInPlacements } from '@rc-component/trigger';
 import { getArrowOffsetToken } from '../style/placementArrow';
 import { isPlainObject } from './is';
 
-export interface AdjustOverflow {
-  adjustX?: 0 | 1;
-  adjustY?: 0 | 1;
-}
+export type AdjustOverflow = NonNullable<AlignType['overflow']>;
 
 export interface PlacementsConfig {
   arrowWidth: number;
@@ -56,10 +53,10 @@ export function getOverflowOptions(
   };
 
   // Support auto shift
-  if (!mergedOverflow.shiftX) {
+  if (!mergedOverflow.shiftX && mergedOverflow.adjustX === undefined) {
     mergedOverflow.adjustX = true;
   }
-  if (!mergedOverflow.shiftY) {
+  if (!mergedOverflow.shiftY && mergedOverflow.adjustY === undefined) {
     mergedOverflow.adjustY = true;
   }
 
