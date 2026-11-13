@@ -275,6 +275,79 @@ describe('Anchor Render', () => {
     replaceStateSpy.mockRestore();
   });
 
+  it.each(['中文标题', 'section with spaces', 'price%20'])(
+    'scrolls to encoded fragment %s',
+    async (id) => {
+      const scrollToSpy = jest.spyOn(window, 'scrollTo').mockClear();
+      const { container } = render(
+        <>
+          <h1 id={id}>Section</h1>
+          <Anchor
+            affix={false}
+            targetOffset={100}
+            items={[{ key: id, href: `#${encodeURIComponent(id)}`, title: id }]}
+          />
+        </>,
+      );
+      fireEvent.click(container.querySelector('a')!);
+      await waitFakeTimer();
+      expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
+      scrollToSpy.mockRestore();
+    },
+  );
+
+  it('highlights an encoded fragment when its section is reached', () => {
+    const id = '中文标题';
+    getBoundingClientRectMock.mockReturnValueOnce({ width: 100, height: 100, top: 0 } as DOMRect);
+    const { container } = render(
+      <>
+        <h1 id={id}>Section</h1>
+        <Anchor
+          affix={false}
+          items={[{ key: id, href: `#${encodeURIComponent(id)}`, title: id }]}
+        />
+      </>,
+    );
+    expect(container.querySelector('a')).toHaveClass('ant-anchor-link-title-active');
+  });
+
+  it('prefers the exact fragment ID before decoding', async () => {
+    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockClear();
+    const { container } = render(
+      <>
+        <h1 id="section%20one">Exact ID</h1>
+        <h1 id="section one">Decoded ID</h1>
+        <Anchor
+          affix={false}
+          items={[{ key: 'section', href: '#section%20one', title: 'Section' }]}
+        />
+      </>,
+    );
+    getBoundingClientRectMock.mockClear();
+    fireEvent.click(container.querySelector('a')!);
+    await waitFakeTimer();
+    expect(getBoundingClientRectMock.mock.contexts).toContain(container.querySelector('h1'));
+    expect(getBoundingClientRectMock.mock.contexts).not.toContain(
+      container.querySelectorAll('h1')[1],
+    );
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
+    scrollToSpy.mockRestore();
+  });
+
+  it('ignores a malformed encoded fragment without a matching ID', async () => {
+    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockClear();
+    const { container } = render(
+      <Anchor
+        affix={false}
+        items={[{ key: 'missing', href: '#invalid%escape', title: 'Missing' }]}
+      />,
+    );
+    fireEvent.click(container.querySelector('a')!);
+    await waitFakeTimer();
+    expect(scrollToSpy).not.toHaveBeenCalled();
+    scrollToSpy.mockRestore();
+  });
+
   it('targetOffset prop', async () => {
     const hash = getHashUrl();
 

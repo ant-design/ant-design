@@ -48,6 +48,25 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
 
 const sharpMatcherRegex = /#([^\t\r\n\f\v]+)$/;
 
+function getTargetElement(link: string): HTMLElement | null {
+  const match = sharpMatcherRegex.exec(link);
+  if (!match) {
+    return null;
+  }
+
+  const id = match[1];
+  const target = document.getElementById(id);
+  if (target) {
+    return target;
+  }
+
+  try {
+    return document.getElementById(decodeURIComponent(id));
+  } catch {
+    return null;
+  }
+}
+
 interface Section {
   link: string;
   top: number;
@@ -229,11 +248,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     const linkSections: Section[] = [];
     const container = getCurrentContainer();
     _links.forEach((link) => {
-      const sharpLinkMatch = sharpMatcherRegex.exec(link?.toString());
-      if (!sharpLinkMatch) {
-        return;
-      }
-      const target = document.getElementById(sharpLinkMatch[1]);
+      const target = getTargetElement(link?.toString());
       if (target) {
         // Use link-level targetOffset if provided, otherwise use global offsetTop
         const linkOffsetTop = _linkTargetOffset?.[link] ?? _offsetTop;
@@ -290,11 +305,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const handleScrollTo = useEvent((link: string, targetOffsetParams?: number) => {
     const previousRawActiveLink = rawActiveLinkRef.current;
     setCurrentActiveLink(link, previousRawActiveLink !== link);
-    const sharpLinkMatch = sharpMatcherRegex.exec(link);
-    if (!sharpLinkMatch) {
-      return;
-    }
-    const targetElement = document.getElementById(sharpLinkMatch[1]);
+    const targetElement = getTargetElement(link);
     if (!targetElement) {
       return;
     }
