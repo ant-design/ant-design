@@ -350,16 +350,14 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           key: 'all',
           text: tableLocale.selectionAll,
           onSelect() {
-            setSelectedKeys(
-              flattenData(childrenColumnName, data).reduce<Key[]>((keys, record, index) => {
-                const key = getRowKey(record, index);
-                if (!isCheckboxDisabled(record) || derivedSelectedKeySet.has(key)) {
-                  keys.push(key);
-                }
-                return keys;
-              }, []),
-              'all',
-            );
+            const keys = new Set(preserveSelectedRowKeys ? derivedSelectedKeySet : []);
+            flattenData(childrenColumnName, data).forEach((record, index) => {
+              const key = getRowKey(record, index);
+              if (!isCheckboxDisabled(record) || derivedSelectedKeySet.has(key)) {
+                keys.add(key);
+              }
+            });
+            setSelectedKeys(Array.from(keys), 'all');
           },
         };
       } else if (selection === SELECTION_INVERT) {
@@ -426,6 +424,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     checkboxPropsMap,
     isCheckboxDisabled,
     derivedSelectedKeySet,
+    preserveSelectedRowKeys,
     data,
     childrenColumnName,
     flattedData,
