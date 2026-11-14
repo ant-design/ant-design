@@ -110,7 +110,9 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| allowFileDrop | 是否接收从浏览器外拖入的文件。启用后会关闭树节点内部拖拽 | boolean | false |
 | expandAction | 目录展开逻辑，可选：false \| `click` \| `doubleClick` | string \| boolean | `click` |
+| onFileDrop | 文件拖放到目录节点时的回调 | function({ event, node, files }) | - |
 
 ## 注意 {#note}
 
