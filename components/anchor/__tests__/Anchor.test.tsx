@@ -191,6 +191,31 @@ describe('Anchor Render', () => {
     expect(scrollToSpy).toHaveBeenCalled();
   });
 
+  it.each([true, false])(
+    'respects reduced motion preference (%s) when scrolling to a link',
+    async (reducedMotion) => {
+      const hash = getHashUrl();
+      const root = createDiv();
+      render(<h1 id={hash}>Section</h1>, { container: root });
+      const { container } = render(
+        <Anchor
+          affix={false}
+          getContainer={() => root}
+          targetOffset={100}
+          items={[{ key: hash, href: `#${hash}`, title: hash }]}
+        />,
+      );
+      jest
+        .spyOn(window, 'matchMedia')
+        .mockReturnValueOnce({ matches: reducedMotion } as MediaQueryList);
+
+      fireEvent.click(container.querySelector<HTMLAnchorElement>(`a[href="#${hash}"]`)!);
+      expect(root.scrollTop).toBe(reducedMotion ? 900 : 0);
+      await waitFakeTimer();
+      expect(root.scrollTop).toBe(900);
+    },
+  );
+
   it('handleScroll should not be triggered when scrolling caused by clicking a link', async () => {
     const hash1 = getHashUrl();
     const hash2 = getHashUrl();

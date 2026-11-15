@@ -312,9 +312,11 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     let y = scrollTop + eleOffsetTop;
     const finalTargetOffset = targetOffsetParams ?? targetOffset ?? offsetTop ?? 0;
     y -= finalTargetOffset;
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
     animatingRef.current = true;
     scrollRequestIdRef.current = scrollTo(y, {
       getContainer: getCurrentContainer,
+      duration: prefersReducedMotion?.matches ? 0 : undefined,
       callback() {
         animatingRef.current = false;
       },
