@@ -86,7 +86,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
 
   const senderRef = useRef<SenderRef>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const shouldAutoScrollRef = useRef(true);
+  const shouldAutoScrollRef = useRef<boolean>(true);
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [copied, setCopied] = useState(false);
 
@@ -335,10 +335,12 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   ]);
 
   useEffect(() => {
-    scrollContainerRef.current?.scrollTo({
-      behavior: shouldReduceMotion ? 'instant' : 'smooth',
-      top: Number.MAX_SAFE_INTEGER,
-    });
+    if (shouldAutoScrollRef.current) {
+      scrollContainerRef.current?.scrollTo({
+        behavior: shouldReduceMotion ? 'instant' : 'smooth',
+        top: Number.MAX_SAFE_INTEGER,
+      });
+    }
   }, [resText, items, prompt, shouldReduceMotion]);
 
   // Limit to 3 recommendations for Prompts component + refresh button
