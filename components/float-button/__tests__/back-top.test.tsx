@@ -27,11 +27,13 @@ const getScrollProgress = (container: HTMLElement) =>
   );
 
 describe('BackTop', () => {
+  const originalMatchMedia = window.matchMedia;
   beforeEach(() => {
     jest.useFakeTimers();
   });
   afterEach(() => {
     jest.useRealTimers();
+    window.matchMedia = originalMatchMedia;
   });
   mountTest(BackTop);
   rtlTest(BackTop);
@@ -53,7 +55,13 @@ describe('BackTop', () => {
   });
 
   it('should scroll to top immediately when reduced motion is enabled', () => {
-    jest.spyOn(window, 'matchMedia').mockReturnValueOnce({ matches: true } as MediaQueryList);
+    const mediaQuery = Object.assign(new EventTarget(), {
+      media: '(prefers-reduced-motion: reduce)',
+      matches: true,
+    }) as MediaQueryList;
+    window.matchMedia = jest.fn((query) =>
+      query === mediaQuery.media ? mediaQuery : originalMatchMedia(query),
+    );
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       window.scrollY = y;
       window.pageYOffset = y;

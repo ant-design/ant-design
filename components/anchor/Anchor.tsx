@@ -6,6 +6,7 @@ import scrollIntoView from 'scroll-into-view-if-needed';
 import getScroll from '../_util/getScroll';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { useReducedMotion } from '../_util/hooks/useReducedMotion';
 import { isFunction, isNumber, isPlainObject } from '../_util/is';
 import scrollTo from '../_util/scrollTo';
 import { devUseWarning } from '../_util/warning';
@@ -139,6 +140,8 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     classNames,
     styles,
   } = props;
+
+  const shouldReduceMotion = useReducedMotion();
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
@@ -312,11 +315,10 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     let y = scrollTop + eleOffsetTop;
     const finalTargetOffset = targetOffsetParams ?? targetOffset ?? offsetTop ?? 0;
     y -= finalTargetOffset;
-    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
     animatingRef.current = true;
     scrollRequestIdRef.current = scrollTo(y, {
       getContainer: getCurrentContainer,
-      duration: prefersReducedMotion?.matches ? 0 : undefined,
+      duration: shouldReduceMotion ? 0 : undefined,
       callback() {
         animatingRef.current = false;
       },
