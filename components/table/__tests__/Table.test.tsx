@@ -4,7 +4,7 @@ import type { TableProps, TableRef } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Popover from '../../popover';
 
@@ -536,6 +536,51 @@ describe('Table', () => {
       jest.runOnlyPendingTimers();
       jest.useRealTimers();
     }
+  });
+
+  describe('reduced motion', () => {
+    const originalMatchMedia = window.matchMedia;
+
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
+    afterEach(() => {
+      window.matchMedia = originalMatchMedia;
+      jest.clearAllTimers();
+      jest.useRealTimers();
+    });
+
+    it.each([true, false])(
+      'respects reduced motion preference (%s) when changing pages',
+      async (reducedMotion) => {
+        const mediaQuery = Object.assign(new EventTarget(), {
+          media: '(prefers-reduced-motion: reduce)',
+          matches: !reducedMotion,
+        }) as MediaQueryList;
+        window.matchMedia = jest.fn((query) =>
+          query === mediaQuery.media ? mediaQuery : originalMatchMedia(query),
+        );
+        const { container } = render(
+          <Table
+            columns={[{ dataIndex: 'key' }]}
+            dataSource={[{ key: 'first' }, { key: 'second' }]}
+            pagination={{ pageSize: 1 }}
+            scroll={{ y: 20 }}
+          />,
+        );
+        const body = container.querySelector<HTMLDivElement>('.ant-table-body')!;
+        body.scrollTop = 100;
+        act(() => {
+          Object.assign(mediaQuery, { matches: reducedMotion });
+          mediaQuery.dispatchEvent(Object.assign(new Event('change'), { matches: reducedMotion }));
+        });
+        fireEvent.click(container.querySelector<HTMLButtonElement>('.ant-pagination-next button')!);
+        expect(body.scrollTop).toBe(reducedMotion ? 0 : 100);
+        await waitFakeTimer();
+        expect(body.scrollTop).toBe(0);
+      },
+    );
   });
 
   it('support reference', () => {
