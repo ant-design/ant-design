@@ -24,6 +24,7 @@ const getHashUrl = () => `Anchor-API-${idCounter++}`;
 
 jest.mock('scroll-into-view-if-needed', () => jest.fn());
 describe('Anchor Render', () => {
+  const originalMatchMedia = window.matchMedia;
   mountTest(Anchor);
   rtlTest(Anchor);
   const getBoundingClientRectMock = jest.spyOn(
@@ -51,6 +52,7 @@ describe('Anchor Render', () => {
   afterEach(() => {
     jest.clearAllTimers();
     jest.useRealTimers();
+    window.matchMedia = originalMatchMedia;
   });
 
   afterAll(() => {
@@ -194,6 +196,13 @@ describe('Anchor Render', () => {
   it.each([true, false])(
     'respects reduced motion preference (%s) when scrolling to a link',
     async (reducedMotion) => {
+      const mediaQuery = Object.assign(new EventTarget(), {
+        media: '(prefers-reduced-motion: reduce)',
+        matches: !reducedMotion,
+      }) as MediaQueryList;
+      window.matchMedia = jest.fn((query) =>
+        query === mediaQuery.media ? mediaQuery : originalMatchMedia(query),
+      );
       const hash = getHashUrl();
       const root = createDiv();
       render(<h1 id={hash}>Section</h1>, { container: root });
@@ -205,9 +214,10 @@ describe('Anchor Render', () => {
           items={[{ key: hash, href: `#${hash}`, title: hash }]}
         />,
       );
-      jest
-        .spyOn(window, 'matchMedia')
-        .mockReturnValueOnce({ matches: reducedMotion } as MediaQueryList);
+      act(() => {
+        Object.assign(mediaQuery, { matches: reducedMotion });
+        mediaQuery.dispatchEvent(Object.assign(new Event('change'), { matches: reducedMotion }));
+      });
 
       fireEvent.click(container.querySelector<HTMLAnchorElement>(`a[href="#${hash}"]`)!);
       expect(root.scrollTop).toBe(reducedMotion ? 900 : 0);

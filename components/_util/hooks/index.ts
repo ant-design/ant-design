@@ -6,5 +6,6 @@ export * from './useMultipleSelect';
 export * from './useOrientation';
 export * from './usePatchElement';
 export * from './useProxyImperativeHandle';
+export * from './useReducedMotion';
 export * from './useSyncState';
 export * from './useZIndex';

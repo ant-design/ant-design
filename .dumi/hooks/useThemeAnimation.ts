@@ -1,5 +1,6 @@
 import { useEffect, useInsertionEffect, useRef } from 'react';
 import { removeCSS, updateCSS } from '@rc-component/util';
+import { useReducedMotion } from 'antd/lib/_util/hooks/useReducedMotion';
 
 const duration = 0.5;
 const viewTransitionStyle = `
@@ -30,6 +31,7 @@ const viewTransitionStyle = `
 `;
 
 const useThemeAnimation = (isDark: boolean) => {
+  const shouldReduceMotion = useReducedMotion();
   const pendingUpdateRef = useRef<{ isDark: boolean; resolve: () => void } | null>(null);
   const transitionRef = useRef<ViewTransition | null>(null);
 
@@ -50,11 +52,7 @@ const useThemeAnimation = (isDark: boolean) => {
     event: React.MouseEvent<HTMLElement, MouseEvent>,
     updateTheme: () => void,
   ) => {
-    if (
-      !event ||
-      typeof document.startViewTransition !== 'function' ||
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    ) {
+    if (!event || typeof document.startViewTransition !== 'function' || shouldReduceMotion) {
       updateTheme();
       return;
     }
