@@ -4,7 +4,7 @@ import CSSMotion from '@rc-component/motion';
 import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useReducedMotion } from '../_util/hooks/useReducedMotion';
+import { useReducedMotion } from '../_util/hooks';
 import scrollTo from '../_util/scrollTo';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
