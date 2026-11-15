@@ -22,6 +22,7 @@ demo:
 <code src="./demo/colorful.tsx">Colorful Tag</code>
 <code src="./demo/control.tsx">Add & Remove Dynamically</code>
 <code src="./demo/checkable.tsx">Checkable</code>
+<code src="./demo/checkable-color.tsx">Checkable Color</code>
 <code src="./demo/animation.tsx">Animate</code>
 <code src="./demo/icon.tsx">Icon</code>
 <code src="./demo/status.tsx">Status Tag</code>
@@ -57,6 +58,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | checked | Checked status of Tag | boolean | false |  |
+| color | Color of the checkable Tag. Preset colors, status colors and custom colors are supported. Rendered in a light tint while unchecked and in the solid color once checked | string | - | 6.8.0 |
 | icon | Set the icon of tag | ReactNode | - | 5.27.0 |
 | onChange | Callback executed when Tag is checked/unchecked | (checked) => void | - |  |
 

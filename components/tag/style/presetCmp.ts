@@ -22,6 +22,30 @@ const genPresetStyle = (token: TagToken) =>
           backgroundColor: lightColor,
           color: textColor,
         },
+        [`&${token.componentCls}-checkable:not(${token.componentCls}-checkable-disabled)`]: {
+          backgroundColor: lightColor,
+          borderColor: lightBorderColor,
+          color: textColor,
+
+          [`&:not(${token.componentCls}-checkable-checked):hover`]: {
+            backgroundColor: lightColor,
+            color: textColor,
+          },
+
+          [`&${token.componentCls}-checkable-checked`]: {
+            backgroundColor: darkColor,
+            borderColor: darkColor,
+            color: token.colorTextLightSolid,
+
+            '&:hover': {
+              backgroundColor: darkColor,
+            },
+          },
+
+          '&:active': {
+            backgroundColor: darkColor,
+          },
+        },
       },
   }));
 

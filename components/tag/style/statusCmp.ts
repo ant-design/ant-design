@@ -30,6 +30,30 @@ const genTagStatusStyle = (
         backgroundColor: token[`color${capitalizedCssVariableType}Bg`],
         color: token[`color${cssVariableType}`],
       },
+      [`&${token.componentCls}-checkable:not(${token.componentCls}-checkable-disabled)`]: {
+        backgroundColor: token[`color${capitalizedCssVariableType}Bg`],
+        borderColor: token[`color${capitalizedCssVariableType}Border`],
+        color: token[`color${cssVariableType}`],
+
+        [`&:not(${token.componentCls}-checkable-checked):hover`]: {
+          backgroundColor: token[`color${capitalizedCssVariableType}Bg`],
+          color: token[`color${cssVariableType}`],
+        },
+
+        [`&${token.componentCls}-checkable-checked`]: {
+          backgroundColor: token[`color${cssVariableType}`],
+          borderColor: token[`color${cssVariableType}`],
+          color: token.colorTextLightSolid,
+
+          '&:hover': {
+            backgroundColor: token[`color${cssVariableType}`],
+          },
+        },
+
+        '&:active': {
+          backgroundColor: token[`color${cssVariableType}`],
+        },
+      },
     },
   };
 };

@@ -420,6 +420,146 @@ exports[`renders components/tag/demo/checkable.tsx extend context correctly 1`] 
 
 exports[`renders components/tag/demo/checkable.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/tag/demo/checkable-color.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
+>
+  <span
+    aria-checked="true"
+    class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-magenta css-var-test-id"
+    role="checkbox"
+    tabindex="0"
+  >
+    <span>
+      magenta
+    </span>
+  </span>
+  <span
+    aria-checked="false"
+    class="ant-tag ant-tag-checkable ant-tag-red css-var-test-id"
+    role="checkbox"
+    tabindex="0"
+  >
+    <span>
+      red
+    </span>
+  </span>
+  <span
+    aria-checked="false"
+    class="ant-tag ant-tag-checkable ant-tag-volcano css-var-test-id"
+    role="checkbox"
+    tabindex="0"
+  >
+    <span>
+      volcano
+    </span>
+  </span>
+  <span
+    aria-checked="false"
+    class="ant-tag ant-tag-checkable ant-tag-orange css-var-test-id"
+    role="checkbox"
+    tabindex="0"
+  >
+    <span>
+      orange
+    </span>
+  </span>
+  <span
+    aria-checked="false"
+    class="ant-tag ant-tag-checkable ant-tag-gold css-var-test-id"
+    role="checkbox"
+    tabindex="0"
+  >
+    <span>
+      gold
+    </span>
+  </span>
+  <span
+    aria-checked="false"
+    class="ant-tag ant-tag-checkable ant-tag-lime css-var-test-id"
+    role="checkbox"
+    tabindex="0"
+  >
+    <span>
+      lime
+    </span>
+  </span>
+  <span
+    aria-checked="false"
+    class="ant-tag ant-tag-checkable ant-tag-green css-var-test-id"
+    role="checkbox"
+    tabindex="0"
+  >
+    <span>
+      green
+    </span>
+  </span>
+  <span
+    aria-checked="false"
+    class="ant-tag ant-tag-checkable ant-tag-cyan css-var-test-id"
+    role="checkbox"
+    tabindex="0"
+  >
+    <span>
+      cyan
+    </span>
+  </span>
+  <span
+    aria-checked="true"
+    class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-blue css-var-test-id"
+    role="checkbox"
+    tabindex="0"
+  >
+    <span>
+      blue
+    </span>
+  </span>
+  <span
+    aria-checked="false"
+    class="ant-tag ant-tag-checkable ant-tag-geekblue css-var-test-id"
+    role="checkbox"
+    tabindex="0"
+  >
+    <span>
+      geekblue
+    </span>
+  </span>
+  <span
+    aria-checked="false"
+    class="ant-tag ant-tag-checkable ant-tag-purple css-var-test-id"
+    role="checkbox"
+    tabindex="0"
+  >
+    <span>
+      purple
+    </span>
+  </span>
+  <span
+    aria-checked="true"
+    class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-success css-var-test-id"
+    role="checkbox"
+    tabindex="0"
+  >
+    <span>
+      success
+    </span>
+  </span>
+  <span
+    aria-checked="false"
+    class="ant-tag ant-tag-checkable css-var-test-id"
+    role="checkbox"
+    style="background-color: rgb(231, 246, 254); color: rgb(45, 183, 245);"
+    tabindex="0"
+  >
+    <span>
+      #2db7f5
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders components/tag/demo/checkable-color.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tag/demo/colorful.tsx extend context correctly 1`] = `
 Array [
   <div>

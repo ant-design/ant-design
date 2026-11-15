@@ -22,6 +22,7 @@ demo:
 <code src="./demo/colorful.tsx">多彩标签</code>
 <code src="./demo/control.tsx">动态添加和删除</code>
 <code src="./demo/checkable.tsx">可选择标签</code>
+<code src="./demo/checkable-color.tsx">可选择标签颜色</code>
 <code src="./demo/animation.tsx">添加动画</code>
 <code src="./demo/icon.tsx">图标按钮</code>
 <code src="./demo/status.tsx">预设状态的标签</code>
@@ -57,6 +58,7 @@ demo:
 | 参数     | 说明                 | 类型              | 默认值 | 版本   |
 | -------- | -------------------- | ----------------- | ------ | ------ |
 | checked  | 设置标签的选中状态   | boolean           | false  |        |
+| color    | 标签色，支持预设色、状态色和自定义色；未选中时以浅色呈现，选中后以实色呈现 | string | -      | 6.8.0  |
 | icon     | 设置图标             | ReactNode         | -      | 5.27.0 |
 | onChange | 点击标签时触发的回调 | (checked) => void | -      |        |
 

@@ -1,9 +1,15 @@
 import * as React from 'react';
+import { FastColor } from '@ant-design/fast-color';
 import { clsx } from 'clsx';
 
+import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
+import { isPresetColor, isPresetStatusColor } from '../_util/colors';
+import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import useStyle from './style';
+import PresetCmp from './style/presetCmp';
+import StatusCmp from './style/statusCmp';
 
 export interface CheckableTagProps {
   prefixCls?: string;
@@ -15,6 +21,10 @@ export interface CheckableTagProps {
    * zh-cn 该组件为完全受控组件，不支持非受控用法。
    */
   checked: boolean;
+  /**
+   * @since 6.8.0
+   */
+  color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
   children?: React.ReactNode;
   /**
    * @since 5.27.0
@@ -32,6 +42,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     style,
     className,
     checked,
+    color,
     children,
     icon,
     onChange,
@@ -44,6 +55,36 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
 
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
+
+  // ===================== Colors =====================
+  const nextColor = color?.endsWith('-inverse') ? color.replace('-inverse', '') : color;
+  const isPreset = isPresetColor(nextColor);
+  const isStatus = isPresetStatusColor(nextColor);
+  const isInternalColor = isPreset || isStatus;
+
+  // Custom colors are applied inline since they cannot be covered by the
+  // preset styles: a light tint while unchecked, the solid color once checked.
+  // Preset and status colors are handled by the preset/status style sheets.
+  const customColorStyle = React.useMemo<React.CSSProperties>(() => {
+    if (!nextColor || isInternalColor || mergedDisabled) {
+      return {};
+    }
+
+    if (checked) {
+      return {
+        backgroundColor: nextColor,
+        borderColor: nextColor,
+      };
+    }
+
+    const hsl = new FastColor(nextColor).toHsl();
+    hsl.l = 0.95;
+
+    return {
+      backgroundColor: new FastColor(hsl).toHexString(),
+      color: nextColor,
+    };
+  }, [nextColor, isInternalColor, mergedDisabled, checked]);
 
   const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     if (mergedDisabled) {
@@ -79,6 +120,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     {
       [`${prefixCls}-checkable-checked`]: checked,
       [`${prefixCls}-checkable-disabled`]: mergedDisabled,
+      [`${prefixCls}-${nextColor}`]: isInternalColor,
     },
     tag?.className,
     className,
@@ -94,13 +136,15 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
       aria-checked={checked}
       aria-disabled={mergedDisabled || undefined}
       tabIndex={mergedDisabled ? -1 : 0}
-      style={{ ...tag?.style, ...style }}
+      style={{ ...tag?.style, ...customColorStyle, ...style }}
       className={cls}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
     >
       {icon}
       <span>{children}</span>
+      {isPreset && <PresetCmp key="preset" prefixCls={prefixCls} />}
+      {isStatus && <StatusCmp key="status" prefixCls={prefixCls} />}
     </span>
   );
 });

@@ -311,6 +311,66 @@ describe('Tag', () => {
       expect(container.querySelector('.ant-tag-checkable-disabled')).toBeTruthy();
     });
 
+    it('should support preset color', () => {
+      const { container, rerender } = render(
+        <Tag.CheckableTag checked={false} color="magenta">
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      const node = container.querySelector('.ant-tag-checkable');
+      expect(node).toHaveClass('ant-tag-magenta');
+      expect(node).not.toHaveClass('ant-tag-checkable-checked');
+
+      rerender(
+        <Tag.CheckableTag checked color="magenta">
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      expect(container.querySelector('.ant-tag-checkable')).toHaveClass(
+        'ant-tag-checkable-checked',
+      );
+    });
+
+    it('should support status color', () => {
+      const { container } = render(
+        <Tag.CheckableTag checked color="success">
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      expect(container.querySelector('.ant-tag-checkable')).toHaveClass('ant-tag-success');
+    });
+
+    it('should support custom color', () => {
+      const { container, rerender } = render(
+        <Tag.CheckableTag checked={false} color="#2db7f5">
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      const node = container.querySelector<HTMLElement>('.ant-tag-checkable');
+      // Unchecked: colored text on a light tint of the custom color
+      expect(node?.style.color).toBe('rgb(45, 183, 245)');
+      expect(node?.style.backgroundColor).not.toBe('rgb(45, 183, 245)');
+
+      rerender(
+        <Tag.CheckableTag checked color="#2db7f5">
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      // Checked: solid custom color background
+      expect(node?.style.backgroundColor).toBe('rgb(45, 183, 245)');
+      expect(node?.style.borderColor).toBe('rgb(45, 183, 245)');
+    });
+
+    it('should not apply custom color when disabled', () => {
+      const { container } = render(
+        <Tag.CheckableTag disabled checked color="#2db7f5">
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      const node = container.querySelector<HTMLElement>('.ant-tag-checkable');
+      expect(node?.style.backgroundColor).toBe('');
+    });
+
     it('should handle context disabled state', () => {
       const onChange = jest.fn();
       const Demo = () => (
