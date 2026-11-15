@@ -18,6 +18,7 @@ import {
 } from 'antd';
 import type { ThemeConfig } from 'antd';
 import copy from 'antd/lib/_util/copy';
+import { useReducedMotion } from 'antd/lib/_util/hooks';
 
 import useLocale from '../../../hooks/useLocale';
 import ComponentsBlock from '../../../pages/index/components/PreviewPane/Simple';
@@ -81,6 +82,8 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   const [locale, localeKey] = useLocale(locales);
   const [inputValue, setInputValue] = useState('');
 
+  const shouldReduceMotion = useReducedMotion();
+
   const senderRef = useRef<SenderRef>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const shouldAutoScrollRef = useRef(true);
@@ -111,14 +114,14 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
       shouldAutoScrollRef.current = true;
       requestAnimationFrame(() => {
         scrollContainerRef.current?.scrollTo({
-          behavior: 'smooth',
+          behavior: shouldReduceMotion ? 'instant' : 'smooth',
           top: Number.MAX_SAFE_INTEGER,
         });
       });
       submitPrompt(value);
       setInputValue('');
     },
-    [submitPrompt],
+    [shouldReduceMotion, submitPrompt],
   );
 
   const handleRefreshRecommendations = React.useCallback(() => {
@@ -332,13 +335,11 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   ]);
 
   useEffect(() => {
-    if (shouldAutoScrollRef.current) {
-      scrollContainerRef.current?.scrollTo({
-        behavior: 'smooth',
-        top: Number.MAX_SAFE_INTEGER,
-      });
-    }
-  }, [resText, items, prompt]);
+    scrollContainerRef.current?.scrollTo({
+      behavior: shouldReduceMotion ? 'instant' : 'smooth',
+      top: Number.MAX_SAFE_INTEGER,
+    });
+  }, [resText, items, prompt, shouldReduceMotion]);
 
   // Limit to 3 recommendations for Prompts component + refresh button
   const prompts = React.useMemo(() => {
