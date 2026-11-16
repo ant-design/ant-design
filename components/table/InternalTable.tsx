@@ -4,7 +4,7 @@ import type { Reference as RcReference, TableProps as RcTableProps } from '@rc-c
 import { omit, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useProxyImperativeHandle } from '../_util/hooks';
+import { useProxyImperativeHandle, useReducedMotion } from '../_util/hooks';
 import {
   mergeClassNames,
   mergeStyles,
@@ -380,6 +380,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // ============================ Scroll ============================
   const mergedScroll = scroll ?? table?.scroll;
+  const shouldReduceMotion = useReducedMotion();
 
   if (process.env.NODE_ENV !== 'production') {
     warning(
@@ -433,6 +434,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     ) {
       scrollTo(0, {
         getContainer: () => internalRef.body.current!,
+        duration: shouldReduceMotion ? 0 : undefined,
       });
     }
 

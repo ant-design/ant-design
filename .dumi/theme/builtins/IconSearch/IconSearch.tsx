@@ -3,6 +3,7 @@ import Icon, * as AntdIcons from '@ant-design/icons';
 import { Affix, Empty, Input, Segmented } from 'antd';
 import { createStaticStyles, useTheme } from 'antd-style';
 import type { SegmentedOptions } from 'antd/es/segmented';
+import { useReducedMotion } from 'antd/lib/_util/hooks';
 import { useIntl } from 'dumi';
 import debounce from 'lodash/debounce';
 
@@ -73,6 +74,8 @@ const IconSearch: React.FC = () => {
   const intl = useIntl();
   const token = useTheme();
 
+  const shouldReduceMotion = useReducedMotion();
+
   const [displayState, setDisplayState] = useState<IconSearchState>(initialValue);
 
   const deferredDisplayState = useDeferredValue<IconSearchState>(displayState, initialValue);
@@ -80,9 +83,9 @@ const IconSearch: React.FC = () => {
   const scrollToIcons = useMemo(() => {
     return debounce(() => {
       const element = document.querySelector<HTMLHeadingElement>('#list-of-icons');
-      element?.scrollIntoView({ behavior: 'smooth' });
+      element?.scrollIntoView({ behavior: shouldReduceMotion ? 'instant' : 'smooth' });
     }, 300);
-  }, []);
+  }, [shouldReduceMotion]);
 
   useEffect(() => {
     return () => {

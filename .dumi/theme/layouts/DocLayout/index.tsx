@@ -11,12 +11,12 @@ import { Helmet, useOutlet, useSearchParams, useSiteData } from 'dumi';
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import GlobalStyles from '../../common/GlobalStyles';
+import VersionUpgrade from '../../common/VersionUpgrade';
 import Header from '../../slots/Header';
 import SiteContext from '../../slots/SiteContext';
 import IndexLayout from '../IndexLayout';
 import ResourceLayout from '../ResourceLayout';
 import SidebarLayout from '../SidebarLayout';
-import VersionUpgrade from '../../common/VersionUpgrade';
 
 const locales = {
   cn: {
@@ -91,6 +91,7 @@ const DocLayout: React.FC = () => {
 
   return (
     <>
+      {/* Umi's streaming exporter collects static head metadata through Helmet. */}
       <Helmet encodeSpecialCharacters={false}>
         <html
           lang={lang === 'cn' ? 'zh-CN' : lang}
@@ -98,6 +99,7 @@ const DocLayout: React.FC = () => {
           className={clsx({ rtl: direction === 'rtl' })}
         />
         <link
+          rel="icon"
           sizes="144x144"
           href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
         />

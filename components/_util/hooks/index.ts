@@ -7,5 +7,6 @@ export * from './useOrientation';
 export * from './usePatchElement';
 export * from './usePopupScope';
 export * from './useProxyImperativeHandle';
+export * from './useReducedMotion';
 export * from './useSyncState';
 export * from './useZIndex';

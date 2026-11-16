@@ -15,6 +15,26 @@ tag: vVERSION
 
 ---
 
+## 6.7.1
+
+`2026-11-16`
+
+- Table
+  - 🐞 Fix Table continuing to apply outdated sorters after column configuration changes. [#59763](https://github.com/ant-design/ant-design/pull/59763) [@Aminark](https://github.com/Aminark)
+  - 🐞 Fix Table expand-all icon alignment with row expand icons in small and middle sizes. [#59795](https://github.com/ant-design/ant-design/pull/59795) [@nikzanda](https://github.com/nikzanda)
+  - ⌨️ Fix Table ignoring the reduced motion preference when scrolling to the top after pagination, sorting, or filtering. [#59864](https://github.com/ant-design/ant-design/pull/59864) [@li-jia-nan](https://github.com/li-jia-nan)
+- Modal
+  - 🐞 Fix Modal focus errors and duplicate `afterOpenChange` calls when React `Activity` reveals a hidden Modal. [#59845](https://github.com/ant-design/ant-design/pull/59845) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 Fix Modal leave-completion callbacks firing before DOM removal when leave motion is disabled mid-transition. [#59845](https://github.com/ant-design/ant-design/pull/59845) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fix Card action buttons with `href` displaying incorrect icon spacing. [#59726](https://github.com/ant-design/ant-design/pull/59726) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Input.OTP treating intermediate IME composition text as committed input. [#58762](https://github.com/ant-design/ant-design/pull/58762) [@wanxiankai](https://github.com/wanxiankai)
+- 🐞 Fix DatePicker and TimePicker time panel cell alignment and content clipping by scrollbars. [#59828](https://github.com/ant-design/ant-design/pull/59828) [@ffgenius](https://github.com/ffgenius)
+- 🐞 Fix Dropdown menu items in disabled submenus not displaying their disabled state correctly. [#59826](https://github.com/ant-design/ant-design/pull/59826) [@yoyo837](https://github.com/yoyo837)
+- ⌨️ Fix Anchor ignoring the reduced motion preference when scrolling to a link. [#59861](https://github.com/ant-design/ant-design/pull/59861) [@li-jia-nan](https://github.com/li-jia-nan)
+- ⌨️ Fix BackTop ignoring the reduced motion preference when returning to the top. [#59864](https://github.com/ant-design/ant-design/pull/59864) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🇮🇩 Improve ConfigProvider Indonesian (`id_ID`) translations. [#59807](https://github.com/ant-design/ant-design/pull/59807) [@insanrizky](https://github.com/insanrizky)
+- 🇨🇿 Improve ConfigProvider Czech (`cs_CZ`) translations. [#59787](https://github.com/ant-design/ant-design/pull/59787) [@kojdad-alt](https://github.com/kojdad-alt)
+
 ## 6.7.0
 
 `2026-11-04`
