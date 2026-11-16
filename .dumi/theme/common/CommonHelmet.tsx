@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRouteMeta } from 'dumi';
+import { Helmet, useRouteMeta } from 'dumi';
 
 const CommonHelmet: React.FC = () => {
   const meta = useRouteMeta();
@@ -18,11 +18,11 @@ const CommonHelmet: React.FC = () => {
   }, [meta]);
 
   return (
-    <>
+    <Helmet>
       <title>{title}</title>
       <meta property="og:title" content={title} />
       {description && <meta name="description" content={description} />}
-    </>
+    </Helmet>
   );
 };
 

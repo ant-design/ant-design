@@ -91,25 +91,25 @@ const DocLayout: React.FC = () => {
 
   return (
     <>
-      {/* Umi owns the SSR document, so keep its html attributes managed by Helmet. */}
+      {/* Umi's streaming exporter collects static head metadata through Helmet. */}
       <Helmet encodeSpecialCharacters={false}>
         <html
           lang={lang === 'cn' ? 'zh-CN' : lang}
           data-direction={direction}
           className={clsx({ rtl: direction === 'rtl' })}
         />
+        <link
+          rel="icon"
+          sizes="144x144"
+          href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
+        />
+        <meta property="og:description" content={locale.description} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
+        />
       </Helmet>
-      <link
-        rel="icon"
-        sizes="144x144"
-        href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
-      />
-      <meta property="og:description" content={locale.description} />
-      <meta property="og:type" content="website" />
-      <meta
-        property="og:image"
-        content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
-      />
       <ConfigProvider
         direction={direction}
         locale={lang === 'cn' ? zhCN : undefined}

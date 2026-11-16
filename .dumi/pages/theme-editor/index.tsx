@@ -3,6 +3,7 @@ import { App, Button, ConfigProvider, Skeleton, version } from 'antd';
 import { createStaticStyles } from 'antd-style';
 import { enUS, zhCN } from 'antd-token-previewer';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
+import { Helmet } from 'dumi';
 
 import useLocale from '../../hooks/useLocale';
 
@@ -70,8 +71,10 @@ const CustomTheme: React.FC = () => {
 
   return (
     <div>
-      <title>{`${locale.title} - Ant Design`}</title>
-      <meta property="og:title" content={`${locale.title} - Ant Design`} />
+      <Helmet>
+        <title>{`${locale.title} - Ant Design`}</title>
+        <meta property="og:title" content={`${locale.title} - Ant Design`} />
+      </Helmet>
       <Suspense fallback={<Skeleton style={{ margin: 24 }} />}>
         <ConfigProvider theme={{ inherit: false }}>
           <ThemeEditor
