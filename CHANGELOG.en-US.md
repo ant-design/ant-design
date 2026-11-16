@@ -26,6 +26,7 @@ tag: vVERSION
 - Modal
   - 🐞 Fix Modal focus errors and duplicate `afterOpenChange` calls when React `Activity` reveals a hidden Modal. [#59845](https://github.com/ant-design/ant-design/pull/59845) [@yoyo837](https://github.com/yoyo837)
   - 🐞 Fix Modal leave-completion callbacks firing before DOM removal when leave motion is disabled mid-transition. [#59845](https://github.com/ant-design/ant-design/pull/59845) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fix Card action buttons with `href` displaying incorrect icon spacing. [#59726](https://github.com/ant-design/ant-design/pull/59726) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 Fix Input.OTP treating intermediate IME composition text as committed input. [#58762](https://github.com/ant-design/ant-design/pull/58762) [@wanxiankai](https://github.com/wanxiankai)
 - 🐞 Fix DatePicker and TimePicker time panel cell alignment and content clipping by scrollbars. [#59828](https://github.com/ant-design/ant-design/pull/59828) [@ffgenius](https://github.com/ffgenius)
 - 🐞 Fix Dropdown menu items in disabled submenus not displaying their disabled state correctly. [#59826](https://github.com/ant-design/ant-design/pull/59826) [@yoyo837](https://github.com/yoyo837)
