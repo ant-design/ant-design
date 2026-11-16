@@ -38,6 +38,23 @@ const App: React.FC = () => {
           Button in Card extra should be vertically centered with the title.
         </Card>
 
+        <Card
+          title="#59725 Card actions"
+          actions={[
+            <Button key="button" icon={<SmileOutlined />}>
+              Edit
+            </Button>,
+            <Button key="link-button" href="#edit" icon={<SmileOutlined />}>
+              Edit
+            </Button>,
+            <a key="link" href="#details">
+              Details
+            </a>,
+          ]}
+        >
+          Buttons with and without href should have the same icon spacing.
+        </Card>
+
         <Card title="#57896 regression minimum case">
           <div className="simulate-57896">
             <div className="inline-buttons">
