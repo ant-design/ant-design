@@ -1,0 +1,9 @@
+(()=>{"use strict";(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,756870,i=>{var e=i.i(391398),t=i.i(587834),n=i.i(183668),s=i.i(122381),r=i.i(606552),a=i.i(504909),c=i.i(112914),l=i.i(827830);let{_InternalPanelDoNotUseOrYouWillBeFired:o}=c.f,d=(0,l.o)(({css:i})=>({icon:i`
+    background: rgba(255, 0, 0, 0.1);
+
+    span {
+      background: rgba(0, 255, 0, 0.5);
+    }
+  `,content:i`
+    background: rgba(0, 0, 255, 0.1);
+  `}));i.s(["default",0,()=>{let{styles:i}=d(),c={icon:i.icon,content:i.content};return(0,e.jsx)(r.f,{button:{classNames:c},children:(0,e.jsxs)(a.f,{vertical:!0,gap:"middle",children:[(0,e.jsx)(s.f,{className:"line-card",title:"#57727 Card extra",extra:(0,e.jsx)(n.f,{icon:(0,e.jsx)(t.f,{}),children:"Test"}),children:"Button in Card extra should be vertically centered with the title."}),(0,e.jsx)(s.f,{title:"#59725 Card actions",actions:[(0,e.jsx)(n.f,{icon:(0,e.jsx)(t.f,{}),children:"Edit"},"button"),(0,e.jsx)(n.f,{href:"#edit",icon:(0,e.jsx)(t.f,{}),children:"Edit"},"link-button"),(0,e.jsx)("a",{href:"#details",children:"Details"},"link")],children:"Buttons with and without href should have the same icon spacing."}),(0,e.jsx)(s.f,{title:"#57896 regression minimum case",children:(0,e.jsx)("div",{className:"simulate-57896",children:(0,e.jsxs)("div",{className:"inline-buttons",children:[(0,e.jsx)(n.f,{children:"Cancel"}),(0,e.jsx)(n.f,{type:"primary",icon:(0,e.jsx)(t.f,{}),children:"Confirm"})]})})}),(0,e.jsx)(o,{title:"Are you OK?",okButtonProps:{icon:(0,e.jsx)(t.f,{})}})]})})}])},122381,i=>{var e=i.i(620775);i.s(["f",()=>e.f])},112914,i=>{var e=i.i(453851);i.s(["f",()=>e.f])},587834,i=>{var e=i.i(800791);i.s(["f",()=>e.f])}])})();

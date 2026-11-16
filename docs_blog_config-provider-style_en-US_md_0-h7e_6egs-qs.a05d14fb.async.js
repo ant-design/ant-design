@@ -1,0 +1,1 @@
+(globalThis.utooChunk_antd||(globalThis.utooChunk_antd=[])).push(["object"==typeof document?document.currentScript:void 0,386701,o=>{"use strict";o.i(191788),o.s(["demos",0,{}])}]);
