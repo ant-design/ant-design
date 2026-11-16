@@ -15,6 +15,25 @@ tag: vVERSION
 
 ---
 
+## 6.7.1
+
+`2026-11-16`
+
+- Table
+  - 🐞 修复 Table 在列配置变化后仍使用旧排序规则的问题。 [#59763](https://github.com/ant-design/ant-design/pull/59763) [@Aminark](https://github.com/Aminark)
+  - 🐞 修复 Table 在小尺寸和中等尺寸下展开全部图标与行展开图标未对齐的问题。 [#59795](https://github.com/ant-design/ant-design/pull/59795) [@nikzanda](https://github.com/nikzanda)
+  - ⌨️ 修复 Table 在分页、排序或筛选后滚动到顶部时未遵循系统减少动态效果设置的问题。 [#59864](https://github.com/ant-design/ant-design/pull/59864) [@li-jia-nan](https://github.com/li-jia-nan)
+- Modal
+  - 🐞 修复 Modal 在 React `Activity` 恢复显示时聚焦报错和 `afterOpenChange` 重复触发的问题。 [#59845](https://github.com/ant-design/ant-design/pull/59845) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 修复 Modal 在离场动画中途禁用时完成回调早于 DOM 移除的问题。 [#59845](https://github.com/ant-design/ant-design/pull/59845) [@yoyo837](https://github.com/yoyo837)
+- 🐞 修复 Input.OTP 使用中文等输入法时将合成输入的中间态文本作为已提交内容处理的问题。 [#58762](https://github.com/ant-design/ant-design/pull/58762) [@wanxiankai](https://github.com/wanxiankai)
+- 🐞 修复 DatePicker 和 TimePicker 时间面板单元格未居中及内容被滚动条遮挡的问题。 [#59828](https://github.com/ant-design/ant-design/pull/59828) [@ffgenius](https://github.com/ffgenius)
+- 🐞 修复 Dropdown 禁用子菜单中的菜单项未正确显示禁用状态的问题。 [#59826](https://github.com/ant-design/ant-design/pull/59826) [@yoyo837](https://github.com/yoyo837)
+- ⌨️ 修复 Anchor 点击链接滚动时未遵循系统减少动态效果设置的问题。 [#59861](https://github.com/ant-design/ant-design/pull/59861) [@li-jia-nan](https://github.com/li-jia-nan)
+- ⌨️ 修复 BackTop 返回顶部时未遵循系统减少动态效果设置的问题。 [#59864](https://github.com/ant-design/ant-design/pull/59864) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🇮🇩 完善 ConfigProvider 印尼语 `id_ID` 翻译。 [#59807](https://github.com/ant-design/ant-design/pull/59807) [@insanrizky](https://github.com/insanrizky)
+- 🇨🇿 完善 ConfigProvider 捷克语 `cs_CZ` 翻译。 [#59787](https://github.com/ant-design/ant-design/pull/59787) [@kojdad-alt](https://github.com/kojdad-alt)
+
 ## 6.7.0
 
 `2026-11-04`
