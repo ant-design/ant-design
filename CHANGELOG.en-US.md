@@ -31,8 +31,8 @@ tag: vVERSION
 - 🐞 Fix Dropdown menu items in disabled submenus not displaying their disabled state correctly. [#59826](https://github.com/ant-design/ant-design/pull/59826) [@yoyo837](https://github.com/yoyo837)
 - ⌨️ Fix Anchor ignoring the reduced motion preference when scrolling to a link. [#59861](https://github.com/ant-design/ant-design/pull/59861) [@li-jia-nan](https://github.com/li-jia-nan)
 - ⌨️ Fix BackTop ignoring the reduced motion preference when returning to the top. [#59864](https://github.com/ant-design/ant-design/pull/59864) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🌐 Improve ConfigProvider Indonesian (`id_ID`) translations. [#59807](https://github.com/ant-design/ant-design/pull/59807) [@insanrizky](https://github.com/insanrizky)
-- 🌐 Improve ConfigProvider Czech (`cs_CZ`) translations. [#59787](https://github.com/ant-design/ant-design/pull/59787) [@kojdad-alt](https://github.com/kojdad-alt)
+- 🇮🇩 Improve ConfigProvider Indonesian (`id_ID`) translations. [#59807](https://github.com/ant-design/ant-design/pull/59807) [@insanrizky](https://github.com/insanrizky)
+- 🇨🇿 Improve ConfigProvider Czech (`cs_CZ`) translations. [#59787](https://github.com/ant-design/ant-design/pull/59787) [@kojdad-alt](https://github.com/kojdad-alt)
 
 ## 6.7.0
 

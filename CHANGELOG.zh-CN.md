@@ -31,8 +31,8 @@ tag: vVERSION
 - 🐞 修复 Dropdown 禁用子菜单中的菜单项未正确显示禁用状态的问题。 [#59826](https://github.com/ant-design/ant-design/pull/59826) [@yoyo837](https://github.com/yoyo837)
 - ⌨️ 修复 Anchor 点击链接滚动时未遵循系统减少动态效果设置的问题。 [#59861](https://github.com/ant-design/ant-design/pull/59861) [@li-jia-nan](https://github.com/li-jia-nan)
 - ⌨️ 修复 BackTop 返回顶部时未遵循系统减少动态效果设置的问题。 [#59864](https://github.com/ant-design/ant-design/pull/59864) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🌐 完善 ConfigProvider 印尼语 `id_ID` 翻译。 [#59807](https://github.com/ant-design/ant-design/pull/59807) [@insanrizky](https://github.com/insanrizky)
-- 🌐 完善 ConfigProvider 捷克语 `cs_CZ` 翻译。 [#59787](https://github.com/ant-design/ant-design/pull/59787) [@kojdad-alt](https://github.com/kojdad-alt)
+- 🇮🇩 完善 ConfigProvider 印尼语 `id_ID` 翻译。 [#59807](https://github.com/ant-design/ant-design/pull/59807) [@insanrizky](https://github.com/insanrizky)
+- 🇨🇿 完善 ConfigProvider 捷克语 `cs_CZ` 翻译。 [#59787](https://github.com/ant-design/ant-design/pull/59787) [@kojdad-alt](https://github.com/kojdad-alt)
 
 ## 6.7.0
 
