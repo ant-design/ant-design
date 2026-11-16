@@ -4,7 +4,6 @@ import { FormProvider as RcFormProvider } from '@rc-component/form';
 import type { Meta, FormProviderProps as RcFormProviderProps } from '@rc-component/form';
 import { omit } from '@rc-component/util';
 
-import type { Variant } from '../config-provider';
 import type { ColProps } from '../grid/col';
 import type { FormInstance, FormLayout, FormSemanticAllType, RequiredMark } from './Form';
 import type { FeedbackIcons, ValidateStatus } from './FormItem';
@@ -103,4 +102,4 @@ export const NoFormStyle: React.FC<NoFormStyleProps> = ({ children, status, over
   );
 };
 
-export const VariantContext = React.createContext<Variant | undefined>(undefined);
+export { VariantContext } from './variantContext';
