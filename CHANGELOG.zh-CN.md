@@ -26,6 +26,7 @@ tag: vVERSION
 - Modal
   - 🐞 修复 Modal 在 React `Activity` 恢复显示时聚焦报错和 `afterOpenChange` 重复触发的问题。 [#59845](https://github.com/ant-design/ant-design/pull/59845) [@yoyo837](https://github.com/yoyo837)
   - 🐞 修复 Modal 在离场动画中途禁用时完成回调早于 DOM 移除的问题。 [#59845](https://github.com/ant-design/ant-design/pull/59845) [@yoyo837](https://github.com/yoyo837)
+- ⚡️ 优化 Form 中仅读取 variant 的组件，不再引入 6.7.0 中额外引入的 `@rc-component/form` 依赖，提升性能。 [#59872](https://github.com/ant-design/ant-design/pull/59872) [@gowtham-padala](https://github.com/gowtham-padala)
 - 🐞 修复 Card 操作区中带 `href` 的 Button 图标间距异常的问题。 [#59726](https://github.com/ant-design/ant-design/pull/59726) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 修复 Input.OTP 使用中文等输入法时将合成输入的中间态文本作为已提交内容处理的问题。 [#58762](https://github.com/ant-design/ant-design/pull/58762) [@wanxiankai](https://github.com/wanxiankai)
 - 🐞 修复 DatePicker 和 TimePicker 时间面板单元格未居中及内容被滚动条遮挡的问题。 [#59828](https://github.com/ant-design/ant-design/pull/59828) [@ffgenius](https://github.com/ffgenius)
