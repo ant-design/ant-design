@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "6.7.0",
+  "version": "6.7.1",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -113,7 +113,7 @@
   },
   "dependencies": {
     "@ant-design/colors": "^8.0.1",
-    "@ant-design/cssinjs": "^2.1.2",
+    "@ant-design/cssinjs": "~2.1.2",
     "@ant-design/cssinjs-utils": "^2.1.2",
     "@ant-design/fast-color": "^3.0.1",
     "@ant-design/icons": "^6.3.4",
@@ -169,7 +169,7 @@
     "@ant-design/x": "^2.7.0",
     "@ant-design/x-sdk": "^2.7.0",
     "@antfu/eslint-config": "~10.0.0",
-    "@biomejs/biome": "^2.5.0",
+    "@biomejs/biome": "^2.6.8",
     "@blazediff/core": "^2.0.0",
     "@codecov/webpack-plugin": "^2.0.1",
     "@codesandbox/sandpack-react": "^2.20.0",

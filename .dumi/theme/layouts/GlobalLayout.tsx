@@ -18,6 +18,8 @@ import { DarkContext } from '../../hooks/useDark';
 import useIsMobile from '../../hooks/useIsMobile';
 import useLayoutState from '../../hooks/useLayoutState';
 import useLocalStorage from '../../hooks/useLocalStorage';
+import useTheme from '../../hooks/useTheme';
+import type { Theme, ThemePreference } from '../../hooks/useTheme';
 import { getBannerData } from '../../pages/index/components/util';
 import { ANT_DESIGN_SITE_THEME } from '../common/ThemeSwitch';
 import type { ThemeName } from '../common/ThemeSwitch';
@@ -37,15 +39,15 @@ if (typeof window !== 'undefined') {
   }
 }
 
-const isColorTheme = (value?: string) => {
+const isColorTheme = (value?: string): value is ThemePreference => {
   return value === 'light' || value === 'dark' || value === 'auto';
 };
 
-const getAlgorithm = (themes: ThemeName[] = [], systemTheme: 'dark' | 'light') =>
+const getAlgorithm = (themes: ThemeName[] = [], resolvedTheme: Theme) =>
   themes
     .map((theme) => {
       // auto 模式下根据系统主题切换
-      if (theme === 'auto' && systemTheme === 'dark') {
+      if (theme === 'auto' && resolvedTheme === 'dark') {
         return antdTheme.darkAlgorithm;
       }
       if (theme === 'dark') {
@@ -57,17 +59,6 @@ const getAlgorithm = (themes: ThemeName[] = [], systemTheme: 'dark' | 'light') =
       return null as unknown as MappingAlgorithm;
     })
     .filter(Boolean);
-
-const getSystemTheme = (): 'light' | 'dark' => {
-  if (typeof window === 'undefined') {
-    return 'light';
-  }
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-};
-
-const isThemeDark = (theme: ThemeName[], systemTheme: 'dark' | 'light') => {
-  return theme.includes('dark') || (theme.includes('auto') && systemTheme === 'dark');
-};
 
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
@@ -94,8 +85,9 @@ const GlobalLayout: React.FC = () => {
 
   const colorTheme = urlColor || (isColorTheme(storedTheme) ? storedTheme : 'auto');
 
-  const [systemTheme, setSystemTheme] = React.useState<'light' | 'dark'>(() => getSystemTheme());
-  const isDark = isThemeDark(theme, systemTheme);
+  const resolvedTheme = useTheme(theme.find(isColorTheme) ?? 'light');
+
+  const isDark = resolvedTheme === 'dark';
 
   const bannerData = getBannerData();
 
@@ -137,34 +129,8 @@ const GlobalLayout: React.FC = () => {
 
   // 设置 data-prefers-color 属性
   useEffect(() => {
-    const color = theme.find((t) => t === 'light' || t === 'dark');
-    const html = document.querySelector<HTMLHtmlElement>('html');
-    if (theme.includes('auto') && systemTheme) {
-      html?.setAttribute('data-prefers-color', systemTheme);
-    } else if (color) {
-      html?.setAttribute('data-prefers-color', color);
-    }
-  }, [systemTheme, theme]);
-
-  // 监听系统主题变化
-  useEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
-
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
-    const handleSystemThemeChange = (e: MediaQueryListEvent) => {
-      const newSystemTheme = e.matches ? 'dark' : 'light';
-      setSystemTheme(newSystemTheme);
-    };
-
-    mediaQuery.addEventListener('change', handleSystemThemeChange);
-
-    return () => {
-      mediaQuery.removeEventListener('change', handleSystemThemeChange);
-    };
-  }, []);
+    document.documentElement.setAttribute('data-prefers-color', resolvedTheme);
+  }, [resolvedTheme]);
 
   // 主题初始化
   useEffect(() => {
@@ -240,7 +206,7 @@ const GlobalLayout: React.FC = () => {
 
     return [
       {
-        algorithm: getAlgorithm(mergedTheme, systemTheme),
+        algorithm: getAlgorithm(mergedTheme, resolvedTheme),
         token: {
           motion: !theme.includes('motion-off'),
           ...dynamicToken,
@@ -250,7 +216,7 @@ const GlobalLayout: React.FC = () => {
       },
       nextComponentsClassNames,
     ];
-  }, [theme, dynamicTheme, systemTheme]);
+  }, [theme, dynamicTheme, resolvedTheme]);
 
   const styleCache = React.useMemo(() => createCache(), []);
 
