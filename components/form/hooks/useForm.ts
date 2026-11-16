@@ -6,7 +6,9 @@ import scrollIntoView from 'scroll-into-view-if-needed';
 
 import { isFunction } from '../../_util/is';
 import type { InternalNamePath, NamePath, ScrollOptions } from '../interface';
-import { getFieldId, toArray } from '../util';
+import { getFieldId, toArray, toNamePathStr } from '../util';
+
+export { toNamePathStr };
 
 export interface FormInstance<Values = any> extends RcFormInstance<Values> {
   scrollToField: (name: NamePath, options?: ScrollOptions) => void;
@@ -19,11 +21,6 @@ export interface FormInstance<Values = any> extends RcFormInstance<Values> {
     itemRef: (name: InternalNamePath) => (node: React.ReactElement) => void;
   };
   getFieldInstance: (name: NamePath) => any;
-}
-
-export function toNamePathStr(name: NamePath) {
-  const namePath = toArray(name);
-  return namePath.join('_');
 }
 
 function getFieldDOMNode(name: NamePath, wrapForm: FormInstance) {
