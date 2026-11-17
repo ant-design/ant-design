@@ -17,9 +17,9 @@ export function toArray<T>(candidate?: T | T[] | false): T[] {
   return Array.isArray(candidate) ? candidate : [candidate];
 }
 
-export function toNamePathStr(name: NamePath) {
+export const toNamePathStr = (name: NamePath) => {
   return toArray(name).join('_');
-}
+};
 
 export function getFieldId(namePath: InternalNamePath, formName?: string): string | undefined {
   if (!namePath.length) {
