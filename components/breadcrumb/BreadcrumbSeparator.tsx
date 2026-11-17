@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import BreadcrumbContext from './BreadcrumbContext';
 
 type CompoundedComponent = React.FC<React.PropsWithChildren> & {

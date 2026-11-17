@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ConfigContext } from '../../config-provider';
+import { ConfigContext } from '../../config-provider/context';
 import type { DirectionType, RenderEmptyHandler } from '../../config-provider';
 
 function useBase(

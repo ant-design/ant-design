@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 import { useOrientation } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import { isNumber } from '../_util/is';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';

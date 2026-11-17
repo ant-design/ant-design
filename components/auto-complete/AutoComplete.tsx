@@ -8,7 +8,7 @@ import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticT
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import type {
   BaseOptionType,
   DefaultOptionType,

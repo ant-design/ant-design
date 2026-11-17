@@ -6,9 +6,9 @@ import { devUseWarning } from '../_util/warning';
 import Button from '../button';
 import type { ButtonHTMLType, ButtonProps } from '../button';
 import type { ButtonGroupProps } from '../button/ButtonGroup';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import Space from '../space';
-import { useCompactItemContext } from '../space/Compact';
+import { useCompactItemContext } from '../space/CompactContext';
 import Dropdown from './dropdown';
 import type { DropdownProps } from './dropdown';
 

@@ -4,7 +4,7 @@ import type { StoreValue, ValidatorRule } from '@rc-component/form';
 
 import { isNumber } from '../_util/is';
 import { useDevWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import { FormItemPrefixContext } from './context';
 
 export interface FormListFieldData {

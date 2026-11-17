@@ -19,7 +19,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useVariant from '../form/hooks/useVariants';
-import { useCompactItemContext } from '../space/Compact';
+import { useCompactItemContext } from '../space/CompactContext';
 import Group, { GroupSizeContext } from './ButtonGroup';
 import type {
   ButtonColorType,

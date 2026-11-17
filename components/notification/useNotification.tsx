@@ -19,8 +19,7 @@ import {
 } from '../_util/hooks/useMergeSemantic';
 import { isNumber, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
-import { useComponentConfig } from '../config-provider/context';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useLocale } from '../locale';
@@ -230,7 +229,7 @@ export function useInternalNotification(
       const semanticClassNames = resolveStyleOrClass(configClassNames, { props: config });
       const semanticStyles = resolveStyleOrClass(styles, { props: config });
       const isCustomIcon = isReactRenderable(icon);
-      const iconNode = isCustomIcon ? icon : (type ? TypeIcon[type] : null);
+      const iconNode = isCustomIcon ? icon : type ? TypeIcon[type] : null;
       const typeIconCls = !isCustomIcon && type ? `${noticePrefixCls}-icon-${type}` : undefined;
 
       return originOpen({
