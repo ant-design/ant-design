@@ -114,15 +114,15 @@ module.exports = [
     gzip: true,
     disablePlugins: ['@size-limit/esbuild'],
   },
-  ...componentNames.map((name) => {
-    if (!Object.hasOwn(componentLimits, name)) {
-      throw new Error(`Add a size budget for ${name} to .size-limit.cjs.`);
+  ...componentNames.map((component) => {
+    if (!componentLimits[component]) {
+      throw new Error(`Add a size budget for ${component} to .size-limit.cjs.`);
     }
     return {
-      name,
+      name: component,
       path: './es/index.js',
-      import: `{ ${name} }`,
-      limit: `${componentLimits[name]} KiB`,
+      import: `{ ${component} }`,
+      limit: `${componentLimits[component]} KiB`,
       gzip: true,
     };
   }),
