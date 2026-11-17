@@ -1,8 +1,9 @@
-const fs = require('node:fs');
-const path = require('node:path');
-const ts = require('typescript');
+import fs from 'node:fs';
+import path from 'node:path';
+import type { SizeLimitConfig } from 'size-limit';
+import ts from 'typescript';
 
-const componentLimits = {
+const componentLimits: Record<string, number> = {
   Affix: 31,
   Alert: 54,
   Anchor: 54,
@@ -83,7 +84,7 @@ const componentLimits = {
 
 const source = ts.createSourceFile(
   'components/index.ts',
-  fs.readFileSync(path.join(__dirname, 'components/index.ts'), 'utf8'),
+  fs.readFileSync(path.join(import.meta.dirname, 'components/index.ts'), 'utf8'),
   ts.ScriptTarget.Latest,
 );
 
@@ -101,7 +102,7 @@ const componentNames = source.statements.flatMap((node) => {
     .map((element) => element.name.text);
 });
 
-module.exports = [
+const sizeLimitConfig: SizeLimitConfig = [
   {
     path: './dist/antd.min.js',
     limit: '449 KiB',
@@ -116,7 +117,7 @@ module.exports = [
   },
   ...componentNames.map((component) => {
     if (!componentLimits[component]) {
-      throw new Error(`Add a size budget for ${component} to .size-limit.cjs.`);
+      throw new Error(`Add a size budget for ${component} to .size-limit.ts.`);
     }
     return {
       name: component,
@@ -127,3 +128,5 @@ module.exports = [
     };
   }),
 ];
+
+export default sizeLimitConfig;
