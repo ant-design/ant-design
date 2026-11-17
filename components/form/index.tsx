@@ -1,6 +1,6 @@
 import type { Rule, RuleObject, RuleRender } from '@rc-component/form';
 
-import { FormProvider } from './FormProvider';
+import { FormProvider } from './context';
 import ErrorList from './ErrorList';
 import type { ErrorListProps } from './ErrorList';
 import InternalForm, { useForm, useWatch } from './Form';
