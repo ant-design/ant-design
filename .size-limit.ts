@@ -99,7 +99,7 @@ const componentNames = source.statements.flatMap((node) => {
   }
   return node.exportClause.elements
     .filter((element) => !element.isTypeOnly && element.propertyName?.text === 'default')
-    .map((element) => element.name.text);
+    .map<string>((element) => element.name.text);
 });
 
 const sizeLimitConfig: SizeLimitConfig = [
