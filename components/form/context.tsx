@@ -64,10 +64,7 @@ if (process.env.NODE_ENV !== 'production') {
   FormItemInputContext.displayName = 'FormItemInputContext';
 }
 
-export type NoFormStyleProps = PropsWithChildren<{
-  status?: boolean;
-  override?: boolean;
-}>;
+export type NoFormStyleProps = PropsWithChildren<{ status?: boolean; override?: boolean }>;
 
 export const NoFormStyle: React.FC<NoFormStyleProps> = ({ children, status, override }) => {
   const formItemInputContext = React.useContext(FormItemInputContext);
