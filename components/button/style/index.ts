@@ -19,6 +19,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
     iconCls,
     fontWeight,
     opacityLoading,
+    motionDurationMid,
     motionDurationSlow,
     motionEaseInOut,
     iconGap,
@@ -38,7 +39,9 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
       textAlign: 'center',
       backgroundImage: 'none',
       cursor: 'pointer',
-      transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
+      transition: ['color', 'background-color', 'border-color', 'box-shadow', 'opacity']
+        .map((prop) => `${prop} ${motionDurationMid} ${motionEaseInOut}`)
+        .join(','),
       userSelect: 'none',
       touchAction: 'manipulation',
       ...genNoMotionStyle(),
