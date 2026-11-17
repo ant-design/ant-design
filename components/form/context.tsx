@@ -1,8 +1,6 @@
 import type { PropsWithChildren, ReactNode } from 'react';
 import * as React from 'react';
-import { FormProvider as RcFormProvider } from '@rc-component/form';
-import type { Meta, FormProviderProps as RcFormProviderProps } from '@rc-component/form';
-import { omit } from '@rc-component/util';
+import type { Meta } from '@rc-component/form';
 
 import type { Variant } from '../config-provider';
 import type { ColProps } from '../grid/col';
@@ -39,15 +37,7 @@ export const FormContext = React.createContext<FormContextProps>({
 export type ReportMetaChange = (meta: Meta, uniqueKeys: React.Key[]) => void;
 export const NoStyleItemContext = React.createContext<ReportMetaChange | null>(null);
 
-/** Form Provider */
-export interface FormProviderProps extends Omit<RcFormProviderProps, 'validateMessages'> {
-  prefixCls?: string;
-}
-
-export const FormProvider: React.FC<FormProviderProps> = (props) => {
-  const providerProps = omit(props, ['prefixCls']);
-  return <RcFormProvider {...providerProps} />;
-};
+export type { FormProviderProps } from './FormProvider';
 
 /** Used for ErrorList only */
 export interface FormItemPrefixContextProps {
