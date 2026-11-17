@@ -18,8 +18,7 @@ import {
 } from '../_util/hooks/useMergeSemantic';
 import { isFunction, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
-import { useComponentConfig } from '../config-provider/context';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import type { MessageConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useStackConfig from '../notification/hooks/useStackConfig';

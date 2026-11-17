@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import type { TooltipProps } from '.';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useStyle from './style';
 import { parseColor } from './util';

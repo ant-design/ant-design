@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';

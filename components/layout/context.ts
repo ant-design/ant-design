@@ -13,3 +13,9 @@ export const LayoutContext = React.createContext<LayoutContextProps>({
     removeSider: () => null,
   },
 });
+
+export interface SiderContextProps {
+  siderCollapsed?: boolean;
+}
+
+export const SiderContext: React.Context<SiderContextProps> = React.createContext({});

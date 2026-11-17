@@ -3,7 +3,7 @@ import { forwardRef, useImperativeHandle, useRef } from 'react';
 import type { MenuRef as RcMenuRef } from '@rc-component/menu';
 import { ItemGroup } from '@rc-component/menu';
 
-import { SiderContext } from '../layout/Sider';
+import { SiderContext } from '../layout/context';
 import type { ItemType, MenuItemType } from './interface';
 import type {
   MenuPopupSemanticClassNames,

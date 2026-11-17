@@ -2,7 +2,7 @@ import * as React from 'react';
 import { raf } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { ConfigContext } from '../../config-provider';
+import { ConfigContext } from '../../config-provider/context';
 import Input from '../Input';
 import type { InputProps, InputRef } from '../Input';
 

@@ -6,7 +6,7 @@ import { clsx } from 'clsx';
 import type { PopoverProps, PopoverSemanticAllType } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import useStyle from './style';
 
 interface OverlayProps {

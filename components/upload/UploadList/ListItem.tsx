@@ -7,7 +7,7 @@ import { isReactRenderable, useDelayState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isFunction } from '../../_util/is';
-import { ConfigContext } from '../../config-provider';
+import { ConfigContext } from '../../config-provider/context';
 import Progress from '../../progress';
 import Tooltip from '../../tooltip';
 import type {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import SkeletonNode from './Node';
 import type { SkeletonNodeProps } from './Node';
 

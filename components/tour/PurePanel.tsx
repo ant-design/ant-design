@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 import { useClosable } from '../_util/hooks';
 import { withPureRenderTheme } from '../_util/PurePanel';
 import { cloneElement } from '../_util/reactNode';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import { RawPurePanel as PopoverRawPurePanel } from '../popover/PurePanel';
 import type { TourStepProps } from './interface';
 import TourPanel from './panelRender';

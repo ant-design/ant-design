@@ -4,7 +4,7 @@ import type {
   MotionEventHandler,
 } from '@rc-component/motion';
 
-import { defaultPrefixCls } from '../config-provider';
+import { defaultPrefixCls } from '../config-provider/context';
 import { isTransitionEvent } from './is';
 
 // ================== Collapse Motion ==================

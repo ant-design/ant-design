@@ -4,7 +4,7 @@ import { composeRef, raf, render, unmount } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { WaveProps } from '.';
-import { ConfigContext } from '../../config-provider';
+import { ConfigContext } from '../../config-provider/context';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 import { isTransitionEvent } from '../is';
 import { TARGET_CLS } from './interface';

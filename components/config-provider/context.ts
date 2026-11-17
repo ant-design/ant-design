@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React from 'react';
+import type { MoreProps } from '@rc-component/tabs';
 
 import type { MaskType } from '../_util/hooks';
 import type { AnyObject } from '../_util/type';
@@ -58,7 +59,6 @@ import type { StepsProps } from '../steps';
 import type { SwitchProps } from '../switch';
 import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
-import type { MoreProps } from '@rc-component/tabs';
 import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TimePickerProps } from '../time-picker';

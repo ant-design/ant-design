@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import type { ConfigConsumerProps } from '../config-provider';
 
 export interface CardGridProps extends React.HTMLAttributes<HTMLDivElement> {

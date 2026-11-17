@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import type { ConfigConsumerProps } from '.';
-import { ConfigContext } from '.';
+import { ConfigContext } from './context';
 import Empty from '../empty';
 
 type ComponentName =

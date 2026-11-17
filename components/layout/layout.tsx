@@ -2,8 +2,7 @@ import * as React from 'react';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { ConfigContext } from '../config-provider';
-import { useComponentConfig } from '../config-provider/context';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import { LayoutContext } from './context';
 import useHasSider from './hooks/useHasSider';
 import useStyle from './style';
