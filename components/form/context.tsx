@@ -2,6 +2,7 @@ import type { PropsWithChildren, ReactNode } from 'react';
 import * as React from 'react';
 import type { Meta } from '@rc-component/form';
 
+import type { Variant } from '../config-provider';
 import type { ColProps } from '../grid/col';
 import type { FormInstance, FormLayout, FormSemanticAllType, RequiredMark } from './Form';
 import type { FeedbackIcons, ValidateStatus } from './FormItem';
@@ -92,4 +93,4 @@ export const NoFormStyle: React.FC<NoFormStyleProps> = ({ children, status, over
   );
 };
 
-export { VariantContext } from './variantContext';
+export const VariantContext = React.createContext<Variant | undefined>(undefined);
