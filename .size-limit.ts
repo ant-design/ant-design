@@ -78,7 +78,7 @@ const componentLimits: Record<string, number> = {
   TreeSelect: 119,
   Typography: 91,
   Upload: 99,
-  version: 2,
+  version: 1,
   Watermark: 25,
 };
 
