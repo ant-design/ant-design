@@ -18,4 +18,4 @@ export interface SiderContextProps {
   siderCollapsed?: boolean;
 }
 
-export const SiderContext: React.Context<SiderContextProps> = React.createContext({});
+export const SiderContext = React.createContext<SiderContextProps>({});
