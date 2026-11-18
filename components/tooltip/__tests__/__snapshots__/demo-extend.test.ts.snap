@@ -1576,7 +1576,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
           aria-describedby="test-id"
           aria-expanded="false"
           aria-haspopup="listbox"
-          autocomplete="new-password"
+          autocomplete="off"
           class="ant-select-input"
           disabled=""
           id="test-id"

@@ -14,7 +14,7 @@ exports[`AutoComplete rtl render component should be rendered correctly in RTL d
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      autocomplete="new-password"
+      autocomplete="off"
       class="ant-select-input"
       id="test-id"
       role="combobox"
