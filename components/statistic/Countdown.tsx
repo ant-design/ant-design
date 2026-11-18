@@ -3,12 +3,11 @@ import * as React from 'react';
 import { devUseWarning } from '../_util/warning';
 import type { StatisticProps } from './Statistic';
 import StatisticTimer from './Timer';
-import type { valueType } from './utils';
 
 export interface CountdownProps extends StatisticProps {
   format?: string;
   onFinish?: () => void;
-  onChange?: (value?: valueType) => void;
+  onChange?: (value: number) => void;
 }
 
 const Countdown: React.FC<CountdownProps> = (props) => {
