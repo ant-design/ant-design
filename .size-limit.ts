@@ -78,7 +78,7 @@ const componentLimits: Record<string, number> = {
   TreeSelect: 101,
   Typography: 72,
   Upload: 79,
-  version: 1,
+  // version: 1,
   Watermark: 25,
 };
 
@@ -98,7 +98,14 @@ const componentNames = source.statements.flatMap((node) => {
     return [];
   }
   return node.exportClause.elements
-    .filter((element) => !element.isTypeOnly && element.propertyName?.text === 'default')
+    .filter((element) => {
+      return (
+        !element.isTypeOnly &&
+        element.propertyName?.text === 'default' &&
+        // version 是 Antd 版本号，不是 React 组件，不参与体积检查
+        element.name.text !== 'version'
+      );
+    })
     .map<string>((element) => element.name.text);
 });
 
