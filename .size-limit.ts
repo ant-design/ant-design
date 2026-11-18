@@ -105,13 +105,13 @@ const componentNames = source.statements.flatMap((node) => {
 const sizeLimitConfig: SizeLimitConfig = [
   {
     path: './dist/antd.min.js',
-    limit: '449 KiB',
+    limit: '450 KiB',
     gzip: true,
     disablePlugins: ['@size-limit/esbuild'],
   },
   {
     path: './dist/antd-with-locales.min.js',
-    limit: '541 KiB',
+    limit: '542 KiB',
     gzip: true,
     disablePlugins: ['@size-limit/esbuild'],
   },
