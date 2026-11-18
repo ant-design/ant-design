@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { spyElementPrototypes } from '@rc-component/util';
 import { createEvent, fireEvent, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
@@ -274,6 +275,64 @@ describe('ColorPicker', () => {
     );
 
     expect(handleColorChange).toHaveBeenCalledTimes(2);
+  });
+
+  it.each(['{Enter}', ' '])(
+    'Should select preset colors with %s without submitting a form',
+    async (key) => {
+      const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+      const onChange = jest.fn();
+      const onSubmit = jest.fn((event) => event.preventDefault());
+      const { container } = render(
+        <form onSubmit={onSubmit}>
+          <ColorPicker
+            open
+            defaultValue="#000000"
+            getPopupContainer={(trigger) => trigger.parentElement!}
+            presets={[{ label: 'Brand', colors: ['#1677ff'] }]}
+            onChange={onChange}
+          />
+        </form>,
+      );
+
+      const preset = container.querySelector<HTMLButtonElement>('.ant-color-picker-presets-color')!;
+      expect(preset.tagName).toBe('BUTTON');
+      expect(preset.closest('form')).not.toBeNull();
+      expect(
+        container.querySelector('.ant-color-picker-trigger > .ant-color-picker-color-block')
+          ?.tagName,
+      ).toBe('DIV');
+      preset.focus();
+      await user.keyboard(key);
+
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange.mock.calls[0][0].toHexString()).toBe('#1677ff');
+      expect(onSubmit).not.toHaveBeenCalled();
+    },
+  );
+
+  it('Should change and complete the picker color with arrow keys', () => {
+    const onChange = jest.fn();
+    const onChangeComplete = jest.fn();
+    const { container } = render(
+      <ColorPicker
+        open
+        defaultValue="hsb(215, 91%, 100%)"
+        onChange={onChange}
+        onChangeComplete={onChangeComplete}
+      />,
+    );
+    const saturation = container.querySelector<HTMLInputElement>(
+      'input[aria-label="Color picker"]',
+    )!;
+
+    fireEvent.keyDown(saturation, { key: 'ArrowRight' });
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChangeComplete).not.toHaveBeenCalled();
+    fireEvent.keyUp(saturation, { key: 'ArrowRight' });
+
+    expect(onChangeComplete).toHaveBeenCalledTimes(1);
+    expect(onChangeComplete.mock.calls[0][0].toHsbString()).toBe('hsb(215, 92%, 100%)');
   });
 
   it('Should not mutate preset items', () => {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { raf, useEvent } from '@rc-component/util';
 
 import type { WaveProps } from '.';
-import { ConfigContext } from '../../config-provider';
+import { ConfigContext } from '../../config-provider/context';
 import useToken from '../../theme/useToken';
 import { TARGET_CLS } from './interface';
 import type { ShowWave, WaveComponent } from './interface';

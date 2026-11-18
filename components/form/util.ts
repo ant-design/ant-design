@@ -1,7 +1,7 @@
 import type { Meta } from '@rc-component/form';
 
 import type { ValidateStatus } from './FormItem';
-import type { InternalNamePath } from './interface';
+import type { InternalNamePath, NamePath } from './interface';
 
 // form item name black list.  in form ,you can use form.id get the form item element.
 // use object hasOwnProperty will get better performance if black list is longer.
@@ -16,6 +16,10 @@ export function toArray<T>(candidate?: T | T[] | false): T[] {
   }
   return Array.isArray(candidate) ? candidate : [candidate];
 }
+
+export const toNamePathStr = (name: NamePath) => {
+  return toArray(name).join('_');
+};
 
 export function getFieldId(namePath: InternalNamePath, formName?: string): string | undefined {
   if (!namePath.length) {

@@ -21,7 +21,7 @@ import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
 import { useLocale } from '../locale';
-import { useCompactItemContext } from '../space/Compact';
+import { useCompactItemContext } from '../space/CompactContext';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import useStyle, { useSharedStyle } from './style';
 import { hasPrefixSuffix } from './utils';

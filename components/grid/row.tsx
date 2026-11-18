@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 import { isNumber, isPlainObject, isString } from '../_util/is';
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import useBreakpoint from './hooks/useBreakpoint';
 import useGutter from './hooks/useGutter';
 import RowContext from './RowContext';

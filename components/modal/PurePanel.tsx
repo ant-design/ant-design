@@ -4,8 +4,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import { withPureRenderTheme } from '../_util/PurePanel';
-import { ConfigContext } from '../config-provider';
-import { useComponentConfig } from '../config-provider/context';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { ConfirmContent } from './ConfirmDialog';
 import type { ModalFuncProps, ModalSemanticAllType } from './interface';

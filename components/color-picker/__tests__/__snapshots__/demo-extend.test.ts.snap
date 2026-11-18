@@ -66,8 +66,39 @@ Array [
                   >
                     <div
                       class="ant-color-picker-handler"
-                      style="background-color: rgb(22, 119, 255);"
-                    />
+                      style="position: relative; background-color: rgb(22, 119, 255);"
+                    >
+                      <input
+                        aria-hidden="false"
+                        aria-label="Color picker"
+                        aria-orientation="horizontal"
+                        aria-roledescription="2D slider"
+                        aria-valuetext="Saturation: 91%"
+                        class="ant-color-picker-handler-range"
+                        max="100"
+                        min="0"
+                        step="1"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                        tabindex="0"
+                        type="range"
+                        value="91"
+                      />
+                      <input
+                        aria-hidden="true"
+                        aria-label="Color picker"
+                        aria-orientation="vertical"
+                        aria-roledescription="2D slider"
+                        aria-valuetext="Brightness: 100%"
+                        class="ant-color-picker-handler-range"
+                        max="100"
+                        min="0"
+                        step="1"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                        tabindex="-1"
+                        type="range"
+                        value="100"
+                      />
+                    </div>
                   </div>
                   <div
                     class="ant-color-picker-saturation"
@@ -443,8 +474,39 @@ Array [
                   >
                     <div
                       class="ant-color-picker-handler"
-                      style="background-color: rgb(22, 119, 255);"
-                    />
+                      style="position: relative; background-color: rgb(22, 119, 255);"
+                    >
+                      <input
+                        aria-hidden="false"
+                        aria-label="Color picker"
+                        aria-orientation="horizontal"
+                        aria-roledescription="2D slider"
+                        aria-valuetext="Saturation: 91%"
+                        class="ant-color-picker-handler-range"
+                        max="100"
+                        min="0"
+                        step="1"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                        tabindex="0"
+                        type="range"
+                        value="91"
+                      />
+                      <input
+                        aria-hidden="true"
+                        aria-label="Color picker"
+                        aria-orientation="vertical"
+                        aria-roledescription="2D slider"
+                        aria-valuetext="Brightness: 100%"
+                        class="ant-color-picker-handler-range"
+                        max="100"
+                        min="0"
+                        step="1"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                        tabindex="-1"
+                        type="range"
+                        value="100"
+                      />
+                    </div>
                   </div>
                   <div
                     class="ant-color-picker-saturation"
@@ -825,8 +887,39 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     >
                       <div
                         class="ant-color-picker-handler"
-                        style="background-color: rgb(22, 119, 255);"
-                      />
+                        style="position: relative; background-color: rgb(22, 119, 255);"
+                      >
+                        <input
+                          aria-hidden="false"
+                          aria-label="Color picker"
+                          aria-orientation="horizontal"
+                          aria-roledescription="2D slider"
+                          aria-valuetext="Saturation: 91%"
+                          class="ant-color-picker-handler-range"
+                          max="100"
+                          min="0"
+                          step="1"
+                          style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                          tabindex="0"
+                          type="range"
+                          value="91"
+                        />
+                        <input
+                          aria-hidden="true"
+                          aria-label="Color picker"
+                          aria-orientation="vertical"
+                          aria-roledescription="2D slider"
+                          aria-valuetext="Brightness: 100%"
+                          class="ant-color-picker-handler-range"
+                          max="100"
+                          min="0"
+                          step="1"
+                          style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                          tabindex="-1"
+                          type="range"
+                          value="100"
+                        />
+                      </div>
                     </div>
                     <div
                       class="ant-color-picker-saturation"
@@ -1199,8 +1292,39 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                     >
                       <div
                         class="ant-color-picker-handler"
-                        style="background-color: rgb(22, 119, 255);"
-                      />
+                        style="position: relative; background-color: rgb(22, 119, 255);"
+                      >
+                        <input
+                          aria-hidden="false"
+                          aria-label="Color picker"
+                          aria-orientation="horizontal"
+                          aria-roledescription="2D slider"
+                          aria-valuetext="Saturation: 91%"
+                          class="ant-color-picker-handler-range"
+                          max="100"
+                          min="0"
+                          step="1"
+                          style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                          tabindex="0"
+                          type="range"
+                          value="91"
+                        />
+                        <input
+                          aria-hidden="true"
+                          aria-label="Color picker"
+                          aria-orientation="vertical"
+                          aria-roledescription="2D slider"
+                          aria-valuetext="Brightness: 100%"
+                          class="ant-color-picker-handler-range"
+                          max="100"
+                          min="0"
+                          step="1"
+                          style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                          tabindex="-1"
+                          type="range"
+                          value="100"
+                        />
+                      </div>
                     </div>
                     <div
                       class="ant-color-picker-saturation"
@@ -1582,8 +1706,39 @@ Array [
                   >
                     <div
                       class="ant-color-picker-handler"
-                      style="background-color: rgb(22, 119, 255);"
-                    />
+                      style="position: relative; background-color: rgb(22, 119, 255);"
+                    >
+                      <input
+                        aria-hidden="false"
+                        aria-label="Color picker"
+                        aria-orientation="horizontal"
+                        aria-roledescription="2D slider"
+                        aria-valuetext="Saturation: 91%"
+                        class="ant-color-picker-handler-range"
+                        max="100"
+                        min="0"
+                        step="1"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                        tabindex="0"
+                        type="range"
+                        value="91"
+                      />
+                      <input
+                        aria-hidden="true"
+                        aria-label="Color picker"
+                        aria-orientation="vertical"
+                        aria-roledescription="2D slider"
+                        aria-valuetext="Brightness: 100%"
+                        class="ant-color-picker-handler-range"
+                        max="100"
+                        min="0"
+                        step="1"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                        tabindex="-1"
+                        type="range"
+                        value="100"
+                      />
+                    </div>
                   </div>
                   <div
                     class="ant-color-picker-saturation"
@@ -1959,8 +2114,39 @@ Array [
                   >
                     <div
                       class="ant-color-picker-handler"
-                      style="background-color: rgb(22, 119, 255);"
-                    />
+                      style="position: relative; background-color: rgb(22, 119, 255);"
+                    >
+                      <input
+                        aria-hidden="false"
+                        aria-label="Color picker"
+                        aria-orientation="horizontal"
+                        aria-roledescription="2D slider"
+                        aria-valuetext="Saturation: 91%"
+                        class="ant-color-picker-handler-range"
+                        max="100"
+                        min="0"
+                        step="1"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                        tabindex="0"
+                        type="range"
+                        value="91"
+                      />
+                      <input
+                        aria-hidden="true"
+                        aria-label="Color picker"
+                        aria-orientation="vertical"
+                        aria-roledescription="2D slider"
+                        aria-valuetext="Brightness: 100%"
+                        class="ant-color-picker-handler-range"
+                        max="100"
+                        min="0"
+                        step="1"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                        tabindex="-1"
+                        type="range"
+                        value="100"
+                      />
+                    </div>
                   </div>
                   <div
                     class="ant-color-picker-saturation"
@@ -2254,8 +2440,39 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         >
                           <div
                             class="ant-color-picker-handler"
-                            style="background-color: rgb(22, 119, 255);"
-                          />
+                            style="position: relative; background-color: rgb(22, 119, 255);"
+                          >
+                            <input
+                              aria-hidden="false"
+                              aria-label="Color picker"
+                              aria-orientation="horizontal"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Saturation: 91%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="0"
+                              type="range"
+                              value="91"
+                            />
+                            <input
+                              aria-hidden="true"
+                              aria-label="Color picker"
+                              aria-orientation="vertical"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Brightness: 100%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="-1"
+                              type="range"
+                              value="100"
+                            />
+                          </div>
                         </div>
                         <div
                           class="ant-color-picker-saturation"
@@ -2643,8 +2860,39 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         >
                           <div
                             class="ant-color-picker-handler"
-                            style="background-color: rgb(23, 120, 255);"
-                          />
+                            style="position: relative; background-color: rgb(23, 120, 255);"
+                          >
+                            <input
+                              aria-hidden="false"
+                              aria-label="Color picker"
+                              aria-orientation="horizontal"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Saturation: 91%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="0"
+                              type="range"
+                              value="91"
+                            />
+                            <input
+                              aria-hidden="true"
+                              aria-label="Color picker"
+                              aria-orientation="vertical"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Brightness: 100%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="-1"
+                              type="range"
+                              value="100"
+                            />
+                          </div>
                         </div>
                         <div
                           class="ant-color-picker-saturation"
@@ -3238,8 +3486,39 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         >
                           <div
                             class="ant-color-picker-handler"
-                            style="background-color: rgb(22, 119, 255);"
-                          />
+                            style="position: relative; background-color: rgb(22, 119, 255);"
+                          >
+                            <input
+                              aria-hidden="false"
+                              aria-label="Color picker"
+                              aria-orientation="horizontal"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Saturation: 91%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="0"
+                              type="range"
+                              value="91"
+                            />
+                            <input
+                              aria-hidden="true"
+                              aria-label="Color picker"
+                              aria-orientation="vertical"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Brightness: 100%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="-1"
+                              type="range"
+                              value="100"
+                            />
+                          </div>
                         </div>
                         <div
                           class="ant-color-picker-saturation"
@@ -3935,8 +4214,39 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     >
                       <div
                         class="ant-color-picker-handler"
-                        style="background-color: rgb(16, 143, 233);"
-                      />
+                        style="position: relative; background-color: rgb(16, 143, 233);"
+                      >
+                        <input
+                          aria-hidden="false"
+                          aria-label="Color picker"
+                          aria-orientation="horizontal"
+                          aria-roledescription="2D slider"
+                          aria-valuetext="Saturation: 93%"
+                          class="ant-color-picker-handler-range"
+                          max="100"
+                          min="0"
+                          step="1"
+                          style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                          tabindex="0"
+                          type="range"
+                          value="93"
+                        />
+                        <input
+                          aria-hidden="true"
+                          aria-label="Color picker"
+                          aria-orientation="vertical"
+                          aria-roledescription="2D slider"
+                          aria-valuetext="Brightness: 91%"
+                          class="ant-color-picker-handler-range"
+                          max="100"
+                          min="0"
+                          step="1"
+                          style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                          tabindex="-1"
+                          type="range"
+                          value="91"
+                        />
+                      </div>
                     </div>
                     <div
                       class="ant-color-picker-saturation"
@@ -4366,8 +4676,39 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     >
                       <div
                         class="ant-color-picker-handler"
-                        style="background-color: rgb(16, 143, 233);"
-                      />
+                        style="position: relative; background-color: rgb(16, 143, 233);"
+                      >
+                        <input
+                          aria-hidden="false"
+                          aria-label="Color picker"
+                          aria-orientation="horizontal"
+                          aria-roledescription="2D slider"
+                          aria-valuetext="Saturation: 93%"
+                          class="ant-color-picker-handler-range"
+                          max="100"
+                          min="0"
+                          step="1"
+                          style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                          tabindex="0"
+                          type="range"
+                          value="93"
+                        />
+                        <input
+                          aria-hidden="true"
+                          aria-label="Color picker"
+                          aria-orientation="vertical"
+                          aria-roledescription="2D slider"
+                          aria-valuetext="Brightness: 91%"
+                          class="ant-color-picker-handler-range"
+                          max="100"
+                          min="0"
+                          step="1"
+                          style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                          tabindex="-1"
+                          type="range"
+                          value="91"
+                        />
+                      </div>
                     </div>
                     <div
                       class="ant-color-picker-saturation"
@@ -4770,8 +5111,39 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           >
                             <div
                               class="ant-color-picker-handler"
-                              style="background-color: rgb(22, 119, 255);"
-                            />
+                              style="position: relative; background-color: rgb(22, 119, 255);"
+                            >
+                              <input
+                                aria-hidden="false"
+                                aria-label="Color picker"
+                                aria-orientation="horizontal"
+                                aria-roledescription="2D slider"
+                                aria-valuetext="Saturation: 91%"
+                                class="ant-color-picker-handler-range"
+                                max="100"
+                                min="0"
+                                step="1"
+                                style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                                tabindex="0"
+                                type="range"
+                                value="91"
+                              />
+                              <input
+                                aria-hidden="true"
+                                aria-label="Color picker"
+                                aria-orientation="vertical"
+                                aria-roledescription="2D slider"
+                                aria-valuetext="Brightness: 100%"
+                                class="ant-color-picker-handler-range"
+                                max="100"
+                                min="0"
+                                step="1"
+                                style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                                tabindex="-1"
+                                type="range"
+                                value="100"
+                              />
+                            </div>
                           </div>
                           <div
                             class="ant-color-picker-saturation"
@@ -5211,86 +5583,106 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               <div
                                 class="ant-color-picker-presets-items"
                               >
-                                <div
+                                <button
+                                  aria-label="rgb(230,244,255)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(230, 244, 255);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(186,224,255)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(186, 224, 255);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(145,202,255)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(145, 202, 255);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(105,177,255)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(105, 177, 255);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(64,150,255)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(64, 150, 255);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(22,119,255)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-checked"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(22, 119, 255);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(9,88,217)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(9, 88, 217);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(0,62,179)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(0, 62, 179);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(0,44,140)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(0, 44, 140);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(0,29,102)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(0, 29, 102);"
                                   />
-                                </div>
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -5351,86 +5743,106 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               <div
                                 class="ant-color-picker-presets-items"
                               >
-                                <div
+                                <button
+                                  aria-label="rgb(255,241,240)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(255, 241, 240);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(255,204,199)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(255, 204, 199);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(255,163,158)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(255, 163, 158);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(255,120,117)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(255, 120, 117);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(255,77,79)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(255, 77, 79);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(245,34,45)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(245, 34, 45);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(207,19,34)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(207, 19, 34);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(168,7,26)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(168, 7, 26);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(130,0,20)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(130, 0, 20);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(92,0,17)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(92, 0, 17);"
                                   />
-                                </div>
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -5491,86 +5903,106 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               <div
                                 class="ant-color-picker-presets-items"
                               >
-                                <div
+                                <button
+                                  aria-label="rgb(246,255,237)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(246, 255, 237);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(217,247,190)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(217, 247, 190);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(183,235,143)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(183, 235, 143);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(149,222,100)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(149, 222, 100);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(115,209,61)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(115, 209, 61);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(82,196,26)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(82, 196, 26);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(56,158,13)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(56, 158, 13);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(35,120,4)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(35, 120, 4);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(19,82,0)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(19, 82, 0);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(9,43,0)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(9, 43, 0);"
                                   />
-                                </div>
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -5631,86 +6063,106 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               <div
                                 class="ant-color-picker-presets-items"
                               >
-                                <div
+                                <button
+                                  aria-label="rgb(230,255,251)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(230, 255, 251);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(181,245,236)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(181, 245, 236);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(135,232,222)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(135, 232, 222);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(92,219,211)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(92, 219, 211);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(54,207,201)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(54, 207, 201);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(19,194,194)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(19, 194, 194);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(8,151,156)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(8, 151, 156);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(0,109,117)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(0, 109, 117);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(0,71,79)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(0, 71, 79);"
                                   />
-                                </div>
-                                <div
+                                </button>
+                                <button
+                                  aria-label="rgb(0,35,41)"
                                   class="ant-color-picker-color-block ant-color-picker-presets-color"
+                                  type="button"
                                 >
-                                  <div
+                                  <span
                                     class="ant-color-picker-color-block-inner"
                                     style="background: rgb(0, 35, 41);"
                                   />
-                                </div>
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -5742,8 +6194,39 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                           >
                             <div
                               class="ant-color-picker-handler"
-                              style="background-color: rgb(22, 119, 255);"
-                            />
+                              style="position: relative; background-color: rgb(22, 119, 255);"
+                            >
+                              <input
+                                aria-hidden="false"
+                                aria-label="Color picker"
+                                aria-orientation="horizontal"
+                                aria-roledescription="2D slider"
+                                aria-valuetext="Saturation: 91%"
+                                class="ant-color-picker-handler-range"
+                                max="100"
+                                min="0"
+                                step="1"
+                                style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                                tabindex="0"
+                                type="range"
+                                value="91"
+                              />
+                              <input
+                                aria-hidden="true"
+                                aria-label="Color picker"
+                                aria-orientation="vertical"
+                                aria-roledescription="2D slider"
+                                aria-valuetext="Brightness: 100%"
+                                class="ant-color-picker-handler-range"
+                                max="100"
+                                min="0"
+                                step="1"
+                                style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                                tabindex="-1"
+                                type="range"
+                                value="100"
+                              />
+                            </div>
                           </div>
                           <div
                             class="ant-color-picker-saturation"
@@ -6123,8 +6606,39 @@ Array [
                   >
                     <div
                       class="ant-color-picker-handler"
-                      style="background-color: rgb(22, 119, 255);"
-                    />
+                      style="position: relative; background-color: rgb(22, 119, 255);"
+                    >
+                      <input
+                        aria-hidden="false"
+                        aria-label="Color picker"
+                        aria-orientation="horizontal"
+                        aria-roledescription="2D slider"
+                        aria-valuetext="Saturation: 91%"
+                        class="ant-color-picker-handler-range"
+                        max="100"
+                        min="0"
+                        step="1"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                        tabindex="0"
+                        type="range"
+                        value="91"
+                      />
+                      <input
+                        aria-hidden="true"
+                        aria-label="Color picker"
+                        aria-orientation="vertical"
+                        aria-roledescription="2D slider"
+                        aria-valuetext="Brightness: 100%"
+                        class="ant-color-picker-handler-range"
+                        max="100"
+                        min="0"
+                        step="1"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                        tabindex="-1"
+                        type="range"
+                        value="100"
+                      />
+                    </div>
                   </div>
                   <div
                     class="ant-color-picker-saturation"
@@ -6500,86 +7014,106 @@ Array [
                       <div
                         class="ant-color-picker-presets-items"
                       >
-                        <div
+                        <button
+                          aria-label="rgb(230,244,255)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(230, 244, 255);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(186,224,255)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(186, 224, 255);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(145,202,255)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(145, 202, 255);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(105,177,255)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(105, 177, 255);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(64,150,255)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(64, 150, 255);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(22,119,255)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-checked"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(22, 119, 255);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(9,88,217)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(9, 88, 217);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(0,62,179)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(0, 62, 179);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(0,44,140)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(0, 44, 140);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(0,29,102)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(0, 29, 102);"
                           />
-                        </div>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -6640,86 +7174,106 @@ Array [
                       <div
                         class="ant-color-picker-presets-items"
                       >
-                        <div
+                        <button
+                          aria-label="rgb(255,241,240)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(255, 241, 240);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(255,204,199)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(255, 204, 199);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(255,163,158)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(255, 163, 158);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(255,120,117)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(255, 120, 117);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(255,77,79)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(255, 77, 79);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(245,34,45)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(245, 34, 45);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(207,19,34)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(207, 19, 34);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(168,7,26)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(168, 7, 26);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(130,0,20)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(130, 0, 20);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(92,0,17)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(92, 0, 17);"
                           />
-                        </div>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -6780,86 +7334,106 @@ Array [
                       <div
                         class="ant-color-picker-presets-items"
                       >
-                        <div
+                        <button
+                          aria-label="rgb(246,255,237)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(246, 255, 237);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(217,247,190)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(217, 247, 190);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(183,235,143)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color ant-color-picker-presets-color-bright"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(183, 235, 143);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(149,222,100)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(149, 222, 100);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(115,209,61)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(115, 209, 61);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(82,196,26)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(82, 196, 26);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(56,158,13)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(56, 158, 13);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(35,120,4)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(35, 120, 4);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(19,82,0)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(19, 82, 0);"
                           />
-                        </div>
-                        <div
+                        </button>
+                        <button
+                          aria-label="rgb(9,43,0)"
                           class="ant-color-picker-color-block ant-color-picker-presets-color"
+                          type="button"
                         >
-                          <div
+                          <span
                             class="ant-color-picker-color-block-inner"
                             style="background: rgb(9, 43, 0);"
                           />
-                        </div>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -6938,8 +7512,39 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                     >
                       <div
                         class="ant-color-picker-handler"
-                        style="background-color: rgb(22, 119, 255);"
-                      />
+                        style="position: relative; background-color: rgb(22, 119, 255);"
+                      >
+                        <input
+                          aria-hidden="false"
+                          aria-label="Color picker"
+                          aria-orientation="horizontal"
+                          aria-roledescription="2D slider"
+                          aria-valuetext="Saturation: 91%"
+                          class="ant-color-picker-handler-range"
+                          max="100"
+                          min="0"
+                          step="1"
+                          style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                          tabindex="0"
+                          type="range"
+                          value="91"
+                        />
+                        <input
+                          aria-hidden="true"
+                          aria-label="Color picker"
+                          aria-orientation="vertical"
+                          aria-roledescription="2D slider"
+                          aria-valuetext="Brightness: 100%"
+                          class="ant-color-picker-handler-range"
+                          max="100"
+                          min="0"
+                          step="1"
+                          style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                          tabindex="-1"
+                          type="range"
+                          value="100"
+                        />
+                      </div>
                     </div>
                     <div
                       class="ant-color-picker-saturation"
@@ -7327,8 +7932,39 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-color-picker-handler"
-                            style="background-color: rgb(22, 119, 255);"
-                          />
+                            style="position: relative; background-color: rgb(22, 119, 255);"
+                          >
+                            <input
+                              aria-hidden="false"
+                              aria-label="Color picker"
+                              aria-orientation="horizontal"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Saturation: 91%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="0"
+                              type="range"
+                              value="91"
+                            />
+                            <input
+                              aria-hidden="true"
+                              aria-label="Color picker"
+                              aria-orientation="vertical"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Brightness: 100%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="-1"
+                              type="range"
+                              value="100"
+                            />
+                          </div>
                         </div>
                         <div
                           class="ant-color-picker-saturation"
@@ -7701,8 +8337,39 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-color-picker-handler"
-                            style="background-color: rgb(22, 119, 255);"
-                          />
+                            style="position: relative; background-color: rgb(22, 119, 255);"
+                          >
+                            <input
+                              aria-hidden="false"
+                              aria-label="Color picker"
+                              aria-orientation="horizontal"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Saturation: 91%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="0"
+                              type="range"
+                              value="91"
+                            />
+                            <input
+                              aria-hidden="true"
+                              aria-label="Color picker"
+                              aria-orientation="vertical"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Brightness: 100%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="-1"
+                              type="range"
+                              value="100"
+                            />
+                          </div>
                         </div>
                         <div
                           class="ant-color-picker-saturation"
@@ -8075,8 +8742,39 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-color-picker-handler"
-                            style="background-color: rgb(22, 119, 255);"
-                          />
+                            style="position: relative; background-color: rgb(22, 119, 255);"
+                          >
+                            <input
+                              aria-hidden="false"
+                              aria-label="Color picker"
+                              aria-orientation="horizontal"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Saturation: 91%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="0"
+                              type="range"
+                              value="91"
+                            />
+                            <input
+                              aria-hidden="true"
+                              aria-label="Color picker"
+                              aria-orientation="vertical"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Brightness: 100%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="-1"
+                              type="range"
+                              value="100"
+                            />
+                          </div>
                         </div>
                         <div
                           class="ant-color-picker-saturation"
@@ -8462,8 +9160,39 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-color-picker-handler"
-                            style="background-color: rgb(22, 119, 255);"
-                          />
+                            style="position: relative; background-color: rgb(22, 119, 255);"
+                          >
+                            <input
+                              aria-hidden="false"
+                              aria-label="Color picker"
+                              aria-orientation="horizontal"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Saturation: 91%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="0"
+                              type="range"
+                              value="91"
+                            />
+                            <input
+                              aria-hidden="true"
+                              aria-label="Color picker"
+                              aria-orientation="vertical"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Brightness: 100%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="-1"
+                              type="range"
+                              value="100"
+                            />
+                          </div>
                         </div>
                         <div
                           class="ant-color-picker-saturation"
@@ -8841,8 +9570,39 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-color-picker-handler"
-                            style="background-color: rgb(22, 119, 255);"
-                          />
+                            style="position: relative; background-color: rgb(22, 119, 255);"
+                          >
+                            <input
+                              aria-hidden="false"
+                              aria-label="Color picker"
+                              aria-orientation="horizontal"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Saturation: 91%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="0"
+                              type="range"
+                              value="91"
+                            />
+                            <input
+                              aria-hidden="true"
+                              aria-label="Color picker"
+                              aria-orientation="vertical"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Brightness: 100%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="-1"
+                              type="range"
+                              value="100"
+                            />
+                          </div>
                         </div>
                         <div
                           class="ant-color-picker-saturation"
@@ -9220,8 +9980,39 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         >
                           <div
                             class="ant-color-picker-handler"
-                            style="background-color: rgb(22, 119, 255);"
-                          />
+                            style="position: relative; background-color: rgb(22, 119, 255);"
+                          >
+                            <input
+                              aria-hidden="false"
+                              aria-label="Color picker"
+                              aria-orientation="horizontal"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Saturation: 91%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="0"
+                              type="range"
+                              value="91"
+                            />
+                            <input
+                              aria-hidden="true"
+                              aria-label="Color picker"
+                              aria-orientation="vertical"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Brightness: 100%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="-1"
+                              type="range"
+                              value="100"
+                            />
+                          </div>
                         </div>
                         <div
                           class="ant-color-picker-saturation"
@@ -9601,8 +10392,39 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       >
                         <div
                           class="ant-color-picker-handler"
-                          style="background-color: rgb(22, 119, 255);"
-                        />
+                          style="position: relative; background-color: rgb(22, 119, 255);"
+                        >
+                          <input
+                            aria-hidden="false"
+                            aria-label="Color picker"
+                            aria-orientation="horizontal"
+                            aria-roledescription="2D slider"
+                            aria-valuetext="Saturation: 91%"
+                            class="ant-color-picker-handler-range"
+                            max="100"
+                            min="0"
+                            step="1"
+                            style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                            tabindex="0"
+                            type="range"
+                            value="91"
+                          />
+                          <input
+                            aria-hidden="true"
+                            aria-label="Color picker"
+                            aria-orientation="vertical"
+                            aria-roledescription="2D slider"
+                            aria-valuetext="Brightness: 100%"
+                            class="ant-color-picker-handler-range"
+                            max="100"
+                            min="0"
+                            step="1"
+                            style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                            tabindex="-1"
+                            type="range"
+                            value="100"
+                          />
+                        </div>
                       </div>
                       <div
                         class="ant-color-picker-saturation"
@@ -9971,8 +10793,39 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                       >
                         <div
                           class="ant-color-picker-handler"
-                          style="background-color: rgb(114, 46, 209);"
-                        />
+                          style="position: relative; background-color: rgb(114, 46, 209);"
+                        >
+                          <input
+                            aria-hidden="false"
+                            aria-label="Color picker"
+                            aria-orientation="horizontal"
+                            aria-roledescription="2D slider"
+                            aria-valuetext="Saturation: 78%"
+                            class="ant-color-picker-handler-range"
+                            max="100"
+                            min="0"
+                            step="1"
+                            style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                            tabindex="0"
+                            type="range"
+                            value="78"
+                          />
+                          <input
+                            aria-hidden="true"
+                            aria-label="Color picker"
+                            aria-orientation="vertical"
+                            aria-roledescription="2D slider"
+                            aria-valuetext="Brightness: 82%"
+                            class="ant-color-picker-handler-range"
+                            max="100"
+                            min="0"
+                            step="1"
+                            style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                            tabindex="-1"
+                            type="range"
+                            value="82"
+                          />
+                        </div>
                       </div>
                       <div
                         class="ant-color-picker-saturation"
@@ -10370,8 +11223,39 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     >
                       <div
                         class="ant-color-picker-handler"
-                        style="background-color: rgb(22, 119, 255);"
-                      />
+                        style="position: relative; background-color: rgb(22, 119, 255);"
+                      >
+                        <input
+                          aria-hidden="false"
+                          aria-label="Color picker"
+                          aria-orientation="horizontal"
+                          aria-roledescription="2D slider"
+                          aria-valuetext="Saturation: 91%"
+                          class="ant-color-picker-handler-range"
+                          max="100"
+                          min="0"
+                          step="1"
+                          style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                          tabindex="0"
+                          type="range"
+                          value="91"
+                        />
+                        <input
+                          aria-hidden="true"
+                          aria-label="Color picker"
+                          aria-orientation="vertical"
+                          aria-roledescription="2D slider"
+                          aria-valuetext="Brightness: 100%"
+                          class="ant-color-picker-handler-range"
+                          max="100"
+                          min="0"
+                          step="1"
+                          style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                          tabindex="-1"
+                          type="range"
+                          value="100"
+                        />
+                      </div>
                     </div>
                     <div
                       class="ant-color-picker-saturation"
@@ -10751,8 +11635,39 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     >
                       <div
                         class="ant-color-picker-handler"
-                        style="background-color: rgb(22, 119, 255);"
-                      />
+                        style="position: relative; background-color: rgb(22, 119, 255);"
+                      >
+                        <input
+                          aria-hidden="false"
+                          aria-label="Color picker"
+                          aria-orientation="horizontal"
+                          aria-roledescription="2D slider"
+                          aria-valuetext="Saturation: 91%"
+                          class="ant-color-picker-handler-range"
+                          max="100"
+                          min="0"
+                          step="1"
+                          style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                          tabindex="0"
+                          type="range"
+                          value="91"
+                        />
+                        <input
+                          aria-hidden="true"
+                          aria-label="Color picker"
+                          aria-orientation="vertical"
+                          aria-roledescription="2D slider"
+                          aria-valuetext="Brightness: 100%"
+                          class="ant-color-picker-handler-range"
+                          max="100"
+                          min="0"
+                          step="1"
+                          style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                          tabindex="-1"
+                          type="range"
+                          value="100"
+                        />
+                      </div>
                     </div>
                     <div
                       class="ant-color-picker-saturation"
@@ -11149,8 +12064,39 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     >
                       <div
                         class="ant-color-picker-handler"
-                        style="background-color: rgb(22, 119, 255);"
-                      />
+                        style="position: relative; background-color: rgb(22, 119, 255);"
+                      >
+                        <input
+                          aria-hidden="false"
+                          aria-label="Color picker"
+                          aria-orientation="horizontal"
+                          aria-roledescription="2D slider"
+                          aria-valuetext="Saturation: 91%"
+                          class="ant-color-picker-handler-range"
+                          max="100"
+                          min="0"
+                          step="1"
+                          style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                          tabindex="0"
+                          type="range"
+                          value="91"
+                        />
+                        <input
+                          aria-hidden="true"
+                          aria-label="Color picker"
+                          aria-orientation="vertical"
+                          aria-roledescription="2D slider"
+                          aria-valuetext="Brightness: 100%"
+                          class="ant-color-picker-handler-range"
+                          max="100"
+                          min="0"
+                          step="1"
+                          style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                          tabindex="-1"
+                          type="range"
+                          value="100"
+                        />
+                      </div>
                     </div>
                     <div
                       class="ant-color-picker-saturation"
@@ -11524,8 +12470,39 @@ Array [
                   >
                     <div
                       class="ant-color-picker-handler"
-                      style="background-color: rgb(22, 119, 255);"
-                    />
+                      style="position: relative; background-color: rgb(22, 119, 255);"
+                    >
+                      <input
+                        aria-hidden="false"
+                        aria-label="Color picker"
+                        aria-orientation="horizontal"
+                        aria-roledescription="2D slider"
+                        aria-valuetext="Saturation: 91%"
+                        class="ant-color-picker-handler-range"
+                        max="100"
+                        min="0"
+                        step="1"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                        tabindex="0"
+                        type="range"
+                        value="91"
+                      />
+                      <input
+                        aria-hidden="true"
+                        aria-label="Color picker"
+                        aria-orientation="vertical"
+                        aria-roledescription="2D slider"
+                        aria-valuetext="Brightness: 100%"
+                        class="ant-color-picker-handler-range"
+                        max="100"
+                        min="0"
+                        step="1"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                        tabindex="-1"
+                        type="range"
+                        value="100"
+                      />
+                    </div>
                   </div>
                   <div
                     class="ant-color-picker-saturation"
@@ -11901,8 +12878,39 @@ Array [
                   >
                     <div
                       class="ant-color-picker-handler"
-                      style="background-color: rgb(22, 119, 255);"
-                    />
+                      style="position: relative; background-color: rgb(22, 119, 255);"
+                    >
+                      <input
+                        aria-hidden="false"
+                        aria-label="Color picker"
+                        aria-orientation="horizontal"
+                        aria-roledescription="2D slider"
+                        aria-valuetext="Saturation: 91%"
+                        class="ant-color-picker-handler-range"
+                        max="100"
+                        min="0"
+                        step="1"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                        tabindex="0"
+                        type="range"
+                        value="91"
+                      />
+                      <input
+                        aria-hidden="true"
+                        aria-label="Color picker"
+                        aria-orientation="vertical"
+                        aria-roledescription="2D slider"
+                        aria-valuetext="Brightness: 100%"
+                        class="ant-color-picker-handler-range"
+                        max="100"
+                        min="0"
+                        step="1"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                        tabindex="-1"
+                        type="range"
+                        value="100"
+                      />
+                    </div>
                   </div>
                   <div
                     class="ant-color-picker-saturation"

@@ -3,7 +3,7 @@ import RcCollapse from '@rc-component/collapse';
 import { clsx } from 'clsx';
 
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 
 export type CollapsibleType = 'header' | 'icon' | 'disabled';
 

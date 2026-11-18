@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import BackTop from './BackTop';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { FloatButtonProps } from './FloatButton';

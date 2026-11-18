@@ -14,7 +14,7 @@ import useSize from '../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
-import { useCompactItemContext } from '../space/Compact';
+import { useCompactItemContext } from '../space/CompactContext';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import { AggregationColor } from './color';
 import type { ColorPickerPanelProps } from './ColorPickerPanel';

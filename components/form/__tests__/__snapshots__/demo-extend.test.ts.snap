@@ -5260,8 +5260,39 @@ Array [
                               >
                                 <div
                                   class="ant-color-picker-handler"
-                                  style="background-color: rgba(0, 0, 0, 0);"
-                                />
+                                  style="position: relative; background-color: rgba(0, 0, 0, 0);"
+                                >
+                                  <input
+                                    aria-hidden="false"
+                                    aria-label="Color picker"
+                                    aria-orientation="horizontal"
+                                    aria-roledescription="2D slider"
+                                    aria-valuetext="Saturation: 0%"
+                                    class="ant-color-picker-handler-range"
+                                    max="100"
+                                    min="0"
+                                    step="1"
+                                    style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                                    tabindex="0"
+                                    type="range"
+                                    value="0"
+                                  />
+                                  <input
+                                    aria-hidden="true"
+                                    aria-label="Color picker"
+                                    aria-orientation="vertical"
+                                    aria-roledescription="2D slider"
+                                    aria-valuetext="Brightness: 0%"
+                                    class="ant-color-picker-handler-range"
+                                    max="100"
+                                    min="0"
+                                    step="1"
+                                    style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                                    tabindex="-1"
+                                    type="range"
+                                    value="0"
+                                  />
+                                </div>
                               </div>
                               <div
                                 class="ant-color-picker-saturation"
@@ -26764,8 +26795,39 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                             >
                               <div
                                 class="ant-color-picker-handler"
-                                style="background-color: rgba(0, 0, 0, 0);"
-                              />
+                                style="position: relative; background-color: rgba(0, 0, 0, 0);"
+                              >
+                                <input
+                                  aria-hidden="false"
+                                  aria-label="Color picker"
+                                  aria-orientation="horizontal"
+                                  aria-roledescription="2D slider"
+                                  aria-valuetext="Saturation: 0%"
+                                  class="ant-color-picker-handler-range"
+                                  max="100"
+                                  min="0"
+                                  step="1"
+                                  style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                                  tabindex="0"
+                                  type="range"
+                                  value="0"
+                                />
+                                <input
+                                  aria-hidden="true"
+                                  aria-label="Color picker"
+                                  aria-orientation="vertical"
+                                  aria-roledescription="2D slider"
+                                  aria-valuetext="Brightness: 0%"
+                                  class="ant-color-picker-handler-range"
+                                  max="100"
+                                  min="0"
+                                  step="1"
+                                  style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                                  tabindex="-1"
+                                  type="range"
+                                  value="0"
+                                />
+                              </div>
                             </div>
                             <div
                               class="ant-color-picker-saturation"

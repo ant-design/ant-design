@@ -6,8 +6,8 @@ import { clsx } from 'clsx';
 
 import { isFunction } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
-import type { SiderContextProps } from '../layout/Sider';
-import { SiderContext } from '../layout/Sider';
+import type { SiderContextProps } from '../layout/context';
+import { SiderContext } from '../layout/context';
 import type { TooltipProps, TooltipSemanticType } from '../tooltip';
 import Tooltip from '../tooltip';
 import type { MenuContextProps } from './MenuContext';

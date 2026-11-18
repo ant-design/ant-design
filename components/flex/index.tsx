@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import { isPresetSize } from '../_util/gapSize';
 import { useOrientation } from '../_util/hooks';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import type { ConfigConsumerProps } from '../config-provider';
 import type { FlexProps } from './interface';
 import useStyle from './style';

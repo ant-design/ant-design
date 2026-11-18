@@ -8,7 +8,7 @@ import { clsx } from 'clsx';
 import { isFunction, isPlainObject } from '../../_util/is';
 import { cloneElement } from '../../_util/reactNode';
 import { useDevWarning } from '../../_util/warning';
-import { ConfigContext } from '../../config-provider';
+import { ConfigContext } from '../../config-provider/context';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import { FormContext, NoStyleItemContext } from '../context';
 import type { FormInstance, FormItemLayout } from '../Form';

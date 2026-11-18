@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import fallbackProp from '../../_util/fallbackProp';
 import { isFunction } from '../../_util/is';
-import { ConfigContext } from '../../config-provider';
+import { ConfigContext } from '../../config-provider/context';
 import defaultLocale from '../../locale/en_US';
 import useLocale from '../../locale/useLocale';
 import type { ConfigUpdate } from '../confirm';

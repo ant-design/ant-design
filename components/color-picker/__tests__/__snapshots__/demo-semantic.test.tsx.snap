@@ -73,8 +73,39 @@ exports[`renders components/color-picker/demo/_semantic.tsx correctly 1`] = `
                         >
                           <div
                             class="ant-color-picker-handler"
-                            style="background-color: rgb(22, 119, 255);"
-                          />
+                            style="position: relative; background-color: rgb(22, 119, 255);"
+                          >
+                            <input
+                              aria-hidden="false"
+                              aria-label="Color picker"
+                              aria-orientation="horizontal"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Saturation: 91%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="0"
+                              type="range"
+                              value="91"
+                            />
+                            <input
+                              aria-hidden="true"
+                              aria-label="Color picker"
+                              aria-orientation="vertical"
+                              aria-roledescription="2D slider"
+                              aria-valuetext="Brightness: 100%"
+                              class="ant-color-picker-handler-range"
+                              max="100"
+                              min="0"
+                              step="1"
+                              style="position: absolute; inset: 0; width: 100%; height: 100%; margin: 0px; padding: 0px; opacity: 0; pointer-events: none;"
+                              tabindex="-1"
+                              type="range"
+                              value="100"
+                            />
+                          </div>
                         </div>
                         <div
                           class="ant-color-picker-saturation"

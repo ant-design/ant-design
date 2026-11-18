@@ -15,8 +15,7 @@ import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
-import { useComponentConfig } from '../config-provider/context';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { IconType, NotificationSemanticType } from './interface';
 import useStyle, { PurePanelStyle } from './style';
@@ -118,7 +117,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
   const noticePrefixCls = `${prefixCls}-notice`;
   const isCustomIcon = isReactRenderable(icon);
-  const iconNode = isCustomIcon ? icon : (type ? TypeIcon[type] : null);
+  const iconNode = isCustomIcon ? icon : type ? TypeIcon[type] : null;
   const typeIconCls = !isCustomIcon && type ? `${noticePrefixCls}-icon-${type}` : undefined;
   const { root: rootClassName, ...contentClassNames } = mergedClassNames;
   const { root: rootStyle, ...contentStyles } = mergedStyles;
