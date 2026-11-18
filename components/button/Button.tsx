@@ -66,10 +66,10 @@ export interface BaseButtonProps {
   iconPlacement?: 'start' | 'end';
   shape?: ButtonShape;
   size?: SizeType;
-  disabled?: boolean;
+  disabled?: boolean | undefined;
   loading?: boolean | { delay?: number; icon?: React.ReactNode };
   prefixCls?: string;
-  className?: string;
+  className?: string | undefined;
   rootClassName?: string;
   ghost?: boolean;
   danger?: boolean;
