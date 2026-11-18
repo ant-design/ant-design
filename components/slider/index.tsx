@@ -105,6 +105,7 @@ export interface SliderBaseProps {
 
 export interface SliderSingleProps extends SliderBaseProps {
   range?: false;
+  startPoint?: number;
   value?: number;
   defaultValue?: number;
   onChange?: (value: number) => void;
