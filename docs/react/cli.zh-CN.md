@@ -164,7 +164,7 @@ npx skills add ant-design/ant-design-cli
 | **Codex** | 安装 Skill 以启用 Agent 访问。[文档](https://github.com/openai/codex) |
 | **Gemini CLI** | 安装 Skill 以启用自动命令调用。[文档](https://github.com/google-gemini/gemini-cli) |
 
-支持所有兼容 [skills](https://github.com/nicepkg/agent-skills) 协议的 Agent。
+支持所有兼容 [skills](https://agentskills.io) 协议的 Agent。
 
 ## 了解更多 {#learn-more}
 
