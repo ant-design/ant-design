@@ -30,7 +30,7 @@ export function getPaginationParam(
 
 function usePagination(
   total: number,
-  onChange: (current: number, pageSize: number, info?: { recommendPage?: number }) => void,
+  onChange: (current: number, pageSize: number) => void,
   pagination?: TablePaginationConfig | false,
 ): readonly [TablePaginationConfig, (current?: number, pageSize?: number) => void] {
   const { total: paginationTotal = 0, ...paginationObj } = isPlainObject(pagination)
@@ -73,11 +73,7 @@ function usePagination(
       }
     }
     refreshPagination(current, pageSize);
-    if (info) {
-      onChange(current, pageSize || mergedPagination?.pageSize!, info);
-    } else {
-      onChange(current, pageSize || mergedPagination?.pageSize!);
-    }
+    onChange(current, pageSize || mergedPagination?.pageSize!);
   };
 
   if (pagination === false) {
