@@ -36,6 +36,7 @@ Array [
           style="background-color: transparent; width: 160px; height: 160px;"
         >
           <canvas
+            aria-label="https://ant.design"
             height="160"
             role="img"
             width="160"
@@ -61,6 +62,7 @@ exports[`renders components/qr-code/demo/base.tsx extend context correctly 1`] =
       style="background-color: transparent; width: 160px; height: 160px;"
     >
       <canvas
+        aria-label="https://ant.design/"
         height="160"
         role="img"
         width="160"
@@ -95,6 +97,7 @@ exports[`renders components/qr-code/demo/customColor.tsx extend context correctl
       style="background-color: transparent; width: 160px; height: 160px;"
     >
       <canvas
+        aria-label="https://ant.design/"
         height="160"
         role="img"
         width="160"
@@ -109,6 +112,7 @@ exports[`renders components/qr-code/demo/customColor.tsx extend context correctl
       style="background-color: rgb(245, 245, 245); width: 160px; height: 160px;"
     >
       <canvas
+        aria-label="https://ant.design/"
         height="160"
         role="img"
         width="160"
@@ -197,6 +201,7 @@ Array [
     style="background-color: transparent; width: 160px; height: 160px;"
   >
     <canvas
+      aria-label="https://ant.design/"
       height="160"
       role="img"
       width="160"
@@ -267,6 +272,7 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx extend context c
       </div>
     </div>
     <canvas
+      aria-label="https://ant.design"
       height="160"
       role="img"
       width="160"
@@ -334,6 +340,7 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx extend context c
       </div>
     </div>
     <canvas
+      aria-label="https://ant.design"
       height="160"
       role="img"
       width="160"
@@ -371,6 +378,7 @@ exports[`renders components/qr-code/demo/customStatusRender.tsx extend context c
       </div>
     </div>
     <canvas
+      aria-label="https://ant.design"
       height="160"
       role="img"
       width="160"
@@ -441,6 +449,7 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
         style="background-color: rgba(255, 255, 255, 0.5); margin-bottom: 16px; width: 160px; height: 160px;"
       >
         <canvas
+          aria-label="https://ant.design/"
           height="160"
           role="img"
           width="160"
@@ -474,6 +483,7 @@ Array [
     style="background-color: transparent; margin-bottom: 16px; width: 160px; height: 160px;"
   >
     <canvas
+      aria-label="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
       height="160"
       role="img"
       width="160"
@@ -562,6 +572,7 @@ exports[`renders components/qr-code/demo/icon.tsx extend context correctly 1`] =
   style="background-color: transparent; width: 160px; height: 160px;"
 >
   <canvas
+    aria-label="https://ant.design/"
     height="160"
     role="img"
     width="160"
@@ -616,6 +627,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
       </div>
     </div>
     <canvas
+      aria-label="https://ant.design"
       height="160"
       role="img"
       width="160"
@@ -666,6 +678,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
       </button>
     </div>
     <canvas
+      aria-label="https://ant.design"
       height="160"
       role="img"
       width="160"
@@ -685,6 +698,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
       </p>
     </div>
     <canvas
+      aria-label="https://ant.design"
       height="160"
       role="img"
       width="160"
@@ -704,6 +718,7 @@ exports[`renders components/qr-code/demo/style-class.tsx extend context correctl
     style="background-color: rgba(24, 144, 255, 0.1); border: 2px solid rgb(24, 144, 255); border-radius: 8px; padding: 16px; width: 160px; height: 160px;"
   >
     <canvas
+      aria-label="https://ant.design/"
       height="160"
       role="img"
       width="160"
@@ -714,6 +729,7 @@ exports[`renders components/qr-code/demo/style-class.tsx extend context correctl
     style="background-color: rgba(255, 77, 79, 0.1); border: 2px solid rgb(255, 77, 79); border-radius: 8px; padding: 16px; width: 160px; height: 160px;"
   >
     <canvas
+      aria-label="https://ant.design/"
       height="160"
       role="img"
       width="160"
@@ -742,6 +758,7 @@ exports[`renders components/qr-code/demo/type.tsx extend context correctly 1`] =
       style="background-color: transparent; width: 160px; height: 160px;"
     >
       <canvas
+        aria-label="https://ant.design/"
         height="160"
         role="img"
         width="160"
@@ -756,6 +773,7 @@ exports[`renders components/qr-code/demo/type.tsx extend context correctly 1`] =
       style="background-color: transparent; width: 160px; height: 160px;"
     >
       <svg
+        aria-label="https://ant.design/"
         height="160"
         role="img"
         viewBox="0 0 25 25"
