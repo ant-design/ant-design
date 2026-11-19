@@ -38,7 +38,9 @@ export interface DrawerPanelProps {
         placement?: 'start' | 'end';
       });
   closeIcon?: React.ReactNode;
-  onClose?: RCDrawerProps['onClose'];
+  // NonNullable: the indexed access includes `undefined`, which breaks
+  // exactOptionalPropertyTypes when DrawerProps extends this interface.
+  onClose?: NonNullable<RCDrawerProps['onClose']>;
 
   children?: React.ReactNode;
   classNames?: DrawerClassNames;

@@ -19,7 +19,10 @@ export type StatusRenderInfo = {
   onRefresh?: () => void;
 };
 
-export interface QRCodeProps extends QRProps, React.HTMLAttributes<HTMLDivElement> {
+// Omit 'style'/'title': QRProps declares them without undefined, which
+// breaks exactOptionalPropertyTypes against HTMLAttributes (#59881).
+export interface QRCodeProps
+  extends Omit<QRProps, 'style' | 'title'>, React.HTMLAttributes<HTMLDivElement> {
   type?: 'canvas' | 'svg';
   className?: string;
   rootClassName?: string;
