@@ -3430,6 +3430,7 @@ Array [
             class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
+              aria-hidden="true"
               class="ant-empty-image"
             >
               <svg
@@ -3674,6 +3675,7 @@ Array [
             class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
+              aria-hidden="true"
               class="ant-empty-image"
             >
               <svg
@@ -3927,6 +3929,7 @@ Array [
             class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
+              aria-hidden="true"
               class="ant-empty-image"
             >
               <svg
@@ -4238,6 +4241,7 @@ Array [
             class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
+              aria-hidden="true"
               class="ant-empty-image"
             >
               <svg
@@ -9981,6 +9985,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
+              aria-hidden="true"
               class="ant-empty-image"
             >
               <svg
@@ -10225,6 +10230,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
+              aria-hidden="true"
               class="ant-empty-image"
             >
               <svg
@@ -10478,6 +10484,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
+              aria-hidden="true"
               class="ant-empty-image"
             >
               <svg
@@ -10789,6 +10796,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
+              aria-hidden="true"
               class="ant-empty-image"
             >
               <svg
@@ -13610,6 +13618,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                 class="css-var-test-id ant-empty ant-empty-normal"
                               >
                                 <div
+                                  aria-hidden="true"
                                   class="ant-empty-image"
                                 >
                                   <svg
@@ -14139,6 +14148,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
           class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg

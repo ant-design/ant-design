@@ -62,6 +62,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
           class="css-var-root ant-empty ant-empty-normal ant-empty-rtl ant-empty-small"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg
@@ -229,6 +230,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
           class="css-var-root ant-empty ant-empty-normal ant-empty-rtl ant-empty-small"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg
@@ -971,6 +973,7 @@ exports[`Transfer should support render value and label in item 1`] = `
           class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg
@@ -1221,6 +1224,7 @@ exports[`immutable data dataSource is frozen 1`] = `
           class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg

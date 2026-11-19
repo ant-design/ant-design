@@ -35577,6 +35577,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                     class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
                   >
                     <div
+                      aria-hidden="true"
                       class="ant-empty-image"
                     >
                       <svg
@@ -35728,6 +35729,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                           class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
                         >
                           <div
+                            aria-hidden="true"
                             class="ant-empty-image"
                           >
                             <svg
@@ -35870,6 +35872,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                     class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
                   >
                     <div
+                      aria-hidden="true"
                       class="ant-empty-image"
                     >
                       <svg

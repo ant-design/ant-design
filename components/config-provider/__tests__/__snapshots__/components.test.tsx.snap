@@ -14502,6 +14502,7 @@ exports[`ConfigProvider components Empty configProvider 1`] = `
   class="css-var-root config-empty"
 >
   <div
+    aria-hidden="true"
     class="config-empty-image"
   >
     <svg
@@ -14574,6 +14575,7 @@ exports[`ConfigProvider components Empty configProvider componentDisabled 1`] = 
   class="css-var-root config-empty"
 >
   <div
+    aria-hidden="true"
     class="config-empty-image"
   >
     <svg
@@ -14646,6 +14648,7 @@ exports[`ConfigProvider components Empty configProvider componentSize large 1`] 
   class="css-var-root config-empty"
 >
   <div
+    aria-hidden="true"
     class="config-empty-image"
   >
     <svg
@@ -14718,6 +14721,7 @@ exports[`ConfigProvider components Empty configProvider componentSize medium 1`]
   class="css-var-root config-empty"
 >
   <div
+    aria-hidden="true"
     class="config-empty-image"
   >
     <svg
@@ -14790,6 +14794,7 @@ exports[`ConfigProvider components Empty configProvider componentSize small 1`] 
   class="css-var-root config-empty"
 >
   <div
+    aria-hidden="true"
     class="config-empty-image"
   >
     <svg
@@ -14862,6 +14867,7 @@ exports[`ConfigProvider components Empty normal 1`] = `
   class="css-var-root ant-empty"
 >
   <div
+    aria-hidden="true"
     class="ant-empty-image"
   >
     <svg
@@ -14934,6 +14940,7 @@ exports[`ConfigProvider components Empty prefixCls 1`] = `
   class="css-var-root prefix-Empty"
 >
   <div
+    aria-hidden="true"
     class="prefix-Empty-image"
   >
     <svg
@@ -25602,6 +25609,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                       class="css-var-root config-empty config-empty-normal"
                     >
                       <div
+                        aria-hidden="true"
                         class="config-empty-image"
                       >
                         <svg
@@ -25911,6 +25919,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                       class="css-var-root config-empty config-empty-normal"
                     >
                       <div
+                        aria-hidden="true"
                         class="config-empty-image"
                       >
                         <svg
@@ -26218,6 +26227,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                       class="css-var-root config-empty config-empty-normal"
                     >
                       <div
+                        aria-hidden="true"
                         class="config-empty-image"
                       >
                         <svg
@@ -26525,6 +26535,7 @@ exports[`ConfigProvider components Table configProvider componentSize medium 1`]
                       class="css-var-root config-empty config-empty-normal"
                     >
                       <div
+                        aria-hidden="true"
                         class="config-empty-image"
                       >
                         <svg
@@ -26832,6 +26843,7 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                       class="css-var-root config-empty config-empty-normal"
                     >
                       <div
+                        aria-hidden="true"
                         class="config-empty-image"
                       >
                         <svg
@@ -27139,6 +27151,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                       class="css-var-root ant-empty ant-empty-normal"
                     >
                       <div
+                        aria-hidden="true"
                         class="ant-empty-image"
                       >
                         <svg
@@ -27446,6 +27459,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                       class="css-var-root ant-empty ant-empty-normal"
                     >
                       <div
+                        aria-hidden="true"
                         class="ant-empty-image"
                       >
                         <svg
@@ -42484,6 +42498,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
           class="css-var-root config-empty config-empty-normal config-empty-small"
         >
           <div
+            aria-hidden="true"
             class="config-empty-image"
           >
             <svg
@@ -42651,6 +42666,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
           class="css-var-root config-empty config-empty-normal config-empty-small"
         >
           <div
+            aria-hidden="true"
             class="config-empty-image"
           >
             <svg
@@ -42764,6 +42780,7 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
           class="css-var-root config-empty config-empty-normal config-empty-small"
         >
           <div
+            aria-hidden="true"
             class="config-empty-image"
           >
             <svg
@@ -42932,6 +42949,7 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
           class="css-var-root config-empty config-empty-normal config-empty-small"
         >
           <div
+            aria-hidden="true"
             class="config-empty-image"
           >
             <svg
@@ -43044,6 +43062,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
           class="css-var-root config-empty config-empty-normal config-empty-small"
         >
           <div
+            aria-hidden="true"
             class="config-empty-image"
           >
             <svg
@@ -43211,6 +43230,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
           class="css-var-root config-empty config-empty-normal config-empty-small"
         >
           <div
+            aria-hidden="true"
             class="config-empty-image"
           >
             <svg
@@ -43323,6 +43343,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize medium 
           class="css-var-root config-empty config-empty-normal config-empty-small"
         >
           <div
+            aria-hidden="true"
             class="config-empty-image"
           >
             <svg
@@ -43490,6 +43511,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize medium 
           class="css-var-root config-empty config-empty-normal config-empty-small"
         >
           <div
+            aria-hidden="true"
             class="config-empty-image"
           >
             <svg
@@ -43602,6 +43624,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
           class="css-var-root config-empty config-empty-normal config-empty-small"
         >
           <div
+            aria-hidden="true"
             class="config-empty-image"
           >
             <svg
@@ -43769,6 +43792,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
           class="css-var-root config-empty config-empty-normal config-empty-small"
         >
           <div
+            aria-hidden="true"
             class="config-empty-image"
           >
             <svg
@@ -43881,6 +43905,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
           class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg
@@ -44048,6 +44073,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
           class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg
@@ -44160,6 +44186,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
           class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg
@@ -44327,6 +44354,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
           class="css-var-root ant-empty ant-empty-normal ant-empty-small"
         >
           <div
+            aria-hidden="true"
             class="ant-empty-image"
           >
             <svg
