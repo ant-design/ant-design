@@ -754,6 +754,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           class="ant-radio-button ant-radio-button-checked"
         >
           <input
+            aria-label="Month"
             checked=""
             class="ant-radio-button-input"
             name="test-id"
@@ -762,6 +763,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Month
@@ -774,6 +776,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           class="ant-radio-button"
         >
           <input
+            aria-label="Year"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -781,6 +784,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Year
@@ -2320,6 +2324,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -2328,6 +2333,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Month
@@ -2340,6 +2346,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             class="ant-radio-button"
           >
             <input
+              aria-label="Year"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -2347,6 +2354,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Year
@@ -3885,6 +3893,7 @@ Array [
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -3893,6 +3902,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Month
@@ -3905,6 +3915,7 @@ Array [
             class="ant-radio-button"
           >
             <input
+              aria-label="Year"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -3912,6 +3923,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Year
@@ -5444,6 +5456,7 @@ Array [
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -5452,6 +5465,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Month
@@ -5464,6 +5478,7 @@ Array [
             class="ant-radio-button"
           >
             <input
+              aria-label="Year"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -5471,6 +5486,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Year
@@ -6284,6 +6300,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
               class="ant-radio-button ant-radio-button-checked"
             >
               <input
+                aria-label="Month"
                 checked=""
                 class="ant-radio-button-input"
                 name="test-id"
@@ -6292,6 +6309,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
               />
             </span>
             <span
+              aria-hidden="true"
               class="ant-radio-button-label"
             >
               Month
@@ -6304,6 +6322,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
               class="ant-radio-button"
             >
               <input
+                aria-label="Year"
                 class="ant-radio-button-input"
                 name="test-id"
                 type="radio"
@@ -6311,6 +6330,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
               />
             </span>
             <span
+              aria-hidden="true"
               class="ant-radio-button-label"
             >
               Year
@@ -8633,6 +8653,7 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
           class="ant-radio-button ant-radio-button-checked"
         >
           <input
+            aria-label="Month"
             checked=""
             class="ant-radio-button-input"
             name="test-id"
@@ -8641,6 +8662,7 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Month
@@ -8653,6 +8675,7 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
           class="ant-radio-button"
         >
           <input
+            aria-label="Year"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -8660,6 +8683,7 @@ exports[`renders components/calendar/demo/event-range.tsx extend context correct
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Year
@@ -10590,6 +10614,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           class="ant-radio-button ant-radio-button-checked"
         >
           <input
+            aria-label="Month"
             checked=""
             class="ant-radio-button-input"
             name="test-id"
@@ -10598,6 +10623,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Month
@@ -10610,6 +10636,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           class="ant-radio-button"
         >
           <input
+            aria-label="Year"
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
@@ -10617,6 +10644,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           />
         </span>
         <span
+          aria-hidden="true"
           class="ant-radio-button-label"
         >
           Year
@@ -12566,6 +12594,7 @@ Array [
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -12574,6 +12603,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Month
@@ -12586,6 +12616,7 @@ Array [
             class="ant-radio-button"
           >
             <input
+              aria-label="Year"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -12593,6 +12624,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Year
@@ -14134,6 +14166,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -14142,6 +14175,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Month
@@ -14154,6 +14188,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
             class="ant-radio-button"
           >
             <input
+              aria-label="Year"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -14161,6 +14196,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Year
@@ -15693,6 +15729,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -15701,6 +15738,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Month
@@ -15713,6 +15751,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
             class="ant-radio-button"
           >
             <input
+              aria-label="Year"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -15720,6 +15759,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Year
@@ -17258,6 +17298,7 @@ Array [
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -17266,6 +17307,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Month
@@ -17278,6 +17320,7 @@ Array [
             class="ant-radio-button"
           >
             <input
+              aria-label="Year"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -17285,6 +17328,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Year
@@ -18878,6 +18922,7 @@ Array [
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
+              aria-label="Month"
               checked=""
               class="ant-radio-button-input"
               name="test-id"
@@ -18886,6 +18931,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Month
@@ -18898,6 +18944,7 @@ Array [
             class="ant-radio-button"
           >
             <input
+              aria-label="Year"
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
@@ -18905,6 +18952,7 @@ Array [
             />
           </span>
           <span
+            aria-hidden="true"
             class="ant-radio-button-label"
           >
             Year

@@ -2972,6 +2972,7 @@ Array [
                 class="ant-radio-button"
               >
                 <input
+                  aria-label="top"
                   class="ant-radio-button-input"
                   name="test-id"
                   type="radio"
@@ -2979,6 +2980,7 @@ Array [
                 />
               </span>
               <span
+                aria-hidden="true"
                 class="ant-radio-button-label"
               >
                 top
@@ -2991,6 +2993,7 @@ Array [
                 class="ant-radio-button ant-radio-button-checked"
               >
                 <input
+                  aria-label="bottom"
                   checked=""
                   class="ant-radio-button-input"
                   name="test-id"
@@ -2999,6 +3002,7 @@ Array [
                 />
               </span>
               <span
+                aria-hidden="true"
                 class="ant-radio-button-label"
               >
                 bottom
@@ -3011,6 +3015,7 @@ Array [
                 class="ant-radio-button"
               >
                 <input
+                  aria-label="both"
                   class="ant-radio-button-input"
                   name="test-id"
                   type="radio"
@@ -3018,6 +3023,7 @@ Array [
                 />
               </span>
               <span
+                aria-hidden="true"
                 class="ant-radio-button-label"
               >
                 both
@@ -3054,6 +3060,7 @@ Array [
                 class="ant-radio-button"
               >
                 <input
+                  aria-label="start"
                   class="ant-radio-button-input"
                   name="test-id"
                   type="radio"
@@ -3061,6 +3068,7 @@ Array [
                 />
               </span>
               <span
+                aria-hidden="true"
                 class="ant-radio-button-label"
               >
                 start
@@ -3073,6 +3081,7 @@ Array [
                 class="ant-radio-button ant-radio-button-checked"
               >
                 <input
+                  aria-label="center"
                   checked=""
                   class="ant-radio-button-input"
                   name="test-id"
@@ -3081,6 +3090,7 @@ Array [
                 />
               </span>
               <span
+                aria-hidden="true"
                 class="ant-radio-button-label"
               >
                 center
@@ -3093,6 +3103,7 @@ Array [
                 class="ant-radio-button"
               >
                 <input
+                  aria-label="end"
                   class="ant-radio-button-input"
                   name="test-id"
                   type="radio"
@@ -3100,6 +3111,7 @@ Array [
                 />
               </span>
               <span
+                aria-hidden="true"
                 class="ant-radio-button-label"
               >
                 end

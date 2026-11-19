@@ -1141,6 +1141,7 @@ Array [
         class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          aria-label="Top"
           checked=""
           class="ant-radio-button-input"
           name="test-id"
@@ -1149,6 +1150,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Top
@@ -1161,6 +1163,7 @@ Array [
         class="ant-radio-button"
       >
         <input
+          aria-label="Bottom"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1168,6 +1171,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Bottom
@@ -1180,6 +1184,7 @@ Array [
         class="ant-radio-button"
       >
         <input
+          aria-label="Start"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1187,6 +1192,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         Start
@@ -1199,6 +1205,7 @@ Array [
         class="ant-radio-button"
       >
         <input
+          aria-label="End"
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
@@ -1206,6 +1213,7 @@ Array [
         />
       </span>
       <span
+        aria-hidden="true"
         class="ant-radio-button-label"
       >
         End
