@@ -9,10 +9,12 @@ interface ErrorBoundaryProps {
   id?: string;
 }
 
+// `| undefined` keeps the `state` initializer (`error: undefined`) assignable
+// under exactOptionalPropertyTypes (#59881).
 interface ErrorBoundaryStates {
-  error?: Error | null;
+  error?: Error | null | undefined;
   info?: {
-    componentStack?: string;
+    componentStack?: string | undefined;
   };
 }
 
