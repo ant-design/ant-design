@@ -1005,9 +1005,9 @@ describe('Anchor Render', () => {
 
       expect(container.querySelector('.ant-anchor.ant-anchor-fixed')).toBeTruthy();
 
-      // The hide rule must outrank the `-ink-visible` display rule.
+      // The hide rule must be scoped to its own Anchor instance and outrank the `-ink-visible` display rule.
       expect(extractStyle(cache, { plain: true })).toContain(
-        '.ant-anchor.ant-anchor-fixed .ant-anchor-ink.ant-anchor-ink-visible{display:none;}',
+        '.ant-anchor-wrapper:not(.ant-anchor-wrapper-horizontal) >.ant-anchor.ant-anchor-fixed>.ant-anchor-ink.ant-anchor-ink-visible{display:none;}',
       );
     });
 

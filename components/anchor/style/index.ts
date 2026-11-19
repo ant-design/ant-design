@@ -117,11 +117,12 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken, CSSObject> = (token) => {
               display: 'inline-block',
             },
           },
+        },
 
-          [`&${componentCls}-fixed ${componentCls}-ink${componentCls}-ink-visible`]: {
+        [`> ${componentCls}${componentCls}-fixed > ${componentCls}-ink${componentCls}-ink-visible`]:
+          {
             display: 'none',
           },
-        },
       },
     },
   };
