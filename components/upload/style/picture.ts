@@ -181,7 +181,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
           },
         },
 
-        [`${itemCls}:hover`]: {
+        [`${itemCls}:hover, ${itemCls}:focus-within`]: {
           [`&::before, ${itemCls}-actions`]: {
             opacity: 1,
           },
