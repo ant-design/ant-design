@@ -27,17 +27,6 @@ const styles = createStaticStyles(({ cssVar, css }) => ({
     margin: 0;
     padding: 0;
     list-style: none;
-
-    a,
-    a:hover,
-    a:active {
-      display: flex;
-      align-items: center;
-      gap: ${cssVar.marginXS};
-      color: ${cssVar.colorTextSecondary};
-      overflow-wrap: anywhere;
-    }
-
     .ant-avatar {
       flex-shrink: 0;
     }
