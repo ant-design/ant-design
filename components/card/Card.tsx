@@ -184,6 +184,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   }
 
   const onTabChange = (key: string) => {
+    tabProps.onChange?.(key);
     props.onTabChange?.(key);
   };
 

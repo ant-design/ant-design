@@ -18,7 +18,9 @@ tag: 6.6.0
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/row-hoverable-debug.tsx" version="6.7.0" debug>Disable row hover</code>
 <code src="./demo/virtual.tsx">Virtual scrolling</code>
+<code src="./demo/horizontal.tsx" version="6.7.0">Horizontal scrolling</code>
 <code src="./demo/group.tsx">Grouping and sticky headers</code>
 <code src="./demo/rich.tsx">Rich content</code>
 <code src="./demo/drag-sorting.tsx">Drag sorting</code>
@@ -34,14 +36,16 @@ Common props ref: [Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| classNames | Semantic class names | `{ root?, item?, groupHeader? }` | - | 6.6.0 | 6.6.0 |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.6.0 | 6.6.0 |
 | group | Grouping config, see [Group](#group) below | `Group<T, K>` | - | 6.6.0 | × |
 | height | Height of the scroll container; content scrolls when it overflows | number | - | 6.6.0 | × |
 | itemRender | Render a single row | `(item: T, index: number) => ReactNode` | - | 6.6.0 | × |
 | items | Data source of the list | `T[]` | `[]` | 6.6.0 | × |
-| rowKey | Unique key of an item, a field name or a getter | `keyof T \| (item: T) => Key` | - | 6.6.0 | × |
+| rowHoverable | Whether rows are hoverable | boolean | true | 6.7.0 | × |
+| rowKey | Unique key of an item, a field name or a getter | `keyof T \| (item: T, index: number) => Key` | - | 6.6.0 | × |
+| scrollWidth | Horizontal scroll width of the content; scrolls horizontally when it exceeds the container, only works with `virtual` | number | - | 6.7.0 | × |
 | sticky | Whether group headers stick to the top | boolean | false | 6.6.0 | × |
-| styles | Semantic inline styles | `{ root?, item?, groupHeader? }` | - | 6.6.0 | 6.6.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.6.0 | 6.6.0 |
 | virtual | Whether to enable virtual scrolling, rendering only rows in view, requires `height` | boolean | false | 6.6.0 | × |
 | onScroll | Native scroll event handler | `React.UIEventHandler<HTMLElement>` | - | 6.6.0 | × |
 

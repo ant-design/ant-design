@@ -40,7 +40,8 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
-| closeIcon | 自定义关闭按钮。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | false | 4.4.0 | 5.14.0 |
+| closable | 是否显示关闭按钮，也可通过对象配置关闭图标和 `aria-*` 属性 | boolean \| ({ closeIcon?: ReactNode } & React.AriaAttributes) | false | - | ✔ |
+| closeIcon | 自定义关闭图标，是 `closable` 的简便配置方式。未设置 `closable` 时，设置为 `true` 显示默认关闭按钮，设置为 `null` 或 `false` 隐藏关闭按钮（5.7.0 起支持） | ReactNode | false | 4.4.0 | 5.14.0 |
 | color | 标签色 | string | `variant="solid"` 时为 `default` | `solid` 默认颜色: 6.4.0 | × |
 | disabled | 是否禁用标签 | boolean | false | 6.0.0 | × |
 | href | 点击跳转的地址，指定此属性`tag`组件会渲染成 `<a>` 标签 | string | - | 6.0.0 | × |

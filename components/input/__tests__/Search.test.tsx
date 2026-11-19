@@ -331,6 +331,13 @@ describe('Input.Search', () => {
     expect(container.querySelector('.ant-input-affix-wrapper')).not.toHaveClass('bamboo');
   });
 
+  it('Search with allowClear should have one rootClassName only', () => {
+    const { container } = render(<Search allowClear rootClassName="bamboo" />);
+    expect(container.querySelectorAll('.bamboo')).toHaveLength(1);
+    expect(container.querySelector('.ant-input-search')).toHaveClass('bamboo');
+    expect(container.querySelector('.ant-input-affix-wrapper')).not.toHaveClass('bamboo');
+  });
+
   // https://github.com/ant-design/ant-design/issues/53897
   it('should trigger onPressEnter when press enter', () => {
     const onPressEnter = jest.fn();

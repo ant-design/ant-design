@@ -27,9 +27,14 @@ const localeValues: Locale = {
     selectAll: 'اختيار الكل',
     selectInvert: 'إلغاء الاختيار',
     selectionAll: 'حدد جميع البيانات',
+    selectRow: 'تحديد الصف',
+    selectedRow: 'تم تحديد الصف',
+    selectionMenu: 'قائمة التحديد',
     sortTitle: 'رتب',
     expand: 'توسيع الصف',
     collapse: 'طي الصف',
+    expandAll: 'توسيع كل الصفوف',
+    collapseAll: 'طي كل الصفوف',
     triggerDesc: 'ترتيب تنازلي',
     triggerAsc: 'ترتيب تصاعدي',
     cancelSort: 'إلغاء الترتيب',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'تأكيد',
     cancelText: 'إلغاء',
+  },
+  Splitter: {
+    toggleStartPanel: 'تبديل لوحة البداية',
+    toggleEndPanel: 'تبديل لوحة النهاية',
   },
   Transfer: {
     titles: ['', ''],

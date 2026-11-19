@@ -1,3 +1,5 @@
+import type { Config } from 'jest';
+
 const compileModules = [
   'react-sticky-box',
   'rc-tween-one',
@@ -14,10 +16,15 @@ const compileModules = [
   '@exodus',
   'jsdom',
   '@csstools',
+  // jsdom 31's CSS language selectors use bcp-47, bcp-47-match, and their ESM dependencies.
+  'bcp-47',
+  'is-alphabetical',
+  'is-alphanumerical',
+  'is-decimal',
 ];
 
 // cnpm use `_` as prefix
-const ignoreList = ['', '_'].reduce(
+const ignoreList = ['', '_'].reduce<string[]>(
   (acc, prefix) => [...acc, ...compileModules.map((module) => `${prefix}${module}`)],
   [],
 );
@@ -30,7 +37,7 @@ const transformIgnorePatterns = [
   '[/\\\\]dist[/\\\\]antd.*\\.js$',
 ];
 
-const getTestRegex = (libDir) => {
+const getTestRegex = (libDir = '') => {
   if (libDir === 'dist') {
     return '(demo|dist)\\.test\\.(j|t)sx?$';
   }
@@ -41,10 +48,10 @@ const getTestRegex = (libDir) => {
 };
 
 const shouldIgnoreSemantic =
-  ['dist', 'lib', 'es', 'dist-min'].includes(process.env.LIB_DIR) ||
-  ['1', 'true'].includes(process.env.SKIP_SEMANTIC);
+  ['dist', 'lib', 'es', 'dist-min'].includes(process.env.LIB_DIR ?? '') ||
+  ['1', 'true'].includes(process.env.SKIP_SEMANTIC ?? '');
 
-module.exports = {
+const config: Config = {
   verbose: true,
   testEnvironment: 'jsdom',
   setupFiles: ['./tests/setup.ts', 'jest-canvas-mock'],
@@ -97,4 +104,6 @@ module.exports = {
   },
   // bail: true,
   maxWorkers: '50%',
-};
+} satisfies Config;
+
+export default config;

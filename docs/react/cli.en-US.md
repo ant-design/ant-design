@@ -164,7 +164,7 @@ npx skills add ant-design/ant-design-cli
 | **Codex** | Install skill to enable agent access. [Documentation](https://github.com/openai/codex) |
 | **Gemini CLI** | Install skill for automatic command invocation. [Documentation](https://github.com/google-gemini/gemini-cli) |
 
-Works with any agent supporting the [skills](https://github.com/nicepkg/agent-skills) protocol.
+Works with any agent supporting the [skills](https://agentskills.io) protocol.
 
 ## Learn More
 

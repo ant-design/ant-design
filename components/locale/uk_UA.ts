@@ -32,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: 'Інвертувати вибір',
     selectNone: 'Очистити вибір',
     selectionAll: 'Обрати всі',
+    selectRow: 'Вибрати рядок',
+    selectedRow: 'Рядок вибрано',
+    selectionMenu: 'Меню вибору',
     sortTitle: 'Сортувати',
     expand: 'Розгорнути рядок',
     collapse: 'Згорнути рядок',
+    expandAll: 'Розгорнути всі рядки',
+    collapseAll: 'Згорнути всі рядки',
     triggerDesc: 'Сортувати за спаданням',
     triggerAsc: 'Сортувати за зростанням',
     cancelSort: 'Відмінити сортування',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Гаразд',
     cancelText: 'Скасувати',
+  },
+  Splitter: {
+    toggleStartPanel: 'Перемкнути початкову панель',
+    toggleEndPanel: 'Перемкнути кінцеву панель',
   },
   Transfer: {
     titles: ['', ''],

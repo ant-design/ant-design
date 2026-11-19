@@ -1,4 +1,5 @@
 import React from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 import Listy from '..';
 import type { ListyRef } from '..';
@@ -67,5 +68,15 @@ describe('Listy', () => {
     expect(root).toHaveClass('custom-root');
     expect(root).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
     expect(container.querySelector('.custom-item')).toBeTruthy();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59633
+  it('uses colorSplit for the virtual scrollbar background', () => {
+    const cache = createCache();
+    render(<StyleProvider cache={cache}>{renderListy({ virtual: true })}</StyleProvider>);
+
+    const styleText = extractStyle(cache, { plain: true });
+
+    expect(styleText).toContain('--rc-virtual-list-scrollbar-bg:var(--ant-color-split);');
   });
 });

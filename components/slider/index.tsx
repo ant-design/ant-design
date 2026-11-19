@@ -98,12 +98,14 @@ export interface SliderBaseProps {
   tabIndex?: SliderProps['tabIndex'];
   ariaLabelForHandle?: SliderProps['ariaLabelForHandle'];
   ariaLabelledByForHandle?: SliderProps['ariaLabelledByForHandle'];
+  ariaDescribedByForHandle?: SliderProps['ariaDescribedByForHandle'];
   ariaRequired?: SliderProps['ariaRequired'];
   ariaValueTextFormatterForHandle?: SliderProps['ariaValueTextFormatterForHandle'];
 }
 
 export interface SliderSingleProps extends SliderBaseProps {
   range?: false;
+  startPoint?: number;
   value?: number;
   defaultValue?: number;
   onChange?: (value: number) => void;

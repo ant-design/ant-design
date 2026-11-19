@@ -32,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: 'Inverter gjeldende side',
     selectNone: 'Fjern all data',
     selectionAll: 'Velg all data',
+    selectRow: 'Velg rad',
+    selectedRow: 'Rad valgt',
+    selectionMenu: 'Valgmeny',
     sortTitle: 'Sorter',
     expand: 'Utvid rad',
     collapse: 'Skjul rad',
+    expandAll: 'Utvid alle rader',
+    collapseAll: 'Skjul alle rader',
     triggerDesc: 'Sorter data i synkende rekkefølge',
     triggerAsc: 'Sorterer data i stigende rekkefølge',
     cancelSort: 'Klikk for å avbryte sorteringen',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Avbryt',
+  },
+  Splitter: {
+    toggleStartPanel: 'Veksle startpanelet',
+    toggleEndPanel: 'Veksle sluttpanelet',
   },
   Transfer: {
     titles: ['', ''],

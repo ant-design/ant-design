@@ -102,7 +102,7 @@ describe('ConfigProvider.Locale', () => {
       </ConfigProvider>,
     );
 
-    fireEvent.click(wrapper.container.querySelector('.ant-pagination-item-3')!);
+    fireEvent.click(wrapper.container.querySelector('.ant-pagination-item-3 > a')!);
 
     const datepicker = wrapper.container.querySelector<HTMLInputElement>('.ant-picker-input input');
 

@@ -12,6 +12,7 @@ const locales = {
     content: '色块颜色元素，包含实际选择的颜色样式',
     description: '描述文本内容，包含字体样式、颜色等样式',
     'popup.root': '弹出面板根容器，包含背景色、阴影效果、色彩选择面板、滑块控制和预设颜色等样式',
+    'popup.container': '弹出面板内容容器，包含背景色、内边距、圆角和阴影等样式',
   },
   en: {
     root: 'Trigger container with border styles, transition animations, size controls, displaying color block and text content',
@@ -20,6 +21,8 @@ const locales = {
     description: 'Description text content with font styles and color',
     'popup.root':
       'Popup panel root container with background color, shadow effects, color selection panel, slider controls and preset colors',
+    'popup.container':
+      'Popup panel content container with background color, padding, border radius and shadow',
   },
 };
 
@@ -55,6 +58,7 @@ const App: React.FC = () => {
         { name: 'content', desc: locale.content },
         { name: 'description', desc: locale.description },
         { name: 'popup.root', desc: locale['popup.root'] },
+        { name: 'popup.container', desc: locale['popup.container'], version: '6.7.0' },
       ]}
     >
       <Block />

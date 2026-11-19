@@ -1,10 +1,12 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
+import { Avatar, Button, Modal } from 'antd';
 import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 import { useIntl } from 'dumi';
 import useSWR from 'swr';
 import type { SWRConfiguration } from 'swr';
 
+import useIsPreviewSite from '../../../hooks/useIsPreviewSite';
 import SiteContext from '../SiteContext';
 import ContributorAvatar from './ContributorAvatar';
 import type { AvatarListItem } from './ContributorAvatar';
@@ -19,18 +21,25 @@ const styles = createStaticStyles(({ cssVar, css }) => ({
     margin-bottom: ${cssVar.marginXS};
   `,
   list: css`
-    display: flex;
-    flex-wrap: wrap;
-    clear: both;
-    li {
-      height: 24px;
-      transition: all ${cssVar.motionDurationSlow};
-      margin-inline-end: calc(-1 * ${cssVar.marginXS});
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
+    gap: ${cssVar.marginSM};
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    a,
+    a:hover,
+    a:active {
+      display: flex;
+      align-items: center;
+      gap: ${cssVar.marginXS};
+      color: ${cssVar.colorTextSecondary};
+      overflow-wrap: anywhere;
     }
-    &:hover {
-      li {
-        margin-inline-end: 0;
-      }
+
+    .ant-avatar {
+      flex-shrink: 0;
     }
   `,
 }));
@@ -76,10 +85,12 @@ const swrConfig: SWRConfiguration<ContributorsData, Error> = {
 const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const { formatMessage } = useIntl();
   const { isMobile } = React.use(SiteContext);
+  const [open, setOpen] = useState(false);
   const dataKey = getContributorKey(filename);
+  const isPreviewSite = useIsPreviewSite();
 
   const { data, error, isLoading } = useSWR<ContributorsData, Error>(
-    process.env.NODE_ENV === 'production' && dataKey ? CONTRIBUTORS_URL : null,
+    process.env.NODE_ENV === 'production' && !isPreviewSite && dataKey ? CONTRIBUTORS_URL : null,
     fetcher,
     swrConfig,
   );
@@ -105,15 +116,37 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
     const login = data.logins[i];
     return { username: login, url: `https://github.com/${login}.png?size=24` };
   });
+  const title = formatMessage({ id: 'app.content.contributors' });
+  const label = `${title} (${contributors.length})`;
 
   return (
     <div className={clsx({ [styles.listMobile]: isMobile })}>
-      <div className={styles.title}>{formatMessage({ id: 'app.content.contributors' })}</div>
-      <ul className={styles.list}>
-        {contributors.map((item) => (
-          <ContributorAvatar item={item} key={item.username} />
-        ))}
-      </ul>
+      <div className={styles.title}>{title}</div>
+      <Button type="text" aria-label={label} aria-haspopup="dialog" onClick={() => setOpen(true)}>
+        <Avatar.Group size="small">
+          {contributors.slice(0, 5).map(({ username, url }) => (
+            <Avatar key={username} src={url} alt={username}>
+              {username}
+            </Avatar>
+          ))}
+        </Avatar.Group>
+        <span>{contributors.length}</span>
+      </Button>
+      <Modal
+        title={label}
+        open={open}
+        onCancel={() => setOpen(false)}
+        footer={null}
+        width={640}
+        centered
+        styles={{ body: { maxHeight: '60vh', overflowY: 'auto' } }}
+      >
+        <ul className={styles.list}>
+          {contributors.map((item) => (
+            <ContributorAvatar item={item} key={item.username} />
+          ))}
+        </ul>
+      </Modal>
     </div>
   );
 };

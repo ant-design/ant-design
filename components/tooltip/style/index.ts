@@ -101,6 +101,10 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         visibility: 'visible',
         filter: dropShadowPopover,
 
+        // Keep the popup in its own compositing layer so text is not re-rasterized
+        // when the zoom motion ends, which shifts glyphs by a pixel
+        willChange: 'transform',
+
         ...sharedTransformOrigin,
 
         '&-hidden': {
@@ -141,10 +145,6 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
           [`${componentCls}-container`]: {
             borderRadius: token.min(tooltipBorderRadius, MAX_VERTICAL_CONTENT_RADIUS),
           },
-        },
-
-        [`${componentCls}-content`]: {
-          position: 'relative',
         },
 
         // generator for preset color

@@ -8960,7 +8960,8 @@ Array [
           >
             <li
               aria-describedby="test-id"
-              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              aria-disabled="true"
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-disabled ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-id-3-1"
               role="menuitem"
               tabindex="-1"
@@ -8991,7 +8992,8 @@ Array [
             </div>
             <li
               aria-describedby="test-id"
-              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              aria-disabled="true"
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-disabled ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-id-3-2"
               role="menuitem"
               tabindex="-1"

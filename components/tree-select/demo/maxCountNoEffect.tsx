@@ -58,7 +58,7 @@ function MaxCountNoEffectDemo() {
       treeCheckable
       showCheckedStrategy={TreeSelect.SHOW_PARENT}
       maxCount={MAX_COUNT}
-      suffixIcon={suffix}
+      suffix={suffix}
       placeholder="please select"
       value={value}
       onChange={(val) => setValue(val as string[])}

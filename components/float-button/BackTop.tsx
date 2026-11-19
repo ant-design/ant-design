@@ -4,6 +4,7 @@ import CSSMotion from '@rc-component/motion';
 import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { useReducedMotion } from '../_util/hooks';
 import scrollTo from '../_util/scrollTo';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -54,6 +55,8 @@ const BackTop = React.forwardRef<FloatButtonRef, FloatButtonBackTopProps>((props
     ...restProps
   } = props;
 
+  const shouldReduceMotion = useReducedMotion();
+
   const mergedIcon = icon ?? contextIcon ?? defaultIcon;
 
   const internalRef = React.useRef<FloatButtonRef['nativeElement']>(null);
@@ -71,10 +74,9 @@ const BackTop = React.forwardRef<FloatButtonRef, FloatButtonBackTopProps>((props
   const { scrollProgress, visible } = useScroll({ getTarget, showProgress, visibilityHeight });
 
   const scrollToTop: React.MouseEventHandler<FloatButtonElement> = (e) => {
-    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
     scrollTo(0, {
       getContainer: getTarget,
-      duration: prefersReducedMotion?.matches ? 0 : duration,
+      duration: shouldReduceMotion ? 0 : duration,
     });
     onClick?.(e);
   };

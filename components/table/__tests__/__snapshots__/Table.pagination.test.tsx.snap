@@ -88,13 +88,14 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-root"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -121,23 +122,27 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -236,13 +241,14 @@ exports[`Table.pagination renders pagination correctly 1`] = `
         class="ant-pagination ant-table-pagination ant-table-pagination-end my-page css-var-root"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -269,35 +275,39 @@ exports[`Table.pagination renders pagination correctly 1`] = `
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-2"
-          tabindex="0"
           title="2"
         >
           <a
+            aria-label="Page 2"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             2
           </a>
         </li>
         <li
-          aria-disabled="false"
           class="ant-pagination-next"
-          tabindex="0"
-          title="Next Page"
         >
           <button
+            aria-label="Next Page"
             class="ant-pagination-item-link"
-            tabindex="-1"
+            role="button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -415,13 +425,14 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-root"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -448,23 +459,27 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >

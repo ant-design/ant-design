@@ -82,14 +82,14 @@ export default function ItemHolder(props: ItemHolderProps) {
 
   // ======================== Status ========================
 
-  const getValidateState = (isDebounce = false) => {
-    const _errors = isDebounce ? debounceErrors : meta.errors;
-    const _warnings = isDebounce ? debounceWarnings : meta.warnings;
-
-    return getStatus(_errors, _warnings, meta, '', !!hasFeedback, validateStatus);
-  };
-
-  const mergedValidateStatus = getValidateState();
+  const mergedValidateStatus = getStatus(
+    meta.errors,
+    meta.warnings,
+    meta,
+    '',
+    !!hasFeedback,
+    validateStatus,
+  );
 
   // ======================== Render ========================
   const itemClassName = clsx(itemPrefixCls, className, rootClassName, {

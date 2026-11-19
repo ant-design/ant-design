@@ -156,6 +156,26 @@ describe('Card', () => {
     },
   );
 
+  it('should trigger tabProps.onChange when switching tabs', async () => {
+    const onTabPropsChange = jest.fn();
+    const onTabChange = jest.fn();
+    render(
+      <Card
+        tabList={[
+          { key: 'tab1', label: 'Tab 1' },
+          { key: 'tab2', label: 'Tab 2' },
+        ]}
+        tabProps={{ onChange: onTabPropsChange }}
+        onTabChange={onTabChange}
+      />,
+    );
+
+    await userEvent.setup({ delay: null }).click(screen.getByRole('tab', { name: 'Tab 2' }));
+
+    expect(onTabPropsChange).toHaveBeenCalledWith('tab2');
+    expect(onTabChange).toHaveBeenCalledWith('tab2');
+  });
+
   it('tab size extend card size', () => {
     const { container: largeContainer } = render(
       <Card

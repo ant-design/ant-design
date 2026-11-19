@@ -44,5 +44,22 @@ declare module '*?raw' {
 }
 
 interface Window {
+  antdCssinjs?: typeof import('@ant-design/cssinjs');
   gtag?: (...args: any[]) => void;
+}
+
+// eslint-disable-next-line no-var, vars-on-top -- Extend globalThis for the CSS-in-JS UMD bundle.
+declare var antdCssinjs: typeof import('@ant-design/cssinjs') | undefined;
+
+declare namespace NodeJS {
+  interface Require {
+    context: <T>(
+      directory: string,
+      useSubdirectories: boolean,
+      regExp: RegExp,
+    ) => {
+      (id: string): T;
+      keys: () => string[];
+    };
+  }
 }

@@ -106,6 +106,16 @@ creates UMD build of antd.
 
 <InstallDependencies npm='$ npm run dist' yarn='$ yarn dist'></InstallDependencies>
 
+### Check bundle sizes
+
+Build the package, then check the full bundles and each public component:
+
+<InstallDependencies npm='$ npm run build && npm run size-limit' yarn='$ yarn build && yarn size-limit'></InstallDependencies>
+
+The component checks measure a named import from the compiled ES module entry after tree shaking, minification, and gzip compression. They include runtime dependencies and CSS-in-JS styles, excluding the React and ReactDOM peer dependencies. Shared dependencies are counted in each component's standalone size, so these sizes should not be added together.
+
+Budgets are maintained in `.size-limit.ts` and checked on pull requests. To set a component's initial budget, add 1 KiB to its measured size and round up to a whole KiB. When adding a component, add its budget to `componentLimits`. Only raise an existing budget after reviewing the cause of the increase.
+
 ## Development Tools
 
 - VSCode plugin for CSS in JS: https://marketplace.visualstudio.com/items?itemName=shezhangzhang.antd-design-token

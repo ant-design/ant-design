@@ -102,6 +102,14 @@ describe('Slider', () => {
     expect(container2.querySelector('.ant-tooltip-container')!).toBeNull();
   });
 
+  it.each([
+    { value: 20, left: '50%' },
+    { value: -20, left: '30%' },
+  ])('fills the track from startPoint to $value', ({ value, left }) => {
+    const { container } = render(<Slider min={-50} max={50} startPoint={0} value={value} />);
+    expect(container.querySelector('.ant-slider-track')).toHaveStyle({ left, width: '20%' });
+  });
+
   it('when step is null, thumb can only be slid to the specific mark', () => {
     const intentionallyWrongValue = 40;
     const marks = {

@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { Readable } from 'node:stream';
 import { finished } from 'node:stream/promises';
-import blazediff from '@blazediff/core';
+import { diff } from '@blazediff/core';
 import chalk from 'chalk';
 import fse from 'fs-extra';
 import difference from 'lodash/difference';
@@ -12,6 +12,7 @@ import filter from 'lodash/filter';
 import minimist from 'minimist';
 import { PNG } from 'pngjs';
 import sharp from 'sharp';
+import type { ResizeOptions } from 'sharp';
 import { simpleGit } from 'simple-git';
 
 import markdown2Html from './convert';
@@ -39,12 +40,12 @@ const compareScreenshots = async (
   const targetHeight = Math.max(basePng.height, currentPng.height);
 
   // fill color for transparent png
-  const fillColor =
+  const fillColor: ResizeOptions['background'] =
     baseImgPath.endsWith('dark.png') || baseImgPath.endsWith('dark.css-var.png')
       ? { r: 0, g: 0, b: 0, alpha: 255 }
       : { r: 255, g: 255, b: 255, alpha: 255 };
 
-  const resizeOptions = {
+  const resizeOptions: ResizeOptions = {
     width: targetWidth,
     height: targetHeight,
     position: 'left top',
@@ -62,21 +63,17 @@ const compareScreenshots = async (
 
   const diffPng = new PNG({ width: targetWidth, height: targetHeight });
 
-  const mismatchedPixels = blazediff(
-    resizedBasePng.data,
-    resizedCurrentPng.data,
-    diffPng.data,
-    targetWidth,
-    targetHeight,
-    { threshold: 0.1, diffMask: false },
-  );
+  const result = diff(resizedBasePng, resizedCurrentPng, { threshold: 0.1, output: diffPng });
+  if (result.kind === 'dimension-mismatch') {
+    throw new Error(`Screenshot dimensions do not match: ${baseImgPath} and ${currentImgPath}`);
+  }
 
   // if mismatched then write diff image
-  if (mismatchedPixels) {
+  if (result.count) {
     diffPng.pack().pipe(fs.createWriteStream(diffImagePath));
   }
 
-  return mismatchedPixels / (targetWidth * targetHeight);
+  return result.count / (targetWidth * targetHeight);
 };
 
 const readPngs = (dir: string) => fs.readdirSync(dir).filter((n) => n.endsWith('.png'));
@@ -85,26 +82,25 @@ const prettyList = (list: string[]) => list.map((i) => ` * ${i}`).join('\n');
 
 const ossDomain = `https://${ALI_OSS_BUCKET}.oss-accelerate.aliyuncs.com`;
 
-async function downloadFile(url: string, destPath: string) {
+const downloadFile = async (url: string, destPath: string) => {
   const response = await fetch(url);
   if (!response.ok || response.status !== 200) {
     throw new Error(`Download file failed: ${new URL(url).pathname}`);
   }
-  // @ts-ignore
-  const body = Readable.fromWeb(response.body);
+  const body = Readable.fromWeb(response.body as any);
   await finished(body.pipe(fs.createWriteStream(destPath)));
-}
+};
 
-async function getBranchLatestRef(branchName: string) {
+const getBranchLatestRef = async (branchName: string) => {
   const baseImageRefUrl = `${ossDomain}/${branchName}/visual-regression-ref.txt`;
   // get content from baseImageRefText
   const res = await fetch(baseImageRefUrl);
   const text = await res.text();
   const ref = text.trim();
   return ref;
-}
+};
 
-async function ossSnapshotExists(ref: string) {
+const ossSnapshotExists = async (ref: string) => {
   const imageSnapshotsUrl = `${ossDomain}/${ref}/imageSnapshots.tar.gz`;
   try {
     const res = await fetch(imageSnapshotsUrl, { method: 'HEAD' });
@@ -112,9 +108,9 @@ async function ossSnapshotExists(ref: string) {
   } catch {
     return false;
   }
-}
+};
 
-async function downloadBaseSnapshots(ref: string, targetDir: string) {
+const downloadBaseSnapshots = async (ref: string, targetDir: string) => {
   const tar = await import('tar');
   // download imageSnapshotsUrl
   const imageSnapshotsUrl = `${ossDomain}/${ref}/imageSnapshots.tar.gz`;
@@ -127,14 +123,14 @@ async function downloadBaseSnapshots(ref: string, targetDir: string) {
     C: targetDir,
     file: targzPath,
   });
-}
+};
 
 interface IImageDesc {
   src: string;
   alt: string;
 }
 
-function getMdImageTag(desc: IImageDesc, extraCaption?: boolean) {
+const getMdImageTag = (desc: IImageDesc, extraCaption?: boolean) => {
   const { src, alt } = desc;
   if (!extraCaption || !alt) {
     // in md2html report, we use `@microflash/rehype-figure` to generate a figure
@@ -142,7 +138,7 @@ function getMdImageTag(desc: IImageDesc, extraCaption?: boolean) {
   }
   // show caption with image in github markdown comment
   return `![${alt}](${src}) ${alt}`;
-}
+};
 
 export interface IBadCase {
   type: 'removed' | 'changed' | 'added';
@@ -159,7 +155,7 @@ export interface IBadCase {
 
 const git = simpleGit();
 
-async function parseArgs() {
+const parseArgs = async () => {
   // parse args from -- --pr-id=123 --base_ref=feature --base-sha=abc123 --max-workers=2
   const argv = minimist(process.argv.slice(2));
   const prId = argv['pr-id'];
@@ -180,17 +176,17 @@ async function parseArgs() {
     prId,
     baseRef,
     baseSha,
-    currentRef: latest?.hash.slice(0, 8) || '',
+    currentRef: latest?.hash?.slice(0, 8) || '',
     maxWorkers,
   };
-}
+};
 
-function generateLineReport(
+const generateLineReport = (
   badCase: IBadCase,
   publicPath: string,
   currentRef: string,
   extraCaption?: boolean,
-) {
+) => {
   const { filename, type, targetFilename } = badCase;
 
   let lineHTMLReport = '';
@@ -251,9 +247,9 @@ function generateLineReport(
     lineHTMLReport += ' |\n';
   }
   return lineHTMLReport;
-}
+};
 
-function generateReport(
+const generateReport = (
   badCases: IBadCase[],
   targetBranch: string,
   targetRef: string,
@@ -261,7 +257,7 @@ function generateReport(
   prId: string,
   publicPath = '.',
   baselineStale = false,
-): [string, string] {
+) => {
   const passed = badCases.length === 0;
 
   const staleWarning = baselineStale
@@ -308,7 +304,7 @@ function generateReport(
       ].join('\n'),
     ].join('\n');
 
-    return [mdStr, markdown2Html(mdStr)];
+    return [mdStr, markdown2Html(mdStr)] as const;
   }
 
   const summaryHeader = '<!-- summary -->';
@@ -436,9 +432,9 @@ function generateReport(
 
   // convert fullVersionMd to html
   return [reportMdStr, markdown2Html(fullVersionMd)];
-}
+};
 
-async function boot() {
+const boot = async () => {
   const args = await parseArgs();
   console.log(`Args: ${JSON.stringify(args)}`);
 
@@ -680,6 +676,6 @@ async function boot() {
 
   // let job failed. Skip to let CI/CD to handle it
   // process.exit(1);
-}
+};
 
 boot();

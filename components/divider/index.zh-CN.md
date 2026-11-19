@@ -46,7 +46,7 @@ group:
 | size | 间距大小，仅对水平布局有效 | `small` \| `medium` \| `large` | - | 5.25.0 | × |
 | titlePlacement | 分割线标题的位置 | `start` \| `end` \| `center` | `center` | - | × |
 | ~~type~~ | 水平还是垂直类型 | `horizontal` \| `vertical` | `horizontal` | - | × |
-| variant | 分割线是虚线、点线还是实线 | `dashed` \| `dotted` \| `solid` | solid | 5.20.0 | × |
+| variant | 分割线是虚线、点线还是实线 | `dashed` \| `dotted` \| `solid` | solid | 5.20.0 | 6.7.0 |
 | vertical | 是否垂直，和 orientation 同时配置以 orientation 优先 | boolean | false | - | × |
 
 ## Semantic DOM

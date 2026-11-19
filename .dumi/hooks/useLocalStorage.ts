@@ -1,125 +1,131 @@
-import React, { useCallback, useEffect } from 'react';
-import { useEvent } from '@rc-component/util';
+import React from 'react';
 import { isFunction } from 'antd/lib/_util/is';
 
-const ANT_SYNC_STORAGE_EVENT_KEY = 'ANT_SYNC_STORAGE_EVENT_KEY';
+const CHANGE_EVENT = 'antd:local-storage-change';
+
+const readRaw = (key: string): string | null => {
+  try {
+    if (typeof window === 'undefined') {
+      return null;
+    } else {
+      return window.localStorage.getItem(key);
+    }
+  } catch {
+    return null;
+  }
+};
+
+const deserializer = <T>(raw: string | null, fallback: T): T => {
+  if (raw === null) {
+    return fallback;
+  }
+  try {
+    return JSON.parse(raw) as T;
+  } catch {
+    return fallback;
+  }
+};
+
+const serializer = <T>(value: T): string | undefined => {
+  try {
+    return JSON.stringify(value);
+  } catch {
+    return undefined;
+  }
+};
+
+const notifyChange = (key: string) => {
+  window.dispatchEvent(new CustomEvent<string>(CHANGE_EVENT, { detail: key }));
+};
 
 interface Options<T> {
-  defaultValue?: T;
-  serializer?: (value: T) => string;
-  deserializer?: (value: string) => T;
-  onError?: (error: unknown) => void;
+  initialValue: T;
+  onError?: (err: any) => void;
 }
 
-const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
-  const storage = typeof window !== 'undefined' ? localStorage : null;
+type UseLocalStorageReturn<T> = readonly [
+  value: T,
+  setValue: React.Dispatch<React.SetStateAction<T>>,
+  removeValue: () => void,
+];
 
-  const { serializer, deserializer, onError, defaultValue } = options;
+const useLocalStorage = <T>(key: string, options: Options<T>): UseLocalStorageReturn<T> => {
+  const { initialValue, onError } = options;
 
-  const mergedSerializer = typeof serializer === 'function' ? serializer : JSON.stringify;
+  const subscribe = React.useCallback(
+    (onChange: () => void) => {
+      // 其他同源页面的修改；clear() 对应的 key 为 null。
+      const onStorage = (event: StorageEvent) => {
+        if (event.key === key || event.key === null) {
+          onChange();
+        }
+      };
+      // 当前页面通过本 Hook 进行的修改。
+      const onLocalChange = (event: Event) => {
+        if ((event as CustomEvent<string>).detail === key) {
+          onChange();
+        }
+      };
+      window.addEventListener('storage', onStorage);
+      window.addEventListener(CHANGE_EVENT, onLocalChange);
+      return () => {
+        window.removeEventListener('storage', onStorage);
+        window.removeEventListener(CHANGE_EVENT, onLocalChange);
+      };
+    },
+    [key],
+  );
 
-  const mergedDeserializer = typeof deserializer === 'function' ? deserializer : JSON.parse;
+  // 客户端渲染时，使用 readRaw 的值作为快照
+  const getSnapshot = React.useCallback(() => readRaw(key), [key]);
 
-  const handleError = typeof onError === 'function' ? onError : console.error;
+  // 服务端渲染时，统一使用 null 作为快照
+  const getServerSnapshot = React.useCallback(() => null, []);
 
-  const getStoredValue = useEvent((): T => {
-    try {
-      const rawData = storage?.getItem(key);
-      if (rawData) {
-        return mergedDeserializer(rawData);
+  const raw = React.useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
+  const value = React.useMemo(() => deserializer<T>(raw, initialValue), [raw, initialValue]);
+
+  const setValue = React.useCallback<React.Dispatch<React.SetStateAction<T>>>(
+    (next) => {
+      if (typeof window === 'undefined') {
+        return;
       }
-    } catch (e) {
-      if (process.env.NODE_ENV !== 'production') {
-        handleError(e);
-      }
-      return defaultValue as T;
-    }
-    return defaultValue as T;
-  });
+      // 从存储读取最新值，连续调用函数式更新时不会使用旧闭包值。
+      const previous = deserializer<T>(readRaw(key), initialValue);
 
-  const [state, setState] = React.useState<T>(getStoredValue);
+      const nextValue = isFunction(next) ? next(previous) : next;
 
-  const updateState = useEvent<React.Dispatch<React.SetStateAction<T>>>((updater) => {
-    setState((originState) => {
-      const currentState = isFunction(updater) ? updater(originState) : updater;
-      if (Object.is(currentState, originState)) {
-        return originState;
+      const serialized = serializer(nextValue);
+
+      if (serialized === undefined) {
+        throw new TypeError('useLocalStorage 的值必须可以序列化为 JSON');
       }
+
+      // 存储不可用时不阻断调用方流程，成功后再通知订阅者。
       try {
-        let newValue: string | null;
-        const oldValue = storage?.getItem(key);
-        if (typeof currentState === 'undefined') {
-          newValue = null;
-          storage?.removeItem(key);
-        } else {
-          newValue = mergedSerializer(currentState);
-          storage?.setItem(key, newValue);
-        }
-        dispatchEvent(
-          new CustomEvent(ANT_SYNC_STORAGE_EVENT_KEY, {
-            detail: { key, newValue, oldValue, storageArea: storage },
-          }),
-        );
-      } catch (e) {
-        if (process.env.NODE_ENV !== 'production') {
-          handleError(e);
-        }
+        window.localStorage.setItem(key, serialized);
+        notifyChange(key);
+      } catch (err) {
+        onError?.(err);
       }
-      return currentState;
-    });
-  });
-
-  const shouldSync = useCallback(
-    (ev: StorageEvent) => {
-      return ev.key === key && ev.storageArea === storage;
     },
-    [key, storage],
+    [key, initialValue, onError],
   );
 
-  const shouldSyncCustomEvent = useCallback(
-    (ev: CustomEvent<{ key: string; storageArea: Storage }>) => {
-      return ev?.detail?.key === key && ev?.detail?.storageArea === storage;
-    },
-    [key, storage],
-  );
-
-  const syncState = useEvent(() => {
-    const nextState = getStoredValue();
-    setState((originState) => {
-      if (Object.is(nextState, originState)) {
-        return originState;
-      }
-      return nextState;
-    });
-  });
-
-  const onNativeStorage = useEvent((event: StorageEvent) => {
-    if (shouldSync(event)) {
-      syncState();
+  const removeValue = React.useCallback(() => {
+    if (typeof window === 'undefined') {
+      return;
     }
-  });
-
-  const onCustomStorage = useEvent((event: Event) => {
-    const customEvent = event as CustomEvent;
-    if (shouldSyncCustomEvent(customEvent)) {
-      syncState();
+    try {
+      window.localStorage.removeItem(key);
+      notifyChange(key);
+    } catch (err) {
+      onError?.(err);
     }
-  });
+  }, [key, onError]);
 
-  useEffect(() => {
-    syncState();
-  }, [key, syncState]);
-
-  useEffect(() => {
-    window?.addEventListener('storage', onNativeStorage);
-    window?.addEventListener(ANT_SYNC_STORAGE_EVENT_KEY, onCustomStorage);
-    return () => {
-      window?.removeEventListener('storage', onNativeStorage);
-      window?.removeEventListener(ANT_SYNC_STORAGE_EVENT_KEY, onCustomStorage);
-    };
-  }, [onNativeStorage, onCustomStorage]);
-
-  return [state, updateState] as const;
+  return [value, setValue, removeValue] as const;
 };
 
 export default useLocalStorage;

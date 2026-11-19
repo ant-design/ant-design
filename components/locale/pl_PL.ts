@@ -32,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: 'Odwróć zaznaczenie',
     selectNone: 'Wyczyść',
     selectionAll: 'Wybierz wszystkie',
+    selectRow: 'Wybierz wiersz',
+    selectedRow: 'Wiersz wybrany',
+    selectionMenu: 'Menu wyboru',
     sortTitle: 'Sortowanie',
     expand: 'Rozwiń wiersz',
     collapse: 'Zwiń wiersz',
+    expandAll: 'Rozwiń wszystkie wiersze',
+    collapseAll: 'Zwiń wszystkie wiersze',
     triggerDesc: 'Sortuj malejąco',
     triggerAsc: 'Sortuj rosnąco',
     cancelSort: 'Usuń sortowanie',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Anuluj',
+  },
+  Splitter: {
+    toggleStartPanel: 'Przełącz panel początkowy',
+    toggleEndPanel: 'Przełącz panel końcowy',
   },
   Transfer: {
     titles: ['', ''],

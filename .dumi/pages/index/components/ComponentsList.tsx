@@ -1,5 +1,6 @@
 import React from 'react';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
+import { Provider as MotionProvider } from '@rc-component/motion';
 import {
   Card,
   Carousel,
@@ -229,7 +230,10 @@ const ComponentsList: React.FC = () => {
                 { icon: <SyncOutlined /> },
               ]}
             />
-            <FloatButtonDoNotUseOrYouWillBeFired backTop />
+            {/* Keep this always-visible preview stable during hydration. */}
+            <MotionProvider motion={false}>
+              <FloatButtonDoNotUseOrYouWillBeFired backTop />
+            </MotionProvider>
             <FloatButtonDoNotUseOrYouWillBeFired
               items={[
                 { icon: <QuestionCircleOutlined /> },

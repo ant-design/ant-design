@@ -118,6 +118,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     children,
     required,
     label,
+    labelAlign,
     messageVariables,
     trigger = 'onChange',
     validateTrigger,
@@ -153,6 +154,11 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
   if (process.env.NODE_ENV !== 'production') {
     warning(name !== null, 'usage', '`null` is passed as `name` property');
+    warning.deprecated(
+      labelAlign !== 'left' && labelAlign !== 'right',
+      'labelAlign=left|right',
+      'labelAlign=start|end',
+    );
   }
 
   // ========================= MISC =========================

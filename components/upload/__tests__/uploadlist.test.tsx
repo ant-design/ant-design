@@ -415,8 +415,7 @@ describe('Upload List', () => {
   });
 
   it('should support no onDownload', async () => {
-    const url =
-      'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
+    const url = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
     open.mockClear();
 
     const { container: wrapper, unmount } = render(
@@ -563,6 +562,43 @@ describe('Upload List', () => {
 
     unmount();
   });
+
+  it.each(['?redirect=/other.pdf', '#/other.pdf'])(
+    'should render image thumbnails with URL suffix %s',
+    (suffix) => {
+      const url = `https://example.com/photo.png${suffix}`;
+      const { getByAltText } = render(
+        <Upload
+          listType="picture-card"
+          fileList={[{ uid: '1', name: 'photo.png', status: 'done', url }]}
+        />,
+      );
+
+      expect(getByAltText('photo.png')).toHaveAttribute('src', url);
+    },
+  );
+
+  it.each(['?redirect=/other.png', '#/other.png'])(
+    'should not render non-image files as thumbnails with URL suffix %s',
+    (suffix) => {
+      const { queryByAltText, getByLabelText } = render(
+        <Upload
+          listType="picture-card"
+          fileList={[
+            {
+              uid: '1',
+              name: 'report.pdf',
+              status: 'done',
+              url: `https://example.com/report.pdf${suffix}`,
+            },
+          ]}
+        />,
+      );
+
+      expect(queryByAltText('report.pdf')).not.toBeInTheDocument();
+      expect(getByLabelText('file')).toBeInTheDocument();
+    },
+  );
 
   it('not crash when uploading not provides percent', async () => {
     const { unmount } = render(

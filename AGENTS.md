@@ -62,6 +62,10 @@ ant-design/
 - 禁止在 `__tests__` 目录下使用 `antd`、`antd/es/*`、`antd/lib/*`、`antd/locale/*`、`.dumi/*`、`@@/*` 这类绝对路径或别名路径去引用仓库内代码。
 - 如需引用仓库外第三方依赖，仍按依赖包名正常导入，例如 `react`、`@testing-library/react`、`dayjs`。
 
+## 站点代码测试规范 {#site-tests}
+
+- 在 `.dumi/` 目录下新增或修改站点代码时，无需新增任何测试用例。
+
 ---
 
 ## 文档规范
@@ -126,7 +130,7 @@ ant-design/
 
 - 新特性开发需基于 `feature` 分支，PR 目标分支也需为 `feature`
 - 其余提交至 `master` 分支
-- 当前 PR 的目标分支为 `master` 时，必须先基于最新的 `feature` 分支进行一次模拟合并，检查是否存在冲突；若存在冲突，则改为合并到 `feature`，并解决所有冲突后完成合并；若无冲突，继续合并到 `master`。
+- 当前 PR 的目标分支为 `master` 时，必须先基于最新的 `feature` 分支进行一次模拟合并，并结合当前 PR 的 diff 逐项判断冲突来源；仅当当前 PR 的改动内容与 `feature` 存在冲突时，才将 PR 目标分支改为 `feature`，按下条规则清理提交历史并解决相关冲突；若无冲突，或冲突仅来自 `master` 与 `feature` 之间与当前 PR 无关的改动，则保持目标分支为 `master`。不得仅因存在冲突，或冲突文件与 PR 改动文件相同，就改投 `feature`。
 - PR 的原目标分支为 `master` 时，若需更改目标分支为 `feature` 或 `next`，必须先对 PR 源分支进行 rebase 清理，仅将当前 PR 的相关提交重放到新目标分支的最新版本上，保持提交历史干净；不得带入 `master` 上与当前 PR 无关的他人提交或改动。清理后需检查相对新目标分支的提交列表和 diff，确认仅包含当前 PR 的预期改动。
 - 分支命名规范：
   - 功能开发：`feat/description-of-feature`

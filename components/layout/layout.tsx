@@ -110,7 +110,11 @@ const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((pro
           setSiders((prev) => [...prev, id]);
         },
         removeSider: (id: string) => {
-          setSiders((prev) => prev.filter((currentId) => currentId !== id));
+          setSiders((prev) => {
+            // Remove only one registration when multiple siders share an ID.
+            const index = prev.indexOf(id);
+            return prev.filter((_, currentIndex) => currentIndex !== index);
+          });
         },
       },
     }),

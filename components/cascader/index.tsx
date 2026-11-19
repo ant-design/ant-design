@@ -10,7 +10,7 @@ import RcCascader from '@rc-component/cascader';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useZIndex } from '../_util/hooks';
+import { useAllowClear, useZIndex } from '../_util/hooks';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber, isPlainObject, isString } from '../_util/is';
@@ -30,6 +30,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
+import { useLocale } from '../locale';
 import type { SelectSemanticType } from '../select';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
@@ -149,13 +150,16 @@ export interface CascaderProps<
   size?: SizeType;
   /**
    * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
-   *   default behavior, you can hide it by setting `suffixIcon` to null.
+   *   default behavior, you can hide it by setting `suffix` to null.
    */
   showArrow?: boolean;
   disabled?: boolean;
   /** @deprecated Use `variant` instead. */
   bordered?: boolean;
   placement?: SelectCommonPlacement;
+  /** @since 6.7.0 */
+  suffix?: RcCascaderProps<OptionType, ValueField, Multiple>['suffix'];
+  /** @deprecated Please use `suffix` instead. */
   suffixIcon?: React.ReactNode;
   showSearch?:
     | boolean
@@ -218,7 +222,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     expandIcon,
     placement,
     showSearch,
-    allowClear = true,
+    allowClear,
     notFoundContent,
     direction,
     getPopupContainer,
@@ -241,9 +245,12 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     loadingIcon,
     clearIcon,
     removeIcon,
-    suffixIcon,
+    suffix: customSuffix,
+    suffixIcon: customSuffixIcon,
     ...restProps
   } = props;
+
+  const [locale] = useLocale('global');
 
   const {
     getPrefixCls,
@@ -255,7 +262,9 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     expandIcon: contextExpandIcon,
     loadingIcon: contextLoadingIcon,
     clearIcon: contextClearIcon,
+    allowClear: contextAllowClear,
     removeIcon: contextRemoveIcon,
+    suffix: contextSuffix,
     suffixIcon: contextSuffixIcon,
     searchIcon: contextSearchIcon,
   } = useComponentConfig('cascader');
@@ -285,6 +294,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       onDropdownVisibleChange: 'onOpenChange',
       onPopupVisibleChange: 'onOpenChange',
       bordered: 'variant',
+      suffixIcon: 'suffix',
     };
 
     Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
@@ -294,7 +304,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     warning(
       !('showArrow' in props),
       'deprecated',
-      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffix` to null.',
     );
   }
 
@@ -365,28 +375,23 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const checkable = useCheckable(cascaderPrefixCls, multiple);
 
   // ===================== Icons =====================
-  const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
-  const {
-    suffixIcon: mergedSuffixIcon,
-    removeIcon: mergedRemoveIcon,
-    clearIcon: mergedClearIcon,
-  } = useSelectIcons({
+  const mergedCustomSuffix = customSuffix !== undefined ? customSuffix : customSuffixIcon;
+  const showSuffix = useShowArrow(mergedCustomSuffix, showArrow);
+  const { suffix: mergedSuffix, removeIcon: mergedRemoveIcon } = useSelectIcons({
+    componentName: 'Cascader',
     ...props,
-    clearIcon,
-    contextClearIcon,
     removeIcon,
     contextRemoveIcon,
     loadingIcon: mergedLoadingIcon,
-    suffixIcon,
-    contextSuffixIcon,
+    suffix: mergedCustomSuffix,
+    contextSuffix: contextSuffix !== undefined ? contextSuffix : contextSuffixIcon,
     searchIcon: isPlainObject(showSearch) ? showSearch.searchIcon : undefined,
     contextSearchIcon,
     hasFeedback,
     feedbackIcon,
-    showSuffixIcon,
+    showSuffix,
     multiple,
     prefixCls,
-    componentName: 'Cascader',
   });
 
   // ===================== Placement =====================
@@ -397,7 +402,15 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     return isRtl ? 'bottomRight' : 'bottomLeft';
   }, [placement, isRtl]);
 
-  const mergedAllowClear = allowClear === true ? { clearIcon: mergedClearIcon } : allowClear;
+  const mergedAllowClear = useAllowClear({
+    allowClear,
+    contextAllowClear,
+    defaultAllowClear: true,
+    clearIcon,
+    contextClearIcon,
+    defaultLabel: locale.clear,
+    componentName: 'Cascader',
+  });
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: CascaderProps<any> = {
@@ -482,7 +495,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       allowClear={mergedAllowClear}
       showSearch={mergedShowSearch}
       expandIcon={mergedExpandIcon}
-      suffixIcon={mergedSuffixIcon}
+      suffix={mergedSuffix}
       removeIcon={mergedRemoveIcon}
       loadingIcon={mergedLoadingIcon}
       checkable={checkable}

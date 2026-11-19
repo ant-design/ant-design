@@ -32,6 +32,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -77,6 +78,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -947,6 +949,7 @@ exports[`Calendar Calendar should support locale 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -992,6 +995,7 @@ exports[`Calendar Calendar should support locale 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -1862,6 +1866,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -1907,6 +1912,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -2777,6 +2783,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -2822,6 +2829,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"

@@ -32,6 +32,7 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -77,6 +78,7 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -950,6 +952,7 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -995,6 +998,7 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -1867,6 +1871,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -1912,6 +1917,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -2780,6 +2786,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -2825,6 +2832,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3752,6 +3760,7 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
             class="ant-select-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="down"
               class="anticon anticon-down"
               role="img"
@@ -3797,6 +3806,7 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
             class="ant-select-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="down"
               class="anticon anticon-down"
               role="img"
@@ -4625,6 +4635,7 @@ exports[`renders components/calendar/demo/event-range.tsx correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -4670,6 +4681,7 @@ exports[`renders components/calendar/demo/event-range.tsx correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -5934,6 +5946,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -5979,6 +5992,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -7262,6 +7276,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -7307,6 +7322,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -8182,6 +8198,7 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -8227,6 +8244,7 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -9095,6 +9113,7 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -9140,6 +9159,7 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -10012,6 +10032,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -10057,6 +10078,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -10986,6 +11008,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -11031,6 +11054,7 @@ Array [
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"

@@ -115,7 +115,7 @@ describe('Mentions', () => {
     const { container, rerender } = render(
       <Mentions allowClear={{ clearIcon: 'clear', disabled: true }} defaultValue="111" />,
     );
-    expect(container.querySelector('.ant-mentions-clear-icon-hidden')).toBeTruthy();
+    expect(container.querySelector('.ant-mentions-clear-icon')).not.toBeInTheDocument();
 
     rerender(<Mentions allowClear={{ clearIcon: 'clear', disabled: false }} defaultValue="111" />);
     expect(container.querySelector('.ant-mentions-clear-icon-hidden')).toBeFalsy();

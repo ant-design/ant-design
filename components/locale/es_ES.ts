@@ -32,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: 'Invertir selección',
     selectNone: 'Vacíe todo',
     selectionAll: 'Seleccionar todos los datos',
+    selectRow: 'Seleccionar fila',
+    selectedRow: 'Fila seleccionada',
+    selectionMenu: 'Menú de selección',
     sortTitle: 'Ordenar',
     expand: 'Expandir fila',
     collapse: 'Colapsar fila',
+    expandAll: 'Expandir todas las filas',
+    collapseAll: 'Colapsar todas las filas',
     triggerDesc: 'Click para ordenar en orden descendente',
     triggerAsc: 'Click para ordenar en orden ascendente',
     cancelSort: 'Click para cancelar ordenamiento',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Aceptar',
     cancelText: 'Cancelar',
+  },
+  Splitter: {
+    toggleStartPanel: 'Alternar panel inicial',
+    toggleEndPanel: 'Alternar panel final',
   },
   Transfer: {
     titles: ['', ''],

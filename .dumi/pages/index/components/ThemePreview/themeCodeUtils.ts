@@ -65,7 +65,9 @@ export function generateFullCopyFile(params: {
     : (() => {
         const themeProps: string[] = [];
         const algorithmStr = getAlgorithmStr(themeConfig.algorithm);
-        if (algorithmStr) themeProps.push(`algorithm: ${algorithmStr}`);
+        if (algorithmStr) {
+          themeProps.push(`algorithm: ${algorithmStr}`);
+        }
         if (themeConfig.token && Object.keys(themeConfig.token).length > 0) {
           themeProps.push(`token: ${stringifyValue(themeConfig.token, 1)}`);
         }

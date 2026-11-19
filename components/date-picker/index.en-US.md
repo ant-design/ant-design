@@ -44,10 +44,10 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/mode.tsx" debug>Controlled Panels</code>
 <code src="./demo/start-end.tsx" debug>Customized Range Picker</code>
-<code src="./demo/suffix.tsx">Prefix and Suffix</code>
+<code src="./demo/suffix.tsx" version="6.7.0">Prefix and Suffix</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
-<code src="./demo/suffixIcon-debug.tsx" debug>suffixIcon</code>
+<code src="./demo/suffix-debug.tsx" debug>suffix</code>
 
 ## API
 
@@ -94,13 +94,13 @@ The following APIs are shared by DatePicker, RangePicker.
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | Customize clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type | 6.4.0 |
+| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | true | - | 6.4.0 |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - | × |
 | className | The picker className | string | - |  | DatePicker: 5.7.0, RangePicker: 5.11.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | DatePicker: 5.25.0, RangePicker: 5.25.0 |
 | dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 | × |
 | cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
-| components | Custom panels | Record<Panel \| 'input', React.ComponentType> | - | 5.14.0 | × |
+| components | Custom panels, input, and footer buttons | [Components](#components) | - | 5.14.0 | × |
 | defaultOpen | Initial open state of picker | boolean | - |  | × |
 | disabled | Determine whether the DatePicker is disabled | boolean | false |  | × |
 | disabledDate | Specify the date that cannot be selected | (currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean | - | `info`: 5.14.0 | × |
@@ -131,7 +131,8 @@ The following APIs are shared by DatePicker, RangePicker.
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 | × |
 | style | To customize the style of the input box | CSSProperties | {} |  | DatePicker: 5.7.0, RangePicker: 5.11.0 |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | DatePicker: 5.25.0, RangePicker: 5.25.0 |
-| suffixIcon | The custom suffix icon | ReactNode | - |  | DatePicker: 6.3.0, RangePicker: 6.4.0 |
+| suffix | The custom suffix | ReactNode | - | 6.7.0 | 6.7.0 |
+| ~~suffixIcon~~ | The custom suffix icon, please use `suffix` instead | ReactNode | - |  | DatePicker: 6.3.0, RangePicker: 6.4.0 |
 | superNextIcon | The custom super next icon | ReactNode | - | 4.17.0 | × |
 | superPrevIcon | The custom super prev icon | ReactNode | - | 4.17.0 | × |
 | clearIcon | (Only supports global configuration) Custom clear icon | ReactNode | - | × | 6.4.0 |
@@ -140,6 +141,30 @@ The following APIs are shared by DatePicker, RangePicker.
 | onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  | × |
 | onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  | × |
 | ~~onSelect~~ | Callback when a date is selected, please use `onCalendarChange` instead | function(value) | - | - | × |
+
+### Components
+
+`components` supports custom panel components keyed by panel type and an `input` component, as well as the following footer buttons. These options also apply to RangePicker, TimePicker, and TimePicker.RangePicker.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| nowButton | Custom Today/Now button | React.ComponentType<any> \| string | `button` | 6.7.0 | × |
+| okButton | Custom confirmation button | React.ComponentType<any> \| string | Small primary Button | 6.7.0 | × |
+
+Custom button components should forward `className`, `disabled`, `onClick`, and `children` to the rendered button, and use `type="button"` to avoid submitting a form.
+
+`components.button` is deprecated. It remains supported as a fallback for `components.okButton`, which takes precedence when both are provided. It does not customize the Today/Now button.
+
+### AllowClearConfig
+
+Fields that support global configuration use component values first, then global values, then defaults. `allowClear={true}` inherits global configuration; `disabled: false` and `tabIndex: 0` override global values.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | Custom clear icon | ReactNode | - | - | 6.4.0 |
+| disabled | When `true`, equivalent to `allowClear={false}` | boolean | false | 6.7.0 | 6.7.0 |
+| label | Accessible name of the clear button | string | Component locale text | 6.7.0 | 6.7.0 |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 6.7.0 | 6.7.0 |
 
 ### Common Methods
 
@@ -291,7 +316,6 @@ Please refer [Use custom date library](/docs/react/use-custom-date-library#datep
 ### Why config dayjs.locale globally not work? {#faq-locale-not-work}
 
 DatePicker default set `locale` as `en` in v4. You can config DatePicker `locale` prop or [ConfigProvider `locale`](/components/config-provider) prop instead.
-
 
 See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-locale-not-working)
 

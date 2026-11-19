@@ -373,7 +373,7 @@ describe('Table.sorter', () => {
     expect(sorter.columnKey).toBe(undefined);
 
     // change page
-    fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
+    fireEvent.click(container.querySelector('.ant-pagination-item-2 > :is(a, button)')!);
     expect(handleChange).toHaveBeenCalledTimes(4);
     sorter = handleChange.mock.calls[3][2];
 

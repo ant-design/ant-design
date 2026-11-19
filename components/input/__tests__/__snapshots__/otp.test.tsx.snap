@@ -10,7 +10,7 @@ exports[`Input.OTP rtl render component should be rendered correctly in RTL dire
     role="presentation"
   >
     <input
-      aria-label="OTP Input 1"
+      aria-label="Character 1 of 6"
       class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
       size="1"
       type="text"
@@ -22,7 +22,7 @@ exports[`Input.OTP rtl render component should be rendered correctly in RTL dire
     role="presentation"
   >
     <input
-      aria-label="OTP Input 2"
+      aria-label="Character 2 of 6"
       class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
       size="1"
       type="text"
@@ -34,7 +34,7 @@ exports[`Input.OTP rtl render component should be rendered correctly in RTL dire
     role="presentation"
   >
     <input
-      aria-label="OTP Input 3"
+      aria-label="Character 3 of 6"
       class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
       size="1"
       type="text"
@@ -46,7 +46,7 @@ exports[`Input.OTP rtl render component should be rendered correctly in RTL dire
     role="presentation"
   >
     <input
-      aria-label="OTP Input 4"
+      aria-label="Character 4 of 6"
       class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
       size="1"
       type="text"
@@ -58,7 +58,7 @@ exports[`Input.OTP rtl render component should be rendered correctly in RTL dire
     role="presentation"
   >
     <input
-      aria-label="OTP Input 5"
+      aria-label="Character 5 of 6"
       class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
       size="1"
       type="text"
@@ -70,7 +70,7 @@ exports[`Input.OTP rtl render component should be rendered correctly in RTL dire
     role="presentation"
   >
     <input
-      aria-label="OTP Input 6"
+      aria-label="Character 6 of 6"
       class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
       size="1"
       type="text"

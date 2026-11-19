@@ -41,7 +41,7 @@ const SiteThemeProvider: React.FC<ThemeProviderProps<any>> = ({ children, theme,
     ConfigProvider.config({ theme: theme as ThemeConfig });
   }, [theme]);
 
-  React.useEffect(() => {
+  React.useInsertionEffect(() => {
     // iframe demo 生效
     if (window.parent !== window) {
       updateCSS(

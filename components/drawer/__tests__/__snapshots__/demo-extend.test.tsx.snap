@@ -847,6 +847,7 @@ Array [
                               class="ant-select-suffix"
                             >
                               <span
+                                aria-hidden="true"
                                 aria-label="down"
                                 class="anticon anticon-down"
                                 role="img"
@@ -879,7 +880,9 @@ Array [
                               >
                                 <div
                                   aria-label="Xiaoxiao Fu"
+                                  aria-posinset="1"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="owner_list_0"
                                   role="option"
                                 >
@@ -887,7 +890,9 @@ Array [
                                 </div>
                                 <div
                                   aria-label="Maomao Zhou"
+                                  aria-posinset="2"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="owner_list_1"
                                   role="option"
                                 >
@@ -1012,6 +1017,7 @@ Array [
                               class="ant-select-suffix"
                             >
                               <span
+                                aria-hidden="true"
                                 aria-label="down"
                                 class="anticon anticon-down"
                                 role="img"
@@ -1044,7 +1050,9 @@ Array [
                               >
                                 <div
                                   aria-label="private"
+                                  aria-posinset="1"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="type_list_0"
                                   role="option"
                                 >
@@ -1052,7 +1060,9 @@ Array [
                                 </div>
                                 <div
                                   aria-label="public"
+                                  aria-posinset="2"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="type_list_1"
                                   role="option"
                                 >
@@ -1182,6 +1192,7 @@ Array [
                               class="ant-select-suffix"
                             >
                               <span
+                                aria-hidden="true"
                                 aria-label="down"
                                 class="anticon anticon-down"
                                 role="img"
@@ -1214,7 +1225,9 @@ Array [
                               >
                                 <div
                                   aria-label="Jack Ma"
+                                  aria-posinset="1"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="approver_list_0"
                                   role="option"
                                 >
@@ -1222,7 +1235,9 @@ Array [
                                 </div>
                                 <div
                                   aria-label="Tom Liu"
+                                  aria-posinset="2"
                                   aria-selected="false"
+                                  aria-setsize="2"
                                   id="approver_list_1"
                                   role="option"
                                 >
@@ -4437,7 +4452,7 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
 exports[`renders components/drawer/demo/user-profile.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-listy acss-12oadjh css-var-test-id ant-listy-css-var"
+    class="ant-listy acss-12oadjh ant-listy-hoverable css-var-test-id ant-listy-css-var"
     style="overflow-anchor: none;"
   >
     <div
