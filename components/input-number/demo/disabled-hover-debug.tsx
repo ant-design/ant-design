@@ -34,6 +34,11 @@ const App: React.FC = () => (
         <Typography.Text>Spinner mode at min</Typography.Text>
         <InputNumber {...sharedProps} defaultValue={0} mode="spinner" />
       </Flex>
+
+      <Flex vertical gap={8}>
+        <Typography.Text>Spinner mode with prefix and suffix</Typography.Text>
+        <InputNumber {...sharedProps} defaultValue={1} mode="spinner" prefix="$" suffix="USD" />
+      </Flex>
     </Flex>
   </Flex>
 );
