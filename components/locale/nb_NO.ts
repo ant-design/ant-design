@@ -159,6 +159,7 @@ const localeValues: Locale = {
     transparent: 'Gjennomsiktig',
     singleColor: 'Ensfarget',
     gradientColor: 'Gradient',
+    clear: 'Tøm farge',
   },
 };
 

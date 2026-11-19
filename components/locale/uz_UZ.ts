@@ -164,6 +164,7 @@ const localeValues: Locale = {
     transparent: 'Shaffof',
     singleColor: 'Yagona rang',
     gradientColor: 'Gradient rangi',
+    clear: 'Rangni tozalash',
   },
 };
 

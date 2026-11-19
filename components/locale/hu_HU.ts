@@ -159,6 +159,7 @@ const localeValues: Locale = {
     transparent: 'Átlátszó',
     singleColor: 'Egyszínű',
     gradientColor: 'Gradiens szín',
+    clear: 'Szín törlése',
   },
 };
 

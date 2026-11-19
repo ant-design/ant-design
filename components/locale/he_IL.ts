@@ -159,6 +159,7 @@ const localeValues: Locale = {
     transparent: 'שקוף',
     singleColor: 'צבע יחיד',
     gradientColor: 'צבע שיפוע',
+    clear: 'נקה צבע',
   },
 };
 
