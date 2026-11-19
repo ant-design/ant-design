@@ -5,7 +5,6 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 import Button from '../../button';
-
 import type { AliasToken } from '../../theme/internal';
 import type { ComponentToken } from '../style';
 import { prepareComponentToken } from '../style';
@@ -71,6 +70,28 @@ describe('Result', () => {
   it('🙂  When status = 404, the icon is an image', () => {
     const { container } = render(<Result status="404" />);
     expect(container.querySelectorAll('.ant-result-404 .ant-result-image')).toHaveLength(1);
+  });
+
+  it('should hide built-in exception illustrations from assistive technology', () => {
+    (['403', '404', '500'] as const).forEach((status) => {
+      const { container, unmount } = render(<Result status={status} title={status} />);
+      const illustration = container.querySelector('.ant-result-image svg');
+
+      expect(illustration).toHaveAttribute('aria-hidden', 'true');
+      expect(illustration).toHaveAttribute('focusable', 'false');
+      expect(illustration).not.toHaveAccessibleName();
+      unmount();
+    });
+  });
+
+  it('should preserve standalone exception illustration semantics', () => {
+    const { getByRole } = render(
+      <Result.PRESENTED_IMAGE_404 role="img" aria-label="Not found illustration" />,
+    );
+    const illustration = getByRole('img');
+
+    expect(illustration).not.toHaveAttribute('aria-hidden');
+    expect(illustration).toHaveAccessibleName('Not found illustration');
   });
 
   it('🙂  When extra is undefined, the extra dom is undefined', () => {
