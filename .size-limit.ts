@@ -5,7 +5,7 @@ import ts from 'typescript';
 
 /**
  * 从 `es/index.js` 单独导入组件后的打包体积上限。
- * 在 gzip 实测体积基础上预留 1 KiB，再向上取整到整数 KiB。
+ * 将 gzip 实测体积向上取整到整数 KiB。
  * 新增参与体积检查的组件时，需在此设置上限。
  */
 const componentLimits: Record<string, string> = {
@@ -84,7 +84,7 @@ const componentLimits: Record<string, string> = {
   Typography: '71 KiB',
   Upload: '78 KiB',
   // version: '1 KiB',
-  Watermark: '25 KiB',
+  Watermark: '24 KiB',
 };
 
 const source = ts.createSourceFile(
