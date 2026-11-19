@@ -317,11 +317,13 @@ describe('Typography.Ellipsis', () => {
   it('expand click should not trigger editable when triggerType is text', async () => {
     const onExpand = jest.fn();
     const onStart = jest.fn();
+    const onClick = jest.fn();
     const ref = React.createRef<HTMLElement>();
     const { container } = render(
       <Base
         ellipsis={{ expandable: true, onExpand }}
         editable={{ triggerType: ['text'], onStart }}
+        onClick={onClick}
         component="p"
         ref={ref}
       >
@@ -335,6 +337,7 @@ describe('Typography.Ellipsis', () => {
     fireEvent.click(container.querySelector('.ant-typography-expand')!);
     expect(onExpand).toHaveBeenCalled();
     expect(onStart).not.toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalledTimes(1);
     expect(container.querySelector('textarea')).toBeFalsy();
   });
 
