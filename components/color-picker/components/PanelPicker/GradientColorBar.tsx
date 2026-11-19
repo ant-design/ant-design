@@ -22,6 +22,7 @@ export interface GradientColorBarProps extends PanelPickerContextProps {
 const GradientColorBar = (props: GradientColorBarProps) => {
   const {
     prefixCls,
+    disabled,
     mode,
     onChange,
     onChangeComplete,
@@ -54,6 +55,10 @@ const GradientColorBar = (props: GradientColorBarProps) => {
     draggingIndex,
     draggingValue,
   }) => {
+    if (disabled) {
+      return;
+    }
+
     if (rawValues.length > colorList.length) {
       // Add new node
       const newPointColor = getGradientPercentColor(colorList, draggingValue);
@@ -78,6 +83,10 @@ const GradientColorBar = (props: GradientColorBarProps) => {
     draggingIndex,
     draggingValue,
   }) => {
+    if (disabled) {
+      return;
+    }
+
     let nextColors = [...colorsRef.current];
 
     if (deleteIndex !== -1) {
@@ -96,6 +105,10 @@ const GradientColorBar = (props: GradientColorBarProps) => {
 
   // ============================== Key ===============================
   const onKeyDelete = (index: number) => {
+    if (disabled) {
+      return;
+    }
+
     const nextColors = [...colorList];
     nextColors.splice(index, 1);
 
@@ -107,6 +120,11 @@ const GradientColorBar = (props: GradientColorBarProps) => {
 
   // ============================= Change =============================
   const onInternalChangeComplete = (nextValues: number[]) => {
+    if (disabled) {
+      onGradientDragging(false);
+      return;
+    }
+
     onChangeComplete(new AggregationColor(colorList));
 
     // Reset `activeIndex` if out of range
@@ -133,7 +151,7 @@ const GradientColorBar = (props: GradientColorBarProps) => {
       value={values}
       range
       onChangeComplete={onInternalChangeComplete}
-      disabled={false}
+      disabled={!!disabled}
       type="gradient"
       // Active
       activeIndex={activeIndex}

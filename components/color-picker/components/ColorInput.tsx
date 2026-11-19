@@ -16,6 +16,7 @@ interface ColorInputProps {
   prefixCls: string;
   format?: ColorFormatType;
   onFormatChange?: (format: ColorFormatType) => void;
+  disabled?: boolean;
   disabledAlpha?: boolean;
   value?: AggregationColor;
   onChange?: (value: AggregationColor) => void;
@@ -28,19 +29,31 @@ const selectOptions = [FORMAT_HEX, FORMAT_HSB, FORMAT_RGB].map<DefaultOptionType
 }));
 
 const ColorInput: FC<ColorInputProps> = (props) => {
-  const { prefixCls, format, value, disabledAlpha, onFormatChange, onChange, disabledFormat } =
-    props;
+  const {
+    prefixCls,
+    format,
+    value,
+    disabled,
+    disabledAlpha,
+    onFormatChange,
+    onChange,
+    disabledFormat,
+  } = props;
   const [colorFormat, setColorFormat] = useControlledState<ColorFormatType>(FORMAT_HEX, format);
 
   const colorInputPrefixCls = `${prefixCls}-input`;
 
   const triggerFormatChange = (newFormat: ColorFormatType) => {
+    if (disabled) {
+      return;
+    }
+
     setColorFormat(newFormat);
     onFormatChange?.(newFormat);
   };
 
   const steppersNode = useMemo<React.ReactNode>(() => {
-    const inputProps = { value, prefixCls, onChange };
+    const inputProps = { value, prefixCls, onChange, disabled };
     switch (colorFormat) {
       case FORMAT_HSB:
         return <ColorHsbInput {...inputProps} />;
@@ -50,7 +63,7 @@ const ColorInput: FC<ColorInputProps> = (props) => {
       default:
         return <ColorHexInput {...inputProps} />;
     }
-  }, [colorFormat, prefixCls, value, onChange]);
+  }, [colorFormat, disabled, prefixCls, value, onChange]);
 
   return (
     <div className={`${colorInputPrefixCls}-container`}>
@@ -63,13 +76,19 @@ const ColorInput: FC<ColorInputProps> = (props) => {
           placement="bottomRight"
           onChange={triggerFormatChange}
           className={`${prefixCls}-format-select`}
+          disabled={disabled}
           size="small"
           options={selectOptions}
         />
       )}
       <div className={colorInputPrefixCls}>{steppersNode}</div>
       {!disabledAlpha && (
-        <ColorAlphaInput prefixCls={prefixCls} value={value} onChange={onChange} />
+        <ColorAlphaInput
+          prefixCls={prefixCls}
+          value={value}
+          onChange={onChange}
+          disabled={disabled}
+        />
       )}
     </div>
   );

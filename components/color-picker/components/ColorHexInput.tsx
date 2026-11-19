@@ -10,12 +10,13 @@ interface ColorHexInputProps {
   prefixCls: string;
   value?: AggregationColor;
   onChange?: (value: AggregationColor) => void;
+  disabled?: boolean;
 }
 
 const hexReg = /(^#[\da-f]{6}$)|(^#[\da-f]{8}$)/i;
 const isHexString = (hex?: string) => hexReg.test(`#${hex}`);
 
-const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) => {
+const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange, disabled }) => {
   const colorHexInputPrefixCls = `${prefixCls}-hex-input`;
   const [hexValue, setHexValue] = useState(() =>
     value ? toHexFormat(value.toHexString()) : undefined,
@@ -29,6 +30,10 @@ const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) =
   }, [value]);
 
   const handleHexChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (disabled) {
+      return;
+    }
+
     const originValue = e.target.value;
     setHexValue(toHexFormat(originValue));
     if (isHexString(toHexFormat(originValue, true))) {
@@ -42,6 +47,7 @@ const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) =
       value={hexValue}
       prefix="#"
       onChange={handleHexChange}
+      disabled={disabled}
       size="small"
     />
   );
