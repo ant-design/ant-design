@@ -34,8 +34,6 @@ const SliderTooltip = React.forwardRef<SliderRef, SliderTooltipProps>((props, re
   React.useEffect(() => {
     if (mergedOpen) {
       keepAlign();
-    } else {
-      cancelKeepAlign();
     }
 
     return cancelKeepAlign;
