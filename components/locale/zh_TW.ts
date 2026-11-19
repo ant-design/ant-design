@@ -96,6 +96,9 @@ const localeValues: Locale = {
     expand: '展開',
     collapse: '收合',
   },
+  Breadcrumb: {
+    label: '麵包屑導覽',
+  },
   Carousel: {
     prevSlide: '上一張投影片',
     nextSlide: '下一張投影片',

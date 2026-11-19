@@ -11,6 +11,7 @@ exports[`renders components/breadcrumb/demo/_semantic.tsx correctly 1`] = `
       class="ant-col ant-col-16 acss-my3sst css-var-test-id"
     >
       <nav
+        aria-label="Breadcrumb"
         class="ant-breadcrumb semantic-mark-root css-var-test-id"
       >
         <ol>
@@ -89,6 +90,7 @@ exports[`renders components/breadcrumb/demo/_semantic.tsx correctly 1`] = `
             class="ant-breadcrumb-item semantic-mark-item"
           >
             <span
+              aria-current="page"
               class="ant-breadcrumb-link"
             >
               Application

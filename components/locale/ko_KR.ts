@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: '확장',
     collapse: '접기',
   },
+  Breadcrumb: {
+    label: '이동 경로',
+  },
   Carousel: {
     prevSlide: '이전 슬라이드',
     nextSlide: '다음 슬라이드',

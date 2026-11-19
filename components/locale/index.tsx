@@ -59,6 +59,10 @@ export interface Locale {
     refresh?: string;
     scanned?: string;
   };
+  Breadcrumb?: {
+    /** Accessible name of the breadcrumb `nav` landmark */
+    label: string;
+  };
   Carousel?: {
     prevSlide: string;
     nextSlide: string;

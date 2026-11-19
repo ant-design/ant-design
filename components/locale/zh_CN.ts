@@ -97,6 +97,9 @@ const localeValues: Locale = {
     expand: '展开',
     collapse: '收起',
   },
+  Breadcrumb: {
+    label: '面包屑导航',
+  },
   Carousel: {
     prevSlide: '上一张幻灯片',
     nextSlide: '下一张幻灯片',

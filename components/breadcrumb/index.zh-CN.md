@@ -75,6 +75,10 @@ const item = {
 | type      | 标记为分隔符   | `separator` |        | 5.3.0 |
 | separator | 要显示的分隔符 | ReactNode   | `/`    | 5.3.0 |
 
+### 无障碍 {#accessibility}
+
+根节点 `nav` 默认使用当前语言包中的 `Breadcrumb.label` 作为无障碍名称（可通过 `aria-label` 或 `aria-labelledby` 覆盖）。使用 `items` 默认渲染时，最后一项会带有 `aria-current="page"`；可以在该项上设置 `aria-current` 来修改或去除。使用 `itemRender` 时，请在自定义节点上自行设置 `aria-current`。
+
 ### 和 browserHistory 配合 {#use-with-browserhistory}
 
 和 react-router 一起使用时，默认生成的 url 路径是带有 `#` 的，如果和 browserHistory 一起使用的话，你可以使用 `itemRender` 属性定义面包屑链接。
@@ -115,7 +119,7 @@ function itemRender(currentRoute, params, items, paths) {
   const isLast = currentRoute?.path === items[items.length - 1]?.path;
 
   return isLast ? (
-    <span>{currentRoute.title}</span>
+    <span aria-current="page">{currentRoute.title}</span>
   ) : (
     <Link to={`/${paths.join('/')}`}>{currentRoute.title}</Link>
   );

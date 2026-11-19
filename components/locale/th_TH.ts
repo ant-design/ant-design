@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'ขยาย',
     collapse: 'ย่อ',
   },
+  Breadcrumb: {
+    label: 'เส้นทางนำทาง',
+  },
   Carousel: {
     prevSlide: 'สไลด์ก่อนหน้า',
     nextSlide: 'สไลด์ถัดไป',
