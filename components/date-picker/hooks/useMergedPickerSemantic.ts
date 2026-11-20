@@ -30,6 +30,13 @@ const useMergedPickerSemantic = <P extends AnyObject = AnyObject>(
     {
       popup: {
         _default: 'root',
+        root: {},
+        header: {},
+        body: {},
+        content: {},
+        item: {},
+        footer: {},
+        container: {},
       },
     },
   );
