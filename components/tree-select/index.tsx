@@ -367,7 +367,6 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
 
   // ===================== Icons =====================
   const { suffix, removeIcon } = useIcons({
-    componentName: 'TreeSelect',
     ...restProps,
     suffix: mergedCustomSuffix,
     multiple: isMultiple,

@@ -378,7 +378,6 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const mergedCustomSuffix = customSuffix !== undefined ? customSuffix : customSuffixIcon;
   const showSuffix = useShowArrow(mergedCustomSuffix, showArrow);
   const { suffix: mergedSuffix, removeIcon: mergedRemoveIcon } = useSelectIcons({
-    componentName: 'Cascader',
     ...props,
     removeIcon,
     contextRemoveIcon,
