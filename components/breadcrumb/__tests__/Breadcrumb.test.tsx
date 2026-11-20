@@ -539,6 +539,20 @@ describe('Breadcrumb', () => {
     expect(screen.getByText('List')).toHaveAttribute('aria-current', 'false');
   });
 
+  it('should not mark the last item when another item is already current', () => {
+    const { rerender } = render(
+      <Breadcrumb items={[{ title: 'Home', 'aria-current': 'page' }, { title: 'List' }]} />,
+    );
+    expect(screen.getByText('Home')).toHaveAttribute('aria-current', 'page');
+    expect(screen.getByText('List')).not.toHaveAttribute('aria-current');
+
+    // `'false'` is not a current item, so the default still applies
+    rerender(
+      <Breadcrumb items={[{ title: 'Home', 'aria-current': 'false' }, { title: 'List' }]} />,
+    );
+    expect(screen.getByText('List')).toHaveAttribute('aria-current', 'page');
+  });
+
   it('should not change the route passed to itemRender', () => {
     const items = [{ title: 'Home' }, { title: 'List' }];
     const itemRender = jest.fn((route: ItemType) => <span>{route.title}</span>);

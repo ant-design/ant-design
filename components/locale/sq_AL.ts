@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Zgjero',
     collapse: 'Mblidh',
   },
+  Breadcrumb: {
+    label: 'Rruga e navigimit',
+  },
   Carousel: {
     prevSlide: 'Slajdi i mëparshëm',
     nextSlide: 'Slajdi tjetër',

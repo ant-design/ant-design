@@ -76,7 +76,7 @@ const item = {
 
 ### Accessibility
 
-The root `nav` is labelled with the `Breadcrumb.label` text of the current locale (override it with `aria-label` or `aria-labelledby`). When `items` are rendered by default, the last item gets `aria-current="page"`; set `aria-current` on that item to change or remove it. With `itemRender`, set `aria-current` in your own markup.
+The root `nav` is labelled with the `Breadcrumb.label` text of the current locale (override it with `aria-label` or `aria-labelledby`). When `items` are rendered by default, the last item gets `aria-current="page"` unless another item already sets `aria-current`; set `aria-current` on the last item to change or remove it. With `itemRender`, set `aria-current` in your own markup.
 
 ### Use with browserHistory
 

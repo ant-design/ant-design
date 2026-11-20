@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Proširi',
     collapse: 'Колапс',
   },
+  Breadcrumb: {
+    label: 'Navigaciona putanja',
+  },
   Carousel: {
     prevSlide: 'Prethodni slajd',
     nextSlide: 'Sledeći slajd',

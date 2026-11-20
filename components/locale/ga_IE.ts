@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Expand',
     collapse: 'Laghdaigh',
   },
+  Breadcrumb: {
+    label: 'Conair nascleanúna',
+  },
   Carousel: {
     prevSlide: 'An sleamhnán roimhe seo',
     nextSlide: 'An chéad sleamhnán eile',

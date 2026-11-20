@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'پھیلائیں',
     collapse: 'سمٹنا',
   },
+  Breadcrumb: {
+    label: 'نیویگیشن راستہ',
+  },
   Carousel: {
     prevSlide: 'پچھلی سلائیڈ',
     nextSlide: 'اگلی سلائیڈ',

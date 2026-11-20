@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Zabaldu',
     collapse: 'Tolestu',
   },
+  Breadcrumb: {
+    label: 'Nabigazio-bidea',
+  },
   Carousel: {
     prevSlide: 'Aurreko diapositiba',
     nextSlide: 'Hurrengo diapositiba',

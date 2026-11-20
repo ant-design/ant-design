@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Izvērst',
     collapse: 'Sakļaut',
   },
+  Breadcrumb: {
+    label: 'Navigācijas ceļš',
+  },
   Carousel: {
     prevSlide: 'Iepriekšējais slaids',
     nextSlide: 'Nākamais slaids',

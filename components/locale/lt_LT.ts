@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Plačiau',
     collapse: 'Sutraukti',
   },
+  Breadcrumb: {
+    label: 'Naršymo kelias',
+  },
   Carousel: {
     prevSlide: 'Ankstesnė skaidrė',
     nextSlide: 'Kita skaidrė',

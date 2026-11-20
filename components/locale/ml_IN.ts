@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'വികസിപ്പിക്കുക',
     collapse: 'ചുരുക്കുക',
   },
+  Breadcrumb: {
+    label: 'നാവിഗേഷൻ പാത',
+  },
   Carousel: {
     prevSlide: 'മുൻപത്തെ സ്ലൈഡ്',
     nextSlide: 'അടുത്ത സ്ലൈഡ്',

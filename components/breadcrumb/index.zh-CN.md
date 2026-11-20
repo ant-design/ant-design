@@ -77,7 +77,7 @@ const item = {
 
 ### 无障碍 {#accessibility}
 
-根节点 `nav` 默认使用当前语言包中的 `Breadcrumb.label` 作为无障碍名称（可通过 `aria-label` 或 `aria-labelledby` 覆盖）。使用 `items` 默认渲染时，最后一项会带有 `aria-current="page"`；可以在该项上设置 `aria-current` 来修改或去除。使用 `itemRender` 时，请在自定义节点上自行设置 `aria-current`。
+根节点 `nav` 默认使用当前语言包中的 `Breadcrumb.label` 作为无障碍名称（可通过 `aria-label` 或 `aria-labelledby` 覆盖）。使用 `items` 默认渲染时，若其他项未设置 `aria-current`，最后一项会带有 `aria-current="page"`；可以在最后一项上设置 `aria-current` 来修改或去除。使用 `itemRender` 时，请在自定义节点上自行设置 `aria-current`。
 
 ### 和 browserHistory 配合 {#use-with-browserhistory}
 

@@ -206,6 +206,11 @@ const InternalBreadcrumb = <T extends AnyObject = AnyObject>(
 
     const itemRenderRoutes = items || legacyRoutes;
 
+    // Only one item should be current, so a user-set `aria-current` anywhere disables the default.
+    const hasCurrentItem = mergedItems.some(
+      (item) => item['aria-current'] && item['aria-current'] !== 'false',
+    );
+
     crumbs = mergedItems.map((item, index) => {
       const {
         path,
@@ -257,9 +262,11 @@ const InternalBreadcrumb = <T extends AnyObject = AnyObject>(
           prefixCls={prefixCls}
         >
           {mergedItemRender(
-            // Mark the last item as the current page unless it sets its own `aria-current`.
+            // Mark the last item as the current page unless an item sets its own `aria-current`.
             // `itemRender` output is user markup, so its route is passed through untouched.
-            isLastItem && !itemRender ? { 'aria-current': 'page', ...item } : item,
+            isLastItem && !itemRender && !hasCurrentItem
+              ? { 'aria-current': 'page', ...item }
+              : item,
             params,
             itemRenderRoutes!,
             paths,
