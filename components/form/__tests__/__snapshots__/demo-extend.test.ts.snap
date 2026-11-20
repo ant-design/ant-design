@@ -7360,9 +7360,14 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
                 <span
                   class="ant-input-group-addon"
                 >
-                  Buggy!
+                  <span
+                    id="test-id-addon-before"
+                  >
+                    Buggy!
+                  </span>
                 </span>
                 <input
+                  aria-labelledby="test-id-addon-before"
                   class="ant-input ant-input-outlined"
                   placeholder="unavailable choice"
                   type="text"
@@ -7409,9 +7414,14 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
                 <span
                   class="ant-input-group-addon"
                 >
-                  Buggy!
+                  <span
+                    id="test-id-addon-before"
+                  >
+                    Buggy!
+                  </span>
                 </span>
                 <input
+                  aria-labelledby="test-id-addon-before"
                   class="ant-input ant-input-outlined ant-input-status-error"
                   placeholder="unavailable choice"
                   type="text"
@@ -7472,9 +7482,14 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
                 <span
                   class="ant-input-group-addon"
                 >
-                  Buggy!
+                  <span
+                    id="test-id-addon-before"
+                  >
+                    Buggy!
+                  </span>
                 </span>
                 <input
+                  aria-labelledby="test-id-addon-before"
                   class="ant-input ant-input-disabled ant-input-outlined ant-input-status-error"
                   disabled=""
                   placeholder="unavailable choice"
