@@ -4,7 +4,7 @@ import { spyElementPrototypes } from '@rc-component/util';
 import Watermark from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, waitFakeTimer } from '../../../tests/utils';
+import { act, render, waitFakeTimer } from '../../../tests/utils';
 import Drawer from '../../drawer';
 import Modal from '../../modal';
 
@@ -286,5 +286,152 @@ describe('Watermark', () => {
     unmount();
     await waitFakeTimer();
     expect(onRemove).not.toHaveBeenCalled();
+  });
+});
+
+describe('Watermark content changes in one animation frame', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+  afterEach(() => {
+    jest.restoreAllMocks();
+    jest.useRealTimers();
+  });
+
+  it('draws content supplied by a parent mount effect', async () => {
+    const fillText = jest.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
+    function Demo() {
+      const [content, setContent] = React.useState('');
+      React.useEffect(() => {
+        setContent('Account 42');
+      }, []);
+      return (
+        <Watermark content={content}>
+          <span>Report</span>
+        </Watermark>
+      );
+    }
+    render(<Demo />);
+    await waitFakeTimer();
+    expect(fillText.mock.calls.some(([text]) => text === 'Account 42')).toBe(true);
+  });
+
+  it('uses the last content update when several updates arrive before the next frame', async () => {
+    const fillText = jest.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
+    const { rerender } = render(<Watermark content="first" />);
+    rerender(<Watermark content="second" />);
+    rerender(<Watermark content="final" />);
+    await waitFakeTimer();
+    const texts = fillText.mock.calls.map(([text]) => text);
+    expect(texts[texts.length - 1]).toBe('final');
+  });
+
+  it('restores the updated watermark after removal without continuously redrawing', async () => {
+    const fillText = jest.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
+    const { container, rerender } = render(<Watermark content="first" />);
+    rerender(<Watermark content="final" />);
+    await waitFakeTimer();
+
+    const watermark = container.querySelector('[style*="background-image"]')!;
+    expect(watermark).toBeTruthy();
+    act(() => watermark.remove());
+    await waitFakeTimer();
+
+    expect(container.contains(watermark)).toBe(true);
+    expect(fillText.mock.calls[fillText.mock.calls.length - 1][0]).toBe('final');
+    const drawCount = fillText.mock.calls.length;
+    await waitFakeTimer();
+    expect(fillText).toHaveBeenCalledTimes(drawCount);
+  });
+});
+
+describe('Watermark asynchronous image updates', () => {
+  const images: HTMLImageElement[] = [];
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+    images.length = 0;
+    jest.spyOn(Image.prototype, 'src', 'set').mockImplementation(function (this: HTMLImageElement) {
+      images.push(this);
+    });
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+    jest.useRealTimers();
+  });
+
+  it.each(['load', 'error'] as const)(
+    'ignores an old image %s after a newer image loads',
+    async (event) => {
+      const drawImage = jest.spyOn(CanvasRenderingContext2D.prototype, 'drawImage');
+      const fillText = jest.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
+      const { container, rerender } = render(
+        <Watermark image="old.svg" width={100} rotate={0} content="old fallback" />,
+      );
+      const oldImage = images[0];
+      rerender(<Watermark image="new.svg" width={200} rotate={0} content="new fallback" />);
+      const newImage = images[images.length - 1];
+
+      act(() => newImage.dispatchEvent(new Event('load')));
+      expect(container.querySelector('[style*="background-image"]')).toHaveStyle({
+        backgroundSize: '600px',
+      });
+      drawImage.mockClear();
+      fillText.mockClear();
+
+      act(() => oldImage.dispatchEvent(new Event(event)));
+      await waitFakeTimer();
+
+      expect(drawImage).not.toHaveBeenCalled();
+      expect(fillText).not.toHaveBeenCalled();
+      expect(container.querySelector('[style*="background-image"]')).toHaveStyle({
+        backgroundSize: '600px',
+      });
+    },
+  );
+
+  it('still draws the latest image when the old image finishes first', () => {
+    const drawImage = jest.spyOn(CanvasRenderingContext2D.prototype, 'drawImage');
+    const { container, rerender } = render(<Watermark image="old.svg" width={100} rotate={0} />);
+    const oldImage = images[0];
+    rerender(<Watermark image="new.svg" width={200} rotate={0} />);
+    const newImage = images[images.length - 1];
+
+    act(() => oldImage.dispatchEvent(new Event('load')));
+    expect(drawImage).not.toHaveBeenCalled();
+    act(() => newImage.dispatchEvent(new Event('load')));
+    expect(drawImage).toHaveBeenCalledWith(newImage, 0, 0, 200, 64);
+    expect(container.querySelector('[style*="background-image"]')).toHaveStyle({
+      backgroundSize: '600px',
+    });
+  });
+
+  it('keeps text when a previous image finishes loading', async () => {
+    const drawImage = jest.spyOn(CanvasRenderingContext2D.prototype, 'drawImage');
+    const { container, rerender } = render(<Watermark image="old.svg" width={100} rotate={0} />);
+    const oldImage = images[0];
+    rerender(<Watermark content="latest text" width={200} rotate={0} />);
+    drawImage.mockClear();
+
+    act(() => oldImage.dispatchEvent(new Event('load')));
+    await waitFakeTimer();
+
+    expect(drawImage).not.toHaveBeenCalled();
+    expect(container.querySelector('[style*="background-image"]')).toHaveStyle({
+      backgroundSize: '600px',
+    });
+  });
+
+  it.each(['load', 'error'] as const)('does not draw on image %s after unmount', (event) => {
+    const drawImage = jest.spyOn(CanvasRenderingContext2D.prototype, 'drawImage');
+    const fillText = jest.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
+    const { unmount } = render(<Watermark image="pending.svg" content="fallback" />);
+    const pendingImage = images[0];
+    unmount();
+
+    act(() => pendingImage.dispatchEvent(new Event(event)));
+    expect(drawImage).not.toHaveBeenCalled();
+    expect(fillText).not.toHaveBeenCalled();
   });
 });
