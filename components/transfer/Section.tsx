@@ -4,7 +4,6 @@ import { isNonNullable, isReactRenderable, omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isFunction, isNumber, isPlainObject, isString } from '../_util/is';
-import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
 import type { MenuProps } from '../menu';
@@ -239,20 +238,21 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
     return [filterItems, filterRenderItems] as const;
   }, [dataSource, filterValue, filterOption, direction, render]);
 
+  const checkedKeysSet = useMemo(() => new Set(checkedKeys), [checkedKeys]);
+
   const checkedActiveItems = useMemo<RecordType[]>(() => {
-    return filteredItems.filter((item) => checkedKeys.includes(item.key) && !item.disabled);
-  }, [checkedKeys, filteredItems]);
+    return filteredItems.filter((item) => checkedKeysSet.has(item.key) && !item.disabled);
+  }, [checkedKeysSet, filteredItems]);
 
   const checkStatus = useMemo<'none' | 'all' | 'part'>(() => {
     if (checkedActiveItems.length === 0) {
       return 'none';
     }
-    const checkedKeysMap = groupKeysMap(checkedKeys);
-    if (filteredItems.every((item) => checkedKeysMap.has(item.key) || !!item.disabled)) {
+    if (filteredItems.every((item) => checkedKeysSet.has(item.key) || !!item.disabled)) {
       return 'all';
     }
     return 'part';
-  }, [checkedActiveItems.length, checkedKeys, filteredItems]);
+  }, [checkedActiveItems.length, checkedKeysSet, filteredItems]);
 
   const renderListBody = () => {
     const search = showSearch ? (
@@ -395,10 +395,9 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
           const availablePageItemKeys = getEnabledItemKeys(
             (listBodyRef.current?.items || []).map((entity) => entity.item),
           );
-          const checkedKeySet = new Set(checkedKeys);
-          const newCheckedKeysSet = new Set(checkedKeySet);
+          const newCheckedKeysSet = new Set(checkedKeysSet);
           availablePageItemKeys.forEach((key) => {
-            if (checkedKeySet.has(key)) {
+            if (checkedKeysSet.has(key)) {
               newCheckedKeysSet.delete(key);
             } else {
               newCheckedKeysSet.add(key);

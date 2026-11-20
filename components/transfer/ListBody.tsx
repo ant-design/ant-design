@@ -56,6 +56,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
     remove,
   } = props;
   const [current, setCurrent] = React.useState<number>(1);
+  const selectedKeysSet = React.useMemo(() => new Set(selectedKeys), [selectedKeys]);
 
   const mergedPagination = React.useMemo(() => {
     if (!pagination) {
@@ -77,7 +78,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
   }, [filteredRenderItems, mergedPagination, pageSize]);
 
   const onInternalClick = (item: KeyWiseTransferItem, e: React.MouseEvent<Element, MouseEvent>) => {
-    onItemSelect(item.key, !selectedKeys.includes(item.key), e, filteredItems);
+    onItemSelect(item.key, !selectedKeysSet.has(item.key), e, filteredItems);
   };
 
   const onRemove = (item: KeyWiseTransferItem) => {
@@ -140,7 +141,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
             onClick={onInternalClick}
             onRemove={onRemove}
             removeLabel={remove}
-            checked={selectedKeys.includes(item.key)}
+            checked={selectedKeysSet.has(item.key)}
             disabled={globalDisabled}
           />
         ))}
