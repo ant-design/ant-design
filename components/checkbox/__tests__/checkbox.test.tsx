@@ -95,6 +95,37 @@ describe('Checkbox', () => {
     expect(onBlur).toHaveBeenCalledTimes(1);
   });
 
+  it.each([undefined, false, true])(
+    'preserves native indeterminate after activation with checked=%s',
+    (checked) => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <Checkbox indeterminate checked={checked} onChange={onChange}>
+          Partial selection
+        </Checkbox>,
+      );
+      const input = container.querySelector('input')!;
+      fireEvent.click(input);
+      expect(input.indeterminate).toBe(true);
+      expect(onChange).toHaveBeenCalledTimes(1);
+      fireEvent.click(container.querySelector('label')!);
+      expect(input.indeterminate).toBe(true);
+      expect(onChange).toHaveBeenCalledTimes(2);
+    },
+  );
+
+  it('allows onChange to clear indeterminate', () => {
+    const Demo = () => {
+      const [indeterminate, setIndeterminate] = React.useState(true);
+      return <Checkbox indeterminate={indeterminate} onChange={() => setIndeterminate(false)} />;
+    };
+    const { container } = render(<Demo />);
+    const input = container.querySelector('input')!;
+    fireEvent.click(input);
+    expect(input).toBeChecked();
+    expect(input.indeterminate).toBe(false);
+  });
+
   it('should reflect indeterminate state correctly', () => {
     const { rerender, container } = render(<Checkbox indeterminate />);
 
