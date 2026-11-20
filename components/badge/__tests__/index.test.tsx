@@ -267,4 +267,63 @@ describe('Badge', () => {
     const { container } = render(<Badge ref={badgeRef} status="success" text="Success" />);
     expect(badgeRef.current).toBe(container.querySelector('.ant-badge'));
   });
+
+  it('should scroll down when count decreases after an unchanged digit update', () => {
+    const { container, rerender } = render(<Badge count={5} />);
+
+    rerender(<Badge count={15} />);
+    rerender(<Badge count={14} />);
+
+    const digits = container.querySelectorAll<HTMLElement>('.ant-scroll-number-only');
+    const onesDigit = digits[1];
+    expect(onesDigit.style.transform).toBe('translateY(100%)');
+    expect(onesDigit.querySelectorAll('.ant-scroll-number-only-unit')).toHaveLength(2);
+
+    fireEvent.transitionEnd(onesDigit);
+    expect(onesDigit.style.transition).toBe('none');
+    expect(onesDigit.textContent).toBe('4');
+  });
+
+  it('should scroll up when count increases after an unchanged digit update', () => {
+    const { container, rerender } = render(<Badge count={25} />);
+
+    rerender(<Badge count={15} />);
+    rerender(<Badge count={16} />);
+
+    const digits = container.querySelectorAll<HTMLElement>('.ant-scroll-number-only');
+    const onesDigit = digits[1];
+    expect(onesDigit.style.transform).toBe('translateY(-100%)');
+    expect(onesDigit.querySelectorAll('.ant-scroll-number-only-unit')).toHaveLength(2);
+  });
+
+  it('should use latest count when count updates mid-transition with the same digit', () => {
+    const { container, rerender } = render(<Badge count={15} />);
+
+    rerender(<Badge count={16} />);
+    act(() => {
+      jest.advanceTimersByTime(200);
+    });
+    rerender(<Badge count={26} />);
+    act(() => {
+      jest.runAllTimers();
+    });
+    rerender(<Badge count={25} />);
+
+    const digits = container.querySelectorAll<HTMLElement>('.ant-scroll-number-only');
+    const onesDigit = digits[1];
+    expect(onesDigit.style.transform).toBe('translateY(100%)');
+    expect(onesDigit.querySelectorAll('.ant-scroll-number-only-unit')).toHaveLength(2);
+  });
+
+  it('should sync previous value after transitioning from negative sign to digit', () => {
+    const { container, rerender } = render(<Badge count={-10} overflowCount={999} />);
+
+    rerender(<Badge count={100} overflowCount={999} />);
+    rerender(<Badge count={200} overflowCount={999} />);
+
+    const digits = container.querySelectorAll<HTMLElement>('.ant-scroll-number-only');
+    const hundredsDigit = digits[0];
+    expect(hundredsDigit.style.transform).toBe('translateY(-100%)');
+    expect(hundredsDigit.querySelectorAll('.ant-scroll-number-only-unit')).toHaveLength(2);
+  });
 });
