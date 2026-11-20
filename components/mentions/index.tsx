@@ -1,7 +1,6 @@
 import * as React from 'react';
 import RcMentions from '@rc-component/mentions';
 import type { MentionsProps as RcMentionsProps } from '@rc-component/mentions';
-import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useAllowClear, useZIndex } from '../_util/hooks';
@@ -116,8 +115,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     ...restProps
   } = props;
   const [focused, setFocused] = React.useState(false);
-  const innerRef = React.useRef<MentionsRef>(null);
-  const mergedRef = composeRef(ref, innerRef);
 
   // ===================== Size =====================
   const mergedSize = useSize((ctx) => customSize ?? ctx);
@@ -264,7 +261,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       filterOption={mentionsfilterOption}
       onFocus={onFocus}
       onBlur={onBlur}
-      ref={mergedRef}
+      ref={ref}
       options={mergedOptions}
       suffix={suffixNode}
       styles={{
