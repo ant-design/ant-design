@@ -103,6 +103,36 @@ describe('Transfer.Dropdown', () => {
   });
 
   describe('select invert', () => {
+    it('inverts matching items in a custom list', () => {
+      jest.useFakeTimers();
+      const onSelectChange = jest.fn();
+      const { container } = render(
+        <Transfer
+          dataSource={[
+            { key: 'a', title: 'First match' },
+            { key: 'b', title: 'Second match' },
+            { key: 'c', title: 'Hidden' },
+            { key: 'd', title: 'Disabled match', disabled: true },
+          ]}
+          selectedKeys={['a', 'c']}
+          showSearch={{ defaultValue: 'match' }}
+          render={(item) => item.title}
+          onSelectChange={onSelectChange}
+        >
+          {({ filteredItems }) => <div>{filteredItems.map((item) => item.title).join(', ')}</div>}
+        </Transfer>,
+      );
+
+      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
+      act(() => {
+        jest.runAllTimers();
+      });
+      clickItem(container, 1);
+
+      expect(onSelectChange).toHaveBeenCalledWith(['c', 'b'], []);
+      jest.useRealTimers();
+    });
+
     it('with pagination', () => {
       jest.useFakeTimers();
 
