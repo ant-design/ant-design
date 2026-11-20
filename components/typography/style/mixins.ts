@@ -304,7 +304,7 @@ export const getCopyableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
   },
 });
 
-export const getEllipsisStyles = (): CSSObject => ({
+export const getEllipsisStyles = (token: TypographyToken): CSSObject => ({
   'a&-ellipsis, span&-ellipsis': {
     display: 'inline-block',
     maxWidth: '100%',
@@ -327,6 +327,33 @@ export const getEllipsisStyles = (): CSSObject => ({
       verticalAlign: 'bottom',
       // https://github.com/ant-design/ant-design/issues/45953
       boxSizing: 'content-box',
+    },
+  },
+
+  // Clip only the text and keep the actions beside it, the root layout stays unchanged
+  '&-ellipsis-with-actions': {
+    // Shrink as an item of a parent flex/grid container
+    minWidth: 0,
+    maxWidth: '100%',
+
+    [`${token.componentCls}-ellipsis-wrap`]: {
+      display: 'inline-flex',
+      alignItems: 'baseline',
+      maxWidth: '100%',
+      minWidth: 0,
+    },
+
+    [`${token.componentCls}-ellipsis-content`]: {
+      ...textEllipsis,
+      minWidth: 0,
+      // Clamp forced breaks such as `<br />` to one line as well
+      display: '-webkit-box',
+      WebkitLineClamp: 1,
+      WebkitBoxOrient: 'vertical',
+    },
+
+    [`${token.componentCls}-actions`]: {
+      flex: 'none',
     },
   },
 

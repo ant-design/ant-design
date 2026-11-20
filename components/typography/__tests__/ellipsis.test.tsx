@@ -31,6 +31,23 @@ describe('Typography.Ellipsis', () => {
   let computeSpy: jest.SpyInstance<CSSStyleDeclaration>;
   let offsetWidth: number;
   let scrollWidth: number;
+  let textOverflowSpy: ReturnType<typeof spyElementPrototypes> | undefined;
+
+  // Native css ellipsis: only the text wrapper overflows, the actions sit beside it
+  const mockTextWrapperOverflow = () => {
+    textOverflowSpy = spyElementPrototypes(HTMLElement, {
+      getBoundingClientRect() {
+        const ele = this as unknown as HTMLElement;
+        if (ele.classList.contains('ant-typography-css-ellipsis-content-measure')) {
+          const left = ele.parentElement?.classList.contains('ant-typography-ellipsis-content')
+            ? 200
+            : 50;
+          return { left, right: left, top: 0, bottom: 22 };
+        }
+        return { left: 0, right: 100, top: 0, bottom: 22 };
+      },
+    });
+  };
 
   function getContentHeight(this: { get: (elem?: HTMLElement) => number }, elem?: HTMLElement) {
     const regex = /<[^>]*>/g;
@@ -75,6 +92,8 @@ describe('Typography.Ellipsis', () => {
 
   afterEach(() => {
     errorSpy.mockReset();
+    textOverflowSpy?.mockRestore();
+    textOverflowSpy = undefined;
   });
 
   afterAll(() => {
@@ -283,7 +302,8 @@ describe('Typography.Ellipsis', () => {
 
     const ref = React.createRef<HTMLElement>();
     const { container: wrapper } = render(
-      <Base ellipsis component="p" editable ref={ref}>
+      // `onEllipsis` keeps it on the JS ellipsis path
+      <Base ellipsis={{ onEllipsis: () => {} }} component="p" ref={ref}>
         {bamboo}
         {is}
         <code>Little</code>
@@ -361,6 +381,149 @@ describe('Typography.Ellipsis', () => {
     it('can use css ellipsis', () => {
       const { container } = render(<Base ellipsis component="p" />);
       expect(container.querySelector('.ant-typography-ellipsis-single-line')).toBeTruthy();
+    });
+
+    // https://github.com/ant-design/ant-design/issues/54411
+    it('keeps single line edit and copy beside css ellipsis', () => {
+      const { container } = render(
+        <Base ellipsis component="p" copyable editable>
+          {fullStr}
+        </Base>,
+      );
+
+      const typography = container.querySelector('.ant-typography')!;
+      // The root keeps the JS-path layout, with a marker that lets it shrink in a parent flex
+      expect(typography).not.toHaveClass('ant-typography-ellipsis-single-line');
+      expect(typography).toHaveClass('ant-typography-ellipsis-with-actions');
+
+      // CSS keeps the full text instead of slicing it
+      const content = typography.querySelector('.ant-typography-ellipsis-content')!;
+      expect(content.textContent).toBe(fullStr);
+      expect(content.nextElementSibling).toHaveClass('ant-typography-actions');
+      expect(content.parentElement).toHaveClass('ant-typography-ellipsis-wrap');
+      expect(content.parentElement!.parentElement).toBe(typography);
+    });
+
+    it('keeps start placement actions before the css ellipsis text', () => {
+      const { container } = render(
+        <Base ellipsis component="p" copyable actions={{ placement: 'start' }}>
+          {fullStr}
+        </Base>,
+      );
+
+      const content = container.querySelector('.ant-typography-ellipsis-content')!;
+      expect(content.previousElementSibling).toHaveClass('ant-typography-actions');
+      expect(content.nextElementSibling).toBeNull();
+    });
+
+    it('still measures multiple lines with actions in JS', () => {
+      const { container } = render(
+        <Base ellipsis={{ rows: 2 }} component="p" copyable>
+          {fullStr}
+        </Base>,
+      );
+
+      expect(container.querySelector('.ant-typography-ellipsis-wrap')).toBeFalsy();
+      expect(container.querySelector('.ant-typography-ellipsis-multiple-line')).toBeFalsy();
+    });
+
+    it('still uses JS ellipsis for a single line with suffix and copy', () => {
+      const suffix = 'suffix';
+      const { container } = render(
+        <Base ellipsis={{ suffix }} component="p" copyable>
+          {fullStr}
+        </Base>,
+      );
+
+      expect(container.querySelector('.ant-typography-ellipsis-wrap')).toBeFalsy();
+      expect(container.textContent).toContain(suffix);
+    });
+
+    it('still uses JS ellipsis for a single line with expandable and copy', () => {
+      const { container } = render(
+        <Base ellipsis={{ expandable: true }} component="p" copyable>
+          {fullStr}
+        </Base>,
+      );
+
+      expect(container.querySelector('.ant-typography-ellipsis-wrap')).toBeFalsy();
+    });
+
+    it('still uses JS ellipsis for decorations with actions', () => {
+      const decorations = ['strong', 'underline', 'delete', 'code', 'mark', 'keyboard', 'italic'];
+      const { container } = render(
+        <>
+          {decorations.map((key) => (
+            <Base key={key} ellipsis component="p" copyable {...{ [key]: true }}>
+              {fullStr}
+            </Base>
+          ))}
+        </>,
+      );
+
+      // Decorations keep the same DOM and styles as before
+      container.querySelectorAll('.ant-typography').forEach((typography) => {
+        expect(typography).not.toHaveClass('ant-typography-ellipsis-with-actions');
+        expect(typography.querySelector('.ant-typography-ellipsis-wrap')).toBeFalsy();
+      });
+    });
+
+    it('leaves the root layout to the user', () => {
+      const { container } = render(
+        <Base
+          ellipsis
+          component="p"
+          copyable
+          style={{ textAlign: 'right' }}
+          styles={{ root: { display: 'block', justifyContent: 'center' } }}
+        >
+          {fullStr}
+        </Base>,
+      );
+
+      const typography = container.querySelector<HTMLElement>('.ant-typography')!;
+      expect(typography.querySelector('.ant-typography-ellipsis-wrap')).toBeTruthy();
+      // User styles stay untouched
+      expect(typography.style.display).toBe('block');
+      expect(typography.style.textAlign).toBe('right');
+      expect(typography.style.justifyContent).toBe('center');
+    });
+
+    it('measures the multiple line layout after switching from a single line', async () => {
+      const ref = React.createRef<HTMLElement>();
+      const { container, rerender } = render(
+        <Base ellipsis component="p" copyable ref={ref}>
+          {fullStr}
+        </Base>,
+      );
+      expect(container.querySelector('.ant-typography-ellipsis-wrap')).toBeTruthy();
+
+      // Only the layout change refreshes the measured content
+      rerender(
+        <Base ellipsis={{ rows: 2 }} component="p" copyable ref={ref}>
+          {fullStr}
+        </Base>,
+      );
+      triggerResize(ref.current!);
+      await waitFakeTimer();
+
+      expect(container.querySelector('.ant-typography-ellipsis-wrap')).toBeFalsy();
+      expect(container.querySelector('p')?.textContent).toBe('Bamboo is Little Light Bamboo is Litt...');
+    });
+
+    it('keeps forced line breaks inside the clipped text', () => {
+      const { container } = render(
+        <Base ellipsis component="p" copyable>
+          first
+          <br />
+          second
+        </Base>,
+      );
+
+      // Clamp `<br />` to one line too
+      const content = container.querySelector('.ant-typography-ellipsis-content')!;
+      expect(content.querySelector('br')).toBeTruthy();
+      expect(content.nextElementSibling).toHaveClass('ant-typography-actions');
     });
 
     // https://github.com/ant-design/ant-design/issues/36786
@@ -782,8 +945,7 @@ describe('Typography.Ellipsis', () => {
   });
 
   it('copyable + ellipsis: ellipsis tooltip hides when hovering copy, shows when hovering text', async () => {
-    offsetWidth = 50;
-    scrollWidth = 100;
+    mockTextWrapperOverflow();
 
     const ref = React.createRef<HTMLElement>();
     const { container, baseElement } = render(
@@ -829,8 +991,7 @@ describe('Typography.Ellipsis', () => {
   });
 
   it('copyable with start action bar placement + ellipsis: ellipsis tooltip hides when hovering copy, shows when hovering text', async () => {
-    offsetWidth = 50;
-    scrollWidth = 100;
+    mockTextWrapperOverflow();
 
     const ref = React.createRef<HTMLElement>();
     const { container, baseElement } = render(

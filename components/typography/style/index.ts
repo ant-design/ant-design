@@ -117,7 +117,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken, CSSObject> = (token) =>
 
       ...getCopyableStyles(token),
 
-      ...getEllipsisStyles(),
+      ...getEllipsisStyles(token),
 
       // Shimmer
       [`&${componentCls}-shimmer`]: getShimmerStyles(token),
