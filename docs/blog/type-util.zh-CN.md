@@ -33,7 +33,7 @@ type SelectOption<T> = NonNullable<SelectProps<T>['options']>[number];
 
 ### 工具类型 {#type-util}
 
-现在在 antd 中，我们额外提供了 3 个工具类型：
+现在 antd 中，我们额外提供了 3 个工具类型：
 
 - `GetProps<ComponentType>`
 - `GetProp<ComponentTypeOrComponentPropsType, PropName>`
