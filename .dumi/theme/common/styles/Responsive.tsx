@@ -26,6 +26,11 @@ const Responsive: React.FC = () => {
             width: 100%;
             max-width: unset;
           }
+
+          .code-box-demo,
+          ${token.antCls}-table-content {
+            overflow-x: auto;
+          }
         }
 
         @media only screen and (max-width: 767.99px) {
