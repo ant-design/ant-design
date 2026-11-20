@@ -213,7 +213,8 @@ const Watermark = React.forwardRef<WatermarkRef, WatermarkProps>((props, ref) =>
   const getClips = useClips();
 
   type ClipParams = Parameters<typeof getClips>;
-  const getClipsCache = useSingletonCache<ClipParams, ReturnType<typeof getClips>>();
+  type ClipCacheKeys = [...ClipParams, string | undefined];
+  const getClipsCache = useSingletonCache<ClipCacheKeys, ReturnType<typeof getClips>>();
 
   const [watermarkInfo, setWatermarkInfo] = React.useState<[base64: string, contentWidth: number]>(
     null!,
@@ -239,7 +240,10 @@ const Watermark = React.forwardRef<WatermarkRef, WatermarkProps>((props, ref) =>
           gapY,
         ] as const;
 
-        const [nextClips, clipWidth] = getClipsCache(params, () => getClips(...params));
+        // `drawContent` is normalized by the cache, so image url is required to detect image changes.
+        const cacheKeys: ClipCacheKeys = [...params, image];
+
+        const [nextClips, clipWidth] = getClipsCache(cacheKeys, () => getClips(...params));
 
         setWatermarkInfo([nextClips, clipWidth]);
       };
