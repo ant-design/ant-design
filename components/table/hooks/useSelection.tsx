@@ -773,7 +773,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
       }
 
       const columnCls = clsx(`${prefixCls}-selection-col`, {
-        [`${prefixCls}-selection-col-with-dropdown`]: selections && selectionType === 'checkbox',
+        [`${prefixCls}-selection-col-with-dropdown`]:
+          !!mergedSelections && selectionType !== 'radio',
       });
 
       const renderColumnTitle = () => {
