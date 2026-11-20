@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'ពង្រីក',
     collapse: 'ដួលរលំ',
   },
+  Breadcrumb: {
+    label: 'ផ្លូវរុករក',
+  },
   Carousel: {
     prevSlide: 'ស្លាយមុន',
     nextSlide: 'ស្លាយបន្ទាប់',

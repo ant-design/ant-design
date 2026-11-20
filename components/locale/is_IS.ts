@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Stækkaðu',
     collapse: 'Hrun',
   },
+  Breadcrumb: {
+    label: 'Brauðmolaslóð',
+  },
   Carousel: {
     prevSlide: 'Fyrri skyggna',
     nextSlide: 'Næsta skyggna',

@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'විහිදුවන්න',
     collapse: 'හකුළන්න',
   },
+  Breadcrumb: {
+    label: 'සංචාලන මාර්ගය',
+  },
   Carousel: {
     prevSlide: 'කලින් ස්ලයිඩ්',
     nextSlide: 'ඊළඟ ස්ලයිඩ්',

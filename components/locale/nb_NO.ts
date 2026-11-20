@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Utvid',
     collapse: 'Skjul',
   },
+  Breadcrumb: {
+    label: 'Brødsmulesti',
+  },
   Carousel: {
     prevSlide: 'Forrige lysbilde',
     nextSlide: 'Neste lysbilde',

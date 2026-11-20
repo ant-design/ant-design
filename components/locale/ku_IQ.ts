@@ -99,6 +99,9 @@ const localeValues: Locale = {
     expand: 'Zêdetir nîşan bide',
     collapse: 'Hilweşîn',
   },
+  Breadcrumb: {
+    label: 'Rêya navîgasyonê',
+  },
   Carousel: {
     prevSlide: 'Slayda berê',
     nextSlide: 'Slayda pêş',

@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Näytä lisää',
     collapse: 'Kutista',
   },
+  Breadcrumb: {
+    label: 'Murupolku',
+  },
   Carousel: {
     prevSlide: 'Edellinen dia',
     nextSlide: 'Seuraava dia',

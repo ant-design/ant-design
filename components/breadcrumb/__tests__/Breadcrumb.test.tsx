@@ -7,6 +7,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import zhCN from '../../locale/zh_CN';
 import type { BreadcrumbProps, ItemType } from '../Breadcrumb';
 
 describe('Breadcrumb', () => {
@@ -479,5 +480,86 @@ describe('Breadcrumb', () => {
       <Breadcrumb separator={0} items={[{ title: 'foo' }, { title: 'bar' }]} />,
     );
     expect(container.querySelector('.ant-breadcrumb-separator')?.textContent).toBe('0');
+  });
+
+  it('should label the navigation landmark', () => {
+    render(<Breadcrumb items={[{ title: 'foo' }]} />);
+    expect(screen.getByRole('navigation', { name: 'Breadcrumb' })).toBeTruthy();
+  });
+
+  it('should label the navigation landmark from ConfigProvider locale', () => {
+    render(
+      <ConfigProvider locale={zhCN}>
+        <Breadcrumb items={[{ title: 'foo' }]} />
+      </ConfigProvider>,
+    );
+    expect(screen.getByRole('navigation', { name: '面包屑导航' })).toBeTruthy();
+  });
+
+  it('should prefer user aria-label and aria-labelledby on the navigation landmark', () => {
+    render(
+      <>
+        <Breadcrumb aria-label="Custom" items={[{ title: 'foo' }]} />
+        <span id="trail">Trail</span>
+        <Breadcrumb aria-labelledby="trail" items={[{ title: 'bar' }]} />
+      </>,
+    );
+    expect(screen.getByRole('navigation', { name: 'Custom' })).toBeTruthy();
+    expect(screen.getByRole('navigation', { name: 'Trail' })).toBeTruthy();
+  });
+
+  it('should mark the last item as the current page', () => {
+    const { unmount } = render(
+      <Breadcrumb
+        items={[
+          { title: 'Home', href: '/' },
+          { title: 'List', href: '/list' },
+        ]}
+      />,
+    );
+    expect(screen.getByRole('link', { current: 'page' })).toHaveTextContent('List');
+    expect(screen.getByRole('link', { current: false })).toHaveTextContent('Home');
+    unmount();
+
+    render(<Breadcrumb items={[{ title: 'Home' }, { title: 'List' }]} />);
+    expect(screen.getByText('Home')).not.toHaveAttribute('aria-current');
+    expect(screen.getByText('List')).toHaveAttribute('aria-current', 'page');
+  });
+
+  it('should prefer item aria-current over the default', () => {
+    render(
+      <Breadcrumb
+        items={[
+          { title: 'Home', 'aria-current': 'location' },
+          { title: 'List', 'aria-current': false },
+        ]}
+      />,
+    );
+    expect(screen.getByText('Home')).toHaveAttribute('aria-current', 'location');
+    expect(screen.getByText('List')).toHaveAttribute('aria-current', 'false');
+  });
+
+  it('should not mark the last item when another item is already current', () => {
+    const { rerender } = render(
+      <Breadcrumb items={[{ title: 'Home', 'aria-current': 'page' }, { title: 'List' }]} />,
+    );
+    expect(screen.getByText('Home')).toHaveAttribute('aria-current', 'page');
+    expect(screen.getByText('List')).not.toHaveAttribute('aria-current');
+
+    // `'false'` is not a current item, so the default still applies
+    rerender(
+      <Breadcrumb items={[{ title: 'Home', 'aria-current': 'false' }, { title: 'List' }]} />,
+    );
+    expect(screen.getByText('List')).toHaveAttribute('aria-current', 'page');
+  });
+
+  it('should not change the route passed to itemRender', () => {
+    const items = [{ title: 'Home' }, { title: 'List' }];
+    const itemRender = jest.fn((route: ItemType) => <span>{route.title}</span>);
+    render(<Breadcrumb items={items} itemRender={itemRender} />);
+    itemRender.mock.calls.forEach(([route]) => {
+      expect(items).toContain(route);
+    });
+    expect(screen.getByText('List')).not.toHaveAttribute('aria-current');
   });
 });

@@ -100,6 +100,9 @@ const localeValues: Locale = {
     expand: 'Yoyish',
     collapse: 'Yigʻish',
   },
+  Breadcrumb: {
+    label: 'Navigatsiya yoʻli',
+  },
   Carousel: {
     prevSlide: 'Oldingi slayd',
     nextSlide: 'Keyingi slayd',

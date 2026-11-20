@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Жазу',
     collapse: 'Жыйрату',
   },
+  Breadcrumb: {
+    label: 'Навигациялық жол',
+  },
   Carousel: {
     prevSlide: 'Алдыңғы слайд',
     nextSlide: 'Келесі слайд',

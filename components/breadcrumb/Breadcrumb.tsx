@@ -10,6 +10,8 @@ import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import type { DropdownProps } from '../dropdown';
+import { useLocale } from '../locale';
+import defaultLocale from '../locale/en_US';
 import type { BreadcrumbContextProps } from './BreadcrumbContext';
 import BreadcrumbContext from './BreadcrumbContext';
 import type { BreadcrumbItemProps } from './BreadcrumbItem';
@@ -136,6 +138,7 @@ const InternalBreadcrumb = <T extends AnyObject = AnyObject>(
     separator: contextSeparator,
     dropdownIcon: contextDropdownIcon,
   } = useComponentConfig('breadcrumb');
+  const [contextLocale] = useLocale('Breadcrumb', defaultLocale.Breadcrumb);
 
   const mergedSeparator = separator ?? contextSeparator ?? '/';
   const mergedDropdownIcon = dropdownIcon ?? contextDropdownIcon ?? <DownOutlined />;
@@ -203,6 +206,11 @@ const InternalBreadcrumb = <T extends AnyObject = AnyObject>(
 
     const itemRenderRoutes = items || legacyRoutes;
 
+    // Only one item should be current, so a user-set `aria-current` anywhere disables the default.
+    const hasCurrentItem = mergedItems.some(
+      (item) => item['aria-current'] && item['aria-current'] !== 'false',
+    );
+
     crumbs = mergedItems.map((item, index) => {
       const {
         path,
@@ -253,7 +261,17 @@ const InternalBreadcrumb = <T extends AnyObject = AnyObject>(
           onClick={onClick}
           prefixCls={prefixCls}
         >
-          {mergedItemRender(item, params, itemRenderRoutes!, paths, href)}
+          {mergedItemRender(
+            // Mark the last item as the current page unless an item sets its own `aria-current`.
+            // `itemRender` output is user markup, so its route is passed through untouched.
+            isLastItem && !itemRender && !hasCurrentItem
+              ? { 'aria-current': 'page', ...item }
+              : item,
+            params,
+            itemRenderRoutes!,
+            paths,
+            href,
+          )}
         </InternalBreadcrumbItem>
       );
     });
@@ -303,6 +321,7 @@ const InternalBreadcrumb = <T extends AnyObject = AnyObject>(
     <BreadcrumbContext.Provider value={memoizedValue}>
       <nav
         ref={nativeElementRef}
+        aria-label={contextLocale.label}
         className={breadcrumbClassName}
         style={mergedStyle}
         {...restProps}

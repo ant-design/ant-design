@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Ανάπτυξη',
     collapse: 'Σύμπτυξη',
   },
+  Breadcrumb: {
+    label: 'Διαδρομή πλοήγησης',
+  },
   Carousel: {
     prevSlide: 'Προηγούμενη διαφάνεια',
     nextSlide: 'Επόμενη διαφάνεια',

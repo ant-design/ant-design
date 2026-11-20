@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'გაშლა',
     collapse: 'კოლაფსი',
   },
+  Breadcrumb: {
+    label: 'ნავიგაციის ბილიკი',
+  },
   Carousel: {
     prevSlide: 'წინა სლაიდი',
     nextSlide: 'შემდეგი სლაიდი',

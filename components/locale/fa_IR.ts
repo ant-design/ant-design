@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'توسعه',
     collapse: 'بستن',
   },
+  Breadcrumb: {
+    label: 'مسیر پیمایش',
+  },
   Carousel: {
     prevSlide: 'اسلاید قبلی',
     nextSlide: 'اسلاید بعدی',

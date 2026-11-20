@@ -74,6 +74,10 @@ const item = {
 | type      | Mark as separator | `separator` |         | 5.3.0   |
 | separator | Custom separator  | ReactNode   | `/`     | 5.3.0   |
 
+### Accessibility
+
+The root `nav` is labelled with the `Breadcrumb.label` text of the current locale (override it with `aria-label` or `aria-labelledby`). When `items` are rendered by default, the last item gets `aria-current="page"` unless another item already sets `aria-current`; set `aria-current` on the last item to change or remove it. With `itemRender`, set `aria-current` in your own markup.
+
 ### Use with browserHistory
 
 The link of Breadcrumb item targets `#` by default, you can use `itemRender` to make a `browserHistory` Link.
@@ -114,7 +118,7 @@ function itemRender(currentRoute, params, items, paths) {
   const isLast = currentRoute?.path === items[items.length - 1]?.path;
 
   return isLast ? (
-    <span>{currentRoute.title}</span>
+    <span aria-current="page">{currentRoute.title}</span>
   ) : (
     <Link to={`/${paths.join('/')}`}>{currentRoute.title}</Link>
   );

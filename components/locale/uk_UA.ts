@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Розширити',
     collapse: 'Згорнути',
   },
+  Breadcrumb: {
+    label: 'Навігаційний ланцюжок',
+  },
   Carousel: {
     prevSlide: 'Попередній слайд',
     nextSlide: 'Наступний слайд',

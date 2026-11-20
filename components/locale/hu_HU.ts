@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Bontsa ki',
     collapse: 'Összeomlás',
   },
+  Breadcrumb: {
+    label: 'Morzsamenü',
+  },
   Carousel: {
     prevSlide: 'Előző dia',
     nextSlide: 'Következő dia',

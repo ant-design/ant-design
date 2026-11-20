@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Uitklappen',
     collapse: 'Samenvouwen',
   },
+  Breadcrumb: {
+    label: 'Kruimelpad',
+  },
   Carousel: {
     prevSlide: 'Vorige dia',
     nextSlide: 'Volgende dia',

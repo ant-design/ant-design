@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Ýygnamak',
     collapse: 'Apseykylmak',
   },
+  Breadcrumb: {
+    label: 'Nawigasiýa ýoly',
+  },
   Carousel: {
     prevSlide: 'Öňki slayd',
     nextSlide: 'Indiki slayd',

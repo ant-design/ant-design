@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'وسع',
     collapse: 'طي',
   },
+  Breadcrumb: {
+    label: 'مسار التنقل',
+  },
   Carousel: {
     prevSlide: 'الشريحة السابقة',
     nextSlide: 'الشريحة التالية',

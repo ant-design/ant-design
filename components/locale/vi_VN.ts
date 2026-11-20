@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Mở rộng',
     collapse: 'Thu gọn',
   },
+  Breadcrumb: {
+    label: 'Đường dẫn điều hướng',
+  },
   Carousel: {
     prevSlide: 'Slide trước',
     nextSlide: 'Slide tiếp theo',
