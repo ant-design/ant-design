@@ -18,7 +18,7 @@ export interface StatisticTimerProps extends FormatConfig, StatisticProps {
    * Only to be called when the type is `countdown`.
    */
   onFinish?: () => void;
-  onChange?: (value?: valueType) => void;
+  onChange?: (value: number) => void;
 }
 
 function getTime(value?: valueType) {
