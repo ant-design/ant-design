@@ -2,14 +2,21 @@
 
 exports[`Dropdown rtl render component should be rendered correctly in RTL direction 1`] = `
 <span
+  aria-expanded="false"
+  aria-haspopup="menu"
   class="ant-dropdown-trigger ant-dropdown-rtl"
+  role="button"
+  tabindex="0"
 />
 `;
 
 exports[`Dropdown should render custom dropdown correctly 1`] = `
 Array [
   <button
+    aria-expanded="true"
+    aria-haspopup="menu"
     class="ant-dropdown-trigger ant-dropdown-open"
+    tabindex="0"
     type="button"
   >
     button
@@ -55,7 +62,10 @@ Array [
 exports[`Dropdown support custom transitionName 1`] = `
 Array [
   <button
+    aria-expanded="true"
+    aria-haspopup="menu"
     class="ant-dropdown-trigger ant-dropdown-open"
+    tabindex="0"
     type="button"
   >
     button
