@@ -1,9 +1,11 @@
+import { isWindow } from '../_util/is';
+
 export type BindElement = HTMLElement | Window | null | undefined;
 
 export function getTargetRect(target: BindElement): DOMRect {
-  return target !== window
-    ? (target as HTMLElement).getBoundingClientRect()
-    : ({ top: 0, bottom: window.innerHeight } as DOMRect);
+  return isWindow(target)
+    ? ({ top: 0, bottom: target.innerHeight } as DOMRect)
+    : target!.getBoundingClientRect();
 }
 
 export function getFixedTop(placeholderRect: DOMRect, targetRect: DOMRect, offsetTop?: number) {
@@ -20,12 +22,14 @@ export function getFixedBottom(
   placeholderRect: DOMRect,
   targetRect: DOMRect,
   offsetBottom?: number,
+  target: HTMLElement | Window = window,
 ) {
   if (
     offsetBottom !== undefined &&
     Math.round(targetRect.bottom) < Math.round(placeholderRect.bottom) + offsetBottom
   ) {
-    const targetBottomOffset = window.innerHeight - targetRect.bottom;
+    const view = isWindow(target) ? target : target.ownerDocument.defaultView;
+    const targetBottomOffset = (view ?? window).innerHeight - targetRect.bottom;
     return offsetBottom + targetBottomOffset;
   }
   return undefined;

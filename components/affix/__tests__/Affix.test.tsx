@@ -94,6 +94,33 @@ describe('Affix Render', () => {
     await waitFakeTimer();
   });
 
+  it('affixes to the bottom of an iframe window', async () => {
+    const iframe = document.body.appendChild(document.createElement('iframe'));
+    const frameWindow = iframe.contentWindow!;
+    Object.defineProperty(frameWindow, 'innerHeight', { value: 320, configurable: true });
+    const mount = iframe.contentDocument!.body.appendChild(document.createElement('div'));
+    const { container, unmount } = render(
+      <Affix target={() => frameWindow} offsetBottom={10}>
+        Toolbar
+      </Affix>,
+      { container: mount },
+    );
+
+    try {
+      jest.spyOn(container.firstElementChild!, 'getBoundingClientRect').mockReturnValue({
+        top: 350,
+        bottom: 370,
+        width: 100,
+        height: 20,
+      } as DOMRect);
+      await waitFakeTimer();
+      expect(container.querySelector('.ant-affix')).toHaveStyle({ bottom: '10px' });
+    } finally {
+      unmount();
+      iframe.remove();
+    }
+  });
+
   it('support offsetBottom', async () => {
     const { container } = render(<AffixMounter offsetBottom={0} />);
 
