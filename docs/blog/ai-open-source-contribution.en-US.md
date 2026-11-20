@@ -33,7 +33,51 @@ Analyze how this Issue should be handled. Do not modify code yet.
 
 Implementation, testing, local review, commit preparation, and PR creation can all follow with short instructions. The three Skills do not replace Codex or run as isolated tools. Each one joins the workflow at the point where repository-specific checks are needed.
 
-![Maintenance workflow with Codex, Skills, and human confirmation](https://mdn.alipayobjects.com/huamei_ktaqcm/afts/file/A*iUCOSIBXdhkAAAAAQxAAAAgAeuN6AQ)
+```mermaid
+flowchart LR
+	subgraph P1["Phase 1: Reproduce and Fix"]
+		direction TB
+		ISSUE["Issue link"] --> ANALYZE["Codex reproduces and<br/>analyzes"]
+		ANALYZE --> CONFIRM_FIX{"Human confirms the fix<br/>direction"}
+		CONFIRM_FIX -->|"Pass"| IMPLEMENT["Codex fixes and adds<br/>verification"]
+	end
+
+	subgraph P2["Phase 2: Review and Confirmation"]
+		direction TB
+		REVIEW["Codex full review<br/>Implementation · scope · tests (test-review)"]
+		REVIEW -->|"Review passes"| HUMAN_PASS{"Does human confirmation<br/>pass?"}
+		REVIEW -->|"Review fails"| REWORK["Codex fixes and<br/>verifies"]
+		HUMAN_PASS -->|"No"| REWORK
+		REWORK -->|"Review again"| REVIEW
+	end
+
+	subgraph P3["Phase 3: Create and Submit"]
+		direction TB
+		COMMIT_MSG["commit-msg<br/>Generate commit<br/>message"] --> COMMIT["Create commit"]
+		COMMIT --> CREATE_PR["create-pr<br/>Prepare PR from full diff"]
+		CREATE_PR --> CONFIRM_PR{"Human confirms PR<br/>content"}
+		CONFIRM_PR --> PR["Create PR"]
+	end
+
+	P1 -->|"Fix and verification done"| P2
+	P2 -->|"Human confirmation passes"| P3
+
+	style P1 fill:transparent,stroke:#8c8c8c,stroke-width:2px,stroke-dasharray:8 6;
+	style P2 fill:transparent,stroke:#8c8c8c,stroke-width:2px,stroke-dasharray:8 6;
+	style P3 fill:transparent,stroke:#8c8c8c,stroke-width:2px,stroke-dasharray:8 6;
+	classDef codex fill:#e6f4ff,stroke:#1677ff,color:#0958d9;
+	classDef skill fill:#f9f0ff,stroke:#722ed1,color:#531dab;
+	classDef human fill:#fff7e6,stroke:#fa8c16,color:#ad4e00;
+	classDef neutral fill:#ffffff,stroke:#8c8c8c,color:#262626;
+	classDef success fill:#f6ffed,stroke:#52c41a,color:#237804;
+	classDef failure fill:#fff1f0,stroke:#ff4d4f,color:#a8071a;
+	class ANALYZE,IMPLEMENT,REVIEW codex;
+	class COMMIT_MSG,CREATE_PR skill;
+	class CONFIRM_FIX,HUMAN_PASS,CONFIRM_PR human;
+	class ISSUE neutral;
+	class COMMIT,PR success;
+	class REWORK failure;
+```
 
 The three dashed boxes show reproduction and repair, review and confirmation, and creation and submission. Blue nodes are handled by Codex, purple nodes are repository Skills, and orange nodes need human confirmation. Review is the main task in phase two; `test-review` is only the test-specific check within it. If either the AI review or human confirmation fails, the change returns to repair and enters review again when ready.
 
