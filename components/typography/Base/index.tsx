@@ -209,6 +209,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   const typographyRef = React.useRef<HTMLElement>(null);
   const editIconRef = React.useRef<HTMLButtonElement>(null);
+  const expandIconRef = React.useRef<HTMLButtonElement>(null);
 
   const [mergedClassNames, mergedStyles, prefixCls, direction, rootPrefixCls] =
     useTypographySemantic(customizePrefixCls, classNames, styles, typographyDirection, props);
@@ -448,6 +449,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       <button
         type="button"
         key="expand"
+        ref={expandIconRef}
         className={clsx(
           `${prefixCls}-${expanded ? 'collapse' : 'expand'}`,
           mergedClassNames.action,
@@ -595,7 +597,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             ref={composeRef(resizeRef, typographyRef, ref)}
             direction={direction}
             onClick={(e) => {
-              if (triggerType.includes('text')) {
+              // Skip if click on the expand/collapse icon
+              const fromExpandIcon = !!expandIconRef.current?.contains(e.target as Node);
+              if (triggerType.includes('text') && !fromExpandIcon) {
                 onEditClick(e);
               }
               onClick?.(e);
