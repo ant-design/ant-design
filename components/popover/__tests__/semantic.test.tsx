@@ -60,6 +60,32 @@ describe('Popover.Semantic', () => {
     expect(contentElement).toHaveStyle({ padding: '16px' });
   });
 
+  it('should allow backdrop-filter while preserving popup elevation', () => {
+    const { container } = render(
+      <Popover
+        open
+        content="Content"
+        styles={{
+          container: {
+            backgroundColor: 'rgba(255, 255, 255, 0.4)',
+            backdropFilter: 'blur(12px)',
+          },
+        }}
+      >
+        <span>Trigger</span>
+      </Popover>,
+    );
+
+    const root = container.querySelector('.ant-popover');
+    const popupContainer = container.querySelector('.ant-popover-container');
+    const arrow = container.querySelector('.ant-popover-arrow');
+
+    expect(popupContainer).toHaveStyle({ backgroundColor: 'rgba(255, 255, 255, 0.4)' });
+    expect(getComputedStyle(root!).filter || 'none').toBe('none');
+    expect(getComputedStyle(popupContainer!).filter).toBe('var(--ant-drop-shadow-popover)');
+    expect(popupContainer).toContainElement(arrow);
+  });
+
   it('should follow root style priority', () => {
     const { container } = render(
       <ConfigProvider
