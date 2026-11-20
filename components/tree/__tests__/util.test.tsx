@@ -42,6 +42,15 @@ describe('Tree util', () => {
       const keys = calcRangeKeys({ treeData, expandedKeys: ['0-0', '0-2', '0-2-0'] });
       expect(keys).toEqual([]);
     });
+
+    it.each([
+      ['missing', '0-0'],
+      ['0-0', 'missing'],
+      ['0-0-0', '0-1'],
+      ['0-1', '0-0-0'],
+    ])('returns no range with an unavailable endpoint (%s, %s)', (startKey, endKey) => {
+      expect(calcRangeKeys({ treeData, expandedKeys: [], startKey, endKey })).toEqual([]);
+    });
   });
 
   describe('SwitcherIconCom', () => {

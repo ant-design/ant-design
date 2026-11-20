@@ -85,7 +85,7 @@ export function calcRangeKeys({
     fillFieldNames(fieldNames),
   );
 
-  return keys;
+  return keys.includes(startKey) && keys.includes(endKey) ? keys : [];
 }
 
 export function convertDirectoryKeysToNodes(
