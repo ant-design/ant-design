@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcCheckbox from '@rc-component/checkbox';
-import { composeRef, isReactRenderable } from '@rc-component/util';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
@@ -28,8 +28,6 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     classNames: contextClassNames,
     styles: contextStyles,
   } = useComponentConfig('radio');
-  const innerRef = React.useRef<RadioRef>(null);
-  const mergedRef = composeRef(ref, innerRef);
   const { isFormItemInput } = React.useContext(FormItemInputContext);
 
   if (process.env.NODE_ENV !== 'production') {
@@ -153,7 +151,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
           style={mergedStyles.icon}
           type="radio"
           prefixCls={prefixCls}
-          ref={mergedRef}
+          ref={ref}
           onClick={onInputClick}
         />
         {isReactRenderable(children) ? (

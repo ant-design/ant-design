@@ -315,7 +315,6 @@ const InternalSelect = <
     itemIcon,
     removeIcon,
   } = useIcons({
-    componentName: 'Select',
     ...rest,
     suffix: mergedCustomSuffix,
     multiple: isMultiple,

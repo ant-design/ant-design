@@ -174,10 +174,7 @@ export const useClosable = (
     return computeClosable(
       propCloseCollection,
       contextCloseCollection,
-      {
-        closeIcon: <CloseOutlined />,
-        ...fallbackCloseCollection,
-      },
+      fallbackCloseCollection,
       contextLocale.close,
     );
   }, [propCloseCollection, contextCloseCollection, fallbackCloseCollection, contextLocale.close]);

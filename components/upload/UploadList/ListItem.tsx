@@ -6,7 +6,8 @@ import CSSMotion from '@rc-component/motion';
 import { isReactRenderable, useDelayState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isFunction } from '../../_util/is';
+import { isFunction, isString } from '../../_util/is';
+import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider/context';
 import Progress from '../../progress';
 import Tooltip from '../../tooltip';
@@ -140,8 +141,25 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       `${prefixCls}-list-item-${mergedStatus}`,
       itemClassNames?.item,
     );
-    const linkProps =
-      typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
+    let linkProps = file.linkProps;
+    let invalidLinkProps = false;
+    if (isString(linkProps)) {
+      try {
+        linkProps = JSON.parse(linkProps);
+      } catch {
+        linkProps = {};
+        invalidLinkProps = true;
+      }
+    }
+
+    if (process.env.NODE_ENV !== 'production') {
+      const warning = devUseWarning('Upload');
+      warning(
+        !invalidLinkProps,
+        'usage',
+        '`linkProps` is not a valid JSON string. It will be ignored.',
+      );
+    }
 
     const removeIcon = (isFunction(showRemoveIcon) ? showRemoveIcon(file) : showRemoveIcon)
       ? actionIconRender(
