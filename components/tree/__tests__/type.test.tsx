@@ -68,6 +68,7 @@ describe('Tree.TypeScript', () => {
 
     const { container } = render(
       <DirectoryTree<MyDataNode>
+        allowFileDrop
         treeData={[
           {
             bamboo: 'good',
@@ -78,6 +79,9 @@ describe('Tree.TypeScript', () => {
             ],
           },
         ]}
+        onFileDrop={(info) => {
+          expect(info.node.bamboo).toBe('good');
+        }}
       />,
     );
 

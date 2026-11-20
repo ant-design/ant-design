@@ -108,7 +108,9 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
+| allowFileDrop | Whether to accept files dragged from outside the browser. Internal tree dragging is disabled when enabled | boolean | false |
 | expandAction | Directory opening logic, options: false \| `click` \| `doubleClick` | string \| boolean | `click` |
+| onFileDrop | Callback when files are dropped on a directory node | function({ event, node, files }) | - |
 
 ## Note
 
