@@ -361,6 +361,16 @@ describe('Sider', () => {
     expect(onBreakpoint).toHaveBeenCalledWith(true);
   });
 
+  it('should collapse below the xxxl breakpoint width (1920px)', () => {
+    // `window.matchMedia` is the shared mock from tests/setup.ts, so only clear its calls
+    const matchMediaMock = window.matchMedia as jest.Mock;
+    matchMediaMock.mockClear();
+
+    render(<Sider breakpoint="xxxl">Sider</Sider>);
+
+    expect(matchMediaMock).toHaveBeenCalledWith('screen and (max-width: 1919.98px)');
+  });
+
   it('should controlled collapse work when using with Layout.Sider', () => {
     const Demo = () => {
       const [collapsed, setCollapsed] = useState(false);
