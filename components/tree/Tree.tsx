@@ -236,7 +236,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   const rootPrefixCls = getPrefixCls();
 
   const motion: CSSMotionProps = customMotion ?? {
-    ...initCollapseMotion(rootPrefixCls),
+    ...initCollapseMotion(rootPrefixCls, { fade: !showLine }),
     motionAppear: false,
   };
 
