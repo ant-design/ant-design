@@ -302,9 +302,16 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         ellipsisConfig.onEllipsis ||
         // Can't use css ellipsis since we need to provide the place for button
         ellipsisConfig.expandable ||
-        enableEdit ||
-        enableCopy),
-    [mergedEnableEllipsis, ellipsisConfig, enableEdit, enableCopy],
+        // With actions, css only covers a single line of plain text
+        ((enableEdit || enableCopy) && (rows > 1 || DECORATION_PROPS.some((key) => props[key])))),
+    [
+      mergedEnableEllipsis,
+      ellipsisConfig,
+      rows,
+      enableEdit,
+      enableCopy,
+      ...DECORATION_PROPS.map((key) => props[key]),
+    ],
   );
 
   useLayoutEffect(() => {
@@ -343,6 +350,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   const cssTextOverflow = mergedEnableEllipsis && rows === 1 && cssEllipsis;
   const cssLineClamp = mergedEnableEllipsis && rows > 1 && cssEllipsis;
+  // Clip only the text and keep the actions beside it
+  const cssEllipsisWithActions =
+    cssTextOverflow && !needMeasureEllipsis && (enableEdit || enableCopy);
 
   // >>>>> Expand
   const onExpandClick: EllipsisConfig['onExpand'] = (e, info) => {
@@ -351,6 +361,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   const [ellipsisWidth, setEllipsisWidth] = React.useState(0);
+  const ellipsisContentRef = React.useRef<HTMLSpanElement>(null);
   const [isHoveringOperations, setIsHoveringOperations] = useDelayState(false);
   const isHoveringTypographyRef = React.useRef(false);
 
@@ -370,13 +381,14 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // >>>>> Native ellipsis
   const measureNativeEllipsis = React.useCallback(() => {
-    const textEle = typographyRef.current;
+    // With actions, the text wrapper overflows instead of the root
+    const textEle = cssEllipsisWithActions ? ellipsisContentRef.current : typographyRef.current;
 
     if (enableEllipsis && needNativeEllipsisMeasure && textEle) {
       const currentEllipsis = isEleEllipsis(textEle);
       setIsNativeEllipsis((prev) => (prev === currentEllipsis ? prev : currentEllipsis));
     }
-  }, [enableEllipsis, needNativeEllipsisMeasure]);
+  }, [enableEllipsis, needNativeEllipsisMeasure, cssEllipsisWithActions]);
 
   // Keep the result current while the Typography is hovered, but do not force every
   // Typography instance to read layout during a bulk render or resize.
@@ -576,7 +588,10 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                 [`${prefixCls}-disabled`]: disabled,
                 [`${prefixCls}-shimmer`]: enableShimmer && !disabled,
                 [`${prefixCls}-ellipsis`]: enableEllipsis,
-                [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
+                // A marker for the css path, which also lets the root shrink inside a parent flex
+                [`${prefixCls}-ellipsis-with-actions`]: cssEllipsisWithActions,
+                // Keep the root layout unchanged; the inner wrap clips the text
+                [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow && !cssEllipsisWithActions,
                 [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
                 [`${prefixCls}-link`]: component === 'a',
               },
@@ -613,7 +628,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               width={ellipsisWidth}
               onEllipsis={onJsEllipsis}
               expanded={expanded}
-              measureDeps={[placement]}
+              // Refresh the measured content when the css layout changes
+              measureDeps={[placement, cssEllipsisWithActions]}
               miscDeps={[
                 copied,
                 expanded,
@@ -622,15 +638,19 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                 enableCopy,
                 placement,
                 textLocale,
+                cssEllipsisWithActions,
                 ...DECORATION_PROPS.map((key) => props[key as keyof BlockProps]),
               ]}
             >
-              {(node, canEllipsis) =>
-                wrapperDecorations(
-                  props,
+              {(node, canEllipsis) => {
+                const content = (
                   <>
                     {placement === 'start' ? renderOperations(canEllipsis) : null}
-                    {node.length > 0 && canEllipsis && !expanded && topAriaLabel ? (
+                    {cssEllipsisWithActions ? (
+                      <span className={`${prefixCls}-ellipsis-content`} ref={ellipsisContentRef}>
+                        {node}
+                      </span>
+                    ) : node.length > 0 && canEllipsis && !expanded && topAriaLabel ? (
                       <span key="show-content" aria-hidden>
                         {node}
                       </span>
@@ -639,9 +659,16 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                     )}
                     {renderEllipsis(canEllipsis)}
                     {placement === 'start' ? null : renderOperations(canEllipsis)}
-                  </>,
-                )
-              }
+                  </>
+                );
+
+                // The css path has no decorations, so the wrap only needs to hold the text and actions
+                return cssEllipsisWithActions ? (
+                  <span className={`${prefixCls}-ellipsis-wrap`}>{content}</span>
+                ) : (
+                  wrapperDecorations(props, content)
+                );
+              }}
             </Ellipsis>
           </InternalTypography>
         </EllipsisTooltip>
