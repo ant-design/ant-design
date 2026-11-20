@@ -78,14 +78,18 @@ function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElem
           />
         );
 
-        closeFunc = holderRef.current?.patchElement(modal);
-
-        if (closeFunc) {
+        const removeElement = holderRef.current?.patchElement(modal);
+        if (removeElement) {
+          closeFunc = () => {
+            resolvePromise(false);
+            removeElement();
+          };
           destroyFns.push(closeFunc);
         }
 
         const instance: ReturnType<ModalFuncWithPromise> = {
           destroy: () => {
+            resolvePromise(false);
             function destroyAction() {
               modalRef.current?.destroy();
             }
