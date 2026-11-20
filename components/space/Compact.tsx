@@ -71,11 +71,7 @@ export interface SpaceCompactRef {
 const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>> = (props) => {
   const { children, ...others } = props;
   return (
-    <SpaceCompactItemContext.Provider
-      value={React.useMemo<SpaceCompactItemContextType>(() => others, [others])}
-    >
-      {children}
-    </SpaceCompactItemContext.Provider>
+    <SpaceCompactItemContext.Provider value={others}>{children}</SpaceCompactItemContext.Provider>
   );
 };
 
@@ -128,26 +124,22 @@ const Compact = React.forwardRef<SpaceCompactRef, SpaceCompactProps>((props, ref
 
   const childNodes = toArray(children);
 
-  const nodes = React.useMemo(
-    () =>
-      childNodes.map((child, i) => {
-        const key = child?.key || `${prefixCls}-item-${i}`;
-        return (
-          <CompactItem
-            key={key}
-            compactSize={mergedSize}
-            compactDirection={mergedOrientation}
-            isFirstItem={i === 0 && (!compactItemContext || compactItemContext?.isFirstItem)}
-            isLastItem={
-              i === childNodes.length - 1 && (!compactItemContext || compactItemContext?.isLastItem)
-            }
-          >
-            {child}
-          </CompactItem>
-        );
-      }),
-    [childNodes, compactItemContext, mergedOrientation, mergedSize, prefixCls],
-  );
+  const nodes = childNodes.map((child, i) => {
+    const key = child?.key || `${prefixCls}-item-${i}`;
+    return (
+      <CompactItem
+        key={key}
+        compactSize={mergedSize}
+        compactDirection={mergedOrientation}
+        isFirstItem={i === 0 && (!compactItemContext || compactItemContext?.isFirstItem)}
+        isLastItem={
+          i === childNodes.length - 1 && (!compactItemContext || compactItemContext?.isLastItem)
+        }
+      >
+        {child}
+      </CompactItem>
+    );
+  });
 
   // =========================== Render ===========================
   if (childNodes.length === 0) {
