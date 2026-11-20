@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { JSX } from 'react';
 import { Field, FieldContext, ListContext } from '@rc-component/form';
-import type { FieldProps, InternalNamePath, Meta, RuleObject } from '@rc-component/form';
+import type { FieldProps, InternalNamePath, Meta, NamePath, RuleObject } from '@rc-component/form';
 import { isNonNullable, isReactRenderable, supportRef, useState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -245,6 +245,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     baseChildren: React.ReactNode,
     fieldId?: string,
     isRequired?: boolean,
+    mergedName: NamePath | undefined = name,
   ): React.ReactNode {
     if (noStyle && !hidden) {
       return (
@@ -256,7 +257,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           errors={mergedErrors}
           warnings={mergedWarnings}
           noStyle
-          name={name}
+          name={mergedName}
         >
           {baseChildren}
         </StatusProvider>
@@ -276,7 +277,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         meta={meta}
         onSubItemMetaChange={onSubItemMetaChange}
         layout={layout}
-        name={name}
+        name={mergedName}
       >
         {baseChildren}
       </ItemHolder>
@@ -445,7 +446,12 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           childNode = mergedChildren as React.ReactNode;
         }
 
-        return renderLayout(childNode, fieldId, isRequired);
+        return renderLayout(
+          childNode,
+          fieldId,
+          isRequired,
+          mergedName.length ? mergedName : undefined,
+        );
       }}
     </Field>
   );
