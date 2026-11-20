@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from '..';
 import { render } from '../../../tests/utils';
 
-const { Sider, Footer, Header } = Layout;
+const { Sider, Content, Footer, Header } = Layout;
 
 describe('Layout.Warning', () => {
   (['Layout', 'Header', 'Footer', 'Sider'] as const).forEach((tag) => {
@@ -28,5 +28,23 @@ describe('Layout.Warning', () => {
       expect(errorSpy).not.toHaveBeenCalled();
       errorSpy.mockRestore();
     });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59696
+  it.each([
+    ['Header', Header],
+    ['Content', Content],
+    ['Footer', Footer],
+  ] as const)('not warning of rootClassName and hasSider on %s', (_, Component) => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Component rootClassName="custom-root" hasSider>
+        Content
+      </Component>,
+    );
+
+    expect(errorSpy).not.toHaveBeenCalled();
+    errorSpy.mockRestore();
   });
 });
