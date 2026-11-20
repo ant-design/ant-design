@@ -4,6 +4,7 @@ import { clsx } from 'clsx';
 import { FormattedMessage, useLocation as useDumiLocation, useRouteMeta } from 'dumi';
 
 import useLayoutState from '../../../hooks/useLayoutState';
+import useLocalStorage from '../../../hooks/useLocalStorage';
 import useLocation from '../../../hooks/useLocation';
 import ComponentMeta from '../../builtins/ComponentMeta';
 import EditButton from '../../common/EditButton';
@@ -32,7 +33,15 @@ const Content: React.FC<ContentProps> = ({ children, className }) => {
   const rawLocation = useDumiLocation();
   const { pathname, hash } = useLocation();
   const { direction } = React.use(SiteContext);
-  const { styles } = useStyle();
+  
+  const [anchorWidth] = useLocalStorage<number>('ANT_DESIGN_ANCHOR_WIDTH', {
+    defaultValue: 200,
+  });
+  
+  // Clamp width to constraints
+  const clampedWidth = Math.min(Math.max(anchorWidth, 148), 400);
+  
+  const { styles } = useStyle(clampedWidth);
 
   const [showDebug, setShowDebug] = useLayoutState(false);
   const [codeType, setCodeType] = useState('tsx');
