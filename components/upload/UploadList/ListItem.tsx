@@ -6,8 +6,8 @@ import CSSMotion from '@rc-component/motion';
 import { isReactRenderable, useDelayState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isFunction } from '../../_util/is';
-import warning from '../../_util/warning';
+import { isFunction, isString } from '../../_util/is';
+import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import Progress from '../../progress';
 import Tooltip from '../../tooltip';
@@ -142,13 +142,23 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       itemClassNames?.item,
     );
     let linkProps = file.linkProps;
-    if (typeof linkProps === 'string') {
+    let invalidLinkProps = false;
+    if (isString(linkProps)) {
       try {
         linkProps = JSON.parse(linkProps);
       } catch {
         linkProps = {};
-        warning(false, 'Upload', '`linkProps` is not a valid JSON string. It will be ignored.');
+        invalidLinkProps = true;
       }
+    }
+
+    if (process.env.NODE_ENV !== 'production') {
+      const warning = devUseWarning('Upload');
+      warning(
+        !invalidLinkProps,
+        'usage',
+        '`linkProps` is not a valid JSON string. It will be ignored.',
+      );
     }
 
     const removeIcon = (isFunction(showRemoveIcon) ? showRemoveIcon(file) : showRemoveIcon)
