@@ -155,7 +155,7 @@ async function getFileCommits(filePath: string) {
   }, new Map<string, number>());
 }
 
-async function execute() {
+const execute = async () => {
   const allLogins: string[] = [];
   const loginIndex = new Map<string, number>();
 
@@ -226,6 +226,9 @@ async function execute() {
       continue;
     }
 
+    const moduleDir = path.join(dir, 'contributors', mod.name);
+    await fs.mkdir(moduleDir, { recursive: true });
+
     // Merge locales and sort contributors by their latest commit date.
     const merged: Record<string, number[]> = {};
 
@@ -236,15 +239,20 @@ async function execute() {
           indices.set(idx, Math.max(indices.get(idx) ?? 0, date));
         }
       }
-      merged[key] = Array.from(indices)
+      const sortedIndices = Array.from(indices)
         .sort(([, dateA], [, dateB]) => dateB - dateA)
-        .map(([idx]) => idx);
+        .map<number>(([idx]) => idx);
+
+      merged[key] = sortedIndices;
+
+      const logins = sortedIndices.map<string>((idx) => allLogins[idx]);
+      await fs.writeFile(path.join(moduleDir, `${key}.json`), `${JSON.stringify(logins)}\n`);
     }
 
     output[mod.name] = merged;
   }
 
   await fs.writeFile(outputFile, `${JSON.stringify(output)}\n`);
-}
+};
 
 execute();
