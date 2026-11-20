@@ -209,6 +209,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   const typographyRef = React.useRef<HTMLElement>(null);
   const editIconRef = React.useRef<HTMLButtonElement>(null);
+  const editClickEventRef = React.useRef<React.MouseEvent | null>(null);
 
   const [mergedClassNames, mergedStyles, prefixCls, direction, rootPrefixCls] =
     useTypographySemantic(customizePrefixCls, classNames, styles, typographyDirection, props);
@@ -239,6 +240,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   const onEditClick = (e?: React.MouseEvent<HTMLElement>) => {
     e?.preventDefault();
+    // Mark the event as handled by the edit icon, since the icon may be rendered in a portal
+    // or unmounted by a flushSync in onStart before the root onClick handler runs.
+    if (e) {
+      editClickEventRef.current = e;
+    }
     triggerEdit(true);
   };
 
@@ -595,7 +601,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             ref={composeRef(resizeRef, typographyRef, ref)}
             direction={direction}
             onClick={(e) => {
-              if (triggerType.includes('text')) {
+              // Skip if the click event is already marked as handled by the edit icon
+              if (triggerType.includes('text') && editClickEventRef.current !== e) {
                 onEditClick(e);
               }
               onClick?.(e);

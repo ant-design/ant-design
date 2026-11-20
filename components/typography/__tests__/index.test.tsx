@@ -2,6 +2,7 @@ import React from 'react';
 import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import { KeyCode, warning } from '@rc-component/util';
 import userEvent from '@testing-library/user-event';
+import { createPortal, flushSync } from 'react-dom';
 
 import copy from '../../_util/copy';
 import mountTest from '../../../tests/shared/mountTest';
@@ -342,7 +343,7 @@ describe('Typography', () => {
 
             fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
 
-            expect(onStart).toHaveBeenCalled();
+            expect(onStart).toHaveBeenCalledTimes(1);
             if (triggerType?.includes('text')) {
               fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
               fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
@@ -453,6 +454,69 @@ describe('Typography', () => {
         expect(onClick).toHaveBeenCalledWith(expect.objectContaining({ target: text }));
         expect(onStart).toHaveBeenCalledTimes(1);
         expect(getByRole('textbox')).toHaveValue('Bamboo');
+      });
+
+      it('should trigger onStart once when click edit icon with both icon and text triggers', () => {
+        const onStart = jest.fn();
+        const { container } = render(
+          <Paragraph editable={{ triggerType: ['icon', 'text'], onStart }}>Bamboo</Paragraph>,
+        );
+
+        fireEvent.click(container.querySelectorAll('.ant-typography-edit')[0]);
+
+        expect(onStart).toHaveBeenCalledTimes(1);
+        expect(container.querySelector('textarea')).toHaveValue('Bamboo');
+      });
+
+      it('should trigger onStart once when flushSync in onStart unmounts the edit icon', () => {
+        const onStart = jest.fn();
+        const Demo = () => {
+          const [editing, setEditing] = React.useState(false);
+          return (
+            <Paragraph
+              editable={{
+                editing,
+                triggerType: ['icon', 'text'],
+                onStart: () => {
+                  onStart();
+                  // Simulate user code that enters editing synchronously, unmounting the icon
+                  // eslint-disable-next-line react-dom/no-flush-sync
+                  flushSync(() => setEditing(true));
+                },
+              }}
+            >
+              Bamboo
+            </Paragraph>
+          );
+        };
+        const { container } = render(<Demo />);
+
+        fireEvent.click(container.querySelectorAll('.ant-typography-edit')[0]);
+
+        expect(onStart).toHaveBeenCalledTimes(1);
+        expect(container.querySelector('textarea')).toHaveValue('Bamboo');
+      });
+
+      it('should trigger onStart once when edit icon is rendered in a portal', () => {
+        const onStart = jest.fn();
+        const onClick = jest.fn();
+        const { getByTestId } = render(
+          <Paragraph
+            editable={{
+              triggerType: ['icon', 'text'],
+              icon: createPortal(<span data-testid="portal-icon" />, document.body),
+              onStart,
+            }}
+            onClick={onClick}
+          >
+            Bamboo
+          </Paragraph>,
+        );
+
+        fireEvent.click(getByTestId('portal-icon'));
+
+        expect(onStart).toHaveBeenCalledTimes(1);
+        expect(onClick).toHaveBeenCalledTimes(1);
       });
 
       it.each<{ editable: React.ComponentProps<typeof Paragraph>['editable'] }>([
