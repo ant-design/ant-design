@@ -2160,7 +2160,7 @@ Array [
                         <span
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
-                          tabindex="-1"
+                          tabindex="0"
                         >
                           <span
                             aria-label="filter"
@@ -3414,7 +3414,7 @@ Array [
                         <span
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
-                          tabindex="-1"
+                          tabindex="0"
                         >
                           <span
                             aria-label="filter"
@@ -3695,7 +3695,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="search"
@@ -3734,7 +3734,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="search"
@@ -3831,7 +3831,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="search"
@@ -6055,7 +6055,7 @@ Array [
                         <span
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
-                          tabindex="-1"
+                          tabindex="0"
                         >
                           <span
                             aria-label="filter"
@@ -9693,7 +9693,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -9796,7 +9796,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -10051,7 +10051,7 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -10154,7 +10154,7 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -15231,7 +15231,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -16415,7 +16415,7 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -16519,7 +16519,7 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -22312,7 +22312,7 @@ Array [
                         <span
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
-                          tabindex="-1"
+                          tabindex="0"
                         >
                           <span
                             aria-label="filter"
@@ -22475,7 +22475,7 @@ Array [
                         <span
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
-                          tabindex="-1"
+                          tabindex="0"
                         >
                           <span
                             aria-label="filter"
