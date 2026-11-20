@@ -578,6 +578,33 @@ describe('Table.filter', () => {
     ).toBe(false);
   });
 
+  it('keeps numeric and boolean default filters when sorting', () => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <Table
+        dataSource={[{ key: 1, name: 'Lucy' }]}
+        columns={[
+          {
+            key: 'status',
+            filters: [
+              { text: 'Zero', value: 0 },
+              { text: 'False', value: false },
+            ],
+            defaultFilteredValue: [0, false],
+          },
+          { dataIndex: 'name', sorter: true },
+        ]}
+        onChange={onChange}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(onChange.mock.calls[0][1]).toEqual({ status: [0, false] });
+
+    fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
+    expect(container.querySelectorAll('.ant-dropdown-menu-item-selected')).toHaveLength(2);
+  });
+
   it('can read defaults from defaultFilteredValue', () => {
     const { container, rerender } = render(
       createTable({
