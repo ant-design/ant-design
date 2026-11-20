@@ -96,6 +96,13 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
     }
   }, [color, format, showText, activeIndex, locale.transparent, colorTextCellPrefixCls]);
 
+  const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      event.currentTarget.click();
+    }
+  };
+
   // ============================= Render =============================
   const containerNode = useMemo<React.ReactNode>(
     () =>
@@ -130,6 +137,11 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
         ...styles.root,
         ...style,
       }}
+      role={color.cleared ? undefined : 'button'}
+      aria-label={color.cleared ? undefined : 'Open color picker'}
+      aria-disabled={color.cleared ? undefined : disabled || undefined}
+      tabIndex={color.cleared ? undefined : disabled ? -1 : 0}
+      onKeyDown={onKeyDown}
       {...pickAttrs(rest)}
     >
       {containerNode}
