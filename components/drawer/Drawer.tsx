@@ -48,7 +48,7 @@ export interface DrawerProps
       | 'styles'
       | OmitFocusType
     >,
-    Omit<DrawerPanelProps, 'prefixCls' | 'ariaId'> {
+    Omit<DrawerPanelProps, 'prefixCls' | 'ariaId' | 'onClose'> {
   size?: sizeType | number | string;
   resizable?: boolean | DrawerResizableConfig;
   open?: boolean;
