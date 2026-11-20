@@ -167,7 +167,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const [zIndex] = useZIndex('DatePicker', mergedStyles?.popup?.root?.zIndex as number);
 
     return (
-      <ContextIsolator space>
+      <ContextIsolator space form>
         <RCRangePicker<DateType>
           separator={
             <span
