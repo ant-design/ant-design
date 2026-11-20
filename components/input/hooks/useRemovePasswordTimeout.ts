@@ -10,12 +10,25 @@ export default function useRemovePasswordTimeout(
   const removePasswordTimeout = () => {
     removePasswordTimeoutRef.current.push(
       setTimeout(() => {
-        if (
-          inputRef.current?.input &&
-          inputRef.current?.input.getAttribute('type') === 'password' &&
-          inputRef.current?.input.hasAttribute('value')
-        ) {
-          inputRef.current?.input.removeAttribute('value');
+        const input = inputRef.current?.input;
+        if (input && input.getAttribute('type') === 'password' && input.hasAttribute('value')) {
+          // Mark the current value as dirty before removing the server-rendered default value.
+          // Otherwise, removing the attribute also clears the live value after hydration.
+          const selectionStart = input.selectionStart;
+          const selectionEnd = input.selectionEnd;
+          const selectionDirection = input.selectionDirection;
+          const value = input.value;
+          input.value = value;
+          if (
+            selectionStart !== null &&
+            selectionEnd !== null &&
+            (input.selectionStart !== selectionStart ||
+              input.selectionEnd !== selectionEnd ||
+              input.selectionDirection !== selectionDirection)
+          ) {
+            input.setSelectionRange(selectionStart, selectionEnd, selectionDirection ?? 'none');
+          }
+          input.removeAttribute('value');
         }
       }),
     );
