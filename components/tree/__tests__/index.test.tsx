@@ -2,7 +2,7 @@ import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 
 import Tree from '..';
-import { render, screen } from '../../../tests/utils';
+import { fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import type { AntTreeNodeProps } from '../Tree';
@@ -178,6 +178,41 @@ describe('Tree', () => {
       </Tree>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  it('keeps the outer connecting line opaque while an inner branch collapses', async () => {
+    jest.useFakeTimers();
+    try {
+      const { container } = render(
+        <Tree
+          showLine
+          defaultExpandAll
+          treeData={[
+            {
+              title: 'parent',
+              key: 'parent',
+              children: [
+                { title: 'branch', key: 'branch', children: [{ title: 'leaf', key: 'leaf' }] },
+                { title: 'sibling', key: 'sibling' },
+              ],
+            },
+            { title: 'next parent', key: 'next-parent' },
+          ]}
+        />,
+      );
+      const branch = screen.getByText('branch').closest('.ant-tree-treenode')!;
+      fireEvent.click(branch.querySelector('.ant-tree-switcher')!);
+      await waitFakeTimer(16, 5);
+
+      const motion = container.querySelector<HTMLElement>('.ant-tree-treenode-motion');
+      expect(
+        motion?.querySelector('.ant-tree-indent-unit:first-child:not(.ant-tree-indent-unit-end)'),
+      ).toBeInTheDocument();
+      expect(motion).toHaveStyle({ height: '0px' });
+      expect(getComputedStyle(motion!).opacity || '1').toBe('1');
+    } finally {
+      jest.useRealTimers();
+    }
   });
 
   describe('draggable', () => {
