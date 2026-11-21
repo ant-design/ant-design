@@ -14,6 +14,7 @@ import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { fireEvent, render, waitFor } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 import type { PickerLocale } from '../generatePicker';
 import { getClearButton } from './utils';
 
@@ -576,6 +577,39 @@ describe('DatePicker', () => {
     it('should support suffix prop', () => {
       const { container } = render(<DatePicker suffix="foobar" />);
       expect(container.querySelector('.ant-picker-suffix')).toHaveTextContent('foobar');
+    });
+
+    it.each([
+      ['custom', 'suffix', 'suffix'],
+      ['null', null, ''],
+      ['false', false, ''],
+      ['empty', '', ''],
+    ])('should keep feedback icon with %s suffix', (_, suffix, expectedSuffix) => {
+      const { container } = render(
+        <Form>
+          <Form.Item hasFeedback validateStatus="error">
+            <DatePicker suffix={suffix} />
+          </Form.Item>
+        </Form>,
+      );
+      expect(container.querySelector('.ant-form-item-feedback-icon-error')).toBeTruthy();
+      expect(container.querySelector('.ant-picker-suffix')).toHaveTextContent(expectedSuffix);
+      expect(container.querySelector('.anticon-calendar')).not.toBeInTheDocument();
+      expect(container.querySelector('.anticon-clock-circle')).not.toBeInTheDocument();
+    });
+
+    it('should keep feedback icon with a deprecated suffixIcon', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(
+        <Form>
+          <Form.Item hasFeedback validateStatus="error">
+            <DatePicker suffixIcon={<span className="legacy-suffix">legacy</span>} />
+          </Form.Item>
+        </Form>,
+      );
+      expect(container.querySelector('.ant-form-item-feedback-icon-error')).toBeTruthy();
+      expect(container.querySelector('.legacy-suffix')).toBeTruthy();
+      errSpy.mockRestore();
     });
 
     it('should prefer suffix prop over suffixIcon prop', () => {
