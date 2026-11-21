@@ -30,6 +30,7 @@ exports[`antd dist files exports modules correctly 1`] = `
   "Empty",
   "Flex",
   "FloatButton",
+  "Footer",
   "Form",
   "Grid",
   "Image",
