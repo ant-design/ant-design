@@ -59,7 +59,8 @@ const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, re
   return (
     <TagName
       className={clsx(
-        customizePrefixCls || prefixWithSuffixCls,
+        customizePrefixCls,
+        prefixWithSuffixCls,
         className,
         rootClassName,
         hashId,
