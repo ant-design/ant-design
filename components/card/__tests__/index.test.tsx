@@ -176,6 +176,39 @@ describe('Card', () => {
     expect(onTabChange).toHaveBeenCalledWith('tab2');
   });
 
+  // https://github.com/ant-design/ant-design/issues/59687
+  it('should merge tabProps.className into the tabs className', () => {
+    const { container } = render(
+      <Card tabList={[{ key: 'tab1', label: 'Tab 1' }]} tabProps={{ className: 'custom-tabs' }} />,
+    );
+
+    expect(container.querySelector('.ant-tabs')).toHaveClass('ant-card-head-tabs', 'custom-tabs');
+  });
+
+  it('should render tabProps.tabBarExtraContent', () => {
+    render(
+      <Card
+        tabList={[{ key: 'tab1', label: 'Tab 1' }]}
+        tabProps={{ tabBarExtraContent: 'Tab extra' }}
+      />,
+    );
+
+    expect(screen.getByText('Tab extra')).toBeInTheDocument();
+  });
+
+  it('should prioritize tabBarExtraContent over tabProps.tabBarExtraContent', () => {
+    render(
+      <Card
+        tabList={[{ key: 'tab1', label: 'Tab 1' }]}
+        tabBarExtraContent="Card extra"
+        tabProps={{ tabBarExtraContent: 'Tab extra' }}
+      />,
+    );
+
+    expect(screen.getByText('Card extra')).toBeInTheDocument();
+    expect(screen.queryByText('Tab extra')).not.toBeInTheDocument();
+  });
+
   it('tab size extend card size', () => {
     const { container: largeContainer } = render(
       <Card
