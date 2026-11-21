@@ -36,29 +36,18 @@ const collectFilterStates = <RecordType extends AnyObject = AnyObject>(
     const filterDropdownIsDefined = column.filterDropdown !== undefined;
 
     if (column.filters || filterDropdownIsDefined || 'onFilter' in column) {
-      if ('filteredValue' in column) {
-        // Controlled
-        let filteredValues = column.filteredValue;
-        if (!filterDropdownIsDefined) {
-          filteredValues = filteredValues?.map(String) ?? filteredValues;
-        }
-        filterStates.push({
-          column,
-          key: getColumnKey(column, columnPos),
-          filteredKeys: filteredValues as FilterKey,
-          forceFiltered: column.filtered,
-        });
-      } else {
-        // Uncontrolled
-        filterStates.push({
-          column,
-          key: getColumnKey(column, columnPos),
-          filteredKeys: (init && column.defaultFilteredValue
-            ? column.defaultFilteredValue!
-            : undefined) as FilterKey,
-          forceFiltered: column.filtered,
-        });
+      const controlled = 'filteredValue' in column;
+      const defaultValue = init ? (column.defaultFilteredValue ?? undefined) : undefined;
+      let filteredValues = controlled ? column.filteredValue : defaultValue;
+      if (!filterDropdownIsDefined && (controlled || column.filters)) {
+        filteredValues = filteredValues?.map(String) ?? filteredValues;
       }
+      filterStates.push({
+        column,
+        key: getColumnKey(column, columnPos),
+        filteredKeys: filteredValues as FilterKey,
+        forceFiltered: column.filtered,
+      });
     }
 
     if ('children' in column) {
