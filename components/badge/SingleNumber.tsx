@@ -47,23 +47,29 @@ const SingleNumber: React.FC<Readonly<SingleNumberProps>> = (props) => {
   const [prevCount, setPrevCount] = React.useState(count);
 
   // ============================= Events =============================
-  const onTransitionEnd: React.TransitionEventHandler<HTMLSpanElement> = () => {
+  const onTransitionEnd = () => {
     setPrevValue(value);
     setPrevCount(count);
   };
 
+  const isUnchanged = prevValue === value || Number.isNaN(value) || Number.isNaN(prevValue);
+
   // Fallback if transition events are not supported
   React.useEffect(() => {
+    if (isUnchanged) {
+      onTransitionEnd();
+      return;
+    }
     const timer = setTimeout(onTransitionEnd, 1000);
     return () => clearTimeout(timer);
-  }, [value]);
+  }, [value, count, isUnchanged]);
 
   // ============================= Render =============================
   // Render unit list
   let unitNodes: React.ReactElement[];
   let offsetStyle: React.CSSProperties | undefined;
 
-  if (prevValue === value || Number.isNaN(value) || Number.isNaN(prevValue)) {
+  if (isUnchanged) {
     // Nothing to change
     unitNodes = [<UnitNumber {...props} key={value} current />];
     offsetStyle = {
