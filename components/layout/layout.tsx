@@ -54,12 +54,11 @@ const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, re
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const prefixWithSuffixCls = suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
-
   return (
     <TagName
       className={clsx(
-        customizePrefixCls || prefixWithSuffixCls,
+        customizePrefixCls,
+        suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls,
         className,
         rootClassName,
         hashId,
