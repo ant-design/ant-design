@@ -89,7 +89,7 @@ type MergedHTMLAttributes = Omit<
   React.HTMLAttributes<HTMLElement> &
     React.ButtonHTMLAttributes<HTMLElement> &
     React.AnchorHTMLAttributes<HTMLElement>,
-  'type' | 'color'
+  'type' | 'color' | 'className' | 'disabled'
 >;
 
 export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {

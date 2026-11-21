@@ -34,7 +34,10 @@ export type QRCodeSemanticType = {
 export type QRCodeSemanticAllType = GenerateSemantic<QRCodeSemanticType, QRCodeProps>;
 
 export interface QRCodeProps
-  extends Omit<QRProps, 'fgColor' | 'imageSettings' | 'includeMargin' | 'level' | 'minVersion'>,
+  extends Omit<
+      QRProps,
+      'fgColor' | 'imageSettings' | 'includeMargin' | 'level' | 'minVersion' | 'style' | 'title'
+    >,
     React.HTMLAttributes<HTMLDivElement> {
   type?: 'canvas' | 'svg';
   className?: string;

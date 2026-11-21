@@ -16723,13 +16723,13 @@ exports[`ConfigProvider components Layout prefixCls 1`] = `
     class="prefix-Layout css-var-root"
   >
     <header
-      class="prefix-header css-var-root"
+      class="prefix-header prefix-header-header css-var-root"
     />
     <main
-      class="prefix-content css-var-root"
+      class="prefix-content prefix-content-content css-var-root"
     />
     <footer
-      class="prefix-footer css-var-root"
+      class="prefix-footer prefix-footer-footer css-var-root"
     />
   </div>
 </div>

@@ -96,8 +96,16 @@ const GradientColorBar = (props: GradientColorBarProps) => {
 
   // ============================== Key ===============================
   const onKeyDelete = (index: number) => {
+    if (colorList.length <= 2) {
+      return;
+    }
+
     const nextColors = [...colorList];
     nextColors.splice(index, 1);
+
+    if (activeIndex >= nextColors.length) {
+      onActive(nextColors.length - 1);
+    }
 
     const nextColor = new AggregationColor(nextColors);
 
