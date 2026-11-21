@@ -10,7 +10,7 @@ import { isFunction, isString } from '../../_util/is';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import Progress from '../../progress';
-import Tooltip from '../../tooltip';
+
 import type {
   ItemRender,
   UploadFile,
@@ -272,10 +272,22 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     const { getPrefixCls } = React.useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
 
-    const dom = (
+    const message =
+      file.response && typeof file.response === 'string'
+        ? file.response
+        : file.error?.statusText || file.error?.message || locale.uploadError;
+
+    // Show error message inline below the filename for better touch screen accessibility
+    const errorMessageNode =
+      mergedStatus === 'error' && message ? (
+        <span className={`${prefixCls}-list-item-error-message`}>{message}</span>
+      ) : null;
+
+    const item = (
       <div className={listItemClassName} style={styles?.item}>
         {icon}
         {fileName}
+        {errorMessageNode}
         {downloadOrDelete}
         {pictureCardActions}
         {showProgress && (
@@ -307,19 +319,6 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         )}
       </div>
     );
-
-    const message =
-      file.response && typeof file.response === 'string'
-        ? file.response
-        : file.error?.statusText || file.error?.message || locale.uploadError;
-    const item =
-      mergedStatus === 'error' ? (
-        <Tooltip title={message} getPopupContainer={(node) => node.parentNode as HTMLElement}>
-          {dom}
-        </Tooltip>
-      ) : (
-        dom
-      );
 
     return (
       <div className={clsx(`${prefixCls}-list-item-container`, className)} style={style} ref={ref}>
