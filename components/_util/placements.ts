@@ -6,6 +6,8 @@ import { isPlainObject } from './is';
 export interface AdjustOverflow {
   adjustX?: 0 | 1;
   adjustY?: 0 | 1;
+  shiftX?: boolean | number;
+  shiftY?: boolean | number;
 }
 
 export interface PlacementsConfig {
