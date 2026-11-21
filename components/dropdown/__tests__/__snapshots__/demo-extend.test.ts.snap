@@ -2880,7 +2880,8 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         >
           <li
             aria-describedby="test-id"
-            class="ant-dropdown-menu-item"
+            aria-disabled="true"
+            class="ant-dropdown-menu-item ant-dropdown-menu-item-disabled"
             data-menu-id="rc-menu-uuid-test-id-1"
             role="menuitem"
             tabindex="-1"
@@ -2930,7 +2931,8 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
           </div>
           <li
             aria-describedby="test-id"
-            class="ant-dropdown-menu-item"
+            aria-disabled="true"
+            class="ant-dropdown-menu-item ant-dropdown-menu-item-disabled"
             data-menu-id="rc-menu-uuid-test-id-2"
             role="menuitem"
             tabindex="-1"
@@ -2980,7 +2982,8 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
           </div>
           <li
             aria-describedby="test-id"
-            class="ant-dropdown-menu-item ant-dropdown-menu-item-danger"
+            aria-disabled="true"
+            class="ant-dropdown-menu-item ant-dropdown-menu-item-disabled ant-dropdown-menu-item-danger"
             data-menu-id="rc-menu-uuid-test-id-3"
             role="menuitem"
             tabindex="-1"

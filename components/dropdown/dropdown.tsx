@@ -297,6 +297,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
       overlayNode = (
         <Menu
           {...menu}
+          disabled={disabled || menu.disabled}
           classNames={{
             root: mergedClassNames.menu,
             ...menuClassNames,
