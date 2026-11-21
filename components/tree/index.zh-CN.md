@@ -63,7 +63,7 @@ demo:
 | expandedKeys | （受控）展开指定的树节点 | string\[] | \[] |  | × |
 | fieldNames | 自定义节点 title、key、children 的字段 | object | { title: `title`, key: `key`, children: `children` } | 4.17.0 | × |
 | filterTreeNode | 按需筛选树节点（高亮），返回 true | function(node) | - |  | × |
-| height | 设置虚拟滚动容器高度，设置后内部节点不再支持横向滚动 | number | - |  | × |
+| height | 树的纵向滚动区域的最大高度。无论 `virtual` 如何设置，此限制均生效。不设置 `height` 时，树的高度随内容增长。启用虚拟滚动后不支持横向滚动。 | number | - |  | × |
 | icon | 在标题之前插入自定义图标。需要设置 `showIcon` 为 true | ReactNode \| (props) => ReactNode | - |  | × |
 | loadData | 异步加载数据 | function(node) | - |  | × |
 | loadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | string\[] | \[] |  | × |
@@ -79,7 +79,7 @@ demo:
 | switcherLoadingIcon | 自定义树节点的加载图标 | ReactNode | - | 5.20.0 | × |
 | titleRender | 自定义渲染节点 | (nodeData) => ReactNode | - | 4.5.0 | × |
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array&lt;{key, title, children, \[disabled, selectable]}> | - |  | × |
-| virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 | × |
+| virtual | 设置 `height` 时是否启用节点的虚拟渲染 | boolean | true | 4.1.0 | × |
 | onCheck | 点击复选框触发 | function(checkedKeys, e:{checked: boolean, checkedNodes, node, event, halfCheckedKeys}) | - |  | × |
 | onDoubleClick | 双击树节点触发 | function(event, node) | - |  | × |
 | onDragEnd | dragend 触发时调用 | function({event, node}) | - |  | × |
