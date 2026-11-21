@@ -46,7 +46,7 @@ describe('Select', () => {
     'should support autoComplete configuration in %s mode',
     (mode) => {
       const { getByRole, rerender } = render(<Select mode={mode} />);
-      expect(getByRole('combobox')).toHaveAttribute('autocomplete', 'new-password');
+      expect(getByRole('combobox')).toHaveAttribute('autocomplete', 'off');
 
       rerender(
         <ConfigProvider select={{ autoComplete: 'off' }}>
@@ -70,7 +70,7 @@ describe('Select', () => {
       expect(getByRole('combobox')).toHaveAttribute('autocomplete', 'off');
 
       rerender(<Select mode={mode} />);
-      expect(getByRole('combobox')).toHaveAttribute('autocomplete', 'new-password');
+      expect(getByRole('combobox')).toHaveAttribute('autocomplete', 'off');
     },
   );
 

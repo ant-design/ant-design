@@ -132,7 +132,7 @@ Array [
             aria-autocomplete="list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            autocomplete="new-password"
+            autocomplete="off"
             class="ant-select-input"
             id="test-id"
             readonly=""

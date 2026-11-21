@@ -470,7 +470,7 @@ const InternalSelect = <
       classNames={mergedClassNames}
       styles={mergedStyles}
       showSearch={mergedShowSearch}
-      autoComplete={customAutoComplete ?? contextAutoComplete}
+      autoComplete={customAutoComplete ?? contextAutoComplete ?? 'off'}
       {...selectProps}
       style={mergedStyles.root}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
