@@ -32,6 +32,16 @@ const getRotatePos = (x: number, y: number, angle: number) => {
   return [targetX, targetY] as const;
 };
 
+const getTextX = (textAlign: CanvasTextAlign, width: number) => {
+  if (textAlign === 'left' || textAlign === 'start') {
+    return 0;
+  }
+  if (textAlign === 'right' || textAlign === 'end') {
+    return width;
+  }
+  return width / 2;
+};
+
 /**
  * Get the clips of text content.
  * This is a lazy hook function since SSR no need this
@@ -62,7 +72,7 @@ const useClips = () => {
         ctx.font = getCanvasFont(font, ratio, height);
         ctx.fillStyle = font.color;
         ctx.textAlign = font.textAlign;
-        ctx.fillText(text, contentWidth / 2, top);
+        ctx.fillText(text, getTextX(font.textAlign, contentWidth), top);
 
         top += getFontSize(font, ratio) + FontGap * ratio;
       });
