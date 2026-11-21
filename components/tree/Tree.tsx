@@ -1,7 +1,7 @@
 import type { Component } from 'react';
 import React from 'react';
 import HolderOutlined from '@ant-design/icons/HolderOutlined';
-import type { CSSMotionProps } from '@rc-component/motion';
+import type { CSSMotionProps, MotionEventHandler } from '@rc-component/motion';
 import type { BasicDataNode, DataNode, TreeProps as RcTreeProps } from '@rc-component/tree';
 import RcTree from '@rc-component/tree';
 import { clsx } from 'clsx';
@@ -192,6 +192,17 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   blockNode?: boolean;
 }
 
+const getCollapsedHeight = () => ({ height: 0 });
+const getExpandedHeight: MotionEventHandler = (node) => ({ height: node?.scrollHeight ?? 0 });
+
+const lineMotion: CSSMotionProps = {
+  onAppearStart: getCollapsedHeight,
+  onAppearActive: getExpandedHeight,
+  onEnterStart: getCollapsedHeight,
+  onEnterActive: getExpandedHeight,
+  onLeaveActive: getCollapsedHeight,
+};
+
 const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   const {
     getPrefixCls,
@@ -236,7 +247,8 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   const rootPrefixCls = getPrefixCls();
 
   const motion: CSSMotionProps = customMotion ?? {
-    ...initCollapseMotion(rootPrefixCls, { fade: !showLine }),
+    ...initCollapseMotion(rootPrefixCls),
+    ...(showLine && lineMotion),
     motionAppear: false,
   };
 
