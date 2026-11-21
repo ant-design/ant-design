@@ -2098,6 +2098,34 @@ describe('Table.rowSelection', () => {
       );
     });
 
+    it.each(['selectedRowKeys', 'defaultSelectedRowKeys'] as const)(
+      'does not add unloaded %s records to the selection tree',
+      (selectionProp) => {
+        const onChange = jest.fn();
+        const rowSelection = {
+          [selectionProp]: ['unloaded'],
+          preserveSelectedRowKeys: true,
+          checkStrictly: false,
+          onChange,
+        };
+        const { container, rerender } = render(
+          <Table dataSource={[]} rowSelection={rowSelection} />,
+        );
+
+        rerender(<Table dataSource={[{ key: 'loaded' }]} rowSelection={rowSelection} />);
+        expect(container.querySelector('tbody input')).not.toBeChecked();
+
+        rerender(
+          <Table
+            dataSource={[{ key: 'loaded' }, { key: 'unloaded' }]}
+            rowSelection={rowSelection}
+          />,
+        );
+        expect(container.querySelector('[data-row-key="unloaded"] input')).toBeChecked();
+        expect(onChange).not.toHaveBeenCalled();
+      },
+    );
+
     it('cache with preserveSelectedRowKeys and checkStrictly false', () => {
       const onChange = jest.fn();
       const { container, rerender } = render(
