@@ -1,4 +1,5 @@
 import { renderHook } from '../../../tests/utils';
+import { autoPtgSizes } from '../hooks/sizeUtil';
 import useSizes from '../hooks/useSizes';
 
 describe('useSizes', () => {
@@ -213,4 +214,112 @@ describe('useSizes', () => {
     // Check if the `size` of the first panel gets priority.
     expect(postPxSizes).toEqual([600, 400]);
   });
+
+  it.each([0, '0%'])('honors a zero max threshold %s during auto allocation', (max) => {
+    const { result } = renderHook(() => useSizes([{ max }, {}], 1000));
+    expect(result.current[1]).toEqual([0, 1000]);
+  });
+
+  it.each([0, '0%'])('honors a zero max %s when all default sizes are zero', (max) => {
+    const { result } = renderHook(() =>
+      useSizes([{ defaultSize: 0, max }, { defaultSize: 0 }], containerSize),
+    );
+    expect(result.current[1]).toEqual([0, 1000]);
+  });
+
+  it('preserves equal sizes when zero defaults have impossible limits', () => {
+    const { result } = renderHook(() =>
+      useSizes(
+        [
+          { defaultSize: 0, max: 200 },
+          { defaultSize: 0, max: 200 },
+        ],
+        containerSize,
+      ),
+    );
+    expect(result.current[1]).toEqual([500, 500]);
+  });
+
+  it('preserves equal proportions for zero percentage defaults before measurement', () => {
+    const { result } = renderHook(() => useSizes([{ defaultSize: '0%' }, { defaultSize: '0%' }]));
+    expect(result.current[2]).toEqual([0.5, 0.5]);
+  });
+
+  it('allocates zero percentage defaults with mixed max units before measurement', () => {
+    const { result } = renderHook(() =>
+      useSizes([
+        { defaultSize: '0%', max: 500 },
+        { defaultSize: '0%', max: '0%' },
+      ]),
+    );
+    expect(result.current[2]).toEqual([1, 0]);
+    expect(result.current[4]).toEqual([Infinity, 0]);
+  });
+
+  it.each([
+    [0, 0],
+    [0.1, 0.1],
+  ])('fits sizes %j with an unbounded maximum', (...sizes) => {
+    expect(autoPtgSizes(sizes, [0, 0], [Infinity, 0])).toEqual([1, 0]);
+  });
+
+  it('preserves a numeric zero maximum before the container is measured', () => {
+    const { result } = renderHook(() =>
+      useSizes([{ defaultSize: '0%', max: 0 }, { defaultSize: '0%' }]),
+    );
+    expect(result.current[2]).toEqual([0, 1]);
+  });
+
+  it('keeps the other panels growing when one panel has a zero maximum', () => {
+    expect(autoPtgSizes([undefined, undefined, undefined], [0, 0, 0], [1, 0, 1])).toEqual([
+      0.5, 0, 0.5,
+    ]);
+  });
+
+  it.each([0, '0%'])(
+    'redistributes the share after settling max %s before applying minimums',
+    (max) => {
+      const { result } = renderHook(() => useSizes([{ max }, { min: 400 }, {}], 1000));
+      expect(result.current[2]).toEqual([0, 0.5, 0.5]);
+    },
+  );
+
+  it.each([
+    [
+      [undefined, undefined, undefined],
+      [0.4, 0, 0],
+      [1, 0, 1],
+      [0.5, 0, 0.5],
+    ],
+    [
+      [0.2, undefined, undefined, undefined],
+      [0, 0, 0.3, 0],
+      [1, 0, 1, 1],
+      [0.2, 0, 0.4, 0.4],
+    ],
+    [
+      [undefined, undefined, undefined, undefined],
+      [0, 0, 0.4, 0],
+      [0, 0, 1, 1],
+      [0, 0, 0.5, 0.5],
+    ],
+    [
+      [undefined, undefined, undefined, undefined],
+      [0, 0, 0.5, 0],
+      [0, 0.2, 1, 1],
+      [0, 0.2, 0.5, 0.3],
+    ],
+    [
+      [undefined, undefined, undefined, undefined],
+      [0, 0, 0.8, 0],
+      [0, 0.3, 1, 1],
+      [0, 0.1, 0.8, 0.1],
+    ],
+  ])(
+    'distributes undefined sizes with zero caps while preserving minimums',
+    (sizes, mins, maxes, expected) => {
+      const result = autoPtgSizes(sizes, mins, maxes);
+      result.forEach((size, index) => expect(size).toBeCloseTo(expected[index]));
+    },
+  );
 });

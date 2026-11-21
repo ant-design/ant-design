@@ -1,9 +1,21 @@
 type SizeUnit = number | undefined;
 
+// Retain the pre-measurement NaN/undefined fallback while preserving a zero maximum.
+function normalizePtgMax(max: SizeUnit): number {
+  return max === 0 ? 0 : max || 1;
+}
+
 function fitPtgSizes(sizes: number[], minSizes: SizeUnit[], maxSizes: SizeUnit[]): number[] {
   // Collapsed panels should stay at 0 even when they have a min size.
-  const mergedMinSizes = sizes.map((size, index) => (size === 0 ? 0 : (minSizes[index] ?? 0)));
-  const mergedMaxSizes = sizes.map((size, index) => (size === 0 ? 0 : (maxSizes[index] ?? 1)));
+  const mergedMinSizes = sizes.map((size, index) => (size === 0 ? 0 : minSizes[index] || 0));
+  const mergedMaxSizes = sizes.map((size, index) => {
+    const max = maxSizes[index];
+    // Unmeasured pixel limits can be NaN or Infinity.
+    if (size === 0 || max === 0) {
+      return 0;
+    }
+    return max === Infinity ? 1 : max || 1;
+  });
 
   const invalidLimits = mergedMinSizes.some((min, index) => min > mergedMaxSizes[index]);
   const totalMin = mergedMinSizes.reduce((sum, size) => sum + size, 0);
@@ -57,7 +69,11 @@ export function autoPtgSizes(
     // Handle the case when all sizes are 0
     if (currentTotalPtg === 0) {
       const avg = 1 / ptgSizes.length;
-      return ptgSizes.map(() => avg);
+      return fitPtgSizes(
+        ptgSizes.map(() => avg),
+        minPtgSizes,
+        maxPtgSizes,
+      );
     }
     const scale = 1 / currentTotalPtg;
     // We know `size` is a number here because undefinedIndexes is empty.
@@ -74,15 +90,11 @@ export function autoPtgSizes(
   // Check if limit exists
   let sumMin = 0;
   let sumMax = 0;
-  let limitMin = 0;
-  let limitMax = 1;
   for (const index of undefinedIndexes) {
     const min = minPtgSizes[index] || 0;
-    const max = maxPtgSizes[index] || 1;
+    const max = normalizePtgMax(maxPtgSizes[index]);
     sumMin += min;
     sumMax += max;
-    limitMin = Math.max(limitMin, min);
-    limitMax = Math.min(limitMax, max);
   }
 
   // Impossible case, just average fill
@@ -91,20 +103,80 @@ export function autoPtgSizes(
     return ptgSizes.map((size) => (size === undefined ? avg : size));
   }
 
-  // Quickly fill if can
-  const restAvg = restPtg / undefinedCount;
-  if (limitMin <= restAvg && restAvg <= limitMax) {
-    return ptgSizes.map((size) => (size === undefined ? restAvg : size));
+  // For zero-capped panels, find the common share after applying all bounds.
+  if (
+    undefinedIndexes.some((index) => normalizePtgMax(maxPtgSizes[index]) === 0) &&
+    sumMin <= restPtg &&
+    sumMax >= restPtg &&
+    undefinedIndexes.every((index) => {
+      const min = minPtgSizes[index] || 0;
+      return min >= 0 && min <= normalizePtgMax(maxPtgSizes[index]);
+    })
+  ) {
+    const bound = (index: number, share: number) =>
+      Math.min(normalizePtgMax(maxPtgSizes[index]), Math.max(minPtgSizes[index] || 0, share));
+    let low = 0;
+    let high = restPtg;
+    for (let i = 0; i < 60; i += 1) {
+      const mid = (low + high) / 2;
+      const total = undefinedIndexes.reduce((sum, index) => sum + bound(index, mid), 0);
+      if (total < restPtg) {
+        low = mid;
+      } else {
+        high = mid;
+      }
+    }
+    const share = (low + high) / 2;
+    return ptgSizes.map((size, index) => (size === undefined ? bound(index, share) : size));
+  }
+
+  // Share the remaining space evenly, settling the panels whose maximum is below
+  // the even share first so that a zero maximum does not starve the panels that
+  // can still grow.
+  const result = [...ptgSizes] as number[];
+  let activeIndexes = [...undefinedIndexes];
+  let rest = restPtg;
+  let canShare = true;
+
+  while (activeIndexes.length) {
+    const avg = rest / activeIndexes.length;
+    const next: number[] = [];
+
+    activeIndexes.forEach((index) => {
+      const min = minPtgSizes[index] || 0;
+      const max = normalizePtgMax(maxPtgSizes[index]);
+
+      if (max <= avg) {
+        result[index] = max;
+        rest -= max;
+      } else if (min > avg) {
+        canShare = false;
+      } else {
+        next.push(index);
+      }
+    });
+
+    if (!canShare || !next.length || next.length === activeIndexes.length) {
+      next.forEach((index) => {
+        result[index] = rest / next.length;
+      });
+      break;
+    }
+
+    activeIndexes = next;
+  }
+
+  if (canShare) {
+    return result;
   }
 
   // Greedy algorithm
-  const result = [...ptgSizes] as number[];
   let remain = restPtg - sumMin;
 
   for (let i = 0; i < undefinedCount; i += 1) {
     const index = undefinedIndexes[i];
     const min = minPtgSizes[index] || 0;
-    const max = maxPtgSizes[index] || 1;
+    const max = normalizePtgMax(maxPtgSizes[index]);
 
     result[index] = min;
 
