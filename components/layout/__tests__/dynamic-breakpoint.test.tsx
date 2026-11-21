@@ -6,7 +6,7 @@ import Sider from '../Sider';
 
 const Content = () => {
   const [breakpoint, setBreakpoint] = useState<Breakpoint>('sm');
-  const toggleBreakpoint = () => {
+  const toggleBreakpoint: React.MouseEventHandler<HTMLButtonElement> = () => {
     if (breakpoint === 'sm') {
       setBreakpoint('lg');
     } else {
