@@ -285,6 +285,31 @@ describe('ConfigProvider.Form', () => {
     });
   });
 
+  describe('form variant', () => {
+    it('set variant filled', () => {
+      const { container } = render(
+        <ConfigProvider form={{ variant: 'filled' }}>
+          <Form classNames={({ props }) => ({ root: `form-${props.variant}` })}>
+            <Input />
+          </Form>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-input')).toHaveClass('ant-input-filled');
+      expect(container.querySelector('.ant-form')).toHaveClass('form-filled');
+    });
+
+    it('form variant should override ConfigProvider variant', () => {
+      const { container } = render(
+        <ConfigProvider form={{ variant: 'filled' }}>
+          <Form variant="borderless">
+            <Input />
+          </Form>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-input')).toHaveClass('ant-input-borderless');
+    });
+  });
+
   describe('form disabled', () => {
     it('set Input enabled', () => {
       const { container } = render(
