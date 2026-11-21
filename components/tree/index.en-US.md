@@ -61,7 +61,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | expandedKeys | (Controlled) Specifies the keys of the expanded treeNodes | string\[] | \[] |  | × |
 | fieldNames | Customize node title, key, children field name | object | { title: `title`, key: `key`, children: `children` } | 4.17.0 | × |
 | filterTreeNode | Defines a function to filter (highlight) treeNodes. When the function returns `true`, the corresponding treeNode will be highlighted | function(node) | - |  | × |
-| height | Maximum height of the Tree's vertical scroll area. This limit applies with either `virtual` setting. Omit `height` to let the Tree grow with its content. Virtual scrolling does not support horizontal scrolling. | number | - |  | × |
+| height | A positive value sets the maximum height of the Tree's vertical scroll area with either `virtual` setting. The Tree grows with its content when `height` is omitted or `0`. | number | - |  | × |
 | icon | Insert a custom icon before the title. Need to set `showIcon` to true | ReactNode \| (props) => ReactNode | - |  | × |
 | loadData | Load data asynchronously | function(node) | - |  | × |
 | loadedKeys | (Controlled) Set loaded tree nodes. Need to work with `loadData` | string\[] | \[] |  | × |
@@ -77,7 +77,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | switcherLoadingIcon | Customize loading icons for tree nodes | ReactNode | - | 5.20.0 | × |
 | titleRender | Customize tree node title render | (nodeData) => ReactNode | - | 4.5.0 | × |
 | treeData | The treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array&lt;{ key, title, children, \[disabled, selectable] }> | - |  | × |
-| virtual | Whether to virtualize node rendering when `height` is set | boolean | true | 4.1.0 | × |
+| virtual | Whether to virtualize node rendering when `height` is positive | boolean | true | 4.1.0 | × |
 | onCheck | Callback function for when the onCheck event occurs | function(checkedKeys, e:{checked: boolean, checkedNodes, node, event, halfCheckedKeys}) | - |  | × |
 | onDoubleClick | Callback function for when the user double clicks a treeNode | function(event, node) | - |  | × |
 | onDragEnd | Callback function for when the onDragEnd event occurs | function({event, node}) | - |  | × |
@@ -166,7 +166,7 @@ const path = useMemo(() => getPath(selectedKey), [getPath, selectedKey, treeData
 
 ### Virtual scroll limitation {#faq-virtual-scroll-limitation}
 
-Virtual scroll only render items in visible region. Thus not support auto width (like long `title` with horizontal scroll).
+With virtual scrolling, the Tree does not calculate the horizontal scroll width from node titles. Set `scrollWidth` to the content width in pixels to scroll horizontally when that width exceeds the viewport.
 
 ### What does `disabled` node work logic in the tree? {#faq-disabled-node}
 
