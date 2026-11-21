@@ -143,6 +143,37 @@ describe('Statistic', () => {
   });
 
   describe('Timer', () => {
+    it.each(['countdown', 'countup'] as const)('waits for a valid %s timestamp', (type) => {
+      const onChange = jest.fn();
+      const onFinish = jest.fn();
+      const timer = (value?: string | number) => (
+        <Statistic.Timer type={type} value={value} onChange={onChange} onFinish={onFinish} />
+      );
+      const { container, rerender } = render(timer());
+      const display = container.querySelector('.ant-statistic-content-value');
+
+      act(() => {
+        jest.advanceTimersByTime(100);
+      });
+      expect(onChange).not.toHaveBeenCalled();
+      expect(display).toHaveTextContent('-');
+
+      rerender(timer(Date.now() + (type === 'countdown' ? 5000 : -5000)));
+      act(() => {
+        jest.advanceTimersByTime(100);
+      });
+      expect(onChange).toHaveBeenCalledWith(expect.any(Number));
+
+      onChange.mockClear();
+      rerender(timer('invalid'));
+      act(() => {
+        jest.advanceTimersByTime(100);
+      });
+      expect(display).toHaveTextContent('-');
+      expect(onChange).not.toHaveBeenCalled();
+      expect(onFinish).not.toHaveBeenCalled();
+    });
+
     it('countdown', async () => {
       const onChange = jest.fn();
       const onFinish = jest.fn();
