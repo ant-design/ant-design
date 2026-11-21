@@ -1,5 +1,9 @@
 type SizeUnit = number | undefined;
 
+// Sizes are converted from pixels to percentages, so constraint comparisons need
+// a small tolerance to ignore floating point noise (e.g. `1 - 0.8`).
+const CONSTRAINT_EPSILON = 1e-9;
+
 function fitPtgSizes(sizes: number[], minSizes: SizeUnit[], maxSizes: SizeUnit[]): number[] {
   // Collapsed panels should stay at 0 even when they have a min size.
   const mergedMinSizes = sizes.map((size, index) => (size === 0 ? 0 : (minSizes[index] ?? 0)));
@@ -76,6 +80,7 @@ export function autoPtgSizes(
   let sumMax = 0;
   let limitMin = 0;
   let limitMax = 1;
+  let finiteLimits = true;
   for (const index of undefinedIndexes) {
     const min = minPtgSizes[index] || 0;
     const max = maxPtgSizes[index] || 1;
@@ -83,11 +88,19 @@ export function autoPtgSizes(
     sumMax += max;
     limitMin = Math.max(limitMin, min);
     limitMax = Math.min(limitMax, max);
+    finiteLimits = finiteLimits && Number.isFinite(min) && Number.isFinite(max);
   }
 
-  // Impossible case, just average fill
-  if (sumMin > 1 && sumMax < 1) {
-    const avg = 1 / undefinedCount;
+  // Impossible case, just average fill.
+  // Limits given in px are divided by the container size, so before the container
+  // is measured they turn into `Infinity` / `NaN`. Such a render carries no
+  // constraint information, so keep the legacy fallback for it instead of
+  // reporting an average split that the real layout will never use.
+  if (
+    finiteLimits &&
+    (sumMin > restPtg + CONSTRAINT_EPSILON || sumMax < restPtg - CONSTRAINT_EPSILON)
+  ) {
+    const avg = restPtg / undefinedCount;
     return ptgSizes.map((size) => (size === undefined ? avg : size));
   }
 
@@ -99,7 +112,7 @@ export function autoPtgSizes(
 
   // Greedy algorithm
   const result = [...ptgSizes] as number[];
-  let remain = restPtg - sumMin;
+  let remain = Math.max(0, restPtg - sumMin);
 
   for (let i = 0; i < undefinedCount; i += 1) {
     const index = undefinedIndexes[i];
