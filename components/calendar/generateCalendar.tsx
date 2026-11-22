@@ -222,8 +222,10 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
     const mergedDisabledDate = React.useCallback(
       (date: DateType) => {
         const notInRange = validRange
-          ? generateConfig.isAfter(validRange[0], date) ||
-            generateConfig.isAfter(date, validRange[1])
+          ? (generateConfig.isAfter(validRange[0], date) &&
+              !isSameDate(date, validRange[0], generateConfig)) ||
+            (generateConfig.isAfter(date, validRange[1]) &&
+              !isSameDate(date, validRange[1], generateConfig))
           : false;
         return notInRange || !!disabledDate?.(date);
       },
