@@ -7,7 +7,7 @@ import getScroll from '../_util/getScroll';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { useReducedMotion } from '../_util/hooks/useReducedMotion';
-import { isFunction, isNumber, isPlainObject } from '../_util/is';
+import { isFunction, isNumber, isPlainObject, isWindow } from '../_util/is';
 import scrollTo from '../_util/scrollTo';
 import { devUseWarning } from '../_util/warning';
 import Affix from '../affix';
@@ -30,6 +30,10 @@ function getDefaultContainer() {
   return window;
 }
 
+function getContainerDocument(container: AnchorContainer) {
+  return isWindow(container) ? container.document : container?.ownerDocument;
+}
+
 function getOffsetTop(element: HTMLElement, container: AnchorContainer): number {
   if (!element.getClientRects().length) {
     return 0;
@@ -38,10 +42,10 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
   const rect = element.getBoundingClientRect();
 
   if (rect.width || rect.height) {
-    if (container === window) {
+    if (isWindow(container)) {
       return rect.top - element.ownerDocument.documentElement!.clientTop;
     }
-    return rect.top - (container as HTMLElement).getBoundingClientRect().top;
+    return rect.top - container.getBoundingClientRect().top;
   }
 
   return rect.top;
@@ -231,12 +235,13 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   ): string => {
     const linkSections: Section[] = [];
     const container = getCurrentContainer();
+    const targetDocument = getContainerDocument(container);
     _links.forEach((link) => {
       const sharpLinkMatch = sharpMatcherRegex.exec(link?.toString());
       if (!sharpLinkMatch) {
         return;
       }
-      const target = document.getElementById(sharpLinkMatch[1]);
+      const target = targetDocument?.getElementById(sharpLinkMatch[1]);
       if (target) {
         // Use link-level targetOffset if provided, otherwise use global offsetTop
         const linkOffsetTop = _linkTargetOffset?.[link] ?? _offsetTop;
@@ -297,7 +302,8 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     if (!sharpLinkMatch) {
       return;
     }
-    const targetElement = document.getElementById(sharpLinkMatch[1]);
+    const container = getCurrentContainer();
+    const targetElement = getContainerDocument(container)?.getElementById(sharpLinkMatch[1]);
     if (!targetElement) {
       return;
     }
@@ -309,7 +315,6 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       scrollRequestIdRef.current?.();
     }
 
-    const container = getCurrentContainer();
     const scrollTop = getScroll(container);
     const eleOffsetTop = getOffsetTop(targetElement, container);
     let y = scrollTop + eleOffsetTop;
@@ -317,7 +322,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     y -= finalTargetOffset;
     animatingRef.current = true;
     scrollRequestIdRef.current = scrollTo(y, {
-      getContainer: getCurrentContainer,
+      getContainer: () => container,
       duration: shouldReduceMotion ? 0 : undefined,
       callback() {
         animatingRef.current = false;
