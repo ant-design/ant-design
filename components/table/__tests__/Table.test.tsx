@@ -447,6 +447,34 @@ describe('Table', () => {
     });
   });
 
+  it('does not render custom body cells independently of their rows on a pagination update', () => {
+    const renderCell = jest.fn();
+    const onChange = jest.fn();
+    const onCell = jest.fn(() => ({}));
+    const Cell = React.forwardRef<HTMLTableCellElement, React.ComponentPropsWithoutRef<'td'>>(
+      (props, ref) => {
+        renderCell();
+        return <td {...props} ref={ref} />;
+      },
+    );
+    const { container } = render(
+      <Table
+        aria-label="Records"
+        columns={[{ dataIndex: 'name', onCell }]}
+        components={{ body: { cell: Cell } }}
+        dataSource={[{ key: 1, name: 'First' }]}
+        pagination={{ current: 1, pageSize: 1, total: 2, onChange }}
+      />,
+    );
+    renderCell.mockClear();
+    onCell.mockClear();
+
+    fireEvent.click(container.querySelector('.ant-pagination-next button')!);
+
+    expect(onChange).toHaveBeenCalled();
+    expect(renderCell).toHaveBeenCalledTimes(onCell.mock.calls.length);
+  });
+
   it('support wireframe', () => {
     const columns = [{ title: 'Name', key: 'name', dataIndex: 'name' }];
     const { container } = render(

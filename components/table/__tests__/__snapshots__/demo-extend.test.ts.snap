@@ -70,9 +70,15 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      John Brown
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          John Brown
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -132,9 +138,15 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Jim Green
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          Jim Green
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -189,9 +201,15 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Joe Black
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          Joe Black
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -404,9 +422,15 @@ exports[`renders components/table/demo/bordered.tsx extend context correctly 1`]
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      John Brown
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          John Brown
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell column-money"
@@ -427,9 +451,15 @@ exports[`renders components/table/demo/bordered.tsx extend context correctly 1`]
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Jim Green
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          Jim Green
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell column-money"
@@ -450,9 +480,15 @@ exports[`renders components/table/demo/bordered.tsx extend context correctly 1`]
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Joe Black
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          Joe Black
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell column-money"
@@ -9312,9 +9348,15 @@ exports[`renders components/table/demo/ellipsis.tsx extend context correctly 1`]
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      John Brown
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          John Brown
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -9353,9 +9395,15 @@ exports[`renders components/table/demo/ellipsis.tsx extend context correctly 1`]
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Jim Green
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          Jim Green
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -9394,9 +9442,15 @@ exports[`renders components/table/demo/ellipsis.tsx extend context correctly 1`]
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Joe Black
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          Joe Black
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -9612,9 +9666,15 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      John Brown
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          John Brown
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -9745,9 +9805,15 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Jim Green
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          Jim Green
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -9878,9 +9944,15 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Joe Black
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          Joe Black
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -23562,9 +23634,15 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        John Brown
-                      </a>
+                      <div
+                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      >
+                        <div>
+                          <a>
+                            John Brown
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -23624,9 +23702,15 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        Jim Green
-                      </a>
+                      <div
+                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      >
+                        <div>
+                          <a>
+                            Jim Green
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -23681,9 +23765,15 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        Joe Black
-                      </a>
+                      <div
+                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      >
+                        <div>
+                          <a>
+                            Joe Black
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24731,9 +24821,15 @@ exports[`renders components/table/demo/responsive.tsx extend context correctly 1
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      John Brown
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          John Brown
+                        </a>
+                      </div>
+                    </div>
                   </td>
                 </tr>
               </tbody>
@@ -24984,9 +25080,15 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        John Brown
-                      </a>
+                      <div
+                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      >
+                        <div>
+                          <a>
+                            John Brown
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25024,9 +25126,15 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        Jim Green
-                      </a>
+                      <div
+                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      >
+                        <div>
+                          <a>
+                            Jim Green
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25064,9 +25172,15 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        Joe Black
-                      </a>
+                      <div
+                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      >
+                        <div>
+                          <a>
+                            Joe Black
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25105,9 +25219,15 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        Disabled User
-                      </a>
+                      <div
+                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      >
+                        <div>
+                          <a>
+                            Disabled User
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"

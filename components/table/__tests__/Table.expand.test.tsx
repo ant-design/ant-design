@@ -76,6 +76,31 @@ describe('Table.expand', () => {
     expect(existingInput).toHaveFocus();
   });
 
+  it.each([false, true])(
+    'preserves input value and focus in the expand column with row selection %s',
+    (withSelection) => {
+      const rowSelection = withSelection ? {} : undefined;
+      const editableColumns: TableProps<typeof John>['columns'] = [
+        { title: 'Name', children: [{ key: 'edit', render: () => <input aria-label="Name" /> }] },
+      ];
+      const { getByRole, rerender } = render(
+        <Table columns={editableColumns} dataSource={[John]} rowSelection={rowSelection} />,
+      );
+      const input = getByRole('textbox', { name: 'Name' });
+      input.focus();
+      fireEvent.change(input, { target: { value: 'Edited name' } });
+
+      rerender(<Table columns={editableColumns} dataSource={data} rowSelection={rowSelection} />);
+
+      const existingInput = getByRole('textbox', { name: 'Name' });
+      expect(existingInput.closest('td')).toContainElement(
+        getByRole('button', { name: 'Expand row' }),
+      );
+      expect(existingInput).toHaveValue('Edited name');
+      expect(existingInput).toHaveFocus();
+    },
+  );
+
   it('force renders expanded form fields before expansion', async () => {
     const formRef = React.createRef<FormInstance>();
 

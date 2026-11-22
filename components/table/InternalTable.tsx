@@ -13,7 +13,7 @@ import {
   useSemanticRootStyle,
 } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction, isNumber, isPlainObject } from '../_util/is';
+import { isFunction, isNumber, isPlainObject, isPrimitive } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
@@ -74,49 +74,84 @@ export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: AnyObject[] = [];
 
-type TableComponentContextValue = {
+type HeaderTableContextValue = {
   ariaProps?: React.AriaAttributes;
   headerTable?: React.ElementType;
+};
+
+type BodyCellContextValue = {
   bodyCell?: React.ElementType;
   prefixCls: string;
   virtual?: boolean;
 };
 
-const TableComponentContext = React.createContext<TableComponentContextValue>({ prefixCls: '' });
+const HeaderTableContext = React.createContext<HeaderTableContextValue>({});
+const BodyCellContext = React.createContext<BodyCellContextValue>({ prefixCls: '' });
 
 const HeaderTable: React.FC<React.TableHTMLAttributes<HTMLTableElement>> = (props) => {
-  const { ariaProps, headerTable = 'table' } = React.useContext(TableComponentContext);
+  const { ariaProps, headerTable = 'table' } = React.useContext(HeaderTableContext);
   return React.createElement(headerTable, {
     ...ariaProps,
     ...props,
   });
 };
 
-const BodyCell = React.forwardRef<HTMLElement, React.ComponentPropsWithoutRef<'td'>>(
-  ({ className, children, ...cellProps }, ref) => {
-    const { bodyCell, prefixCls, virtual } = React.useContext(TableComponentContext);
-    const defaultCell = cellProps.scope ? 'th' : 'td';
-    const Cell = bodyCell ?? (virtual ? 'div' : defaultCell);
-    const classes = className?.split(' ');
+const BodyCell = React.forwardRef<
+  HTMLElement,
+  React.ComponentPropsWithoutRef<'td'> & { 'data-tree-expand-cell'?: boolean }
+>(({ className, children, 'data-tree-expand-cell': treeExpandCell, ...cellProps }, ref) => {
+  const { bodyCell, prefixCls, virtual } = React.useContext(BodyCellContext);
+  const defaultCell = cellProps.scope ? 'th' : 'td';
+  const Cell = bodyCell ?? (virtual ? 'div' : defaultCell);
+  const classes = className?.split(' ');
 
+  if (Array.isArray(children) && children.length === 2) {
+    const [expandControls, content] = children;
+    const hasExpandControls = classes?.includes(`${prefixCls}-cell-with-append`);
     if (
-      classes?.includes(`${prefixCls}-cell-with-append`) &&
-      !classes.includes(`${prefixCls}-cell-ellipsis`) &&
-      Array.isArray(children) &&
-      children.length === 2
+      !classes?.includes(`${prefixCls}-cell-ellipsis`) &&
+      (hasExpandControls || (treeExpandCell && !isPrimitive(content)))
     ) {
-      const [expandControls, content] = children;
       children = (
-        <div className={`${prefixCls}-cell-expand-content`}>
-          <div>{expandControls}</div>
+        <div
+          className={clsx(`${prefixCls}-cell-expand-content`, {
+            [`${prefixCls}-cell-expand-content-flat`]: !hasExpandControls,
+          })}
+        >
+          {hasExpandControls && <div>{expandControls}</div>}
           <div>{content}</div>
         </div>
       );
     }
+  }
 
-    return React.createElement(Cell, { ...cellProps, className, ref }, children);
-  },
-);
+  return React.createElement(Cell, { ...cellProps, className, ref }, children);
+});
+
+function markTreeExpandCell<RecordType>(
+  columns: ColumnsType<RecordType>,
+  expandColumnIndex: number,
+): ColumnsType<RecordType> {
+  let leafIndex = 0;
+  const visit = (column: ColumnsType<RecordType>[number]): ColumnsType<RecordType>[number] => {
+    if ('children' in column && column.children.length) {
+      return { ...column, children: column.children.map(visit) };
+    }
+
+    if (leafIndex++ !== expandColumnIndex || column.ellipsis) {
+      return column;
+    }
+
+    return {
+      ...column,
+      onCell: (record, index) => ({
+        ...column.onCell?.(record, index),
+        'data-tree-expand-cell': true,
+      }),
+    };
+  };
+  return columns.map(visit);
+}
 
 if (process.env.NODE_ENV !== 'production') {
   HeaderTable.displayName = 'HeaderTable';
@@ -660,11 +695,12 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // ========================== Components ==========================
   const body = components?.body;
-  const bodyCell = isFunction(body) ? undefined : body?.cell;
+  const hasCustomBody = isFunction(body);
+  const bodyCell = hasCustomBody ? undefined : body?.cell;
   const headerTable = components?.header?.table;
-  const tableComponentContext = React.useMemo<TableComponentContextValue>(
-    () => ({ ariaProps, bodyCell, headerTable, prefixCls, virtual }),
-    [ariaProps, bodyCell, headerTable, prefixCls, virtual],
+  const bodyCellContext = React.useMemo<BodyCellContextValue>(
+    () => ({ bodyCell, prefixCls, virtual }),
+    [bodyCell, prefixCls, virtual],
   );
 
   const mergedComponents = React.useMemo<RcTableProps<RecordType>['components']>(() => {
@@ -690,12 +726,26 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }, [components, hasAriaProps, MergedExpandIcon]);
 
   // ============================ Render ============================
+  const treeExpandColumnIndex =
+    mergedExpandable.expandIconColumnIndex ?? (mergedRowSelection ? 1 : 0);
   const transformColumns = React.useCallback(
-    (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> =>
-      transformTitleColumns(
+    (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> => {
+      const transformedColumns = transformTitleColumns(
         transformSelectionColumns(transformFilterColumns(transformSorterColumns(innerColumns))),
-      ),
-    [transformSorterColumns, transformFilterColumns, transformSelectionColumns],
+      );
+      return hasCustomBody || expandType === 'row' || treeExpandColumnIndex < 0
+        ? transformedColumns
+        : markTreeExpandCell(transformedColumns, treeExpandColumnIndex);
+    },
+    [
+      hasCustomBody,
+      expandType,
+      treeExpandColumnIndex,
+      transformTitleColumns,
+      transformSorterColumns,
+      transformFilterColumns,
+      transformSelectionColumns,
+    ],
   );
 
   let topPaginationNode: React.ReactNode;
@@ -805,49 +855,51 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     <div ref={rootRef} className={wrappercls} style={mergedStyles.root}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
-        <TableComponentContext.Provider value={tableComponentContext}>
-          <TableComponent
-            {...virtualProps}
-            {...tableProps}
-            components={mergedComponents}
-            scroll={mergedScroll}
-            classNames={mergedClassNames as RcTableProps<RecordType>['classNames']}
-            styles={mergedStyles as RcTableProps<RecordType>['styles']}
-            ref={tblRef}
-            columns={mergedColumns as RcTableProps<RecordType>['columns']}
-            direction={direction}
-            expandable={mergedExpandable}
-            prefixCls={prefixCls}
-            className={clsx(
-              {
-                [`${prefixCls}-medium`]: mergedSize === 'medium',
-                [`${prefixCls}-small`]: mergedSize === 'small',
-                [`${prefixCls}-bordered`]: bordered,
-                [`${prefixCls}-empty`]: rawData.length === 0,
-                [`${prefixCls}-no-header`]: !title && showHeader === false,
-              },
-              cssVarCls,
-              rootCls,
-              hashId,
-            )}
-            data={pageData}
-            rowKey={getRowKey}
-            rowClassName={internalRowClassName}
-            emptyText={mergedEmptyNode}
-            // Internal
-            internalHooks={INTERNAL_HOOKS}
-            internalRefs={internalRef}
-            transformColumns={transformColumns as any}
-            getContainerWidth={getContainerWidth}
-            measureRowRender={(measureRow) => (
-              <TableMeasureRowContext.Provider value>
-                <ConfigProvider getPopupContainer={(node) => node as HTMLElement}>
-                  {measureRow}
-                </ConfigProvider>
-              </TableMeasureRowContext.Provider>
-            )}
-          />
-        </TableComponentContext.Provider>
+        <HeaderTableContext.Provider value={{ ariaProps, headerTable }}>
+          <BodyCellContext.Provider value={bodyCellContext}>
+            <TableComponent
+              {...virtualProps}
+              {...tableProps}
+              components={mergedComponents}
+              scroll={mergedScroll}
+              classNames={mergedClassNames as RcTableProps<RecordType>['classNames']}
+              styles={mergedStyles as RcTableProps<RecordType>['styles']}
+              ref={tblRef}
+              columns={mergedColumns as RcTableProps<RecordType>['columns']}
+              direction={direction}
+              expandable={mergedExpandable}
+              prefixCls={prefixCls}
+              className={clsx(
+                {
+                  [`${prefixCls}-medium`]: mergedSize === 'medium',
+                  [`${prefixCls}-small`]: mergedSize === 'small',
+                  [`${prefixCls}-bordered`]: bordered,
+                  [`${prefixCls}-empty`]: rawData.length === 0,
+                  [`${prefixCls}-no-header`]: !title && showHeader === false,
+                },
+                cssVarCls,
+                rootCls,
+                hashId,
+              )}
+              data={pageData}
+              rowKey={getRowKey}
+              rowClassName={internalRowClassName}
+              emptyText={mergedEmptyNode}
+              // Internal
+              internalHooks={INTERNAL_HOOKS}
+              internalRefs={internalRef}
+              transformColumns={transformColumns as any}
+              getContainerWidth={getContainerWidth}
+              measureRowRender={(measureRow) => (
+                <TableMeasureRowContext.Provider value>
+                  <ConfigProvider getPopupContainer={(node) => node as HTMLElement}>
+                    {measureRow}
+                  </ConfigProvider>
+                </TableMeasureRowContext.Provider>
+              )}
+            />
+          </BodyCellContext.Provider>
+        </HeaderTableContext.Provider>
         {bottomPaginationNode}
       </Spin>
     </div>

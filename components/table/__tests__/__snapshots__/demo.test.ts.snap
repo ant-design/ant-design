@@ -70,9 +70,15 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      John Brown
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          John Brown
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -134,9 +140,15 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Jim Green
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          Jim Green
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -193,9 +205,15 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Joe Black
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          Joe Black
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -408,9 +426,15 @@ exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      John Brown
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          John Brown
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell column-money"
@@ -431,9 +455,15 @@ exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Jim Green
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          Jim Green
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell column-money"
@@ -454,9 +484,15 @@ exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Joe Black
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          Joe Black
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell column-money"
@@ -4662,35 +4698,41 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
                     class="ant-table-cell"
                     style="text-align:center"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
-                      style="cursor:move"
-                      type="button"
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
                     >
-                      <span
-                        class="ant-btn-icon"
-                      >
-                        <span
-                          aria-label="holder"
-                          class="anticon anticon-holder"
-                          role="img"
+                      <div>
+                        <button
+                          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                          style="cursor:move"
+                          type="button"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="holder"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
+                          <span
+                            class="ant-btn-icon"
                           >
-                            <path
-                              d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                    </button>
+                            <span
+                              aria-label="holder"
+                              class="anticon anticon-holder"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="holder"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -4721,35 +4763,41 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
                     class="ant-table-cell"
                     style="text-align:center"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
-                      style="cursor:move"
-                      type="button"
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
                     >
-                      <span
-                        class="ant-btn-icon"
-                      >
-                        <span
-                          aria-label="holder"
-                          class="anticon anticon-holder"
-                          role="img"
+                      <div>
+                        <button
+                          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                          style="cursor:move"
+                          type="button"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="holder"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
+                          <span
+                            class="ant-btn-icon"
                           >
-                            <path
-                              d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                    </button>
+                            <span
+                              aria-label="holder"
+                              class="anticon anticon-holder"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="holder"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -4780,35 +4828,41 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
                     class="ant-table-cell"
                     style="text-align:center"
                   >
-                    <button
-                      class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
-                      style="cursor:move"
-                      type="button"
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
                     >
-                      <span
-                        class="ant-btn-icon"
-                      >
-                        <span
-                          aria-label="holder"
-                          class="anticon anticon-holder"
-                          role="img"
+                      <div>
+                        <button
+                          class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                          style="cursor:move"
+                          type="button"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="holder"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
+                          <span
+                            class="ant-btn-icon"
                           >
-                            <path
-                              d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                    </button>
+                            <span
+                              aria-label="holder"
+                              class="anticon anticon-holder"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="holder"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -8189,9 +8243,15 @@ exports[`renders components/table/demo/ellipsis.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      John Brown
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          John Brown
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -8230,9 +8290,15 @@ exports[`renders components/table/demo/ellipsis.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Jim Green
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          Jim Green
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -8271,9 +8337,15 @@ exports[`renders components/table/demo/ellipsis.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Joe Black
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          Joe Black
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -8487,9 +8559,15 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      John Brown
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          John Brown
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -8532,9 +8610,15 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Jim Green
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          Jim Green
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -8577,9 +8661,15 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Joe Black
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          Joe Black
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -21893,9 +21983,15 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        John Brown
-                      </a>
+                      <div
+                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      >
+                        <div>
+                          <a>
+                            John Brown
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -21957,9 +22053,15 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        Jim Green
-                      </a>
+                      <div
+                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      >
+                        <div>
+                          <a>
+                            Jim Green
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -22016,9 +22118,15 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        Joe Black
-                      </a>
+                      <div
+                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      >
+                        <div>
+                          <a>
+                            Joe Black
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -22737,9 +22845,15 @@ exports[`renders components/table/demo/responsive.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      John Brown
-                    </a>
+                    <div
+                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                    >
+                      <div>
+                        <a>
+                          John Brown
+                        </a>
+                      </div>
+                    </div>
                   </td>
                 </tr>
               </tbody>
@@ -22988,9 +23102,15 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        John Brown
-                      </a>
+                      <div
+                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      >
+                        <div>
+                          <a>
+                            John Brown
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -23028,9 +23148,15 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        Jim Green
-                      </a>
+                      <div
+                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      >
+                        <div>
+                          <a>
+                            Jim Green
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -23068,9 +23194,15 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        Joe Black
-                      </a>
+                      <div
+                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      >
+                        <div>
+                          <a>
+                            Joe Black
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -23109,9 +23241,15 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        Disabled User
-                      </a>
+                      <div
+                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      >
+                        <div>
+                          <a>
+                            Disabled User
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"

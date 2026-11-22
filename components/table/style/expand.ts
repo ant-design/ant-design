@@ -130,6 +130,10 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           flex: 'auto',
           minWidth: 0,
         },
+
+        '&-flat, &-flat > div': {
+          display: 'contents',
+        },
       },
 
       [`tr${componentCls}-expanded-row`]: {
