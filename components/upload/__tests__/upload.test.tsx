@@ -687,6 +687,37 @@ describe('Upload', () => {
     expect(ref.current?.onError('', '', { uid: 'fileItem' })).toBe(undefined);
   });
 
+  it.each(['progress', 'success', 'error'] as const)(
+    'preserves controlled preview URLs on request %s',
+    (event) => {
+      const file = Object.assign(new File(['data'], 'photo.png'), { uid: 'photo' });
+      const entry = {
+        uid: file.uid,
+        name: file.name,
+        url: '/download/photo',
+        thumbUrl: '/preview/photo',
+      };
+      const onChange = jest.fn();
+      const ref = React.createRef<UploadRef>();
+      render(<Upload ref={ref} fileList={[entry]} onChange={onChange} />);
+
+      act(() => {
+        if (event === 'progress') {
+          ref.current!.onProgress({ percent: 60 }, file as RcFile);
+        } else if (event === 'success') {
+          ref.current!.onSuccess('ok', file as RcFile, undefined);
+        } else {
+          ref.current!.onError(new Error('failed'), null, file as RcFile);
+        }
+      });
+
+      const change = onChange.mock.calls[0][0];
+      const status = { progress: 'uploading', success: 'done', error: 'error' }[event];
+      expect(change.file).toMatchObject({ ...entry, status });
+      expect(change.fileList).toEqual([change.file]);
+    },
+  );
+
   it('should replace file when targetItem already exists', () => {
     const fileList = [{ uid: 'file', name: 'file' }];
     const ref = React.createRef<any>();
