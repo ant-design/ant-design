@@ -59,6 +59,23 @@ describe('Table.expand', () => {
     expect(warnSpy).not.toHaveBeenCalled();
   });
 
+  it('preserves input value and focus outside the expand column when tree data is added', () => {
+    const editableColumns: TableProps<typeof John>['columns'] = [
+      { dataIndex: 'firstName' },
+      { key: 'edit', render: (_, record) => <input aria-label={record.firstName} /> },
+    ];
+    const { getByRole, rerender } = render(<Table columns={editableColumns} dataSource={[John]} />);
+    const input = getByRole('textbox', { name: 'John' });
+    input.focus();
+    fireEvent.change(input, { target: { value: 'Edited name' } });
+
+    rerender(<Table columns={editableColumns} dataSource={[John, { ...Jim, children: [] }]} />);
+
+    const existingInput = getByRole('textbox', { name: 'John' });
+    expect(existingInput).toHaveValue('Edited name');
+    expect(existingInput).toHaveFocus();
+  });
+
   it('force renders expanded form fields before expansion', async () => {
     const formRef = React.createRef<FormInstance>();
 

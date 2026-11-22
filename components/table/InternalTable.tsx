@@ -92,7 +92,7 @@ const HeaderTable: React.FC<React.TableHTMLAttributes<HTMLTableElement>> = (prop
   });
 };
 
-const TreeBodyCell = React.forwardRef<HTMLElement, React.ComponentPropsWithoutRef<'td'>>(
+const BodyCell = React.forwardRef<HTMLElement, React.ComponentPropsWithoutRef<'td'>>(
   ({ className, children, ...cellProps }, ref) => {
     const { bodyCell, prefixCls, virtual } = React.useContext(TableComponentContext);
     const defaultCell = cellProps.scope ? 'th' : 'td';
@@ -120,7 +120,7 @@ const TreeBodyCell = React.forwardRef<HTMLElement, React.ComponentPropsWithoutRe
 
 if (process.env.NODE_ENV !== 'production') {
   HeaderTable.displayName = 'HeaderTable';
-  TreeBodyCell.displayName = 'TreeBodyCell';
+  BodyCell.displayName = 'BodyCell';
 }
 
 type ComponentsSemanticClassNames = {
@@ -682,13 +682,12 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
     return {
       ...nextComponents,
-      ...(expandType === 'nest' &&
-        !isFunction(nextComponents?.body) && {
-          body: { ...nextComponents?.body, cell: TreeBodyCell },
-        }),
+      ...(!isFunction(nextComponents?.body) && {
+        body: { ...nextComponents?.body, cell: BodyCell },
+      }),
       ExpandIcon: MergedExpandIcon,
     };
-  }, [components, hasAriaProps, expandType, MergedExpandIcon]);
+  }, [components, hasAriaProps, MergedExpandIcon]);
 
   // ============================ Render ============================
   const transformColumns = React.useCallback(
