@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { convertChildrenToColumns, INTERNAL_HOOKS } from '@rc-component/table';
 import type { Reference as RcReference, TableProps as RcTableProps } from '@rc-component/table';
-import { omit, pickAttrs } from '@rc-component/util';
+import { isNonNullable, omit, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useProxyImperativeHandle, useReducedMotion } from '../_util/hooks';
@@ -34,7 +34,6 @@ import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import { useToken } from '../theme/internal';
 import useExpandIcon from './ExpandIcon';
-import useColumnTitleProps from './hooks/useColumnTitleProps';
 import useContainerWidth from './hooks/useContainerWidth';
 import useFilledColumns from './hooks/useFilledColumns';
 import type { FilterConfig, FilterState } from './hooks/useFilter';
@@ -45,7 +44,6 @@ import useSelection from './hooks/useSelection';
 import type { SortState } from './hooks/useSorter';
 import useSorter, { getSortData } from './hooks/useSorter';
 import useSpinProps from './hooks/useSpinProps';
-import useTitleColumns from './hooks/useTitleColumns';
 import type {
   ColumnsType,
   ColumnType,
@@ -68,7 +66,7 @@ import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
 import TableMeasureRowContext from './TableMeasureRowContext';
-import { getPaginationSize, normalizePlacement } from './util';
+import { getPaginationSize, normalizePlacement, renderColumnTitle } from './util';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -505,11 +503,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   changeEventInfo.filters = filters;
   changeEventInfo.filterStates = filterStates;
 
-  // ============================ Column ============================
-  const columnTitleProps = useColumnTitleProps(sorterTitleProps, filters);
-
-  const transformTitleColumns = useTitleColumns(columnTitleProps);
-
   // ========================== Pagination ==========================
   const onPaginationChange = (current: number, pageSize: number) => {
     triggerOnChange(
@@ -671,13 +664,35 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       ? -1
       : (mergedExpandable.expandIconColumnIndex ?? (mergedRowSelection ? 1 : 0));
   const transformColumns = React.useCallback(
-    (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> =>
-      transformTitleColumns(
-        transformSelectionColumns(transformFilterColumns(transformSorterColumns(innerColumns))),
-        treeColumnIndex,
-      ),
+    (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> => {
+      const titleFilters: Record<string, FilterValue> = {};
+      for (const [key, value] of Object.entries(filters)) {
+        if (isNonNullable(value)) {
+          titleFilters[key] = value;
+        }
+      }
+      const columnTitleProps = { ...sorterTitleProps, filters: titleFilters };
+
+      let leafIndex = 0;
+      const fillTitle = (column: ColumnsType<RecordType>[number]) => {
+        const cloneColumn = { ...column, title: renderColumnTitle(column.title, columnTitleProps) };
+        if ('children' in cloneColumn && cloneColumn.children.length) {
+          cloneColumn.children = cloneColumn.children.map(fillTitle);
+        } else if (leafIndex++ === treeColumnIndex && !column.ellipsis) {
+          cloneColumn.onCell = (record, index) => ({
+            ...column.onCell?.(record, index),
+            'data-table-tree-cell': true,
+          });
+        }
+        return cloneColumn;
+      };
+      return transformSelectionColumns(
+        transformFilterColumns(transformSorterColumns(innerColumns)),
+      ).map(fillTitle);
+    },
     [
-      transformTitleColumns,
+      sorterTitleProps,
+      filters,
       transformSorterColumns,
       transformFilterColumns,
       transformSelectionColumns,
