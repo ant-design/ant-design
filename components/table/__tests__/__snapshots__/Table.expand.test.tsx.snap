@@ -47,7 +47,7 @@ exports[`Table.expand click to expand 1`] = `
                     class="ant-table-cell ant-table-cell-with-append"
                   >
                     <div
-                      class="ant-table-cell-expand-content"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <span
@@ -73,7 +73,7 @@ exports[`Table.expand click to expand 1`] = `
                     class="ant-table-cell ant-table-cell-with-append"
                   >
                     <div
-                      class="ant-table-cell-expand-content"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <span

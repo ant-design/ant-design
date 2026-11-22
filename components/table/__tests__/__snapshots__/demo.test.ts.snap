@@ -71,7 +71,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <a>
@@ -141,7 +141,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <a>
@@ -206,7 +206,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <a>
@@ -427,7 +427,7 @@ exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <a>
@@ -456,7 +456,7 @@ exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <a>
@@ -485,7 +485,7 @@ exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <a>
@@ -4699,7 +4699,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
                     style="text-align:center"
                   >
                     <div
-                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <button
@@ -4764,7 +4764,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
                     style="text-align:center"
                   >
                     <div
-                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <button
@@ -4829,7 +4829,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
                     style="text-align:center"
                   >
                     <div
-                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <button
@@ -8244,7 +8244,7 @@ exports[`renders components/table/demo/ellipsis.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <a>
@@ -8291,7 +8291,7 @@ exports[`renders components/table/demo/ellipsis.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <a>
@@ -8338,7 +8338,7 @@ exports[`renders components/table/demo/ellipsis.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <a>
@@ -8560,7 +8560,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <a>
@@ -8611,7 +8611,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <a>
@@ -8662,7 +8662,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <a>
@@ -21984,7 +21984,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                        data-table-tree-cell=""
                       >
                         <div>
                           <a>
@@ -22054,7 +22054,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                        data-table-tree-cell=""
                       >
                         <div>
                           <a>
@@ -22119,7 +22119,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                        data-table-tree-cell=""
                       >
                         <div>
                           <a>
@@ -22846,7 +22846,7 @@ exports[`renders components/table/demo/responsive.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                      data-table-tree-cell=""
                     >
                       <div>
                         <a>
@@ -23103,7 +23103,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                        data-table-tree-cell=""
                       >
                         <div>
                           <a>
@@ -23149,7 +23149,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                        data-table-tree-cell=""
                       >
                         <div>
                           <a>
@@ -23195,7 +23195,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                        data-table-tree-cell=""
                       >
                         <div>
                           <a>
@@ -23242,7 +23242,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-table-cell-expand-content ant-table-cell-expand-content-flat"
+                        data-table-tree-cell=""
                       >
                         <div>
                           <a>
@@ -29981,7 +29981,7 @@ Array [
                       class="ant-table-cell ant-table-cell-with-append"
                     >
                       <div
-                        class="ant-table-cell-expand-content"
+                        data-table-tree-cell=""
                       >
                         <div>
                           <span
@@ -30036,7 +30036,7 @@ Array [
                       class="ant-table-cell ant-table-cell-with-append"
                     >
                       <div
-                        class="ant-table-cell-expand-content"
+                        data-table-tree-cell=""
                       >
                         <div>
                           <span
@@ -31047,7 +31047,7 @@ Array [
                       class="ant-table-cell ant-table-cell-with-append"
                     >
                       <div
-                        class="ant-table-cell-expand-content"
+                        data-table-tree-cell=""
                       >
                         <div>
                           <span
@@ -31102,7 +31102,7 @@ Array [
                       class="ant-table-cell ant-table-cell-with-append"
                     >
                       <div
-                        class="ant-table-cell-expand-content"
+                        data-table-tree-cell=""
                       >
                         <div>
                           <span
@@ -31157,7 +31157,7 @@ Array [
                       class="ant-table-cell ant-table-cell-with-append"
                     >
                       <div
-                        class="ant-table-cell-expand-content"
+                        data-table-tree-cell=""
                       >
                         <div>
                           <span
@@ -31212,7 +31212,7 @@ Array [
                       class="ant-table-cell ant-table-cell-with-append"
                     >
                       <div
-                        class="ant-table-cell-expand-content"
+                        data-table-tree-cell=""
                       >
                         <div>
                           <span
@@ -31267,7 +31267,7 @@ Array [
                       class="ant-table-cell ant-table-cell-with-append"
                     >
                       <div
-                        class="ant-table-cell-expand-content"
+                        data-table-tree-cell=""
                       >
                         <div>
                           <span

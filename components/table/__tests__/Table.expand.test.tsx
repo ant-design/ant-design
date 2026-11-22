@@ -101,6 +101,63 @@ describe('Table.expand', () => {
     },
   );
 
+  it('preserves tree row headers and cell props with a custom prefix and expand column', () => {
+    const { getByRole } = render(
+      <Table
+        prefixCls="tree-table"
+        columns={[
+          { dataIndex: 'age' },
+          {
+            dataIndex: 'firstName',
+            rowScope: 'row',
+            onCell: () => ({ title: 'Full name' }),
+          },
+        ]}
+        dataSource={data}
+        expandable={{ expandIconColumnIndex: 1 }}
+      />,
+    );
+
+    const cell = getByRole('rowheader', { name: /John/ });
+    expect(cell).toHaveAttribute('scope', 'row');
+    expect(cell).toHaveAttribute('title', 'Full name');
+    expect(cell).toHaveClass('tree-table-cell-with-append');
+    expect(cell.querySelector('[data-table-tree-cell]')).toContainElement(
+      getByRole('button', { name: 'Expand row' }),
+    );
+  });
+
+  it('preserves the title and native content of an ellipsized expand cell', () => {
+    const { getByRole } = render(
+      <Table columns={[{ dataIndex: 'firstName', ellipsis: true }]} dataSource={data} />,
+    );
+
+    const cell = getByRole('cell', { name: /John/ });
+    expect(cell).toHaveAttribute('title', 'John');
+    expect(cell).toHaveClass('ant-table-cell-ellipsis');
+    expect(cell.querySelector('[data-table-tree-cell]')).toBeNull();
+  });
+
+  it('renders a custom scroll body with tree data', () => {
+    const body = jest.fn((records: ReadonlyArray<(typeof data)[number]>) => (
+      <div>{records[0].firstName}</div>
+    ));
+    const { getByText } = render(
+      <Table
+        columns={[{ dataIndex: 'firstName', width: 120 }]}
+        components={{ body }}
+        dataSource={data}
+        scroll={{ y: 120 }}
+      />,
+    );
+
+    expect(getByText('John')).toBeInTheDocument();
+    expect(body).toHaveBeenCalledWith(
+      data,
+      expect.objectContaining({ onScroll: expect.any(Function) }),
+    );
+  });
+
   it('force renders expanded form fields before expansion', async () => {
     const formRef = React.createRef<FormInstance>();
 

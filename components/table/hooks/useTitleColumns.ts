@@ -1,38 +1,32 @@
 import * as React from 'react';
 import type { AnyObject } from 'antd/es/_util/type';
 
-import type {
-  ColumnGroupType,
-  ColumnsType,
-  ColumnTitleProps,
-  ColumnType,
-  TransformColumns,
-} from '../interface';
+import type { ColumnGroupType, ColumnsType, ColumnTitleProps, ColumnType } from '../interface';
 import { renderColumnTitle } from '../util';
-
-const fillTitle = <RecordType extends AnyObject = AnyObject>(
-  columns: ColumnsType<RecordType>,
-  columnTitleProps: ColumnTitleProps<RecordType>,
-) => {
-  const finalColumns = columns.map((column) => {
-    const cloneColumn: ColumnGroupType<RecordType> | ColumnType<RecordType> = { ...column };
-    cloneColumn.title = renderColumnTitle(column.title, columnTitleProps);
-    if ('children' in cloneColumn) {
-      cloneColumn.children = fillTitle<RecordType>(cloneColumn.children, columnTitleProps);
-    }
-    return cloneColumn;
-  });
-  return finalColumns;
-};
 
 const useTitleColumns = <RecordType extends AnyObject = AnyObject>(
   columnTitleProps: ColumnTitleProps<RecordType>,
 ) => {
-  const filledColumns = React.useCallback<TransformColumns<RecordType>>(
-    (columns) => fillTitle<RecordType>(columns, columnTitleProps),
+  return React.useCallback(
+    (columns: ColumnsType<RecordType>, treeColumnIndex: number) => {
+      let leafIndex = 0;
+      const fillTitle = (column: ColumnsType<RecordType>[number]) => {
+        const cloneColumn: ColumnGroupType<RecordType> | ColumnType<RecordType> = { ...column };
+        cloneColumn.title = renderColumnTitle(column.title, columnTitleProps);
+        if ('children' in cloneColumn && cloneColumn.children.length) {
+          cloneColumn.children = cloneColumn.children.map(fillTitle);
+        } else if (leafIndex++ === treeColumnIndex && !column.ellipsis) {
+          cloneColumn.onCell = (record, index) => ({
+            ...column.onCell?.(record, index),
+            'data-table-tree-cell': true,
+          });
+        }
+        return cloneColumn;
+      };
+      return columns.map(fillTitle);
+    },
     [columnTitleProps],
   );
-  return [filledColumns] as const;
 };
 
 export default useTitleColumns;
