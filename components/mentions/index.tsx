@@ -325,7 +325,8 @@ Mentions.getMentions = (value = '', config: MentionsConfig = {}): MentionsEntity
   const { prefix = '@', split = ' ' } = config;
   const prefixList: string[] = toList(prefix);
 
-  return value.split(split).reduce<MentionsEntity[]>((list, str = '') => {
+  const separator = split === ' ' ? /[ \r\n]+/ : split;
+  return value.split(separator).reduce<MentionsEntity[]>((list, str = '') => {
     let hitPrefix: string | null = null;
 
     prefixList.some((prefixStr) => {
