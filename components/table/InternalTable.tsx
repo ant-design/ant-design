@@ -74,23 +74,53 @@ export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: AnyObject[] = [];
 
-type HeaderTableContextValue = {
+type TableComponentContextValue = {
   ariaProps?: React.AriaAttributes;
-  component?: React.ElementType;
+  headerTable?: React.ElementType;
+  bodyCell?: React.ElementType;
+  prefixCls: string;
+  virtual?: boolean;
 };
 
-const HeaderTableContext = React.createContext<HeaderTableContextValue>({});
+const TableComponentContext = React.createContext<TableComponentContextValue>({ prefixCls: '' });
 
 const HeaderTable: React.FC<React.TableHTMLAttributes<HTMLTableElement>> = (props) => {
-  const { ariaProps, component = 'table' } = React.useContext(HeaderTableContext);
-  return React.createElement(component, {
+  const { ariaProps, headerTable = 'table' } = React.useContext(TableComponentContext);
+  return React.createElement(headerTable, {
     ...ariaProps,
     ...props,
   });
 };
 
+const TreeBodyCell = React.forwardRef<HTMLElement, React.ComponentPropsWithoutRef<'td'>>(
+  ({ className, children, ...cellProps }, ref) => {
+    const { bodyCell, prefixCls, virtual } = React.useContext(TableComponentContext);
+    const defaultCell = cellProps.scope ? 'th' : 'td';
+    const Cell = bodyCell ?? (virtual ? 'div' : defaultCell);
+    const classes = className?.split(' ');
+
+    if (
+      classes?.includes(`${prefixCls}-cell-with-append`) &&
+      !classes.includes(`${prefixCls}-cell-ellipsis`) &&
+      Array.isArray(children) &&
+      children.length === 2
+    ) {
+      const [expandControls, content] = children;
+      children = (
+        <div className={`${prefixCls}-cell-expand-content`}>
+          <div>{expandControls}</div>
+          <div>{content}</div>
+        </div>
+      );
+    }
+
+    return React.createElement(Cell, { ...cellProps, className, ref }, children);
+  },
+);
+
 if (process.env.NODE_ENV !== 'production') {
   HeaderTable.displayName = 'HeaderTable';
+  TreeBodyCell.displayName = 'TreeBodyCell';
 }
 
 type ComponentsSemanticClassNames = {
@@ -263,13 +293,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const components = tableProps.components as RcTableProps<RecordType>['components'];
   const ariaProps = pickAttrs(tableProps, { aria: true }) as React.AriaAttributes;
   const hasAriaProps = Object.keys(ariaProps).length > 0;
-  const headerTableContext = React.useMemo<HeaderTableContextValue>(
-    () => ({
-      ariaProps,
-      component: components?.header?.table as React.ElementType | undefined,
-    }),
-    [ariaProps, components?.header?.table],
-  );
 
   const { locale: contextLocale, table } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
@@ -636,6 +659,14 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   // ========================== Components ==========================
+  const body = components?.body;
+  const bodyCell = isFunction(body) ? undefined : body?.cell;
+  const headerTable = components?.header?.table;
+  const tableComponentContext = React.useMemo<TableComponentContextValue>(
+    () => ({ ariaProps, bodyCell, headerTable, prefixCls, virtual }),
+    [ariaProps, bodyCell, headerTable, prefixCls, virtual],
+  );
+
   const mergedComponents = React.useMemo<RcTableProps<RecordType>['components']>(() => {
     let nextComponents = components;
 
@@ -651,9 +682,13 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
     return {
       ...nextComponents,
+      ...(expandType === 'nest' &&
+        !isFunction(nextComponents?.body) && {
+          body: { ...nextComponents?.body, cell: TreeBodyCell },
+        }),
       ExpandIcon: MergedExpandIcon,
     };
-  }, [components, hasAriaProps, MergedExpandIcon]);
+  }, [components, hasAriaProps, expandType, MergedExpandIcon]);
 
   // ============================ Render ============================
   const transformColumns = React.useCallback(
@@ -771,7 +806,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     <div ref={rootRef} className={wrappercls} style={mergedStyles.root}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
-        <HeaderTableContext.Provider value={headerTableContext}>
+        <TableComponentContext.Provider value={tableComponentContext}>
           <TableComponent
             {...virtualProps}
             {...tableProps}
@@ -813,7 +848,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
               </TableMeasureRowContext.Provider>
             )}
           />
-        </HeaderTableContext.Provider>
+        </TableComponentContext.Provider>
         {bottomPaginationNode}
       </Spin>
     </div>

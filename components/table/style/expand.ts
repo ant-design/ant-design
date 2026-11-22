@@ -118,6 +118,20 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         marginInlineEnd: paddingXS,
       },
 
+      [`${componentCls}-cell-expand-content`]: {
+        display: 'flex',
+        alignItems: 'flex-start',
+
+        '> :first-child': {
+          flex: 'none',
+        },
+
+        '> :last-child': {
+          flex: 'auto',
+          minWidth: 0,
+        },
+      },
+
       [`tr${componentCls}-expanded-row`]: {
         '&, &:hover': {
           '> th, > td': {

@@ -29842,17 +29842,25 @@ Array [
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                      John Brown sr.
+                      <div
+                        class="ant-table-cell-expand-content"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left:0px"
+                          />
+                          <button
+                            aria-expanded="false"
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                            type="button"
+                          />
+                        </div>
+                        <div>
+                          John Brown sr.
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -29889,17 +29897,25 @@ Array [
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
-                        type="button"
-                      />
-                      Joe Black
+                      <div
+                        class="ant-table-cell-expand-content"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left:0px"
+                          />
+                          <button
+                            aria-expanded="false"
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                            type="button"
+                          />
+                        </div>
+                        <div>
+                          Joe Black
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -30892,17 +30908,25 @@ Array [
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                      Edward 0
+                      <div
+                        class="ant-table-cell-expand-content"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left:0px"
+                          />
+                          <button
+                            aria-expanded="false"
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                            type="button"
+                          />
+                        </div>
+                        <div>
+                          Edward 0
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -30939,17 +30963,25 @@ Array [
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                      Edward 1
+                      <div
+                        class="ant-table-cell-expand-content"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left:0px"
+                          />
+                          <button
+                            aria-expanded="false"
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                            type="button"
+                          />
+                        </div>
+                        <div>
+                          Edward 1
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -30986,17 +31018,25 @@ Array [
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                      Edward 2
+                      <div
+                        class="ant-table-cell-expand-content"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left:0px"
+                          />
+                          <button
+                            aria-expanded="false"
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                            type="button"
+                          />
+                        </div>
+                        <div>
+                          Edward 2
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -31033,17 +31073,25 @@ Array [
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                      Edward 3
+                      <div
+                        class="ant-table-cell-expand-content"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left:0px"
+                          />
+                          <button
+                            aria-expanded="false"
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                            type="button"
+                          />
+                        </div>
+                        <div>
+                          Edward 3
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -31080,17 +31128,25 @@ Array [
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                      Edward 4
+                      <div
+                        class="ant-table-cell-expand-content"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left:0px"
+                          />
+                          <button
+                            aria-expanded="false"
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                            type="button"
+                          />
+                        </div>
+                        <div>
+                          Edward 4
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
