@@ -24,6 +24,8 @@ import type { ItemHolderProps } from './ItemHolder';
 import ItemHolder from './ItemHolder';
 import StatusProvider from './StatusProvider';
 
+let uuid = 0;
+
 interface FieldError {
   errors: string[];
   warnings: string[];
@@ -162,11 +164,14 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   // ========================= MISC =========================
   // Form.List can re-index or reorder this field without remounting it, so its name path
   // is not a stable key for the errors it reports to the parent
-  const metaKey = React.useRef({}).current;
+  const [metaKey] = React.useState(() => {
+    uuid += 1;
+    return String(uuid);
+  });
 
   // ======================== Errors ========================
   // >>>>> Collect sub field errors
-  const [subFieldErrors, setSubFieldErrors] = useFrameState<Map<object, FieldError>>(new Map());
+  const [subFieldErrors, setSubFieldErrors] = useFrameState<Record<string, FieldError>>({});
 
   // >>>>> Current field errors
   const [meta, setMeta] = useState<Meta>(() => genEmptyMeta());
@@ -185,14 +190,16 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const onSubItemMetaChange: ItemHolderProps['onSubItemMetaChange'] = (subMeta, subMetaKey) => {
     // Only `noStyle` sub item will trigger
     setSubFieldErrors((prevSubFieldErrors) => {
-      const clone = new Map(prevSubFieldErrors);
+      const clone = {
+        ...prevSubFieldErrors,
+      };
 
       if ((subMeta as any).destroy) {
         // Remove
-        clone.delete(subMetaKey);
+        delete clone[subMetaKey];
       } else {
         // Update
-        clone.set(subMetaKey, subMeta);
+        clone[subMetaKey] = subMeta;
       }
 
       return clone;
@@ -204,7 +211,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     const errorList: string[] = [...meta.errors];
     const warningList: string[] = [...meta.warnings];
 
-    subFieldErrors.forEach((subFieldError) => {
+    Object.values(subFieldErrors).forEach((subFieldError) => {
       errorList.push(...(subFieldError.errors || []));
       warningList.push(...(subFieldError.warnings || []));
     });

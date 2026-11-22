@@ -181,14 +181,17 @@ describe('Form.List.NoStyle', () => {
         { name: ['items', 1, 'list', 0, 'first'], errors: ['second error'] },
       ]);
 
+    const getErrors = () =>
+      Array.from(container.querySelectorAll('.ant-form-item-explain-error'))
+        .map((node) => node.textContent)
+        .sort();
+
     await run(setErrors);
     await run(() => itemsOperation.move(0, 1));
-    await run(setErrors);
+    expect(getErrors()).toEqual(['first error', 'second error']);
 
-    const errors = Array.from(container.querySelectorAll('.ant-form-item-explain-error')).map(
-      (node) => node.textContent,
-    );
-    expect(errors.sort()).toEqual(['first error', 'second error']);
+    await run(setErrors);
+    expect(getErrors()).toEqual(['first error', 'second error']);
 
     jest.clearAllTimers();
     jest.useRealTimers();
