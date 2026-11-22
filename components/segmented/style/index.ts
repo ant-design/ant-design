@@ -2,6 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { genFocusOutline, genFocusStyle, resetComponent, textEllipsis } from '../../style';
+import { fadeIn } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -253,6 +254,44 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
           },
       },
 
+      // fluid hover styles
+      [`&${componentCls}-hover-fluid`]: {
+        [`${componentCls}-group`]: {
+          // Stacking context so the negative z-index hover thumb stays above the track
+          zIndex: 0,
+        },
+
+        // The gliding thumb replaces the per-item hover background
+        [`${componentCls}-item:not(${componentCls}-item-selected):not(${componentCls}-item-selected-text):not(${componentCls}-item-disabled):hover:not(:active)::after`]:
+          {
+            opacity: 0,
+          },
+      },
+
+      [`${componentCls}-hover-thumb`]: {
+        position: 'absolute',
+        top: 0,
+        // Deliberately physical: offsets are measured from DOM rects, valid in RTL as-is
+        left: {
+          _skip_check_: true,
+          value: 0,
+        },
+        zIndex: -1,
+        borderRadius: token.borderRadiusSM,
+        backgroundColor: token.itemHoverBg,
+        pointerEvents: 'none',
+        willChange: 'transform, width, height',
+        animationName: fadeIn,
+        animationDuration: motionDurationMid,
+        transition: ['transform', 'width', 'height']
+          .map((prop) => `${prop} ${motionDurationMid} ${motionEaseInOut}`)
+          .join(', '),
+        // Keep the fade-in, drop the travel
+        '@media (prefers-reduced-motion: reduce)': {
+          transition: 'none',
+        },
+      },
+
       // size styles
       [`&${componentCls}-lg`]: {
         borderRadius: token.borderRadiusLG,
@@ -262,7 +301,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
           padding: `0 ${unit(token.segmentedPaddingHorizontal)}`,
           fontSize: token.fontSizeLG,
         },
-        [`${componentCls}-item, ${componentCls}-thumb`]: {
+        [`${componentCls}-item, ${componentCls}-thumb, ${componentCls}-hover-thumb`]: {
           borderRadius: token.borderRadius,
         },
       },
@@ -274,7 +313,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
           lineHeight: unit(labelHeightSM),
           padding: `0 ${unit(token.segmentedPaddingHorizontalSM)}`,
         },
-        [`${componentCls}-item, ${componentCls}-thumb`]: {
+        [`${componentCls}-item, ${componentCls}-thumb, ${componentCls}-hover-thumb`]: {
           borderRadius: token.borderRadiusXS,
         },
       },
@@ -293,7 +332,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
 
       [`&${componentCls}-shape-round`]: {
         borderRadius: 9999,
-        [`${componentCls}-item, ${componentCls}-thumb`]: {
+        [`${componentCls}-item, ${componentCls}-thumb, ${componentCls}-hover-thumb`]: {
           borderRadius: 9999,
         },
       },
