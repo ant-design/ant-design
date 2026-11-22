@@ -106,6 +106,7 @@ const Separator: React.FC<Readonly<SeparatorProps>> = (props) => {
 const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
+    id,
     length = 6,
     size: customSize,
     defaultValue,
@@ -360,6 +361,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
                 ref={(inputEle) => {
                   inputsRef.current[index] = inputEle;
                 }}
+                id={index === 0 ? id : undefined}
                 index={index}
                 aria-label={inputLocale.otpCell
                   ?.replace(/\$\{index\}/g, String(index + 1))

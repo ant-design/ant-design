@@ -5,9 +5,10 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
-import OTPInput from '../OTP/OTPInput';
 import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 import type { OTPProps } from '../OTP';
+import OTPInput from '../OTP/OTPInput';
 
 const { OTP } = Input;
 
@@ -31,6 +32,19 @@ describe('Input.OTP', () => {
   afterEach(() => {
     jest.clearAllTimers();
     jest.useRealTimers();
+  });
+
+  it('associates a Form.Item label with the first code cell', () => {
+    const { container, getAllByRole } = render(
+      <Form>
+        <Form.Item name="code" label="Verification code">
+          <OTP />
+        </Form.Item>
+      </Form>,
+    );
+    const cells = getAllByRole('textbox');
+    expect(container.querySelector('label')!.control).toBe(cells[0]);
+    expect(container.querySelectorAll('[id="code"]')).toHaveLength(1);
   });
 
   it('paste to fill all', async () => {
