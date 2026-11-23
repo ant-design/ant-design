@@ -81,10 +81,14 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     trigger: contextTrigger,
     mouseEnterDelay: contextMouseEnterDelay,
     mouseLeaveDelay: contextMouseLeaveDelay,
+    destroyOnHidden: contextDestroyOnHidden,
   } = useComponentConfig('popconfirm');
   const [open, setOpen] = useControlledState(props.defaultOpen ?? false, props.open);
   const mergedArrow = useMergedArrow(popconfirmArrow, contextArrow);
   const mergedTrigger = trigger || contextTrigger || 'click';
+
+  const mergedDestroyOnHidden =
+    props.destroyOnHidden ?? !!(props.destroyTooltipOnHide ?? contextDestroyOnHidden);
 
   const mergedMouseEnterDelay = mouseEnterDelay ?? contextMouseEnterDelay ?? 0.1;
   const mergedMouseLeaveDelay = mouseLeaveDelay ?? contextMouseLeaveDelay ?? 0.1;
@@ -131,6 +135,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     ...props,
     placement,
     trigger: mergedTrigger,
+    destroyOnHidden: mergedDestroyOnHidden,
     okType,
     overlayStyle,
     styles,
@@ -158,6 +163,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     <Popover
       arrow={mergedArrow}
       {...omit(restProps, ['title'])}
+      destroyOnHidden={mergedDestroyOnHidden}
       trigger={mergedTrigger}
       placement={placement}
       onOpenChange={onInternalOpenChange}
