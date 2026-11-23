@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Input from '../../input/Input';
 import type { AggregationColor } from '../color';
 import { toHexFormat } from '../color';
-import { generateColor } from '../util';
+import { genAlphaColor, generateColor } from '../util';
 
 interface ColorHexInputProps {
   prefixCls: string;
@@ -31,8 +31,10 @@ const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) =
   const handleHexChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const originValue = e.target.value;
     setHexValue(toHexFormat(originValue));
-    if (isHexString(toHexFormat(originValue, true))) {
-      onChange?.(generateColor(originValue));
+    const hex = toHexFormat(originValue, true);
+    if (isHexString(hex)) {
+      const color = generateColor(originValue);
+      onChange?.(hex.length === 6 && value ? genAlphaColor(color, value.toRgb().a) : color);
     }
   };
 
