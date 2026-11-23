@@ -306,7 +306,8 @@ export type DrawerConfig = ComponentStyleConfig &
 export type DividerConfig = ComponentStyleConfig &
   Pick<DividerProps, 'classNames' | 'styles' | 'variant'>;
 
-export type DropdownConfig = ComponentStyleConfig & Pick<DropdownProps, 'classNames' | 'styles'>;
+export type DropdownConfig = ComponentStyleConfig &
+  Pick<DropdownProps, 'classNames' | 'styles' | 'destroyOnHidden'>;
 
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 
