@@ -373,6 +373,7 @@ export type TooltipConfig = Pick<
   | 'trigger'
   | 'mouseEnterDelay'
   | 'mouseLeaveDelay'
+  | 'destroyOnHidden'
 > & {
   /**
    * @descCN 是否开启 Tooltip 流畅过渡动画
@@ -392,6 +393,7 @@ export type PopoverConfig = Pick<
   | 'trigger'
   | 'mouseEnterDelay'
   | 'mouseLeaveDelay'
+  | 'destroyOnHidden'
 >;
 
 export type PopconfirmConfig = Pick<
