@@ -221,6 +221,7 @@ export type ModalConfig = ComponentStyleConfig &
     | 'cancelButtonProps'
     | 'mask'
     | 'focusable'
+    | 'destroyOnHidden'
   > & {
     infoIcon?: React.ReactNode;
     successIcon?: React.ReactNode;
