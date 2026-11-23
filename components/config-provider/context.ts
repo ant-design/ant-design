@@ -406,6 +406,7 @@ export type PopconfirmConfig = Pick<
   | 'trigger'
   | 'mouseEnterDelay'
   | 'mouseLeaveDelay'
+  | 'destroyOnHidden'
 >;
 
 export type QRcodeConfig = ComponentStyleConfig & Pick<QRCodeProps, 'classNames' | 'styles'>;
