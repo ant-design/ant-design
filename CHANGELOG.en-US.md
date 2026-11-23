@@ -15,6 +15,39 @@ tag: vVERSION
 
 ---
 
+## 6.7.2
+
+`2026-11-23`
+
+- Form
+  - 🐞 Fix Form validation messages showing `undefined` as the field label when Form.Item `name` is `0`. [#59679](https://github.com/ant-design/ant-design/pull/59679) [@nikzanda](https://github.com/nikzanda)
+- Table
+  - 🐞 Fix Table `defaultSortOrder` being ignored on grouping columns. [#59611](https://github.com/ant-design/ant-design/pull/59611) [@b84330808](https://github.com/b84330808)
+  - 🐞 Fix Table custom `filterSearch` callbacks receiving a lowercased and trimmed query in menu mode. [#59735](https://github.com/ant-design/ant-design/pull/59735) [@Aminark](https://github.com/Aminark)
+- Layout
+  - 🐞 Fix Layout.Header, Layout.Content, and Layout.Footer failing to apply `rootClassName`. [#59697](https://github.com/ant-design/ant-design/pull/59697) [@nikzanda](https://github.com/nikzanda)
+  - 🐞 Fix Layout.Header, Layout.Content, and Layout.Footer losing styles when using a custom `prefixCls`. [#59935](https://github.com/ant-design/ant-design/pull/59935) [@li-jia-nan](https://github.com/li-jia-nan)
+- Typography
+  - 🐞 Fix Typography calling `editable.onStart` twice on edit icon clicks when both `icon` and `text` triggers are enabled. [#59629](https://github.com/ant-design/ant-design/pull/59629) [@dogledogle](https://github.com/dogledogle)
+  - 🐞 Fix Typography showing an ellipsis tooltip for text that fits at certain browser zoom levels. [#59661](https://github.com/ant-design/ant-design/pull/59661) [@iBreaker](https://github.com/iBreaker)
+- 🤖 Fix Button, Drawer, and QRCode declaration errors when TypeScript checks optional properties with `exactOptionalPropertyTypes` and `skipLibCheck: false`. [#59922](https://github.com/ant-design/ant-design/pull/59922) [@dreamvrutik](https://github.com/dreamvrutik)
+- 🐞 Fix static Message leaving its promise pending when the first notice is closed before rendering. [#59942](https://github.com/ant-design/ant-design/pull/59942) [@Aminark](https://github.com/Aminark)
+- 🐞 Fix Modal retaining closed dialogs created with `Modal.useModal()` in the `Modal.destroyAll()` list. [#59447](https://github.com/ant-design/ant-design/pull/59447) [@Chaoqi31](https://github.com/Chaoqi31)
+- 🐞 Fix Drawer waiting for a timeout after its closing animation ends in projects locked to `@rc-component/drawer` 1.4.2. [#59882](https://github.com/ant-design/ant-design/pull/59882) [react-component/drawer#633](https://github.com/react-component/drawer/pull/633) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fix Upload crashing when a file’s `linkProps` is an invalid JSON string. [#59323](https://github.com/ant-design/ant-design/pull/59323) [@dogledogle](https://github.com/dogledogle)
+- 🐞 Fix Calendar disabling boundary dates when `validRange` includes times of day. [#59947](https://github.com/ant-design/ant-design/pull/59947) [@Aminark](https://github.com/Aminark)
+- ⌨️ Fix Checkbox losing its native mixed state after mouse or keyboard activation while `indeterminate` remains `true`. [#59859](https://github.com/ant-design/ant-design/pull/59859) [@Aminark](https://github.com/Aminark)
+- 🐞 Fix ColorPicker producing invalid gradients when deleting gradient stops with the keyboard. [#59837](https://github.com/ant-design/ant-design/pull/59837) [@Aminark](https://github.com/Aminark)
+- 🐞 Fix Tabs lagging behind the pointer when dragging tabs in `card` or `editable-card` mode. [#59854](https://github.com/ant-design/ant-design/pull/59854) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Button animating unintentionally when its margin changes. [#59886](https://github.com/ant-design/ant-design/pull/59886) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix InputNumber spacing between its prefix, suffix, and step buttons in spinner mode (`mode="spinner"`). [#59572](https://github.com/ant-design/ant-design/pull/59572) [@dogledogle](https://github.com/dogledogle)
+- 🐞 Fix Mentions missing mentions across line breaks when `getMentions` uses the default separator. [#59948](https://github.com/ant-design/ant-design/pull/59948) [@Aminark](https://github.com/Aminark)
+- 🐞 Fix Watermark ignoring `fontSize`, `fontWeight`, and `fontFamily` when `font.fontStyle` is `none`. [#59855](https://github.com/ant-design/ant-design/pull/59855) [@adityajai119](https://github.com/adityajai119)
+- ⚡️ Speed up Shift range selection in Tree.DirectoryTree when many folders are expanded. [#59944](https://github.com/ant-design/ant-design/pull/59944) [@Aminark](https://github.com/Aminark)
+- 🤖 Fix a TypeScript error when setting `startPoint` on a single-handle Slider. [#59877](https://github.com/ant-design/ant-design/pull/59877) [@QDyanbing](https://github.com/QDyanbing)
+- 🤖 Fix Statistic.Timer and Statistic.Countdown `onChange` callback types to infer a required numeric value. [#59903](https://github.com/ant-design/ant-design/pull/59903) [@SweetDianDian](https://github.com/SweetDianDian)
+- 🇺🇿 Correct Uzbek (`uz_UZ`) translations in Form, Table, Transfer, Typography, and Tour. [#59876](https://github.com/ant-design/ant-design/pull/59876) [@XakimovNosirbek](https://github.com/XakimovNosirbek)
+
 ## 6.7.1
 
 `2026-11-16`
