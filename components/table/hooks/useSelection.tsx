@@ -653,7 +653,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
                     const keys = Array.from(keySet);
 
                     onSelectMultiple?.(
-                      !checked,
+                      keySet.has(key),
                       keys.map<RecordType>(getSelectedRecord),
                       changedKeys.map<RecordType>(getRecordByKey),
                     );

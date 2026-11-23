@@ -423,6 +423,23 @@ describe('Table.rowSelection', () => {
     expect(order).toEqual(['onSelect', 'onChange']);
   });
 
+  it('reports a partially selected range as selected when its endpoint was already checked', () => {
+    const onSelectMultiple = jest.fn();
+    const { container } = render(
+      createTable({ rowSelection: { defaultSelectedRowKeys: [2], onSelectMultiple } }),
+    );
+    const inputs = container.querySelectorAll('tbody input[type="checkbox"]');
+    fireEvent.click(inputs[0]);
+    fireEvent.click(inputs[2], { shiftKey: true });
+
+    expect(getSelections(container)).toEqual([0, 1, 2]);
+    expect(onSelectMultiple).toHaveBeenCalledWith(
+      true,
+      expect.arrayContaining([data[0], data[1], data[2]]),
+      [data[1]],
+    );
+  });
+
   it('fires selectMulti event', () => {
     const order: string[] = [];
     const handleSelectMulti = jest.fn().mockImplementation(() => {
