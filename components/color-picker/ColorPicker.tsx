@@ -81,6 +81,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     classNames: contextClassNames,
     styles: contextStyles,
     arrow: contextArrow,
+    destroyOnHidden: contextDestroyOnHidden,
   } = useComponentConfig('colorPicker');
 
   const contextDisabled = useContext(DisabledContext);
@@ -277,7 +278,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     rootClassName,
     getPopupContainer,
     autoAdjustOverflow,
-    destroyOnHidden: destroyOnHidden ?? !!destroyTooltipOnHide,
+    destroyOnHidden: destroyOnHidden ?? !!(destroyTooltipOnHide ?? contextDestroyOnHidden),
   };
 
   // ============================ zIndex ============================
