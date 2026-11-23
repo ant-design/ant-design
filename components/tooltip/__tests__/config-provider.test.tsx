@@ -162,14 +162,14 @@ describe('Tooltip ConfigProvider destroyOnHidden', () => {
       const { getByRole, rerender } = render(tree(true));
       await waitFakeTimer();
       const labels = ['Popover state', 'Popconfirm state', 'ColorPicker state'];
-      labels.forEach((name) =>
-        fireEvent.change(getByRole('textbox', { name }), { target: { value: 'edited' } }),
-      );
+      labels.forEach((name) => {
+        fireEvent.change(getByRole('textbox', { name }), { target: { value: 'edited' } });
+      });
       rerender(tree(false));
       await waitFakeTimer();
-      labels.forEach((name) =>
-        expect(getByRole('textbox', { name, hidden: true })).toHaveValue('edited'),
-      );
+      labels.forEach((name) => {
+        expect(getByRole('textbox', { name, hidden: true })).toHaveValue('edited');
+      });
     },
   );
 
