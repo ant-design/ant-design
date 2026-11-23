@@ -19,7 +19,9 @@ const Content = () => {
 
 async function finishMotion() {
   await waitFakeTimer();
-  document.querySelectorAll('.ant-modal').forEach((element) => fireEvent.animationEnd(element));
+  document.querySelectorAll('.ant-modal').forEach((element) => {
+    fireEvent.animationEnd(element);
+  });
   await waitFakeTimer();
 }
 
