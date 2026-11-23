@@ -20,7 +20,6 @@ tag: vVERSION
 `2026-11-23`
 
 - Form
-  - 🛠 回退 Form 在 6.7.1 中引入的包体积优化。这项改动涉及多个组件的依赖关系，将在 `feature` 分支留出更长的验证时间，再随次版本发布。 [#59883](https://github.com/ant-design/ant-design/pull/59883) [@li-jia-nan](https://github.com/li-jia-nan)
   - 🐞 修复 Form.Item 的 `name` 为 `0` 时，Form 校验信息将字段名显示为 `undefined` 的问题。 [#59679](https://github.com/ant-design/ant-design/pull/59679) [@nikzanda](https://github.com/nikzanda)
 - Table
   - 🐞 修复 Table 分组列的 `defaultSortOrder` 不生效的问题。 [#59611](https://github.com/ant-design/ant-design/pull/59611) [@b84330808](https://github.com/b84330808)

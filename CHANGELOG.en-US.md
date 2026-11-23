@@ -20,7 +20,6 @@ tag: vVERSION
 `2026-11-23`
 
 - Form
-  - 🛠 Revert the Form bundle size optimization introduced in 6.7.1 to allow more time to validate dependency changes across multiple components on the `feature` branch before a minor release. [#59883](https://github.com/ant-design/ant-design/pull/59883) [@li-jia-nan](https://github.com/li-jia-nan)
   - 🐞 Fix Form validation messages showing `undefined` as the field label when Form.Item `name` is `0`. [#59679](https://github.com/ant-design/ant-design/pull/59679) [@nikzanda](https://github.com/nikzanda)
 - Table
   - 🐞 Fix Table `defaultSortOrder` being ignored on grouping columns. [#59611](https://github.com/ant-design/ant-design/pull/59611) [@b84330808](https://github.com/b84330808)
