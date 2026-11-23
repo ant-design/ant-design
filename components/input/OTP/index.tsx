@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { pickAttrs, useEvent } from '@rc-component/util';
+import { isReactRenderable, pickAttrs, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../../_util/hooks/useMergeSemantic';
@@ -16,6 +16,7 @@ import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
 import type { FormItemStatusContextProps } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
+import useLocale from '../../locale/useLocale';
 import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
@@ -92,7 +93,7 @@ interface SeparatorProps {
 const Separator: React.FC<Readonly<SeparatorProps>> = (props) => {
   const { index, prefixCls, separator, className: semanticClassName, style: semanticStyle } = props;
   const separatorNode = isFunction(separator) ? separator(index) : separator;
-  if (!separatorNode) {
+  if (!isReactRenderable(separatorNode)) {
     return null;
   }
   return (
@@ -124,6 +125,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     inputMode,
     classNames,
     styles,
+    rootClassName,
     className,
     style,
     ...restProps
@@ -166,11 +168,15 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     props: mergedProps,
   });
 
-  const domAttrs = pickAttrs(restProps, {
+  // `aria-invalid` is not supported on `role="group"`, so it is set on each cell instead
+  const { 'aria-invalid': ariaInvalid, ...restDomProps } = restProps;
+  const domAttrs = pickAttrs(restDomProps, {
     aria: true,
     data: true,
     attr: true,
   });
+
+  const [inputLocale] = useLocale('Input');
 
   // ========================= Root =========================
   // Style
@@ -259,7 +265,6 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     } else {
       nextCells = nextCells.slice(0, index).concat(strToArr(txt));
     }
-    nextCells = nextCells.slice(0, length);
 
     // Clean the last empty cell
     for (let i = nextCells.length - 1; i >= 0; i -= 1) {
@@ -269,7 +274,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       nextCells.pop();
     }
 
-    // Format if needed
+    // Format before limiting the length to avoid losing valid characters.
     const formattedValue = internalFormatter(nextCells.map((c) => c || ' ').join(''));
     nextCells = strToArr(formattedValue).map((c, i) => {
       if (c === ' ' && !nextCells[i]) {
@@ -278,7 +283,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       return c;
     });
 
-    return nextCells;
+    return nextCells.slice(0, length);
   });
 
   // ======================== Change ========================
@@ -314,6 +319,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   // ======================== Render ========================
   const inputSharedProps: Partial<OTPInputProps> = {
+    'aria-invalid': ariaInvalid ?? (mergedStatus === 'error' || undefined),
     variant,
     disabled,
     status: mergedStatus as InputStatus,
@@ -329,6 +335,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       ref={containerRef}
       className={clsx(
         className,
+        rootClassName,
         prefixCls,
         {
           [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -354,6 +361,9 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
                   inputsRef.current[index] = inputEle;
                 }}
                 index={index}
+                aria-label={inputLocale.otpCell
+                  ?.replace(/\$\{index\}/g, String(index + 1))
+                  .replace(/\$\{total\}/g, String(length))}
                 size={mergedSize}
                 htmlSize={1}
                 className={clsx(mergedClassNames.input, `${prefixCls}-input`)}

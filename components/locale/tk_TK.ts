@@ -30,9 +30,14 @@ const localeValues: Locale = {
     selectInvert: 'Tersini saýlaň',
     selectNone: 'Ähli maglumatlary arassala',
     selectionAll: 'Ähli maglumatlary saýla',
+    selectRow: 'Setiri saýla',
+    selectedRow: 'Setir saýlandy',
+    selectionMenu: 'Saýlaw menýusy',
     sortTitle: 'Tertiple',
     expand: 'Setirleri aç',
     collapse: 'Setirleri ýygna',
+    expandAll: 'Ähli setirleri aç',
+    collapseAll: 'Ähli setirleri ýygna',
     triggerDesc: 'Kemelýän tertipde tertiple',
     triggerAsc: 'Artýan tertipde tertiple',
     cancelSort: 'Tertipleri arassala',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Bolýar',
     cancelText: 'Ýatyr',
+  },
+  Splitter: {
+    toggleStartPanel: 'Başlangyç panelini çalyş',
+    toggleEndPanel: 'Ahyrky paneli çalyş',
   },
   Transfer: {
     titles: ['', ''],

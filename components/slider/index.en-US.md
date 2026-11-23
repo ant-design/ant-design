@@ -50,6 +50,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  | × |
 | range | Enable dual thumb mode for range selection | boolean \| [range](#range) | false |  | × |
 | reverse | Reverse the component | boolean | false |  | × |
+| startPoint | Starting value of the filled track in single-handle mode | number | `min` | - | × |
 | step | The granularity the slider can step through values. Must be greater than 0, and be divisible by (max - min). When `step` is `null` and `marks` exist, valid points will only be marks, `min` and `max` | number \| null | 1 |  | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.23.0 |
 | tooltip | The tooltip related props | [tooltip](#tooltip) | - | 4.23.0 | × |

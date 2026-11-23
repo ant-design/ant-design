@@ -141,6 +141,7 @@ exports[`renders components/collapse/demo/basic.tsx extend context correctly 1`]
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-controls="test-id"
       aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
@@ -180,6 +181,7 @@ exports[`renders components/collapse/demo/basic.tsx extend context correctly 1`]
     </div>
     <div
       class="ant-collapse-panel ant-collapse-panel-active"
+      id="test-id"
     >
       <div
         class="ant-collapse-body"
@@ -287,6 +289,7 @@ exports[`renders components/collapse/demo/borderless.tsx extend context correctl
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-controls="test-id"
       aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
@@ -326,6 +329,7 @@ exports[`renders components/collapse/demo/borderless.tsx extend context correctl
     </div>
     <div
       class="ant-collapse-panel ant-collapse-panel-active"
+      id="test-id"
     >
       <div
         class="ant-collapse-body"
@@ -442,6 +446,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
           class="ant-collapse-header ant-collapse-collapsible-header"
         >
           <div
+            aria-controls="test-id"
             aria-disabled="false"
             aria-expanded="true"
             class="ant-collapse-expand-icon"
@@ -470,6 +475,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
             </span>
           </div>
           <span
+            aria-controls="test-id"
             aria-disabled="false"
             aria-expanded="true"
             class="ant-collapse-title"
@@ -481,6 +487,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
         </div>
         <div
           class="ant-collapse-panel ant-collapse-panel-active"
+          id="test-id"
         >
           <div
             class="ant-collapse-body"
@@ -508,6 +515,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
           class="ant-collapse-header ant-collapse-collapsible-icon"
         >
           <div
+            aria-controls="test-id"
             aria-disabled="false"
             aria-expanded="true"
             class="ant-collapse-expand-icon"
@@ -543,6 +551,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
         </div>
         <div
           class="ant-collapse-panel ant-collapse-panel-active"
+          id="test-id"
         >
           <div
             class="ant-collapse-body"
@@ -753,6 +762,7 @@ exports[`renders components/collapse/demo/custom.tsx extend context correctly 1`
     style="margin-bottom: 24px; background: rgba(0, 0, 0, 0.02); border-radius: 8px;"
   >
     <div
+      aria-controls="test-id"
       aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
@@ -791,6 +801,7 @@ exports[`renders components/collapse/demo/custom.tsx extend context correctly 1`
     </div>
     <div
       class="ant-collapse-panel ant-collapse-panel-active"
+      id="test-id"
     >
       <div
         class="ant-collapse-body"
@@ -899,6 +910,7 @@ Array [
       class="ant-collapse-item ant-collapse-item-active"
     >
       <div
+        aria-controls="test-id"
         aria-disabled="false"
         aria-expanded="true"
         class="ant-collapse-header"
@@ -962,6 +974,7 @@ Array [
       </div>
       <div
         class="ant-collapse-panel ant-collapse-panel-active"
+        id="test-id"
       >
         <div
           class="ant-collapse-body"
@@ -1135,6 +1148,7 @@ Array [
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -1167,7 +1181,9 @@ Array [
       >
         <div
           aria-label="start"
+          aria-posinset="1"
           aria-selected="true"
+          aria-setsize="2"
           id="test-id_list_0"
           role="option"
         >
@@ -1175,7 +1191,9 @@ Array [
         </div>
         <div
           aria-label="end"
+          aria-posinset="2"
           aria-selected="false"
+          aria-setsize="2"
           id="test-id_list_1"
           role="option"
         >
@@ -1248,6 +1266,7 @@ exports[`renders components/collapse/demo/ghost.tsx extend context correctly 1`]
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-controls="test-id"
       aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
@@ -1287,6 +1306,7 @@ exports[`renders components/collapse/demo/ghost.tsx extend context correctly 1`]
     </div>
     <div
       class="ant-collapse-panel ant-collapse-panel-active"
+      id="test-id"
     >
       <div
         class="ant-collapse-body"
@@ -1394,6 +1414,7 @@ exports[`renders components/collapse/demo/icon.tsx extend context correctly 1`] 
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-controls="test-id"
       aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
@@ -1452,6 +1473,7 @@ exports[`renders components/collapse/demo/icon.tsx extend context correctly 1`] 
     </div>
     <div
       class="ant-collapse-panel ant-collapse-panel-active"
+      id="test-id"
     >
       <div
         class="ant-collapse-body"
@@ -1666,6 +1688,7 @@ exports[`renders components/collapse/demo/noarrow.tsx extend context correctly 1
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-controls="test-id"
       aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
@@ -1705,6 +1728,7 @@ exports[`renders components/collapse/demo/noarrow.tsx extend context correctly 1
     </div>
     <div
       class="ant-collapse-panel ant-collapse-panel-active"
+      id="test-id"
     >
       <div
         class="ant-collapse-body"
@@ -1941,6 +1965,7 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
       class="ant-collapse-item ant-collapse-item-active"
     >
       <div
+        aria-controls="test-id"
         aria-disabled="false"
         aria-expanded="true"
         class="ant-collapse-header"
@@ -1981,6 +2006,7 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
       </div>
       <div
         class="ant-collapse-panel ant-collapse-panel-active"
+        id="test-id"
       >
         <div
           class="ant-collapse-body"
@@ -2126,6 +2152,7 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
       class="ant-collapse-item ant-collapse-item-active"
     >
       <div
+        aria-controls="test-id"
         aria-disabled="false"
         aria-expanded="true"
         class="ant-collapse-header"
@@ -2166,6 +2193,7 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
       </div>
       <div
         class="ant-collapse-panel ant-collapse-panel-active"
+        id="test-id"
       >
         <div
           class="ant-collapse-body"

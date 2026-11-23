@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import { calcRangeKeys } from '../utils/dictUtil';
+import { calcRangeKeys, convertDirectoryKeysToNodes } from '../utils/dictUtil';
 import SwitcherIconCom from '../utils/iconUtil';
 
 describe('Tree util', () => {
@@ -42,6 +42,13 @@ describe('Tree util', () => {
       const keys = calcRangeKeys({ treeData, expandedKeys: ['0-0', '0-2', '0-2-0'] });
       expect(keys).toEqual([]);
     });
+  });
+
+  it('returns selected directory nodes in tree order with distinct numeric and string keys', () => {
+    const first = { key: 1 };
+    const child = { key: '1' };
+    const tree = [first, { key: 'folder', children: [child] }];
+    expect(convertDirectoryKeysToNodes(tree, ['1', 'missing', 1])).toEqual([first, child]);
   });
 
   describe('SwitcherIconCom', () => {

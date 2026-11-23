@@ -115,24 +115,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           },
         },
 
-        [`${componentCls}-wrap`]: {
-          position: 'relative',
-
-          [`${antCls}-btn > ${iconCls}-down`]: {
-            fontSize: fontSizeIcon,
-          },
-
-          [`${iconCls}-down::before`]: {
-            transition: `transform ${motionDurationMid}`,
-          },
-        },
-
-        [`${componentCls}-wrap-open`]: {
-          [`${iconCls}-down::before`]: {
-            transform: `rotate(180deg)`,
-          },
-        },
-
         '&-hidden, &-menu-hidden, &-menu-submenu-hidden': {
           display: 'none',
         },

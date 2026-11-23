@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Tabs } from 'antd';
 import { createStyles } from 'antd-style';
+import { useReducedMotion } from 'antd/lib/_util/hooks';
 import scrollTo from 'antd/lib/_util/scrollTo';
 import { clsx } from 'clsx';
 import throttle from 'lodash/throttle';
@@ -57,6 +58,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
 const VIEW_BALANCE = 32;
 
 const AffixTabs: React.FC = () => {
+  const shouldReduceMotion = useReducedMotion();
   const containerRef = React.useRef<HTMLDivElement>(null);
   const idsRef = React.useRef<string[]>([]);
   const [loaded, setLoaded] = React.useState(false);
@@ -66,14 +68,15 @@ const AffixTabs: React.FC = () => {
     styles: { affixTabs, affixTabsFixed, span },
   } = useStyle();
 
-  function scrollToId(id: string) {
+  const scrollToId = (id: string) => {
     const targetNode = document.getElementById(id);
-
     if (targetNode) {
       const newTop = targetNode.offsetTop - containerRef.current!.offsetHeight - VIEW_BALANCE;
-      scrollTo(newTop);
+      scrollTo(newTop, {
+        duration: shouldReduceMotion ? 0 : undefined,
+      });
     }
-  }
+  };
 
   React.useEffect(() => {
     const nodeList = document.querySelectorAll<HTMLHeadingElement>('h2[id]');

@@ -106,6 +106,16 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 <InstallDependencies npm='$ npm run dist' yarn='$ yarn dist'></InstallDependencies>
 
+### 检查产物体积 {#check-bundle-sizes}
+
+构建后，检查整包产物和每个公开组件的体积：
+
+<InstallDependencies npm='$ npm run build && npm run size-limit' yarn='$ yarn build && yarn size-limit'></InstallDependencies>
+
+组件检查从编译后的 ES 模块入口按名称导入，计算 Tree Shaking、压缩和 gzip 后的体积，包含运行时依赖和 CSS-in-JS 样式，排除 React 和 ReactDOM 这两个 peer dependencies。共享依赖会计入各组件独立使用时的体积，因此各组件的体积不能直接相加。
+
+体积预算维护在 `.size-limit.ts` 中，并在 PR 中检查。将组件的 gzip 实测体积向上取整到整数 KiB，即可得到初始预算。新增组件时，需要在 `componentLimits` 中添加对应预算。已有组件需要提高预算时，请先检查体积增长的原因。
+
 ## 配套开发工具 {#development-tools}
 
 - CSS-in-JS 样式提示插件：https://marketplace.visualstudio.com/items?itemName=shezhangzhang.antd-design-token

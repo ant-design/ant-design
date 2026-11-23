@@ -5,8 +5,14 @@ import type { FormProps } from '../Form';
 
 const names: Record<string, number> = {};
 
-export default function useFormWarning({ name }: FormProps) {
+export default function useFormWarning({ name, labelAlign }: FormProps) {
   const warning = useDevWarning('Form');
+
+  warning.deprecated(
+    labelAlign !== 'left' && labelAlign !== 'right',
+    'labelAlign=left|right',
+    'labelAlign=start|end',
+  );
 
   React.useEffect(() => {
     if (name) {

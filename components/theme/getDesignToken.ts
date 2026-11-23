@@ -7,7 +7,11 @@ import seedToken from './themes/seed';
 import formatToken from './util/alias';
 
 const getDesignToken = (config?: ThemeConfig): AliasToken => {
-  const theme = config?.algorithm ? createTheme(config.algorithm) : defaultTheme;
+  const algorithm = config?.algorithm;
+  const theme =
+    algorithm && (!Array.isArray(algorithm) || algorithm.length > 0)
+      ? createTheme(algorithm)
+      : defaultTheme;
   const mergedToken = {
     ...seedToken,
     ...config?.token,

@@ -13,10 +13,13 @@ import ThemeIcon from '../../../../theme/common/ThemeSwitch/ThemeIcon';
 import * as utils from '../../../../theme/utils';
 import Group from '../Group';
 import ComponentsBlock from '../PreviewPane/Components';
-import { ThemeDashboard } from '../Theme';
 import type { PreviewThemeConfig } from './previewThemes';
 import usePreviewThemes from './previewThemes';
 import { generateFullCopyFile } from './themeCodeUtils';
+
+const ThemeDashboard = React.lazy(() =>
+  import('../Theme').then((module) => ({ default: module.ThemeDashboard })),
+);
 
 const PREVIEW_CARD_RADIUS = 16;
 
@@ -76,6 +79,7 @@ const useStyles = createStyles(({ css, cssVar }) => ({
   dashboardBlock: css({
     width: '100%',
     maxWidth: 1320,
+    minHeight: 600,
     margin: '0 auto',
   }),
   previewTabs: css({
@@ -217,15 +221,11 @@ const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
   const [activePane, setActivePane] = React.useState<PreviewPane>('components');
 
   const copyTimerRef = React.useRef<ReturnType<typeof setTimeout>>(null);
+  const prefetchedBackgrounds = React.useRef(new Set<string>());
 
   React.useEffect(() => {
     setActiveThemeKey(isDark ? 'dark' : 'light');
   }, [isDark]);
-
-  const backgroundPrefetchList = React.useMemo(
-    () => previewThemes.map((t) => t.bgImg).filter((img): img is string => !!img),
-    [previewThemes],
-  );
 
   const handleThemeClick = (themeKey: string) => setActiveThemeKey(themeKey);
 
@@ -267,6 +267,20 @@ const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
     previewThemes.find((previewTheme) => getPreviewThemeKey(previewTheme) === activeThemeKey) ??
     previewThemes[0];
 
+  const prefetchBackground = (background?: string) => {
+    if (
+      !background ||
+      background === activeTheme.bgImg ||
+      prefetchedBackgrounds.current.has(background)
+    ) {
+      return;
+    }
+
+    prefetchedBackgrounds.current.add(background);
+    const image = new Image();
+    image.src = background;
+  };
+
   const handleCopyTheme = async (event: React.MouseEvent) => {
     event.stopPropagation();
     const code = generateFullCopyFile({
@@ -306,7 +320,6 @@ const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
       collapse
       titleColor={hasDarkBackground ? '#fff' : undefined}
       background={background}
-      backgroundPrefetchList={backgroundPrefetchList}
     >
       <Flex className={styles.container}>
         <Flex className={styles.wrapper} gap={16}>
@@ -335,9 +348,11 @@ const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
                       aria-selected={isSelected}
                       data-theme-key={themeKey}
                       onClick={() => handleThemeClick(themeKey)}
+                      onPointerEnter={() => prefetchBackground(theme.bgImg)}
+                      onFocus={() => prefetchBackground(theme.bgImg)}
                     >
                       {typeof Icon === 'string' ? (
-                        <img src={Icon} alt={name} title={name} draggable={false} />
+                        <img src={Icon} alt={name} title={name} draggable={false} loading="lazy" />
                       ) : (
                         <Icon />
                       )}
@@ -375,13 +390,15 @@ const ThemePreviewContent: React.FC<ThemePreviewProps> = (props) => {
               containerClassName={styles.componentsBlockContainer}
             />
           ) : (
-            <ThemeDashboard
-              key={activeThemeKey}
-              className={styles.dashboardBlock}
-              config={activeTheme?.props}
-              activeTheme={activeTheme}
-              style={{ borderRadius: PREVIEW_CARD_RADIUS }}
-            />
+            <React.Suspense fallback={<div className={styles.dashboardBlock} aria-busy="true" />}>
+              <ThemeDashboard
+                key={activeThemeKey}
+                className={styles.dashboardBlock}
+                config={activeTheme?.props}
+                activeTheme={activeTheme}
+                style={{ borderRadius: PREVIEW_CARD_RADIUS }}
+              />
+            </React.Suspense>
           )}
         </Flex>
       </Flex>

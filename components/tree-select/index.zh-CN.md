@@ -27,7 +27,7 @@ demo:
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/maxCount.tsx" version="5.23.0">最大选中数量</code>
-<code src="./demo/suffix.tsx" version="5.22.0">前后缀</code>
+<code src="./demo/suffix.tsx" version="6.7.0">前后缀</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
@@ -40,7 +40,7 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象形式 | × |
+| allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | false | - | 6.7.0 |
 | ~~autoClearSearchValue~~ | 当多选模式下值被选择，自动清空搜索框 | boolean | true |  | × |
 | ~~bordered~~ | 是否带边框，请使用 `variant` 替代 | boolean | true | - | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.25.0 |
@@ -71,13 +71,14 @@ demo:
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  | × |
 | prefix | 自定义前缀 | ReactNode | - | 5.22.0 | × |
 | ~~searchValue~~ | 搜索框的值，可以通过 `onSearch` 获取用户输入 | string | - |  | × |
-| ~~showArrow~~ | 是否显示箭头图标，请使用 `suffixIcon={null}` 替代 | boolean | true | - | × |
+| ~~showArrow~~ | 是否显示箭头图标，请使用 `suffix={null}` 替代 | boolean | true | - | × |
 | showCheckedStrategy | 配置 `treeCheckable` 时，定义选中项回填的方式。`TreeSelect.SHOW_ALL`: 显示所有选中节点(包括父节点)。`TreeSelect.SHOW_PARENT`: 只显示父节点(当父节点下所有子节点都选中时)。 默认只显示子节点 | `TreeSelect.SHOW_ALL` \| `TreeSelect.SHOW_PARENT` \| `TreeSelect.SHOW_CHILD` | `TreeSelect.SHOW_CHILD` |  | × |
 | showSearch | 是否支持搜索框 | boolean \| [Object](#showsearch) | 单选：false \| 多选：true |  | × |
 | size | 选择框大小 | `large` \| `medium` \| `small` | - |  | × |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |
-| suffixIcon | 自定义的选择框后缀图标 | ReactNode | `<DownOutlined />` |  | × |
+| suffix | 自定义的选择框后缀。以防止后缀被用于其他交互，替换的后缀默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传。 | ReactNode \| (props) => ReactNode | `<DownOutlined />` | 6.7.0 | × |
+| ~~suffixIcon~~ | 自定义的选择框后缀图标，请使用 `suffix` 替代 | ReactNode | `<DownOutlined />` |  | × |
 | switcherIcon | 自定义树节点的展开/折叠图标 | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 | 5.28.0 |
 | tagRender | 自定义 tag 内容，多选时生效 | (props) => ReactNode | - |  | × |
 | treeCheckable | 显示 Checkbox | boolean | false |  | × |
@@ -105,6 +106,17 @@ demo:
 | ~~onSearch~~ | 文本框值变化时的回调 | function(value: string) | - |  | × |
 | onSelect | 被选中时调用 | function(value, node, extra) | - |  | × |
 | onTreeExpand | 展示节点时调用 | function(expandedKeys) | - |  | × |
+
+### AllowClearConfig
+
+支持通过 `ConfigProvider.treeSelect.allowClear` 全局配置（6.7.0）。字段按组件配置、全局配置、默认值的顺序取值。`allowClear={true}` 继承全局配置；`disabled: false` 和 `tabIndex: 0` 可覆盖全局值。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | 自定义清除图标 | ReactNode | - | - | 6.7.0 |
+| disabled | `true` 时等同于 `allowClear={false}` | boolean | false | 6.7.0 | 6.7.0 |
+| label | 清除按钮的无障碍名称 | string | 组件的本地化文案 | 6.6.0 | 6.7.0 |
+| tabIndex | 清除按钮的 Tab 键顺序。`-1` 表示不参与 Tab 键导航 | number | 0 | 6.7.0 | 6.7.0 |
 
 ### showSearch
 

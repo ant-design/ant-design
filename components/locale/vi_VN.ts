@@ -32,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: 'Chọn ngược lại',
     selectNone: 'Bỏ chọn tất cả',
     selectionAll: 'Chọn tất cả',
+    selectRow: 'Chọn hàng',
+    selectedRow: 'Hàng đã được chọn',
+    selectionMenu: 'Menu lựa chọn',
     sortTitle: 'Sắp xếp',
     expand: 'Mở rộng dòng',
     collapse: 'Thu gọn dòng',
+    expandAll: 'Mở rộng tất cả các dòng',
+    collapseAll: 'Thu gọn tất cả các dòng',
     triggerDesc: 'Nhấp để sắp xếp giảm dần',
     triggerAsc: 'Nhấp để sắp xếp tăng dần',
     cancelSort: 'Nhấp để hủy sắp xếp',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Đồng ý',
     cancelText: 'Hủy',
+  },
+  Splitter: {
+    toggleStartPanel: 'Chuyển đổi bảng bắt đầu',
+    toggleEndPanel: 'Chuyển đổi bảng kết thúc',
   },
   Transfer: {
     titles: ['', ''],

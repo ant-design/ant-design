@@ -70,12 +70,16 @@ const collectSortStates = <RecordType extends AnyObject = AnyObject>(
 ): SortState<RecordType>[] => {
   let sortStates: SortState<RecordType>[] = [];
 
-  const pushState = (column: ColumnsType<RecordType>[number], columnPos: string) => {
+  const pushState = (
+    column: ColumnsType<RecordType>[number],
+    columnPos: string,
+    sortOrder: SortOrder = column.sortOrder!,
+  ) => {
     sortStates.push({
       column,
       key: getColumnKey<RecordType>(column, columnPos),
       multiplePriority: getMultiplePriority<RecordType>(column),
-      sortOrder: column.sortOrder!,
+      sortOrder,
     });
   };
 
@@ -85,6 +89,9 @@ const collectSortStates = <RecordType extends AnyObject = AnyObject>(
       if ('sortOrder' in column) {
         // Controlled
         pushState(column, columnPos);
+      } else if (init && column.sorter && column.defaultSortOrder) {
+        // Default sorter
+        pushState(column, columnPos, column.defaultSortOrder);
       }
       sortStates = [
         ...sortStates,
@@ -100,12 +107,7 @@ const collectSortStates = <RecordType extends AnyObject = AnyObject>(
         pushState(column, columnPos);
       } else if (init && column.defaultSortOrder) {
         // Default sorter
-        sortStates.push({
-          column,
-          key: getColumnKey(column, columnPos),
-          multiplePriority: getMultiplePriority<RecordType>(column),
-          sortOrder: column.defaultSortOrder!,
-        });
+        pushState(column, columnPos, column.defaultSortOrder);
       }
     }
   });
@@ -427,29 +429,41 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
     collectSortStates<RecordType>(collectColumns, true),
   );
 
-  const getColumnKeys = (columns: ColumnsType<RecordType>, pos?: string): Key[] => {
-    const newKeys: Key[] = [];
+  const getColumnMap = (
+    columns: ColumnsType<RecordType>,
+    pos?: string,
+    columnMap = new Map<Key, ColumnsType<RecordType>[number]>(),
+  ) => {
     columns.forEach((item, index) => {
       const columnPos = getColumnPos(index, pos);
-      newKeys.push(getColumnKey<RecordType>(item, columnPos));
-      if (Array.isArray((item as ColumnGroupType<RecordType>).children)) {
-        const childKeys = getColumnKeys((item as ColumnGroupType<RecordType>).children, columnPos);
-        newKeys.push(...childKeys);
+      if (item.sorter) {
+        const key = getColumnKey<RecordType>(item, columnPos);
+        if (!columnMap.has(key)) {
+          columnMap.set(key, item);
+        }
+      }
+      if ((item as ColumnGroupType<RecordType>).children) {
+        getColumnMap((item as ColumnGroupType<RecordType>).children, columnPos, columnMap);
       }
     });
-    return newKeys;
+    return columnMap;
   };
   const mergedSorterStates = React.useMemo<SortState<RecordType>[]>(() => {
     let validate = true;
     // Collect controlled `sortOrder` from the full (pre-responsive) column
     // set so that a controlled `sortOrder` on a hidden responsive column
     // still applies to the sorted data.
-    const collectedStates = collectSortStates<RecordType>(collectColumns, false);
+    let collectedStates = collectSortStates<RecordType>(collectColumns, false);
 
-    // Return if not controlled
+    // Refresh uncontrolled states before applying the same single/multiple-sort rules.
     if (!collectedStates.length) {
-      const collectColumnsKeys = getColumnKeys(collectColumns);
-      return sortStates.filter(({ key }) => collectColumnsKeys.includes(key));
+      const columnMap = getColumnMap(collectColumns);
+      collectedStates = sortStates.flatMap((state) => {
+        const column = columnMap.get(state.key);
+        return column?.sorter
+          ? [{ ...state, column, multiplePriority: getMultiplePriority(column) }]
+          : [];
+      });
     }
 
     const validateStates: SortState<RecordType>[] = [];
@@ -467,6 +481,10 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
 
     let multipleMode: boolean | null = null;
     collectedStates.forEach((state) => {
+      if (!state.sortOrder) {
+        patchStates(state);
+        return;
+      }
       if (multipleMode === null) {
         patchStates(state);
 
@@ -505,10 +523,11 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
 
   const triggerSorter = (sortState: SortState<RecordType>) => {
     let newSorterStates: SortState<RecordType>[];
+    const activeSorterState = mergedSorterStates.find(({ sortOrder }) => sortOrder);
     if (
       sortState.multiplePriority === false ||
-      !mergedSorterStates.length ||
-      mergedSorterStates[0].multiplePriority === false
+      !activeSorterState ||
+      activeSorterState.multiplePriority === false
     ) {
       newSorterStates = [sortState];
     } else {

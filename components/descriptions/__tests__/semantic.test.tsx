@@ -119,9 +119,9 @@ describe('Descriptions.Semantic', () => {
     };
     const styles: DescriptionsProps['styles'] = (info) => {
       if (info.props.bordered) {
-        return { content: { background: 'red' } };
+        return { content: { backgroundColor: 'rgb(255, 0, 0)' } };
       } else {
-        return { content: { background: 'blue' } };
+        return { content: { backgroundColor: 'rgb(0, 0, 255)' } };
       }
     };
 
@@ -139,7 +139,7 @@ describe('Descriptions.Semantic', () => {
     expect(container.querySelector('.ant-descriptions-title')).toHaveClass('test-ant-title');
     expect(container.querySelector('.ant-descriptions-item-label')).toHaveClass('test-ant-label');
     expect(container.querySelector('.ant-descriptions-item-content')).toHaveStyle({
-      background: 'red',
+      backgroundColor: 'rgb(255, 0, 0)',
     });
 
     rerender(
@@ -157,7 +157,7 @@ describe('Descriptions.Semantic', () => {
       'test-ant-content',
     );
     expect(container.querySelector('.ant-descriptions-item-content')).toHaveStyle({
-      background: 'blue',
+      backgroundColor: 'rgb(0, 0, 255)',
     });
   });
   it('should follow root style priority', () => {

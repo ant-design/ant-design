@@ -51,10 +51,12 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-group), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-group), string> | - | 6.7.0 |
 | defaultValue | Default selected value | (string \| number)\[] | \[] |  |
 | disabled | If disable all checkboxes | boolean | false |  |
 | name | The `name` property of all `input[type="checkbox"]` children | string | - |  |
 | options | Specifies options | string\[] \| number\[] \| Option\[] | \[] |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-group), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-group), CSSProperties> | - | 6.7.0 |
 | value | Used for setting the currently selected value | (string \| number \| boolean)\[] | \[] |  |
 | title | title of the option | `string` | - |  |
 | className | className of the option | `string` | - | 5.25.0 |
@@ -83,7 +85,13 @@ interface Option {
 
 ## Semantic DOM
 
+### Checkbox
+
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### Checkbox.Group {#semantic-group}
+
+<code src="./demo/_semantic_group.tsx" simplify="true"></code>
 
 ## Design Token
 

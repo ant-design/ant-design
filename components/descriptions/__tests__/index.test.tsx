@@ -1,4 +1,5 @@
 import React from 'react';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import MockDate from 'mockdate';
 
 import Descriptions from '..';
@@ -462,6 +463,114 @@ describe('Descriptions', () => {
     const nestDesc = container.querySelectorAll('.ant-descriptions')[1];
     const view = nestDesc.querySelector('.ant-descriptions-view');
     expect(view).toHaveStyle({ border: '' });
+  });
+
+  it('keeps static styles compatible with the distribution CSS check', () => {
+    const cache = createCache();
+    render(
+      <StyleProvider cache={cache}>
+        <ConfigProvider theme={{ hashed: false }}>
+          <Descriptions
+            bordered
+            size="small"
+            items={[{ key: 'name', label: 'Name', children: 'Alice' }]}
+          />
+        </ConfigProvider>
+      </StyleProvider>,
+    );
+    const css = extractStyle(cache, { plain: true, types: 'style' });
+    expect(css).toContain('.ant-descriptions-row');
+    expect(css).not.toContain(':where(');
+  });
+
+  describe.each(['horizontal', 'vertical'] as const)('nested %s descriptions', (layout) => {
+    it.each([
+      { outerBordered: true, innerBordered: false, outerSize: 'small' as const },
+      { outerBordered: true, innerBordered: false, outerSize: 'medium' as const },
+      { outerBordered: false, innerBordered: true, outerSize: 'small' as const },
+      { outerBordered: false, innerBordered: true, outerSize: 'medium' as const },
+      { outerBordered: true, innerBordered: true, outerSize: 'small' as const },
+      { outerBordered: true, innerBordered: true, outerSize: 'medium' as const },
+    ])(
+      'preserves inner styles (outer bordered: $outerBordered, inner bordered: $innerBordered, outer size: $outerSize)',
+      ({ outerBordered, innerBordered, outerSize }) => {
+        const items = [
+          { key: 'name', label: 'Name', children: 'Alice' },
+          { key: 'phone', label: 'Phone', children: '12345' },
+        ];
+        const { getByTestId } = render(
+          <>
+            <Descriptions
+              data-testid="reference"
+              bordered={innerBordered}
+              size="large"
+              layout={layout}
+              column={1}
+              items={items}
+            />
+            <Descriptions
+              bordered={outerBordered}
+              size={outerSize}
+              column={1}
+              items={[
+                {
+                  key: 'nested',
+                  label: 'Nested',
+                  children: (
+                    <Descriptions
+                      data-testid="nested"
+                      bordered={innerBordered}
+                      size="large"
+                      layout={layout}
+                      column={1}
+                      items={items}
+                    />
+                  ),
+                },
+              ]}
+            />
+          </>,
+        );
+        const readStyles = (root: HTMLElement) => {
+          const selectors = [
+            '.ant-descriptions-row',
+            'td',
+            '.ant-descriptions-item-label',
+            '.ant-descriptions-item-content',
+          ];
+          const properties = [
+            'paddingTop',
+            'paddingRight',
+            'paddingBottom',
+            'paddingLeft',
+            'borderBottomStyle',
+            'borderBottomWidth',
+            'borderInlineEndStyle',
+            'display',
+            'backgroundColor',
+          ] as const;
+          return selectors.map((selector) => {
+            const style = getComputedStyle(root.querySelector(selector)!);
+            return Object.fromEntries(properties.map((property) => [property, style[property]]));
+          });
+        };
+        const nestedStyles = readStyles(getByTestId('nested'));
+        expect(nestedStyles).toEqual(readStyles(getByTestId('reference')));
+        expect(nestedStyles[1]).toMatchObject(
+          innerBordered
+            ? {
+                display: 'table-cell',
+                paddingBottom: 'var(--ant-descriptions-item-padding-bottom)',
+              }
+            : { display: 'table-cell' },
+        );
+        expect(nestedStyles[2]).toMatchObject({
+          display: innerBordered ? 'table-cell' : 'inline-flex',
+          backgroundColor: innerBordered ? 'var(--ant-descriptions-label-bg)' : 'rgba(0, 0, 0, 0)',
+        });
+        expect(nestedStyles[3].display).toBe(innerBordered ? 'table-cell' : 'inline-flex');
+      },
+    );
   });
 
   it('Should Descriptions not throw react key prop error in jsx mode', () => {

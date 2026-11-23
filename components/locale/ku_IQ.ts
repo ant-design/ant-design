@@ -36,9 +36,14 @@ const localeValues: Locale = {
     emptyText: 'Daneyên tune',
     selectNone: 'Hemî daneyan paqij bike',
     selectionAll: 'Hemî daneyan hilbijêrin',
+    selectRow: 'ڕیز هەڵبژێرە',
+    selectedRow: 'ڕیز هەڵبژێردرا',
+    selectionMenu: 'پێڕستی هەڵبژاردن',
     sortTitle: 'Sort',
     expand: 'Rêzê berfireh bike',
     collapse: 'Rêzê hilweşîne',
+    expandAll: 'Hemî rêzan berfireh bike',
+    collapseAll: 'Hemî rêzan veşêre',
     triggerDesc: 'Bikirtînin ji bo rêzkirina daketî',
     triggerAsc: 'Ji bo rêzkirina hilkişînê bikirtînin',
     cancelSort: 'Ji bo betalkirina dabeşkirinê bikirtînin',
@@ -56,6 +61,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Temam',
     cancelText: 'Betal ke',
+  },
+  Splitter: {
+    toggleStartPanel: 'گۆڕینی دۆخی پانێڵی سەرەتا',
+    toggleEndPanel: 'گۆڕینی دۆخی پانێڵی کۆتایی',
   },
   Transfer: {
     titles: ['', ''],

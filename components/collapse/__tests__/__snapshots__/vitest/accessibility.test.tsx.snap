@@ -8,6 +8,7 @@ exports[`Collapse accessibility > hides the default expand icon and exposes stat
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-controls="test-id"
       aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
@@ -47,6 +48,7 @@ exports[`Collapse accessibility > hides the default expand icon and exposes stat
     </div>
     <div
       class="ant-collapse-panel ant-collapse-panel-active"
+      id="test-id"
     >
       <div
         class="ant-collapse-body"

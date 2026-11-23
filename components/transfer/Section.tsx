@@ -237,7 +237,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
       filterRenderItems.push(renderedItem);
     });
     return [filterItems, filterRenderItems] as const;
-  }, [dataSource, filterValue, filterOption, direction]);
+  }, [dataSource, filterValue, filterOption, direction, render]);
 
   const checkedActiveItems = useMemo<RecordType[]>(() => {
     return filteredItems.filter((item) => checkedKeys.includes(item.key) && !item.disabled);

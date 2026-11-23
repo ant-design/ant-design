@@ -1,3 +1,5 @@
+import Pagination from '@rc-component/pagination/locale/sq_AL';
+
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/sq_AL';
 import DatePicker from '../date-picker/locale/sq_AL';
@@ -7,18 +9,7 @@ const typeTemplate = '${label} nuk është një ${type} i vlefshëm';
 
 const localeValues: Locale = {
   locale: 'sq',
-  Pagination: {
-    items_per_page: '/ faqe',
-    jump_to: 'Shko te',
-    jump_to_confirm: 'konfirmo',
-    page: 'Faqe',
-    prev_page: 'Faqja e mëparshme',
-    next_page: 'Faqja tjetër',
-    prev_5: '5 faqet e mëparshme',
-    next_5: '5 faqet e tjera',
-    prev_3: '3 faqet e mëparshme',
-    next_3: '3 faqet e tjera',
-  },
+  Pagination,
   DatePicker,
   TimePicker,
   Calendar,
@@ -41,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: 'Përmbys faqen aktuale',
     selectNone: 'Pastro të gjitha të dhënat',
     selectionAll: 'Zgjidh të gjitha të dhënat',
+    selectRow: 'Zgjidh rreshtin',
+    selectedRow: 'Rreshti u zgjodh',
+    selectionMenu: 'Menyja e përzgjedhjes',
     sortTitle: 'Rendit',
     expand: 'Zgjero rreshtin',
     collapse: 'Mblidh rreshtin',
+    expandAll: 'Zgjero të gjithë rreshtat',
+    collapseAll: 'Mblidh të gjithë rreshtat',
     triggerDesc: 'Kliko për renditje zbritëse',
     triggerAsc: 'Kliko për renditje ngjitëse',
     cancelSort: 'Kliko për të anuluar renditjen',
@@ -61,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Anulo',
+  },
+  Splitter: {
+    toggleStartPanel: 'Ndrysho panelin fillestar',
+    toggleEndPanel: 'Ndrysho panelin përfundimtar',
   },
   Transfer: {
     titles: ['', ''],

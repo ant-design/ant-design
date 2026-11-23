@@ -13,7 +13,7 @@ function addLocales(config) {
   if (newConfig.entry['antd.min']) {
     packageName += '.min';
   }
-  newConfig.entry[packageName] = './index-with-locales.js';
+  newConfig.entry[packageName] = './index-with-locales.ts';
   newConfig.output.filename = '[name].js';
   return newConfig;
 }
@@ -72,7 +72,24 @@ function addPluginsForProduction(config) {
   return newConfig;
 }
 
-let webpackConfig = getWebpackConfig(false);
+let webpackConfig = getWebpackConfig(false, {
+  enabledReactCompiler: false,
+});
+
+const commonJsEntries = [
+  'index.ts',
+  'index-with-locales.ts',
+  'index-style-only.ts',
+  'alias/cssinjs.ts',
+].map((entry) => path.resolve(__dirname, entry));
+
+// Babel already strips TypeScript. Avoid ts-loader adding "use strict" to CommonJS entries, which changes module concatenation and increases the bundle size.
+webpackConfig.forEach((config) => {
+  const jsRule = config.module.rules.find((rule) => rule.test?.test('index.js'));
+  const tsRule = config.module.rules.find((rule) => rule.test?.test('index.ts'));
+  jsRule.test = (filePath) => /\.jsx?$/.test(filePath) || commonJsEntries.includes(filePath);
+  tsRule.exclude = commonJsEntries;
+});
 
 if (process.env.PRODUCTION_ONLY) {
   console.log('🍐 Build production only');

@@ -42,10 +42,13 @@ describe('call close immediately', () => {
     const closeFn = message.open({
       content: '',
     });
+    const onSettled = jest.fn();
+    closeFn.then(onSettled);
     closeFn();
 
     await awaitPromise();
 
+    expect(onSettled).toHaveBeenCalledTimes(1);
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
 
     // Created close
@@ -62,10 +65,13 @@ describe('call close immediately', () => {
 
   it('info', async () => {
     const closeFn = message.info('Message1', 0);
+    const onSettled = jest.fn();
+    closeFn.then(onSettled);
     closeFn();
 
     await awaitPromise();
 
+    expect(onSettled).toHaveBeenCalledTimes(1);
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
   });
 });

@@ -13,7 +13,10 @@ describe('Radio.typescript', () => {
 
   it('Radio.Group', () => {
     const group = (
-      <Radio.Group>
+      <Radio.Group
+        classNames={{ root: 'group-root', item: 'group-item' }}
+        styles={{ root: { gap: 8 }, itemIcon: { color: 'red' } }}
+      >
         <Radio />
       </Radio.Group>
     );

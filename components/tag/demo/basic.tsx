@@ -20,7 +20,7 @@ const App: React.FC = () => (
         Link
       </a>
     </Tag>
-    <Tag closeIcon onClose={preventDefault}>
+    <Tag closable onClose={preventDefault}>
       Prevent Default
     </Tag>
     <Tag closeIcon={<CloseCircleOutlined />} onClose={console.log}>

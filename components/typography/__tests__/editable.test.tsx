@@ -91,6 +91,16 @@ describe('Typography.Editable', () => {
     expect(container.querySelector('.ant-typography-edit')).toBeTruthy();
   });
 
+  it('does not expose the default edit icon as a second button', () => {
+    const { getAllByRole } = render(
+      <Base component="p" editable>
+        test
+      </Base>,
+    );
+
+    expect(getAllByRole('button')).toHaveLength(1);
+  });
+
   it('tabIndex of edit button', () => {
     const { container, rerender } = render(<Base component="p">test</Base>);
     expect(container.querySelector('.ant-typography-edit')).toBeFalsy();

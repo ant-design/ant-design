@@ -253,13 +253,14 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -286,23 +287,27 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -475,13 +480,14 @@ exports[`renders components/table/demo/bordered.tsx extend context correctly 1`]
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -508,23 +514,27 @@ exports[`renders components/table/demo/bordered.tsx extend context correctly 1`]
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -797,13 +807,14 @@ exports[`renders components/table/demo/colspan-rowspan.tsx extend context correc
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -830,23 +841,27 @@ exports[`renders components/table/demo/colspan-rowspan.tsx extend context correc
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -2054,7 +2069,7 @@ Array [
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -2438,7 +2453,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2538,7 +2553,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2638,7 +2653,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2738,7 +2753,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 4"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2838,7 +2853,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 5"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -2938,7 +2953,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 6"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3038,7 +3053,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 7"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3138,7 +3153,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 8"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3238,7 +3253,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 9"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3338,7 +3353,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 10"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -3428,13 +3443,14 @@ Array [
           class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -3461,23 +3477,27 @@ Array [
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -3848,13 +3868,14 @@ Array [
           class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -3881,23 +3902,27 @@ Array [
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -4551,13 +4576,14 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -4584,23 +4610,27 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -6599,7 +6629,7 @@ Array [
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -6983,7 +7013,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7083,7 +7113,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7183,7 +7213,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7283,7 +7313,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 4"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7383,7 +7413,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 5"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7483,7 +7513,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 6"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7583,7 +7613,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 7"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7683,7 +7713,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 8"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7783,7 +7813,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 9"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7883,7 +7913,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 10"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -7973,13 +8003,14 @@ Array [
           class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -8006,23 +8037,27 @@ Array [
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -8371,13 +8406,14 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
           class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -8404,23 +8440,27 @@ exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -8821,13 +8861,14 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -8854,66 +8895,78 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-2"
-          tabindex="0"
           title="2"
         >
           <a
+            aria-label="Page 2"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             2
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-3"
-          tabindex="0"
           title="3"
         >
           <a
+            aria-label="Page 3"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             3
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-4"
-          tabindex="0"
           title="4"
         >
           <a
+            aria-label="Page 4"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             4
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
-          tabindex="0"
           title="5"
         >
           <a
+            aria-label="Page 5"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             5
           </a>
         </li>
         <li
           class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
-          tabindex="0"
-          title="Next 5 Pages"
         >
           <a
+            aria-label="Next 5 Pages"
             class="ant-pagination-item-link"
+            role="button"
+            tabindex="0"
           >
             <div
               class="ant-pagination-item-container"
@@ -8965,24 +9018,25 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-10"
-          tabindex="0"
           title="10"
         >
           <a
+            aria-label="Page 10"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             10
           </a>
         </li>
         <li
-          aria-disabled="false"
           class="ant-pagination-next"
-          tabindex="0"
-          title="Next Page"
         >
           <button
+            aria-label="Next Page"
             class="ant-pagination-item-link"
-            tabindex="-1"
+            role="button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -9034,6 +9088,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
@@ -9382,13 +9437,14 @@ exports[`renders components/table/demo/ellipsis.tsx extend context correctly 1`]
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -9415,23 +9471,27 @@ exports[`renders components/table/demo/ellipsis.tsx extend context correctly 1`]
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -9953,13 +10013,14 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -9986,23 +10047,27 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -10257,13 +10322,14 @@ exports[`renders components/table/demo/expand.tsx extend context correctly 1`] =
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -10290,23 +10356,27 @@ exports[`renders components/table/demo/expand.tsx extend context correctly 1`] =
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -10338,6 +10408,289 @@ exports[`renders components/table/demo/expand.tsx extend context correctly 1`] =
 `;
 
 exports[`renders components/table/demo/expand.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/table/demo/expand-all.tsx extend context correctly 1`] = `
+<div
+  class="css-var-test-id ant-table-css-var ant-table-wrapper"
+>
+  <div
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table css-var-test-id ant-table-css-var"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout: auto;"
+            >
+              <colgroup>
+                <col
+                  class="ant-table-expand-icon-col"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
+                    scope="col"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand all rows"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Age
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Address
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jim Green
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    42
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Not Expandable
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    29
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jiangsu No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
+                >
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Joe Black
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Sydney No. 1 Lake Park
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+      >
+        <li
+          class="ant-pagination-prev ant-pagination-disabled"
+        >
+          <button
+            aria-disabled="true"
+            aria-label="Previous Page"
+            class="ant-pagination-item-link"
+            disabled=""
+            role="button"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          title="1"
+        >
+          <a
+            aria-current="page"
+            aria-label="Page 1"
+            rel="nofollow"
+            role="button"
+            tabindex="0"
+          >
+            1
+          </a>
+        </li>
+        <li
+          class="ant-pagination-next ant-pagination-disabled"
+        >
+          <button
+            aria-disabled="true"
+            aria-label="Next Page"
+            class="ant-pagination-item-link"
+            disabled=""
+            role="button"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/table/demo/expand-all.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/expand-sticky.tsx extend context correctly 1`] = `
 <div
@@ -10598,13 +10951,14 @@ exports[`renders components/table/demo/expand-sticky.tsx extend context correctl
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -10631,23 +10985,27 @@ exports[`renders components/table/demo/expand-sticky.tsx extend context correctl
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -11579,13 +11937,14 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -11612,23 +11971,27 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -12358,13 +12721,14 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -12391,23 +12755,27 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -13559,13 +13927,14 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -13592,35 +13961,39 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-2"
-          tabindex="0"
           title="2"
         >
           <a
+            aria-label="Page 2"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             2
           </a>
         </li>
         <li
-          aria-disabled="false"
           class="ant-pagination-next"
-          tabindex="0"
-          title="Next Page"
         >
           <button
+            aria-label="Next Page"
             class="ant-pagination-item-link"
-            tabindex="-1"
+            role="button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -13672,6 +14045,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
@@ -14898,13 +15272,14 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
         class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -14931,66 +15306,78 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-2"
-          tabindex="0"
           title="2"
         >
           <a
+            aria-label="Page 2"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             2
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-3"
-          tabindex="0"
           title="3"
         >
           <a
+            aria-label="Page 3"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             3
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-4"
-          tabindex="0"
           title="4"
         >
           <a
+            aria-label="Page 4"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             4
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
-          tabindex="0"
           title="5"
         >
           <a
+            aria-label="Page 5"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             5
           </a>
         </li>
         <li
           class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
-          tabindex="0"
-          title="Next 5 Pages"
         >
           <a
+            aria-label="Next 5 Pages"
             class="ant-pagination-item-link"
+            role="button"
+            tabindex="0"
           >
             <div
               class="ant-pagination-item-container"
@@ -15042,24 +15429,25 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-10"
-          tabindex="0"
           title="10"
         >
           <a
+            aria-label="Page 10"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             10
           </a>
         </li>
         <li
-          aria-disabled="false"
           class="ant-pagination-next"
-          tabindex="0"
-          title="Next Page"
         >
           <button
+            aria-label="Next Page"
             class="ant-pagination-item-link"
-            tabindex="-1"
+            role="button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -15111,6 +15499,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
@@ -16001,13 +16390,14 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -16034,23 +16424,27 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -16438,13 +16832,14 @@ Array [
           class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -16471,23 +16866,27 @@ Array [
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -16802,13 +17201,14 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -16835,23 +17235,27 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -17809,13 +18213,14 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -17842,23 +18247,27 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -18294,13 +18703,14 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -18327,23 +18737,27 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -18639,14 +19053,13 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
           class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="false"
             class="ant-pagination-prev"
-            tabindex="0"
-            title="Previous Page"
           >
             <button
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
-              tabindex="-1"
+              role="button"
+              tabindex="0"
               type="button"
             >
               <span
@@ -18672,22 +19085,25 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
             class="ant-pagination-jump-prev ant-pagination-jump-prev-custom-icon"
-            tabindex="0"
-            title="Previous 5 Pages"
           >
             <a
+              aria-label="Previous 5 Pages"
               class="ant-pagination-item-link"
+              role="button"
+              tabindex="0"
             >
               <div
                 class="ant-pagination-item-container"
@@ -18739,44 +19155,52 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-12 ant-pagination-item-after-jump-prev"
-            tabindex="0"
             title="12"
           >
             <a
+              aria-label="Page 12"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               12
             </a>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-13 ant-pagination-item-active"
-            tabindex="0"
             title="13"
           >
             <a
+              aria-current="page"
+              aria-label="Page 13"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               13
             </a>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-14 ant-pagination-item-before-jump-next"
-            tabindex="0"
             title="14"
           >
             <a
+              aria-label="Page 14"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               14
             </a>
           </li>
           <li
             class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
-            tabindex="0"
-            title="Next 5 Pages"
           >
             <a
+              aria-label="Next 5 Pages"
               class="ant-pagination-item-link"
+              role="button"
+              tabindex="0"
             >
               <div
                 class="ant-pagination-item-container"
@@ -18828,24 +19252,25 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-20"
-            tabindex="0"
             title="20"
           >
             <a
+              aria-label="Page 20"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               20
             </a>
           </li>
           <li
-            aria-disabled="false"
             class="ant-pagination-next"
-            tabindex="0"
-            title="Next Page"
           >
             <button
+              aria-label="Next Page"
               class="ant-pagination-item-link"
-              tabindex="-1"
+              role="button"
+              tabindex="0"
               type="button"
             >
               <span
@@ -18897,6 +19322,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -19397,13 +19823,14 @@ Array [
           class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -19430,23 +19857,27 @@ Array [
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -20300,13 +20731,14 @@ Array [
           class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -20333,23 +20765,27 @@ Array [
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -21196,13 +21632,14 @@ Array [
           class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -21229,23 +21666,27 @@ Array [
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -22092,13 +22533,14 @@ Array [
           class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -22125,23 +22567,27 @@ Array [
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -22490,7 +22936,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select all"
+                            aria-label="Select current page"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -22543,7 +22989,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 1"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -22590,7 +23036,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 2"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -22637,7 +23083,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 3"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -22684,7 +23130,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 4"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -22706,13 +23152,14 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -22739,23 +23186,27 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -22973,13 +23424,14 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
           class="ant-pagination ant-table-pagination ant-table-pagination-start css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -23006,23 +23458,27 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -23289,13 +23745,14 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
           class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -23322,23 +23779,27 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -24136,13 +24597,14 @@ Array [
           class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -24169,23 +24631,27 @@ Array [
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -24279,13 +24745,14 @@ exports[`renders components/table/demo/responsive.tsx extend context correctly 1
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -24312,23 +24779,27 @@ exports[`renders components/table/demo/responsive.tsx extend context correctly 1
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -24457,7 +24928,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -24502,7 +24973,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             name="John Brown"
                             type="checkbox"
@@ -24542,7 +25013,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             name="Jim Green"
                             type="checkbox"
@@ -24582,7 +25053,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             name="Joe Black"
                             type="checkbox"
@@ -24622,7 +25093,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
                         >
                           <input
-                            aria-label="Select row 4"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             disabled=""
                             name="Disabled User"
@@ -24658,13 +25129,14 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
           class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -24691,23 +25163,27 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -24804,7 +25280,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -24849,7 +25325,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24886,7 +25362,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24923,7 +25399,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24960,7 +25436,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 4"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24997,7 +25473,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 5"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25034,7 +25510,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 6"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25071,7 +25547,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 7"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25108,7 +25584,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 8"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25145,7 +25621,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 9"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25182,7 +25658,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 10"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25214,13 +25690,14 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
           class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -25247,68 +25724,78 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-2"
-            tabindex="0"
             title="2"
           >
             <a
+              aria-label="Page 2"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               2
             </a>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-3"
-            tabindex="0"
             title="3"
           >
             <a
+              aria-label="Page 3"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               3
             </a>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-4"
-            tabindex="0"
             title="4"
           >
             <a
+              aria-label="Page 4"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               4
             </a>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-5"
-            tabindex="0"
             title="5"
           >
             <a
+              aria-label="Page 5"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               5
             </a>
           </li>
           <li
-            aria-disabled="false"
             class="ant-pagination-next"
-            tabindex="0"
-            title="Next Page"
           >
             <button
+              aria-label="Next Page"
               class="ant-pagination-item-link"
-              tabindex="-1"
+              role="button"
+              tabindex="0"
               type="button"
             >
               <span
@@ -25388,7 +25875,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Custom selection"
+                            aria-label="Select current page"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -25398,27 +25885,26 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-table-selection-extra"
                       >
                         <span
-                          class="ant-dropdown-trigger"
+                          aria-expanded="false"
+                          aria-haspopup="menu"
+                          aria-label="Selection menu"
+                          class="anticon anticon-down ant-dropdown-trigger"
+                          role="button"
+                          tabindex="0"
                         >
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </span>
                         <div
                           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
@@ -25631,7 +26117,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 1"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25668,7 +26154,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 2"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25705,7 +26191,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 3"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25742,7 +26228,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 4"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25779,7 +26265,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 5"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25816,7 +26302,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 6"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25853,7 +26339,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 7"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25890,7 +26376,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 8"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25927,7 +26413,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 9"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25964,7 +26450,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 10"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -25996,13 +26482,14 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -26029,68 +26516,78 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-2"
-          tabindex="0"
           title="2"
         >
           <a
+            aria-label="Page 2"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             2
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-3"
-          tabindex="0"
           title="3"
         >
           <a
+            aria-label="Page 3"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             3
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-4"
-          tabindex="0"
           title="4"
         >
           <a
+            aria-label="Page 4"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             4
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-5"
-          tabindex="0"
           title="5"
         >
           <a
+            aria-label="Page 5"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             5
           </a>
         </li>
         <li
-          aria-disabled="false"
           class="ant-pagination-next"
-          tabindex="0"
-          title="Next Page"
         >
           <button
+            aria-label="Next Page"
             class="ant-pagination-item-link"
-            tabindex="-1"
+            role="button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -26169,7 +26666,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select all"
+                            aria-label="Select current page"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -26204,7 +26701,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 1"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26243,7 +26740,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 3"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26282,7 +26779,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 5"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26321,7 +26818,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 7"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26360,7 +26857,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 9"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -26392,13 +26889,14 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -26425,68 +26923,78 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-2"
-          tabindex="0"
           title="2"
         >
           <a
+            aria-label="Page 2"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             2
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-3"
-          tabindex="0"
           title="3"
         >
           <a
+            aria-label="Page 3"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             3
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-4"
-          tabindex="0"
           title="4"
         >
           <a
+            aria-label="Page 4"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             4
           </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-5"
-          tabindex="0"
           title="5"
         >
           <a
+            aria-label="Page 5"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             5
           </a>
         </li>
         <li
-          aria-disabled="false"
           class="ant-pagination-next"
-          tabindex="0"
-          title="Next Page"
         >
           <button
+            aria-label="Next Page"
             class="ant-pagination-item-link"
-            tabindex="-1"
+            role="button"
+            tabindex="0"
             type="button"
           >
             <span
@@ -28836,7 +29344,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Custom selection"
+                            aria-label="Select current page"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -28846,27 +29354,26 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                         class="ant-table-selection-extra"
                       >
                         <span
-                          class="ant-dropdown-trigger"
+                          aria-expanded="false"
+                          aria-haspopup="menu"
+                          aria-label="Selection menu"
+                          class="anticon anticon-down ant-dropdown-trigger"
+                          role="button"
+                          tabindex="0"
                         >
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down"
-                            role="img"
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </span>
                         <div
                           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
@@ -29017,7 +29524,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 1"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -29054,7 +29561,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 2"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -29091,7 +29598,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                         class="ant-checkbox ant-wave-target"
                       >
                         <input
-                          aria-label="Select row 3"
+                          aria-label="Select row"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -29123,13 +29630,14 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
         class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
-          aria-disabled="true"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="Previous Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Previous Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -29156,23 +29664,27 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
           title="1"
         >
           <a
+            aria-current="page"
+            aria-label="Page 1"
             rel="nofollow"
+            role="button"
+            tabindex="0"
           >
             1
           </a>
         </li>
         <li
-          aria-disabled="true"
           class="ant-pagination-next ant-pagination-disabled"
-          title="Next Page"
         >
           <button
+            aria-disabled="true"
+            aria-label="Next Page"
             class="ant-pagination-item-link"
             disabled=""
+            role="button"
             tabindex="-1"
             type="button"
           >
@@ -29342,13 +29854,14 @@ Array [
           class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -29375,23 +29888,27 @@ Array [
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -29555,13 +30072,14 @@ Array [
           class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -29588,23 +30106,27 @@ Array [
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -29837,13 +30359,14 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
           style="padding: 10px;"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -29886,12 +30409,12 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
             2
           </li>
           <li
-            aria-disabled="false"
             class="ant-pagination-next"
-            title="Next Page"
           >
             <button
+              aria-label="Next Page"
               class="ant-pagination-item-link"
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -30078,14 +30601,15 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
           style="padding: 10px;"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
             style="color: rgb(184, 189, 253);"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -30129,13 +30653,13 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
             2
           </li>
           <li
-            aria-disabled="false"
             class="ant-pagination-next"
             style="color: rgb(184, 189, 253);"
-            title="Next Page"
           >
             <button
+              aria-label="Next Page"
               class="ant-pagination-item-link"
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -30258,7 +30782,7 @@ Array [
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -30303,7 +30827,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30350,7 +30874,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30392,13 +30916,14 @@ Array [
           class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -30425,23 +30950,27 @@ Array [
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -30565,7 +31094,7 @@ Array [
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -30617,7 +31146,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30671,7 +31200,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30725,7 +31254,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30779,7 +31308,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30833,7 +31362,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30887,7 +31416,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30941,7 +31470,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -30995,7 +31524,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31049,7 +31578,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31097,13 +31626,14 @@ Array [
           class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -31130,23 +31660,27 @@ Array [
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
-            aria-disabled="true"
             class="ant-pagination-next ant-pagination-disabled"
-            title="Next Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Next Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -31302,7 +31836,7 @@ Array [
                             class="ant-checkbox ant-wave-target"
                           >
                             <input
-                              aria-label="Select all"
+                              aria-label="Select current page"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -31347,7 +31881,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 1"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31394,7 +31928,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 2"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31441,7 +31975,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 3"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31488,7 +32022,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 4"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31535,7 +32069,7 @@ Array [
                           class="ant-checkbox ant-wave-target"
                         >
                           <input
-                            aria-label="Select row 5"
+                            aria-label="Select row"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -31577,13 +32111,14 @@ Array [
           class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
-            aria-disabled="true"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="Previous Page"
           >
             <button
+              aria-disabled="true"
+              aria-label="Previous Page"
               class="ant-pagination-item-link"
               disabled=""
+              role="button"
               tabindex="-1"
               type="button"
             >
@@ -31610,46 +32145,52 @@ Array [
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
             title="1"
           >
             <a
+              aria-current="page"
+              aria-label="Page 1"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               1
             </a>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-2"
-            tabindex="0"
             title="2"
           >
             <a
+              aria-label="Page 2"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               2
             </a>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-3"
-            tabindex="0"
             title="3"
           >
             <a
+              aria-label="Page 3"
               rel="nofollow"
+              role="button"
+              tabindex="0"
             >
               3
             </a>
           </li>
           <li
-            aria-disabled="false"
             class="ant-pagination-next"
-            tabindex="0"
-            title="Next Page"
           >
             <button
+              aria-label="Next Page"
               class="ant-pagination-item-link"
-              tabindex="-1"
+              role="button"
+              tabindex="0"
               type="button"
             >
               <span

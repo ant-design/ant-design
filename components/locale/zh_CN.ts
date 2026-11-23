@@ -20,6 +20,7 @@ const localeValues: Locale = {
     sortable: '可排序',
     show: '显示',
     hide: '隐藏',
+    clear: '清除',
   },
   Table: {
     filterTitle: '筛选',
@@ -33,9 +34,14 @@ const localeValues: Locale = {
     selectInvert: '反选当页',
     selectNone: '清空所有',
     selectionAll: '全选所有',
+    selectRow: '选择行',
+    selectedRow: '行已选择',
+    selectionMenu: '选择菜单',
     sortTitle: '排序',
     expand: '展开行',
     collapse: '关闭行',
+    expandAll: '展开所有行',
+    collapseAll: '收起所有行',
     triggerDesc: '点击降序',
     triggerAsc: '点击升序',
     cancelSort: '取消排序',
@@ -53,6 +59,10 @@ const localeValues: Locale = {
   Popconfirm: {
     cancelText: '取消',
     okText: '确定',
+  },
+  Splitter: {
+    toggleStartPanel: '切换起始面板',
+    toggleEndPanel: '切换结束面板',
   },
   Transfer: {
     titles: ['', ''],
@@ -151,6 +161,9 @@ const localeValues: Locale = {
     transparent: '无色',
     singleColor: '单色',
     gradientColor: '渐变色',
+  },
+  Input: {
+    otpCell: '第 ${index} 位，共 ${total} 位',
   },
 };
 

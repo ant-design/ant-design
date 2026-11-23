@@ -39,14 +39,19 @@ describe('Layout', () => {
     unmount();
   });
 
-  it('umount from multiple siders', async () => {
+  it.each([
+    [0, 1],
+    [1, 0],
+  ])('keeps the sider layout until nested siders unmount in order %i, %i', (first, second) => {
     const App: React.FC = () => {
       const [hide1, setHide1] = useState(false);
       const [hide2, setHide2] = useState(false);
       return (
         <Layout>
-          {hide1 ? null : <Sider>Sider</Sider>}
-          {hide2 ? null : <Sider>Sider</Sider>}
+          <div>
+            {hide1 ? null : <Sider>Sider</Sider>}
+            {hide2 ? null : <Sider>Sider</Sider>}
+          </div>
           <Content>
             <button onClick={() => setHide1(true)} type="button">
               hide sider 1
@@ -62,11 +67,11 @@ describe('Layout', () => {
     expect(container.querySelector('.ant-layout')?.className.includes('ant-layout-has-sider')).toBe(
       true,
     );
-    fireEvent.click(container.querySelectorAll('button')[0]);
+    fireEvent.click(container.querySelectorAll<HTMLButtonElement>('button')[first]);
     expect(container.querySelector('.ant-layout')?.className.includes('ant-layout-has-sider')).toBe(
       true,
     );
-    fireEvent.click(container.querySelectorAll('button')[1]);
+    fireEvent.click(container.querySelectorAll<HTMLButtonElement>('button')[second]);
     expect(container.querySelector('.ant-layout')?.className.includes('ant-layout-has-sider')).toBe(
       false,
     );
@@ -331,6 +336,18 @@ describe('Layout', () => {
 
     const header = container.querySelector('.standalone-header')!;
     expect(header).toHaveClass('foo');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59696
+  it.each([
+    ['Header', Header],
+    ['Content', Content],
+    ['Footer', Footer],
+  ] as const)('%s should apply rootClassName', (_, Component) => {
+    const { container } = render(<Component rootClassName="custom-root" />);
+
+    expect(container.firstChild).toHaveClass('custom-root');
+    expect(container.firstChild).not.toHaveAttribute('rootClassName');
   });
 });
 

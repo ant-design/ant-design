@@ -44,7 +44,7 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
         `max(${varRef('icon-size')}, ${varRef('title-horizontal-title-height')})`,
 
       // Horizontal only
-      [`&${componentCls}-horizontal, &${componentCls}-horizontal-alternate`]: {
+      [`&${componentCls}-horizontal`]: {
         [`${itemCls}:not(:first-child)`]: {
           marginInlineStart: varRef('title-horizontal-item-margin'),
         },

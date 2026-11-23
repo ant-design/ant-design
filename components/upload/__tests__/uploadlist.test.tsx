@@ -415,8 +415,7 @@ describe('Upload List', () => {
   });
 
   it('should support no onDownload', async () => {
-    const url =
-      'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
+    const url = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
     open.mockClear();
 
     const { container: wrapper, unmount } = render(
@@ -563,6 +562,43 @@ describe('Upload List', () => {
 
     unmount();
   });
+
+  it.each(['?redirect=/other.pdf', '#/other.pdf'])(
+    'should render image thumbnails with URL suffix %s',
+    (suffix) => {
+      const url = `https://example.com/photo.png${suffix}`;
+      const { getByAltText } = render(
+        <Upload
+          listType="picture-card"
+          fileList={[{ uid: '1', name: 'photo.png', status: 'done', url }]}
+        />,
+      );
+
+      expect(getByAltText('photo.png')).toHaveAttribute('src', url);
+    },
+  );
+
+  it.each(['?redirect=/other.png', '#/other.png'])(
+    'should not render non-image files as thumbnails with URL suffix %s',
+    (suffix) => {
+      const { queryByAltText, getByLabelText } = render(
+        <Upload
+          listType="picture-card"
+          fileList={[
+            {
+              uid: '1',
+              name: 'report.pdf',
+              status: 'done',
+              url: `https://example.com/report.pdf${suffix}`,
+            },
+          ]}
+        />,
+      );
+
+      expect(queryByAltText('report.pdf')).not.toBeInTheDocument();
+      expect(getByLabelText('file')).toBeInTheDocument();
+    },
+  );
 
   it('not crash when uploading not provides percent', async () => {
     const { unmount } = render(
@@ -829,6 +865,18 @@ describe('Upload List', () => {
     );
     expect(wrapper2.firstChild).toMatchSnapshot();
     unmount2();
+  });
+
+  it('should render numeric 0 extra', () => {
+    const { container: wrapper } = render(
+      <Upload defaultFileList={fileList} showUploadList={{ extra: 0 }} />,
+    );
+    expect(wrapper.querySelector('.ant-upload-list-item-extra')?.textContent).toBe('0');
+
+    const { container: wrapper2 } = render(
+      <Upload defaultFileList={fileList} showUploadList={{ extra: () => 0 }} />,
+    );
+    expect(wrapper2.querySelector('.ant-upload-list-item-extra')?.textContent).toBe('0');
   });
 
   // https://github.com/ant-design/ant-design/issues/7762
@@ -1167,6 +1215,43 @@ describe('Upload List', () => {
     await previewImage(mockFile);
 
     expect(document.body.querySelectorAll('canvas')).toHaveLength(canvasCount);
+  });
+
+  it('should resolve empty string and clean up when image fails to decode', async () => {
+    const revokeObjectURL = jest.fn();
+    const originalImage = window.Image;
+    const originalCreateObjectURL = window.URL.createObjectURL;
+    const originalRevokeObjectURL = window.URL.revokeObjectURL;
+    window.URL.createObjectURL = () => 'blob:mock-url';
+    window.URL.revokeObjectURL = revokeObjectURL;
+    const fakeImages: any[] = [];
+    (window as any).Image = class {
+      constructor() {
+        fakeImages.push(this);
+      }
+    };
+
+    try {
+      const canvasCount = document.body.querySelectorAll('canvas').length;
+      let dataUrl: string | undefined;
+      const promise = previewImage(new File(['corrupt'], 'foo.png', { type: 'image/png' })).then(
+        (result) => {
+          dataUrl = result;
+        },
+      );
+
+      // Simulate the browser firing the decode error event
+      fakeImages[0].onerror();
+      await promise;
+
+      expect(dataUrl).toBe('');
+      expect(document.body.querySelectorAll('canvas')).toHaveLength(canvasCount);
+      expect(revokeObjectURL).toHaveBeenCalled();
+    } finally {
+      window.Image = originalImage;
+      window.URL.createObjectURL = originalCreateObjectURL;
+      window.URL.revokeObjectURL = originalRevokeObjectURL;
+    }
   });
 
   it("upload non image file shouldn't be converted to the base64", async () => {
