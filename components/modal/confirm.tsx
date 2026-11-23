@@ -81,6 +81,7 @@ export default function confirm(config: ModalFuncProps) {
   let closeDialog: (...args: any[]) => void;
   let currentConfig: any;
   let timeoutId: ReturnType<typeof setTimeout>;
+  let renderState: 'pending' | 'rendered' | 'cancelled' = 'pending';
 
   const destroy = (...args: any[]) => {
     const triggerCancel = args.some((param) => param?.triggerCancel);
@@ -109,6 +110,7 @@ export default function confirm(config: ModalFuncProps) {
      * Sync render blocks React event. Let's make this async.
      */
     timeoutId = setTimeout(() => {
+      renderState = 'rendered';
       const rootPrefixCls = global.getPrefixCls(undefined, getRootPrefixCls());
       const iconPrefixCls = global.getIconPrefixCls();
       const theme = global.getTheme();
@@ -125,22 +127,34 @@ export default function confirm(config: ModalFuncProps) {
   };
 
   closeDialog = (...args: any[]) => {
-    currentConfig = {
-      ...currentConfig,
-      open: false,
-      afterClose: () => {
-        if (isFunction(config?.afterClose)) {
-          config.afterClose();
-        }
-        destroy(...args);
-      },
+    if (renderState === 'cancelled') {
+      return;
+    }
+
+    const afterClose = () => {
+      if (isFunction(config?.afterClose)) {
+        config.afterClose();
+      }
+      destroy(...args);
     };
+
+    if (renderState === 'pending') {
+      renderState = 'cancelled';
+      clearTimeout(timeoutId);
+      setTimeout(afterClose);
+      return;
+    }
+
+    currentConfig = { ...currentConfig, open: false, afterClose };
     scheduleRender(currentConfig);
   };
 
   currentConfig = { ...config, close: closeDialog, open: true };
 
   const updateDialog = (configUpdate: ConfigUpdate) => {
+    if (renderState === 'cancelled') {
+      return;
+    }
     if (isFunction(configUpdate)) {
       currentConfig = configUpdate(currentConfig);
     } else {
