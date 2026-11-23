@@ -471,6 +471,22 @@ describe('Splitter', () => {
       expect(onResizeEnd).toHaveBeenCalledWith([80, 20]);
     });
 
+    it('resizes a lazy RTL panel away from its minimum and stops at its maximum', async () => {
+      const onResizeEnd = jest.fn();
+      const { container } = render(
+        <ConfigProvider direction="rtl">
+          <SplitterDemo lazy items={[{ min: 50, max: 80 }, {}]} onResizeEnd={onResizeEnd} />
+        </ConfigProvider>,
+      );
+      await resizeSplitter();
+
+      const dragger = container.querySelector<HTMLElement>('.ant-splitter-bar-dragger')!;
+      mockDrag(dragger, -40);
+      expect(onResizeEnd).toHaveBeenLastCalledWith([80, 20]);
+      mockDrag(dragger, 40);
+      expect(onResizeEnd).toHaveBeenLastCalledWith([50, 50]);
+    });
+
     it('rtl', async () => {
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();

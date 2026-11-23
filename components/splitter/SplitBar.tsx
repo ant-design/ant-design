@@ -33,6 +33,7 @@ export interface SplitBarProps {
   onOffsetEnd: (lazyEnd?: boolean) => void;
   onCollapse: (index: number, type: 'start' | 'end') => void;
   vertical: boolean;
+  reverse?: boolean;
   ariaNow: number;
   ariaMin: number;
   ariaMax: number;
@@ -57,6 +58,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     prefixCls,
     rootPrefixCls,
     vertical,
+    reverse,
     index,
     active,
     ariaNow,
@@ -123,7 +125,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   // Updated constraint calculation
   const getConstrainedOffset = (rawOffset: number) => {
     const currentPos = (containerSize * ariaNow) / 100;
-    const newPos = currentPos + rawOffset;
+    // Panel bounds use logical coordinates, while the preview follows the pointer.
+    const newPos = currentPos + (reverse ? -rawOffset : rawOffset);
 
     // Calculate available space
     const minAllowed = Math.max(0, (containerSize * ariaMin) / 100);
@@ -131,7 +134,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
     // Constrain new position within bounds
     const clampedPos = Math.max(minAllowed, Math.min(maxAllowed, newPos));
-    return clampedPos - currentPos;
+    return reverse ? currentPos - clampedPos : clampedPos - currentPos;
   };
 
   const handleLazyMove = useEvent((offsetX: number, offsetY: number) => {
