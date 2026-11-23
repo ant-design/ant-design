@@ -1217,6 +1217,25 @@ describe('Upload List', () => {
     expect(document.body.querySelectorAll('canvas')).toHaveLength(canvasCount);
   });
 
+  it.each(['image/gif', 'image/svg+xml'])(
+    'settles the preview when reading %s fails',
+    async (type) => {
+      const read = jest.spyOn(FileReader.prototype, 'readAsDataURL').mockImplementation(function (
+        this: FileReader,
+      ) {
+        this.dispatchEvent(new ProgressEvent('error'));
+        this.dispatchEvent(new ProgressEvent('loadend'));
+      });
+      const canvasCount = document.body.querySelectorAll('canvas').length;
+      try {
+        await expect(previewImage(new File(['unreadable'], 'image', { type }))).resolves.toBe('');
+        expect(document.body.querySelectorAll('canvas')).toHaveLength(canvasCount);
+      } finally {
+        read.mockRestore();
+      }
+    },
+  );
+
   it('should resolve empty string and clean up when image fails to decode', async () => {
     const revokeObjectURL = jest.fn();
     const originalImage = window.Image;
