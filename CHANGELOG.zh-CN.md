@@ -20,7 +20,7 @@ tag: vVERSION
 `2026-11-23`
 
 - Form
-  - 🛠 回退 Form 在 6.7.1 中引入的包体积优化。 [#59883](https://github.com/ant-design/ant-design/pull/59883) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🛠 回退 Form 在 6.7.1 中引入的包体积优化。这项改动涉及多个组件的依赖关系，将在 `feature` 分支留出更长的验证时间，再随次版本发布。 [#59883](https://github.com/ant-design/ant-design/pull/59883) [@li-jia-nan](https://github.com/li-jia-nan)
   - 🐞 修复 Form.Item 的 `name` 为 `0` 时，Form 校验信息将字段名显示为 `undefined` 的问题。 [#59679](https://github.com/ant-design/ant-design/pull/59679) [@nikzanda](https://github.com/nikzanda)
 - Table
   - 🐞 修复 Table 分组列的 `defaultSortOrder` 不生效的问题。 [#59611](https://github.com/ant-design/ant-design/pull/59611) [@b84330808](https://github.com/b84330808)
@@ -41,7 +41,7 @@ tag: vVERSION
 - 🐞 修复 ColorPicker 使用键盘删除渐变色标后生成无效渐变的问题。 [#59837](https://github.com/ant-design/ant-design/pull/59837) [@Aminark](https://github.com/Aminark)
 - 🐞 修复 Tabs 在 `card` 或 `editable-card` 模式下拖拽标签时跟随指针有延迟的问题。 [#59854](https://github.com/ant-design/ant-design/pull/59854) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 修复 Button 在外边距变化时意外触发位移动画的问题。 [#59886](https://github.com/ant-design/ant-design/pull/59886) [@QDyanbing](https://github.com/QDyanbing)
-- 🐞 修复 InputNumber 在步进按钮常驻模式下，前后缀与步进按钮间距异常的问题。 [#59572](https://github.com/ant-design/ant-design/pull/59572) [@dogledogle](https://github.com/dogledogle)
+- 🐞 修复 InputNumber 在拨轮模式（`mode="spinner"`）下，前后缀与步进按钮间距异常的问题。 [#59572](https://github.com/ant-design/ant-design/pull/59572) [@dogledogle](https://github.com/dogledogle)
 - 🐞 修复 Mentions 的 `getMentions` 使用默认分隔符时遗漏多行文本中提及项的问题。 [#59948](https://github.com/ant-design/ant-design/pull/59948) [@Aminark](https://github.com/Aminark)
 - 🐞 修复 Watermark 在 `font.fontStyle` 为 `none` 时忽略 `fontSize`、`fontWeight` 和 `fontFamily` 的问题。 [#59855](https://github.com/ant-design/ant-design/pull/59855) [@adityajai119](https://github.com/adityajai119)
 - ⚡️ 加快 Tree.DirectoryTree 在大量文件夹展开时通过 Shift 选择范围内节点的速度。 [#59944](https://github.com/ant-design/ant-design/pull/59944) [@Aminark](https://github.com/Aminark)

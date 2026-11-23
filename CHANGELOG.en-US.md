@@ -20,7 +20,7 @@ tag: vVERSION
 `2026-11-23`
 
 - Form
-  - 🛠 Revert the Form bundle size optimization introduced in 6.7.1. [#59883](https://github.com/ant-design/ant-design/pull/59883) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🛠 Revert the Form bundle size optimization introduced in 6.7.1 to allow more time to validate dependency changes across multiple components on the `feature` branch before a minor release. [#59883](https://github.com/ant-design/ant-design/pull/59883) [@li-jia-nan](https://github.com/li-jia-nan)
   - 🐞 Fix Form validation messages showing `undefined` as the field label when Form.Item `name` is `0`. [#59679](https://github.com/ant-design/ant-design/pull/59679) [@nikzanda](https://github.com/nikzanda)
 - Table
   - 🐞 Fix Table `defaultSortOrder` being ignored on grouping columns. [#59611](https://github.com/ant-design/ant-design/pull/59611) [@b84330808](https://github.com/b84330808)
@@ -41,7 +41,7 @@ tag: vVERSION
 - 🐞 Fix ColorPicker producing invalid gradients when deleting gradient stops with the keyboard. [#59837](https://github.com/ant-design/ant-design/pull/59837) [@Aminark](https://github.com/Aminark)
 - 🐞 Fix Tabs lagging behind the pointer when dragging tabs in `card` or `editable-card` mode. [#59854](https://github.com/ant-design/ant-design/pull/59854) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 Fix Button animating unintentionally when its margin changes. [#59886](https://github.com/ant-design/ant-design/pull/59886) [@QDyanbing](https://github.com/QDyanbing)
-- 🐞 Fix InputNumber spacing between its prefix, suffix, and step buttons in spinner mode. [#59572](https://github.com/ant-design/ant-design/pull/59572) [@dogledogle](https://github.com/dogledogle)
+- 🐞 Fix InputNumber spacing between its prefix, suffix, and step buttons in spinner mode (`mode="spinner"`). [#59572](https://github.com/ant-design/ant-design/pull/59572) [@dogledogle](https://github.com/dogledogle)
 - 🐞 Fix Mentions missing mentions across line breaks when `getMentions` uses the default separator. [#59948](https://github.com/ant-design/ant-design/pull/59948) [@Aminark](https://github.com/Aminark)
 - 🐞 Fix Watermark ignoring `fontSize`, `fontWeight`, and `fontFamily` when `font.fontStyle` is `none`. [#59855](https://github.com/ant-design/ant-design/pull/59855) [@adityajai119](https://github.com/adityajai119)
 - ⚡️ Speed up Shift range selection in Tree.DirectoryTree when many folders are expanded. [#59944](https://github.com/ant-design/ant-design/pull/59944) [@Aminark](https://github.com/Aminark)
