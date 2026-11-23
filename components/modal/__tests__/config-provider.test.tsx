@@ -20,7 +20,7 @@ const Content = () => {
 async function finishMotion() {
   await waitFakeTimer();
   document.querySelectorAll('.ant-modal').forEach((element) => {
-    fireEvent.animationEnd(element);
+    fireEvent.transitionEnd(element);
   });
   await waitFakeTimer();
 }
