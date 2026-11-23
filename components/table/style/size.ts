@@ -27,6 +27,10 @@ const genSizeStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         padding: `${unit(paddingVertical)} ${unit(paddingHorizontal)}`,
       },
 
+      [`${componentCls}-thead > tr > ${componentCls}-cell-scrollbar`]: {
+        paddingInline: 0,
+      },
+
       [`${componentCls}-filter-trigger`]: {
         marginInlineEnd: unit(calc(paddingHorizontal).div(2).mul(-1).equal()),
       },
