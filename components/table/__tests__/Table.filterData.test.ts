@@ -23,6 +23,27 @@ describe('Table.filterData', () => {
     },
   );
 
+  it('resolves filter options once across sibling branches', () => {
+    const readOption = jest.fn((key: number) => key);
+    const filters = Array.from({ length: 80 }, (_, key) => ({
+      text: String(key),
+      get value() {
+        return readOption(key);
+      },
+    }));
+    const data = Array.from({ length: 100 }, (_, key) => ({ key, children: [{ key }] }));
+    const onFilter = (value: React.Key | boolean) => value === 42;
+
+    expect(
+      getFilterData(
+        data,
+        [{ key: 'key', column: { filters, onFilter }, filteredKeys: ['42'] }],
+        'children',
+      ),
+    ).toEqual(data);
+    expect(readOption).toHaveBeenCalledTimes(filters.length);
+  });
+
   it('should apply every active filter to children before checking their parents', () => {
     type RecordType = {
       key: string;
