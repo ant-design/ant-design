@@ -144,6 +144,7 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    destroyOnHidden: contextDestroyOnHidden,
   } = useComponentConfig('tabs');
 
   const { tabs } = React.useContext(ConfigContext);
@@ -210,7 +211,7 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
 
   const size = useSize(customSize);
 
-  const mergedItems = useLegacyItems(items, children);
+  const mergedItems = useLegacyItems(items, children, contextDestroyOnHidden);
 
   const mergedAnimated = useAnimateConfig(prefixCls, animated);
 

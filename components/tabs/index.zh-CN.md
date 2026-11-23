@@ -71,7 +71,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | tabPlacement | 页签位置，可选值有 `top` `end` `bottom` `start` | `top` \| `end` \| `bottom` \| `start` | `top` |  | × |
 | ~~tabPosition~~ | 页签位置，可选值有 `top` `right` `bottom` `left`，请使用 `tabPlacement` 替换 | `top` \| `right` \| `bottom` \| `left` | `top` |  | × |
 | ~~destroyInactiveTabPane~~ | 被隐藏时是否销毁 DOM 结构，使用 `destroyOnHidden` 代替 | boolean | false |  | × |
-| destroyOnHidden | 被隐藏时是否销毁 DOM 结构 | boolean | false | 5.25.0 | × |
+| destroyOnHidden | 被隐藏时是否销毁 DOM 结构 | boolean | false | 5.25.0 | 6.8.0 |
 | type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型 | `line` \| `card` \| `editable-card` | `line` |  | × |
 | onChange | 切换面板的回调 | (activeKey: string) => void | - |  | × |
 | onEdit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | (action === 'add' ? event : targetKey, action) => void | - |  | × |

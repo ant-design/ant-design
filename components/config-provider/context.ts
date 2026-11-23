@@ -231,7 +231,14 @@ export type ModalConfig = ComponentStyleConfig &
 export type TabsConfig = ComponentStyleConfig &
   Pick<
     TabsProps,
-    'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon' | 'removeIcon' | 'classNames' | 'styles'
+    | 'indicator'
+    | 'indicatorSize'
+    | 'moreIcon'
+    | 'addIcon'
+    | 'removeIcon'
+    | 'classNames'
+    | 'styles'
+    | 'destroyOnHidden'
   > & {
     more?: Omit<MoreProps, 'popupRender'>;
   };
