@@ -10,7 +10,7 @@
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - | 5.23.0 | Tooltip: 5.23.0，Popover: 5.23.0，Popconfirm: 5.23.0 |
 | defaultOpen | 默认是否显隐 | boolean | false | 4.23.0 | × |
 | ~~destroyTooltipOnHide~~ | 关闭后是否销毁 dom | boolean | false |  | × |
-| destroyOnHidden | 关闭后是否销毁 dom | boolean | false | 5.25.0 | × |
+| destroyOnHidden | 关闭后是否销毁 dom | boolean | false | 5.25.0 | Tooltip: 6.8.0 |
 | fresh | 默认情况下，Tooltip 在关闭时会缓存内容。设置该属性后会始终保持更新 | boolean | false | 5.10.0 | × |
 | getPopupContainer | 浮层渲染父节点，默认渲染到 body 上 | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  | × |
 | mouseEnterDelay | 鼠标移入后延时多少才显示 Tooltip，单位：秒 | number | 0.1 |  | Tooltip: 6.6.0，Popover: 6.6.0，Popconfirm: 6.6.0 |
