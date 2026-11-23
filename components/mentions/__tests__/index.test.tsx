@@ -46,6 +46,18 @@ describe('Mentions', () => {
     jest.useRealTimers();
   });
 
+  it('extracts mentions from separate lines of a textarea', () => {
+    expect(getMentions('Review:\n@alice\r\n@bob #release', { prefix: ['@', '#'] })).toEqual([
+      { prefix: '@', value: 'alice' },
+      { prefix: '@', value: 'bob' },
+      { prefix: '#', value: 'release' },
+    ]);
+    expect(getMentions('@Mary Jane|@Ada', { split: '|' })).toEqual([
+      { prefix: '@', value: 'Mary Jane' },
+      { prefix: '@', value: 'Ada' },
+    ]);
+  });
+
   it('getMentions', () => {
     const mentions = getMentions('@light #bamboo cat', { prefix: ['@', '#'] });
     expect(mentions).toEqual([
