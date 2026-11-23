@@ -213,6 +213,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     trigger: contextTrigger,
     mouseEnterDelay: contextMouseEnterDelay,
     mouseLeaveDelay: contextMouseLeaveDelay,
+    destroyOnHidden: contextDestroyOnHidden,
   }: Partial<typeof semanticConfig> = injectFromPopover ? {} : semanticConfig;
 
   const mergedMouseEnterDelay = mouseEnterDelay ?? contextMouseEnterDelay ?? 0.1;
@@ -223,7 +224,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const mergedTrigger = trigger || contextTrigger || 'hover';
   const mergedGetPopupContainer =
     getPopupContainer || getTooltipContainer || getContextPopupContainer;
-  const mergedDestroyOnHidden = destroyOnHidden ?? !!destroyTooltipOnHide;
+  const mergedDestroyOnHidden =
+    destroyOnHidden ?? !!(destroyTooltipOnHide ?? contextDestroyOnHidden);
   const inTableMeasureRow = React.useContext(TableMeasureRowContext);
 
   // ============================== Ref ===============================

@@ -10,7 +10,7 @@
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 5.23.0 | Tooltip: 5.23.0, Popover: 5.23.0, Popconfirm: 5.23.0 |
 | defaultOpen | Whether the floating tooltip card is open by default | boolean | false | 4.23.0 | × |
 | ~~destroyTooltipOnHide~~ | Whether destroy dom when close | boolean | false |  | × |
-| destroyOnHidden | Whether destroy dom when close | boolean | false | 5.25.0 | Popover: 6.8.0 |
+| destroyOnHidden | Whether destroy dom when close | boolean | false | 5.25.0 | Tooltip: 6.8.0, Popover: 6.8.0 |
 | fresh | Tooltip will cache content when it is closed by default. Setting this property will always keep updating | boolean | false | 5.10.0 | × |
 | getPopupContainer | The DOM container of the tip, the default behavior is to create a `div` element in `body` | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  | × |
 | mouseEnterDelay | Delay in seconds, before tooltip is shown on mouse enter | number | 0.1 |  | Tooltip: 6.6.0, Popover: 6.6.0, Popconfirm: 6.6.0 |
