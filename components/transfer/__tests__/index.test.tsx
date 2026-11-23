@@ -1021,6 +1021,28 @@ describe('Transfer', () => {
     expect(getByText('Checkbox Label')).toBeTruthy();
   });
 
+  it('keeps Transfer selection independent of an enclosing Checkbox.Group', () => {
+    const onChange = jest.fn();
+    const { container, getByLabelText } = render(
+      <Checkbox.Group onChange={onChange}>
+        <Checkbox value="alerts">Alerts</Checkbox>
+        <Transfer dataSource={[{ key: 'a' }, { key: 'b' }]} render={(item) => item.key} />
+      </Checkbox.Group>,
+    );
+    const items = container.querySelectorAll('.ant-transfer-list-content input');
+    fireEvent.click(items[0]);
+    expect(items[0]).toBeChecked();
+    expect(items[1]).not.toBeChecked();
+    expect(onChange).not.toHaveBeenCalled();
+
+    fireEvent.click(container.querySelector('.ant-transfer-list-header input')!);
+    expect(items[1]).toBeChecked();
+    expect(onChange).not.toHaveBeenCalled();
+
+    fireEvent.click(getByLabelText('Alerts'));
+    expect(onChange).toHaveBeenCalledWith(['alerts']);
+  });
+
   it('should render correct checkbox label when checkboxLabel is a function', () => {
     const selectAllLabels: SelectAllLabel[] = [
       ({ selectedCount, totalCount }) => (

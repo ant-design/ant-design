@@ -89,6 +89,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
   return (
     <li {...liProps}>
       <Checkbox
+        skipGroup
         className={clsx(`${prefixCls}-checkbox`, classNames.itemIcon)}
         style={styles.itemIcon}
         checked={checked}
