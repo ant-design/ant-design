@@ -392,6 +392,7 @@ export type PopoverConfig = Pick<
   | 'trigger'
   | 'mouseEnterDelay'
   | 'mouseLeaveDelay'
+  | 'destroyOnHidden'
 >;
 
 export type PopconfirmConfig = Pick<
