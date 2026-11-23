@@ -44,7 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | `header` \| `icon` \| `disabled` | - | 4.9.0 | × |
 | defaultActiveKey | Key of the initial active panel | string\[] \| string <br/> number\[] \| number | - |  | × |
 | ~~destroyInactivePanel~~ | Destroy Inactive Panel | boolean | false |  | × |
-| destroyOnHidden | Destroy Inactive Panel | boolean | false | 5.25.0 | × |
+| destroyOnHidden | Destroy Inactive Panel | boolean | false | 5.25.0 | 6.8.0 |
 | expandIcon | Customize the collapse expand icon | (panelProps) => ReactNode | - |  | 5.15.0 |
 | expandIconPlacement | Set expand icon placement | `start` \| `end` | `start` | - | × |
 | ~~expandIconPosition~~ | Set expand icon position, Please use `expandIconPlacement` instead | `start` \| `end` | - | 4.21.0 | × |

@@ -45,7 +45,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 | collapsible | 所有子面板是否可折叠或指定可折叠触发区域 | `header` \| `icon` \| `disabled` | - | 4.9.0 | × |
 | defaultActiveKey | 初始化选中面板的 key | string\[] \| string<br/> number\[] \| number | - |  | × |
 | ~~destroyInactivePanel~~ | 销毁折叠隐藏的面板 | boolean | false |  | × |
-| destroyOnHidden | 销毁折叠隐藏的面板 | boolean | false | 5.25.0 | × |
+| destroyOnHidden | 销毁折叠隐藏的面板 | boolean | false | 5.25.0 | 6.8.0 |
 | expandIcon | 自定义切换图标 | (panelProps) => ReactNode | - |  | 5.15.0 |
 | expandIconPlacement | 设置图标位置 | `start` \| `end` | `start` | - | × |
 | ~~expandIconPosition~~ | 设置图标位置，请使用 `expandIconPlacement` 替换 | `start` \| `end` | - | 4.21.0 | × |

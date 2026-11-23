@@ -94,6 +94,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    destroyOnHidden: contextDestroyOnHidden,
   } = useComponentConfig('collapse');
 
   const {
@@ -217,7 +218,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       style={mergedStyles.root}
       classNames={mergedClassNames}
       styles={mergedStyles}
-      destroyOnHidden={destroyOnHidden ?? destroyInactivePanel}
+      destroyOnHidden={destroyOnHidden ?? destroyInactivePanel ?? contextDestroyOnHidden}
     >
       {items}
     </RcCollapse>
