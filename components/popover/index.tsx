@@ -37,7 +37,12 @@ export interface PopoverProps extends AbstractTooltipProps {
   styles?: PopoverSemanticAllType['stylesAndFn'];
 }
 
-const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
+interface InternalPopoverProps extends PopoverProps {
+  /** @internal Skip the Popover default when used by Popconfirm. */
+  'data-popover-inject'?: boolean;
+}
+
+const InternalPopover = React.forwardRef<TooltipRef, InternalPopoverProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     title,
@@ -66,7 +71,15 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     trigger: contextTrigger,
     mouseEnterDelay: contextMouseEnterDelay,
     mouseLeaveDelay: contextMouseLeaveDelay,
+    destroyOnHidden: contextDestroyOnHidden,
   } = useComponentConfig('popover');
+
+  const mergedDestroyOnHidden =
+    props.destroyOnHidden ??
+    !!(
+      props.destroyTooltipOnHide ??
+      (props['data-popover-inject'] ? undefined : contextDestroyOnHidden)
+    );
 
   const mergedMouseEnterDelay = mouseEnterDelay ?? contextMouseEnterDelay ?? 0.1;
   const mergedMouseLeaveDelay = mouseLeaveDelay ?? contextMouseLeaveDelay ?? 0.1;
@@ -93,6 +106,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     ...props,
     placement,
     trigger: mergedTrigger,
+    destroyOnHidden: mergedDestroyOnHidden,
     mouseEnterDelay: mergedMouseEnterDelay,
     mouseLeaveDelay: mergedMouseLeaveDelay,
     overlayStyle,
@@ -138,6 +152,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       mouseEnterDelay={mergedMouseEnterDelay}
       mouseLeaveDelay={mergedMouseLeaveDelay}
       {...restProps}
+      destroyOnHidden={mergedDestroyOnHidden}
       prefixCls={prefixCls}
       classNames={{
         root: rootClassNames,
