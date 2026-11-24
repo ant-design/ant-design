@@ -55,7 +55,7 @@ demo:
 | classNames | 用于自定义 Dropdown 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | disabled | 菜单是否禁用 | boolean | - |  | × |
 | ~~destroyPopupOnHide~~ | 关闭后是否销毁 Dropdown，使用 `destroyOnHidden` 替换 | boolean | false |  | × |
-| destroyOnHidden | 关闭后是否销毁 Dropdown | boolean | false | 5.25.0 | × |
+| destroyOnHidden | 关闭后是否销毁 Dropdown | boolean | false | 5.25.0 | 6.8.0 |
 | ~~dropdownRender~~ | 自定义下拉框内容，使用 `popupRender` 替换 | (menus: ReactNode) => ReactNode | - | 4.24.0 | × |
 | popupRender | 自定义弹出框内容 | (menus: ReactNode) => ReactNode | - | 5.25.0 | × |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  | × |
