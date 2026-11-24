@@ -415,7 +415,8 @@ export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | '
 
 export type SkeletonConfig = ComponentStyleConfig & Pick<SkeletonProps, 'styles' | 'classNames'>;
 
-export type SplitterConfig = ComponentStyleConfig & Pick<SplitterProps, 'classNames' | 'styles'>;
+export type SplitterConfig = ComponentStyleConfig &
+  Pick<SplitterProps, 'classNames' | 'styles' | 'destroyOnHidden'>;
 
 export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classNames' | 'styles'>;
 
