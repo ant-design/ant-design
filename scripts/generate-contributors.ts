@@ -16,8 +16,6 @@ const repo = 'ant-design';
 
 const outputFile = process.argv[2] || path.join(cwd, '_site', 'contributors.json');
 
-const excludeComponents = new Set(['_util', 'overview']);
-
 const botExcludes = [
   'github-actions',
   'github-actions[bot]',
@@ -86,7 +84,7 @@ const modules: ModuleConfig[] = [
       const result: { key: string; filePath: string }[] = [];
 
       for (const entry of entries) {
-        if (!entry.isDirectory() || excludeComponents.has(entry.name)) {
+        if (!entry.isDirectory()) {
           continue;
         }
         const filePath = path.join(this.dir, entry.name, `index.${localeSuffix}.md`);
