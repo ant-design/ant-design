@@ -189,7 +189,7 @@ export type ImageConfig = ComponentStyleConfig &
   };
 
 export type CollapseConfig = ComponentStyleConfig &
-  Pick<CollapseProps, 'expandIcon' | 'classNames' | 'styles'>;
+  Pick<CollapseProps, 'expandIcon' | 'classNames' | 'styles' | 'destroyOnHidden'>;
 
 export type CheckboxConfig = ComponentStyleConfig & Pick<CheckboxProps, 'classNames' | 'styles'>;
 
