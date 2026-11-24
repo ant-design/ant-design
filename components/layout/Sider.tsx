@@ -11,18 +11,9 @@ import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticT
 import { isFunction } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
+import { useToken } from '../theme/internal';
 import { LayoutContext } from './context';
 import useStyle from './style/sider';
-
-const dimensionMaxMap: Record<Breakpoint, string> = {
-  xs: '479.98px',
-  sm: '575.98px',
-  md: '767.98px',
-  lg: '991.98px',
-  xl: '1199.98px',
-  xxl: '1599.98px',
-  xxxl: `1839.98px`,
-};
 
 const isNumeric = (val: any) =>
   !Number.isNaN(Number.parseFloat(val)) && Number.isFinite(Number(val));
@@ -96,6 +87,20 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   } = props;
   const { siderHook } = useContext(LayoutContext);
   const uniqueId = useId();
+  const [, token] = useToken();
+
+  const dimensionMaxMap = React.useMemo<Record<Breakpoint, string>>(
+    () => ({
+      xs: `${token.screenXSMin - 0.02}px`,
+      sm: `${token.screenSMMin - 0.02}px`,
+      md: `${token.screenMDMin - 0.02}px`,
+      lg: `${token.screenLGMin - 0.02}px`,
+      xl: `${token.screenXLMin - 0.02}px`,
+      xxl: `${token.screenXXLMin - 0.02}px`,
+      xxxl: `${token.screenXXXLMin - 0.02}px`,
+    }),
+    [token],
+  );
 
   const [collapsed, setCollapsed] = useControlledState(defaultCollapsed, props.collapsed);
   const [below, setBelow] = useState(false);
@@ -159,7 +164,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
         mql.removeEventListener('change', responsiveHandler);
       }
     };
-  }, [breakpoint]); // in order to accept dynamic 'breakpoint' property, we need to add 'breakpoint' into dependency array.
+  }, [breakpoint, dimensionMaxMap]); // in order to accept dynamic 'breakpoint' property, we need to add 'breakpoint' into dependency array.
 
   useEffect(() => {
     siderHook.addSider(uniqueId);
