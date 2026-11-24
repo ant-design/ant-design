@@ -5,7 +5,7 @@ import { warning } from '@rc-component/util';
 import type { ModalFuncProps } from '..';
 import Modal from '..';
 import type { MaskType } from '../../_util/hooks';
-import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import App from '../../app';
 import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import type { GlobalConfigProps } from '../../config-provider';
@@ -414,6 +414,42 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       });
     });
   });
+
+  it.each([false, true])(
+    'preserves explicit destroyOnHidden=%s when updating visibility',
+    async (destroyOnHidden) => {
+      const Content = () => {
+        const [value, setValue] = React.useState('initial');
+        return (
+          <input
+            aria-label="Content state"
+            value={value}
+            onChange={(event) => setValue(event.target.value)}
+          />
+        );
+      };
+      const instance = Modal.confirm({ destroyOnHidden, content: <Content /> });
+      await waitFakeTimer();
+      fireEvent.change(screen.getByRole('textbox', { name: 'Content state' }), {
+        target: { value: 'edited' },
+      });
+
+      act(() => instance.update({ open: false }));
+      await waitFakeTimer();
+      const hiddenContent = screen.queryByRole('textbox', { name: 'Content state', hidden: true });
+      if (destroyOnHidden) {
+        expect(hiddenContent).toBeNull();
+      } else {
+        expect(hiddenContent).toHaveValue('edited');
+      }
+
+      act(() => instance.update({ open: true }));
+      await waitFakeTimer();
+      expect(screen.getByRole('textbox', { name: 'Content state' })).toHaveValue(
+        destroyOnHidden ? 'initial' : 'edited',
+      );
+    },
+  );
 
   describe('could be update by new config', () => {
     (['info', 'success', 'warning', 'error'] as const).forEach((type) => {

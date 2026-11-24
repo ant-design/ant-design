@@ -272,6 +272,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   return (
     <Modal
       {...modalProps}
+      destroyOnHidden={modalProps.destroyOnHidden ?? false}
       className={classString}
       wrapClassName={clsx({ [`${confirmPrefixCls}-centered`]: !!props.centered }, wrapClassName)}
       onCancel={() => {

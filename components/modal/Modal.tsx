@@ -109,6 +109,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     okButtonProps: contextOkButtonProps,
     mask: contextMask,
     focusable: contextFocusable,
+    destroyOnHidden: contextDestroyOnHidden,
   } = useComponentConfig('modal');
 
   const { modal: modalContext } = React.useContext(ConfigContext);
@@ -309,7 +310,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           }}
           styles={dialogStyles}
           panelRef={mergedPanelRef}
-          destroyOnHidden={destroyOnHidden ?? destroyOnClose}
+          destroyOnHidden={destroyOnHidden ?? destroyOnClose ?? contextDestroyOnHidden}
           modalRender={mergedModalRender}
           // Focusable
           focusTriggerAfterClose={mergedFocusable.focusTriggerAfterClose}

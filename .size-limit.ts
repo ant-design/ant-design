@@ -12,7 +12,7 @@ const componentLimits: Record<string, string> = {
   Affix: '30 KiB',
   Alert: '37 KiB',
   Anchor: '35 KiB',
-  App: '81 KiB',
+  App: '82 KiB',
   AutoComplete: '81 KiB',
   Avatar: '52 KiB',
   BackTop: '35 KiB',
