@@ -19,6 +19,7 @@ const localeValues: Locale = {
     show: '표시',
     hide: '숨기기',
     sortable: '정렬 가능',
+    clear: '지우기',
   },
   Table: {
     filterTitle: '필터 메뉴',
@@ -159,6 +160,9 @@ const localeValues: Locale = {
     transparent: '투명',
     singleColor: '단색',
     gradientColor: '그라데이션',
+  },
+  Input: {
+    otpCell: '${total}자 중 ${index}번째 문자',
   },
 };
 
