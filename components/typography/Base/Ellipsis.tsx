@@ -9,7 +9,6 @@ interface MeasureTextProps {
 }
 
 interface MeasureTextRef {
-  isExceed: () => boolean;
   getHeight: () => number;
 }
 
@@ -18,10 +17,6 @@ const MeasureText = React.forwardRef<MeasureTextRef, MeasureTextProps>(
     const spanRef = React.useRef<HTMLSpanElement>(null);
 
     React.useImperativeHandle(ref, () => ({
-      isExceed: () => {
-        const span = spanRef.current!;
-        return span.scrollHeight > span.clientHeight;
-      },
       getHeight: () => spanRef.current!.clientHeight,
     }));
 
@@ -142,6 +137,8 @@ export default function EllipsisMeasure(props: EllipsisProps) {
   // ========================= NeedEllipsis =========================
   const measureWhiteSpaceRef = React.useRef<HTMLElement>(null);
   const needEllipsisRef = React.useRef<MeasureTextRef>(null);
+  // Measure for full content height without rows limit
+  const fullContentRef = React.useRef<MeasureTextRef>(null);
   // Measure for `rows-1` height, to avoid operation exceed the line height
   const descRowsEllipsisRef = React.useRef<MeasureTextRef>(null);
   const symbolRowEllipsisRef = React.useRef<MeasureTextRef>(null);
@@ -172,14 +169,16 @@ export default function EllipsisMeasure(props: EllipsisProps) {
         measureWhiteSpaceRef.current && getComputedStyle(measureWhiteSpaceRef.current).whiteSpace;
       setParentWhiteSpace(nextWhiteSpace);
     } else if (needEllipsis === STATUS_MEASURE_START) {
-      const isOverflow = !!needEllipsisRef.current?.isExceed();
+      // Get the basic height of ellipsis rows
+      const baseRowsEllipsisHeight = needEllipsisRef.current?.getHeight() || 0;
+
+      // Do not use `scrollHeight` since glyphs taller than `line-height` also count into it
+      // https://github.com/ant-design/ant-design/issues/49973
+      const isOverflow = (fullContentRef.current?.getHeight() || 0) > baseRowsEllipsisHeight;
 
       setNeedEllipsis(isOverflow ? STATUS_MEASURE_NEED_ELLIPSIS : STATUS_MEASURE_NO_NEED_ELLIPSIS);
       setEllipsisCutIndex(isOverflow ? [0, nodeLen] : null);
       setCanEllipsis(isOverflow);
-
-      // Get the basic height of ellipsis rows
-      const baseRowsEllipsisHeight = needEllipsisRef.current?.getHeight() || 0;
 
       // Get the height of `rows - 1` + symbol height
       const descRowsEllipsisHeight = rows === 1 ? 0 : descRowsEllipsisRef.current?.getHeight() || 0;
@@ -272,6 +271,17 @@ export default function EllipsisMeasure(props: EllipsisProps) {
               WebkitLineClamp: rows,
             }}
             ref={needEllipsisRef}
+          >
+            {fullContent}
+          </MeasureText>
+
+          {/** Without rows limit */}
+          <MeasureText
+            style={{
+              ...measureStyle,
+              ...lineClipStyle,
+            }}
+            ref={fullContentRef}
           >
             {fullContent}
           </MeasureText>

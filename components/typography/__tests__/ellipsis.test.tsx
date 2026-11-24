@@ -124,6 +124,34 @@ describe('Typography.Ellipsis', () => {
     unmount();
   });
 
+  // https://github.com/ant-design/ant-design/issues/49973
+  it('should not ellipsis when glyphs overflow the line box', async () => {
+    // Some fonts render glyphs taller than `line-height`, which makes `scrollHeight` larger
+    const scrollHeightSpy = spyElementPrototypes(HTMLElement, {
+      scrollHeight: {
+        get() {
+          return (getContentHeight as any)(this) + 2;
+        },
+      },
+    });
+
+    const ref = React.createRef<HTMLElement>();
+    const onEllipsis = jest.fn();
+    const { container } = render(
+      <Base ellipsis={{ onEllipsis }} component="p" ref={ref}>
+        Bamboo
+      </Base>,
+    );
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('p')?.textContent).toBe('Bamboo');
+    expect(onEllipsis).not.toHaveBeenCalled();
+
+    scrollHeightSpy.mockRestore();
+  });
+
   it('support css multiple lines', async () => {
     const { container: wrapper } = render(
       <Base ellipsis={{ rows: 2 }} component="p">
