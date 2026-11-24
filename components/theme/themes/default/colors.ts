@@ -1,10 +1,22 @@
-import { generate } from '@ant-design/colors';
+import { generate, presetPalettes, presetPrimaryColors } from '@ant-design/colors';
 
 import type { GenerateColorMap, GenerateNeutralColorMap } from '../ColorMap';
 import { getAlphaColor, getSolidColor } from './colorAlgorithm';
 
+// `generate` returns the preset palette for a preset primary color, so skip regenerating it
+const presetPaletteMap = new Map<string, string[]>();
+Object.keys(presetPrimaryColors).forEach((colorKey) => {
+  // Skip keys without a palette, such as `pink` that `default/index.ts` adds at runtime
+  if (!presetPalettes[colorKey]) {
+    return;
+  }
+  const palette = [...presetPalettes[colorKey]];
+  presetPaletteMap.set(presetPrimaryColors[colorKey], palette);
+  presetPaletteMap.set(presetPrimaryColors[colorKey].toLowerCase(), palette);
+});
+
 export const generateColorPalettes: GenerateColorMap = (baseColor: string) => {
-  const colors = generate(baseColor);
+  const colors = presetPaletteMap.get(baseColor) ?? generate(baseColor);
   return {
     1: colors[0],
     2: colors[1],
