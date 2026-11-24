@@ -124,6 +124,7 @@ const Drawer: React.FC<DrawerProps> & {
     styles: contextStyles,
     mask: contextMask,
     focusable: contextFocusable,
+    destroyOnHidden: contextDestroyOnHidden,
   } = useComponentConfig('drawer');
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
@@ -303,7 +304,7 @@ const Drawer: React.FC<DrawerProps> & {
           zIndex={zIndex}
           {...(resizable ? { resizable } : {})}
           aria-labelledby={ariaLabelledby ?? ariaId}
-          destroyOnHidden={destroyOnHidden ?? destroyOnClose}
+          destroyOnHidden={destroyOnHidden ?? destroyOnClose ?? contextDestroyOnHidden}
           // Focusable
           focusTriggerAfterClose={mergedFocusable.focusTriggerAfterClose}
           focusTrap={mergedFocusable.trap}
