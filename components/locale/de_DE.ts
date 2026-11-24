@@ -163,6 +163,7 @@ const localeValues: Locale = {
     transparent: 'Transparent',
     singleColor: 'Einfarbig',
     gradientColor: 'Farbverlauf',
+    clear: 'Farbe löschen',
   },
   Input: {
     otpCell: 'Zeichen ${index} von ${total}',

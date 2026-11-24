@@ -162,6 +162,7 @@ const localeValues: Locale = {
     transparent: 'Transparentna',
     singleColor: 'Enobarvna',
     gradientColor: 'Prelivna barva',
+    clear: 'Počisti barvo',
   },
 };
 

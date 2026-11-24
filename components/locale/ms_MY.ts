@@ -163,6 +163,7 @@ const localeValues: Locale = {
     transparent: 'Tidak tembus cahaya',
     singleColor: 'Warna tunggal',
     gradientColor: 'Warna gradien',
+    clear: 'Kosongkan warna',
   },
 };
 

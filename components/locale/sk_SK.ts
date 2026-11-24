@@ -162,6 +162,7 @@ const localeValues: Locale = {
     transparent: 'Transparentné',
     singleColor: 'Jednofarebné',
     gradientColor: 'Farba prechodu',
+    clear: 'Vymazať farbu',
   },
 };
 

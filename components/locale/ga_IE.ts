@@ -162,6 +162,7 @@ const localeValues: Locale = {
     transparent: 'Trédhearcach',
     singleColor: 'Dath aonair',
     gradientColor: 'Dath grádán',
+    clear: 'Glan an dath',
   },
 };
 

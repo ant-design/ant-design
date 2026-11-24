@@ -162,6 +162,7 @@ const localeValues: Locale = {
     transparent: 'Şeffaf',
     singleColor: 'Tek renk',
     gradientColor: 'Gradyan rengi',
+    clear: 'Rengi temizle',
   },
 };
 

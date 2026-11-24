@@ -162,6 +162,7 @@ const localeValues: Locale = {
     transparent: 'Aç-açan',
     singleColor: 'Coloreke reňk',
     gradientColor: 'Gradient reňki',
+    clear: 'Reňki arassala',
   },
 };
 

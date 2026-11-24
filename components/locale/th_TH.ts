@@ -162,6 +162,7 @@ const localeValues: Locale = {
     transparent: 'โปร่งใส',
     singleColor: 'สีเดียว',
     gradientColor: 'สีไล่ระดับ',
+    clear: 'ล้างสี',
   },
 };
 

@@ -208,6 +208,7 @@ const localeValues: Locale = {
     transparent: 'Թափանցիկ',
     singleColor: 'Մեկ գույն',
     gradientColor: 'Գրադիենտ գույն',
+    clear: 'Մաքրել գույնը',
   },
 };
 

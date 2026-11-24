@@ -166,6 +166,7 @@ const localeValues: Locale = {
     transparent: 'Transparent',
     singleColor: 'Yek reng',
     gradientColor: 'Rengê gradient',
+    clear: 'Rengê paqij bike',
   },
 };
 

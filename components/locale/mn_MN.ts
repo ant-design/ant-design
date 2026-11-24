@@ -162,6 +162,7 @@ const localeValues: Locale = {
     transparent: 'Ил тод',
     singleColor: 'Ганц өнгө',
     gradientColor: 'Градиент өнгө',
+    clear: 'Өнгө арилгах',
   },
 };
 

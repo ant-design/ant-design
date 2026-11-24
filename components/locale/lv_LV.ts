@@ -162,6 +162,7 @@ const localeValues: Locale = {
     transparent: 'Caurspīdīgs',
     singleColor: 'Vienkrāsains',
     gradientColor: 'Gradienta krāsa',
+    clear: 'Notīrīt krāsu',
   },
 };
 
