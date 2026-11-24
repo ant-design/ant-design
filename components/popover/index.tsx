@@ -66,6 +66,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     trigger: contextTrigger,
     mouseEnterDelay: contextMouseEnterDelay,
     mouseLeaveDelay: contextMouseLeaveDelay,
+    unique: contextUnique,
   } = useComponentConfig('popover');
 
   const mergedMouseEnterDelay = mouseEnterDelay ?? contextMouseEnterDelay ?? 0.1;
@@ -131,7 +132,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
 
   return (
     <Tooltip
-      unique={false}
+      unique={contextUnique}
       arrow={mergedArrow}
       placement={placement}
       trigger={mergedTrigger}

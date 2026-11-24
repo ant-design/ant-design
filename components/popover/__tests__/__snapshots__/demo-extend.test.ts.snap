@@ -2054,6 +2054,59 @@ exports[`renders components/popover/demo/shift.tsx extend context correctly 1`] 
 
 exports[`renders components/popover/demo/shift.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/popover/demo/smooth-transition.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+>
+  <div
+    class="ant-flex css-var-test-id ant-flex-justify-center ant-flex-gap-small"
+  >
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Button
+      </span>
+    </button>
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Button
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-justify-center ant-flex-gap-small"
+  >
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Button
+      </span>
+    </button>
+    <button
+      aria-describedby="test-id"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Button
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/popover/demo/smooth-transition.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/popover/demo/style-class.tsx extend context correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-gap-medium"
