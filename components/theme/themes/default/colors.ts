@@ -6,10 +6,6 @@ import { getAlphaColor, getSolidColor } from './colorAlgorithm';
 // `generate` returns the preset palette for a preset primary color, so skip regenerating it
 const presetPaletteMap = new Map<string, string[]>();
 Object.keys(presetPrimaryColors).forEach((colorKey) => {
-  // Skip keys without a palette, such as `pink` that `default/index.ts` adds at runtime
-  if (!presetPalettes[colorKey]) {
-    return;
-  }
   const palette = [...presetPalettes[colorKey]];
   presetPaletteMap.set(presetPrimaryColors[colorKey], palette);
   presetPaletteMap.set(presetPrimaryColors[colorKey].toLowerCase(), palette);
