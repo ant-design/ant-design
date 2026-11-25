@@ -600,7 +600,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
               aria-autocomplete="list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              autocomplete="new-password"
+              autocomplete="off"
               class="ant-select-input"
               id="test-id"
               readonly=""
