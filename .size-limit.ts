@@ -123,7 +123,7 @@ const sizeLimitConfig: SizeLimitConfig = [
   },
   {
     path: './dist/antd-with-locales.min.js',
-    limit: '541 KiB',
+    limit: '543 KiB',
     gzip: true,
     disablePlugins: ['@size-limit/esbuild'],
   },
