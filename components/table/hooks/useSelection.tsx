@@ -212,9 +212,9 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
       return { keyEntities: null };
     }
     let convertData = data;
-    if (preserveSelectedRowKeys) {
-      // use flattedData keys
-      const keysSet = new Set(flattedData.map(getRowKey));
+    if (preserveSelectedRowKeys && preserveRecordsRef.current.size) {
+      // Cached records should only fill gaps in the full tree, including off-page rows.
+      const keysSet = new Set(flattenData(childrenColumnName, data).map(getRowKey));
       // remove preserveRecords that duplicate data
       const preserveRecords = Array.from(preserveRecordsRef.current).reduce<RecordType[]>(
         (total, [key, value]) => (keysSet.has(key) ? total : total.concat(value)),
@@ -226,7 +226,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
       externalGetKey: getRowKey as any,
       childrenPropName: childrenColumnName,
     });
-  }, [data, getRowKey, checkStrictly, childrenColumnName, preserveSelectedRowKeys, flattedData]);
+  }, [data, getRowKey, checkStrictly, childrenColumnName, preserveSelectedRowKeys]);
 
   // Get all checkbox props
   const checkboxPropsMap = useMemo(() => {
