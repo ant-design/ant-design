@@ -93,7 +93,7 @@ const CheckboxGroup = React.forwardRef(
 
     const [value, setValue] = useControlledState<T[]>(defaultValue || [], restProps.value);
     const mergedValue = value || [];
-    const [registeredValues, setRegisteredValues] = React.useState<T[]>([]);
+    const registeredValues = React.useRef(new Map<T, number>());
 
     const memoizedOptions = React.useMemo(() => {
       return options
@@ -109,11 +109,16 @@ const CheckboxGroup = React.forwardRef(
     }, [options]);
 
     const cancelValue = (val: T) => {
-      setRegisteredValues((prevValues) => prevValues.filter((v) => v !== val));
+      const count = registeredValues.current.get(val) ?? 0;
+      if (count > 1) {
+        registeredValues.current.set(val, count - 1);
+      } else {
+        registeredValues.current.delete(val);
+      }
     };
 
     const registerValue: CheckboxGroupContext<T>['registerValue'] = (val) => {
-      setRegisteredValues((prevValues) => [...prevValues, val]);
+      registeredValues.current.set(val, (registeredValues.current.get(val) ?? 0) + 1);
     };
 
     const toggleOption: CheckboxGroupContext<T>['toggleOption'] = (option) => {
@@ -127,7 +132,7 @@ const CheckboxGroup = React.forwardRef(
       setValue(newValue);
       onChange?.(
         newValue
-          .filter((val) => registeredValues.includes(val))
+          .filter((val) => registeredValues.current.has(val))
           .sort((a, b) => {
             const indexA = memoizedOptions.findIndex((opt) => opt.value === a);
             const indexB = memoizedOptions.findIndex((opt) => opt.value === b);
