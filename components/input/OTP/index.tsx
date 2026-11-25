@@ -220,16 +220,17 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const internalFormatter = (txt: string) => (formatter ? formatter(txt) : txt);
 
   // ======================== Values ========================
+  const formattedControlledValue = value === undefined ? undefined : internalFormatter(value ?? '');
   const [getValueCells, setValueCells] = useSyncState<string[]>(
-    strToArr(internalFormatter(defaultValue || '')),
+    strToArr(formattedControlledValue ?? internalFormatter(defaultValue || '')),
   );
   const valueCells = getValueCells();
 
   React.useEffect(() => {
-    if (value !== undefined) {
-      setValueCells(strToArr(value));
+    if (formattedControlledValue !== undefined) {
+      setValueCells(strToArr(formattedControlledValue));
     }
-  }, [value]);
+  }, [formattedControlledValue]);
 
   const triggerValueCellsChange = useEvent((nextValueCells: string[]) => {
     const prevCells = getValueCells();

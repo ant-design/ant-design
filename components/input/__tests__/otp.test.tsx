@@ -1,4 +1,5 @@
 import React from 'react';
+import { renderToString } from 'react-dom/server';
 
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -303,6 +304,31 @@ describe('Input.OTP', () => {
 
     // We do not trigger change if empty. It's safe to modify this logic if needed.
     expect(onChange).not.toHaveBeenCalled();
+  });
+
+  it('formats external OTP values on mount and update without emitting input events', () => {
+    const onChange = jest.fn();
+    const onInput = jest.fn();
+    const format = (text: string) => text.replace(/\D/g, '');
+    const input = (value: string) => (
+      <OTP value={value} formatter={format} onChange={onChange} onInput={onInput} />
+    );
+    const { container, rerender } = render(input('12-3456'));
+    expect(getText(container)).toBe('123456');
+    rerender(input('98 7654'));
+    expect(getText(container)).toBe('987654');
+    rerender(input(''));
+    expect(getText(container)).toBe('');
+    expect(onChange).not.toHaveBeenCalled();
+    expect(onInput).not.toHaveBeenCalled();
+  });
+
+  it('renders the formatted controlled OTP before hydration', () => {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = renderToString(
+      <OTP value="ab-cd" length={4} formatter={(text) => text.replace('-', '').toUpperCase()} />,
+    );
+    expect(getText(wrapper)).toBe('ABCD');
   });
 
   it('controlled', () => {
