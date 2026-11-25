@@ -1,7 +1,6 @@
 import * as React from 'react';
 import type { FormInstance as RcFormInstance } from '@rc-component/form';
 import { useForm as useRcForm } from '@rc-component/form';
-import { getDOM } from '@rc-component/util';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import { isFunction } from '../../_util/is';
@@ -26,12 +25,18 @@ export function toNamePathStr(name: NamePath) {
   return namePath.join('_');
 }
 
+// Not `instanceof HTMLElement`, which fails for nodes from another realm (e.g. an iframe)
+const isElement = (node: any): node is HTMLElement =>
+  !!node && typeof node === 'object' && node.nodeType === Node.ELEMENT_NODE;
+
 function getFieldDOMNode(name: NamePath, wrapForm: FormInstance) {
   const field = wrapForm.getFieldInstance(name);
-  const fieldDom = getDOM(field);
 
-  if (fieldDom) {
-    return fieldDom;
+  if (isElement(field?.nativeElement)) {
+    return field.nativeElement;
+  }
+  if (isElement(field)) {
+    return field;
   }
 
   const fieldId = getFieldId(toArray(name), wrapForm.__INTERNAL__.name);
@@ -63,11 +68,25 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
           const node = getFieldDOMNode(name, wrapForm);
 
           if (node) {
-            scrollIntoView(node, {
-              scrollMode: 'if-needed',
-              block: 'nearest',
-              ...restOpt,
-            } as any);
+            const { behavior, block = 'nearest', inline } = restOpt;
+            const nodeWindow = node.ownerDocument?.defaultView;
+
+            // `scroll-into-view-if-needed` measures against the global `window`, so it scrolls
+            // to the wrong place when the field is rendered into an iframe (e.g. via portal).
+            // https://github.com/ant-design/ant-design/issues/30048
+            if (nodeWindow && nodeWindow !== window) {
+              node.scrollIntoView({
+                block,
+                inline,
+                behavior: isFunction(behavior) ? undefined : behavior,
+              });
+            } else {
+              scrollIntoView(node, {
+                scrollMode: 'if-needed',
+                block: 'nearest',
+                ...restOpt,
+              } as any);
+            }
 
             // Focus if scroll success
             if (focus) {
