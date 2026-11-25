@@ -6,6 +6,8 @@ import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import useStyle from './style';
+import PresetCmp from './style/presetCmp';
+import StatusCmp from './style/statusCmp';
 import useColor from './hooks/useColor';
 
 export interface CheckableTagProps {
@@ -125,6 +127,8 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     >
       {icon}
       <span>{children}</span>
+      {showColor && isPreset && <PresetCmp key="preset" prefixCls={prefixCls} />}
+      {showColor && isStatus && <StatusCmp key="status" prefixCls={prefixCls} />}
     </span>
   );
 });
