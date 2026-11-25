@@ -240,15 +240,11 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
     </div>
   );
 
-  let splitDataSource = [...dataSource];
-  if (pagination) {
-    if (dataSource.length > (paginationProps.current - 1) * paginationProps.pageSize) {
-      splitDataSource = [...dataSource].splice(
-        (paginationProps.current - 1) * paginationProps.pageSize,
-        paginationProps.pageSize,
-      );
-    }
-  }
+  const pageStart = (paginationProps.current - 1) * paginationProps.pageSize;
+  const splitDataSource =
+    pagination && dataSource.length > pageStart
+      ? dataSource.slice(pageStart, pageStart + paginationProps.pageSize)
+      : dataSource;
 
   const needResponsive = Object.keys(grid || {}).some((key) =>
     responsiveArray.includes(key as Breakpoint),

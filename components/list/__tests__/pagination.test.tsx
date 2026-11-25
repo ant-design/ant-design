@@ -70,6 +70,35 @@ describe('List.pagination', () => {
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Jerry']);
   });
 
+  it('reads only items on the requested page of a large data source', () => {
+    const reads = new Set<number>();
+    const dataSource = Array.from({ length: 1000 }, (_, key) => ({ key, name: String(key) }));
+    const tracked = new Proxy(dataSource, {
+      get(target, property, receiver) {
+        if (typeof property === 'string' && /^\d+$/.test(property)) {
+          reads.add(Number(property));
+        }
+        return Reflect.get(target, property, receiver);
+      },
+    });
+
+    const { container } = render(
+      createList({ dataSource: tracked, pagination: { current: 50, pageSize: 2 } }),
+    );
+    expect(renderedNames(container)).toEqual(['98', '99']);
+    expect(Array.from(reads)).toEqual([98, 99]);
+  });
+
+  it('shows a server-provided page with a nonzero offset', () => {
+    const { container } = render(
+      createList({
+        dataSource: data.slice(0, 2),
+        pagination: { current: 50, pageSize: 2, total: 1000 },
+      }),
+    );
+    expect(renderedNames(container)).toEqual(['Jack', 'Lucy']);
+  });
+
   it('paginates a readonly data source', () => {
     const readonlyData: readonly DataSourceItem[] = Object.freeze([
       { key: 0, name: 'Jack' },
