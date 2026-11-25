@@ -245,6 +245,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     baseChildren: React.ReactNode,
     fieldId?: string,
     isRequired?: boolean,
+    htmlFor = fieldId,
   ): React.ReactNode {
     if (noStyle && !hidden) {
       return (
@@ -266,6 +267,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     return (
       <ItemHolder
         key="row"
+        htmlFor={htmlFor}
         {...props}
         className={clsx(className, cssVarCls, rootCls, hashId)}
         prefixCls={prefixCls}
@@ -334,6 +336,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         };
 
         let childNode: React.ReactNode = null;
+        let controlId: string | undefined;
 
         warning(
           !(shouldUpdate && dependencies),
@@ -379,6 +382,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           if (!childProps.id) {
             childProps.id = fieldId;
           }
+          controlId = childProps.id;
 
           const hasExtra = isReactRenderable(props.extra);
 
@@ -445,7 +449,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           childNode = mergedChildren as React.ReactNode;
         }
 
-        return renderLayout(childNode, fieldId, isRequired);
+        return renderLayout(childNode, fieldId, isRequired, controlId);
       }}
     </Field>
   );

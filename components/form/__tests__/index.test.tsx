@@ -1338,6 +1338,30 @@ describe('Form', () => {
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
+  it('labels a named control with an explicit id and keeps its descriptions associated', () => {
+    const { container, getByLabelText, rerender } = render(
+      <Form>
+        <Form.Item name="account" label="Account" extra="Account identifier">
+          <Input id="custom-account" />
+        </Form.Item>
+      </Form>,
+    );
+    const input = container.querySelector('input')!;
+    expect(getByLabelText('Account')).toBe(input);
+    expect(document.getElementById(input.getAttribute('aria-describedby')!)).toHaveTextContent(
+      'Account identifier',
+    );
+
+    rerender(
+      <Form>
+        <Form.Item name="account" label="Account" htmlFor="">
+          <Input id="custom-account" />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('label')).toHaveAttribute('for', '');
+  });
+
   it('should customize id when pass with id', () => {
     const { container } = render(
       <Form>
