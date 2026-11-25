@@ -176,6 +176,30 @@ describe('Progress', () => {
     errorSpy.mockRestore();
   });
 
+  it.each(['circle', 'dashboard'] as const)(
+    'counts completed steps using the total percent for %s',
+    (type) => {
+      const renderProgress = (percent: number, success: number) => (
+        <Progress
+          type={type}
+          steps={10}
+          percent={percent}
+          success={{ percent: success }}
+          strokeColor="blue"
+          railColor="gray"
+        />
+      );
+      const { container, rerender } = render(renderProgress(70, 40));
+      const filled = () =>
+        Array.from(container.querySelectorAll('circle')).filter(
+          (step) => step.style.stroke === 'blue',
+        );
+      expect(filled()).toHaveLength(7);
+      rerender(renderProgress(100, 100));
+      expect(filled()).toHaveLength(10);
+    },
+  );
+
   it('should support steps', () => {
     const { container: wrapper } = render(<Progress steps={3} />);
     expect(wrapper.firstChild).toMatchSnapshot();

@@ -13,7 +13,7 @@ import type {
   ProgressProps,
   ProgressSemanticAllType,
 } from './progress';
-import { getPercentage, getSize, getStrokeColor } from './utils';
+import { getPercentage, getSize, getStrokeColor, validProgress } from './utils';
 
 const CIRCLE_MIN_STROKE_WIDTH = 3;
 
@@ -73,7 +73,6 @@ const Circle: React.FC<CircleProps> = (props) => {
     return undefined;
   }, [gapDegree, type]);
 
-  const percentArray = getPercentage(props);
   const gapPos: GapPosition | undefined = React.useMemo(() => {
     const mergedPlacement =
       (gapPlacement ?? gapPosition) || (type === 'dashboard' && 'bottom') || undefined;
@@ -101,7 +100,7 @@ const Circle: React.FC<CircleProps> = (props) => {
   const circleContent = (
     <RCCircle
       steps={steps}
-      percent={steps ? percentArray[1] : percentArray}
+      percent={steps ? validProgress(props.percent) : getPercentage(props)}
       strokeWidth={strokeWidth}
       railWidth={strokeWidth}
       strokeColor={steps ? strokeColor[1] : strokeColor}
