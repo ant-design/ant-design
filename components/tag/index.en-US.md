@@ -57,6 +57,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | checked | Checked status of Tag | boolean | false |  |
+| color | Color of the Tag. Same preset / status / custom colors as `Tag` `color`. Only takes effect when `checked` is `true` | string | - |  |
 | icon | Set the icon of tag | ReactNode | - | 5.27.0 |
 | onChange | Callback executed when Tag is checked/unchecked | (checked) => void | - |  |
 

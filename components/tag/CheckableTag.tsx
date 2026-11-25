@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
+import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import useStyle from './style';
+import useColor from './hooks/useColor';
 
 export interface CheckableTagProps {
   prefixCls?: string;
@@ -16,6 +19,11 @@ export interface CheckableTagProps {
    */
   checked: boolean;
   children?: React.ReactNode;
+  /**
+   * Color of the Tag. Same preset / status / custom colors as `Tag` `color`.
+   * Only takes effect when `checked` is `true` and the tag is not disabled.
+   */
+  color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
   /**
    * @since 5.27.0
    */
@@ -33,6 +41,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     className,
     checked,
     children,
+    color,
     icon,
     onChange,
     onClick,
@@ -44,6 +53,19 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
 
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
+
+  // ====================== Colors ======================
+  // Reuse Tag's color resolution. Checked state renders as `solid`,
+  // so preset / status colors pick up the `.ant-tag-{color}.ant-tag-solid`
+  // styles and custom colors get an inline background.
+  const [, mergedColor, isPreset, isStatus, customTagStyle] = useColor({
+    color,
+    variant: 'solid',
+  });
+  const isInternalColor = isPreset || isStatus;
+  // Color only shows on a checked, enabled tag: unchecked stays transparent
+  // and disabled keeps its existing disabled look.
+  const showColor = color !== undefined && checked && !mergedDisabled;
 
   const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     if (mergedDisabled) {
@@ -79,6 +101,8 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     {
       [`${prefixCls}-checkable-checked`]: checked,
       [`${prefixCls}-checkable-disabled`]: mergedDisabled,
+      [`${prefixCls}-solid`]: showColor && isInternalColor,
+      [`${prefixCls}-${mergedColor}`]: showColor && isInternalColor,
     },
     tag?.className,
     className,
@@ -94,7 +118,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
       aria-checked={checked}
       aria-disabled={mergedDisabled || undefined}
       tabIndex={mergedDisabled ? -1 : 0}
-      style={{ ...tag?.style, ...style }}
+      style={{ ...tag?.style, ...(showColor ? customTagStyle : {}), ...style }}
       className={cls}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
