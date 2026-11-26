@@ -27,6 +27,7 @@ demo:
 <code src="./demo/status.tsx">Status Tag</code>
 <code src="./demo/customize.tsx" debug>Customize close</code>
 <code src="./demo/draggable.tsx">Draggable Tag</code>
+<code src="./demo/dark.tsx" debug>Dark Mode</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/disabled.tsx" debug>Disabled</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
