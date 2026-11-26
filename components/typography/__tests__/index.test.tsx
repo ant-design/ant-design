@@ -20,6 +20,10 @@ const { resetWarned } = warning;
 jest.mock('../../_util/copy');
 
 describe('Typography', () => {
+  beforeEach(() => {
+    jest.mocked(copy).mockReset().mockResolvedValue(true);
+  });
+
   mountTest(Paragraph);
   mountTest(Base);
   mountTest(Title);
