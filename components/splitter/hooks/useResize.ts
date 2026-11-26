@@ -159,8 +159,9 @@ export default function useResize(
         currentSizes[targetIndex] = targetCacheCollapsedSize;
         currentSizes[currentIndex] = currentCacheCollapsedSize;
       } else {
-        currentSizes[currentIndex] -= halfOffset;
-        currentSizes[targetIndex] += halfOffset;
+        const nextCurrentSize = Math.min(limitEnd, Math.max(limitStart, totalSize - halfOffset));
+        currentSizes[currentIndex] = nextCurrentSize;
+        currentSizes[targetIndex] = totalSize - nextCurrentSize;
       }
     }
 
