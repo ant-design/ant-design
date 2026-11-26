@@ -18,6 +18,46 @@ describe('notification.hooks', () => {
     jest.useRealTimers();
   });
 
+  it.each([null, false])('uses closeIcon=%s from the context around the holder', (closeIcon) => {
+    let api: ReturnType<typeof notification.useNotification>[0];
+    const Demo = ({ closeIcon: icon }: { closeIcon: React.ReactNode }) => {
+      const [instance, holder] = notification.useNotification();
+      api = instance;
+      return <ConfigProvider notification={{ closeIcon: icon }}>{holder}</ConfigProvider>;
+    };
+    const { rerender } = render(<Demo closeIcon={closeIcon} />);
+    act(() => {
+      api.open({ key: 'first', title: 'Persistent notification', duration: 0 });
+    });
+    expect(document.querySelector('.ant-notification-notice-close')).toBeNull();
+
+    act(() => {
+      api.open({
+        key: 'first',
+        title: 'Closable notification',
+        duration: 0,
+        closeIcon: <span>Notice close icon</span>,
+      });
+    });
+    expect(document.querySelector('.ant-notification-notice-close')).toHaveTextContent(
+      'Notice close icon',
+    );
+
+    rerender(<Demo closeIcon={<span>Context close icon</span>} />);
+    act(() => {
+      api.open({ key: 'first', title: 'Updated configuration', duration: 0 });
+    });
+    expect(document.querySelector('.ant-notification-notice-close')).toHaveTextContent(
+      'Context close icon',
+    );
+
+    rerender(<Demo closeIcon={closeIcon} />);
+    act(() => {
+      api.open({ key: 'first', title: 'Updated persistent configuration', duration: 0 });
+    });
+    expect(document.querySelector('.ant-notification-notice-close')).toBeNull();
+  });
+
   it('should work', () => {
     const Context = React.createContext('light');
 
