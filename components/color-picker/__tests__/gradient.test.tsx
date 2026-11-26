@@ -102,6 +102,42 @@ describe('ColorPicker.gradient', () => {
     );
   });
 
+  it.each([0, 0.5])('should preserve alpha %s when switching to gradient', (alpha) => {
+    const onChange = jest.fn();
+    const onChangeComplete = jest.fn();
+    const { container } = render(
+      <ColorPicker
+        mode={['single', 'gradient']}
+        defaultValue={`rgba(18,52,86,${alpha})`}
+        open
+        onChange={onChange}
+        onChangeComplete={onChangeComplete}
+      />,
+    );
+
+    fireEvent.click(container.querySelectorAll('.ant-segmented-item-input')[1]);
+
+    const css = `linear-gradient(90deg, rgba(18,52,86,${alpha}) 0%, rgba(18,52,86,${alpha}) 100%)`;
+    expect(onChange).toHaveBeenCalledWith(expect.anything(), css);
+    expect(onChangeComplete.mock.calls[0][0].toCssString()).toBe(css);
+    expect(
+      container.querySelector<HTMLInputElement>('.ant-color-picker-alpha-input input')?.value,
+    ).toBe(`${alpha * 100}%`);
+  });
+
+  it('should initialize an opaque gradient from a cleared color', () => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <ColorPicker mode={['single', 'gradient']} defaultValue={null} open onChange={onChange} />,
+    );
+
+    fireEvent.click(container.querySelectorAll('.ant-segmented-item-input')[1]);
+
+    const color = onChange.mock.calls[0][0] as AggregationColor;
+    expect(color.isGradient()).toBe(true);
+    expect(color.getColors().map((stop) => stop.color.toRgb().a)).toEqual([1, 1]);
+  });
+
   it('change color position', async () => {
     const onChange = jest.fn();
 
@@ -376,9 +412,7 @@ describe('ColorPicker.gradient', () => {
       document.querySelector('.ant-color-picker-presets .ant-color-picker-color-block-inner')!,
     );
     const color = onChange.mock.calls[0][0];
-    expect(color.toCssString()).toBe(
-      'linear-gradient(90deg, rgb(255,0,0) 0%, rgb(0,0,255) 100%)',
-    );
+    expect(color.toCssString()).toBe('linear-gradient(90deg, rgb(255,0,0) 0%, rgb(0,0,255) 100%)');
     expect(document.querySelector('.ant-color-picker-presets-color-checked')).toBeTruthy();
   });
 });
