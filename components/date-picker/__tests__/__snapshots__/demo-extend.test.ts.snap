@@ -95688,7 +95688,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Picker Type"
-          autocomplete="new-password"
+          autocomplete="off"
           class="ant-select-input"
           id="test-id"
           readonly=""
