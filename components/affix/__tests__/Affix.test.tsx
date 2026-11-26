@@ -4,7 +4,7 @@ import Affix from '..';
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
+import { fireEvent, render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 
@@ -131,6 +131,60 @@ describe('Affix Render', () => {
   });
 
   describe('updatePosition when target changed', () => {
+    it.each([false, true])(
+      'should follow ConfigProvider target changes with explicit target=%s',
+      async (explicitTarget) => {
+        const firstTarget = document.createElement('div');
+        const secondTarget = document.createElement('div');
+        firstTarget.getBoundingClientRect = () => ({ top: 100, bottom: 400 }) as DOMRect;
+        secondTarget.getBoundingClientRect = () => ({ top: 200, bottom: 500 }) as DOMRect;
+        const getFirstTarget = () => firstTarget;
+        const getSecondTarget = () => secondTarget;
+        const updateCalled = jest.fn();
+        const demo = (getTargetContainer: () => HTMLElement) => (
+          <ConfigProvider getTargetContainer={getTargetContainer}>
+            <Affix
+              className="context-placeholder"
+              target={explicitTarget ? getFirstTarget : undefined}
+              onTestUpdatePosition={updateCalled}
+            >
+              <Button>Fixed</Button>
+            </Affix>
+          </ConfigProvider>
+        );
+        const { container, rerender, unmount } = render(demo(getFirstTarget));
+        let placeholderTop = 50;
+        container.querySelector<HTMLElement>('.context-placeholder')!.getBoundingClientRect = () =>
+          ({ top: placeholderTop, bottom: placeholderTop + 20, width: 100, height: 20 }) as DOMRect;
+        await waitFakeTimer();
+        expect(container.querySelector('.ant-affix')).toHaveStyle({ top: '100px' });
+
+        rerender(demo(getSecondTarget));
+        await waitFakeTimer();
+        expect(container.querySelector('.ant-affix')).toHaveStyle({
+          top: explicitTarget ? '100px' : '200px',
+        });
+
+        const activeTarget = explicitTarget ? firstTarget : secondTarget;
+        const inactiveTarget = explicitTarget ? secondTarget : firstTarget;
+        placeholderTop = 300;
+        updateCalled.mockClear();
+        fireEvent.scroll(inactiveTarget);
+        await waitFakeTimer();
+        expect(updateCalled).not.toHaveBeenCalled();
+
+        fireEvent.scroll(activeTarget);
+        await waitFakeTimer();
+        expect(container.querySelector('.ant-affix')).toBeNull();
+
+        unmount();
+        updateCalled.mockClear();
+        fireEvent.scroll(activeTarget);
+        await waitFakeTimer();
+        expect(updateCalled).not.toHaveBeenCalled();
+      },
+    );
+
     it('function change', () => {
       document.body.innerHTML = `<div id="mounter" />`;
       const target = document.getElementById('mounter');
