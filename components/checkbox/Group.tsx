@@ -181,37 +181,25 @@ const CheckboxGroup = React.forwardRef(
           ))
         : children;
 
-    const memoizedContext = React.useMemo<CheckboxGroupContext<any>>(
-      () => ({
-        toggleOption,
-        value: mergedValue,
-        disabled: restProps.disabled,
-        name: restProps.name,
-        classNames: {
-          root: mergedClassNames.item,
-          icon: mergedClassNames.itemIcon,
-          label: mergedClassNames.itemLabel,
-        },
-        styles: {
-          root: mergedStyles.item,
-          icon: mergedStyles.itemIcon,
-          label: mergedStyles.itemLabel,
-        },
-        // https://github.com/ant-design/ant-design/issues/16376
-        registerValue,
-        cancelValue,
-      }),
-      [
-        toggleOption,
-        mergedValue,
-        restProps.disabled,
-        restProps.name,
-        mergedClassNames,
-        mergedStyles,
-        registerValue,
-        cancelValue,
-      ],
-    );
+    const contextValue: CheckboxGroupContext<T> = {
+      toggleOption,
+      value: mergedValue,
+      disabled: restProps.disabled,
+      name: restProps.name,
+      classNames: {
+        root: mergedClassNames.item,
+        icon: mergedClassNames.itemIcon,
+        label: mergedClassNames.itemLabel,
+      },
+      styles: {
+        root: mergedStyles.item,
+        icon: mergedStyles.itemIcon,
+        label: mergedStyles.itemLabel,
+      },
+      // https://github.com/ant-design/ant-design/issues/16376
+      registerValue,
+      cancelValue,
+    };
 
     const classString = clsx(
       groupPrefixCls,
@@ -228,7 +216,7 @@ const CheckboxGroup = React.forwardRef(
 
     return (
       <div className={classString} style={mergedStyles.root} role={role} {...domProps} ref={ref}>
-        <GroupContext.Provider value={memoizedContext}>{childrenNode}</GroupContext.Provider>
+        <GroupContext.Provider value={contextValue}>{childrenNode}</GroupContext.Provider>
       </div>
     );
   },
