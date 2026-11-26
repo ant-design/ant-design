@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useContext, useMemo } from 'react';
 import type { GenerateConfig } from '@rc-component/picker/generate';
 import type { Locale } from '@rc-component/picker/interface';
+import { getShortMonths } from '@rc-component/picker/locale/util';
 import { clsx } from 'clsx';
 
 import { FormItemInputContext } from '../form/context';
@@ -96,7 +97,7 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
     }
   }
 
-  const months = locale.shortMonths || generateConfig.locale.getShortMonths!(locale.locale);
+  const months = getShortMonths(locale, generateConfig);
   const options: { label: string; value: number }[] = [];
   for (let index = start; index <= end; index += 1) {
     options.push({
