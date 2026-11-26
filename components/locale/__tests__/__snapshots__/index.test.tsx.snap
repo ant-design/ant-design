@@ -221192,7 +221192,7 @@ exports[`Locale Provider should display the text as ko 1`] = `
               class="ant-input-suffix"
             >
               <button
-                aria-label="Clear"
+                aria-label="지우기"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -221426,7 +221426,7 @@ exports[`Locale Provider should display the text as ko 1`] = `
               class="ant-input-suffix"
             >
               <button
-                aria-label="Clear"
+                aria-label="지우기"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
