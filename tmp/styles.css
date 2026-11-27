@@ -1,0 +1,941 @@
+/* ============================================================
+   Tokens
+   ============================================================ */
+
+:root {
+  --bg: #fdf6ef;
+  --bg-glow: #ffe8d2;
+  --surface: #ffffff;
+  --text: #2f2621;
+  --muted: #9a8878;
+  --border: #efe2d4;
+  --accent: #e07a43;
+  --accent-soft: #fbe6d8;
+  --shadow: 0 1px 2px rgb(70 45 25 / 0.06), 0 12px 32px rgb(70 45 25 / 0.08);
+
+  /* Cat palette — every path in Cat.tsx recolors from these four */
+  --fur: #f2a65a;
+  --fur-shade: #e08a3c;
+  --ear-inner: #f7c6b0;
+  --ink: #3d2b1d;
+  --nose: #e8927c;
+  --blush: #f4a58c;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #191410;
+    --bg-glow: #2a1f16;
+    --surface: #241d17;
+    --text: #f2e8dd;
+    --muted: #9b8877;
+    --border: #362b22;
+    --accent: #f0975f;
+    --accent-soft: #3a2a1e;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 32px rgb(0 0 0 / 0.35);
+
+    --fur: #e09850;
+    --fur-shade: #c47c37;
+    --ear-inner: #b8836e;
+    --ink: #2a1d13;
+    --nose: #d97f6a;
+    --blush: #c9765f;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+  background-image: radial-gradient(
+    ellipse 70% 45% at 50% 0%,
+    var(--bg-glow),
+    transparent 70%
+  );
+  color: var(--text);
+  font-family: ui-rounded, 'SF Pro Rounded', 'Segoe UI', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   Layout
+   ============================================================ */
+
+.app {
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.app__header {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.125rem;
+  box-shadow: var(--shadow);
+  padding: 0.5rem;
+}
+
+.card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0.875rem 0.5rem;
+  border-top: 1px solid var(--border);
+  margin-top: 0.25rem;
+}
+
+.card__count {
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.card__clear {
+  border: 0;
+  background: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font: inherit;
+  font-size: 0.8125rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.card__clear:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* ============================================================
+   Cat + reaction
+   ============================================================ */
+
+.reaction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reaction__stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.cat {
+  width: clamp(9rem, 38vw, 12rem);
+  height: auto;
+  overflow: visible;
+}
+
+.cat__body,
+.cat__face,
+.cat__ear {
+  fill: var(--fur);
+}
+
+.cat__paw {
+  fill: var(--fur-shade);
+}
+
+.cat__ear-inner {
+  fill: var(--ear-inner);
+}
+
+.cat__tail {
+  stroke: var(--fur-shade);
+}
+
+.cat__eye {
+  fill: var(--ink);
+}
+
+.cat__glint {
+  fill: #fff;
+  opacity: 0.9;
+}
+
+.cat__eyes--happy path,
+.cat__mouth path {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 4.5;
+  stroke-linecap: round;
+}
+
+.cat__nose {
+  fill: var(--nose);
+}
+
+.cat__whiskers path {
+  stroke: var(--fur-shade);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  opacity: 0.75;
+}
+
+.cat__blush {
+  fill: var(--blush);
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.cat:not(.cat--idle) .cat__blush {
+  opacity: 0.45;
+}
+
+/* --- Motion -------------------------------------------------
+   SVG children need `transform-box: fill-box` for percentage
+   transform-origins to resolve against their own bounding box
+   instead of the whole <svg> viewport. Without it every rotation
+   pivots around the top-left of the canvas.
+   ------------------------------------------------------------ */
+
+.cat__tail,
+.cat__ear,
+.cat__eyes,
+.cat__head,
+.cat__all {
+  transform-box: fill-box;
+}
+
+.cat__tail {
+  transform-origin: 8% 92%;
+  animation: tail-sway 3.6s ease-in-out infinite;
+}
+
+.cat__eyes--open {
+  transform-origin: center;
+  animation: blink 4.8s ease-in-out infinite;
+}
+
+/* Celebrating */
+
+.cat:not(.cat--idle) .cat__all {
+  transform-origin: center bottom;
+  animation: hop 720ms cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.cat:not(.cat--idle) .cat__head {
+  transform-origin: center bottom;
+  animation: head-tilt 900ms ease-in-out;
+}
+
+.cat:not(.cat--idle) .cat__tail {
+  animation: tail-wag 260ms ease-in-out 5;
+}
+
+.cat:not(.cat--idle) .cat__ear--l {
+  transform-origin: 90% 100%;
+  animation: ear-perk-l 700ms ease-out;
+}
+
+.cat:not(.cat--idle) .cat__ear--r {
+  transform-origin: 10% 100%;
+  animation: ear-perk-r 700ms ease-out;
+}
+
+/* Ecstatic turns everything up a notch */
+
+.cat--ecstatic .cat__all {
+  animation-duration: 900ms;
+  animation-iteration-count: 2;
+}
+
+.cat--ecstatic .cat__tail {
+  animation: tail-wag 160ms ease-in-out 10;
+}
+
+@keyframes tail-sway {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(7deg);
+  }
+}
+
+@keyframes tail-wag {
+  0%,
+  100% {
+    transform: rotate(-16deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes blink {
+  0%,
+  90%,
+  100% {
+    transform: scaleY(1);
+  }
+  94% {
+    transform: scaleY(0.08);
+  }
+}
+
+@keyframes hop {
+  0% {
+    transform: translateY(0) scale(1, 1);
+  }
+  20% {
+    transform: translateY(0) scale(1.06, 0.94);
+  }
+  50% {
+    transform: translateY(-16px) scale(0.97, 1.04);
+  }
+  80% {
+    transform: translateY(0) scale(1.04, 0.96);
+  }
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+}
+
+@keyframes head-tilt {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(-7deg);
+  }
+  70% {
+    transform: rotate(4deg);
+  }
+}
+
+@keyframes ear-perk-l {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(-12deg) translateY(-3px);
+  }
+}
+
+@keyframes ear-perk-r {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(12deg) translateY(-3px);
+  }
+}
+
+/* --- Particles (ecstatic only) --- */
+
+.reaction__particle {
+  /* Spread the six glyphs symmetrically about the centre: i runs 0..5, so
+     (i - 2.5) gives -2.5..2.5. The extra -50% cancels the element's own width
+     so each one is centred on its slot rather than hanging off to the right. */
+  --x: calc((var(--i) - 2.5) * 2.6rem - 50%);
+  position: absolute;
+  left: 50%;
+  bottom: 42%;
+  z-index: 2;
+  font-size: 1.25rem;
+  pointer-events: none;
+  opacity: 0;
+  animation: particle-float 1.3s ease-out forwards;
+  animation-delay: calc(var(--i) * 80ms);
+}
+
+@keyframes particle-float {
+  0% {
+    opacity: 0;
+    transform: translate(var(--x), 0.75rem) scale(0.4) rotate(0deg);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--x), -5.5rem) scale(1.15) rotate(22deg);
+  }
+}
+
+/* --- Praise bubble --- */
+
+.reaction__praise {
+  min-height: 2.75rem;
+  margin: 0.25rem 0 1.5rem;
+  padding: 0.5rem 1rem;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 999px;
+  opacity: 0;
+  transform: translateY(6px) scale(0.94);
+  transition:
+    opacity 200ms ease,
+    transform 260ms cubic-bezier(0.34, 1.5, 0.64, 1);
+}
+
+.reaction__praise.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ============================================================
+   Input row
+   ============================================================ */
+
+.input-row {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.input-row__field {
+  flex: 1;
+  min-width: 0;
+  padding: 0.6875rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9375rem;
+}
+
+.input-row__field::placeholder {
+  color: var(--muted);
+}
+
+.input-row__field:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.input-row__add {
+  padding: 0.6875rem 1.125rem;
+  border: 0;
+  border-radius: 0.75rem;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    opacity 150ms ease,
+    transform 120ms ease;
+}
+
+.input-row__add:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.input-row__add:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ============================================================
+   Todo list
+   ============================================================ */
+
+.empty {
+  margin: 0;
+  padding: 1.75rem 1.25rem 2rem;
+  text-align: center;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.125rem 0.5rem 0.125rem 0;
+  border-radius: 0.75rem;
+}
+
+.todo:hover {
+  background: var(--bg);
+}
+
+.todo__label {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  cursor: pointer;
+}
+
+.todo__checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.todo__box {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.375rem;
+  height: 1.375rem;
+  border: 2px solid var(--border);
+  border-radius: 0.5rem;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.todo__checkbox:focus-visible + .todo__box {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.todo__checkbox:checked + .todo__box {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.todo__tick {
+  width: 0.875rem;
+  height: 0.875rem;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 18;
+  stroke-dashoffset: 18;
+}
+
+.todo__checkbox:checked + .todo__box .todo__tick {
+  transition: stroke-dashoffset 240ms ease 60ms;
+  stroke-dashoffset: 0;
+}
+
+.todo__text {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  transition:
+    color 200ms ease,
+    opacity 200ms ease;
+}
+
+.todo--done .todo__text {
+  color: var(--muted);
+  opacity: 0.7;
+  text-decoration: line-through;
+  text-decoration-color: var(--muted);
+}
+
+.todo__remove {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0.5rem;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.todo__remove svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.todo:hover .todo__remove,
+.todo__remove:focus-visible {
+  opacity: 1;
+}
+
+.todo__remove:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* ============================================================
+   Account bar
+   ============================================================ */
+
+.account {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0 0.25rem 0.5rem;
+  font-size: 0.8125rem;
+}
+
+.account__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4375rem;
+  min-width: 0;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account__dot {
+  flex: none;
+  width: 0.4375rem;
+  height: 0.4375rem;
+  border-radius: 50%;
+  background: #4ca97a;
+}
+
+.account__action {
+  flex: none;
+  border: 0;
+  background: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.account__action:hover {
+  background: var(--accent-soft);
+}
+
+/* ============================================================
+   Banners
+   ============================================================ */
+
+.banner {
+  margin: 0 0 0.75rem;
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.75rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.banner--error {
+  color: #b3452b;
+  background: #fbe1d8;
+  border: 1px solid #f3c7b8;
+}
+
+@media (prefers-color-scheme: dark) {
+  .banner--error {
+    color: #f6b6a0;
+    background: #3a201a;
+    border-color: #563026;
+  }
+}
+
+.import {
+  margin-bottom: 0.75rem;
+  padding: 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: 0.875rem;
+  background: var(--accent-soft);
+}
+
+.import__text {
+  margin: 0 0 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.import__error {
+  margin: 0 0 0.625rem;
+  font-size: 0.8125rem;
+  color: #b3452b;
+}
+
+.import__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.import__accept,
+.import__dismiss {
+  padding: 0.4375rem 0.875rem;
+  border-radius: 0.625rem;
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.import__accept {
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+}
+
+.import__dismiss {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+}
+
+.import__accept:disabled,
+.import__dismiss:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* ============================================================
+   Auth dialog
+
+   Rendered with <dialog>.showModal(), which supplies the focus
+   trap, inert background, Escape-to-close, and ::backdrop.
+   ============================================================ */
+
+.auth {
+  width: min(22rem, calc(100vw - 2rem));
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 1.125rem;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.auth::backdrop {
+  background: rgb(40 25 15 / 0.35);
+  backdrop-filter: blur(2px);
+}
+
+.auth__form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.25rem 1.25rem;
+}
+
+.auth__title {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.auth__sub {
+  margin: 0.25rem 0 1.125rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.auth__google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.6875rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth__google svg {
+  width: 1.0625rem;
+  height: 1.0625rem;
+}
+
+.auth__google:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.auth__divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.auth__divider::before,
+.auth__divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.auth__label {
+  margin-bottom: 0.3125rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.auth__field {
+  margin-bottom: 0.875rem;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9375rem;
+}
+
+.auth__field:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.auth__error,
+.auth__notice {
+  margin: 0 0 0.75rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.auth__error {
+  color: #b3452b;
+}
+
+.auth__notice {
+  color: var(--accent);
+}
+
+@media (prefers-color-scheme: dark) {
+  .auth__error {
+    color: #f6b6a0;
+  }
+}
+
+.auth__submit {
+  padding: 0.6875rem;
+  border: 0;
+  border-radius: 0.75rem;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth__submit:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.auth__swap {
+  margin: 0.875rem 0 0;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.auth__swap button {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.auth__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0.5rem;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.auth__close svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.auth__close:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* ============================================================
+   Reduced motion
+
+   Collapse every animation to a cross-fade. The praise text and the
+   cat's happy expression still appear, so the reward survives — only
+   the movement goes away.
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reaction__praise {
+    transform: none;
+    transition: opacity 200ms ease !important;
+  }
+
+  .reaction__particle {
+    display: none;
+  }
+}
