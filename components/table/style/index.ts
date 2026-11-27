@@ -168,6 +168,11 @@ export interface ComponentToken {
    */
   selectionColumnWidth: number | string;
   /**
+   * @desc 滚动条轨道背景色，虚拟表格中用于滑块，默认取 colorSplit
+   * @descEN Background of the scrollbar track, or the thumb in virtual tables. Defaults to colorSplit.
+   */
+  tableScrollBg: string;
+  /**
    * @desc Sticky 模式下滚动条背景色
    * @descEN Background of sticky scrollbar
    */
@@ -235,7 +240,6 @@ export interface TableToken extends FullToken<'Table'> {
   tableScrollThumbSize: number;
   tableScrollThumbBg: string;
   tableScrollThumbBgHover: string;
-  tableScrollBg: string;
 }
 
 const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
@@ -478,6 +482,7 @@ export const prepareComponentToken: GetDefaultToken<'Table'> = (token) => {
     filterDropdownBg: colorBgContainer,
     expandIconBg: colorBgContainer,
     selectionColumnWidth: controlHeight,
+    tableScrollBg: 'initial',
     stickyScrollBarBg: colorTextPlaceholder,
     stickyScrollBarBorderRadius: 100,
     expandIconMarginTop:
@@ -583,7 +588,8 @@ export default genStyleHooks(
       tableScrollThumbSize: 8, // Mac scroll bar size
       tableScrollThumbBg: stickyScrollBarBg,
       tableScrollThumbBgHover: colorTextHeading,
-      tableScrollBg: colorSplit,
+      // Resolve colorSplit on the scrollbar so local CSS variable overrides still apply.
+      tableScrollBg: token.tableScrollBg.replace(')', `, ${colorSplit})`),
     });
 
     return [
