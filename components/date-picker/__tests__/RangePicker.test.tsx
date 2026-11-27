@@ -8,6 +8,7 @@ import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { fireEvent, render, resetMockDate, setMockDate } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 import enUS from '../locale/en_US';
 import { closePicker, getClearButton, openPicker, selectCell } from './utils';
 
@@ -315,6 +316,39 @@ describe('RangePicker', () => {
       );
       expect(container.querySelector('.custom-suffix')).toBeTruthy();
       expect(container.querySelector('.global-custom-suffix')).toBeFalsy();
+    });
+
+    it.each([
+      ['custom', 'suffix', 'suffix'],
+      ['null', null, ''],
+      ['false', false, ''],
+      ['empty', '', ''],
+    ])('should keep feedback icon with %s suffix', (_, suffix, expectedSuffix) => {
+      const { container } = render(
+        <Form>
+          <Form.Item hasFeedback validateStatus="error">
+            <RangePicker suffix={suffix} />
+          </Form.Item>
+        </Form>,
+      );
+      expect(container.querySelector('.ant-form-item-feedback-icon-error')).toBeTruthy();
+      expect(container.querySelector('.ant-picker-suffix')).toHaveTextContent(expectedSuffix);
+      expect(container.querySelector('.anticon-calendar')).not.toBeInTheDocument();
+      expect(container.querySelector('.anticon-clock-circle')).not.toBeInTheDocument();
+    });
+
+    it('should keep feedback icon with a deprecated suffixIcon', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(
+        <Form>
+          <Form.Item hasFeedback validateStatus="error">
+            <RangePicker suffixIcon={<span className="legacy-suffix">legacy</span>} />
+          </Form.Item>
+        </Form>,
+      );
+      expect(container.querySelector('.ant-form-item-feedback-icon-error')).toBeTruthy();
+      expect(container.querySelector('.legacy-suffix')).toBeTruthy();
+      errSpy.mockRestore();
     });
 
     it('should support deprecated suffixIcon prop', () => {

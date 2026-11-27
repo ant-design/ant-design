@@ -13,8 +13,8 @@ interface UseSuffixProps {
 }
 
 const useSuffix = ({ picker, hasFeedback, feedbackIcon, suffix }: UseSuffixProps) => {
-  if (suffix === null || suffix === false) {
-    return null;
+  if (suffix === null || suffix === false || suffix === '') {
+    return hasFeedback ? feedbackIcon : null;
   }
   if (suffix === true || suffix === undefined) {
     return (
@@ -29,7 +29,12 @@ const useSuffix = ({ picker, hasFeedback, feedbackIcon, suffix }: UseSuffixProps
     );
   }
 
-  return suffix;
+  return (
+    <>
+      {suffix}
+      {hasFeedback && feedbackIcon}
+    </>
+  );
 };
 
 export default useSuffix;
