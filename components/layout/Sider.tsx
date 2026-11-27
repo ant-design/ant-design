@@ -21,7 +21,7 @@ const dimensionMaxMap: Record<Breakpoint, string> = {
   lg: '991.98px',
   xl: '1199.98px',
   xxl: '1599.98px',
-  xxxl: `1839.98px`,
+  xxxl: '1919.98px',
 };
 
 const isNumeric = (val: any) =>
