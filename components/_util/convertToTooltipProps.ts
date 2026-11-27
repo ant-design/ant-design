@@ -10,7 +10,7 @@ const convertToTooltipProps = <P extends TooltipProps>(tooltip: P | ReactNode, c
     return null;
   }
 
-  if (isPlainObject<TooltipProps>(tooltip) && !isValidElement(tooltip)) {
+  if (!Array.isArray(tooltip) && isPlainObject<TooltipProps>(tooltip) && !isValidElement(tooltip)) {
     return { ...context, ...tooltip };
   }
 
