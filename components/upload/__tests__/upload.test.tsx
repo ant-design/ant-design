@@ -867,6 +867,28 @@ describe('Upload', () => {
       );
     });
 
+    it('only reports the retained file when a batch replaces a single file', async () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <Upload multiple maxCount={1} beforeUpload={() => false} onChange={onChange}>
+          <button type="button">Upload</button>
+        </Upload>,
+      );
+
+      fireEvent.change(container.querySelector('input')!, {
+        target: { files: [new File(['a'], 'first.txt'), new File(['b'], 'last.txt')] },
+      });
+      await waitFakeTimer();
+
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          file: expect.objectContaining({ name: 'last.txt' }),
+          fileList: [expect.objectContaining({ name: 'last.txt' })],
+        }),
+      );
+    });
+
     it('maxCount > 1', async () => {
       const onChange = jest.fn();
       const fileList = [
