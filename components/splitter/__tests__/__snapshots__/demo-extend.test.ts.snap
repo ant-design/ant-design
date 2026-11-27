@@ -273,6 +273,7 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx extend context cor
         aria-valuenow="67"
         class="ant-splitter-bar-dragger"
         role="separator"
+        tabindex="0"
       />
     </div>
     <div
@@ -332,6 +333,7 @@ exports[`renders components/splitter/demo/control.tsx extend context correctly 1
         aria-valuenow="50"
         class="ant-splitter-bar-dragger"
         role="separator"
+        tabindex="0"
       />
     </div>
     <div
@@ -624,6 +626,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
         aria-valuenow="0"
         class="ant-splitter-bar-dragger"
         role="separator"
+        tabindex="0"
       />
     </div>
     <div
@@ -737,6 +740,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
         aria-valuenow="0"
         class="ant-splitter-bar-dragger"
         role="separator"
+        tabindex="0"
       />
     </div>
     <div
@@ -792,6 +796,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
         aria-valuenow="0"
         class="ant-splitter-bar-dragger"
         role="separator"
+        tabindex="0"
       />
     </div>
     <div
@@ -903,6 +908,7 @@ exports[`renders components/splitter/demo/group.tsx extend context correctly 1`]
       aria-valuenow="50"
       class="ant-splitter-bar-dragger"
       role="separator"
+      tabindex="0"
     />
   </div>
   <div
@@ -939,6 +945,7 @@ exports[`renders components/splitter/demo/group.tsx extend context correctly 1`]
           aria-valuenow="50"
           class="ant-splitter-bar-dragger"
           role="separator"
+          tabindex="0"
         />
       </div>
       <div
@@ -1122,6 +1129,7 @@ exports[`renders components/splitter/demo/multiple.tsx extend context correctly 
       aria-valuenow="33"
       class="ant-splitter-bar-dragger"
       role="separator"
+      tabindex="0"
     />
   </div>
   <div
@@ -1151,6 +1159,7 @@ exports[`renders components/splitter/demo/multiple.tsx extend context correctly 
       aria-valuenow="67"
       class="ant-splitter-bar-dragger"
       role="separator"
+      tabindex="0"
     />
   </div>
   <div
@@ -1331,6 +1340,7 @@ exports[`renders components/splitter/demo/reset.tsx extend context correctly 1`]
       aria-valuenow="30"
       class="ant-splitter-bar-dragger"
       role="separator"
+      tabindex="0"
     />
   </div>
   <div
@@ -1360,6 +1370,7 @@ exports[`renders components/splitter/demo/reset.tsx extend context correctly 1`]
       aria-valuenow="70"
       class="ant-splitter-bar-dragger"
       role="separator"
+      tabindex="0"
     />
   </div>
   <div
@@ -1605,6 +1616,7 @@ exports[`renders components/splitter/demo/style-class.tsx extend context correct
         class="ant-splitter-bar-dragger"
         role="separator"
         style="background-color: rgba(194, 223, 252, 0.4);"
+        tabindex="0"
       />
     </div>
     <div
@@ -1654,6 +1666,7 @@ exports[`renders components/splitter/demo/style-class.tsx extend context correct
         aria-valuenow="50"
         class="ant-splitter-bar-dragger"
         role="separator"
+        tabindex="0"
       />
     </div>
     <div
@@ -1709,6 +1722,7 @@ exports[`renders components/splitter/demo/vertical.tsx extend context correctly 
       aria-valuenow="50"
       class="ant-splitter-bar-dragger"
       role="separator"
+      tabindex="0"
     />
   </div>
   <div

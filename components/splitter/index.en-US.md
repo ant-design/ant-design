@@ -33,6 +33,10 @@ Can be used to separate areas horizontally or vertically. When you need to freel
 <code src="./demo/debug.tsx" debug>Debug</code>
 <code src="./demo/size-mix.tsx" debug>Size Mix</code>
 
+## Keyboard
+
+After focusing a resizable dragger, press `Enter` or `Space` to start resizing. Use `ArrowLeft` and `ArrowRight` for a horizontal Splitter, or `ArrowUp` and `ArrowDown` for a vertical Splitter. Press `Enter` or `Space` again, or move focus away, to finish resizing.
+
 ## API
 
 Common props ref：[Common props](/docs/react/common-props)
