@@ -392,9 +392,9 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
         key: 'selectInvert',
         label: selectInvert,
         onClick() {
-          const availablePageItemKeys = getEnabledItemKeys(
-            (listBodyRef.current?.items || []).map((entity) => entity.item),
-          );
+          const itemsToInvert =
+            listBodyRef.current?.items?.map((entity) => entity.item) ?? filteredItems;
+          const availablePageItemKeys = getEnabledItemKeys(itemsToInvert);
           const checkedKeySet = new Set(checkedKeys);
           const newCheckedKeysSet = new Set(checkedKeySet);
           availablePageItemKeys.forEach((key) => {
