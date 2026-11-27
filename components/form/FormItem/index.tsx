@@ -245,7 +245,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     baseChildren: React.ReactNode,
     fieldId?: string,
     isRequired?: boolean,
-    htmlFor = fieldId,
+    controlId?: string,
   ): React.ReactNode {
     if (noStyle && !hidden) {
       return (
@@ -264,11 +264,17 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       );
     }
 
+    // The label should point at the id the control actually renders with, which is
+    // `controlId` when children provide their own `id` and the generated `fieldId` otherwise.
+    // A user provided `htmlFor` always takes precedence, including the documented
+    // `htmlFor={null}` used to turn the association off, so only `undefined` falls back.
+    const mergedHtmlFor = props.htmlFor === undefined ? (controlId ?? fieldId) : props.htmlFor;
+
     return (
       <ItemHolder
         key="row"
-        htmlFor={htmlFor}
         {...props}
+        htmlFor={mergedHtmlFor}
         className={clsx(className, cssVarCls, rootCls, hashId)}
         prefixCls={prefixCls}
         fieldId={fieldId}
