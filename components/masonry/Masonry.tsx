@@ -208,7 +208,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
 
   React.useEffect(() => {
     collectItemSize();
-  }, [mergedItems, columnCount]);
+  }, [mergedItems, columnCount, horizontalGutter]);
 
   // Trigger for `onLayoutChange`
   const [itemColumns, setItemColumns] = React.useState<ItemColumnsType[]>([]);
