@@ -137,6 +137,35 @@ describe('Watermark', () => {
     }
   });
 
+  it('should pad left aligned text when glyph ink exceeds the advance width', async () => {
+    const fillText = jest.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
+    const measureText = jest
+      .spyOn(CanvasRenderingContext2D.prototype, 'measureText')
+      .mockReturnValue({
+        width: 40,
+        actualBoundingBoxLeft: 8,
+        actualBoundingBoxRight: 42,
+        fontBoundingBoxAscent: 10,
+        fontBoundingBoxDescent: 2,
+      } as TextMetrics);
+
+    try {
+      render(
+        <Watermark
+          width={120}
+          content="Italic"
+          font={{ fontStyle: 'italic', textAlign: 'left' }}
+        />,
+      );
+      await waitFakeTimer();
+
+      expect(fillText).toHaveBeenLastCalledWith('Italic', 8, 0);
+    } finally {
+      fillText.mockRestore();
+      measureText.mockRestore();
+    }
+  });
+
   it('Interleaved watermark backgroundSize is correct', () => {
     const { container } = render(
       <Watermark

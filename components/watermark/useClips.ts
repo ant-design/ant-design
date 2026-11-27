@@ -57,8 +57,33 @@ const useClips = () => {
     gapX: number,
     gapY: number,
   ): [dataURL: string, finalWidth: number, finalHeight: number] => {
+    const textWidth = width * ratio;
+    let padLeft = 0;
+    let padRight = 0;
+
+    if (!(content instanceof HTMLImageElement)) {
+      const measureCtx = document.createElement('canvas').getContext('2d')!;
+      content.forEach(({ text, font }) => {
+        measureCtx.font = getCanvasFont(font, ratio, height);
+        measureCtx.textAlign = font.textAlign;
+        const metrics = measureCtx.measureText(text);
+        const alignX = getTextX(font.textAlign, textWidth);
+        const overhang = Math.max(
+          0,
+          metrics.actualBoundingBoxLeft + metrics.actualBoundingBoxRight - metrics.width,
+        );
+        const left = Math.max(0, metrics.actualBoundingBoxLeft - alignX);
+        padLeft = Math.max(padLeft, left);
+        padRight = Math.max(padRight, overhang - left);
+      });
+      padLeft = Math.ceil(padLeft);
+      padRight = Math.ceil(padRight);
+    }
+
+    const paddedWidth = width + (padLeft + padRight) / ratio;
+
     // ================= Text / Image =================
-    const [ctx, canvas, contentWidth, contentHeight] = prepareCanvas(width, height, ratio);
+    const [ctx, canvas, contentWidth, contentHeight] = prepareCanvas(paddedWidth, height, ratio);
 
     if (content instanceof HTMLImageElement) {
       // Image
@@ -72,7 +97,7 @@ const useClips = () => {
         ctx.font = getCanvasFont(font, ratio, height);
         ctx.fillStyle = font.color;
         ctx.textAlign = font.textAlign;
-        ctx.fillText(text, getTextX(font.textAlign, contentWidth), top);
+        ctx.fillText(text, padLeft + getTextX(font.textAlign, textWidth), top);
 
         top += getFontSize(font, ratio) + FontGap * ratio;
       });
@@ -80,7 +105,7 @@ const useClips = () => {
 
     // ==================== Rotate ====================
     const angle = (Math.PI / 180) * Number(rotate);
-    const maxSize = Math.max(width, height);
+    const maxSize = Math.max(paddedWidth, height);
     const [rCtx, rCanvas, realMaxSize] = prepareCanvas(maxSize, maxSize, ratio);
 
     // Copy from `ctx` and rotate
