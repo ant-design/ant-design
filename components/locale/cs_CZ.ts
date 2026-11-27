@@ -96,6 +96,9 @@ const localeValues: Locale = {
     expand: 'Rozbalit',
     collapse: 'Sbalit',
   },
+  Breadcrumb: {
+    label: 'Drobečková navigace',
+  },
   Carousel: {
     prevSlide: 'Předchozí snímek',
     nextSlide: 'Další snímek',

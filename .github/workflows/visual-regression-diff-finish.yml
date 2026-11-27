@@ -94,6 +94,9 @@ jobs:
     if: fromJSON(needs.check-trust.outputs.trusted)
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 26
       - uses: utooland/setup-utoo@e7aa4d726a17f79f68aed736476ea5bd68f8ba52 # v1
 
       # We need get persist-index first
@@ -144,7 +147,7 @@ jobs:
           echo "✅ Install `ali-oss` Finished"
 
           echo "🤖 Uploading"
-          node scripts/visual-regression/upload.js ./visualRegressionReport --ref=pr-$PR_ID
+          node scripts/visual-regression/upload.ts ./visualRegressionReport --ref=pr-$PR_ID
           echo "✅ Uploaded"
 
           delimiter="$(openssl rand -hex 8)"

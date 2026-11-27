@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Өргөтгөх',
     collapse: 'Нурах',
   },
+  Breadcrumb: {
+    label: 'Навигацийн зам',
+  },
   Carousel: {
     prevSlide: 'Өмнөх слайд',
     nextSlide: 'Дараагийн слайд',

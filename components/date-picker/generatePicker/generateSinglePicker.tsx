@@ -13,8 +13,7 @@ import { useAllowClear, useZIndex } from '../../_util/hooks';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
-import { ConfigContext } from '../../config-provider';
-import { useComponentConfig } from '../../config-provider/context';
+import { ConfigContext, useComponentConfig } from '../../config-provider/context';
 import DisabledContext from '../../config-provider/DisabledContext';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
@@ -22,7 +21,7 @@ import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
 import useSelectIcons from '../../select/useIcons';
-import { useCompactItemContext } from '../../space/Compact';
+import { useCompactItemContext } from '../../space/CompactContext';
 import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
@@ -192,7 +191,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       // ===================== Icon =====================
       const { removeIcon } = useSelectIcons({
-        componentName: displayName,
         removeIcon: props.removeIcon,
         prefixCls,
       });

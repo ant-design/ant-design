@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Divider } from '@rc-component/menu';
 import { clsx } from 'clsx';
 
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 
 export interface MenuDividerProps extends React.HTMLAttributes<HTMLLIElement> {
   className?: string;

@@ -13,36 +13,34 @@ function getCalcRows(
   let exceed = false;
   let count = 0;
 
-  rowItems
-    .filter((n) => n)
-    .forEach((rowItem) => {
-      const { filled, ...restItem } = rowItem;
+  rowItems.forEach((rowItem) => {
+    const { filled, ...restItem } = rowItem;
 
-      if (filled) {
-        tmpRow.push(restItem);
-        rows.push(tmpRow);
-        // reset
-        tmpRow = [];
-        count = 0;
-        return;
-      }
-      const restSpan = mergedColumn - count;
-      count += rowItem.span || 1;
-      if (count >= mergedColumn) {
-        if (count > mergedColumn) {
-          exceed = true;
-          tmpRow.push({ ...restItem, span: restSpan });
-        } else {
-          tmpRow.push(restItem);
-        }
-        rows.push(tmpRow);
-        // reset
-        tmpRow = [];
-        count = 0;
+    if (filled) {
+      tmpRow.push(restItem);
+      rows.push(tmpRow);
+      // reset
+      tmpRow = [];
+      count = 0;
+      return;
+    }
+    const restSpan = mergedColumn - count;
+    count += rowItem.span || 1;
+    if (count >= mergedColumn) {
+      if (count > mergedColumn) {
+        exceed = true;
+        tmpRow.push({ ...restItem, span: restSpan });
       } else {
         tmpRow.push(restItem);
       }
-    });
+      rows.push(tmpRow);
+      // reset
+      tmpRow = [];
+      count = 0;
+    } else {
+      tmpRow.push(restItem);
+    }
+  });
 
   if (tmpRow.length > 0) {
     rows.push(tmpRow);

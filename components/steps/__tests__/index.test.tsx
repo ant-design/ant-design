@@ -315,6 +315,17 @@ describe('Steps', () => {
     expect(document.querySelector('.ant-tooltip')).toBeTruthy();
   });
 
+  it.each(['wait', 'process', 'finish', 'error'] as const)(
+    'preserves a zero icon for status %s',
+    (status) => {
+      const { container } = render(<Steps items={[{ title: 'Step', icon: 0, status }]} />);
+
+      expect(container.querySelector('.ant-steps-item')).toHaveClass('ant-steps-item-custom');
+      expect(container.querySelector('.ant-steps-item-icon')).toHaveTextContent('0');
+      expect(container.querySelector('.ant-steps-item-icon-number')).toBeNull();
+    },
+  );
+
   it('iconRender', () => {
     let renderInfo: Parameters<GetProp<StepsProps, 'iconRender'>>[1];
 

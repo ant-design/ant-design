@@ -93,6 +93,7 @@ export type ColorPickerProps = Omit<
   | 'disabledAlpha'
   | 'onChangeComplete'
   | 'components'
+  | 'locale'
 > & {
   mode?: ModeType | ModeType[];
   value?: ColorValueType;

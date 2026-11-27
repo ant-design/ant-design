@@ -2,6 +2,7 @@
 
 exports[`renders components/breadcrumb/demo/basic.tsx extend context correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -62,6 +63,7 @@ exports[`renders components/breadcrumb/demo/basic.tsx extend context correctly 1
       class="ant-breadcrumb-item"
     >
       <span
+        aria-current="page"
         class="ant-breadcrumb-link"
       >
         An Application
@@ -75,6 +77,7 @@ exports[`renders components/breadcrumb/demo/basic.tsx extend context correctly 2
 
 exports[`renders components/breadcrumb/demo/component-token.tsx extend context correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -335,6 +338,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
       class="ant-breadcrumb-item"
     >
       <a
+        aria-current="page"
         class="ant-breadcrumb-link"
         href=""
       >
@@ -370,6 +374,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
 
 exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -396,6 +401,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
         class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
       >
         <a
+          aria-current="page"
           class="ant-breadcrumb-link"
           href="#/home/user"
         >
@@ -520,6 +526,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
 
 exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -730,6 +737,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
       class="ant-breadcrumb-item"
     >
       <span
+        aria-current="page"
         class="ant-breadcrumb-link"
       >
         Button
@@ -743,6 +751,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
 
 exports[`renders components/breadcrumb/demo/separator.tsx extend context correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -797,6 +806,7 @@ exports[`renders components/breadcrumb/demo/separator.tsx extend context correct
       class="ant-breadcrumb-item"
     >
       <span
+        aria-current="page"
         class="ant-breadcrumb-link"
       >
         An Application
@@ -810,6 +820,7 @@ exports[`renders components/breadcrumb/demo/separator.tsx extend context correct
 
 exports[`renders components/breadcrumb/demo/separator-component.tsx extend context correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -864,6 +875,7 @@ exports[`renders components/breadcrumb/demo/separator-component.tsx extend conte
       class="ant-breadcrumb-item"
     >
       <span
+        aria-current="page"
         class="ant-breadcrumb-link"
       >
         An Application
@@ -907,6 +919,7 @@ exports[`renders components/breadcrumb/demo/style-class.tsx extend context corre
         style="color: rgb(24, 144, 255);"
       >
         <span
+          aria-current="page"
           class="ant-breadcrumb-link"
         >
           <a
@@ -965,6 +978,7 @@ exports[`renders components/breadcrumb/demo/style-class.tsx extend context corre
         style="color: rgb(143, 135, 241);"
       >
         <span
+          aria-current="page"
           class="ant-breadcrumb-link"
         >
           Breadcrumb
@@ -979,6 +993,7 @@ exports[`renders components/breadcrumb/demo/style-class.tsx extend context corre
 
 exports[`renders components/breadcrumb/demo/withIcon.tsx extend context correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -1091,6 +1106,7 @@ exports[`renders components/breadcrumb/demo/withIcon.tsx extend context correctl
       class="ant-breadcrumb-item"
     >
       <span
+        aria-current="page"
         class="ant-breadcrumb-link"
       >
         Application
@@ -1104,6 +1120,7 @@ exports[`renders components/breadcrumb/demo/withIcon.tsx extend context correctl
 
 exports[`renders components/breadcrumb/demo/withParams.tsx extend context correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -1126,6 +1143,7 @@ exports[`renders components/breadcrumb/demo/withParams.tsx extend context correc
       class="ant-breadcrumb-item"
     >
       <a
+        aria-current="page"
         class="ant-breadcrumb-link"
         href=""
       >

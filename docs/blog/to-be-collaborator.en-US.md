@@ -78,7 +78,7 @@ To help you start your first attempt, we use [good first issues](https://github.
 ## Run test cases and specification checks {#run-tests-and-lint-checks}
 
 1. When add new related test case, also make sure all tests pass `npm run test`. Tips: You can use `npm test -- --watch TestName` to run specified tests during development.
-2. Run `npm test -- -u` to update [jest snapshot](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) and put These updates are also committed (if any).
+2. Run `npm test -- -u` to update [jest snapshot](https://jestjs.io/docs/snapshot-testing) and put These updates are also committed (if any).
 3. Make sure your code passes the lint check `npm run lint`.
 
 ## Merge changes

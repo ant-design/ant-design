@@ -8,7 +8,7 @@ import type { BasicDataNode, DataNode, EventDataNode } from '@rc-component/tree'
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import type { AntdTreeNodeAttribute, TreeProps } from './Tree';
 import Tree from './Tree';
 import { calcRangeKeys, convertDirectoryKeysToNodes } from './utils/dictUtil';

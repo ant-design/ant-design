@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Expandir',
     collapse: 'Colapsar',
   },
+  Breadcrumb: {
+    label: 'Caminho de navegação',
+  },
   Carousel: {
     prevSlide: 'Diapositivo anterior',
     nextSlide: 'Diapositivo seguinte',

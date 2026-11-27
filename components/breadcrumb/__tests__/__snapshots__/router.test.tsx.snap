@@ -2,6 +2,7 @@
 
 exports[`react router react router legacy 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-root"
 >
   <ol>
@@ -57,6 +58,7 @@ exports[`react router react router legacy 1`] = `
       class="ant-breadcrumb-item"
     >
       <a
+        aria-current="page"
         class="ant-breadcrumb-link"
         href="#//apps/1/detail"
       >

@@ -48,6 +48,7 @@ const locales = {
 };
 
 const [antdMajor] = version.split('.');
+
 const ANT_DESIGN_V5_THEME_EDITOR_THEME = `ant-design-v${antdMajor}-theme-editor-theme`;
 
 const CustomTheme: React.FC = () => {

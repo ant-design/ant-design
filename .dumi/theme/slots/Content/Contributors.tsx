@@ -27,17 +27,6 @@ const styles = createStaticStyles(({ cssVar, css }) => ({
     margin: 0;
     padding: 0;
     list-style: none;
-
-    a,
-    a:hover,
-    a:active {
-      display: flex;
-      align-items: center;
-      gap: ${cssVar.marginXS};
-      color: ${cssVar.colorTextSecondary};
-      overflow-wrap: anywhere;
-    }
-
     .ant-avatar {
       flex-shrink: 0;
     }
@@ -48,16 +37,6 @@ interface ContributorsProps {
   filename?: string;
 }
 
-interface ContributorsData {
-  logins: string[];
-  components: Record<string, number[]>;
-  blog: Record<string, number[]>;
-  react: Record<string, number[]>;
-  spec: Record<string, number[]>;
-}
-
-const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
-
 const MODULE_PATTERNS: ReadonlyArray<[RegExp, string]> = [
   [/^components\/([^/]+)\/index\.(zh-CN|en-US)\.md$/, 'components'],
   [/^docs\/blog\/(.+)\.(zh-CN|en-US)\.md$/, 'blog'],
@@ -65,32 +44,48 @@ const MODULE_PATTERNS: ReadonlyArray<[RegExp, string]> = [
   [/^docs\/spec\/(.+)\.(zh-CN|en-US)\.md$/, 'spec'],
 ];
 
-function getContributorKey(filename?: string): string | null {
+const fetcher = async (...args: Parameters<typeof fetch>): Promise<string[]> => {
+  const response = await fetch(...args);
+  if (response.status === 404) {
+    return [];
+  }
+  if (!response.ok) {
+    throw new Error(`Failed to fetch contributors: ${response.status}`);
+  }
+  return response.json();
+};
+
+const getContributorKey = (filename?: string): string | null => {
   for (const [pattern, module] of MODULE_PATTERNS) {
     const match = filename?.match(pattern);
     if (match) {
       const [, key] = match;
-      return `${module}/${key}`;
+      return `${module}/${encodeURIComponent(key)}`;
     }
   }
   return null;
-}
+};
 
-const CONTRIBUTORS_URL = '/contributors.json';
-
-const swrConfig: SWRConfiguration<ContributorsData, Error> = {
+const swrConfig: SWRConfiguration<string[], Error> = {
   errorRetryCount: 3,
 };
 
-const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
+const Contributors: React.FC<ContributorsProps> = (props) => {
+  const { filename } = props;
   const { formatMessage } = useIntl();
   const { isMobile } = React.use(SiteContext);
   const [open, setOpen] = useState(false);
   const dataKey = getContributorKey(filename);
   const isPreviewSite = useIsPreviewSite();
 
-  const { data, error, isLoading } = useSWR<ContributorsData, Error>(
-    process.env.NODE_ENV === 'production' && !isPreviewSite && dataKey ? CONTRIBUTORS_URL : null,
+  const {
+    data: logins,
+    error,
+    isLoading,
+  } = useSWR<string[], Error>(
+    process.env.NODE_ENV === 'production' && !isPreviewSite && dataKey
+      ? [`/contributors/${dataKey}.json`]
+      : null,
     fetcher,
     swrConfig,
   );
@@ -100,22 +95,15 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
     return null;
   }
 
-  if (!dataKey || !data || isLoading) {
+  if (!logins || !logins?.length || isLoading) {
     return null;
   }
 
-  const [module, ...rest] = dataKey.split('/');
-  const key = rest.join('/');
-  const indices = (data[module as keyof ContributorsData] as Record<string, number[]>)?.[key] ?? [];
+  const contributors = logins.map<AvatarListItem>((login) => ({
+    username: login,
+    url: `https://github.com/${login}.png?size=24`,
+  }));
 
-  if (!indices.length) {
-    return null;
-  }
-
-  const contributors = indices.map<AvatarListItem>((i) => {
-    const login = data.logins[i];
-    return { username: login, url: `https://github.com/${login}.png?size=24` };
-  });
   const title = formatMessage({ id: 'app.content.contributors' });
   const label = `${title} (${contributors.length})`;
 

@@ -57,6 +57,7 @@ const InternalSplitter = (
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    destroyOnHidden: contextDestroyOnHidden,
   } = useComponentConfig('splitter');
   const prefixCls = getPrefixCls('splitter', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
@@ -233,7 +234,7 @@ const InternalSplitter = (
               prefixCls={prefixCls}
               size={panelSizes[idx]}
               supportMotion={collapsible?.motion && movingIndex === undefined}
-              destroyOnHidden={item.destroyOnHidden ?? destroyOnHidden}
+              destroyOnHidden={item.destroyOnHidden ?? destroyOnHidden ?? contextDestroyOnHidden}
             />
           );
 

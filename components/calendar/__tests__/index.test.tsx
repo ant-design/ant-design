@@ -115,6 +115,24 @@ describe('Calendar', () => {
     expect(onSelect.mock.calls.length).toBe(1);
   });
 
+  it('allows both boundary days when validRange includes a time of day', () => {
+    const onSelect = jest.fn();
+    const { container } = render(
+      <Calendar
+        defaultValue={Dayjs('2018-02-10T12:00:00')}
+        validRange={[Dayjs('2018-02-02T23:59:00'), Dayjs('2018-02-18T00:01:00')]}
+        onSelect={onSelect}
+      />,
+    );
+    for (const day of ['01', '02', '18', '19']) {
+      fireEvent.click(container.querySelector(`[title="2018-02-${day}"]`)!);
+    }
+    expect(onSelect.mock.calls.map(([date]) => date.format('YYYY-MM-DD'))).toEqual([
+      '2018-02-02',
+      '2018-02-18',
+    ]);
+  });
+
   it('dates other than in valid range should be disabled', () => {
     const onSelect = jest.fn();
     const validRange: [Dayjs.Dayjs, Dayjs.Dayjs] = [Dayjs('2018-02-02'), Dayjs('2018-02-18')];

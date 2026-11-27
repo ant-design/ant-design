@@ -96,6 +96,9 @@ const localeValues: Locale = {
     expand: 'Perluas',
     collapse: 'Perkecil',
   },
+  Breadcrumb: {
+    label: 'Jalur navigasi',
+  },
   Carousel: {
     prevSlide: 'Slide sebelumnya',
     nextSlide: 'Slide berikutnya',

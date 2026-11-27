@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Zväčšiť',
     collapse: 'kolaps',
   },
+  Breadcrumb: {
+    label: 'Omrvinková navigácia',
+  },
   Carousel: {
     prevSlide: 'Predchádzajúca snímka',
     nextSlide: 'Ďalšia snímka',

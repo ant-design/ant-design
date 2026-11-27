@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Expandera',
     collapse: 'Kollapsa',
   },
+  Breadcrumb: {
+    label: 'Brödsmulor',
+  },
   Carousel: {
     prevSlide: 'Föregående bild',
     nextSlide: 'Nästa bild',

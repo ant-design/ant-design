@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'הרחב',
     collapse: 'התמוטט',
   },
+  Breadcrumb: {
+    label: 'נתיב ניווט',
+  },
   Carousel: {
     prevSlide: 'השקופית הקודמת',
     nextSlide: 'השקופית הבאה',

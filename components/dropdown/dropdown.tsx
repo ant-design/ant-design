@@ -149,6 +149,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    destroyOnHidden: contextDestroyOnHidden,
   } = useComponentConfig('dropdown');
 
   const mergedProps: DropdownProps = {
@@ -374,7 +375,7 @@ const Dropdown: CompoundedComponent = React.forwardRef<HTMLElement, DropdownProp
       placement={memoPlacement as React.ComponentProps<typeof RcDropdown>['placement']}
       onOpenChange={onInnerOpenChange}
       overlayStyle={{ ...mergedRootStyles, zIndex }}
-      autoDestroy={destroyOnHidden ?? destroyPopupOnHide}
+      autoDestroy={destroyOnHidden ?? destroyPopupOnHide ?? contextDestroyOnHidden}
     >
       {popupTrigger}
     </RcDropdown>

@@ -6,7 +6,7 @@ import { isNumber, isPlainObject } from '../_util/is';
 import { responsiveArrayReversed } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { LiteralUnion } from '../_util/type';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import RowContext from './RowContext';
 import { useColStyle } from './style';

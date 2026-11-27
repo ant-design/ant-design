@@ -1,6 +1,16 @@
 import React from 'react';
 
-const subscribe = () => () => {};
+const subscribe = (onStoreChange: () => void) => {
+  if (typeof window === 'undefined') {
+    return () => {};
+  }
+  window.addEventListener('popstate', onStoreChange);
+  window.addEventListener('pageshow', onStoreChange);
+  return () => {
+    window.removeEventListener('popstate', onStoreChange);
+    window.removeEventListener('pageshow', onStoreChange);
+  };
+};
 
 // 客户端渲染时，使用 window.location.hostname 作为快照
 const getSnapshot = () => {

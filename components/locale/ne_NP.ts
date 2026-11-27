@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'विस्तार गर्नुहोस्',
     collapse: 'बन्द',
   },
+  Breadcrumb: {
+    label: 'नेभिगेसन मार्ग',
+  },
   Carousel: {
     prevSlide: 'अघिल्लो स्लाइड',
     nextSlide: 'अर्को स्लाइड',

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import RcMentions from '@rc-component/mentions';
 import type { MentionsProps as RcMentionsProps } from '@rc-component/mentions';
-import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useAllowClear, useZIndex } from '../_util/hooks';
@@ -12,9 +11,8 @@ import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import toList from '../_util/toList';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
 import type { Variant } from '../config-provider';
-import { useComponentConfig } from '../config-provider/context';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -116,8 +114,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     ...restProps
   } = props;
   const [focused, setFocused] = React.useState(false);
-  const innerRef = React.useRef<MentionsRef>(null);
-  const mergedRef = composeRef(ref, innerRef);
 
   // ===================== Size =====================
   const mergedSize = useSize((ctx) => customSize ?? ctx);
@@ -264,7 +260,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       filterOption={mentionsfilterOption}
       onFocus={onFocus}
       onBlur={onBlur}
-      ref={mergedRef}
+      ref={ref}
       options={mergedOptions}
       suffix={suffixNode}
       styles={{
@@ -328,7 +324,8 @@ Mentions.getMentions = (value = '', config: MentionsConfig = {}): MentionsEntity
   const { prefix = '@', split = ' ' } = config;
   const prefixList: string[] = toList(prefix);
 
-  return value.split(split).reduce<MentionsEntity[]>((list, str = '') => {
+  const separator = split === ' ' ? /[ \r\n]+/ : split;
+  return value.split(separator).reduce<MentionsEntity[]>((list, str = '') => {
     let hitPrefix: string | null = null;
 
     prefixList.some((prefixStr) => {

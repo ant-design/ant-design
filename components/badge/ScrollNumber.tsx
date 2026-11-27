@@ -2,7 +2,7 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 
 import { cloneElement } from '../_util/reactNode';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import SingleNumber from './SingleNumber';
 
 export interface ScrollNumberProps {

@@ -96,6 +96,9 @@ const localeValues: Locale = {
     expand: 'ချဲ့ထွင်ပါ။',
     collapse: 'ပြိုကျသည်။',
   },
+  Breadcrumb: {
+    label: 'လမ်းညွှန်လမ်းကြောင်း',
+  },
   Carousel: {
     prevSlide: 'ယခင် ဆလိုက်',
     nextSlide: 'နောက် ဆလိုက်',

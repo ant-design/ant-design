@@ -96,6 +96,9 @@ const localeValues: Locale = {
     expand: 'Développer',
     collapse: 'Réduire',
   },
+  Breadcrumb: {
+    label: "Fil d'Ariane",
+  },
   Carousel: {
     prevSlide: 'Diapositive précédente',
     nextSlide: 'Diapositive suivante',

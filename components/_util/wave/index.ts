@@ -3,7 +3,7 @@ import { composeRef, getNodeRef, isVisible, supportRef } from '@rc-component/uti
 import { clsx } from 'clsx';
 
 import type { ConfigConsumerProps } from '../../config-provider';
-import { ConfigContext } from '../../config-provider';
+import { ConfigContext } from '../../config-provider/context';
 import { cloneElement } from '../reactNode';
 import type { WaveComponent } from './interface';
 import useStyle from './style';

@@ -97,6 +97,9 @@ const localeValues: Locale = {
     expand: 'விரிவாக்கவும்',
     collapse: 'சுருக்கு',
   },
+  Breadcrumb: {
+    label: 'வழிசெலுத்தல் பாதை',
+  },
   Carousel: {
     prevSlide: 'முந்தைய ஸ்லைடு',
     nextSlide: 'அடுத்த ஸ்லைடு',

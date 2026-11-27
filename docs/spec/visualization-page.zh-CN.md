@@ -203,4 +203,4 @@ title: 数据可视化页
 
 ### 会用到哪些模块或组件 {#relative-modules-or-components}
 
-- [AntV 图表示例](https://g2plot.antv.vision/zh/examples/gallery)
+- [AntV 图表示例](https://g2plot.antv.antgroup.com/zh/examples)

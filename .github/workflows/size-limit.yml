@@ -28,7 +28,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           package_manager: ut
-          build_script: dist
+          build_script: build
         env:
           NODE_OPTIONS: --max_old_space_size=4096
           PRODUCTION_ONLY: 1

@@ -13,7 +13,7 @@ import type { BadgeProps } from '../badge';
 import type { ButtonSemanticType } from '../button/Button';
 import Button from '../button/Button';
 import type { ButtonHTMLType } from '../button/buttonHelpers';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Tooltip from '../tooltip';
 import type { TooltipProps } from '../tooltip';

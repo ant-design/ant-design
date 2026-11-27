@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Laienda',
     collapse: 'Ahenda',
   },
+  Breadcrumb: {
+    label: 'Navigeerimisrada',
+  },
   Carousel: {
     prevSlide: 'Eelmine slaid',
     nextSlide: 'Järgmine slaid',

@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: '展開する',
     collapse: '折り畳む',
   },
+  Breadcrumb: {
+    label: 'パンくずリスト',
+  },
   Carousel: {
     prevSlide: '前のスライド',
     nextSlide: '次のスライド',

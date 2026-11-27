@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React from 'react';
+import type { MoreProps } from '@rc-component/tabs';
 
 import type { MaskType } from '../_util/hooks';
 import type { AnyObject } from '../_util/type';
@@ -58,7 +59,6 @@ import type { StepsProps } from '../steps';
 import type { SwitchProps } from '../switch';
 import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
-import type { MoreProps } from '@rc-component/tabs';
 import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TimePickerProps } from '../time-picker';
@@ -189,7 +189,7 @@ export type ImageConfig = ComponentStyleConfig &
   };
 
 export type CollapseConfig = ComponentStyleConfig &
-  Pick<CollapseProps, 'expandIcon' | 'classNames' | 'styles'>;
+  Pick<CollapseProps, 'expandIcon' | 'classNames' | 'styles' | 'destroyOnHidden'>;
 
 export type CheckboxConfig = ComponentStyleConfig & Pick<CheckboxProps, 'classNames' | 'styles'>;
 
@@ -221,6 +221,7 @@ export type ModalConfig = ComponentStyleConfig &
     | 'cancelButtonProps'
     | 'mask'
     | 'focusable'
+    | 'destroyOnHidden'
   > & {
     infoIcon?: React.ReactNode;
     successIcon?: React.ReactNode;
@@ -231,7 +232,14 @@ export type ModalConfig = ComponentStyleConfig &
 export type TabsConfig = ComponentStyleConfig &
   Pick<
     TabsProps,
-    'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon' | 'removeIcon' | 'classNames' | 'styles'
+    | 'indicator'
+    | 'indicatorSize'
+    | 'moreIcon'
+    | 'addIcon'
+    | 'removeIcon'
+    | 'classNames'
+    | 'styles'
+    | 'destroyOnHidden'
   > & {
     more?: Omit<MoreProps, 'popupRender'>;
   };
@@ -293,7 +301,7 @@ export type CardConfig = ComponentStyleConfig &
   Pick<CardProps, 'classNames' | 'styles' | 'variant'>;
 
 export type ColorPickerConfig = ComponentStyleConfig &
-  Pick<ColorPickerProps, 'classNames' | 'styles' | 'arrow'>;
+  Pick<ColorPickerProps, 'classNames' | 'styles' | 'arrow' | 'destroyOnHidden'>;
 
 export type CalendarConfig = ComponentStyleConfig &
   Pick<CalendarProps<AnyObject>, 'classNames' | 'styles'>;
@@ -301,12 +309,16 @@ export type CalendarConfig = ComponentStyleConfig &
 export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classNames' | 'styles'>;
 
 export type DrawerConfig = ComponentStyleConfig &
-  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'mask' | 'focusable'>;
+  Pick<
+    DrawerProps,
+    'classNames' | 'styles' | 'closeIcon' | 'closable' | 'mask' | 'focusable' | 'destroyOnHidden'
+  >;
 
 export type DividerConfig = ComponentStyleConfig &
   Pick<DividerProps, 'classNames' | 'styles' | 'variant'>;
 
-export type DropdownConfig = ComponentStyleConfig & Pick<DropdownProps, 'classNames' | 'styles'>;
+export type DropdownConfig = ComponentStyleConfig &
+  Pick<DropdownProps, 'classNames' | 'styles' | 'destroyOnHidden'>;
 
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 
@@ -373,6 +385,7 @@ export type TooltipConfig = Pick<
   | 'trigger'
   | 'mouseEnterDelay'
   | 'mouseLeaveDelay'
+  | 'destroyOnHidden'
 > & {
   /**
    * @descCN 是否开启 Tooltip 流畅过渡动画
@@ -392,6 +405,7 @@ export type PopoverConfig = Pick<
   | 'trigger'
   | 'mouseEnterDelay'
   | 'mouseLeaveDelay'
+  | 'destroyOnHidden'
 >;
 
 export type PopconfirmConfig = Pick<
@@ -404,6 +418,7 @@ export type PopconfirmConfig = Pick<
   | 'trigger'
   | 'mouseEnterDelay'
   | 'mouseLeaveDelay'
+  | 'destroyOnHidden'
 >;
 
 export type QRcodeConfig = ComponentStyleConfig & Pick<QRCodeProps, 'classNames' | 'styles'>;
@@ -412,7 +427,8 @@ export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | '
 
 export type SkeletonConfig = ComponentStyleConfig & Pick<SkeletonProps, 'styles' | 'classNames'>;
 
-export type SplitterConfig = ComponentStyleConfig & Pick<SplitterProps, 'classNames' | 'styles'>;
+export type SplitterConfig = ComponentStyleConfig &
+  Pick<SplitterProps, 'classNames' | 'styles' | 'destroyOnHidden'>;
 
 export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classNames' | 'styles'>;
 

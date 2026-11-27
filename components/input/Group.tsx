@@ -3,7 +3,7 @@ import { useContext, useMemo } from 'react';
 import { clsx } from 'clsx';
 
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
 import Space from '../space';

@@ -9,7 +9,11 @@ function filter<T>(items: (T | null)[]): T[] {
   return items.filter((item) => item) as T[];
 }
 
-function useLegacyItems(items?: TabsProps['items'], children?: React.ReactNode) {
+function useLegacyItems(
+  items?: TabsProps['items'],
+  children?: React.ReactNode,
+  contextDestroyOnHidden?: boolean,
+) {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Tabs');
     warning.deprecated(!children, 'Tabs.TabPane', 'items');
@@ -18,7 +22,8 @@ function useLegacyItems(items?: TabsProps['items'], children?: React.ReactNode) 
   if (items) {
     return items.map<Tab>((item) => ({
       ...item,
-      destroyOnHidden: item.destroyOnHidden ?? item.destroyInactiveTabPane,
+      destroyOnHidden:
+        item.destroyOnHidden ?? item.destroyInactiveTabPane ?? contextDestroyOnHidden,
     }));
   }
 
@@ -29,6 +34,8 @@ function useLegacyItems(items?: TabsProps['items'], children?: React.ReactNode) 
       const item: Tab = {
         key: String(key),
         ...restProps,
+        destroyOnHidden:
+          restProps.destroyOnHidden ?? restProps.destroyInactiveTabPane ?? contextDestroyOnHidden,
         label: tab,
       };
       return item;

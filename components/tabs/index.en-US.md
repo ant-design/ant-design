@@ -69,7 +69,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | tabPlacement | Placement of tabs | `top` \| `end` \| `bottom` \| `start` | `top` |  | × |
 | ~~tabPosition~~ | Position of tabs, please use `tabPlacement` instead | `top` \| `right` \| `bottom` \| `left` | `top` |  | × |
 | ~~destroyInactiveTabPane~~ | Whether destroy inactive TabPane when change tab, use `destroyOnHidden` instead | boolean | false |  | × |
-| destroyOnHidden | Whether destroy inactive TabPane when change tab | boolean | false | 5.25.0 | × |
+| destroyOnHidden | Whether destroy inactive TabPane when change tab | boolean | false | 5.25.0 | 6.8.0 |
 | type | Basic style of tabs | `line` \| `card` \| `editable-card` | `line` |  | × |
 | onChange | Callback executed when active tab is changed | (activeKey: string) => void | - |  | × |
 | onEdit | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (action === 'add' ? event : targetKey, action) => void | - |  | × |

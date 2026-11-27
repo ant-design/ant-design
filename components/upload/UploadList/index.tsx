@@ -14,7 +14,7 @@ import initCollapseMotion from '../../_util/motion';
 import { cloneElement } from '../../_util/reactNode';
 import type { ButtonProps } from '../../button/Button';
 import Button from '../../button/Button';
-import { ConfigContext } from '../../config-provider';
+import { ConfigContext } from '../../config-provider/context';
 import type { UploadFile, UploadListProps } from '../interface';
 import { isImageUrl, previewImage } from '../utils';
 import ListItem from './ListItem';

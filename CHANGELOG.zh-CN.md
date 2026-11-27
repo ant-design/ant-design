@@ -15,6 +15,60 @@ tag: vVERSION
 
 ---
 
+## 6.7.2
+
+`2026-11-23`
+
+- Form
+  - 🐞 修复 Form.Item 的 `name` 为 `0` 时，Form 校验信息将字段名显示为 `undefined` 的问题。 [#59679](https://github.com/ant-design/ant-design/pull/59679) [@nikzanda](https://github.com/nikzanda)
+- Table
+  - 🐞 修复 Table 分组列的 `defaultSortOrder` 不生效的问题。 [#59611](https://github.com/ant-design/ant-design/pull/59611) [@b84330808](https://github.com/b84330808)
+  - 🐞 修复 Table 在菜单筛选模式下向自定义 `filterSearch` 回调传入转小写并去除首尾空格后的搜索内容的问题。 [#59735](https://github.com/ant-design/ant-design/pull/59735) [@Aminark](https://github.com/Aminark)
+- Layout
+  - 🐞 修复 Layout.Header、Layout.Content 和 Layout.Footer 的 `rootClassName` 不生效的问题。 [#59697](https://github.com/ant-design/ant-design/pull/59697) [@nikzanda](https://github.com/nikzanda)
+  - 🐞 修复 Layout.Header、Layout.Content 和 Layout.Footer 使用自定义 `prefixCls` 时样式丢失的问题。 [#59935](https://github.com/ant-design/ant-design/pull/59935) [@li-jia-nan](https://github.com/li-jia-nan)
+- Typography
+  - 🐞 修复 Typography 同时启用 `icon` 和 `text` 编辑触发方式时，点击编辑图标会触发两次 `editable.onStart` 的问题。 [#59629](https://github.com/ant-design/ant-design/pull/59629) [@dogledogle](https://github.com/dogledogle)
+  - 🐞 修复 Typography 在部分浏览器缩放比例下，文本未截断时仍显示省略提示的问题。 [#59661](https://github.com/ant-design/ant-design/pull/59661) [@iBreaker](https://github.com/iBreaker)
+- 🤖 修复同时开启 `exactOptionalPropertyTypes` 并关闭 `skipLibCheck` 时，Button、Drawer 和 QRCode 的 TypeScript 类型声明错误。 [#59922](https://github.com/ant-design/ant-design/pull/59922) [@dreamvrutik](https://github.com/dreamvrutik)
+- 🐞 修复静态 Message 的第一条消息在渲染前被关闭时，返回的 Promise 一直挂起的问题。 [#59942](https://github.com/ant-design/ant-design/pull/59942) [@Aminark](https://github.com/Aminark)
+- 🐞 修复通过 `Modal.useModal()` 创建的弹窗关闭后仍留在 `Modal.destroyAll()` 列表中的问题。 [#59447](https://github.com/ant-design/ant-design/pull/59447) [@Chaoqi31](https://github.com/Chaoqi31)
+- 🐞 修复项目锁定 `@rc-component/drawer` 1.4.2 时，Drawer 关闭动画结束后仍需等待超时才完成关闭的问题。 [#59882](https://github.com/ant-design/ant-design/pull/59882) [react-component/drawer#633](https://github.com/react-component/drawer/pull/633) [@yoyo837](https://github.com/yoyo837)
+- 🐞 修复文件的 `linkProps` 为无效 JSON 字符串时 Upload 崩溃的问题。 [#59323](https://github.com/ant-design/ant-design/pull/59323) [@dogledogle](https://github.com/dogledogle)
+- 🐞 修复 Calendar 的 `validRange` 包含具体时刻时，起止日期可能无法选择的问题。 [#59947](https://github.com/ant-design/ant-design/pull/59947) [@Aminark](https://github.com/Aminark)
+- ⌨️ 修复 Checkbox 在 `indeterminate` 保持为 `true` 时，经鼠标或键盘操作后丢失原生半选中状态的问题。 [#59859](https://github.com/ant-design/ant-design/pull/59859) [@Aminark](https://github.com/Aminark)
+- 🐞 修复 ColorPicker 使用键盘删除渐变色标后生成无效渐变的问题。 [#59837](https://github.com/ant-design/ant-design/pull/59837) [@Aminark](https://github.com/Aminark)
+- 🐞 修复 Tabs 在 `card` 或 `editable-card` 模式下拖拽标签时跟随指针有延迟的问题。 [#59854](https://github.com/ant-design/ant-design/pull/59854) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Button 在外边距变化时意外触发位移动画的问题。 [#59886](https://github.com/ant-design/ant-design/pull/59886) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 InputNumber 在拨轮模式（`mode="spinner"`）下，前后缀与步进按钮间距异常的问题。 [#59572](https://github.com/ant-design/ant-design/pull/59572) [@dogledogle](https://github.com/dogledogle)
+- 🐞 修复 Mentions 的 `getMentions` 使用默认分隔符时遗漏多行文本中提及项的问题。 [#59948](https://github.com/ant-design/ant-design/pull/59948) [@Aminark](https://github.com/Aminark)
+- 🐞 修复 Watermark 在 `font.fontStyle` 为 `none` 时忽略 `fontSize`、`fontWeight` 和 `fontFamily` 的问题。 [#59855](https://github.com/ant-design/ant-design/pull/59855) [@adityajai119](https://github.com/adityajai119)
+- ⚡️ 加快 Tree.DirectoryTree 在大量文件夹展开时通过 Shift 选择范围内节点的速度。 [#59944](https://github.com/ant-design/ant-design/pull/59944) [@Aminark](https://github.com/Aminark)
+- 🤖 修复 Slider 在单滑块模式下设置 `startPoint` 时的 TypeScript 报错。 [#59877](https://github.com/ant-design/ant-design/pull/59877) [@QDyanbing](https://github.com/QDyanbing)
+- 🤖 修复 Statistic.Timer 和 Statistic.Countdown 的 `onChange` 回调类型，将参数正确推断为必传的数字。 [#59903](https://github.com/ant-design/ant-design/pull/59903) [@SweetDianDian](https://github.com/SweetDianDian)
+- 🇺🇿 修正 Form、Table、Transfer、Typography 和 Tour 的乌兹别克语（`uz_UZ`）翻译。 [#59876](https://github.com/ant-design/ant-design/pull/59876) [@XakimovNosirbek](https://github.com/XakimovNosirbek)
+
+## 6.7.1
+
+`2026-11-16`
+
+- Table
+  - 🐞 修复 Table 在列配置变化后仍使用旧排序规则的问题。 [#59763](https://github.com/ant-design/ant-design/pull/59763) [@Aminark](https://github.com/Aminark)
+  - 🐞 修复 Table 在小尺寸和中等尺寸下展开全部图标与行展开图标未对齐的问题。 [#59795](https://github.com/ant-design/ant-design/pull/59795) [@nikzanda](https://github.com/nikzanda)
+  - ⌨️ 修复 Table 在分页、排序或筛选后滚动到顶部时未遵循系统减少动态效果设置的问题。 [#59864](https://github.com/ant-design/ant-design/pull/59864) [@li-jia-nan](https://github.com/li-jia-nan)
+- Modal
+  - 🐞 修复 Modal 在 React `Activity` 恢复显示时聚焦报错和 `afterOpenChange` 重复触发的问题。 [#59845](https://github.com/ant-design/ant-design/pull/59845) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 修复 Modal 在离场动画中途禁用时完成回调早于 DOM 移除的问题。 [#59845](https://github.com/ant-design/ant-design/pull/59845) [@yoyo837](https://github.com/yoyo837)
+- ⚡️ 优化 Form 中仅读取 variant 的组件，不再引入 6.7.0 中额外引入的 `@rc-component/form` 依赖，提升性能。 [#59872](https://github.com/ant-design/ant-design/pull/59872) [@gowtham-padala](https://github.com/gowtham-padala)
+- 🐞 修复 Card 操作区中带 `href` 的 Button 图标间距异常的问题。 [#59726](https://github.com/ant-design/ant-design/pull/59726) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Input.OTP 使用中文等输入法时将合成输入的中间态文本作为已提交内容处理的问题。 [#58762](https://github.com/ant-design/ant-design/pull/58762) [@wanxiankai](https://github.com/wanxiankai)
+- 🐞 修复 DatePicker 和 TimePicker 时间面板单元格未居中及内容被滚动条遮挡的问题。 [#59828](https://github.com/ant-design/ant-design/pull/59828) [@ffgenius](https://github.com/ffgenius)
+- 🐞 修复 Dropdown 禁用子菜单中的菜单项未正确显示禁用状态的问题。 [#59826](https://github.com/ant-design/ant-design/pull/59826) [@yoyo837](https://github.com/yoyo837)
+- ⌨️ 修复 Anchor 点击链接滚动时未遵循系统减少动态效果设置的问题。 [#59861](https://github.com/ant-design/ant-design/pull/59861) [@li-jia-nan](https://github.com/li-jia-nan)
+- ⌨️ 修复 BackTop 返回顶部时未遵循系统减少动态效果设置的问题。 [#59864](https://github.com/ant-design/ant-design/pull/59864) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🇮🇩 完善 ConfigProvider 印尼语 `id_ID` 翻译。 [#59807](https://github.com/ant-design/ant-design/pull/59807) [@insanrizky](https://github.com/insanrizky)
+- 🇨🇿 完善 ConfigProvider 捷克语 `cs_CZ` 翻译。 [#59787](https://github.com/ant-design/ant-design/pull/59787) [@kojdad-alt](https://github.com/kojdad-alt)
+
 ## 6.7.0
 
 `2026-11-04`

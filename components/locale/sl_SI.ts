@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Razširi',
     collapse: 'Strni',
   },
+  Breadcrumb: {
+    label: 'Drobtinice',
+  },
   Carousel: {
     prevSlide: 'Prejšnja prosojnica',
     nextSlide: 'Naslednja prosojnica',

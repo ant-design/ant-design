@@ -10,8 +10,7 @@ import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeS
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import initCollapseMotion from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
-import { useComponentConfig } from '../config-provider/context';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import { useToken } from '../theme/internal';
 import useStyle from './style';

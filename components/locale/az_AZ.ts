@@ -96,6 +96,9 @@ const localeValues: Locale = {
     expand: 'Genişləndir',
     collapse: 'Yığılma',
   },
+  Breadcrumb: {
+    label: 'Naviqasiya yolu',
+  },
   Carousel: {
     prevSlide: 'Əvvəlki slayd',
     nextSlide: 'Növbəti slayd',

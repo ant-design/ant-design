@@ -5,53 +5,15 @@ import { clsx } from 'clsx';
 import { useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
-import type { DirectionType } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
+import type { SpaceCompactItemContextType } from './CompactContext';
+import { SpaceCompactItemContext } from './CompactContext';
 import useStyle from './style/compact';
 
-export interface SpaceCompactItemContextType {
-  compactSize?: SizeType;
-  compactDirection?: 'horizontal' | 'vertical';
-  isFirstItem?: boolean;
-  isLastItem?: boolean;
-}
-
-export const SpaceCompactItemContext = React.createContext<SpaceCompactItemContextType | null>(
-  null,
-);
-
-export const useCompactItemContext = (prefixCls: string, direction: DirectionType) => {
-  const compactItemContext = React.useContext(SpaceCompactItemContext);
-
-  const compactItemClassnames = React.useMemo<string>(() => {
-    if (!compactItemContext) {
-      return '';
-    }
-    const { compactDirection, isFirstItem, isLastItem } = compactItemContext;
-    const separator = compactDirection === 'vertical' ? '-vertical-' : '-';
-
-    return clsx(`${prefixCls}-compact${separator}item`, {
-      [`${prefixCls}-compact${separator}first-item`]: isFirstItem,
-      [`${prefixCls}-compact${separator}last-item`]: isLastItem,
-      [`${prefixCls}-compact${separator}item-rtl`]: direction === 'rtl',
-    });
-  }, [prefixCls, direction, compactItemContext]);
-
-  return {
-    compactSize: compactItemContext?.compactSize,
-    compactDirection: compactItemContext?.compactDirection,
-    compactItemClassnames,
-  };
-};
-
-export const NoCompactStyle: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
-  const { children } = props;
-  return (
-    <SpaceCompactItemContext.Provider value={null}>{children}</SpaceCompactItemContext.Provider>
-  );
-};
+export type { SpaceCompactItemContextType } from './CompactContext';
+export { NoCompactStyle, SpaceCompactItemContext, useCompactItemContext } from './CompactContext';
 
 export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
@@ -71,11 +33,7 @@ export interface SpaceCompactRef {
 const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>> = (props) => {
   const { children, ...others } = props;
   return (
-    <SpaceCompactItemContext.Provider
-      value={React.useMemo<SpaceCompactItemContextType>(() => others, [others])}
-    >
-      {children}
-    </SpaceCompactItemContext.Provider>
+    <SpaceCompactItemContext.Provider value={others}>{children}</SpaceCompactItemContext.Provider>
   );
 };
 
@@ -128,26 +86,22 @@ const Compact = React.forwardRef<SpaceCompactRef, SpaceCompactProps>((props, ref
 
   const childNodes = toArray(children);
 
-  const nodes = React.useMemo(
-    () =>
-      childNodes.map((child, i) => {
-        const key = child?.key || `${prefixCls}-item-${i}`;
-        return (
-          <CompactItem
-            key={key}
-            compactSize={mergedSize}
-            compactDirection={mergedOrientation}
-            isFirstItem={i === 0 && (!compactItemContext || compactItemContext?.isFirstItem)}
-            isLastItem={
-              i === childNodes.length - 1 && (!compactItemContext || compactItemContext?.isLastItem)
-            }
-          >
-            {child}
-          </CompactItem>
-        );
-      }),
-    [childNodes, compactItemContext, mergedOrientation, mergedSize, prefixCls],
-  );
+  const nodes = childNodes.map((child, i) => {
+    const key = child?.key || `${prefixCls}-item-${i}`;
+    return (
+      <CompactItem
+        key={key}
+        compactSize={mergedSize}
+        compactDirection={mergedOrientation}
+        isFirstItem={i === 0 && (!compactItemContext || compactItemContext?.isFirstItem)}
+        isLastItem={
+          i === childNodes.length - 1 && (!compactItemContext || compactItemContext?.isLastItem)
+        }
+      >
+        {child}
+      </CompactItem>
+    );
+  });
 
   // =========================== Render ===========================
   if (childNodes.length === 0) {

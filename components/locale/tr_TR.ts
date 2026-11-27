@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Genişlet',
     collapse: 'Daralt',
   },
+  Breadcrumb: {
+    label: 'Gezinti yolu',
+  },
   Carousel: {
     prevSlide: 'Önceki slayt',
     nextSlide: 'Sonraki slayt',

@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { isPlainObject } from '../../_util/is';
 import type { ConfigProviderProps, Variant } from '../../config-provider';
-import { ConfigContext, Variants } from '../../config-provider';
-import { VariantContext } from '../context';
+import { ConfigContext, Variants } from '../../config-provider/context';
+import { VariantContext } from '../variantContext';
 
 type VariantComponents = keyof Pick<
   ConfigProviderProps,

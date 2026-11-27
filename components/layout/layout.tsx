@@ -2,8 +2,7 @@ import * as React from 'react';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { ConfigContext } from '../config-provider';
-import { useComponentConfig } from '../config-provider/context';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import { LayoutContext } from './context';
 import useHasSider from './hooks/useHasSider';
 import useStyle from './style';
@@ -42,22 +41,30 @@ const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, re
     prefixCls: customizePrefixCls,
     suffixCls,
     className,
+    rootClassName,
     tagName: TagName,
     ...others
   } = props;
+
+  const passedProps = omit(others, ['hasSider']);
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout', customizePrefixCls);
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const prefixWithSuffixCls = suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
-
   return (
     <TagName
-      className={clsx(customizePrefixCls || prefixWithSuffixCls, className, hashId, cssVarCls)}
+      className={clsx(
+        customizePrefixCls,
+        suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls,
+        className,
+        rootClassName,
+        hashId,
+        cssVarCls,
+      )}
       ref={ref}
-      {...others}
+      {...passedProps}
     />
   );
 });

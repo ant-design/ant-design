@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 
 import { isString } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider/context';
 import { Col } from '../grid';
 import { ListContext } from './context';
 

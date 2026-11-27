@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Extinde',
     collapse: 'Restrânge',
   },
+  Breadcrumb: {
+    label: 'Cale de navigare',
+  },
   Carousel: {
     prevSlide: 'Diapozitivul anterior',
     nextSlide: 'Diapozitivul următor',

@@ -5,6 +5,8 @@ import type {
   TextAreaRef as RcTextAreaRef,
 } from '@rc-component/input';
 import { TextArea as RcTextArea } from '@rc-component/input';
+import { triggerFocus } from '@rc-component/util';
+import type { InputFocusOptions } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useAllowClear } from '../_util/hooks';
@@ -23,9 +25,7 @@ import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
 import { useLocale } from '../locale';
-import { useCompactItemContext } from '../space/Compact';
-import type { InputFocusOptions } from './Input';
-import { triggerFocus } from './Input';
+import { useCompactItemContext } from '../space/CompactContext';
 import { useSharedStyle } from './style';
 import useStyle from './style/textarea';
 

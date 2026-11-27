@@ -15,8 +15,7 @@ import { clsx } from 'clsx';
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
-import { useComponentConfig } from '../config-provider/context';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -145,6 +144,7 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    destroyOnHidden: contextDestroyOnHidden,
   } = useComponentConfig('tabs');
 
   const { tabs } = React.useContext(ConfigContext);
@@ -211,7 +211,7 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
 
   const size = useSize(customSize);
 
-  const mergedItems = useLegacyItems(items, children);
+  const mergedItems = useLegacyItems(items, children, contextDestroyOnHidden);
 
   const mergedAnimated = useAnimateConfig(prefixCls, animated);
 

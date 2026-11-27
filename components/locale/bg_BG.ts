@@ -95,6 +95,9 @@ const localeValues: Locale = {
     expand: 'Разширяване',
     collapse: 'Свиване',
   },
+  Breadcrumb: {
+    label: 'Навигационна пътека',
+  },
   Carousel: {
     prevSlide: 'Предишен слайд',
     nextSlide: 'Следващ слайд',

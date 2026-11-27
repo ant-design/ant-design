@@ -51,7 +51,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | classNames | Customize class for each semantic structure inside the Dropdown component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | disabled | Whether the dropdown menu is disabled | boolean | - |  | × |
 | ~~destroyPopupOnHide~~ | Whether destroy dropdown when hidden, use `destroyOnHidden` instead | boolean | false |  | × |
-| destroyOnHidden | Whether destroy dropdown when hidden | boolean | false | 5.25.0 | × |
+| destroyOnHidden | Whether destroy dropdown when hidden | boolean | false | 5.25.0 | 6.8.0 |
 | ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (menus: ReactNode) => ReactNode | - | 4.24.0 | × |
 | popupRender | Customize popup content | (menus: ReactNode) => ReactNode | - | 5.25.0 | × |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a div element in body, but you can reset it to the scrolling area and make a relative reposition. [Example on CodePen](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  | × |

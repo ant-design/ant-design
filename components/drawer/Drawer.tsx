@@ -13,8 +13,7 @@ import { isNumber } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
-import { ConfigContext } from '../config-provider';
-import { useComponentConfig } from '../config-provider/context';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import { usePanelRef } from '../watermark/context';
 import type { DrawerPanelProps, DrawerSemanticAllType } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
@@ -48,7 +47,7 @@ export interface DrawerProps
       | 'styles'
       | OmitFocusType
     >,
-    Omit<DrawerPanelProps, 'prefixCls' | 'ariaId'> {
+    Omit<DrawerPanelProps, 'prefixCls' | 'ariaId' | 'onClose'> {
   size?: sizeType | number | string;
   resizable?: boolean | DrawerResizableConfig;
   open?: boolean;
@@ -125,6 +124,7 @@ const Drawer: React.FC<DrawerProps> & {
     styles: contextStyles,
     mask: contextMask,
     focusable: contextFocusable,
+    destroyOnHidden: contextDestroyOnHidden,
   } = useComponentConfig('drawer');
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
@@ -304,7 +304,7 @@ const Drawer: React.FC<DrawerProps> & {
           zIndex={zIndex}
           {...(resizable ? { resizable } : {})}
           aria-labelledby={ariaLabelledby ?? ariaId}
-          destroyOnHidden={destroyOnHidden ?? destroyOnClose}
+          destroyOnHidden={destroyOnHidden ?? destroyOnClose ?? contextDestroyOnHidden}
           // Focusable
           focusTriggerAfterClose={mergedFocusable.focusTriggerAfterClose}
           focusTrap={mergedFocusable.trap}

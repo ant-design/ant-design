@@ -10,9 +10,13 @@ import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
-import { ConfigContext } from '../config-provider';
-import { LayoutContext } from './context';
+import { ConfigContext } from '../config-provider/context';
+import type { SiderContextProps } from './context';
+import { LayoutContext, SiderContext } from './context';
 import useStyle from './style/sider';
+
+export type { SiderContextProps } from './context';
+export { SiderContext } from './context';
 
 const dimensionMaxMap: Record<Breakpoint, string> = {
   xs: '479.98px',
@@ -26,12 +30,6 @@ const dimensionMaxMap: Record<Breakpoint, string> = {
 
 const isNumeric = (val: any) =>
   !Number.isNaN(Number.parseFloat(val)) && Number.isFinite(Number(val));
-
-export interface SiderContextProps {
-  siderCollapsed?: boolean;
-}
-
-export const SiderContext: React.Context<SiderContextProps> = React.createContext({});
 
 export type CollapseType = 'clickTrigger' | 'responsive';
 

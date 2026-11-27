@@ -70,12 +70,16 @@ const collectSortStates = <RecordType extends AnyObject = AnyObject>(
 ): SortState<RecordType>[] => {
   let sortStates: SortState<RecordType>[] = [];
 
-  const pushState = (column: ColumnsType<RecordType>[number], columnPos: string) => {
+  const pushState = (
+    column: ColumnsType<RecordType>[number],
+    columnPos: string,
+    sortOrder: SortOrder = column.sortOrder!,
+  ) => {
     sortStates.push({
       column,
       key: getColumnKey<RecordType>(column, columnPos),
       multiplePriority: getMultiplePriority<RecordType>(column),
-      sortOrder: column.sortOrder!,
+      sortOrder,
     });
   };
 
@@ -85,6 +89,9 @@ const collectSortStates = <RecordType extends AnyObject = AnyObject>(
       if ('sortOrder' in column) {
         // Controlled
         pushState(column, columnPos);
+      } else if (init && column.sorter && column.defaultSortOrder) {
+        // Default sorter
+        pushState(column, columnPos, column.defaultSortOrder);
       }
       sortStates = [
         ...sortStates,
@@ -100,12 +107,7 @@ const collectSortStates = <RecordType extends AnyObject = AnyObject>(
         pushState(column, columnPos);
       } else if (init && column.defaultSortOrder) {
         // Default sorter
-        sortStates.push({
-          column,
-          key: getColumnKey(column, columnPos),
-          multiplePriority: getMultiplePriority<RecordType>(column),
-          sortOrder: column.defaultSortOrder!,
-        });
+        pushState(column, columnPos, column.defaultSortOrder);
       }
     }
   });

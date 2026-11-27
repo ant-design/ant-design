@@ -19,9 +19,8 @@ import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
 import type { Variant } from '../config-provider';
-import { useComponentConfig } from '../config-provider/context';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -35,7 +34,7 @@ import useSelectStyle from '../select/style';
 import useIcons from '../select/useIcons';
 import usePopupRender from '../select/usePopupRender';
 import useShowArrow from '../select/useShowArrow';
-import { useCompactItemContext } from '../space/Compact';
+import { useCompactItemContext } from '../space/CompactContext';
 import { useToken } from '../theme/internal';
 import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
@@ -367,7 +366,6 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
 
   // ===================== Icons =====================
   const { suffix, removeIcon } = useIcons({
-    componentName: 'TreeSelect',
     ...restProps,
     suffix: mergedCustomSuffix,
     multiple: isMultiple,

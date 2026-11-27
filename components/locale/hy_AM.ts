@@ -141,6 +141,9 @@ const localeValues: Locale = {
     expand: 'Տեսնել ավելին',
     collapse: 'Փլուզում',
   },
+  Breadcrumb: {
+    label: 'Նավիգացիոն ուղի',
+  },
   Carousel: {
     prevSlide: 'Նախորդ սլայդը',
     nextSlide: 'Հաջորդ սլայդը',
