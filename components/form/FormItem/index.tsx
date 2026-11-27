@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { JSX } from 'react';
-import { Field, FieldContext, ListContext } from '@rc-component/form';
-import type { FieldProps, InternalNamePath, Meta, RuleObject } from '@rc-component/form';
+import { Field, FieldContext } from '@rc-component/form';
+import type { FieldProps, Meta, RuleObject } from '@rc-component/form';
 import { isNonNullable, isReactRenderable, supportRef, useState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -24,7 +24,7 @@ import type { ItemHolderProps } from './ItemHolder';
 import ItemHolder from './ItemHolder';
 import StatusProvider from './StatusProvider';
 
-const NAME_SPLIT = '__SPLIT__';
+let uuid = 0;
 
 interface FieldError {
   errors: string[];
@@ -162,9 +162,12 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   // ========================= MISC =========================
-  // Get `noStyle` required info
-  const listContext = React.useContext(ListContext);
-  const fieldKeyPathRef = React.useRef<InternalNamePath>(null);
+  // Form.List can re-index or reorder this field without remounting it, so its name path
+  // is not a stable key for the errors it reports to the parent
+  const [metaKey] = React.useState(() => {
+    uuid += 1;
+    return String(uuid);
+  });
 
   // ======================== Errors ========================
   // >>>>> Collect sub field errors
@@ -174,50 +177,29 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const [meta, setMeta] = useState<Meta>(() => genEmptyMeta());
 
   const onMetaChange = (nextMeta: Meta & { destroy?: boolean }) => {
-    // This keyInfo is not correct when field is removed
-    // Since origin keyManager no longer keep the origin key anymore
-    // Which means we need cache origin one and reuse when removed
-    const keyInfo = listContext?.getKey(nextMeta.name);
-
     // Destroy will reset all the meta
     setMeta(nextMeta.destroy ? genEmptyMeta() : nextMeta, true);
 
     // Bump to parent since noStyle
     if (noStyle && help !== false && notifyParentMetaChange) {
-      let namePath = nextMeta.name;
-
-      if (!nextMeta.destroy) {
-        if (keyInfo !== undefined) {
-          const [fieldKey, restPath] = keyInfo;
-          namePath = [fieldKey, ...restPath];
-          fieldKeyPathRef.current = namePath;
-        }
-      } else {
-        // Use origin cache data
-        namePath = fieldKeyPathRef.current || namePath;
-      }
-      notifyParentMetaChange(nextMeta, namePath);
+      notifyParentMetaChange(nextMeta, metaKey);
     }
   };
 
   // >>>>> Collect noStyle Field error to the top FormItem
-  const onSubItemMetaChange: ItemHolderProps['onSubItemMetaChange'] = (subMeta, uniqueKeys) => {
+  const onSubItemMetaChange: ItemHolderProps['onSubItemMetaChange'] = (subMeta, subMetaKey) => {
     // Only `noStyle` sub item will trigger
     setSubFieldErrors((prevSubFieldErrors) => {
       const clone = {
         ...prevSubFieldErrors,
       };
 
-      // name: ['user', 1] + key: [4] = ['user', 4]
-      const mergedNamePath = [...subMeta.name.slice(0, -1), ...uniqueKeys];
-      const mergedNameKey = mergedNamePath.join(NAME_SPLIT);
-
       if ((subMeta as any).destroy) {
         // Remove
-        delete clone[mergedNameKey];
+        delete clone[subMetaKey];
       } else {
         // Update
-        clone[mergedNameKey] = subMeta;
+        clone[subMetaKey] = subMeta;
       }
 
       return clone;
