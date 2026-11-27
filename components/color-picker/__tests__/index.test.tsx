@@ -340,6 +340,19 @@ describe('ColorPicker', () => {
     expect(container.querySelector('.ant-color-picker-rgb-input')).toBeTruthy();
   });
 
+  it.each([0, 0.4])('keeps the current opacity %s when editing six hex digits', (alpha) => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <ColorPicker open defaultValue={`rgba(10, 20, 30, ${alpha})`} onChange={onChange} />,
+    );
+    const input = container.querySelector('.ant-color-picker-hex-input input')!;
+    fireEvent.change(input, { target: { value: '#abcdef' } });
+    expect(onChange.mock.lastCall?.[0].toRgb()).toEqual({ r: 171, g: 205, b: 239, a: alpha });
+
+    fireEvent.change(input, { target: { value: '#336699ff' } });
+    expect(onChange.mock.lastCall?.[0].toRgb()).toEqual({ r: 51, g: 102, b: 153, a: 1 });
+  });
+
   it('Should hex input work', async () => {
     const { container } = render(<ColorPicker open format="hex" />);
     fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {
