@@ -101,6 +101,10 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
 
   // ======================== Keyboard ========================
   const onInternalKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
+    if (composingRef.current || event.nativeEvent.isComposing) {
+      return;
+    }
+
     const { key, ctrlKey, metaKey } = event;
 
     if (key === 'ArrowLeft') {
