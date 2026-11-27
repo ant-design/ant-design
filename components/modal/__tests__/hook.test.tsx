@@ -601,6 +601,44 @@ describe('Modal.hook', () => {
   });
 
   describe('support await', () => {
+    it.each(['destroy', 'destroyAll'] as const)('resolves false after %s', async (method) => {
+      const onResult = jest.fn();
+      const onCancel = jest.fn();
+      let destroy: VoidFunction;
+
+      const Demo = () => {
+        const [modal, holder] = Modal.useModal();
+        return (
+          <>
+            <button
+              type="button"
+              onClick={() => {
+                const dialog = modal.confirm({ onCancel });
+                destroy = dialog.destroy;
+                Promise.resolve(dialog).then(onResult);
+              }}
+            >
+              Open
+            </button>
+            {holder}
+          </>
+        );
+      };
+
+      const { getByText } = render(<Demo />);
+      fireEvent.click(getByText('Open'));
+      await act(async () => {
+        if (method === 'destroyAll') {
+          Modal.destroyAll();
+        } else {
+          destroy();
+        }
+      });
+
+      expect(onResult).toHaveBeenCalledWith(false);
+      expect(onCancel).not.toHaveBeenCalled();
+    });
+
     it('click', async () => {
       jest.useFakeTimers();
 
