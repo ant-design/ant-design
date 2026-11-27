@@ -113,7 +113,7 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
 
       const targetRect = getTargetRect(targetNode);
       const fixedTop = getFixedTop(placeholderRect, targetRect, internalOffsetTop);
-      const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
+      const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom, targetNode);
 
       if (fixedTop !== undefined || fixedBottom !== undefined) {
         newState.affixStyle = {
@@ -159,7 +159,7 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
         const targetRect = getTargetRect(targetNode);
         const placeholderRect = getTargetRect(placeholderNodeRef.current);
         const fixedTop = getFixedTop(placeholderRect, targetRect, internalOffsetTop);
-        const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
+        const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom, targetNode);
 
         if (
           (fixedTop !== undefined && affixStyle.top === fixedTop) ||
