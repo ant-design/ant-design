@@ -10,6 +10,7 @@ export interface PanelPickerContextProps {
   allowClear?: boolean;
   disabled?: boolean;
   disabledAlpha?: boolean;
+  showGradientAngle?: boolean;
   mode: ModeType;
   onModeChange: (mode: ModeType) => void;
   modeOptions: ModeOptions;
