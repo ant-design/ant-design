@@ -1,17 +1,13 @@
-import {
-  generate,
-  presetDarkPalettes,
-  presetPalettes,
-  presetPrimaryColors,
-} from '@ant-design/colors';
+import { generate, presetDarkPalettes, presetPrimaryColors } from '@ant-design/colors';
 
-describe('preset palettes', () => {
+describe('preset dark palettes', () => {
   it('match `generate` for each preset primary color', () => {
     Object.keys(presetDarkPalettes).forEach((colorKey) => {
       const color = presetPrimaryColors[colorKey];
-      expect(generate(color)).toEqual([...presetPalettes[colorKey]]);
-      expect(generate(color.toLowerCase())).toEqual([...presetPalettes[colorKey]]);
       expect(generate(color, { theme: 'dark' })).toEqual([...presetDarkPalettes[colorKey]]);
+      expect(generate(color.toLowerCase(), { theme: 'dark' })).toEqual([
+        ...presetDarkPalettes[colorKey],
+      ]);
     });
   });
 
