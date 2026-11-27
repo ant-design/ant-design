@@ -15,7 +15,7 @@ const classNames = createStaticStyles(({ css }) => ({
 const stylesObject: TabsProps['styles'] = {
   root: { borderWidth: 2, borderStyle: 'dashed', padding: 16, marginBottom: 10 },
   header: { backgroundColor: 'rgba(245,245,245,0.5)' },
-  item: { fontWeight: 'bold', color: '#1890ff', padding: `6px 10px` },
+  item: { fontWeight: 700, color: '#1890ff', padding: `6px 10px` },
   indicator: { backgroundColor: 'rgba(255,77,79, 0.3)', height: 4 },
   body: { backgroundColor: 'rgba(230,247,255,0.8)' },
   content: { padding: 16 },

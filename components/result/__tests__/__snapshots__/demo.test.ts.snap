@@ -1282,7 +1282,7 @@ Array [
     </div>
     <div
       class="ant-result-subtitle demo-result-subtitle"
-      style="font-weight:bold"
+      style="font-weight:700"
     >
       This is a subtitle
     </div>

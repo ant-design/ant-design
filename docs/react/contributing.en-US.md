@@ -88,6 +88,12 @@ runs the complete test suite. (Make sure the `NODE_ENV` environment variable is 
 
 <InstallDependencies npm='$ npm test' yarn='$ yarn test'></InstallDependencies>
 
+> **Tip:** You do not need to run the entire test suite while developing. Each component's source code and test files are located under `components/<component-name>/`. You can run tests for a specific component by passing its path:
+>
+> ```bash
+> npm test -- components/button
+> ```
+
 ### Compile
 
 compiles TypeScript code to the `lib` and `es` directory.
@@ -99,6 +105,16 @@ compiles TypeScript code to the `lib` and `es` directory.
 creates UMD build of antd.
 
 <InstallDependencies npm='$ npm run dist' yarn='$ yarn dist'></InstallDependencies>
+
+### Check bundle sizes
+
+Build the package, then check the full bundles and each public component:
+
+<InstallDependencies npm='$ npm run build && npm run size-limit' yarn='$ yarn build && yarn size-limit'></InstallDependencies>
+
+The component checks measure a named import from the compiled ES module entry after tree shaking, minification, and gzip compression. They include runtime dependencies and CSS-in-JS styles, excluding the React and ReactDOM peer dependencies. Shared dependencies are counted in each component's standalone size, so these sizes should not be added together.
+
+Budgets are maintained in `.size-limit.ts` and checked on pull requests. To set a component's initial budget, round its measured gzip size up to a whole KiB. When adding a component, add its budget to `componentLimits`. Only raise an existing budget after reviewing the cause of the increase.
 
 ## Development Tools
 

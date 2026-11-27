@@ -30,9 +30,14 @@ const localeValues: Locale = {
     selectInvert: 'موجودہ صفحے کو الٹ دیں',
     selectNone: 'تمام ڈیٹا صاف کریں',
     selectionAll: 'تمام ڈیٹا کو منتخب کریں',
+    selectRow: 'قطار منتخب کریں',
+    selectedRow: 'قطار منتخب ہو گئی',
+    selectionMenu: 'انتخابی مینو',
     sortTitle: 'ترتیب دیں',
     expand: 'پھیلائیں',
     collapse: 'سمیٹیں',
+    expandAll: 'تمام قطاریں پھیلائیں',
+    collapseAll: 'تمام قطاریں سمیٹیں',
     triggerDesc: 'نزولی کو ترتیب دینے کیلئے کلک کریں',
     triggerAsc: 'چڑھنے کو ترتیب دینے کیلئے کلک کریں',
     cancelSort: 'ترتیب کو منسوخ کرنے کیلئے دبائیں',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'ٹھیک ہے',
     cancelText: 'منسوخ کریں',
+  },
+  Splitter: {
+    toggleStartPanel: 'ابتدائی پینل ٹوگل کریں',
+    toggleEndPanel: 'اختتامی پینل ٹوگل کریں',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'کاپی ہوگیا',
     expand: 'پھیلائیں',
     collapse: 'سمٹنا',
+  },
+  Carousel: {
+    prevSlide: 'پچھلی سلائیڈ',
+    nextSlide: 'اگلی سلائیڈ',
   },
   Form: {
     optional: '(اختیاری)',

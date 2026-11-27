@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { resetComponent, textEllipsis } from '../../style';
+import { genFocusOutline, resetComponent, textEllipsis } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -36,7 +36,7 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
       // ======================== Selection ========================
       [`${componentCls}-selection-item`]: {
         flex: 1,
-        fontWeight: 'normal',
+        fontWeight: 400,
         position: 'relative',
         userSelect: 'none',
         ...textEllipsis,
@@ -70,7 +70,7 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         fontSize: token.fontSizeIcon,
         fontFamily: 'inherit',
         fontStyle: 'normal',
-        lineHeight: 1,
+        lineHeight: 0, // keeping the focus outline tight
         textAlign: 'center',
         textTransform: 'none',
         appearance: 'none',
@@ -92,10 +92,16 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         '&:hover': {
           color: token.colorIcon,
         },
+
+        '&:focus-visible': {
+          color: token.colorIcon,
+          borderRadius: token.borderRadiusSM,
+          ...genFocusOutline(token),
+        },
       },
 
       '@media(hover:none)': hoverShowClearStyle,
-      '&:hover': hoverShowClearStyle,
+      '&:hover, &:focus-within': hoverShowClearStyle, // showing clear icon on hover and focus
     },
 
     // ========================= Feedback ==========================

@@ -47,6 +47,7 @@ describe('Dropdown.Semantic', () => {
     ];
     const testClassNames = {
       root: 'test-root',
+      menu: 'test-menu',
       itemTitle: 'test-menu-item-title',
       item: 'test-menu-item',
       itemContent: 'test-menu-item-content',
@@ -54,6 +55,7 @@ describe('Dropdown.Semantic', () => {
     };
     const testStyles = {
       root: { backgroundColor: 'rgb(0, 0, 255)' },
+      menu: { width: '200px' },
       itemTitle: { color: 'rgb(255, 0, 0)' },
       item: { backgroundColor: 'rgb(0, 255, 0)' },
       itemContent: { color: 'rgb(255, 255, 0)' },
@@ -65,6 +67,7 @@ describe('Dropdown.Semantic', () => {
       </Dropdown>,
     );
     const root = container.querySelector('.ant-dropdown');
+    const menu = container.querySelector('.ant-dropdown-menu');
     const item = container.querySelector('.ant-dropdown-menu-item');
     const itemIcon = container.querySelector('.ant-dropdown-menu-item-icon');
     const itemContent = container.querySelector('.ant-dropdown-menu-title-content');
@@ -72,6 +75,9 @@ describe('Dropdown.Semantic', () => {
 
     expect(root).toHaveClass(testClassNames.root);
     expect(root).toHaveStyle(testStyles.root);
+    // https://github.com/ant-design/ant-design/issues/58942
+    expect(menu).toHaveClass(testClassNames.menu);
+    expect(menu).toHaveStyle(testStyles.menu);
     expect(item).toHaveClass(testClassNames.item);
     expect(item).toHaveStyle(testStyles.item);
     expect(itemIcon).toHaveClass(testClassNames.itemIcon);

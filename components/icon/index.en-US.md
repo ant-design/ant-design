@@ -91,7 +91,7 @@ All the icons will render to `<svg>`. You can still set `style` and `className` 
 <Icon type="message" style={{ fontSize: '16px', color: '#08c' }} theme="outlined" />
 ```
 
-### Set TwoTone Color
+### Set TwoTone Color {#set-two-tone-color}
 
 When using the two-tone icons, you can use the static methods `getTwoToneColor()` and `setTwoToneColor(colorString)` to specify the primary color.
 

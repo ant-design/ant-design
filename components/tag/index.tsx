@@ -14,6 +14,7 @@ import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
+import useVariant from '../form/hooks/useVariants';
 import DisabledContext from '../config-provider/DisabledContext';
 import CheckableTag from './CheckableTag';
 import CheckableTagGroup from './CheckableTagGroup';
@@ -48,7 +49,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
   variant?: 'filled' | 'solid' | 'outlined';
-  /** Advised to use closeIcon instead. */
+  /** Configure the close button and its accessibility attributes. */
   closable?: ClosableType;
   closeIcon?: React.ReactNode;
   onClose?: (e: React.MouseEvent<HTMLElement>) => void;
@@ -88,7 +89,6 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       getPrefixCls,
       direction,
       className: contextClassName,
-      variant: contextVariant,
       style: contextStyle,
       classNames: contextClassNames,
       styles: contextStyles,
@@ -102,6 +102,10 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     }
 
     // ====================== Colors ======================
+    const [contextVariant] = useVariant('tag', undefined, {
+      variants: ['filled', 'solid', 'outlined'],
+      defaultVariant: 'filled',
+    });
     const [mergedVariant, mergedColor, isPreset, isStatus, customTagStyle] = useColor(
       props,
       contextVariant,

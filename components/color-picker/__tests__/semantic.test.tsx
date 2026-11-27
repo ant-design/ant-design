@@ -8,6 +8,7 @@ import {
   semanticRootStylePriority,
 } from '../../../tests/shared/semanticStylePriority';
 import ColorPicker from '../ColorPicker';
+import type { ColorPickerProps } from '../interface';
 
 describe('ColorPicker.Semantic', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -77,6 +78,82 @@ describe('ColorPicker.Semantic', () => {
     );
 
     expect(root).toHaveStyle({ fontSize: '16px' });
+  });
+
+  it.each([false, true])('support popup.container with function = %s', (asFunction) => {
+    const contextClassNames = { popup: { container: 'context-container' } };
+    const contextStyles = { popup: { container: { width: 400 } } };
+    const classNames = { popup: { container: 'custom-container' } };
+    const styles = { popup: { container: { width: 480 } } };
+    const contextConfig = {
+      classNames: asFunction ? () => contextClassNames : contextClassNames,
+      styles: asFunction ? () => contextStyles : contextStyles,
+    };
+    const { baseElement, rerender } = render(
+      <ConfigProvider colorPicker={contextConfig}>
+        <ColorPicker open />
+      </ConfigProvider>,
+    );
+
+    const popupContainer = baseElement.querySelector('.ant-popover-container');
+    expect(popupContainer).toHaveClass('context-container');
+    expect(popupContainer).toHaveStyle({ width: '400px' });
+
+    rerender(
+      <ConfigProvider colorPicker={contextConfig}>
+        <ColorPicker
+          open
+          classNames={asFunction ? () => classNames : classNames}
+          styles={asFunction ? () => styles : styles}
+        />
+      </ConfigProvider>,
+    );
+
+    expect(popupContainer).toHaveClass('context-container', 'custom-container');
+    expect(popupContainer).toHaveStyle({ width: '480px' });
+    expect(errorSpy).not.toHaveBeenCalled();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59738
+  it.each([
+    ['styles object', false, false],
+    ['styles function', true, false],
+    ['ConfigProvider styles object', false, true],
+    ['ConfigProvider styles function', true, true],
+  ])('support deprecated popupOverlayInner from %s', (_, asFunction, fromContext) => {
+    const legacyStyles = { popupOverlayInner: { width: 480 } };
+    const styles: ColorPickerProps['styles'] = asFunction ? () => legacyStyles : legacyStyles;
+    const { baseElement } = render(
+      fromContext ? (
+        <ConfigProvider colorPicker={{ styles }}>
+          <ColorPicker open />
+        </ConfigProvider>
+      ) : (
+        <ColorPicker open styles={styles} />
+      ),
+    );
+
+    expect(baseElement.querySelector('.ant-popover-container')).toHaveStyle({ width: '480px' });
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: ColorPicker] `styles.popupOverlayInner` is deprecated. Please use `styles.popup.container` instead.',
+    );
+  });
+
+  it('prefer popup.container while preserving other popupOverlayInner styles', () => {
+    const { baseElement } = render(
+      <ColorPicker
+        open
+        styles={{
+          popupOverlayInner: { width: 400, padding: 20 },
+          popup: { container: { width: 480 } },
+        }}
+      />,
+    );
+
+    expect(baseElement.querySelector('.ant-popover-container')).toHaveStyle({
+      width: '480px',
+      padding: '20px',
+    });
   });
 
   it('should follow root style priority', () => {

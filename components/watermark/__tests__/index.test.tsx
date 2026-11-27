@@ -66,6 +66,31 @@ describe('Watermark', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('should use a valid canvas font when fontStyle is none', async () => {
+    const fonts: string[] = [];
+    const spyCanvas = spyElementPrototypes(CanvasRenderingContext2D, {
+      font: {
+        set(this: CanvasRenderingContext2D, ...args: any[]) {
+          const [originDescriptor, value] = args as [PropertyDescriptor, string];
+          fonts.push(value);
+          return originDescriptor.set?.call(this, value);
+        },
+      },
+    });
+
+    try {
+      render(<Watermark content="Ant Design" font={{ fontStyle: 'none', fontSize: 20 }} />);
+      await waitFakeTimer();
+
+      expect(fonts.length).toBeGreaterThan(0);
+      fonts.forEach((font) => {
+        expect(font).toMatch(/^normal normal 400 20px/);
+      });
+    } finally {
+      spyCanvas.mockRestore();
+    }
+  });
+
   it('supports custom font for each content line', async () => {
     const fillText = jest.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
     const fonts: string[] = [];
@@ -83,7 +108,7 @@ describe('Watermark', () => {
       render(
         <Watermark
           content={[
-            { text: 'Ant Design', font: { fontSize: 20, fontWeight: 'bold' } },
+            { text: 'Ant Design', font: { fontSize: 20, fontWeight: 700 } },
             {
               text: 'Happy Working',
               font: { fontFamily: 'serif', fontSize: 12, fontStyle: 'italic' },
@@ -99,9 +124,9 @@ describe('Watermark', () => {
 
       expect(fonts).toEqual(
         expect.arrayContaining([
-          'normal normal bold 20px sans-serif',
-          'italic normal normal 12px serif',
-          'normal normal normal 16px monospace',
+          'normal normal 700 20px sans-serif',
+          'italic normal 400 12px serif',
+          'normal normal 400 16px monospace',
         ]),
       );
       const textCalls = fillText.mock.calls.filter(([text]) =>

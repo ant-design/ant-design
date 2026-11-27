@@ -48,7 +48,7 @@ export interface DrawerProps
       | 'styles'
       | OmitFocusType
     >,
-    Omit<DrawerPanelProps, 'prefixCls' | 'ariaId'> {
+    Omit<DrawerPanelProps, 'prefixCls' | 'ariaId' | 'onClose'> {
   size?: sizeType | number | string;
   resizable?: boolean | DrawerResizableConfig;
   open?: boolean;
@@ -246,7 +246,7 @@ const Drawer: React.FC<DrawerProps> & {
       ['contentWrapperStyle', 'styles.wrapper'],
       ['maskStyle', 'styles.mask'],
       ['drawerStyle', 'styles.section'],
-      ['destroyInactivePanel', 'destroyOnHidden'],
+      ['destroyOnClose', 'destroyOnHidden'],
       ['width', 'size'],
       ['height', 'size'],
     ].forEach(([deprecatedName, newName]) => {

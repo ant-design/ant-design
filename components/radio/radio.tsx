@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcCheckbox from '@rc-component/checkbox';
-import { composeRef, isReactRenderable } from '@rc-component/util';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
@@ -28,8 +28,6 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     classNames: contextClassNames,
     styles: contextStyles,
   } = useComponentConfig('radio');
-  const innerRef = React.useRef<RadioRef>(null);
-  const mergedRef = composeRef(ref, innerRef);
   const { isFormItemInput } = React.useContext(FormItemInputContext);
 
   if (process.env.NODE_ENV !== 'production') {
@@ -43,6 +41,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     groupContext?.onChange?.(e);
   };
 
+  // Pointer events are not part of `RadioProps`, but triggers such as Tooltip pass them
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -53,8 +52,13 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     classNames,
     styles,
     checked,
+    onMouseEnter,
+    onMouseLeave,
+    onPointerEnter,
+    onPointerLeave,
     ...restProps
-  } = props;
+  } = props as RadioProps &
+    Pick<React.DOMAttributes<HTMLElement>, 'onPointerEnter' | 'onPointerLeave'>;
   const radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
 
   const isButtonType = (groupContext?.optionType || radioOptionTypeContext) === 'button';
@@ -98,9 +102,13 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     RadioSemanticAllType['classNames'],
     RadioSemanticAllType['styles'],
     RadioProps
-  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
-    props: mergedProps,
-  });
+  >(
+    [contextClassNames, groupContext?.classNames, classNames],
+    [contextStyles, contextStyleRoot, groupContext?.styles, styles, styleRoot],
+    {
+      props: mergedProps,
+    },
+  );
 
   const wrapperClassString = clsx(
     `${prefixCls}-wrapper`,
@@ -129,8 +137,10 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
       <label
         className={wrapperClassString}
         style={mergedStyles.root}
-        onMouseEnter={props.onMouseEnter}
-        onMouseLeave={props.onMouseLeave}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        onPointerEnter={onPointerEnter}
+        onPointerLeave={onPointerLeave}
         title={title}
         onClick={onLabelClick}
       >
@@ -141,7 +151,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
           style={mergedStyles.icon}
           type="radio"
           prefixCls={prefixCls}
-          ref={mergedRef}
+          ref={ref}
           onClick={onInputClick}
         />
         {isReactRenderable(children) ? (

@@ -11,7 +11,7 @@ import difference from 'lodash/difference';
 import minimist from 'minimist';
 import open from 'open';
 import { getUserAgent, resolveCommand } from 'package-manager-detector';
-import simpleGit from 'simple-git';
+import { simpleGit } from 'simple-git';
 import { extract } from 'tar';
 
 const ROOT = path.resolve(__dirname, '../../');

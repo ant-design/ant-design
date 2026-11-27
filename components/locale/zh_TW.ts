@@ -19,6 +19,7 @@ const localeValues: Locale = {
     show: '顯示',
     hide: '隱藏',
     sortable: '可排序',
+    clear: '清除',
   },
   Table: {
     filterTitle: '篩選器',
@@ -32,9 +33,14 @@ const localeValues: Locale = {
     selectInvert: '反向選取目前頁面',
     selectNone: '清除全部資料',
     selectionAll: '選取所有資料',
+    selectRow: '選取列',
+    selectedRow: '列已選取',
+    selectionMenu: '選取選單',
     sortTitle: '排序',
     expand: '展開列',
     collapse: '收合列',
+    expandAll: '展開所有列',
+    collapseAll: '收合所有列',
     triggerDesc: '點擊以遞減排序',
     triggerAsc: '點擊以遞增排序',
     cancelSort: '點擊以取消排序',
@@ -52,6 +58,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: '確定',
     cancelText: '取消',
+  },
+  Splitter: {
+    toggleStartPanel: '切換起始面板',
+    toggleEndPanel: '切換結束面板',
   },
   Transfer: {
     titles: ['', ''],

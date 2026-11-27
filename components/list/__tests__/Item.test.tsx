@@ -27,6 +27,19 @@ describe('List Item Layout', () => {
     expect(ref.current?.nativeElement).toBe(container.querySelector('.ant-list-item-meta'));
   });
 
+  it('should render numeric zero Meta content and remove it for empty values', () => {
+    const { container, rerender } = render(<List.Item.Meta avatar={0} title={0} description={0} />);
+
+    expect(container.querySelector('.ant-list-item-meta-avatar')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-list-item-meta-title')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-list-item-meta-description')?.textContent).toBe('0');
+
+    rerender(<List.Item.Meta avatar={false} title="" description={null} />);
+
+    expect(container.querySelector('.ant-list-item-meta-avatar')).toBeNull();
+    expect(container.querySelector('.ant-list-item-meta-content')).toBeNull();
+  });
+
   it('horizontal itemLayout List which contains string nodes should not be flex container', () => {
     const { container } = render(
       <List
@@ -94,6 +107,25 @@ describe('List Item Layout', () => {
       />,
     );
     expect(container.querySelectorAll('.ant-list-item')[0]).toHaveClass('ant-list-item-no-flex');
+  });
+
+  it('should render numeric zero as vertical extra and remove it for empty values', () => {
+    const getList = (extra: React.ReactNode) => (
+      <List
+        itemLayout="vertical"
+        dataSource={[0]}
+        renderItem={() => <List.Item extra={extra}>content</List.Item>}
+      />
+    );
+    const { container, rerender } = render(getList(0));
+
+    expect(container.querySelector('.ant-list-item-extra')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-list-item')).not.toHaveClass('ant-list-item-no-flex');
+
+    rerender(getList(false));
+
+    expect(container.querySelector('.ant-list-item-extra')).toBeNull();
+    expect(container.querySelector('.ant-list-item')).toHaveClass('ant-list-item-no-flex');
   });
 
   it('horizontal itemLayout List should accept extra node', () => {

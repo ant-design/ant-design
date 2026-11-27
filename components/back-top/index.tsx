@@ -5,6 +5,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import getScroll from '../_util/getScroll';
+import { useReducedMotion } from '../_util/hooks';
 import { cloneElement } from '../_util/reactNode';
 import scrollTo from '../_util/scrollTo';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
@@ -41,6 +42,8 @@ const BackTop: React.FC<React.PropsWithChildren<BackTopProps>> = (props) => {
     children,
   } = props;
 
+  const shouldReduceMotion = useReducedMotion();
+
   const [visible, setVisible] = React.useState<boolean>(visibilityHeight === 0);
 
   const ref = React.useRef<HTMLDivElement>(null);
@@ -71,7 +74,10 @@ const BackTop: React.FC<React.PropsWithChildren<BackTopProps>> = (props) => {
   }, [target]);
 
   const scrollToTop = (e: React.MouseEvent<HTMLDivElement>) => {
-    scrollTo(0, { getContainer: target || getDefaultTarget, duration });
+    scrollTo(0, {
+      getContainer: target || getDefaultTarget,
+      duration: shouldReduceMotion ? 0 : duration,
+    });
     onClick?.(e);
   };
 

@@ -46,6 +46,18 @@ describe('Mentions', () => {
     jest.useRealTimers();
   });
 
+  it('extracts mentions from separate lines of a textarea', () => {
+    expect(getMentions('Review:\n@alice\r\n@bob #release', { prefix: ['@', '#'] })).toEqual([
+      { prefix: '@', value: 'alice' },
+      { prefix: '@', value: 'bob' },
+      { prefix: '#', value: 'release' },
+    ]);
+    expect(getMentions('@Mary Jane|@Ada', { split: '|' })).toEqual([
+      { prefix: '@', value: 'Mary Jane' },
+      { prefix: '@', value: 'Ada' },
+    ]);
+  });
+
   it('getMentions', () => {
     const mentions = getMentions('@light #bamboo cat', { prefix: ['@', '#'] });
     expect(mentions).toEqual([
@@ -88,6 +100,21 @@ describe('Mentions', () => {
     expect(wrapper.container.querySelectorAll('.bamboo-light').length).toBeTruthy();
   });
 
+  it('should pass Mentions to ConfigProvider renderEmpty', () => {
+    const renderEmpty = jest.fn((name) => name === 'Mentions' && <span>mentions empty</span>);
+    const wrapper = render(
+      <ConfigProvider renderEmpty={renderEmpty}>
+        <Mentions />
+      </ConfigProvider>,
+    );
+    simulateInput(wrapper, '@');
+
+    expect(renderEmpty).toHaveBeenCalledWith('Mentions');
+    expect(wrapper.container.querySelector('.ant-mentions-dropdown')).toHaveTextContent(
+      'mentions empty',
+    );
+  });
+
   it('allowClear', () => {
     const wrapper = render(<Mentions allowClear defaultValue="111" />);
     const textareaInstance = wrapper.container.querySelector('textarea')!;
@@ -100,7 +127,7 @@ describe('Mentions', () => {
     const { container, rerender } = render(
       <Mentions allowClear={{ clearIcon: 'clear', disabled: true }} defaultValue="111" />,
     );
-    expect(container.querySelector('.ant-mentions-clear-icon-hidden')).toBeTruthy();
+    expect(container.querySelector('.ant-mentions-clear-icon')).not.toBeInTheDocument();
 
     rerender(<Mentions allowClear={{ clearIcon: 'clear', disabled: false }} defaultValue="111" />);
     expect(container.querySelector('.ant-mentions-clear-icon-hidden')).toBeFalsy();

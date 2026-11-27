@@ -232,20 +232,24 @@ describe('Input.Semantic', () => {
     };
     const styles: InputProps['styles'] = (info) => {
       if (info.props.size === 'large') {
-        return { root: { background: 'red' } };
+        return { root: { backgroundColor: 'rgb(255, 0, 0)' } };
       }
-      return { root: { background: 'blue' } };
+      return { root: { backgroundColor: 'rgb(0, 0, 255)' } };
     };
 
     const { rerender, container } = render(
       <Input size="large" classNames={classNames} styles={styles} />,
     );
     expect(container.querySelector('.ant-input')).toHaveClass('input-enabled');
-    expect(container.querySelector('.ant-input')).toHaveStyle({ background: 'red' });
+    expect(container.querySelector('.ant-input')).toHaveStyle({
+      backgroundColor: 'rgb(255, 0, 0)',
+    });
 
     rerender(<Input disabled classNames={classNames} styles={styles} />);
     expect(container.querySelector('.ant-input')).toHaveClass('input-disabled');
-    expect(container.querySelector('.ant-input')).toHaveStyle({ background: 'blue' });
+    expect(container.querySelector('.ant-input')).toHaveStyle({
+      backgroundColor: 'rgb(0, 0, 255)',
+    });
   });
   it('input should follow root style priority', () => {
     const { container } = render(

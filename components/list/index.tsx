@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { mergeProps } from '@rc-component/util';
+import { isReactRenderable, mergeProps } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { isFunction, isPlainObject } from '../_util/is';
@@ -57,7 +57,7 @@ export interface ListProps<T> {
   rootClassName?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  dataSource?: T[];
+  dataSource?: readonly T[];
   extra?: React.ReactNode;
   grid?: ListGridType;
   id?: string;
@@ -126,11 +126,16 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
   };
 
   const triggerPaginationEvent =
-    (eventName: 'onChange' | 'onShowSizeChange') => (page: number, pageSize: number) => {
+    (eventName: 'onChange' | 'onShowSizeChange') =>
+    (page: number, pageSize: number, info?: { recommendPage?: number }) => {
       setPaginationCurrent(page);
       setPaginationSize(pageSize);
       if (pagination) {
-        pagination?.[eventName]?.(page, pageSize);
+        if (info) {
+          pagination?.[eventName]?.(page, pageSize, info);
+        } else {
+          pagination?.[eventName]?.(page, pageSize);
+        }
       }
     };
 
@@ -158,7 +163,7 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
     return <React.Fragment key={key}>{renderItem(item, index)}</React.Fragment>;
   };
 
-  const isSomethingAfterLastItem = !!(loadMore || pagination || footer);
+  const isSomethingAfterLastItem = !!(loadMore || pagination || isReactRenderable(footer));
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
 
@@ -314,12 +319,12 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
     <ListContext.Provider value={contextValue}>
       <div ref={ref} style={{ ...contextStyle, ...style }} className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
-        {header && <div className={`${prefixCls}-header`}>{header}</div>}
+        {isReactRenderable(header) && <div className={`${prefixCls}-header`}>{header}</div>}
         <Spin {...loadingProp}>
           {childrenContent}
           {children}
         </Spin>
-        {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
+        {isReactRenderable(footer) && <div className={`${prefixCls}-footer`}>{footer}</div>}
         {loadMore ||
           ((paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent)}
       </div>

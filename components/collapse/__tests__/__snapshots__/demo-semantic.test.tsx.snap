@@ -20,6 +20,7 @@ exports[`renders components/collapse/demo/_semantic.tsx correctly 1`] = `
             class="ant-collapse-item ant-collapse-item-active"
           >
             <div
+              aria-controls="test-id"
               aria-disabled="false"
               aria-expanded="true"
               class="ant-collapse-header semantic-mark-header"
@@ -59,6 +60,7 @@ exports[`renders components/collapse/demo/_semantic.tsx correctly 1`] = `
             </div>
             <div
               class="ant-collapse-panel ant-collapse-panel-active"
+              id="test-id"
             >
               <div
                 class="ant-collapse-body semantic-mark-body"

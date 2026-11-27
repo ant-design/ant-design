@@ -8,11 +8,11 @@ author: meet-student,thinkasany
 
 ---
 
-## v6 之前
+## v6 之前 {#before-v6}
 
 在过去，我们通常是怎么调整组件样式的呢？
 
-### 方式一 (props)
+### 方式一 (props) {#method-1-props}
 
 - 在 `className` 和 `style` 属性上编写大量的拼接组合和逻辑判断
 - 在修改组件不同区域的样式时，需要使用大量类似 `wrapClassName` 这样的 props
@@ -37,7 +37,7 @@ author: meet-student,thinkasany
 </Menu>
 ```
 
-### 方式二 (ConfigProvider)
+### 方式二 (ConfigProvider) {#method-2-configprovider}
 
 采用 Ant Design v5 的主题 Design Token 设计：
 
@@ -56,7 +56,7 @@ author: meet-student,thinkasany
 </ConfigProvider>
 ```
 
-### 方式三 (CSS)
+### 方式三 (CSS) {#method-3-css}
 
 除了这两种方式，你可能还写过更不推荐的 CSS 样式覆盖：
 
@@ -78,7 +78,7 @@ author: meet-student,thinkasany
 - `Design Token` 的配置能力有限，无法根据不同的类型/变体做差异化的样式修改
 - 样式覆盖的方式存在较高的心智负担和维护成本，可维护性和语义化都很差
 
-## v6 现在
+## v6 现在 {#now-in-v6}
 
 为了避免 `Design Token` 泛滥和添加大量的 `API props`（这会导致维护成本升高），我们将这些能力聚合成了语义化设计。
 
@@ -109,7 +109,7 @@ return (
 );
 ```
 
-### 与 Tailwind CSS 结合
+### 与 Tailwind CSS 结合 {#combining-with-tailwind-css}
 
 更令人兴奋的是，`classNames` 属性可以与 [Tailwind CSS](https://tailwindcss.com/) 这类原子化 CSS 框架完美结合。这为开发者带来了前所未有的自由度：你可以在享受 antd 组件预设行为和语义化结构的同时，利用 Tailwind 的功能类快速构建出任何想要的视觉风格。语义化 + Tailwind CSS，让组件定制变得极其自由。
 
@@ -129,7 +129,7 @@ return (
 
 <video src="https://gw.alipayobjects.com/v/huamei_iwk9zp/afts/video/Ok8fTIm1TLIAAAAAgCAAAAgAfoeUAQBr" autoplay="true" muted="true" loop="true" playsinline="true" controls="true"></video>
 
-## 发现组件精致的美
+## 发现组件精致的美 {#delicate-beauty-of-components}
 
 用户可以根据自己喜爱的配色为组件的不同状态赋予精致的设计，发挥你的想象力，让页面更加丰富多彩吧！如果你在使用过程中遇到任何问题或有更好的想法，欢迎提交反馈，让我们一起让 Ant Design 变得更好。
 
@@ -137,6 +137,6 @@ return (
 
 <code src="./semantic-beauty/demos.tsx" simplify="true" iframe="430"></code>
 
-## Design Token 和语义化的关系
+## Design Token 和语义化的关系 {#tokens-and-semantic-styling}
 
 在 Ant Design 的设计体系中，Design Token 定位为设计变量（Design Tokens），可以理解为设计能力中的原子原料。而语义化样式定义了样式的使用方式，它通过组合 Design Token 和组件级的私有定制，实现更自由的定制场景。由于语义化是在组件维度上进行的，因此可以更好地控制样式的作用范围。如果你想设计一套覆盖场景全面的 Ant Design 主题，Design Token 和语义化能力将是你的利器，两者搭配使用，能够自由定制更精致的主题。

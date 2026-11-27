@@ -32,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: 'सध्याच्या पृष्ठाचे उलट करा',
     selectNone: 'सर्व माहिती काढून टाका',
     selectionAll: 'सर्व माहिती निवडा',
+    selectRow: 'पंक्ती निवडा',
+    selectedRow: 'पंक्ती निवडली',
+    selectionMenu: 'निवड मेनू',
     sortTitle: 'वर्गीकरण',
     expand: 'पंक्ती वाढवा',
     collapse: 'पंक्ती संकुचित करा',
+    expandAll: 'सर्व पंक्ती वाढवा',
+    collapseAll: 'सर्व पंक्ती संकुचित करा',
     triggerDesc: 'उतरत्या क्रमाने वर्गीकरण करण्यासाठी क्लिक करा',
     triggerAsc: 'वाढत्या क्रमाने वर्गीकरण करण्यासाठी क्लिक करा',
     cancelSort: 'वर्गीकरण रद्द करण्यासाठी क्लिक करा',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'ठीक आहे',
     cancelText: 'रद्द करा',
+  },
+  Splitter: {
+    toggleStartPanel: 'प्रारंभ पॅनेल टॉगल करा',
+    toggleEndPanel: 'शेवटचे पॅनेल टॉगल करा',
   },
   Transfer: {
     titles: ['', ''],
@@ -85,6 +94,10 @@ const localeValues: Locale = {
     copied: 'कॉपी केली',
     expand: 'वाढवा',
     collapse: 'संकुचित करा',
+  },
+  Carousel: {
+    prevSlide: 'मागील स्लाइड',
+    nextSlide: 'पुढील स्लाइड',
   },
   Form: {
     optional: '(ऐच्छिक)',

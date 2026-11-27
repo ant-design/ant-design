@@ -17,7 +17,7 @@ Following the Ant Design specification, we developed a React UI library `antd` (
 
 ---
 
-## ✨ Features
+## ✨ Features {#features}
 
 - 🌈 Enterprise-class UI designed for web applications.
 - 📦 A set of high-quality React components out of the box.

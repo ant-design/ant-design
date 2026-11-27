@@ -119,7 +119,7 @@ const renderFilterItems = (options: RenderFilterItemsOptions): Required<MenuProp
     };
     if (normalizedSearchValue) {
       if (isFunction(filterSearch)) {
-        return filterSearch(normalizedSearchValue, filter) ? item : null;
+        return filterSearch(searchValue, filter) ? item : null;
       }
       return searchValueMatched(normalizedSearchValue, filter.text) ? item : null;
     }
@@ -588,8 +588,10 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
       open: mergedVisible,
       onOpenChange: onDropdownOpenChange,
       popupRender: () => {
-        if (isFunction(filterDropdownProps?.dropdownRender)) {
-          return filterDropdownProps.dropdownRender(dropdownContent);
+        const customRender =
+          filterDropdownProps?.popupRender ?? filterDropdownProps?.dropdownRender;
+        if (isFunction(customRender)) {
+          return customRender(dropdownContent);
         }
         return dropdownContent;
       },

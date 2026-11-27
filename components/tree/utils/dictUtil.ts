@@ -55,13 +55,15 @@ export function calcRangeKeys({
     return [startKey];
   }
 
+  const expandedKeySet = new Set(expandedKeys);
+
   function matchKey(key: React.Key) {
     return key === startKey || key === endKey;
   }
 
   traverseNodesKey(
     treeData,
-    (key) => {
+    (key, node) => {
       if (record === RECORD_END) {
         return false;
       }
@@ -76,11 +78,11 @@ export function calcRangeKeys({
           record = RECORD_END;
           return false;
         }
-      } else if (record === RECORD_START) {
+      } else if (record === RECORD_START && !node.disabled && node.selectable !== false) {
         // Append selection
         keys.push(key as any);
       }
-      return expandedKeys.includes(key as any);
+      return expandedKeySet.has(key as React.Key);
     },
     fillFieldNames(fieldNames),
   );
@@ -93,18 +95,16 @@ export function convertDirectoryKeysToNodes(
   keys: React.Key[],
   fieldNames?: FieldNames,
 ) {
-  const restKeys: React.Key[] = [...keys];
+  const restKeys = new Set(keys);
   const nodes: DataNode[] = [];
   traverseNodesKey(
     treeData,
     (key, node) => {
-      const index = restKeys.indexOf(key as any);
-      if (index !== -1) {
+      if (key !== null && restKeys.delete(key)) {
         nodes.push(node);
-        restKeys.splice(index, 1);
       }
 
-      return !!restKeys.length;
+      return restKeys.size > 0;
     },
     fillFieldNames(fieldNames),
   );

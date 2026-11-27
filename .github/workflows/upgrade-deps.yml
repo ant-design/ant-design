@@ -2,7 +2,7 @@ name: Upgrade Dependencies
 
 on:
   schedule:
-    - cron: "0 18 * * *" # every day at 18:00 UTC
+    - cron: "0 0 * * *" # every day at 08:00 Beijing time (UTC+8)
     # - timezone: Asia/Shanghai # not supported yet https://github.com/orgs/community/discussions/13454
 
 jobs:
@@ -40,7 +40,7 @@ jobs:
 
       - name: create pull request
         id: cpr
-        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8
+        uses: peter-evans/create-pull-request@3ffccacd46053766916f087ce41d627c0b8cf2d1 # v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }} # Cannot be default!!!
           assignees: 'afc163, yoyo837, Wxh16144, li-jia-nan, thinkasany'

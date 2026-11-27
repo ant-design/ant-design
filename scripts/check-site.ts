@@ -174,6 +174,16 @@ describe('site test', () => {
     expect($('h1').text()).toMatch(`资源`);
   });
 
+  it.each(['/changelog', '/changelog-cn', '/components/changelog', '/components/changelog-cn'])(
+    'Pre-renders %s without a skeleton',
+    async (path) => {
+      const { status, $ } = await render(`${path}/`);
+      expect(status).toBe(200);
+      expect($('.changelog-version').first().text()).toMatch(/\d+\.\d+\.\d+/);
+      expect($('.ant-skeleton-paragraph').length).toBe(0);
+    },
+  );
+
   for (const component of components) {
     if (component.split('/').length < 3) {
       it(`Component ${component} zh Page`, async () => {

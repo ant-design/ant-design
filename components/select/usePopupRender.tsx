@@ -11,7 +11,11 @@ function usePopupRender<T extends [React.ReactElement, ...any[]]>(
     if (!renderFn) {
       return undefined;
     }
-    return (...args: T) => <ContextIsolator space>{renderFn(...args)}</ContextIsolator>;
+    return (...args: T) => (
+      <ContextIsolator space form>
+        {renderFn(...args)}
+      </ContextIsolator>
+    );
   }, [renderFn]);
 }
 

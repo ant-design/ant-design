@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
@@ -10,6 +11,7 @@ import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
+import useVariant from '../form/hooks/useVariants';
 import useStyle from './style';
 
 export type TitlePlacement =
@@ -86,7 +88,7 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
     rootClassName,
     children,
     dashed,
-    variant = 'solid',
+    variant: customVariant,
     plain,
     style,
     size: customSize,
@@ -95,6 +97,11 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
     ...restProps
   } = props;
 
+  const [variant] = useVariant('divider', customVariant, {
+    variants: ['dashed', 'dotted', 'solid'],
+    defaultVariant: 'solid',
+  });
+
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
   const railCls = `${prefixCls}-rail`;
 
@@ -102,7 +109,7 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
 
   const sizeFullName = useSize(customSize);
 
-  const hasChildren = !!children;
+  const hasChildren = isReactRenderable(children);
 
   const validTitlePlacement = titlePlacementList.includes(orientation || '');
 
@@ -127,6 +134,7 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
   // ========================= Semantic =========================
   const mergedProps: DividerProps = {
     ...props,
+    variant,
     orientation: mergedOrientation,
     titlePlacement: mergedTitlePlacement,
     size: sizeFullName,
@@ -159,8 +167,8 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
       [`${prefixCls}-no-default-orientation-margin-end`]: hasMarginEnd,
       [`${prefixCls}-md`]: sizeFullName === 'medium' || sizeFullName === 'middle',
       [`${prefixCls}-sm`]: sizeFullName === 'small',
-      [railCls]: !children,
-      [mergedClassNames.rail as string]: mergedClassNames.rail && !children,
+      [railCls]: !hasChildren,
+      [mergedClassNames.rail as string]: mergedClassNames.rail && !hasChildren,
     },
     className,
     rootClassName,
@@ -212,13 +220,13 @@ const Divider = React.forwardRef<DividerRef, DividerProps>((props, ref) => {
       className={classString}
       style={{
         ...mergedStyles.root,
-        ...(children ? {} : mergedStyles.rail),
+        ...(hasChildren ? {} : mergedStyles.rail),
         ...style,
       }}
       {...restProps}
       role="separator"
     >
-      {children && !mergedVertical && (
+      {hasChildren && !mergedVertical && (
         <>
           <div
             className={clsx(railCls, `${railCls}-start`, mergedClassNames.rail)}

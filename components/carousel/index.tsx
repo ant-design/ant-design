@@ -16,7 +16,8 @@ export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPlacement = 'top' | 'bottom' | 'start' | 'end';
 
 // Carousel
-export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass' | 'autoplay'> {
+export interface CarouselProps
+  extends Omit<Settings, 'dots' | 'dotsClass' | 'autoplay' | 'verticalSwiping'> {
   effect?: CarouselEffect;
   style?: React.CSSProperties;
   prefixCls?: string;
@@ -116,7 +117,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const { children, initialSlide = 0 } = props;
   const childNodes: React.ReactNode[] = toArray(children);
   const count = childNodes.length;
-  const isRTL = (rtl ?? direction === 'rtl') && !vertical;
+  const isRTL = (rtl ?? direction === 'rtl') && !mergedVertical;
 
   React.useEffect(() => {
     if (count > 0) {

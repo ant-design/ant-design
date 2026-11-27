@@ -32,9 +32,14 @@ const localeValues: Locale = {
     selectInvert: 'Инвертировать выбор',
     selectNone: 'Очистить все данные',
     selectionAll: 'Выбрать все данные',
+    selectRow: 'Выбрать строку',
+    selectedRow: 'Строка выбрана',
+    selectionMenu: 'Меню выбора',
     sortTitle: 'Сортировка',
     expand: 'Развернуть строку',
     collapse: 'Свернуть строку',
+    expandAll: 'Развернуть все строки',
+    collapseAll: 'Свернуть все строки',
     triggerDesc: 'Нажмите для сортировки по убыванию',
     triggerAsc: 'Нажмите для сортировки по возрастанию',
     cancelSort: 'Нажмите, чтобы отменить сортировку',
@@ -52,6 +57,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Отмена',
+  },
+  Splitter: {
+    toggleStartPanel: 'Переключить начальную панель',
+    toggleEndPanel: 'Переключить конечную панель',
   },
   Transfer: {
     titles: ['', ''],

@@ -18,7 +18,7 @@ const classNames = createStaticStyles(({ css }) => ({
 const stylesObject: EmptyProps['styles'] = {
   root: { backgroundColor: '#f5f5f5', borderRadius: '8px' },
   image: { filter: 'grayscale(100%)' },
-  description: { color: '#1890ff', fontWeight: 'bold' },
+  description: { color: '#1890ff', fontWeight: 700 },
   footer: { marginTop: '16px' },
 };
 
@@ -26,7 +26,7 @@ const stylesFn: EmptyProps['styles'] = ({ props }): GetProp<EmptyProps, 'styles'
   if (props.description) {
     return {
       root: { backgroundColor: '#e6f7ff', border: '1px solid #91d5ff' },
-      description: { color: '#1890ff', fontWeight: 'bold' },
+      description: { color: '#1890ff', fontWeight: 700 },
       image: { filter: 'hue-rotate(180deg)' },
     };
   }

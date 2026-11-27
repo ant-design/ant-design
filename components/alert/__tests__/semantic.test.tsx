@@ -61,7 +61,7 @@ describe('Alert.Semantic', () => {
     };
     const componentStyles: AlertProps['styles'] = {
       root: { padding: '5px' },
-      title: { fontWeight: 'bold' },
+      title: { fontWeight: 700 },
     };
 
     render(

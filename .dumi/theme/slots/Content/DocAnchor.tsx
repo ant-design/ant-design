@@ -43,7 +43,7 @@ export const useStyle = createStyles(({ cssVar, token, css }) => {
         backdrop-filter: blur(8px);
       }
 
-      @media only screen and (max-width: ${cssVar.screenLG}) {
+      @media only screen and (max-width: ${token.screenLG}px) {
         display: none;
       }
     `,
@@ -51,7 +51,7 @@ export const useStyle = createStyles(({ cssVar, token, css }) => {
       padding-inline: 48px 164px;
       padding-block: 0 32px;
 
-      @media only screen and (max-width: ${cssVar.screenLG}) {
+      @media only screen and (max-width: ${token.screenLG}px) {
         & {
           padding: 0 calc(${cssVar.paddingLG} * 2);
         }

@@ -5,13 +5,13 @@ author: zombieJ
 juejin_url: https://juejin.cn/post/7322305961196126217
 ---
 
-## 前言
+## 前言 {#preface}
 
 在 v4 时期，我们为 Table 添加了一个自定义 `components` 的示例，通过 `components.body` 替换默认的 `<tbody>`，实现虚拟滚动的效果。但是很多开发者反馈 Demo 中的虚拟表格有很多功能无法实现。例如 固定列、合并行列、展开行 等等。
 
 所以在 v5 中，我们提出了 [[RFC] StaticTable for fast perf & virtual scroll support](https://github.com/ant-design/ant-design/discussions/41500)。该 RFC 期望提供一个高性能的 Table.StaticTable，它会默认支持虚拟滚动。但是随着开发进行，我们最终决定 StaticTable 在底层 `@rc-component/table` 上实现，而在 antd 侧则只需要通过 `<Table virtual />` 即可开启。
 
-## 太长不看
+## 太长不看 {#tldr}
 
 Table 通过 `virtual` 属性即可开启虚拟滚动能力。同时，原 Table 的功能都能正常使用：
 
@@ -19,25 +19,25 @@ Table 通过 `virtual` 属性即可开启虚拟滚动能力。同时，原 Table
 <Table virtual scroll={{ x: 2000, y: 500 }} {...otherProps} />
 ```
 
-### 固定列
+### 固定列 {#fixed-columns}
 
 ![Fixed Columns](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*V2FcS7ZAReMAAAAAAAAAAAAADrJ8AQ/original)
 
-### 可展开
+### 可展开 {#expandable}
 
 ![Expandable](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*nd61R4YsknsAAAAAAAAAAAAADrJ8AQ/original)
 
-### 行列组合
+### 行列组合 {#rowspan--colspan}
 
 ![Rowspan & Colspan](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DYkYQo8tU6sAAAAAAAAAAAAADrJ8AQ/original)
 
 你可以直接访问 [虚拟列表](/components/table#table-demo-virtual-list) 示例进行体验。
 
-## 一些细节
+## 一些细节 {#some-details}
 
 antd 的 Table 底层使用了 `@rc-component/table` 组件，我们的虚拟滚动功能也是复用了上文提到的 `components` 属性。将中间的 `<tbody>` 替换为 `@rc-component/virtual-list`，该组件广泛应用于 antd 的各个虚拟滚动场景中。例如 Select、Tree 都可以见到它的身影。而 `@rc-component/virtual-list` 本身并不支持横向滚动能力，因而我们在这次改造中，也为其添加了横向滚动的支持。
 
-### 固定列
+### 固定列 {#fixed-columns-1}
 
 在 v4 时期，我们便将 Table 的固定列改造成了 `position: sticky` 实现。该 CSS 允许你在滚动时，将元素固定在某个位置。从而避免 v3 时期需要额外渲染一份 Table 用于实现固定位置的效果：
 
@@ -49,7 +49,7 @@ antd 的 Table 底层使用了 `@rc-component/table` 组件，我们的虚拟滚
 
 在虚拟滚动中，我们同样可以利用该特性。直接复用 `sticky` 样式，即可实现固定列的效果。而 `@rc-component/virtual-list` 需要付出的仅仅是提供横向滚动，而不需要关心固定列的实现。
 
-### 可展开
+### 可展开 {#expandable-1}
 
 在 `@rc-component/table` 中，我们会将 `dataSource` 通过 `useFlattenRecords` 将树状结构打平，从而支持开发者自定义的虚拟滚动能力。感谢 [@crawler-django](https://github.com/react-component/table/pull/619) 当年的贡献，因而我们这次并不需要再实现一次打平逻辑。
 
@@ -84,7 +84,7 @@ function flatten<T extends { children?: T[] }>(data: T[] = [], list: T[] = []) {
 }
 ```
 
-### 行列组合
+### 行列组合 {#rowspan--colspan-1}
 
 如果你对 Table 的实现有所了解，那么你会知道行列合并是通过 `rowSpan` 和 `colSpan` 实现的。而在虚拟滚动中，由于并不是所有节点都是渲染，所以会出现需要渲染的行列并不存在的情况：
 
@@ -155,7 +155,7 @@ const extraRender = ({ start, end }) => {
 
 当然，这种实现是基于 `rowSpan > 1` 和 `rowSpan = 0` 会匹配出现的假设。它不支持 `rowSpan` 用于挤压至下层的情况，但是对于数据表格而言，这已经足够了。
 
-## 总结
+## 总结 {#finally}
 
 虚拟滚动是一个非常复杂的功能，它需要考虑的因素非常多。但是我们相信花费这些精力是值得的，开发者不用再在功能和性能之间做取舍，而是可以同时拥有两者。
 

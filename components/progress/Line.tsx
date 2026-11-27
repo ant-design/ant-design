@@ -2,6 +2,7 @@ import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
 import { clsx } from 'clsx';
 
+import { isString } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
 import type {
@@ -108,7 +109,7 @@ const Line: React.FC<LineProps> = (props) => {
   }
 
   // ========================= Size =========================
-  const mergedSize = size ?? [-1, strokeWidth || (size === 'small' ? 6 : 8)];
+  const mergedSize = size ?? [-1, strokeWidth || 8];
 
   const [width, height] = getSize(mergedSize, 'line', { strokeWidth });
 
@@ -149,7 +150,7 @@ const Line: React.FC<LineProps> = (props) => {
       className={clsx(`${prefixCls}-body`, classNames.body, {
         [`${prefixCls}-body-layout-bottom`]: infoAlign === 'center' && infoPosition === 'outer',
       })}
-      style={{ width: width > 0 ? width : '100%', ...styles.body }}
+      style={{ width: isString(width) || width > 0 ? width : '100%', ...styles.body }}
     >
       {/************** Rail **************/}
       <div

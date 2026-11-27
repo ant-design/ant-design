@@ -9,7 +9,7 @@ title: 直截了当
 
 ---
 
-## 页内编辑
+## 页内编辑 {#in-page-editing}
 
 <ImagePreview>
 <img class="preview-img" alt="单击编辑示例" description="状态一：普通的浏览模式，不区分可编辑行和不可编辑行；<br>状态二：鼠标悬停时，「指针」变为「手型」，编辑区域底色变黄，出现「Tooltips」提示单击编辑；<br>状态三：鼠标点击后，出现「输入框」、「确定」、「取消」表单元素，同时光标定位在「输入框」中。" src="https://gw.alipayobjects.com/zos/rmsportal/EXKwsvUkIUNkHBSsOlRi.png">
@@ -35,13 +35,13 @@ title: 直截了当
 
 多字段行内编辑
 
-> 注：在「多字段行内编辑」的情况下，显示的内容和编辑时所需的字段会存在比较大的差异，所以更需要「巧用过渡」原则中的[「解释刚刚发生了什么」](/docs/spec/transition#解释刚刚发生了什么)来消除这种视觉影响。
+> 注：在「多字段行内编辑」的情况下，显示的内容和编辑时所需的字段会存在比较大的差异，所以更需要「巧用过渡」原则中的[「解释刚刚发生了什么」](/docs/spec/transition#explain-what-just-happened)来消除这种视觉影响。
 
 <br>
 
 ---
 
-## 利用拖放
+## 利用拖放 {#drag-and-drop}
 
 <ImagePreview>
 <img class="preview-img" alt="拖放列表示例" description="状态一：鼠标悬停该行时，出现可移动的「图标」；<br>状态二：鼠标悬停在该「图标」时，指针变为「手型」，点击即可进行拖动；<br>状态三：拖动到可放置区块，出现蓝色描边，告知用户该区块可放置该对象。" src="https://gw.alipayobjects.com/zos/rmsportal/xZWSNecZhGXaAVluxOAK.png">

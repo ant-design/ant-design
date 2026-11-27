@@ -6,7 +6,7 @@ import fs from 'fs-extra';
 import fetch from 'isomorphic-fetch';
 import jsdom from 'jsdom';
 import openWindow from 'open';
-import simpleGit from 'simple-git';
+import { simpleGit } from 'simple-git';
 
 const { JSDOM } = jsdom;
 const { window } = new JSDOM();

@@ -13,6 +13,7 @@ import AdmZip from 'adm-zip';
 import axios from 'axios';
 import chalk from 'chalk';
 import dotnev from 'dotenv';
+import { simpleGit } from 'simple-git';
 import Spinnies from 'spinnies';
 
 import checkRepo from './check-repo';
@@ -20,7 +21,6 @@ import checkRepo from './check-repo';
 dotnev.config({ override: true });
 
 const { Notification: Notifier } = require('node-notifier');
-const simpleGit = require('simple-git');
 
 const spinner = { interval: 80, frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'] };
 const spinnies = new Spinnies({ spinner });
@@ -115,6 +115,11 @@ const runPrePublish = async () => {
   showMessage(`已经和远程分支保持同步 ${currentBranch}`, 'succeed');
 
   const { latest } = await git.log();
+
+  if (!latest) {
+    throw new Error('Unable to find the latest git commit.');
+  }
+
   const sha = process.env.TARGET_SHA || latest.hash;
 
   showMessage(`找到本地最新 commit:`, 'succeed');

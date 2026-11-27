@@ -1,7 +1,6 @@
 import * as React from 'react';
 import RcMentions from '@rc-component/mentions';
 import type { MentionsProps as RcMentionsProps } from '@rc-component/mentions';
-import { composeRef } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useAllowClear, useZIndex } from '../_util/hooks';
@@ -22,6 +21,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
+import { useLocale } from '../locale';
 import usePopupRender from '../select/usePopupRender';
 import Spin from '../spin';
 import useStyle from './style';
@@ -115,8 +115,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     ...restProps
   } = props;
   const [focused, setFocused] = React.useState(false);
-  const innerRef = React.useRef<MentionsRef>(null);
-  const mergedRef = composeRef(ref, innerRef);
 
   // ===================== Size =====================
   const mergedSize = useSize((ctx) => customSize ?? ctx);
@@ -187,7 +185,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     if (notFoundContent !== undefined) {
       return notFoundContent;
     }
-    return renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
+    return renderEmpty?.('Mentions') || <DefaultRenderEmpty componentName="Mentions" />;
   }, [notFoundContent, renderEmpty]);
 
   const mentionOptions = React.useMemo<React.ReactNode>(() => {
@@ -213,11 +211,13 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const mentionsfilterOption = loading ? loadingFilterOption : filterOption;
 
+  const [locale] = useLocale('global');
   const mergedAllowClear = useAllowClear({
     allowClear,
     contextAllowClear,
     defaultAllowClear: false,
     componentName: 'Mentions',
+    defaultLabel: locale.clear,
   });
 
   // Style
@@ -261,7 +261,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       filterOption={mentionsfilterOption}
       onFocus={onFocus}
       onBlur={onBlur}
-      ref={mergedRef}
+      ref={ref}
       options={mergedOptions}
       suffix={suffixNode}
       styles={{
@@ -325,7 +325,8 @@ Mentions.getMentions = (value = '', config: MentionsConfig = {}): MentionsEntity
   const { prefix = '@', split = ' ' } = config;
   const prefixList: string[] = toList(prefix);
 
-  return value.split(split).reduce<MentionsEntity[]>((list, str = '') => {
+  const separator = split === ' ' ? /[ \r\n]+/ : split;
+  return value.split(separator).reduce<MentionsEntity[]>((list, str = '') => {
     let hitPrefix: string | null = null;
 
     prefixList.some((prefixStr) => {

@@ -5,7 +5,7 @@ const App: React.FC = () => (
   <Form
     name="wrap"
     labelCol={{ flex: '110px' }}
-    labelAlign="left"
+    labelAlign="start"
     labelWrap
     wrapperCol={{ flex: 1 }}
     colon={false}

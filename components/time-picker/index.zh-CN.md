@@ -31,7 +31,7 @@ demo:
 <code src="./demo/range-picker.tsx">范围选择器</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/status.tsx">自定义状态</code>
-<code src="./demo/suffix.tsx">前后缀</code>
+<code src="./demo/suffix.tsx" version="6.7.0">前后缀</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
@@ -51,11 +51,12 @@ dayjs.extend(customParseFormat)
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 | 6.4.0 |
+| allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | true | - | 6.4.0 |
 | ~~addon~~ | TimePicker 面板底部的附加内容渲染函数，请使用 `renderExtraFooter` 替代 | () => ReactNode | - | - | × |
 | cellRender | 自定义单元格的内容 | (current: number, info: { originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 | × |
 | changeOnScroll | 在滚动时改变选择值 | boolean | false | 5.14.0 | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.25.0 |
+| components | 自定义面板、输入框和底部按钮，详见 [DatePicker Components](/components/date-picker-cn#components) | [Components](/components/date-picker-cn#components) | - | `nowButton` 和 `okButton`：6.7.0 | × |
 | defaultValue | 默认时间 | [dayjs](https://day.js.org/) | - |  | × |
 | disabled | 禁用全部操作 | boolean | false |  | × |
 | disabledTime | 不可选择的时间 | [DisabledTime](#disabledtime) | - | 4.19.0 | × |
@@ -79,7 +80,8 @@ dayjs.extend(customParseFormat)
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `medium` \| `small` | - |  | × |
 | status | 设置校验状态 | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |
-| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  | 6.3.0 |
+| suffix | 自定义后缀 | ReactNode | - | 6.7.0 | 6.7.0 |
+| ~~suffixIcon~~ | 自定义的选择框后缀图标，请使用 `suffix` 替代 | ReactNode | - |  | 6.3.0 |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  | × |
 | value | 当前时间 | [dayjs](https://day.js.org/) | - |  | × |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
@@ -87,6 +89,17 @@ dayjs.extend(customParseFormat)
 | onChange | 时间发生变化的回调 | function(time: dayjs, timeString: string): void | - |  | × |
 | onClear | 点击清除按钮时的回调 | () => void | - | 6.5.0 | × |
 | onOpenChange | 面板打开/关闭时的回调 | (open: boolean) => void | - |  | × |
+
+### AllowClearConfig
+
+支持全局配置的字段按组件配置、全局配置、默认值的顺序取值。`allowClear={true}` 继承全局配置；`disabled: false` 和 `tabIndex: 0` 可覆盖全局值。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | 自定义清除图标 | ReactNode | - | - | 6.4.0 |
+| disabled | `true` 时等同于 `allowClear={false}` | boolean | false | 6.7.0 | 6.7.0 |
+| label | 清除按钮的无障碍名称 | string | 组件的本地化文案 | 6.7.0 | 6.7.0 |
+| tabIndex | 清除按钮的 Tab 键顺序。`-1` 表示不参与 Tab 键导航 | number | 0 | 6.7.0 | 6.7.0 |
 
 #### DisabledTime
 
@@ -112,7 +125,7 @@ type DisabledTime = (now: Dayjs) => {
 | blur()  | 移除焦点 |      |
 | focus() | 获取焦点 |      |
 
-## RangePicker
+### RangePicker
 
 属性与 DatePicker 的 [RangePicker](/components/date-picker#rangepicker) 相同。还包含以下属性：
 

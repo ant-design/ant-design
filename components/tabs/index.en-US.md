@@ -7,7 +7,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*72NDQqXkyOEAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8HMoTZUoSGoAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-### When To Use
+## When To Use
 
 Ant Design has 3 types of Tabs for different situations.
 
@@ -99,7 +99,9 @@ More option at [@rc-component/tabs](https://github.com/react-component/tabs#tabs
 | --- | --- | --- | --- | --- |
 | icon | The custom icon | ReactNode | - |  |
 | popupRender | Customize the dropdown menu render | (menu: ReactElement, info: { restTabs: Tab[], onClose: () => void }) => ReactElement | - | 6.6.0 |
+| ~~visible~~ | Whether the dropdown menu is open, use `open` instead | boolean | - |  |
 | [DropdownProps](/components/dropdown#api) | Support other Dropdown props |  |  |  |
+| ~~onVisibleChange~~ | Called when the dropdown open state changes, use `onOpenChange` instead | (open: boolean) => void | - |  |
 
 ## Semantic DOM
 

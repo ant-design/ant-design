@@ -38,17 +38,10 @@ export interface AffixProps {
   children: React.ReactNode;
 }
 
-const AFFIX_STATUS_NONE = 0;
-const AFFIX_STATUS_PREPARE = 1;
-
-type AffixStatus = typeof AFFIX_STATUS_NONE | typeof AFFIX_STATUS_PREPARE;
-
 interface AffixState {
   affixStyle?: React.CSSProperties;
   placeholderStyle?: React.CSSProperties;
-  status: AffixStatus;
   lastAffix: boolean;
-  prevTarget: Window | HTMLElement | null;
 }
 
 export interface AffixRef {
@@ -87,8 +80,6 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   const [affixStyle, setAffixStyle] = React.useState<React.CSSProperties>();
   const [placeholderStyle, setPlaceholderStyle] = React.useState<React.CSSProperties>();
 
-  const statusRef = React.useRef<AffixStatus>(AFFIX_STATUS_NONE);
-
   const prevTargetRef = React.useRef<Window | HTMLElement | null>(null);
   const prevListenerRef = React.useRef<EventListener>(null);
 
@@ -102,20 +93,13 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
 
   // =================== Measure ===================
   const measure = () => {
-    if (
-      statusRef.current !== AFFIX_STATUS_PREPARE ||
-      !fixedNodeRef.current ||
-      !placeholderNodeRef.current ||
-      !targetFunc
-    ) {
+    if (!fixedNodeRef.current || !placeholderNodeRef.current) {
       return;
     }
 
     const targetNode = targetFunc();
     if (targetNode) {
-      const newState: Partial<AffixState> = {
-        status: AFFIX_STATUS_NONE,
-      };
+      const newState: Partial<AffixState> = {};
       const placeholderRect = getTargetRect(placeholderNodeRef.current);
 
       if (
@@ -131,21 +115,10 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
       const fixedTop = getFixedTop(placeholderRect, targetRect, internalOffsetTop);
       const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
 
-      if (fixedTop !== undefined) {
+      if (fixedTop !== undefined || fixedBottom !== undefined) {
         newState.affixStyle = {
           position: 'fixed',
-          top: fixedTop,
-          width: placeholderRect.width,
-          height: placeholderRect.height,
-        };
-        newState.placeholderStyle = {
-          width: placeholderRect.width,
-          height: placeholderRect.height,
-        };
-      } else if (fixedBottom !== undefined) {
-        newState.affixStyle = {
-          position: 'fixed',
-          bottom: fixedBottom,
+          ...(fixedTop !== undefined ? { top: fixedTop } : { bottom: fixedBottom }),
           width: placeholderRect.width,
           height: placeholderRect.height,
         };
@@ -161,7 +134,6 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
         onChange?.(newState.lastAffix);
       }
 
-      statusRef.current = newState.status!;
       setAffixStyle(newState.affixStyle);
       setPlaceholderStyle(newState.placeholderStyle);
       setLastAffix(newState.lastAffix);
@@ -169,7 +141,6 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   };
 
   const prepareMeasure = () => {
-    statusRef.current = AFFIX_STATUS_PREPARE;
     measure();
     if (process.env.NODE_ENV === 'test') {
       onTestUpdatePosition?.();
@@ -182,7 +153,7 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
 
   const lazyUpdatePosition = throttleByAnimationFrame(() => {
     // Check position change before measure to make Safari smooth
-    if (targetFunc && affixStyle) {
+    if (affixStyle) {
       const targetNode = targetFunc();
       if (targetNode && placeholderNodeRef.current) {
         const targetRect = getTargetRect(targetNode);
@@ -204,7 +175,7 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   });
 
   const addListeners = () => {
-    const listenerTarget = targetFunc?.();
+    const listenerTarget = targetFunc();
     if (!listenerTarget) {
       return;
     }
@@ -219,7 +190,7 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   };
 
   const removeListeners = () => {
-    const newTarget = targetFunc?.();
+    const newTarget = targetFunc();
     TRIGGER_EVENTS.forEach((eventName) => {
       newTarget?.removeEventListener(eventName, lazyUpdatePosition);
       if (prevListenerRef.current) {

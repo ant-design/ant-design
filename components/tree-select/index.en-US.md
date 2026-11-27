@@ -26,7 +26,7 @@ demo:
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/maxCount.tsx" version="5.23.0">Max Count</code>
-<code src="./demo/suffix.tsx" version="5.22.0">Prefix and Suffix</code>
+<code src="./demo/suffix.tsx" version="6.7.0">Prefix and Suffix</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
@@ -39,7 +39,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type | × |
+| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | false | - | 6.7.0 |
 | ~~autoClearSearchValue~~ | If auto clear search input value when multiple select is selected/deselected | boolean | true |  | × |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.25.0 |
@@ -70,13 +70,14 @@ Common props ref：[Common props](/docs/react/common-props)
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  | × |
 | prefix | The custom prefix | ReactNode | - | 5.22.0 | × |
 | ~~searchValue~~ | Work with `onSearch` to make search value controlled | string | - |  | × |
-| ~~showArrow~~ | Whether to show the arrow icon, please use `suffixIcon={null}` instead | boolean | true | - | × |
+| ~~showArrow~~ | Whether to show the arrow icon, please use `suffix={null}` instead | boolean | true | - | × |
 | showCheckedStrategy | The way show selected item in box when `treeCheckable` set. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode) | `TreeSelect.SHOW_ALL` \| `TreeSelect.SHOW_PARENT` \| `TreeSelect.SHOW_CHILD` | `TreeSelect.SHOW_CHILD` |  | × |
 | showSearch | Support search or not | boolean \| [Object](#showsearch) | single: false \| multiple: true |  | × |
 | size | To set the size of the select input | `large` \| `medium` \| `small` | - |  | × |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.25.0 |
-| suffixIcon | The custom suffix icon | ReactNode | `<DownOutlined />` |  | × |
+| suffix | The custom suffix. Custom suffixes will not respond to clicks to open, because the replaced suffix may be designed for other interactions. You can use `pointer-events: none` style to bypass | ReactNode \| (props) => ReactNode | `<DownOutlined />` | 6.7.0 | × |
+| ~~suffixIcon~~ | The custom suffix icon. Please use `suffix` instead | ReactNode | `<DownOutlined />` |  | × |
 | switcherIcon | Customize collapse/expand icon of tree node | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 | 5.28.0 |
 | tagRender | Customize tag render when `multiple` | (props) => ReactNode | - |  | × |
 | treeCheckable | Whether to show checkbox on the treeNodes | boolean | false |  | × |
@@ -104,6 +105,17 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~onSearch~~ | A callback function, can be executed when the search input changes | function(value: string) | - |  | × |
 | onSelect | A callback function, can be executed when you select a treeNode | function(value, node, extra) | - |  | × |
 | onTreeExpand | A callback function, can be executed when treeNode expanded | function(expandedKeys) | - |  | × |
+
+### AllowClearConfig
+
+Supports global configuration through `ConfigProvider.treeSelect.allowClear` (6.7.0). Fields use component values first, then global values, then defaults. `allowClear={true}` inherits global configuration; `disabled: false` and `tabIndex: 0` override global values.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | Custom clear icon | ReactNode | - | - | 6.7.0 |
+| disabled | When `true`, equivalent to `allowClear={false}` | boolean | false | 6.7.0 | 6.7.0 |
+| label | Accessible name of the clear button | string | Component locale text | 6.6.0 | 6.7.0 |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 6.7.0 | 6.7.0 |
 
 ### showSearch
 

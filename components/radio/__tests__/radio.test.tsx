@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 import Form from '../../form';
+import Tooltip from '../../tooltip';
 
 describe('Radio', () => {
   focusTest(Radio, { refFocus: true });
@@ -54,6 +55,60 @@ describe('Radio', () => {
 
     fireEvent.mouseLeave(container.querySelector('label')!);
     expect(onMouseLeave).toHaveBeenCalled();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59698
+  it('should not trigger hover events when moving from the radio to its label', () => {
+    const onMouseEnter = jest.fn();
+    const onMouseLeave = jest.fn();
+
+    const { container } = render(
+      <Radio onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        Radio
+      </Radio>,
+    );
+    const input = container.querySelector('input')!;
+    const label = container.querySelector('.ant-radio-label')!;
+
+    fireEvent.mouseOver(input, { relatedTarget: document.body });
+    fireEvent.mouseOut(input, { relatedTarget: label });
+    fireEvent.mouseOver(label, { relatedTarget: input });
+
+    expect(onMouseEnter).toHaveBeenCalledTimes(1);
+    expect(onMouseLeave).not.toHaveBeenCalled();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/59698
+  it('should keep Tooltip open when moving from the radio to its label', () => {
+    const onOpenChange = jest.fn();
+
+    const { container } = render(
+      <Tooltip title="Tooltip" onOpenChange={onOpenChange}>
+        <Radio>Radio</Radio>
+      </Tooltip>,
+    );
+    const input = container.querySelector('input')!;
+    const label = container.querySelector('.ant-radio-label')!;
+
+    // Browsers fire both pointer and mouse events
+    const move = (from: Element, to: Element) => {
+      fireEvent.pointerOut(from, { relatedTarget: to });
+      fireEvent.pointerOver(to, { relatedTarget: from });
+      fireEvent.mouseOut(from, { relatedTarget: to });
+      fireEvent.mouseOver(to, { relatedTarget: from });
+    };
+
+    move(document.body, input);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(onOpenChange).toHaveBeenCalledWith(true);
+
+    move(input, label);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(onOpenChange).not.toHaveBeenCalledWith(false);
   });
 
   it('should use own disabled status first', () => {

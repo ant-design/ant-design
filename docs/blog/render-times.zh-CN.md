@@ -11,7 +11,7 @@ juejin_url: https://juejin.cn/post/7322352551088537627
 
 在此之前，我们建议你先阅读官方的 [性能工具](https://reactjs.org/docs/perf.html) 以选择你需要调试的内容。
 
-### 渲染次数统计
+### 渲染次数统计 {#render-count-statistics}
 
 在大部分情况下，无效的渲染相对于未优化的循环而言，体感并没有那么强烈。但是在某一些场景诸如大型表单、表格、列表下，由于其子组件众多，无效的渲染叠加后其性能影响也十分可怕。
 
@@ -89,7 +89,7 @@ return (
 
 注：你可以配置 eslint [规则](https://github.com/jsx-eslint/eslint-plugin-react/blob/3256c92ca1b3bc7ec3461a89c278c797e7dc18cb/docs/rules/jsx-no-constructed-context-values.md) 来避免遗漏。
 
-#### 拆分 Context
+#### 拆分 Context {#split-context}
 
 此外，参考上面的示例。如果我们将 `prop1` 和 `prop2` 都放在 Context 中，那么即便 `prop1` 没有变化，`prop2` 变化了，也会导致子组件重新渲染。因而我们可以根据功能将 Context 拆分成多个，从而减小影响范围：
 
@@ -135,7 +135,7 @@ const Child = React.memo(() => {
 });
 ```
 
-### 闭包问题
+### 闭包问题 {#closure-problem}
 
 在通过各种方式优化过后，我们还不得不面对一个问题。如果某些渲染需要通过外界的 render 方式，并且碰巧该方式使用了闭包。那么 `React.memo` 是无法感知的：
 
@@ -167,6 +167,6 @@ const App = () => {
 
 考虑到 Table 提供了 `shouldCellUpdate` 方法，我们准备未来调整 Table 渲染逻辑。当 Parent 节点渲染时，Table 会完整的重新渲染，而当 Table 内部更新时（例如水平滚动位置同步），则会命中缓存而跳过。
 
-### 最后
+### 最后 {#finally}
 
 antd 的 Table 优化仍在进行中，我们也会持续关注 React 的新特性，以及社区的新思路。如果你有任何想法，欢迎在 GitHub 留言讨论。此外，对于自行研发组件的建议，我们推荐在每次完成优化后，都要创建对应的测试用例，并且备注来源 issue 以便于未来的回溯。以上。

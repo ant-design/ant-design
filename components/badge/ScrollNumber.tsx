@@ -17,11 +17,6 @@ export interface ScrollNumberProps {
   show: boolean;
 }
 
-export interface ScrollNumberState {
-  animateStarted?: boolean;
-  count?: string | number | null;
-}
-
 const ScrollNumber = React.forwardRef<HTMLElement, ScrollNumberProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,

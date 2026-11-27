@@ -15,7 +15,7 @@ The first way is to use `generatePicker` (or `generateCalendar`) to help create 
 
 First, we initialize an antd demo. You can refer to [Scaffolding Guide](https://u.ant.design/guide), or you can start directly here [init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
 
-### DatePicker.tsx
+### DatePicker.tsx {#datepicker}
 
 Create `src/components/DatePicker.tsx`.
 
@@ -31,7 +31,7 @@ const MyDatePicker = DatePicker.generatePicker<Moment>(momentGenerateConfig);
 export default MyDatePicker;
 ```
 
-### TimePicker.tsx
+### TimePicker.tsx {#timepicker}
 
 Create `src/components/TimePicker.tsx`.
 
@@ -55,7 +55,7 @@ TimePicker.displayName = 'TimePicker';
 export default TimePicker;
 ```
 
-### Calendar.tsx
+### Calendar.tsx {#calendar}
 
 Create `src/components/Calendar.tsx`.
 

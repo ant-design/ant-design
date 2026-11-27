@@ -31,7 +31,7 @@ A masonry layout component for displaying content with different heights.
 
 Common props ref：[Common props](/docs/react/common-props)
 
-## Masonry
+### Masonry
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |

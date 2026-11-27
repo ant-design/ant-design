@@ -80,6 +80,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   props,
   ref,
 ) => {
+  // Pointer events are not part of `CheckboxProps`, but triggers such as Tooltip pass them
   const {
     prefixCls: customizePrefixCls,
 
@@ -88,6 +89,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
 
     onMouseEnter,
     onMouseLeave,
+    onPointerEnter,
+    onPointerLeave,
     skipGroup = false,
     disabled,
 
@@ -110,7 +113,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     onChange,
 
     ...restProps
-  } = props;
+  } = props as CheckboxProps &
+    Pick<React.DOMAttributes<HTMLElement>, 'onPointerEnter' | 'onPointerLeave'>;
   const {
     getPrefixCls,
     direction,
@@ -139,7 +143,13 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   const [innerChecked, setInnerChecked] = useControlledState(defaultChecked, checked);
   let mergedChecked = innerChecked;
 
+  const checkboxRef = React.useRef<CheckboxRef>(null);
+
   const onInternalChange = useEvent((event) => {
+    // Native checkbox activation clears indeterminate before firing change.
+    if (checkboxRef.current?.input) {
+      checkboxRef.current.input.indeterminate = indeterminate;
+    }
     setInnerChecked(event.target.checked);
     onChange?.(event);
 
@@ -153,7 +163,6 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     mergedChecked = checkboxGroup.value.includes(value);
   }
 
-  const checkboxRef = React.useRef<CheckboxRef>(null);
   const mergedRef = useComposeRef(ref, checkboxRef);
 
   React.useEffect(() => {
@@ -195,9 +204,19 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     CheckboxSemanticAllType['classNames'],
     CheckboxSemanticAllType['styles'],
     CheckboxProps
-  >([contextClassNames, classNames], [contextStyles, contextStyleRoot, styles, styleRoot], {
-    props: mergedProps,
-  });
+  >(
+    [contextClassNames, skipGroup ? undefined : checkboxGroup?.classNames, classNames],
+    [
+      contextStyles,
+      contextStyleRoot,
+      skipGroup ? undefined : checkboxGroup?.styles,
+      styles,
+      styleRoot,
+    ],
+    {
+      props: mergedProps,
+    },
+  );
 
   const classString = clsx(
     `${prefixCls}-wrapper`,
@@ -233,6 +252,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
         style={mergedStyles.root}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
+        onPointerEnter={onPointerEnter}
+        onPointerLeave={onPointerLeave}
         onClick={onLabelClick}
       >
         <RcCheckbox

@@ -33,7 +33,7 @@ Of course, this is only one of the reasons to drop `enzyme`. More importantly it
 
 ## migrate
 
-### 1. render
+### 1. render {#render}
 
 `enzyme` supports rendering in three ways:
 
@@ -57,7 +57,7 @@ In order to be close to the real scene of the browser, `antd@4.x` uses `mount` f
     );
 ```
 
-### 2. interact & event
+### 2. interact & event {#interact-event}
 
 `enzyme` provides `simulate(event)` method to simulate event triggering and user interaction, `event` is the name of the event, and the corresponding `fireEvent` method in `@testing-library`:
 
@@ -68,7 +68,7 @@ In order to be close to the real scene of the browser, `antd@4.x` uses `mount` f
 ++  fireEvent.click(container.querySelector('.ant-handle'));
 ```
 
-### 3. DOM element
+### 3. DOM element {#dom-element}
 
 In `enzyme`, some built-in APIs are provided to manipulate dom, or find components:
 
@@ -95,7 +95,7 @@ In `testing-library`, these APIs are not provided (as mentioned above - `testing
 ++  expect(container.querySelector('.ant-popover-inner-content')).toBeTruthy();
 ```
 
-### 4. compatibility test
+### 4. compatibility test {#compatibility-test}
 
 While the major version is being upgraded, some components are discarded, but they are not removed in antd. For example, the BackTop component needs to add warning to the component to ensure compatibility, so it is also necessary to write a special unit test for warning:
 

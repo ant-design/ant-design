@@ -15,6 +15,7 @@ Array [
       class="ant-mentions-suffix"
     >
       <button
+        aria-label="Clear"
         class="ant-mentions-clear-icon"
         type="button"
       >
@@ -56,6 +57,7 @@ Array [
       class="ant-mentions-suffix"
     >
       <button
+        aria-label="Clear"
         class="ant-mentions-clear-icon"
         type="button"
       >
@@ -97,6 +99,7 @@ Array [
       class="ant-mentions-suffix"
     >
       <button
+        aria-label="Clear"
         class="ant-mentions-clear-icon"
         type="button"
       >

@@ -3,6 +3,7 @@ import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { StepsProps as RcStepsProps } from '@rc-component/steps';
 import RcSteps from '@rc-component/steps';
+import { isReactRenderable } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
@@ -15,6 +16,7 @@ import { TARGET_CLS } from '../_util/wave/interface';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
+import useVariant from '../form/hooks/useVariants';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import Tooltip from '../tooltip';
@@ -153,7 +155,7 @@ const Steps = (props: StepsProps) => {
     className,
     rootClassName,
     style,
-    variant = 'filled',
+    variant: customVariant,
     type,
     classNames,
     styles,
@@ -193,6 +195,11 @@ const Steps = (props: StepsProps) => {
     className: contextClassName,
     style: contextStyle,
   } = contextContent;
+
+  const [variant] = useVariant('steps', customVariant, {
+    variants: ['filled', 'outlined'],
+    defaultVariant: 'filled',
+  });
 
   let contextClassNames: StepsProps['classNames'];
   let contextStyles: StepsProps['styles'];
@@ -325,7 +332,7 @@ const Steps = (props: StepsProps) => {
 
     let iconContent: React.ReactNode = null;
 
-    if (isDot || icon) {
+    if (isDot || isReactRenderable(icon)) {
       iconContent = icon;
     } else {
       switch (status) {

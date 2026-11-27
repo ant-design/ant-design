@@ -82,5 +82,4 @@ The scenario of no data in the content area is displayed with a combination of g
 ### External Reference Articles
 
 - [Salesforce Empty State Design Guidelines](https://www.lightningdesignsystem.com/guidelines/empty-state/#Message)
-- [PREDIX Empty State Design Guidelines](https://www.predix-ui.com/#/design/communication/empty-states)
 - [Material Design Empty State Design Guidelines](https://material.io/design/communication/empty-states.html#content)

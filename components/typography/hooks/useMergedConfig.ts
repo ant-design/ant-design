@@ -7,7 +7,7 @@ const useMergedConfig = <Target>(propConfig?: boolean | Target, templateConfig?:
 
   return React.useMemo<readonly [boolean, Target]>(() => {
     const config = {
-      ...templateConfig,
+      ...(support ? templateConfig : null),
       ...(support && isPlainObject(propConfig) ? propConfig : null),
     } as Target;
     return [support, config] as const;

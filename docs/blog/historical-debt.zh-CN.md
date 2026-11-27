@@ -32,13 +32,13 @@ Warning: [antd: XXX] `old prop` is deprecated. Please use `new prop` instead.
 
 然而世上没有银弹，我们无法在一开始就设计出完美的 API。有一些 API 在设计之初显得非常合理，而随着迭代又会发现或多或少不合时宜。比如说弹出层早期起名为 dropdown，这对应了 Dropdown 以及类 Select 组件的弹出内容。但是对于 Tooltip 而言，dropdown 显然是不适合的。从统一的角度看，popup 会更适合。
 
-### 废弃警告
+### 废弃警告 {#deprecated-warning}
 
 在维护过程中，我们逐渐统一了 API 命名规范（[API Naming rules](https://github.com/ant-design/ant-design/wiki/API-Naming-rules)）。在添加新的 feature 时，优先从现存的 API 中寻找接近。对于现存的 API，逐步添加废弃警告。为了保持兼容，我们的策略是每个版本提供的废弃警告会继续兼容一个大版本，而在下下个大版本中移除它。例如在 v4 中添加了废弃警告，那么在 v5 中仍然可以使用，但是在 v6 中将会被移除。以此确保开发者有足够的时间进行迁移。
 
 但是从开发者角度看，这也并不合理。开发者本身只是对 antd 进行了升级，却要因为组件库 API 设计的失误而遭受 console 的侵扰。如果在废弃警告中混入几个使用警告，开发者往往很难发现它们。这种情况在大版本升级中尤为显著，业务可能并没有给你足够的时间去做升级迁移，因而不得不使用兼容包以及其他的一些技术手段让它先跑起来。而对于冗长的废弃警告，开发者不得不选择暂时（或者永远）无视它们。针对这种情况，使用警告会更为重要，因而我们提出了 [Warning Filter RFC](https://github.com/ant-design/ant-design/discussions/44551)。
 
-#### 警告过滤
+#### 警告过滤 {#warning-filter}
 
 通过 ConfigProvider 的 `warning` 属性，可以将废弃信息进行聚合：
 
@@ -50,7 +50,7 @@ Warning: [antd: XXX] `old prop` is deprecated. Please use `new prop` instead.
 
 ![Merged Message](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*MG-rQ4NSbbcAAAAAAAAAAAAADrJ8AQ/original)
 
-### 拓展问题
+### 拓展问题 {#extension-problem}
 
 如上所述，API 设计不存在银弹。为了防止 breaking change，我们一般不会改动现有的 API 实现。但是对于一些约定的内容，这就会造成麻烦。比如说 `ref` 组件是很典型的约定，只要是 React 的开发者就能明白，通过 `ref` 可以获取 DOM 节点以及做一些诸如 `focus` 的基本操作。但是对于复合组件而言，调用方法和 DOM 不一定能够统一。比如说 Table 组件的 `ref` 显然应该是最外层的 div，但是对于 `scrollTo` 方法则应该对应到滚动容器上（如果是 VirtualTable 则应该交由内部的 `@rc-component/virtual-list` 进行处理）。在 antd mobile 中 `ref` 被设计为复合结构，DOM 节点总是通过 `nativeElement` 返回：
 
@@ -78,6 +78,6 @@ useImperativeHandle(
 
 通过这种方式，我们可以继续兼容之前的使用。它仍然是一个 DOM 节点，但是同样也支持了 SampleRef 的定义调用。
 
-## 总结
+## 总结 {#summary}
 
 API 设计是个难题，随着技术栈以及组件本身的迭代。一些设计会逐渐腐朽，而 API 升级本身对于开发者也是痛苦的。我们希望通过这篇文章，让开发者能够理解我们的设计思路以及在升级过程中的一些问题。如果你有任何的建议或者想法，欢迎在 GitHub 中讨论。

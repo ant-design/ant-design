@@ -9,6 +9,7 @@ import { isNumber } from '../_util/is';
 import type { GetProp, GetProps, LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
+import useVariant from '../form/hooks/useVariants';
 import Steps from '../steps';
 import type { StepsProps, StepsSemanticType } from '../steps';
 import { InternalContext } from '../steps/context';
@@ -115,7 +116,7 @@ const Timeline: CompoundedComponent = (props) => {
     styles,
 
     // Design
-    variant = 'outlined',
+    variant: customVariant,
     mode,
     orientation = 'vertical',
     titleSpan,
@@ -135,6 +136,10 @@ const Timeline: CompoundedComponent = (props) => {
   // ===================== MISC =======================
   const rootPrefixCls = getPrefixCls();
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
+  const [mergedVariant] = useVariant('timeline', customVariant, {
+    variants: ['filled', 'outlined'],
+    defaultVariant: 'outlined',
+  });
 
   // ==================== Styles ======================
   // This will be duplicated with Steps's hashId & cssVarCls when they have same token
@@ -192,7 +197,7 @@ const Timeline: CompoundedComponent = (props) => {
   // =========== Merged Props for Semantic ===========
   const mergedProps: TimelineProps = {
     ...props,
-    variant,
+    variant: mergedVariant,
     mode: mergedMode,
     orientation,
     items: mergedItems,
@@ -282,7 +287,7 @@ const Timeline: CompoundedComponent = (props) => {
           classNames={mergedClassNames}
           styles={mergedStyles}
           // Design
-          variant={variant}
+          variant={mergedVariant}
           orientation={orientation}
           // Layout
           type="dot"

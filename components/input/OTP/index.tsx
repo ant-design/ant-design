@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { pickAttrs, useEvent } from '@rc-component/util';
+import { isReactRenderable, pickAttrs, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
+import { useSyncState } from '../../_util/hooks';
 import { isFunction } from '../../_util/is';
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
@@ -15,6 +16,7 @@ import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
 import type { FormItemStatusContextProps } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
+import useLocale from '../../locale/useLocale';
 import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
@@ -91,7 +93,7 @@ interface SeparatorProps {
 const Separator: React.FC<Readonly<SeparatorProps>> = (props) => {
   const { index, prefixCls, separator, className: semanticClassName, style: semanticStyle } = props;
   const separatorNode = isFunction(separator) ? separator(index) : separator;
-  if (!separatorNode) {
+  if (!isReactRenderable(separatorNode)) {
     return null;
   }
   return (
@@ -123,6 +125,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     inputMode,
     classNames,
     styles,
+    rootClassName,
     className,
     style,
     ...restProps
@@ -165,11 +168,15 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     props: mergedProps,
   });
 
-  const domAttrs = pickAttrs(restProps, {
+  // `aria-invalid` is not supported on `role="group"`, so it is set on each cell instead
+  const { 'aria-invalid': ariaInvalid, ...restDomProps } = restProps;
+  const domAttrs = pickAttrs(restDomProps, {
     aria: true,
     data: true,
     attr: true,
   });
+
+  const [inputLocale] = useLocale('Input');
 
   // ========================= Root =========================
   // Style
@@ -213,9 +220,10 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const internalFormatter = (txt: string) => (formatter ? formatter(txt) : txt);
 
   // ======================== Values ========================
-  const [valueCells, setValueCells] = React.useState<string[]>(() =>
+  const [getValueCells, setValueCells] = useSyncState<string[]>(
     strToArr(internalFormatter(defaultValue || '')),
   );
+  const valueCells = getValueCells();
 
   React.useEffect(() => {
     if (value !== undefined) {
@@ -224,6 +232,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   }, [value]);
 
   const triggerValueCellsChange = useEvent((nextValueCells: string[]) => {
+    const prevCells = getValueCells();
     setValueCells(nextValueCells);
 
     if (onInput) {
@@ -235,7 +244,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       onChange &&
       nextValueCells.length === length &&
       nextValueCells.every((c) => c) &&
-      nextValueCells.some((c, index) => valueCells[index] !== c)
+      nextValueCells.some((c, index) => prevCells[index] !== c)
     ) {
       onChange(nextValueCells.join(''));
     }
@@ -256,7 +265,6 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     } else {
       nextCells = nextCells.slice(0, index).concat(strToArr(txt));
     }
-    nextCells = nextCells.slice(0, length);
 
     // Clean the last empty cell
     for (let i = nextCells.length - 1; i >= 0; i -= 1) {
@@ -266,7 +274,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       nextCells.pop();
     }
 
-    // Format if needed
+    // Format before limiting the length to avoid losing valid characters.
     const formattedValue = internalFormatter(nextCells.map((c) => c || ' ').join(''));
     nextCells = strToArr(formattedValue).map((c, i) => {
       if (c === ' ' && !nextCells[i]) {
@@ -275,7 +283,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       return c;
     });
 
-    return nextCells;
+    return nextCells.slice(0, length);
   });
 
   // ======================== Change ========================
@@ -283,11 +291,13 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     const nextCells = patchValue(index, txt);
 
     const nextIndex = Math.min(index + txt.length, length - 1);
+
+    // Update cells before moving focus so that the focus guard reads fresh values.
+    triggerValueCellsChange(nextCells);
+
     if (nextIndex !== index && nextCells[index] !== undefined) {
       inputsRef.current[nextIndex]?.focus();
     }
-
-    triggerValueCellsChange(nextCells);
   };
 
   const onInputActiveChange: OTPInputProps['onActiveChange'] = (nextIndex) => {
@@ -298,7 +308,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const onInputFocus = (event: React.FocusEvent<HTMLInputElement>, index: number) => {
     // keep focus on the first empty cell
     for (let i = 0; i < index; i += 1) {
-      if (!inputsRef.current[i]?.input?.value) {
+      if (!getValueCells()[i]) {
         inputsRef.current[i]?.focus();
         break;
       }
@@ -309,6 +319,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   // ======================== Render ========================
   const inputSharedProps: Partial<OTPInputProps> = {
+    'aria-invalid': ariaInvalid ?? (mergedStatus === 'error' || undefined),
     variant,
     disabled,
     status: mergedStatus as InputStatus,
@@ -324,6 +335,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
       ref={containerRef}
       className={clsx(
         className,
+        rootClassName,
         prefixCls,
         {
           [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -349,6 +361,9 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
                   inputsRef.current[index] = inputEle;
                 }}
                 index={index}
+                aria-label={inputLocale.otpCell
+                  ?.replace(/\$\{index\}/g, String(index + 1))
+                  .replace(/\$\{total\}/g, String(length))}
                 size={mergedSize}
                 htmlSize={1}
                 className={clsx(mergedClassNames.input, `${prefixCls}-input`)}

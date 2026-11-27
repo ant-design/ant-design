@@ -33,11 +33,11 @@ const Demo = () => (
 export default Demo;
 ```
 
-## 封装聚合字段组件
+## 封装聚合字段组件 {#aggregate-field-components}
 
 当表单比较简单还好，如果遇到 `Form.List` 场景，就需要 `map` 处理值，将变的很复杂。于是我们需要封装聚合字段组件，实现一个 `Form.Item` 可以写多个 `name`。
 
-## 思路整理
+## 思路整理 {#approach-summary}
 
 要实现聚合字段功能，我们需要用到 `getValueProps` `getValueFromEvent` `transform`，从而实现数据从 `FormStore` 中的转化，以及变更时重新传入 `FormStore` 结构中。
 
@@ -73,7 +73,7 @@ rules={[{
 }]}
 ```
 
-## 最终效果
+## 最终效果 {#final-result}
 
 ```tsx | demo
 /**
@@ -181,7 +181,7 @@ export default () => (
 );
 ```
 
-## 总结
+## 总结 {#summary}
 
 通过这种方式，我们实现了一个可以在 `Form.Item` 中操作多个 `name` 的功能，使得表单逻辑更加清晰和易于维护。
 

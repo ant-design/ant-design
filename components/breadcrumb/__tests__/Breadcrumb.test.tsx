@@ -181,6 +181,27 @@ describe('Breadcrumb', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it.each([
+    { item: {}, expectedHref: '/child' },
+    { item: { href: '/parent' }, expectedHref: '/parent/child' },
+    { item: { path: 'parent' }, expectedHref: '#/parent/child' },
+  ])('should render menu path as $expectedHref', ({ item, expectedHref }) => {
+    render(
+      <Breadcrumb
+        items={[
+          {
+            ...item,
+            title: 'Parent',
+            menu: { items: [{ path: '/child', title: 'Child' }] },
+            dropdownProps: { open: true },
+          },
+        ]}
+      />,
+    );
+
+    expect(screen.getByRole('link', { name: 'Child' })).toHaveAttribute('href', expectedHref);
+  });
+
   it('should accept undefined items', () => {
     const { asFragment } = render(<Breadcrumb items={undefined!} />);
     expect(asFragment().firstChild).toMatchSnapshot();

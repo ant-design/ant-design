@@ -1,5 +1,6 @@
 import { css } from 'antd-style';
 import useSWR from 'swr';
+import type { SWRConfiguration } from 'swr';
 
 export interface Author {
   avatar: string;
@@ -104,18 +105,19 @@ export const getBannerData = (): null | {
   return null;
 };
 
+const swrConfig: SWRConfiguration = {
+  suspense: false,
+  revalidateIfStale: false,
+  revalidateOnFocus: false,
+};
+
 export const useAntdSiteConfig = () => {
   const { data, error, isLoading } = useSWR<Partial<SiteData>, Error>(
     `https://render.alipay.com/p/h5data/antd4-config_website-h5data.json`,
-    (url: string) => fetch(url).then((res) => res.json()),
-    {
-      suspense: false,
-      // revalidateOnMount: false,
-      revalidateIfStale: false,
-      revalidateOnFocus: false,
-    },
+    (input: string) => fetch(input).then((res) => res.json()),
+    swrConfig,
   );
-  return { data, error, isLoading };
+  return { data, error, isLoading } as const;
 };
 
 export const getCarouselStyle = () => ({

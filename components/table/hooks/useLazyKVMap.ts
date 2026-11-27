@@ -20,7 +20,6 @@ const useLazyKVMap = <RecordType extends AnyObject = AnyObject>(
 
   function getRecordByKey(key: Key): RecordType {
     if (
-      !mapCacheRef.current ||
       mapCacheRef.current.data !== data ||
       mapCacheRef.current.childrenColumnName !== childrenColumnName ||
       mapCacheRef.current.getRowKey !== getRowKey

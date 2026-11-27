@@ -13,6 +13,7 @@ const locale: PickerLocale = {
     weekPlaceholder: 'Haftani tanlang',
     rangePlaceholder: ['Boshlanish sanasi', 'Tugallanish sanasi'],
     rangeYearPlaceholder: ['Boshlanish yili', 'Tugallanish yili'],
+    rangeQuarterPlaceholder: ['Boshlanish choragi', 'Tugallanish choragi'],
     rangeMonthPlaceholder: ['Boshlanish oyi', 'Tugallanish oyi'],
     rangeWeekPlaceholder: ['Boshlanish haftasi', 'Tugallanish haftasi'],
     ...CalendarLocale,

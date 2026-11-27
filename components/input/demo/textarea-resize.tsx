@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Button, Input, Tooltip } from 'antd';
-import type { TextAreaRef } from 'antd/es/input/TextArea';
+import type { GetRef } from 'antd';
 
 const { TextArea } = Input;
 
@@ -9,7 +9,7 @@ const defaultValue =
 
 const App: React.FC = () => {
   const [autoResize, setAutoResize] = useState(false);
-  const textAreaRef = useRef<TextAreaRef>(null);
+  const textAreaRef = useRef<GetRef<typeof Input.TextArea>>(null);
 
   return (
     <>

@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import type Icon from '@ant-design/icons';
 import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
-import { Avatar, List, Skeleton, Switch } from 'antd';
+import { Avatar, Flex, Listy, Skeleton, Space, Switch, Typography } from 'antd';
 
 interface IconTextProps {
   icon: typeof Icon;
   text: React.ReactNode;
 }
 
-const listData = Array.from({ length: 3 }).map((_, i) => ({
+interface DataType {
+  href: string;
+  title: string;
+  avatar: string;
+  description: string;
+  content: string;
+}
+
+const listData = Array.from<any, DataType>({ length: 3 }, (_, i) => ({
   href: 'https://ant.design',
   title: `ant design part ${i + 1}`,
   avatar: `https://api.dicebear.com/10.x/lorelei/svg?seed=${i}`,
@@ -35,42 +43,40 @@ const App: React.FC = () => {
   return (
     <>
       <Switch checked={!loading} onChange={onChange} style={{ marginBottom: 16 }} />
-      <List
-        itemLayout="vertical"
-        size="large"
-        dataSource={listData}
-        renderItem={(item) => (
-          <List.Item
-            key={item.title}
-            actions={
-              !loading
-                ? [
-                    <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
-                    <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-                    <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
-                  ]
-                : undefined
-            }
-            extra={
-              !loading && (
-                <img
-                  draggable={false}
-                  width={272}
-                  alt="logo"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-                />
-              )
-            }
-          >
-            <Skeleton loading={loading} active avatar>
-              <List.Item.Meta
-                avatar={<Avatar src={item.avatar} />}
-                title={<a href={item.href}>{item.title}</a>}
-                description={item.description}
+      <Listy<DataType>
+        items={listData}
+        rowKey="title"
+        styles={{ item: { padding: '16px 24px' } }}
+        itemRender={(item) => (
+          <Flex gap="large">
+            <Flex vertical flex="auto" gap="middle" style={{ minWidth: 0 }}>
+              <Skeleton loading={loading} active avatar>
+                <Flex gap="middle" align="flex-start">
+                  <Avatar src={item.avatar} />
+                  <Flex vertical>
+                    <a href={item.href}>{item.title}</a>
+                    <Typography.Text type="secondary">{item.description}</Typography.Text>
+                  </Flex>
+                </Flex>
+                {item.content}
+              </Skeleton>
+              {!loading && (
+                <Space separator={<Typography.Text type="secondary">|</Typography.Text>}>
+                  <IconText icon={StarOutlined} text="156" />
+                  <IconText icon={LikeOutlined} text="156" />
+                  <IconText icon={MessageOutlined} text="2" />
+                </Space>
+              )}
+            </Flex>
+            {!loading && (
+              <img
+                draggable={false}
+                width={272}
+                alt="logo"
+                src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
               />
-              {item.content}
-            </Skeleton>
-          </List.Item>
+            )}
+          </Flex>
         )}
       />
     </>

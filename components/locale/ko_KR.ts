@@ -5,7 +5,7 @@ import Calendar from '../calendar/locale/ko_KR';
 import DatePicker from '../date-picker/locale/ko_KR';
 import TimePicker from '../time-picker/locale/ko_KR';
 
-const typeTemplate = '${label} 유효하지 않은 ${type}';
+const typeTemplate = '${label}은(는) 유효한 ${type}이(가) 아닙니다';
 
 const localeValues: Locale = {
   locale: 'ko',
@@ -19,6 +19,7 @@ const localeValues: Locale = {
     show: '표시',
     hide: '숨기기',
     sortable: '정렬 가능',
+    clear: '지우기',
   },
   Table: {
     filterTitle: '필터 메뉴',
@@ -32,9 +33,14 @@ const localeValues: Locale = {
     selectInvert: '선택 반전',
     selectNone: '없음',
     selectionAll: '전체 선택',
+    selectRow: '행 선택',
+    selectedRow: '행 선택됨',
+    selectionMenu: '선택 메뉴',
     sortTitle: '정렬',
     expand: '펼치기',
     collapse: '접기',
+    expandAll: '모든 행 펼치기',
+    collapseAll: '모든 행 접기',
     triggerDesc: '내림차순으로 정렬하기',
     triggerAsc: '오름차순으로 정렬하기',
     cancelSort: '정렬 취소하기',
@@ -52,6 +58,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: '확인',
     cancelText: '취소',
+  },
+  Splitter: {
+    toggleStartPanel: '시작 패널 전환',
+    toggleEndPanel: '끝 패널 전환',
   },
   Transfer: {
     titles: ['', ''],
@@ -93,14 +103,14 @@ const localeValues: Locale = {
   Form: {
     optional: '(선택사항)',
     defaultValidateMessages: {
-      default: '필드 유효성 검사 오류 ${label}',
-      required: '${label} 값을 입력해 주세요',
-      enum: '${label} [${enum}] 중에 하나여야 합니다',
-      whitespace: '${label} 비워둘 수 없습니다',
+      default: '${label} 필드의 유효성 검사 오류입니다',
+      required: '${label}을(를) 입력해 주세요',
+      enum: '${label}은(는) [${enum}] 중 하나여야 합니다',
+      whitespace: '${label}은(는) 공백일 수 없습니다',
       date: {
-        format: '${label} 유효하지 않은 날짜 형식입니다',
-        parse: '${label} 날짜 형식으로 변환될 수 없습니다',
-        invalid: '${label} 유효하지 않은 날짜입니다',
+        format: '${label}의 날짜 형식이 올바르지 않습니다',
+        parse: '${label}을(를) 날짜로 변환할 수 없습니다',
+        invalid: '${label}은(는) 유효하지 않은 날짜입니다',
       },
       types: {
         string: typeTemplate,
@@ -118,25 +128,25 @@ const localeValues: Locale = {
         hex: typeTemplate,
       },
       string: {
-        len: '${label} ${len}글자여야 합니다',
-        min: '${label} 적어도 ${min}글자 이상이어야 합니다',
-        max: '${label} ${max}글자 이하여야 합니다',
-        range: '${label} ${min}-${max}글자 사이어야 합니다',
+        len: '${label}은(는) ${len}자여야 합니다',
+        min: '${label}은(는) ${min}자 이상이어야 합니다',
+        max: '${label}은(는) ${max}자 이하여야 합니다',
+        range: '${label}은(는) ${min}~${max}자 사이여야 합니다',
       },
       number: {
-        len: '${label} 값은 ${len}이어야 합니다',
-        min: '${label} 최솟값은 ${min}입니다',
-        max: '${label} 최댓값은 ${max}입니다',
-        range: '${label} 값은 ${min}-${max} 사이어야 합니다',
+        len: '${label}은(는) ${len}과(와) 같아야 합니다',
+        min: '${label}은(는) ${min} 이상이어야 합니다',
+        max: '${label}은(는) ${max} 이하여야 합니다',
+        range: '${label}은(는) ${min}~${max} 사이여야 합니다',
       },
       array: {
-        len: '${len}이어야 합니다 ${label}',
-        min: '최소 ${min}이어야 합니다 ${label}',
-        max: '최대 ${max}이어야 합니다 ${label}',
-        range: '${label} ${min}-${max} 사이어야 합니다',
+        len: '${label}은(는) ${len}개여야 합니다',
+        min: '${label}은(는) 최소 ${min}개여야 합니다',
+        max: '${label}은(는) 최대 ${max}개여야 합니다',
+        range: '${label}의 개수는 ${min}~${max}개 사이여야 합니다',
       },
       pattern: {
-        mismatch: '${label} ${pattern} 패턴과 일치하지 않습니다',
+        mismatch: '${label}이(가) ${pattern} 패턴과 일치하지 않습니다',
       },
     },
   },
@@ -150,6 +160,9 @@ const localeValues: Locale = {
     transparent: '투명',
     singleColor: '단색',
     gradientColor: '그라데이션',
+  },
+  Input: {
+    otpCell: '${total}자 중 ${index}번째 문자',
   },
 };
 

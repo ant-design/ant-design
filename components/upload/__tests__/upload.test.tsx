@@ -399,6 +399,46 @@ describe('Upload', () => {
     expect(linkNode?.getAttribute('rel')).toBe('noopener');
   });
 
+  it.each([
+    [false, false],
+    [false, true],
+    [true, false],
+    [true, true],
+  ])(
+    'should call linkProps.onClick with onPreview=%s and preventDefault=%s',
+    (hasPreview, preventDefault) => {
+      const onClick = jest.fn((event: React.MouseEvent<HTMLAnchorElement>) => {
+        if (preventDefault) {
+          event.preventDefault();
+        }
+      });
+      const onPreview = jest.fn();
+      const file: UploadFile = {
+        uid: '-1',
+        name: 'report.pdf',
+        status: 'done',
+        url: '#report',
+        linkProps: { onClick },
+      };
+      const { getByRole } = render(
+        <Upload defaultFileList={[file]} onPreview={hasPreview ? onPreview : undefined} />,
+      );
+      const link = getByRole('link', { name: file.name });
+
+      expect(fireEvent.click(link)).toBe(!hasPreview && !preventDefault);
+      expect(onClick).toHaveBeenCalledTimes(1);
+      expect(onClick).toHaveBeenCalledWith(
+        expect.objectContaining({ type: 'click', target: link }),
+      );
+      if (hasPreview && !preventDefault) {
+        expect(onPreview).toHaveBeenCalledTimes(1);
+        expect(onPreview).toHaveBeenCalledWith(file);
+      } else {
+        expect(onPreview).not.toHaveBeenCalled();
+      }
+    },
+  );
+
   it('should support linkProps as json stringify', () => {
     const linkPropsString = JSON.stringify({
       download: 'image',
@@ -419,6 +459,29 @@ describe('Upload', () => {
     const linkNode = wrapper.querySelector('a.ant-upload-list-item-name');
     expect(linkNode?.getAttribute('download')).toBe('image');
     expect(linkNode?.getAttribute('rel')).toBe('noopener');
+  });
+
+  it('should ignore linkProps when it is not a valid json string', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const fileList = [
+      {
+        uid: '-1',
+        name: 'foo.png',
+        status: 'done',
+        url: 'https://ant.design/foo.png',
+        linkProps: '{"download": "image"',
+      },
+    ];
+    const { container: wrapper } = render(
+      <Upload fileList={fileList as UploadProps['fileList']} />,
+    );
+    const linkNode = wrapper.querySelector('a.ant-upload-list-item-name');
+    expect(linkNode?.getAttribute('download')).toBe(null);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Upload] `linkProps` is not a valid JSON string. It will be ignored.',
+    );
+    errorSpy.mockRestore();
   });
 
   it('should stop remove when return value of onRemove is false', async () => {

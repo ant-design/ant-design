@@ -5,7 +5,7 @@ order: 1
 title: 样式兼容
 ---
 
-## 默认样式兼容性说明
+## 默认样式兼容性说明 {#default-style-compatibility}
 
 Ant Design 支持[最近 2 个版本的现代浏览器](https://browsersl.ist/#q=defaults)。默认情况下，我们使用了一些现代 CSS 特性来提高样式的可维护性和可扩展性，这些特性在旧版浏览器中可能不被支持，好在我们可以通过一些降级兼容方案来解决。
 
@@ -16,7 +16,7 @@ Ant Design 支持[最近 2 个版本的现代浏览器](https://browsersl.ist/#q
 
 如果你需要兼容旧版浏览器，请根据实际需求使用 `@ant-design/cssinjs` 的 [StyleProvider](https://github.com/ant-design/cssinjs#styleprovider) 降级处理。
 
-## `:where` 选择器
+## `:where` 选择器 {#where-in-selector}
 
 - 支持版本：`>=5.0.0`
 - MDN 文档：[:where](https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
@@ -62,7 +62,7 @@ export default () => (
     }
 ```
 
-## CSS 逻辑属性
+## CSS 逻辑属性 {#css-logical-properties}
 
 - 支持版本：`>=5.0.0`
 - MDN 文档：[CSS Logical Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties)
@@ -125,7 +125,7 @@ export default () => (
   }
 ```
 
-## `@layer` 样式优先级降权
+## `@layer` 样式优先级降权 {#layer}
 
 - 支持版本：`>=5.17.0`
 - MDN 文档：[@layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)
@@ -178,7 +178,7 @@ antd 的样式会被封装在 `@layer` 中，以降低优先级：
 }
 ```
 
-## rem 适配
+## rem 适配 {#rem-adaptation}
 
 在响应式网页开发中，需要一种方便且灵活的方式来实现页面的适配和响应式设计。`px2remTransformer` 转换器可以快速而准确地将样式表中的像素单位转换为相对于根元素（HTML 标签）的 rem 单位，实现页面的自适应和响应式布局。
 
@@ -217,7 +217,7 @@ export default () => (
  }
 ```
 
-### 配置项
+### 配置项 {#options}
 
 <!-- prettier-ignore -->
 | 参数 | 说明  | 类型 | 默认值 |
@@ -228,7 +228,7 @@ export default () => (
 
 详细请参考: [px2rem.ts#Options](https://github.com/ant-design/cssinjs/blob/master/src/transformers/px2rem.ts)
 
-## Shadow DOM 场景
+## Shadow DOM 场景 {#shadow-dom-usage}
 
 在 Shadow DOM 场景中，由于其添加 `<style />` 标签的方式与普通 DOM 不同，所以需要使用 `@ant-design/cssinjs` 的 `StyleProvider` 配置 `container` 属性用于设置插入位置：
 
@@ -248,11 +248,11 @@ root.render(
 );
 ```
 
-## 兼容三方样式库
+## 兼容三方样式库 {#third-party-style-libraries}
 
 在某些情况下，你可能需要 antd 与其他样式库共存，比如 `Tailwind CSS`、`Emotion`、`styled-components` 等。不同于传统 CSS 方案，这些三方库往往不太容易通过提升 CSS 选择器优先级的方式覆盖 antd 的样式。你可以通过为 antd 配置 `@layer` 降低其 CSS 选择器权重，同时通过合理安排 `@layer` 顺序来解决样式覆盖问题：
 
-### antd 配置 `@layer`
+### antd 配置 `@layer` {#antd-config-layer}
 
 如前所述，使用 StyleProvider 时必须包裹 ConfigProvider 以更新图标相关样式：
 
@@ -268,9 +268,9 @@ export default () => (
 );
 ```
 
-### TailwindCSS 排布 `@layer`
+### TailwindCSS 排布 `@layer` {#tailwindcss-arrange-layer}
 
-在开始以下配置前，你需要先启用 [`@layer`](#layer-样式优先级降权) 功能。
+在开始以下配置前，你需要先启用 [`@layer`](#layer) 功能。
 
 #### TailwindCSS v3
 
@@ -296,7 +296,7 @@ export default () => (
 @import 'tailwindcss';
 ```
 
-### reset.css 和 antd.css
+### reset.css 和 antd.css {#resetcss-and-antdcss}
 
 如果你使用了 antd 的 `reset.css` 样式，你需要为其指定 `@layer` 以防止将 antd 降权的样式覆盖。同理，在 `zeroRuntime` 场景下如果你单独引入 `antd.css`，也必须为其添加 `layer(antd)` 以保持层级一致：
 
@@ -317,15 +317,15 @@ export default () => (
 - `antd.css`（zeroRuntime 场景）与 StyleProvider layer 的注入层保持一致
 - 三方样式库 / Tailwind / Emotion 等的层级策略依旧生效
 
-### 其他 CSS-in-JS 库
+### 其他 CSS-in-JS 库 {#with-other-css-in-js-libraries}
 
 当你为 antd 配置完 `@layer` 后，你不需要为其他的 CSS-in-JS 库做任何额外的配置。你的 CSS-in-JS 已经可以完全覆盖 antd 的样式了。
 
-### SSR 场景
+### SSR 场景 {#ssr-scene}
 
 在 SSR 场景下，样式往往会通过 `<style />` 内联渲染到 HTML 中。此时请务必确保你的样式顺序中指定 `@layer` 优先级顺序的样式在 `@layer` 被使用之前被加载。
 
-#### ❌ 错误的写法
+#### ❌ 错误的写法 {#wrong}
 
 ```html
 <head>
@@ -345,7 +345,7 @@ export default () => (
 </head>
 ```
 
-#### ✅ 正确的写法
+#### ✅ 正确的写法 {#correct}
 
 ```html
 <head>

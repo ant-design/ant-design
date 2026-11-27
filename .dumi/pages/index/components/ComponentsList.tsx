@@ -1,5 +1,6 @@
 import React from 'react';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
+import { Provider as MotionProvider } from '@rc-component/motion';
 import {
   Card,
   Carousel,
@@ -126,7 +127,7 @@ const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index 
 
       {/* Title */}
       <Flex align="center" gap="small">
-        <Typography.Title level={4} style={{ fontWeight: 'normal', margin: 0 }}>
+        <Typography.Title level={4} style={{ fontWeight: 400, margin: 0 }}>
           {title}
         </Typography.Title>
         <Tag color={tagColor}>{tagText}</Tag>
@@ -229,7 +230,10 @@ const ComponentsList: React.FC = () => {
                 { icon: <SyncOutlined /> },
               ]}
             />
-            <FloatButtonDoNotUseOrYouWillBeFired backTop />
+            {/* Keep this always-visible preview stable during hydration. */}
+            <MotionProvider motion={false}>
+              <FloatButtonDoNotUseOrYouWillBeFired backTop />
+            </MotionProvider>
             <FloatButtonDoNotUseOrYouWillBeFired
               items={[
                 { icon: <QuestionCircleOutlined /> },

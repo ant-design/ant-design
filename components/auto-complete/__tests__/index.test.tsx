@@ -6,6 +6,8 @@ import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, screen } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 import Input from '../../input';
 
 describe('AutoComplete', () => {
@@ -87,6 +89,50 @@ describe('AutoComplete', () => {
     render(<AutoComplete placeholder="input here" allowClear />);
     expect(warnSpy).not.toHaveBeenCalled();
     warnSpy.mockRestore();
+  });
+
+  it('should not warn when rendering the internal suffix prop', () => {
+    resetWarned();
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<AutoComplete />);
+    expect(errSpy).not.toHaveBeenCalledWith(
+      'Warning: [antd: AutoComplete] `suffixIcon` is deprecated. Please use `suffix` instead.',
+    );
+    errSpy.mockRestore();
+  });
+
+  it('should support deprecated suffixIcon prop', () => {
+    resetWarned();
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<AutoComplete suffixIcon="foobar" />);
+    expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('foobar');
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: AutoComplete] `suffixIcon` is deprecated. Please use `suffix` instead.',
+    );
+    errSpy.mockRestore();
+  });
+
+  it('should support suffix prop', () => {
+    const { container } = render(<AutoComplete suffix="suffix" />);
+    expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('suffix');
+  });
+
+  it('should prefer suffix prop over suffixIcon prop', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<AutoComplete suffix="suffix" suffixIcon={null} />);
+    expect(container.querySelector('.ant-select-suffix')).toHaveTextContent('suffix');
+    errSpy.mockRestore();
+  });
+
+  it('should keep form feedback icon', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item hasFeedback validateStatus="error">
+          <AutoComplete />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('.ant-form-item-feedback-icon-error')).toBeTruthy();
   });
 
   it('should not override custom input className', () => {
@@ -187,5 +233,47 @@ describe('AutoComplete', () => {
     );
 
     errSpy.mockRestore();
+  });
+
+  describe('allowClear with ConfigProvider', () => {
+    it('should not inherit allowClear from ConfigProvider select', () => {
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: true }}>
+          <AutoComplete defaultValue="abc" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toBeFalsy();
+    });
+
+    it('should keep explicit allowClear true', () => {
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: false }}>
+          <AutoComplete defaultValue="abc" allowClear />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toBeTruthy();
+    });
+
+    it('should keep explicit allowClear false', () => {
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: true }}>
+          <AutoComplete defaultValue="abc" allowClear={false} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toBeFalsy();
+    });
+
+    it('should keep custom clearIcon from AutoComplete allowClear', () => {
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: true }}>
+          <AutoComplete
+            defaultValue="abc"
+            allowClear={{ clearIcon: <span className="custom-clear-icon">X</span> }}
+          />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.custom-clear-icon')).toBeTruthy();
+      expect(container.querySelector('.ant-select-clear')).toBeTruthy();
+    });
   });
 });

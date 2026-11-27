@@ -36,6 +36,11 @@ describe('Modal', () => {
     expect(document.body.querySelectorAll('.ant-modal-root')[0]).toMatchSnapshot();
   });
 
+  it('should render numeric 0 closeIcon', () => {
+    const { baseElement } = render(<Modal closeIcon={0} open />);
+    expect(baseElement.querySelector('.ant-modal-close')?.textContent).toBe('0');
+  });
+
   it('support hide close button when setting closeIcon to null or false', () => {
     const { baseElement, rerender } = render(<Modal closeIcon={null} open />);
     expect(baseElement.querySelector('.ant-modal-close')).toBeFalsy();
@@ -87,6 +92,16 @@ describe('Modal', () => {
     const btns = document.body.querySelectorAll('.ant-btn');
     fireEvent.click(btns[btns.length - 1]);
     expect(onOk).toHaveBeenCalled();
+  });
+
+  it('should trigger both onOk and okButtonProps.onClick', () => {
+    const onOk = jest.fn();
+    const onClick = jest.fn();
+    render(<Modal open onOk={onOk} okButtonProps={{ onClick }} />);
+    const btns = document.body.querySelectorAll('.ant-btn');
+    fireEvent.click(btns[btns.length - 1]);
+    expect(onOk).toHaveBeenCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it('danger type', () => {

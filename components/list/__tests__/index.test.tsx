@@ -50,4 +50,35 @@ describe('List', () => {
 
     expect(ref.current?.id).toBe(id);
   });
+
+  it('should render numeric zero header and footer and remove them for empty values', () => {
+    const { container, rerender } = render(
+      <List
+        header={0}
+        footer={0}
+        dataSource={[0]}
+        renderItem={(item) => <List.Item>{item}</List.Item>}
+      />,
+    );
+
+    expect(container.querySelector('.ant-list-header')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-list-footer')?.textContent).toBe('0');
+    expect(container.querySelector('.ant-list')).toHaveClass('ant-list-something-after-last-item');
+
+    rerender(
+      <List
+        header={true}
+        footer={null}
+        dataSource={[0]}
+        renderItem={(item) => <List.Item>{item}</List.Item>}
+      />,
+    );
+
+    expect(container.querySelector('.ant-list-header')).toBeTruthy();
+    expect(container.querySelector('.ant-list-header')).toBeEmptyDOMElement();
+    expect(container.querySelector('.ant-list-footer')).toBeNull();
+    expect(container.querySelector('.ant-list')).not.toHaveClass(
+      'ant-list-something-after-last-item',
+    );
+  });
 });

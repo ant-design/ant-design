@@ -12,11 +12,11 @@ Ant Design 在「确定」和「自然」的设计价值观影响之下，对全
 
 ---
 
-## 设计师专属
+## 设计师专属 {#for-designers}
 
 安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com)，可以一键拖拽使用 Ant Design 和 Iconfont 的海量图标，还可以关联自有项目。
 
-## 设计原则
+## 设计原则 {#design-principles}
 
 Ant Design 的图标设计原则源自「确定」和「自然」，落实到图标设计领域，一共有四个，他们分别为：
 
@@ -25,7 +25,7 @@ Ant Design 的图标设计原则源自「确定」和「自然」，落实到图
 - **节奏：** 挖掘构图中的秩序之美。
 - **愉悦：** 赋予适度的情感。
 
-## 设计规格
+## 设计规格 {#design-specifications}
 
 - **Artboard：** Ant Design 的系统图标都是按照 1024 x 1024 的画板进行制作的：
 
@@ -39,7 +39,7 @@ Ant Design 的图标设计原则源自「确定」和「自然」，落实到图
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/FNXMpWnyvYfydiSnPCYg.png" alt="出血位">
 </div>
 
-## 分层
+## 分层 {#icon-layers}
 
 Ant Design 的图标设计对于设计稿的分层也有一定的要求，其目的除了让设计师实现有序的文档管理之外，更多的是便于团队间文档的传递，统一的设计框架像是无形的共识，可以让彼此间的理解得到进一步的提升。
 
@@ -47,7 +47,7 @@ Ant Design 的图标设计对于设计稿的分层也有一定的要求，其目
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/bVtUZqDRbGuaoVbwYqua.png" alt="分层">
 </div>
 
-## 轮廓线与模板
+## 轮廓线与模板 {#contour-lines-and-templates}
 
 我们对设计模板进行了优化，根据出血位的尺寸，调整轮廓线的宽高，同时增加两个等边三角形和一个圆，这些都是图标设计中最常用的基本形式，设计师可以快速的调用并在此基础上做变形。
 
@@ -55,11 +55,11 @@ Ant Design 的图标设计对于设计稿的分层也有一定的要求，其目
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/ycDkLxfAqjnRsWZuHvik.png" alt="轮廓线与模板">
 </div>
 
-## 图标设计指引
+## 图标设计指引 {#icon-design-guidelines}
 
 根据「确定性」和「自然」的价值观，当构图含义明确之后，图标设计所追求的便是秩序之美。Ant Design 的图标主要通过四方面去实现「秩序美」，分别是：形式、韵律、平衡以及辨识。
 
-### 1、形式
+### 1、形式 {#form}
 
 形式，是构成一个图形最初始的结构。Ant Design 整套基础图标基本上都是由圆、方、三角这样的图形演变而成的。追求图形初始结构的理性，而非直觉式的设计，是秩序之美的第一步。
 
@@ -67,11 +67,11 @@ Ant Design 的图标设计对于设计稿的分层也有一定的要求，其目
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/HpESYoDACMTUWLEqtBRb.png" alt="形式">
 </div>
 
-### 2、韵律
+### 2、韵律 {#rhythm}
 
 Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构图的韵律。系统图标中最常见的元素基本上可以归纳称为：点、线、圆角、三角。
 
-#### 2-1. 元素的韵律
+#### 2-1. 元素的韵律 {#element-rhythm}
 
 - **点：** 点是很多图形中都会出现的元素。Ant Design 会在一套图标中挖掘同一元素的规律，同时对其进行克制的运用。我们对于点的尺寸选择上会保持 16 的倍数这一原则。比如，在点的选择中，新版的图标最常用的是四种尺寸的点，分别为 80、96、112、128。当出现特殊尺寸的需求时，会按照 16 的倍数进行延展。
 
@@ -114,7 +114,7 @@ Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构
 | 128 | 80  | ...  | 264  |
 | ... | ... |      | ...  |
 
-#### 2-2、构图的韵律
+#### 2-2、构图的韵律 {#composition-rhythm}
 
 在图标体系中，除了对重复出现的元素进行管理之外，我们还建议通盘的去考虑设计构图上的节奏感。
 
@@ -130,7 +130,7 @@ Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/XorcLWyrefyAmYagUpgY.png" alt="元素间的比例关系">
 </div>
 
-### 3、平衡
+### 3、平衡 {#balance}
 
 要保持整套图标在视觉重量上的平衡，是一件不太容易的事并且是一件需要大量实践的工作。图标的造型、线条摆放的角度甚至是留白空间等，都是会影响视觉平衡的因素，因此需要设计师适时的通过对基本元素规格上的微调来达到图标的平衡感。
 
@@ -152,7 +152,7 @@ Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构
     <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/fVyyVdYqEXyjmxlWLtVw.png" alt="图形的留白空间也是值得推敲的课题">
   </div>
 
-### 4、辨识
+### 4、辨识 {#recognizability}
 
 辨识度是一套图标具备的可被感知的特色，通常和系统本身的品牌基因相关。Ant Design 的系统图标在这一次除了遵循「确定」和「自然」这两块价值观，在辨识度这一块也做了两处小尝试。
 
@@ -168,7 +168,7 @@ Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/scJOuEdiwCgPONdiCZYZ.png" alt="让图形有生命">
 </div>
 
-## 给设计师的一些建议
+## 给设计师的一些建议 {#designer-tips}
 
 在完成图标设计后，保持图形的整洁，图层结构的清晰，也是构筑图标体系必不可少的部分，Ant Design 对设计师有几点建议如下：
 
@@ -196,6 +196,6 @@ Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/zxExIlRfcDTAowrkesHD.png" alt="图层管理">
 </div>
 
-## 写在最后
+## 写在最后 {#final-words}
 
 图标的设计是 UI 设计中非常容易被忽略的环节，建立优秀的图形体系也不是一两个设计人员的事，需要整个团队在设计前、设计中以及设计后都能够达成共识并且通力合作去完成共建。本次图标的升级，仅仅是一个开始。我们建议在调用图标时，考虑具体业务对于图形化寄予的期望，以及用户操作时的心智模型等因素，结合实际情况做调用和适当的二次设计。

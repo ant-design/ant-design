@@ -93,6 +93,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 26
+
       # We need get persist key first
       - name: Download Visual Regression Ref
         uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # Do not upgrade.
@@ -132,7 +136,7 @@ jobs:
           mv ./tmp/visual-regression-ref.txt ./visual-regression-ref.txt
 
           echo "🤖 Uploading"
-          node scripts/visual-regression/upload.js ./imageSnapshots.tar.gz --ref=$HEAD_SHA
-          node scripts/visual-regression/upload.js ./visual-regression-ref.txt --ref=$HEAD_BRANCH
+          node scripts/visual-regression/upload.ts ./imageSnapshots.tar.gz --ref=$HEAD_SHA
+          node scripts/visual-regression/upload.ts ./visual-regression-ref.txt --ref=$HEAD_BRANCH
 
           echo "✅ Uploaded"

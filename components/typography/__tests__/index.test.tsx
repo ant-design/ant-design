@@ -2,6 +2,7 @@ import React from 'react';
 import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import { KeyCode, warning } from '@rc-component/util';
 import userEvent from '@testing-library/user-event';
+import { createPortal, flushSync } from 'react-dom';
 
 import copy from '../../_util/copy';
 import mountTest from '../../../tests/shared/mountTest';
@@ -86,6 +87,43 @@ describe('Typography', () => {
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Typography.Title] Title only accept `1 | 2 | 3 | 4 | 5` as `level` value. And `5` need 4.6.0+ version.',
       );
+    });
+  });
+
+  describe('shimmer', () => {
+    it.each([
+      ['Text', () => <Text shimmer>Text</Text>],
+      ['Title', () => <Title shimmer>Title</Title>],
+      ['Paragraph', () => <Paragraph shimmer>Paragraph</Paragraph>],
+      ['Link', () => <Link shimmer>Link</Link>],
+    ])('should support shimmer on %s', (_, renderNode) => {
+      const { container } = render(renderNode());
+      const element = container.firstElementChild;
+
+      expect(element).toHaveClass('ant-typography-shimmer');
+      expect(element).not.toHaveAttribute('shimmer');
+    });
+
+    it('should support custom shimmer duration', () => {
+      const { container } = render(<Text shimmer={{ duration: [1.5, 0.5] }}>Text</Text>);
+
+      expect(container.firstElementChild).toHaveStyle({
+        '--ant-typography-shimmer-motion-time': '1.5',
+        '--ant-typography-shimmer-wait-time': '0.5',
+      });
+    });
+
+    it('should not enable shimmer for disabled text', () => {
+      const { container } = render(
+        <Text shimmer disabled>
+          Text
+        </Text>,
+      );
+      const element = container.firstElementChild;
+
+      expect(element).not.toHaveClass('ant-typography-shimmer');
+      expect(element).toHaveAttribute('aria-busy', 'false');
+      expect(element).toHaveAttribute('aria-disabled', 'true');
     });
   });
 
@@ -305,7 +343,7 @@ describe('Typography', () => {
 
             fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
 
-            expect(onStart).toHaveBeenCalled();
+            expect(onStart).toHaveBeenCalledTimes(1);
             if (triggerType?.includes('text')) {
               fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
               fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
@@ -396,6 +434,109 @@ describe('Typography', () => {
       testStep({ name: 'trigger by icon', triggerType: ['icon'] });
       testStep({ name: 'trigger by text', triggerType: ['text'] });
       testStep({ name: 'trigger by both icon and text', triggerType: ['icon', 'text'] });
+
+      it.each<{ triggerType: ('icon' | 'text')[] }>([
+        { triggerType: ['text'] },
+        { triggerType: ['icon', 'text'] },
+      ])('should start editing and call onClick with $triggerType triggers', ({ triggerType }) => {
+        const onClick = jest.fn();
+        const onStart = jest.fn();
+        const { getByText, getByRole } = render(
+          <Paragraph editable={{ triggerType, onStart }} onClick={onClick}>
+            Bamboo
+          </Paragraph>,
+        );
+        const text = getByText('Bamboo');
+
+        fireEvent.click(text);
+
+        expect(onClick).toHaveBeenCalledTimes(1);
+        expect(onClick).toHaveBeenCalledWith(expect.objectContaining({ target: text }));
+        expect(onStart).toHaveBeenCalledTimes(1);
+        expect(getByRole('textbox')).toHaveValue('Bamboo');
+      });
+
+      it('should trigger onStart once when click edit icon with both icon and text triggers', () => {
+        const onStart = jest.fn();
+        const { container } = render(
+          <Paragraph editable={{ triggerType: ['icon', 'text'], onStart }}>Bamboo</Paragraph>,
+        );
+
+        fireEvent.click(container.querySelectorAll('.ant-typography-edit')[0]);
+
+        expect(onStart).toHaveBeenCalledTimes(1);
+        expect(container.querySelector('textarea')).toHaveValue('Bamboo');
+      });
+
+      it('should trigger onStart once when flushSync in onStart unmounts the edit icon', () => {
+        const onStart = jest.fn();
+        const Demo = () => {
+          const [editing, setEditing] = React.useState(false);
+          return (
+            <Paragraph
+              editable={{
+                editing,
+                triggerType: ['icon', 'text'],
+                onStart: () => {
+                  onStart();
+                  // Simulate user code that enters editing synchronously, unmounting the icon
+                  // eslint-disable-next-line react-dom/no-flush-sync
+                  flushSync(() => setEditing(true));
+                },
+              }}
+            >
+              Bamboo
+            </Paragraph>
+          );
+        };
+        const { container } = render(<Demo />);
+
+        fireEvent.click(container.querySelectorAll('.ant-typography-edit')[0]);
+
+        expect(onStart).toHaveBeenCalledTimes(1);
+        expect(container.querySelector('textarea')).toHaveValue('Bamboo');
+      });
+
+      it('should trigger onStart once when edit icon is rendered in a portal', () => {
+        const onStart = jest.fn();
+        const onClick = jest.fn();
+        const { getByTestId } = render(
+          <Paragraph
+            editable={{
+              triggerType: ['icon', 'text'],
+              icon: createPortal(<span data-testid="portal-icon" />, document.body),
+              onStart,
+            }}
+            onClick={onClick}
+          >
+            Bamboo
+          </Paragraph>,
+        );
+
+        fireEvent.click(getByTestId('portal-icon'));
+
+        expect(onStart).toHaveBeenCalledTimes(1);
+        expect(onClick).toHaveBeenCalledTimes(1);
+      });
+
+      it.each<{ editable: React.ComponentProps<typeof Paragraph>['editable'] }>([
+        { editable: undefined },
+        { editable: false },
+        { editable: true },
+        { editable: { triggerType: [] } },
+      ])('should preserve onClick without text editing for $editable', ({ editable }) => {
+        const onClick = jest.fn();
+        const { getByText, queryByRole } = render(
+          <Paragraph editable={editable} onClick={onClick}>
+            Bamboo
+          </Paragraph>,
+        );
+
+        fireEvent.click(getByText('Bamboo'));
+
+        expect(onClick).toHaveBeenCalledTimes(1);
+        expect(queryByRole('textbox')).not.toBeInTheDocument();
+      });
 
       it('should trigger onEnd when type Enter', () => {
         const onEnd = jest.fn();

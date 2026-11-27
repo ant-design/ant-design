@@ -16,7 +16,7 @@ title: 介绍
 
 ---
 
-## 设计资源
+## 设计资源 {#guidelines-and-resources}
 
 我们提供完善的设计指引、最佳实践、设计资源和设计工具，来帮助设计者快速产出高质量产品原型。
 
@@ -26,9 +26,9 @@ title: 介绍
 - [插画](/docs/spec/illustration)
 - [设计资源](/docs/resources)
 - [Sketch 工具集](https://kitchen.alipay.com/)
-- [文章](/docs/resources#%E6%96%87%E7%AB%A0)
+- [文章](/docs/resources#articles)
 
-## 前端实现
+## 前端实现 {#front-end-implementation}
 
 我们采用 [React](https://zh-hans.react.dev/) 封装了一套 Ant Design 的组件库，也欢迎社区其他框架的实现版本。
 
@@ -42,7 +42,7 @@ title: 介绍
 - [antizer (ClojureScript)](https://github.com/priornix/antizer)（社区实现）
 - [AtomUI - Ant Design of Avalonia/.NET](https://github.com/atomui/atomui)（社区实现）
 
-## 谁在使用
+## 谁在使用 {#whos-using-ant-design}
 
 - [蚂蚁集团](https://www.antgroup.com/)
 - [阿里巴巴](https://www.alibaba.com/)
@@ -56,7 +56,7 @@ title: 介绍
 
 > 如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
 
-## 社区评价
+## 社区评价 {#words-from-community}
 
 - 知乎：[如何评价 Ant Design 这个项目？](https://www.zhihu.com/question/33629737)
 - Hacknews: [Show HN: Antd – A set of high-quality React components](https://news.ycombinator.com/item?id=13053137)
@@ -65,6 +65,6 @@ title: 介绍
 - [Introduction to Ant Design](https://blog.logrocket.com/introduction-to-ant-design/)
 - [Build a React App with Ant Design Principles](https://developer.okta.com/blog/2020/09/16/ant-design-react-app)
 
-## 如何贡献
+## 如何贡献 {#how-to-contribute}
 
 我们欢迎任何形式的贡献，有任何建议或意见，请给我们 [提问](https://github.com/ant-design/ant-design/discussions)。

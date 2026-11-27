@@ -4,24 +4,6 @@
 import { useImperativeHandle } from 'react';
 import type { Ref } from 'react';
 
-const fillProxy = (
-  element: HTMLElement & { _antProxy?: Record<string, any> },
-  handler: Record<string, any>,
-) => {
-  element._antProxy = element._antProxy || {};
-
-  Object.keys(handler).forEach((key) => {
-    if (!(key in element._antProxy!)) {
-      const ori = (element as any)[key];
-      element._antProxy![key] = ori;
-
-      (element as any)[key] = handler[key];
-    }
-  });
-
-  return element;
-};
-
 export const useProxyImperativeHandle = <
   NativeELementType extends HTMLElement,
   ReturnRefType extends { nativeElement: NativeELementType },
@@ -33,19 +15,14 @@ export const useProxyImperativeHandle = <
     const refObj = init();
     const { nativeElement } = refObj;
 
-    if (typeof Proxy !== 'undefined') {
-      return new Proxy(nativeElement, {
-        get(obj: any, prop: any) {
-          if ((refObj as any)[prop]) {
-            return (refObj as any)[prop];
-          }
+    return new Proxy(nativeElement, {
+      get(obj: any, prop: any) {
+        if ((refObj as any)[prop]) {
+          return (refObj as any)[prop];
+        }
 
-          return Reflect.get(obj, prop);
-        },
-      });
-    }
-
-    // Fallback of IE
-    return fillProxy(nativeElement, refObj);
+        return Reflect.get(obj, prop);
+      },
+    });
   });
 };

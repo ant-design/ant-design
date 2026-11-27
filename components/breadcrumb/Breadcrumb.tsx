@@ -258,13 +258,13 @@ const InternalBreadcrumb = <T extends AnyObject = AnyObject>(
       );
     });
   } else if (children) {
-    const childrenLength = toArray(children).length;
-    crumbs = toArray(children).map((element: any, index) => {
+    const childList = toArray(children);
+    crumbs = childList.map((element: any, index) => {
       if (!element) {
         return element;
       }
 
-      const isLastItem = index === childrenLength - 1;
+      const isLastItem = index === childList.length - 1;
       return cloneElement(element, {
         separator: isLastItem ? '' : mergedSeparator,
         // eslint-disable-next-line react/no-array-index-key

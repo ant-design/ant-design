@@ -5,7 +5,7 @@ import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
-import type { FormInstance } from '..';
+import type { FormInstance, FormItemProps } from '..';
 import Form from '..';
 import { isNumber } from '../../_util/is';
 import { responsiveArrayReversed } from '../../_util/responsiveObserver';
@@ -327,6 +327,22 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item-explain')?.id).toBe('test_help');
   });
 
+  it('input element should have the prop aria-describedby pointing to the help id when there are warnings', async () => {
+    const { container } = pureRender(
+      <Form>
+        <Form.Item name="test" rules={[{ len: 3, warningOnly: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    await changeValue(0, 'Invalid number');
+
+    expect(container.querySelector('.ant-form-item-explain-warning')).toBeTruthy();
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe('test_help');
+    expect(container.querySelector('.ant-form-item-explain')?.id).toBe('test_help');
+  });
+
   it('input element should have the prop aria-invalid when there are errors', async () => {
     const { container } = render(
       <Form>
@@ -372,6 +388,21 @@ describe('Form', () => {
     );
     expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe('test_extra');
     expect(container.querySelector('.ant-form-item-extra')?.id).toBe('test_extra');
+  });
+
+  it('renders numeric zero as extra content and links it with aria-describedby', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="test" extra={0}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const extra = container.querySelector('.ant-form-item-extra');
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe('test_extra');
+    expect(extra).toHaveAttribute('id', 'test_extra');
+    expect(extra).toHaveTextContent('0');
   });
 
   it('input element should not have the prop aria-describedby pointing to the extra id when there is a extra message and name is not defined', () => {
@@ -1136,6 +1167,32 @@ describe('Form', () => {
     );
   });
 
+  // https://github.com/ant-design/ant-design/issues/59678
+  it('`name` support template when it is a Form.List index', async () => {
+    const { container } = render(
+      // eslint-disable-next-line no-template-curly-in-string
+      <Form validateMessages={{ required: '${label} is good!' }} initialValues={{ list: ['', ''] }}>
+        <Form.List name="list">
+          {(fields) =>
+            fields.map((field) => (
+              <Form.Item key={field.key} name={field.name} rules={[{ required: true }]}>
+                <input />
+              </Form.Item>
+            ))
+          }
+        </Form.List>
+      </Form>,
+    );
+
+    fireEvent.submit(container.querySelector('form')!);
+    await waitFakeTimer();
+
+    const errors = Array.from(container.querySelectorAll('.ant-form-item-explain-error')).map(
+      (error) => error.textContent,
+    );
+    expect(errors).toEqual(['0 is good!', '1 is good!']);
+  });
+
   it('`messageVariables` support validate', async () => {
     const { container } = render(
       // eslint-disable-next-line no-template-curly-in-string
@@ -1279,6 +1336,78 @@ describe('Form', () => {
       </Form>,
     );
     expect(errorSpy).not.toHaveBeenCalled();
+  });
+
+  it('should associate label with the explicit id of the control', () => {
+    const { container, getByLabelText } = render(
+      <Form>
+        <Form.Item name="account" label="Account" extra="Account identifier">
+          <Input id="custom-account" />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = container.querySelector('input')!;
+    // Label should follow the id the control actually renders with
+    expect(container.querySelector('label')).toHaveAttribute('for', 'custom-account');
+    expect(getByLabelText('Account')).toBe(input);
+
+    // `help` / `extra` still use the generated field id and stay reachable
+    expect(input).toHaveAttribute('aria-describedby', 'account_extra');
+    expect(document.getElementById('account_extra')).toHaveTextContent('Account identifier');
+  });
+
+  it('should keep generated field id for label when control has no explicit id', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="account" label="Account">
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('input')).toHaveAttribute('id', 'account');
+    expect(container.querySelector('label')).toHaveAttribute('for', 'account');
+  });
+
+  it('should let explicit htmlFor override the control id', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="account" label="Account" htmlFor="custom-html-for">
+          <Input id="custom-account" />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('label')).toHaveAttribute('for', 'custom-html-for');
+  });
+
+  it('should keep htmlFor null as the way to disable label association', () => {
+    // `htmlFor={null}` is the documented way to disable label association,
+    // see https://github.com/ant-design/ant-design/pull/52950
+    const nullHtmlFor = { htmlFor: null } as unknown as FormItemProps;
+
+    const { container } = render(
+      <Form>
+        <Form.Item name="switch" label="Switch" {...nullHtmlFor}>
+          <Switch />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('label')).not.toHaveAttribute('for');
+  });
+
+  it('should fall back to the control id when htmlFor is explicitly undefined', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="account" label="Account" htmlFor={undefined}>
+          <Input id="custom-account" />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('label')).toHaveAttribute('for', 'custom-account');
   });
 
   it('should customize id when pass with id', () => {
@@ -1869,6 +1998,26 @@ describe('Form', () => {
 
       expect(screen.getByText('姓名')).toHaveClass('ant-form-item-no-colon');
     });
+
+    it('should only strip a trailing colon from string label', () => {
+      render(
+        <Form>
+          <Form.Item label="Name:" name="name">
+            <Input />
+          </Form.Item>
+          <Form.Item label="姓名：" name="cnName">
+            <Input />
+          </Form.Item>
+          <Form.Item label="A|B|" name="pipe">
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(screen.getByText('Name')).toBeInTheDocument();
+      expect(screen.getByText('姓名')).toBeInTheDocument();
+      expect(screen.getByText('A|B|')).toBeInTheDocument();
+    });
   });
 
   it('useFormInstance', () => {
@@ -1992,6 +2141,76 @@ describe('Form', () => {
       expect(container.querySelectorAll('input')[0]).toHaveClass('ant-input-status-error');
       expect(container.querySelectorAll('input')[1]).not.toHaveClass('ant-input-status-error');
     });
+
+    // https://github.com/ant-design/ant-design/issues/59706
+    it.each([
+      ['error', 'error', {}],
+      ['error with feedback', 'error', { hasFeedback: true }],
+      ['warning', 'warning', {}],
+      ['validating', 'validating', {}],
+    ] as const)(
+      'noStyle should keep the parent %s status after being touched',
+      async (_, status, feedbackProps) => {
+        const { container } = render(
+          <Form>
+            <Form.Item validateStatus={status} {...feedbackProps}>
+              <Form.Item name="phone" noStyle {...feedbackProps}>
+                <Input />
+              </Form.Item>
+            </Form.Item>
+          </Form>,
+        );
+
+        await changeValue(0, '123');
+
+        expect(container.querySelector(`.ant-input-status-${status}`)).toBeTruthy();
+        expect(container.querySelector('.ant-input-status-success')).toBeFalsy();
+        expect(container.querySelector('.ant-form-item-feedback-icon-success')).toBeFalsy();
+      },
+    );
+
+    // https://github.com/ant-design/ant-design/issues/59706
+    it('noStyle with hasFeedback should keep the parent success feedback after being touched', async () => {
+      const { container } = render(
+        <Form>
+          <Form.Item validateStatus="success" hasFeedback>
+            <Form.Item name="phone" noStyle hasFeedback>
+              <Input />
+            </Form.Item>
+          </Form.Item>
+        </Form>,
+      );
+
+      await changeValue(0, '123');
+
+      expect(container.querySelector('.ant-form-item-feedback-icon-success')).toBeTruthy();
+    });
+
+    // https://github.com/ant-design/ant-design/issues/59706
+    it.each<[string, FormItemProps['validateStatus'], FormItemProps['rules'], string]>([
+      ['error', 'warning', [{ required: true }], ''],
+      ['warning', 'error', [{ len: 3, warningOnly: true }], 'Nanjing'],
+      ['validating', 'error', [{ validator: () => new Promise<void>(() => {}) }], 'Nanjing'],
+    ])(
+      'noStyle should keep its own %s status over the parent %s status',
+      async (status, parentStatus, rules, value) => {
+        const { container } = render(
+          <Form>
+            <Form.Item validateStatus={parentStatus}>
+              <Form.Item name="phone" noStyle rules={rules}>
+                <Input />
+              </Form.Item>
+            </Form.Item>
+          </Form>,
+        );
+
+        await changeValue(0, 'Shanghai');
+        await changeValue(0, value);
+
+        expect(container.querySelector(`.ant-input-status-${status}`)).toBeTruthy();
+        expect(container.querySelector(`.ant-input-status-${parentStatus}`)).toBeFalsy();
+      },
+    );
   });
 
   it('should not affect Popup children style', () => {
@@ -2024,6 +2243,37 @@ describe('Form', () => {
     expect(container.querySelector('.custom-popup-input')).not.toHaveClass(
       'ant-input-status-error',
     );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/52581
+  it('should not affect popupRender children style of Select-like components', () => {
+    const renderPopup = (className: string) => (menu: React.ReactElement) => (
+      <>
+        {menu}
+        <Input className={className} />
+      </>
+    );
+    const { container } = render(
+      <Form>
+        <Form.Item validateStatus="error" hasFeedback>
+          <Select open options={[]} popupRender={renderPopup('select-popup-input')} />
+        </Form.Item>
+        <Form.Item validateStatus="error" hasFeedback>
+          <TreeSelect open treeData={[]} popupRender={renderPopup('tree-select-popup-input')} />
+        </Form.Item>
+        <Form.Item validateStatus="error" hasFeedback>
+          <Cascader open options={[]} popupRender={renderPopup('cascader-popup-input')} />
+        </Form.Item>
+      </Form>,
+      { container: document.body },
+    );
+
+    ['select-popup-input', 'tree-select-popup-input', 'cascader-popup-input'].forEach((cls) => {
+      const input = container.querySelector(`.${cls}`);
+      expect(input).toBeTruthy();
+      expect(input).not.toHaveClass('ant-input-status-error');
+      expect(input?.parentElement?.querySelector('.ant-form-item-feedback-icon')).toBeFalsy();
+    });
   });
 
   // eslint-disable-next-line jest/no-disabled-tests

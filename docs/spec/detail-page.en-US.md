@@ -47,7 +47,7 @@ To increase the information viewing and searching efficiency. To raise the conve
 
 Basic Detail Pages directly show all the information at the same level of hierarchy. We suggest such method of displaying data.
 
-#### [Basic Detail Templates](https://preview.pro.ant.design/profile/basic)
+#### [Basic Detail Templates](https://preview.pro.ant.design/profile/basic) {#basic-detail-template}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/antfincdn/mbOatwyvyE/0fb8dd2b-b0d6-4833-8eef-4b9bb403eece.png">
@@ -83,7 +83,7 @@ Pass, reject, transfer, sign, suspend and withdraw.
 
 Deal with complex details in the following way: Divide information with high complexity and weak correlation into multiple parts. And put the parts into groups according to their relativities, with tabs, steps, cards, etc.
 
-#### [Advanced Detail Templates](https://preview.pro.ant.design/profile/advanced)
+#### [Advanced Detail Templates](https://preview.pro.ant.design/profile/advanced) {#advanced-detail-template}
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/antfincdn/%241vXHbjQ2A/ad454bfb-55d8-43b1-b1fb-adfbc889045c.png">
@@ -111,7 +111,7 @@ Such templates are suitable for developing and collaborating processes.
 
 ## Design Suggestions
 
-#### How to choose template
+### How to choose template
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/antfincdn/1uy%243Y6SRp/1a6ff7f8-4cd0-483b-b8a5-c8d49c63fa92.png">
@@ -119,7 +119,7 @@ Such templates are suitable for developing and collaborating processes.
 
 Based on information complexity and correlation model, choose related modes to present the information, and select suitable layouts to display the contents of detail pages.
 
-#### Separation Methods
+### Separation Methods
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/antfincdn/gadw%26gZBCW/f8c03ba9-73ae-40f6-b687-c322ecf963cb.png">
@@ -132,7 +132,7 @@ Conclude the closeness of each information module according to the relevance amo
 - Cards: to display information on one topic;
 - Tabs: to put the information into groups according to some feature, such as version, intention, phase, etc.
 
-#### Content Components
+### Content Components
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/antfincdn/J7ccrSNpjz/89878d45-ca15-4a6a-853e-3281fe02f114.png">
@@ -142,18 +142,18 @@ Select presentation modes of the information according to its types and complexi
 
 ## Read more
 
-#### Related Global Rules
+### Related Global Rules
 
 - [Data Format](/docs/spec/data-format)
 - [Button](/docs/spec/buttons)
 
-#### Related Modules or Components
+### Related Modules or Components
 
 - [Description](/components/descriptions/)
 - [Collapse](/components/collapse/)
 - [Table](/components/table/)
 
-#### Reference
+### Reference
 
 - [Fiori – How to Design an Object Page](https://blogs.sap.com/2017/08/06/fiori-elements-how-to-design-an-object-page/)
 - [SAP Fiori 2.0: The Object Page —— Part 1: It's History](https://experience.sap.com/skillup/sap-fiori-2-0-the-object-page-part-1-its-history/)

@@ -4,6 +4,32 @@ import TreeSelect from '..';
 import { render } from '../../../tests/utils';
 
 describe('TreeSelect.Semantic', () => {
+  it('should isolate root className and style from popup root', () => {
+    const rootStyle = { height: '40px', overflow: 'hidden' } as const;
+    const popupRootStyle = { color: 'rgb(255, 0, 0)' };
+    const treeData = [{ value: 'node', title: 'Node' }];
+
+    const { container } = render(
+      <TreeSelect
+        open
+        treeData={treeData}
+        classNames={{ root: 'custom-root', popup: { root: 'custom-popup-root' } }}
+        styles={{ root: rootStyle, popup: { root: popupRootStyle } }}
+      />,
+    );
+
+    const root = container.querySelector('.ant-tree-select');
+    const popup = document.querySelector<HTMLElement>('.ant-tree-select-dropdown');
+
+    expect(root).toHaveClass('custom-root');
+    expect(root).toHaveStyle(rootStyle);
+    expect(popup).toHaveClass('custom-popup-root');
+    expect(popup).toHaveStyle(popupRootStyle);
+    expect(popup).not.toHaveClass('custom-root');
+    expect(popup?.style.height).toBe('');
+    expect(popup?.style.overflow).toBe('');
+  });
+
   it('support classNames and styles as functions', () => {
     const treeData = [
       {

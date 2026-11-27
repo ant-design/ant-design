@@ -11,7 +11,7 @@ Ant Design 作为大型组件库，内部依赖十分复杂。有时候 antd 代
 
 对于我们自己管理的依赖包，我们定位问题会比较简单。但是对于第三方依赖，往往很难第一时间发现。当用户反馈时，可能已经过了数个小时，使得在几百个包里找不同变得有些困难。我们累积了一些排查经验会与大家分享，但是同时也为了更快解决问题，我们也做了额外的一些事情。
 
-### 确定信息
+### 确定信息 {#confirm-information}
 
 我们为 GitHub issue 添加了一个[模板站点](https://new-issue.ant.design/)，开发者在提交问题时会看到如下表格，会让开发者尽量完整的填写相关信息：
 
@@ -19,7 +19,7 @@ Ant Design 作为大型组件库，内部依赖十分复杂。有时候 antd 代
 
 通过 antd 版本、React 版本、系统、浏览器版本 信息可以组合出大多数错误问题，帮助尽可能的缩小排查范围。让我们大致确定它是否是一个通用问题或者是一个特定系统的问题。这里我们就不讲组件实现 BUG，单讲讲依赖问题。
 
-### 确定范围
+### 确定范围 {#determine-the-scope}
 
 从 issue 被发现，我们可以通过 github 的 commit CI 倒推出时间范围：
 
@@ -31,7 +31,7 @@ Ant Design 作为大型组件库，内部依赖十分复杂。有时候 antd 代
 
 在确定范围后，我们便可以通过安装先前版本进行构建的方式排查出有问题的版本。暂时在 package.json 中锁定并发布 patch 版本以解决依赖问题（在修复之后解除锁定）。同时也会向对应的 GitHub 提 issue（当然，如果已经有了去 +1 即可）。
 
-### 定时构建
+### 定时构建 {#schedule-build}
 
 如你所见，上述的排查方式有一定的滞后性。我们希望通过定时构建的方式减少额外的人力劳动，同时也能让我们更快的发现问题。因而我们复用了 [create-next-app-antd](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-inline-style) 项目作为基底（这样，如果模板项目出了问题，我们同样可以提前发现）。创建了一个每半小时执行一次的 `mock-project-build.yml` CI，它会定期拉取 [create-next-app-antd](https://github.com/ant-design/create-next-app-antd) repo 进行构建：
 
@@ -68,6 +68,6 @@ on:
 
 我们在失败时还会通过 IM 推送协议将消息推送到开发者群组，这样我们就可以在第一时间确定问题。完整脚本可以[点击此处](https://github.com/ant-design/ant-design/blob/da83561f9cb57b0eb03d18543d96393689f799be/.github/workflows/mock-project-build.yml)查看。
 
-### 最后
+### 最后 {#finally}
 
 我们一直在持续优化在维护过程中遇到的问题，如果你在使用中有任何好的想法或者建议，都欢迎在我们的 issue 和 discussion 提出。感谢大家~

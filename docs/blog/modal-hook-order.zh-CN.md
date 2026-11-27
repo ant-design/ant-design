@@ -48,7 +48,7 @@ export default () => {
 
 从上图可以看到当 `contextHolder` 放在 `Modal` 内部时，hooks 调用的弹出位置不正确了。
 
-### 思路整理
+### 思路整理 {#why}
 
 antd 的 Modal 底层调用的是 `@rc-component/dialog` 组件库，其接受一个 `mousePosition` 属性，用于控制弹出位置（[Dialog/Content/index.tsx](https://github.com/react-component/dialog/blob/79649e187ee512be6b3eb3b76e4a6b618b67ebc7/src/Dialog/Content/index.tsx#L43)）：
 
@@ -139,7 +139,7 @@ useLayoutEffect(() => {
 }, [queue]);
 ```
 
-### 问题分析
+### 问题分析 {#resolution}
 
 由于上述的队列操作，使得 portal 的 DOM 在嵌套下会在下一个 `useLayoutEffect` 触发。这导致添加节点行为后于 `@rc-component/dialog` 启动动画的 `useLayoutEffect` 时机，导致元素不在 document 中而无法获取正确的坐标信息。
 

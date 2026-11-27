@@ -128,7 +128,7 @@ return (
 
 <video src="https://gw.alipayobjects.com/v/huamei_iwk9zp/afts/video/Ok8fTIm1TLIAAAAAgCAAAAgAfoeUAQBr" autoplay="true" muted="true" loop="true" playsinline="true" controls="true"></video>
 
-## Discover the Delicate Beauty of Components
+## Discover the Delicate Beauty of Components {#delicate-beauty-of-components}
 
 Users can give components refined designs for different states based on their preferred color schemes. Let your imagination run wild and make your pages more vibrant and expressive. If you encounter any issues or have better ideas during use, feel free to share feedback — let’s make Ant Design even better together.
 
@@ -136,6 +136,6 @@ Users can give components refined designs for different states based on their pr
 
 <code src="./semantic-beauty/demos.tsx" simplify="true" iframe="430"></code>
 
-## The Relationship Between Tokens and Semantic Styling
+## The Relationship Between Tokens and Semantic Styling {#tokens-and-semantic-styling}
 
 In Ant Design’s design system, tokens are positioned as design variables — the atomic materials of the design language. Semantic styles, on the other hand, define how those materials are used. They are created by combining design tokens with component-level customizations, allowing for more flexible and expressive styling scenarios. Since semantic styles operate at the component level, they provide better control over styling scope. If you aim to design a fully customized Ant Design theme, the combination of tokens and semantic styling will be your most powerful tool — together, they enable you to craft a more refined and precisely tailored theme.

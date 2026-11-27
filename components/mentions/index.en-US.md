@@ -41,12 +41,13 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | Whether to show a clear icon to remove mentions content | boolean \| { clearIcon?: ReactNode, disabled?: boolean } | false | 5.13.0, disabled: 6.4.0 | 6.4.0 |
+| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | false | - | 6.4.0 |
 | autoSize | Textarea height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |  | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | defaultValue | Default value | string | - |  | × |
 | filterOption | Customize filter option logic | false \| (input: string, option: OptionProps) => boolean | - |  | × |
 | getPopupContainer | Set the mount HTML node for suggestions | () => HTMLElement | - |  | × |
+| loading | Indicate loading state | boolean | false |  | × |
 | notFoundContent | Set mentions content when not match | ReactNode | `No data` |  | × |
 | placement | Set popup placement | `top` \| `bottom` | `bottom` |  | × |
 | popupRender | Customize the dropdown menu rendering | (menu: React.ReactElement) => ReactNode | - | 6.6.0 | × |
@@ -54,7 +55,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | split | Set split string before and after selected mention | string | ` ` |  | × |
 | size | The size of the input box | `large` \| `medium` \| `small` | - |  | × |
 | status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 | × |
-| validateSearch | Customize trigger search logic | (text: string, props: MentionsProps) => void | - |  | × |
+| validateSearch | Custom validation for search text. Return false to hide suggestions. | (text: string, split?: string) => boolean | - |  | × |
 | value | Set value of mentions | string | - |  | × |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | 5.19.0 |
 | onBlur | Trigger when mentions lose focus | () => void | - |  | × |
@@ -67,6 +68,17 @@ Common props ref：[Common props](/docs/react/common-props)
 | onPopupScroll | Trigger when mentions scroll | (e: Event) => void | - | 5.23.0 | × |
 | options | Option Configuration | [Options](#option) | \[] | 5.1.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
+
+### AllowClearConfig
+
+Fields that support global configuration use component values first, then global values, then defaults. `allowClear={true}` inherits global configuration; `disabled: false` and `tabIndex: 0` override global values.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | Custom clear icon | ReactNode | - | - | 6.4.0 |
+| disabled | When `true`, equivalent to `allowClear={false}` | boolean | false | 6.4.0 | 6.4.0 |
+| label | Accessible name of the clear button | string | Component locale text | 6.7.0 | 6.7.0 |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 6.7.0 | 6.7.0 |
 
 ### Mention methods
 

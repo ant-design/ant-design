@@ -72,16 +72,22 @@ interface LegacyTooltipProps
   extends Partial<
     Omit<
       RcTooltipProps,
-      | 'children'
-      | 'visible'
-      | 'defaultVisible'
-      | 'onVisibleChange'
       | 'afterVisibleChange'
-      | 'destroyTooltipOnHide'
+      | 'arrowContent'
+      | 'children'
       | 'classNames'
+      | 'defaultVisible'
+      | 'destroyTooltipOnHide'
+      | 'motion'
+      | 'onVisibleChange'
+      | 'overlay'
+      | 'popupVisible'
+      | 'showArrow'
       | 'styles'
+      | 'visible'
     >
   > {
+  motion?: { motionName?: string };
   open?: RcTooltipProps['visible'];
   defaultOpen?: RcTooltipProps['defaultVisible'];
   onOpenChange?: (open: boolean) => void;
@@ -215,7 +221,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const mergedArrow = useMergedArrow(tooltipArrow, contextArrow);
   const mergedShowArrow = mergedArrow.show;
   const mergedTrigger = trigger || contextTrigger || 'hover';
-  const mergedGetPopupContainer = getPopupContainer || getContextPopupContainer;
+  const mergedGetPopupContainer =
+    getPopupContainer || getTooltipContainer || getContextPopupContainer;
   const mergedDestroyOnHidden = destroyOnHidden ?? !!destroyTooltipOnHide;
   const inTableMeasureRow = React.useContext(TableMeasureRowContext);
 

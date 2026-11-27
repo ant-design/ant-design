@@ -157,7 +157,7 @@ Finally, don't forget that tokens can be passed through the context. In the case
 
 This can become a potential burden.
 
-### Dynamic Themes with CSS Variables
+### Dynamic Themes with CSS Variables {#dynamic-themes-with-css-vars}
 
 Consider the following scenario: users can freely modify the theme color and text font size on the webpage to suit their preferences. This scenario does not align with the research discussed earlier because our previous study was based on a complete set of known themes (such as a dark theme). When users can freely modify the value of a variable, we cannot pre-build the theme; instead, we must rely on runtime capabilities for modifications. This situation can be referred to as a true 'dynamic theme'.
 

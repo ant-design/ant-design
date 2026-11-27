@@ -27,13 +27,14 @@ const styles = createStaticStyles(({ css, cssVar }) => {
 const Loading: React.FC = () => {
   const { pathname } = useLocation();
 
+  // React can stream a completed changelog after its fallback because of its size.
+  if (/^(?:\/components)?\/changelog(?:-cn)?\/?$/.test(pathname)) {
+    return null;
+  }
+
   let loadingNode: React.ReactNode = null;
 
-  if (
-    pathname.startsWith('/components') ||
-    pathname.startsWith('/docs') ||
-    pathname.startsWith('/changelog')
-  ) {
+  if (pathname.startsWith('/components') || pathname.startsWith('/docs')) {
     loadingNode = (
       <div className={styles.skeletonWrapper}>
         <img

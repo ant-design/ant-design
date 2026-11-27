@@ -6,7 +6,7 @@ author: zombieJ
 
 在 v5 发布会上，我们的设计师团队提过将会提供快乐工作的主题。这部分工作仍然在循序渐进的进行中，但是我们已经有了一些进展，想在这里和大家分享。
 
-## 太长不看
+## 太长不看 {#tldr}
 
 你可以直接使用 `@ant-design/happy-work-theme` 来切换主题特效（或者继续阅读看看我们做了什么）：
 
@@ -22,7 +22,7 @@ export default () => (
 
 ![Happy Work Theme](https://github.com/react-component/picker/assets/5378891/3c54ef05-5448-4619-b492-b5328c032c52)
 
-## 定制水波纹
+## 定制水波纹 {#customize-wave-effect}
 
 Ant Design 中，一个比较有特色的设计交互就是在一些组件上的点击波纹效果。你可以在各个地方看到它们：
 
@@ -33,7 +33,7 @@ Ant Design 中，一个比较有特色的设计交互就是在一些组件上的
 
 在过去数个大版本中，这个水波纹特效都无法修改。如果要关闭它，开发者甚至需要做一些“黑魔法”才能实现。所以当设计师提出一个快乐的主题能力时，作为开发者我们觉得这是个好时机来做一些改造了。
 
-### Wave 组件
+### Wave 组件 {#wave-component}
 
 水波纹实际上是一个 Wave 组件，它会监听子组件的点击事件。然后添加一个 `box-shadow` 动效产生水波纹：
 
@@ -70,6 +70,6 @@ type ShowEffect = (target: HTMLElement, info: { component: string; token: Global
 
 通过 Design Token，你可以实现符合当前主题的特效。例如在文章开头的 GIF 中，当主题色变换时我们可以获取当前的主题色并添加对应的特效。
 
-## 最后
+## 最后 {#one-more-thing}
 
 快乐工作主题的工作仍然在进行中，我们会在后续的版本中逐步添加更多的能力。当前 `@ant-design/happy-work-theme` 提供的 HappyProvider 通过 ConfigProvider 实现了水波纹特效的替换，我们计划开发者未来无需做额外的改造，就能通过 HappyProvider 随着版本迭代而逐步添加更多的“快乐”。敬请期待。

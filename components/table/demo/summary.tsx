@@ -3,8 +3,8 @@ import { Flex, Table, Typography } from 'antd';
 import type { TableColumnsType } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css, token }) => {
-  const { antCls } = token;
+const useStyle = createStyles(({ css, prefixCls }) => {
+  const antCls = `.${prefixCls}`;
   return {
     customTable: css`
       ${antCls}-table {
