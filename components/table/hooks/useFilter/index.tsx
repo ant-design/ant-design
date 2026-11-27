@@ -226,9 +226,8 @@ export const getFilterData = <RecordType extends AnyObject = AnyObject>(
 export interface FilterConfig<RecordType = AnyObject> {
   prefixCls: string;
   dropdownPrefixCls: string;
-  mergedColumns: ColumnsType<RecordType>;
   /** Columns before applying the responsive filter. */
-  baseColumns?: ColumnsType<RecordType>;
+  baseColumns: ColumnsType<RecordType>;
   locale: TableLocale;
   onFilterChange: (
     filters: Record<string, FilterValue | null>,
@@ -258,7 +257,6 @@ const useFilter = <RecordType extends AnyObject = AnyObject>(
   const {
     prefixCls,
     dropdownPrefixCls,
-    mergedColumns: rawMergedColumns,
     baseColumns,
     onFilterChange,
     getPopupContainer,
@@ -268,8 +266,8 @@ const useFilter = <RecordType extends AnyObject = AnyObject>(
   const warning = devUseWarning('Table');
 
   const mergedColumns = React.useMemo(
-    () => getMergedColumns<RecordType>(baseColumns ?? rawMergedColumns ?? []),
-    [baseColumns, rawMergedColumns],
+    () => getMergedColumns<RecordType>(baseColumns),
+    [baseColumns],
   );
 
   const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(() =>

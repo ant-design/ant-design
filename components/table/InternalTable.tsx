@@ -471,7 +471,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   };
   const [transformSorterColumns, sortStates, sorterTitleProps, getSorters] = useSorter<RecordType>({
     prefixCls,
-    mergedColumns,
     // Pass `baseColumns` (pre-responsive) so `defaultSortOrder` and controlled
     // `sortOrder` on a `responsive` column are still honored when the column
     // is hidden at the current breakpoint.
@@ -501,7 +500,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     prefixCls,
     locale: tableLocale,
     dropdownPrefixCls,
-    mergedColumns,
     baseColumns,
     onFilterChange,
     getPopupContainer: getPopupContainer || getContextPopupContainer,
