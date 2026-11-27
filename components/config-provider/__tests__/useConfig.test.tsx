@@ -5,25 +5,26 @@ import { resetWarned } from '../../_util/warning';
 import { render } from '../../../tests/utils';
 import Button from '../../button';
 import Form from '../../form';
+import Space from '../../space';
 
 describe('ConfigProvider.useConfig', () => {
-  it('useConfig - componentSize', () => {
-    let size;
-
-    const App: React.FC = () => {
+  it('reads the Space.Compact size inside the group and the ConfigProvider size outside', () => {
+    const CustomControl: React.FC<{ label: string }> = ({ label }) => {
       const { componentSize } = ConfigProvider.useConfig();
-      size = componentSize;
-
-      return null;
+      return <output aria-label={label}>{componentSize}</output>;
     };
 
-    render(
-      <ConfigProvider componentSize="small">
-        <App />
+    const { getByLabelText } = render(
+      <ConfigProvider componentSize="large">
+        <Space.Compact size="small">
+          <CustomControl label="Inside group" />
+        </Space.Compact>
+        <CustomControl label="Outside group" />
       </ConfigProvider>,
     );
 
-    expect(size).toBe('small');
+    expect(getByLabelText('Inside group')).toHaveTextContent('small');
+    expect(getByLabelText('Outside group')).toHaveTextContent('large');
   });
 
   it('useConfig - componentDisabled', () => {

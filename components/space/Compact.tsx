@@ -9,18 +9,12 @@ import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
+import type { SpaceCompactItemContextType } from './context';
+import { SpaceCompactItemContext } from './context';
 import useStyle from './style/compact';
 
-export interface SpaceCompactItemContextType {
-  compactSize?: SizeType;
-  compactDirection?: 'horizontal' | 'vertical';
-  isFirstItem?: boolean;
-  isLastItem?: boolean;
-}
-
-export const SpaceCompactItemContext = React.createContext<SpaceCompactItemContextType | null>(
-  null,
-);
+export type { SpaceCompactItemContextType };
+export { SpaceCompactItemContext };
 
 export const useCompactItemContext = (prefixCls: string, direction: DirectionType) => {
   const compactItemContext = React.useContext(SpaceCompactItemContext);
