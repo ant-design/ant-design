@@ -533,6 +533,20 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect($$('.ant-modal-mask')).toHaveLength(0);
   });
 
+  it('cleans up a static dialog destroyed before its first render', async () => {
+    const afterClose = jest.fn();
+    const instance = confirm({ title: 'Pending dialog', afterClose });
+    instance.update({ title: 'Updated title' });
+    instance.destroy();
+    instance.update({ title: 'Late update' });
+    instance.destroy();
+    await waitFakeTimer();
+
+    expect(destroyFns).not.toContain(instance.destroy);
+    expect(afterClose).toHaveBeenCalledTimes(1);
+    expect(document.querySelector('.ant-modal-root')).toBeNull();
+  });
+
   it('destroyFns should reduce when instance.destroy', async () => {
     Modal.destroyAll(); // clear destroyFns
 
