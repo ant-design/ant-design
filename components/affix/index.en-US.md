@@ -25,6 +25,7 @@ Please note that Affix should not cover other content on the page, especially wh
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/stackable.tsx">Stackable</code>
 <code src="./demo/on-change.tsx">Callback</code>
 <code src="./demo/target.tsx">Container to scroll.</code>
 <code src="./demo/debug.tsx" debug>debug</code>
@@ -37,6 +38,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- | --- |
 | offsetBottom | Offset from the bottom of the viewport (in pixels) | number | - |  | × |
 | offsetTop | Offset from the top of the viewport (in pixels) | number | 0 |  | × |
+| stackable | Whether multiple Affix components with the same `target` and offset direction should stack without overlapping | boolean | false | 6.7.0 | × |
 | target | Specifies the scrollable area DOM node | () => Window \| HTMLElement \| null | () => window |  | × |
 | onChange | Callback for when Affix state is changed | (affixed?: boolean) => void | - |  | × |
 

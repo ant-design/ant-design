@@ -5,7 +5,15 @@ import { clsx } from 'clsx';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import useStyle from './style';
-import { getFixedBottom, getFixedTop, getTargetRect } from './utils';
+import type { AffixStackDirection, AffixStackEntry } from './utils';
+import {
+  getFixedBottom,
+  getFixedTop,
+  getStackOffset,
+  getTargetRect,
+  notifyAffixStack,
+  registerAffixStack,
+} from './utils';
 
 const TRIGGER_EVENTS: (keyof WindowEventMap)[] = [
   'resize',
@@ -27,6 +35,8 @@ export interface AffixProps {
   offsetTop?: number;
   /** Triggered when the specified offset is reached from the bottom of the window */
   offsetBottom?: number;
+  /** Whether multiple Affix components with the same target and offset direction should stack without overlapping */
+  stackable?: boolean;
   style?: React.CSSProperties;
   /** Callback function triggered when fixed state changes */
   onChange?: (affixed?: boolean) => void;
@@ -57,6 +67,7 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
     style,
     offsetTop,
     offsetBottom,
+    stackable,
     prefixCls,
     className,
     rootClassName,
@@ -86,10 +97,54 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   const placeholderNodeRef = React.useRef<HTMLDivElement>(null);
   const fixedNodeRef = React.useRef<HTMLDivElement>(null);
   const timerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const stackEntryRef = React.useRef<AffixStackEntry | null>(null);
+  const stackTargetRef = React.useRef<Window | HTMLElement | null>(null);
+  const unregisterStackRef = React.useRef<(() => void) | null>(null);
+  const updatePositionRef = React.useRef<() => void>(() => {});
 
   const targetFunc = target ?? getTargetContainer ?? getDefaultTarget;
 
   const internalOffsetTop = offsetBottom === undefined && offsetTop === undefined ? 0 : offsetTop;
+
+  const unregisterStack = () => {
+    unregisterStackRef.current?.();
+    unregisterStackRef.current = null;
+    stackTargetRef.current = null;
+  };
+
+  const syncStack = (targetNode: Window | HTMLElement | null) => {
+    if (!stackable || !targetNode || !placeholderNodeRef.current) {
+      unregisterStack();
+      return null;
+    }
+
+    const stackEntry: AffixStackEntry = stackEntryRef.current ?? {
+      placeholder: placeholderNodeRef.current,
+      updatePosition: () => updatePositionRef.current(),
+    };
+    stackEntry.offsetBottom = offsetBottom;
+    stackEntry.offsetTop = internalOffsetTop;
+    stackEntry.placeholder = placeholderNodeRef.current;
+    stackEntryRef.current = stackEntry;
+
+    if (stackTargetRef.current !== targetNode) {
+      unregisterStack();
+      stackTargetRef.current = targetNode;
+      unregisterStackRef.current = registerAffixStack(targetNode, stackEntry);
+    }
+
+    return stackEntry;
+  };
+
+  const getMergedOffset = (
+    targetNode: Window | HTMLElement,
+    targetRect: DOMRect,
+    stackEntry: AffixStackEntry | null,
+    direction: AffixStackDirection,
+  ) => {
+    const offset = direction === 'top' ? internalOffsetTop : offsetBottom;
+    return stackEntry ? getStackOffset(targetNode, targetRect, stackEntry, direction) : offset;
+  };
 
   // =================== Measure ===================
   const measure = () => {
@@ -102,6 +157,8 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
       const newState: Partial<AffixState> = {};
       const placeholderRect = getTargetRect(placeholderNodeRef.current);
 
+      const stackEntry = syncStack(targetNode);
+
       if (
         placeholderRect.top === 0 &&
         placeholderRect.left === 0 &&
@@ -112,8 +169,16 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
       }
 
       const targetRect = getTargetRect(targetNode);
-      const fixedTop = getFixedTop(placeholderRect, targetRect, internalOffsetTop);
-      const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
+      const fixedTop = getFixedTop(
+        placeholderRect,
+        targetRect,
+        getMergedOffset(targetNode, targetRect, stackEntry, 'top'),
+      );
+      const fixedBottom = getFixedBottom(
+        placeholderRect,
+        targetRect,
+        getMergedOffset(targetNode, targetRect, stackEntry, 'bottom'),
+      );
 
       if (fixedTop !== undefined || fixedBottom !== undefined) {
         newState.affixStyle = {
@@ -150,6 +215,14 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   const updatePosition = throttleByAnimationFrame(() => {
     prepareMeasure();
   });
+  updatePositionRef.current = updatePosition;
+
+  const onResize = () => {
+    if (stackTargetRef.current && stackEntryRef.current) {
+      notifyAffixStack(stackTargetRef.current, stackEntryRef.current);
+    }
+    updatePosition();
+  };
 
   const lazyUpdatePosition = throttleByAnimationFrame(() => {
     // Check position change before measure to make Safari smooth
@@ -158,8 +231,17 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
       if (targetNode && placeholderNodeRef.current) {
         const targetRect = getTargetRect(targetNode);
         const placeholderRect = getTargetRect(placeholderNodeRef.current);
-        const fixedTop = getFixedTop(placeholderRect, targetRect, internalOffsetTop);
-        const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
+        const stackEntry = syncStack(targetNode);
+        const fixedTop = getFixedTop(
+          placeholderRect,
+          targetRect,
+          getMergedOffset(targetNode, targetRect, stackEntry, 'top'),
+        );
+        const fixedBottom = getFixedBottom(
+          placeholderRect,
+          targetRect,
+          getMergedOffset(targetNode, targetRect, stackEntry, 'bottom'),
+        );
 
         if (
           (fixedTop !== undefined && affixStyle.top === fixedTop) ||
@@ -203,6 +285,11 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
 
   React.useImperativeHandle(ref, () => ({ updatePosition }));
 
+  React.useEffect(() => {
+    syncStack(targetFunc?.());
+    return unregisterStack;
+  }, [stackable, targetFunc, internalOffsetTop, offsetBottom]);
+
   // mount & unmount
   React.useEffect(() => {
     // [Legacy] Wait for parent component ref has its value.
@@ -221,11 +308,11 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   React.useEffect(() => {
     addListeners();
     return () => removeListeners();
-  }, [target, affixStyle, lastAffix, offsetTop, offsetBottom]);
+  }, [target, affixStyle, lastAffix, offsetTop, offsetBottom, stackable]);
 
   React.useEffect(() => {
     updatePosition();
-  }, [target, offsetTop, offsetBottom]);
+  }, [target, offsetTop, offsetBottom, stackable]);
 
   const [hashId, cssVarCls] = useStyle(affixPrefixCls);
 
@@ -234,7 +321,7 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   const mergedCls = clsx({ [rootCls]: affixStyle });
 
   return (
-    <ResizeObserver onResize={updatePosition}>
+    <ResizeObserver onResize={onResize}>
       <div
         style={{ ...contextStyle, ...style }}
         className={clsx(className, contextClassName)}
@@ -243,7 +330,7 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
       >
         {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
         <div className={mergedCls} ref={fixedNodeRef} style={affixStyle}>
-          <ResizeObserver onResize={updatePosition}>{children}</ResizeObserver>
+          <ResizeObserver onResize={onResize}>{children}</ResizeObserver>
         </div>
       </div>
     </ResizeObserver>
