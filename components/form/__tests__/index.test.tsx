@@ -1338,6 +1338,78 @@ describe('Form', () => {
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
+  it('should associate label with the explicit id of the control', () => {
+    const { container, getByLabelText } = render(
+      <Form>
+        <Form.Item name="account" label="Account" extra="Account identifier">
+          <Input id="custom-account" />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = container.querySelector('input')!;
+    // Label should follow the id the control actually renders with
+    expect(container.querySelector('label')).toHaveAttribute('for', 'custom-account');
+    expect(getByLabelText('Account')).toBe(input);
+
+    // `help` / `extra` still use the generated field id and stay reachable
+    expect(input).toHaveAttribute('aria-describedby', 'account_extra');
+    expect(document.getElementById('account_extra')).toHaveTextContent('Account identifier');
+  });
+
+  it('should keep generated field id for label when control has no explicit id', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="account" label="Account">
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('input')).toHaveAttribute('id', 'account');
+    expect(container.querySelector('label')).toHaveAttribute('for', 'account');
+  });
+
+  it('should let explicit htmlFor override the control id', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="account" label="Account" htmlFor="custom-html-for">
+          <Input id="custom-account" />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('label')).toHaveAttribute('for', 'custom-html-for');
+  });
+
+  it('should keep htmlFor null as the way to disable label association', () => {
+    // `htmlFor={null}` is the documented way to disable label association,
+    // see https://github.com/ant-design/ant-design/pull/52950
+    const nullHtmlFor = { htmlFor: null } as unknown as FormItemProps;
+
+    const { container } = render(
+      <Form>
+        <Form.Item name="switch" label="Switch" {...nullHtmlFor}>
+          <Switch />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('label')).not.toHaveAttribute('for');
+  });
+
+  it('should fall back to the control id when htmlFor is explicitly undefined', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="account" label="Account" htmlFor={undefined}>
+          <Input id="custom-account" />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('label')).toHaveAttribute('for', 'custom-account');
+  });
+
   it('should customize id when pass with id', () => {
     const { container } = render(
       <Form>

@@ -37,7 +37,7 @@ const componentLimits: Record<string, string> = {
   Empty: '31 KiB',
   Flex: '47 KiB',
   FloatButton: '87 KiB',
-  Form: '81 KiB',
+  Form: '82 KiB',
   Grid: '21 KiB',
   Image: '49 KiB',
   Input: '88 KiB',
