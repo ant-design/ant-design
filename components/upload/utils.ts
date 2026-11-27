@@ -1,3 +1,4 @@
+import { isString } from '../_util/is';
 import type { InternalUploadFile, RcFile, UploadFile } from './interface';
 
 export function file2Obj(file: RcFile): InternalUploadFile {
@@ -89,6 +90,12 @@ export const isImageUrl = (file: UploadFile): boolean => {
 
 const MEASURE_SIZE = 200;
 
+function readDataURL(file: Blob, onFinish: (result: string) => void) {
+  const reader = new FileReader();
+  reader.onloadend = () => onFinish(isString(reader.result) ? reader.result : '');
+  reader.readAsDataURL(file);
+}
+
 export function previewImage(file: File | Blob): Promise<string> {
   return new Promise<string>((resolve) => {
     if (!file.type || !isImageFileType(file.type)) {
@@ -97,13 +104,7 @@ export function previewImage(file: File | Blob): Promise<string> {
     }
 
     if (file.type.startsWith('image/gif')) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (reader.result) {
-          resolve(reader.result as string);
-        }
-      };
-      reader.readAsDataURL(file);
+      readDataURL(file, resolve);
       return;
     }
 
@@ -143,13 +144,14 @@ export function previewImage(file: File | Blob): Promise<string> {
       resolve('');
     };
     if (file.type.startsWith('image/svg+xml')) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (reader.result && typeof reader.result === 'string') {
-          img.src = reader.result;
+      readDataURL(file, (result) => {
+        if (result) {
+          img.src = result;
+        } else {
+          document.body.removeChild(canvas);
+          resolve('');
         }
-      };
-      reader.readAsDataURL(file);
+      });
     } else {
       img.src = window.URL.createObjectURL(file);
     }
