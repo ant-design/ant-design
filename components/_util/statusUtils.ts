@@ -21,4 +21,4 @@ export const getStatusClassNames = (
 };
 
 export const getMergedStatus = (contextStatus?: ValidateStatus, customStatus?: InputStatus) =>
-  customStatus || contextStatus;
+  customStatus ?? contextStatus;
