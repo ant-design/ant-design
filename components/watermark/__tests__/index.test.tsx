@@ -166,6 +166,65 @@ describe('Watermark', () => {
     }
   });
 
+  it('should keep rotated left aligned text inside the rotation canvas', async () => {
+    const rotationSizes: Array<[number, number, number]> = [];
+    const drawImage = jest
+      .spyOn(CanvasRenderingContext2D.prototype, 'drawImage')
+      .mockImplementation(function (this: CanvasRenderingContext2D, ...args: any[]) {
+        if (args.length === 3 && args[0] instanceof HTMLCanvasElement) {
+          rotationSizes.push([args[0].width, args[0].height, this.canvas.width]);
+        }
+      });
+
+    try {
+      render(
+        <Watermark
+          width={120}
+          height={120}
+          rotate={45}
+          content="Ant Design"
+          font={{ textAlign: 'left' }}
+        />,
+      );
+      await waitFakeTimer();
+
+      const [sourceWidth, sourceHeight, canvasWidth] = rotationSizes[0];
+      expect(canvasWidth).toBeGreaterThanOrEqual(Math.ceil(Math.hypot(sourceWidth, sourceHeight)));
+    } finally {
+      drawImage.mockRestore();
+    }
+  });
+
+  it('should pad left aligned text when ink exceeds the advance width on the right', async () => {
+    const sourceSizes: Array<[number, number]> = [];
+    const drawImage = jest
+      .spyOn(CanvasRenderingContext2D.prototype, 'drawImage')
+      .mockImplementation((...args: any[]) => {
+        if (args.length === 3 && args[0] instanceof HTMLCanvasElement) {
+          sourceSizes.push([args[0].width, args[0].height]);
+        }
+      });
+    const measureText = jest
+      .spyOn(CanvasRenderingContext2D.prototype, 'measureText')
+      .mockReturnValue({
+        width: 100,
+        actualBoundingBoxLeft: -5,
+        actualBoundingBoxRight: 105,
+        fontBoundingBoxAscent: 10,
+        fontBoundingBoxDescent: 2,
+      } as TextMetrics);
+
+    try {
+      render(<Watermark width={100} content="Ant Design" font={{ textAlign: 'left' }} />);
+      await waitFakeTimer();
+
+      expect(sourceSizes[0][0]).toBe(105);
+    } finally {
+      drawImage.mockRestore();
+      measureText.mockRestore();
+    }
+  });
+
   it('Interleaved watermark backgroundSize is correct', () => {
     const { container } = render(
       <Watermark

@@ -68,13 +68,10 @@ const useClips = () => {
         measureCtx.textAlign = font.textAlign;
         const metrics = measureCtx.measureText(text);
         const alignX = getTextX(font.textAlign, textWidth);
-        const overhang = Math.max(
-          0,
-          metrics.actualBoundingBoxLeft + metrics.actualBoundingBoxRight - metrics.width,
-        );
         const left = Math.max(0, metrics.actualBoundingBoxLeft - alignX);
+        const right = Math.max(0, alignX + metrics.actualBoundingBoxRight - textWidth);
         padLeft = Math.max(padLeft, left);
-        padRight = Math.max(padRight, overhang - left);
+        padRight = Math.max(padRight, right);
       });
       padLeft = Math.ceil(padLeft);
       padRight = Math.ceil(padRight);
@@ -105,7 +102,7 @@ const useClips = () => {
 
     // ==================== Rotate ====================
     const angle = (Math.PI / 180) * Number(rotate);
-    const maxSize = Math.max(paddedWidth, height);
+    const maxSize = Math.ceil(Math.hypot(paddedWidth, height));
     const [rCtx, rCanvas, realMaxSize] = prepareCanvas(maxSize, maxSize, ratio);
 
     // Copy from `ctx` and rotate
