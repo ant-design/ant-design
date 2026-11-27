@@ -31,7 +31,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
     type,
     ...restProps
   } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('otp');
   const maskValue = typeof mask === 'string' ? mask : DEFAULT_MASK_VALUE;
 
@@ -102,11 +102,12 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   // ======================== Keyboard ========================
   const onInternalKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
     const { key, ctrlKey, metaKey } = event;
+    const step = direction === 'rtl' ? -1 : 1;
 
     if (key === 'ArrowLeft') {
-      onActiveChange(index - 1);
+      onActiveChange(index - step);
     } else if (key === 'ArrowRight') {
-      onActiveChange(index + 1);
+      onActiveChange(index + step);
     } else if (key === 'z' && (ctrlKey || metaKey)) {
       event.preventDefault();
     } else if (key === 'Backspace' && !value) {
