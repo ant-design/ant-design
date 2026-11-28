@@ -702,8 +702,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   // =================================== Motion ===================================
   childNode = <MotionWrapper>{childNode}</MotionWrapper>;
 
-  // ================================ Tooltip Unique ===============================
-  if (tooltip?.unique) {
+  // ================================ Tooltip & Popover Unique ===============================
+  if (tooltip?.unique || popover?.unique) {
     childNode = <UniqueProvider>{childNode}</UniqueProvider>;
   }
 

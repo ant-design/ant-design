@@ -46,6 +46,33 @@ Common props ref：[Common props](/docs/react/common-props)
 
 <embed src="../tooltip/shared/sharedProps.en-US.md"></embed>
 
+### ConfigProvider - popover.unique {#config-provider-popover-unique}
+
+You can configure global unique display for Popover through ConfigProvider. When `unique` is set to `true`, only one Popover under the ConfigProvider will be displayed at the same time, providing smooth transition effects between triggers.
+
+Note: After configuration, properties like `getContainer`, `arrow` etc. will be ignored.
+
+```tsx
+import { Button, ConfigProvider, Popover, Space } from 'antd';
+
+export default () => (
+  <ConfigProvider
+    popover={{
+      unique: true,
+    }}
+  >
+    <Space>
+      <Popover content="Content A" title="Title A">
+        <Button>Button 1</Button>
+      </Popover>
+      <Popover content="Content B" title="Title B">
+        <Button>Button 2</Button>
+      </Popover>
+    </Space>
+  </ConfigProvider>
+);
+```
+
 ## Note
 
 Please ensure that the child node of `Popover` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.

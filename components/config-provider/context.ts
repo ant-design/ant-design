@@ -392,7 +392,14 @@ export type PopoverConfig = Pick<
   | 'trigger'
   | 'mouseEnterDelay'
   | 'mouseLeaveDelay'
->;
+> & {
+  /**
+   * @descCN 是否开启 Popover 流畅过渡动画
+   * @descEN Whether to enable smooth transition for popovers
+   * @default false
+   */
+  unique?: boolean;
+};
 
 export type PopconfirmConfig = Pick<
   PopconfirmProps,

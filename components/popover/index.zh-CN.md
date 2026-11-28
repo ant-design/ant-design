@@ -47,6 +47,33 @@ demo:
 
 <embed src="../tooltip/shared/sharedProps.zh-CN.md"></embed>
 
+### ConfigProvider - popover.unique {#config-provider-popover-unique}
+
+可以通过 ConfigProvider 全局配置 Popover 的唯一性显示。当 `unique` 设置为 `true` 时，同一时间 ConfigProvider 下的 Popover 只会显示一个，在不同触发元素之间提供平滑的过渡效果。
+
+注意：配置后 `getContainer`、`arrow` 等属性将会失效。
+
+```tsx
+import { Button, ConfigProvider, Popover, Space } from 'antd';
+
+export default () => (
+  <ConfigProvider
+    popover={{
+      unique: true,
+    }}
+  >
+    <Space>
+      <Popover content="内容 A" title="标题 A">
+        <Button>按钮 1</Button>
+      </Popover>
+      <Popover content="内容 B" title="标题 B">
+        <Button>按钮 2</Button>
+      </Popover>
+    </Space>
+  </ConfigProvider>
+);
+```
+
 ## 注意 {#note}
 
 请确保 `Popover` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
