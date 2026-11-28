@@ -32,6 +32,16 @@ const getRotatePos = (x: number, y: number, angle: number) => {
   return [targetX, targetY] as const;
 };
 
+const getTextX = (textAlign: CanvasTextAlign, width: number) => {
+  if (textAlign === 'left' || textAlign === 'start') {
+    return 0;
+  }
+  if (textAlign === 'right' || textAlign === 'end') {
+    return width;
+  }
+  return width / 2;
+};
+
 /**
  * Get the clips of text content.
  * This is a lazy hook function since SSR no need this
@@ -47,8 +57,30 @@ const useClips = () => {
     gapX: number,
     gapY: number,
   ): [dataURL: string, finalWidth: number, finalHeight: number] => {
+    const textWidth = width * ratio;
+    let padLeft = 0;
+    let padRight = 0;
+
+    if (!(content instanceof HTMLImageElement)) {
+      const measureCtx = document.createElement('canvas').getContext('2d')!;
+      content.forEach(({ text, font }) => {
+        measureCtx.font = getCanvasFont(font, ratio, height);
+        measureCtx.textAlign = font.textAlign;
+        const metrics = measureCtx.measureText(text);
+        const alignX = getTextX(font.textAlign, textWidth);
+        const left = Math.max(0, metrics.actualBoundingBoxLeft - alignX);
+        const right = Math.max(0, alignX + metrics.actualBoundingBoxRight - textWidth);
+        padLeft = Math.max(padLeft, left);
+        padRight = Math.max(padRight, right);
+      });
+      padLeft = Math.ceil(padLeft);
+      padRight = Math.ceil(padRight);
+    }
+
+    const paddedWidth = width + (padLeft + padRight) / ratio;
+
     // ================= Text / Image =================
-    const [ctx, canvas, contentWidth, contentHeight] = prepareCanvas(width, height, ratio);
+    const [ctx, canvas, contentWidth, contentHeight] = prepareCanvas(paddedWidth, height, ratio);
 
     if (content instanceof HTMLImageElement) {
       // Image
@@ -62,7 +94,7 @@ const useClips = () => {
         ctx.font = getCanvasFont(font, ratio, height);
         ctx.fillStyle = font.color;
         ctx.textAlign = font.textAlign;
-        ctx.fillText(text, contentWidth / 2, top);
+        ctx.fillText(text, padLeft + getTextX(font.textAlign, textWidth), top);
 
         top += getFontSize(font, ratio) + FontGap * ratio;
       });
@@ -70,7 +102,7 @@ const useClips = () => {
 
     // ==================== Rotate ====================
     const angle = (Math.PI / 180) * Number(rotate);
-    const maxSize = Math.max(width, height);
+    const maxSize = Math.ceil(Math.hypot(paddedWidth, height));
     const [rCtx, rCanvas, realMaxSize] = prepareCanvas(maxSize, maxSize, ratio);
 
     // Copy from `ctx` and rotate

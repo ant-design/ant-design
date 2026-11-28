@@ -143,6 +143,113 @@ describe('Watermark', () => {
     }
   });
 
+  it.each([
+    ['left', 0],
+    ['start', 0],
+    ['center', 60],
+    ['right', 120],
+    ['end', 120],
+  ] as const)('should draw %s aligned text inside the watermark', async (textAlign, x) => {
+    const fillText = jest.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
+
+    try {
+      render(<Watermark width={120} content="Ant Design" font={{ textAlign }} />);
+      await waitFakeTimer();
+
+      expect(fillText).toHaveBeenLastCalledWith('Ant Design', x, 0);
+    } finally {
+      fillText.mockRestore();
+    }
+  });
+
+  it('should pad left aligned text when glyph ink exceeds the advance width', async () => {
+    const fillText = jest.spyOn(CanvasRenderingContext2D.prototype, 'fillText');
+    const measureText = jest
+      .spyOn(CanvasRenderingContext2D.prototype, 'measureText')
+      .mockReturnValue({
+        width: 40,
+        actualBoundingBoxLeft: 8,
+        actualBoundingBoxRight: 42,
+        fontBoundingBoxAscent: 10,
+        fontBoundingBoxDescent: 2,
+      } as TextMetrics);
+
+    try {
+      render(
+        <Watermark
+          width={120}
+          content="Italic"
+          font={{ fontStyle: 'italic', textAlign: 'left' }}
+        />,
+      );
+      await waitFakeTimer();
+
+      expect(fillText).toHaveBeenLastCalledWith('Italic', 8, 0);
+    } finally {
+      fillText.mockRestore();
+      measureText.mockRestore();
+    }
+  });
+
+  it('should keep rotated left aligned text inside the rotation canvas', async () => {
+    const rotationSizes: Array<[number, number, number]> = [];
+    const drawImage = jest
+      .spyOn(CanvasRenderingContext2D.prototype, 'drawImage')
+      .mockImplementation(function (this: CanvasRenderingContext2D, ...args: any[]) {
+        if (args.length === 3 && args[0] instanceof HTMLCanvasElement) {
+          rotationSizes.push([args[0].width, args[0].height, this.canvas.width]);
+        }
+      });
+
+    try {
+      render(
+        <Watermark
+          width={120}
+          height={120}
+          rotate={45}
+          content="Ant Design"
+          font={{ textAlign: 'left' }}
+        />,
+      );
+      await waitFakeTimer();
+
+      const [sourceWidth, sourceHeight, canvasWidth] = rotationSizes[0];
+      expect(canvasWidth).toBeGreaterThanOrEqual(Math.ceil(Math.hypot(sourceWidth, sourceHeight)));
+    } finally {
+      drawImage.mockRestore();
+    }
+  });
+
+  it('should pad left aligned text when ink exceeds the advance width on the right', async () => {
+    const sourceSizes: Array<[number, number]> = [];
+    const drawImage = jest
+      .spyOn(CanvasRenderingContext2D.prototype, 'drawImage')
+      .mockImplementation((...args: any[]) => {
+        if (args.length === 3 && args[0] instanceof HTMLCanvasElement) {
+          sourceSizes.push([args[0].width, args[0].height]);
+        }
+      });
+    const measureText = jest
+      .spyOn(CanvasRenderingContext2D.prototype, 'measureText')
+      .mockReturnValue({
+        width: 100,
+        actualBoundingBoxLeft: -5,
+        actualBoundingBoxRight: 105,
+        fontBoundingBoxAscent: 10,
+        fontBoundingBoxDescent: 2,
+      } as TextMetrics);
+
+    try {
+      render(<Watermark width={100} content="Ant Design" font={{ textAlign: 'left' }} />);
+      await waitFakeTimer();
+
+      expect(sourceSizes[0][0]).toBe(105);
+    } finally {
+      drawImage.mockRestore();
+      measureText.mockRestore();
+    }
+  });
+
   it('Interleaved watermark backgroundSize is correct', () => {
     const { container } = render(
       <Watermark
