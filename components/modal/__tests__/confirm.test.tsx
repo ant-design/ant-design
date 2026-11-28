@@ -193,6 +193,37 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(onOk.mock.calls.length).toBe(0);
   });
 
+  it.each(['onOk', 'onCancel'] as const)(
+    'should allow retry after %s throws synchronously',
+    async (callback) => {
+      const error = new Error('Action failed');
+      const action = jest.fn().mockImplementationOnce(() => {
+        throw error;
+      });
+      const onError = jest.fn((event: ErrorEvent) => event.preventDefault());
+      window.addEventListener('error', onError);
+
+      try {
+        await open({ [callback]: action });
+        const button = $$(callback === 'onOk' ? '.ant-btn-primary' : '.ant-btn-default')[0];
+
+        fireEvent.click(button);
+
+        expect(onError).toHaveBeenCalled();
+        expect(onError.mock.calls[0][0].error).toBe(error);
+        expect($$('.ant-modal-confirm')).toHaveLength(1);
+
+        fireEvent.click(button);
+        await waitFakeTimer();
+
+        expect(action).toHaveBeenCalledTimes(2);
+        expect($$('.ant-modal-confirm')).toHaveLength(0);
+      } finally {
+        window.removeEventListener('error', onError);
+      }
+    },
+  );
+
   it('trigger onOk once when click on ok button', async () => {
     const onCancel = jest.fn();
     const onOk = jest.fn();
