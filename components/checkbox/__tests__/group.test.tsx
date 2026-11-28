@@ -14,6 +14,27 @@ describe('CheckboxGroup', () => {
   mountTest(Checkbox.Group);
   rtlTest(Checkbox.Group);
 
+  it('keeps a checked value registered until its last matching option unmounts', () => {
+    const onChange = jest.fn();
+    const group = (first: boolean, second: boolean) => (
+      <Checkbox.Group defaultValue={['shared']} onChange={onChange}>
+        {first && <Checkbox value="shared">First</Checkbox>}
+        {second && <Checkbox value="shared">Second</Checkbox>}
+        <Checkbox value="other">Other</Checkbox>
+        <Checkbox value="last">Last</Checkbox>
+      </Checkbox.Group>
+    );
+    const { rerender, getByLabelText } = render(group(true, true));
+    rerender(group(false, true));
+    expect(getByLabelText('Second')).toBeChecked();
+    fireEvent.click(getByLabelText('Other'));
+    expect(onChange).toHaveBeenLastCalledWith(['shared', 'other']);
+
+    rerender(group(false, false));
+    fireEvent.click(getByLabelText('Last'));
+    expect(onChange).toHaveBeenLastCalledWith(['other', 'last']);
+  });
+
   it('should work basically', () => {
     const onChange = jest.fn();
     const { container } = render(
