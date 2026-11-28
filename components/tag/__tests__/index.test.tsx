@@ -311,6 +311,100 @@ describe('Tag', () => {
       expect(container.querySelector('.ant-tag-checkable-disabled')).toBeTruthy();
     });
 
+    it('should support preset color when checked', () => {
+      // Unchecked on its own registers no preset color rule
+      document.head.innerHTML = '';
+      const { container: uncheckedContainer } = render(
+          <StyleProvider cache={createCache()}>
+              <Tag.CheckableTag checked={false} color="blue">
+              Checkable
+              </Tag.CheckableTag>
+          </StyleProvider>,
+    );
+      expect(uncheckedContainer.querySelector('.ant-tag-blue')).toBeFalsy();
+      expect(document.head.innerHTML).not.toContain('.ant-tag-blue');
+      expect(document.head.innerHTML).not.toMatch(/\.ant-tag-blue[^{]*\.ant-tag-solid/);
+      document.head.innerHTML = '';
+      const { container, rerender } = render(
+          <StyleProvider cache={createCache()}>
+          <Tag.CheckableTag checked color="blue">
+            Checkable
+          </Tag.CheckableTag>,
+          </StyleProvider>,
+      );
+      expect(container.querySelector('.ant-tag-blue')).toBeTruthy();
+      expect(container.querySelector('.ant-tag-solid')).toBeTruthy();
+      // Preset color styles are registered, not just class names
+      expect(document.head.innerHTML).toContain('.ant-tag-blue');
+      expect(document.head.innerHTML).toMatch(/\.ant-tag-blue[^{]*\.ant-tag-solid/);
+
+      // Unchecked: no color classes, stays transparent
+      rerender(
+          <StyleProvider cache={createCache()}>
+          <Tag.CheckableTag checked={false} color="blue">
+            Checkable
+          </Tag.CheckableTag>,
+          </StyleProvider>,
+      );
+      expect(container.querySelector('.ant-tag-blue')).toBeFalsy();
+      expect(container.querySelector('.ant-tag-solid')).toBeFalsy();
+    });
+
+    it('should support preset status color when checked', () => {
+      // Unchecked on its own registers no status color rule
+      document.head.innerHTML = '';
+      const { container: uncheckedContainer } = render(
+          <StyleProvider cache={createCache()}>
+              <Tag.CheckableTag checked={false} color="success">
+              Checkable
+              </Tag.CheckableTag>
+          </StyleProvider>,
+    );
+      expect(uncheckedContainer.querySelector('.ant-tag-success')).toBeFalsy();
+      expect(document.head.innerHTML).not.toContain('.ant-tag-success');
+      expect(document.head.innerHTML).not.toMatch(/\.ant-tag-success[^{]*\.ant-tag-solid/);
+      document.head.innerHTML = '';
+      const { container } = render(
+          <StyleProvider cache={createCache()}>
+          <Tag.CheckableTag checked color="success">
+            Checkable
+          </Tag.CheckableTag>,
+          </StyleProvider>,
+      );
+      expect(container.querySelector('.ant-tag-success')).toBeTruthy();
+      expect(container.querySelector('.ant-tag-solid')).toBeTruthy();
+      // Status color styles are registered, not just class names
+      expect(document.head.innerHTML).toContain('.ant-tag-success');
+      expect(document.head.innerHTML).toMatch(/\.ant-tag-success[^{]*\.ant-tag-solid/);
+    });
+
+    it('should support custom color when checked', () => {
+      const { container, rerender } = render(
+        <Tag.CheckableTag checked color="#f50">
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      expect(container.querySelector('.ant-tag')).toHaveStyle({ backgroundColor: '#f50' });
+
+      // Unchecked: no inline background
+      rerender(
+        <Tag.CheckableTag checked={false} color="#f50">
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      expect(container.querySelector('.ant-tag')).not.toHaveStyle({ backgroundColor: '#f50' });
+    });
+
+    it('should not apply color when disabled', () => {
+      const { container } = render(
+        <Tag.CheckableTag disabled checked color="blue">
+          Checkable
+        </Tag.CheckableTag>,
+      );
+      expect(container.querySelector('.ant-tag-blue')).toBeFalsy();
+      expect(container.querySelector('.ant-tag-solid')).toBeFalsy();
+    });
+
     it('should handle context disabled state', () => {
       const onChange = jest.fn();
       const Demo = () => (

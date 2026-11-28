@@ -57,6 +57,7 @@ demo:
 | 参数     | 说明                 | 类型              | 默认值 | 版本   |
 | -------- | -------------------- | ----------------- | ------ | ------ |
 | checked  | 设置标签的选中状态   | boolean           | false  |        |
+| color    | 标签颜色，与 `Tag` 的 `color` 相同，仅在 `checked` 为 `true` 时生效 | string            | -      |        |
 | icon     | 设置图标             | ReactNode         | -      | 5.27.0 |
 | onChange | 点击标签时触发的回调 | (checked) => void | -      |        |
 

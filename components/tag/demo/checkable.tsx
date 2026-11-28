@@ -11,7 +11,7 @@ const App: React.FC = () => {
   return (
     <Form labelCol={{ span: 6 }}>
       <Form.Item label="Checkable">
-        <Tag.CheckableTag checked={checked} onChange={setChecked}>
+        <Tag.CheckableTag checked={checked} onChange={setChecked} color="green">
           Yes
         </Tag.CheckableTag>
       </Form.Item>
