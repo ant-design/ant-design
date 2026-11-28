@@ -1,12 +1,12 @@
 import * as React from 'react';
 import type { Meta } from '@rc-component/form';
-import { isNonNullable, isVisible, omit, useLayoutEffect } from '@rc-component/util';
+import { isNonNullable, isVisible, omit, useId, useLayoutEffect } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { FormItemProps } from '.';
 import { Row } from '../../grid';
 import type { ReportMetaChange } from '../context';
-import { FormContext, NoStyleItemContext } from '../context';
+import { FormContext, NoStyleItemContext, NoStyleItemHelpIdContext } from '../context';
 import FormItemInput from '../FormItemInput';
 import FormItemLabel from '../FormItemLabel';
 import useDebounce from '../hooks/useDebounce';
@@ -79,6 +79,11 @@ export default function ItemHolder(props: ItemHolderProps) {
       setMarginBottom(null);
     }
   };
+
+  // ========================= Help =========================
+  // `noStyle` items are described by this help, so it needs an id even without `name`
+  const mergedFieldId = useId(fieldId);
+  const helpFieldId = errors.length || warnings.length ? mergedFieldId : fieldId;
 
   // ======================== Status ========================
 
@@ -162,22 +167,25 @@ export default function ItemHolder(props: ItemHolderProps) {
           prefixCls={prefixCls}
           status={mergedValidateStatus}
           help={help}
+          helpFieldId={helpFieldId}
           marginBottom={marginBottom}
           onErrorVisibleChanged={onErrorVisibleChanged}
         >
           <NoStyleItemContext.Provider value={onSubItemMetaChange}>
-            <StatusProvider
-              prefixCls={prefixCls}
-              meta={meta}
-              errors={meta.errors}
-              warnings={meta.warnings}
-              hasFeedback={hasFeedback}
-              // Already calculated
-              validateStatus={mergedValidateStatus}
-              name={name}
-            >
-              {children}
-            </StatusProvider>
+            <NoStyleItemHelpIdContext.Provider value={`${mergedFieldId}_help`}>
+              <StatusProvider
+                prefixCls={prefixCls}
+                meta={meta}
+                errors={meta.errors}
+                warnings={meta.warnings}
+                hasFeedback={hasFeedback}
+                // Already calculated
+                validateStatus={mergedValidateStatus}
+                name={name}
+              >
+                {children}
+              </StatusProvider>
+            </NoStyleItemHelpIdContext.Provider>
           </NoStyleItemContext.Provider>
         </FormItemInput>
       </Row>

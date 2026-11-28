@@ -39,6 +39,9 @@ export const FormContext = React.createContext<FormContextProps>({
 export type ReportMetaChange = (meta: Meta, uniqueKeys: React.Key[]) => void;
 export const NoStyleItemContext = React.createContext<ReportMetaChange | null>(null);
 
+/** `noStyle` Form Item Context. Id of the help that shows the collected errors */
+export const NoStyleItemHelpIdContext = React.createContext<string | undefined>(undefined);
+
 /** Form Provider */
 export interface FormProviderProps extends Omit<RcFormProviderProps, 'validateMessages'> {
   prefixCls?: string;
