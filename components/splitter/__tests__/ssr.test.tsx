@@ -58,4 +58,30 @@ describe('Splitter.SSR', () => {
       flexGrow: '1',
     });
   });
+
+  it('keeps a finite separator value when all percentage defaults are zero', () => {
+    const str = renderToString(
+      <Splitter>
+        <Splitter.Panel defaultSize="0%" />
+        <Splitter.Panel defaultSize="0%" />
+      </Splitter>,
+    );
+    const div = document.createElement('div');
+    div.innerHTML = str;
+
+    expect(div.querySelector('[role="separator"]')).toHaveAttribute('aria-valuenow', '50');
+  });
+
+  it('allocates zero percentage defaults with mixed maximum units', () => {
+    const str = renderToString(
+      <Splitter>
+        <Splitter.Panel defaultSize="0%" max={500} />
+        <Splitter.Panel defaultSize="0%" max="0%" />
+      </Splitter>,
+    );
+    const div = document.createElement('div');
+    div.innerHTML = str;
+
+    expect(div.querySelector('[role="separator"]')).toHaveAttribute('aria-valuenow', '100');
+  });
 });
