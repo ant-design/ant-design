@@ -210,7 +210,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     [hasActiveTabKey ? 'activeKey' : 'defaultActiveKey']: hasActiveTabKey
       ? activeTabKey
       : (defaultActiveTabKey ?? tabProps.defaultActiveKey),
-    tabBarExtraContent,
+    tabBarExtraContent: tabBarExtraContent ?? tabProps.tabBarExtraContent,
   };
 
   let head: React.ReactNode;
@@ -219,7 +219,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     <Tabs
       size={tabSize}
       {...extraProps}
-      className={`${prefixCls}-head-tabs`}
+      className={clsx(`${prefixCls}-head-tabs`, tabProps.className)}
       onChange={onTabChange}
       items={tabList.map(({ tab, ...item }) => ({ label: tab, ...item }))}
     />
