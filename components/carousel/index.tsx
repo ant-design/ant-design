@@ -98,21 +98,23 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const slickRef = React.useRef<any>(null);
   const nativeElementRef = React.useRef<HTMLDivElement>(null);
 
-  const goTo = (slide: number, dontAnimate = false) => {
-    slickRef.current.slickGoTo(slide, dontAnimate);
-  };
+  const goTo = React.useCallback((slide: number, dontAnimate = false) => {
+    slickRef.current?.innerSlider?.slickGoTo(slide, dontAnimate);
+  }, []);
 
   React.useImperativeHandle(
     ref,
     () => ({
       goTo,
-      autoPlay: slickRef.current.innerSlider.autoPlay,
-      innerSlider: slickRef.current.innerSlider,
-      prev: slickRef.current.slickPrev,
-      next: slickRef.current.slickNext,
+      autoPlay: (playType) => slickRef.current?.innerSlider?.autoPlay(playType),
+      get innerSlider() {
+        return slickRef.current?.innerSlider;
+      },
+      prev: () => slickRef.current?.innerSlider?.slickPrev(),
+      next: () => slickRef.current?.innerSlider?.slickNext(),
       nativeElement: nativeElementRef.current!,
     }),
-    [slickRef.current],
+    [goTo],
   );
   const { children, initialSlide = 0 } = props;
   const childNodes: React.ReactNode[] = toArray(children);

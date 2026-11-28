@@ -4,7 +4,7 @@ import type { CarouselProps, CarouselRef, DotPlacement } from '..';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import zhCN from '../../locale/zh_CN';
 
@@ -78,6 +78,53 @@ describe('Carousel', () => {
     ref.current?.next();
     await waitFakeTimer();
     expect(ref.current?.innerSlider.state.currentSlide).toBe(2);
+  });
+
+  it('handles navigation across an unslick breakpoint', async () => {
+    const media = new Map<string, (event: MediaQueryListEvent) => void>();
+    const matchMedia = window.matchMedia;
+    window.matchMedia = (query) => ({
+      ...matchMedia(query),
+      addListener: (listener) => {
+        if (listener) {
+          media.set(query, listener);
+        }
+      },
+      removeListener: () => media.delete(query),
+    });
+
+    try {
+      const ref = React.createRef<CarouselRef>();
+      const renderCarousel = (initialSlide: number) => (
+        <Carousel
+          ref={ref}
+          initialSlide={initialSlide}
+          responsive={[{ breakpoint: 640, settings: 'unslick' }]}
+        >
+          <div>First</div>
+          <div>Second</div>
+        </Carousel>
+      );
+      const { container, rerender } = render(renderCarousel(0));
+      const enterBreakpoint = (queryPart: string) => {
+        const query = Array.from(media.keys()).find((value) => value.includes(queryPart))!;
+        act(() => media.get(query)!({ matches: true } as MediaQueryListEvent));
+      };
+      enterBreakpoint('max-width');
+      expect(container.querySelector('.slick-slider')).toBeNull();
+      ref.current!.next();
+      ref.current!.prev();
+      ref.current!.goTo(1);
+      ref.current!.autoPlay();
+      rerender(renderCarousel(1));
+
+      enterBreakpoint('min-width: 640px');
+      ref.current!.goTo(0, true);
+      await waitFakeTimer();
+      expect(ref.current!.innerSlider.state.currentSlide).toBe(0);
+    } finally {
+      window.matchMedia = matchMedia;
+    }
   });
 
   it('should trigger autoPlay after window resize', async () => {
