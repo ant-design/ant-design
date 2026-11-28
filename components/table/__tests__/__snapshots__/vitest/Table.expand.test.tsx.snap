@@ -46,16 +46,23 @@ exports[`Table.expand > click to expand 1`] = `
                   <td
                     class="ant-table-cell ant-table-cell-with-append"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left: 0px;"
-                    />
-                    <button
-                      aria-expanded="true"
-                      aria-label="Collapse row"
-                      class="ant-table-row-expand-icon ant-table-row-expand-icon-expanded"
-                      type="button"
-                    />
+                    <div
+                      data-table-tree-cell=""
+                    >
+                      <div>
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left: 0px;"
+                        />
+                        <button
+                          aria-expanded="true"
+                          aria-label="Collapse row"
+                          class="ant-table-row-expand-icon ant-table-row-expand-icon-expanded"
+                          type="button"
+                        />
+                      </div>
+                      <div />
+                    </div>
                   </td>
                 </tr>
                 <tr
@@ -65,16 +72,23 @@ exports[`Table.expand > click to expand 1`] = `
                   <td
                     class="ant-table-cell ant-table-cell-with-append"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-1"
-                      style="padding-left: 15px;"
-                    />
-                    <button
-                      aria-expanded="false"
-                      aria-label="Expand row"
-                      class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
-                      type="button"
-                    />
+                    <div
+                      data-table-tree-cell=""
+                    >
+                      <div>
+                        <span
+                          class="ant-table-row-indent indent-level-1"
+                          style="padding-left: 15px;"
+                        />
+                        <button
+                          aria-expanded="false"
+                          aria-label="Expand row"
+                          class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                          type="button"
+                        />
+                      </div>
+                      <div />
+                    </div>
                   </td>
                 </tr>
               </tbody>

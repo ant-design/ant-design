@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { convertChildrenToColumns, INTERNAL_HOOKS } from '@rc-component/table';
 import type { Reference as RcReference, TableProps as RcTableProps } from '@rc-component/table';
-import { omit, pickAttrs } from '@rc-component/util';
+import { isNonNullable, omit, pickAttrs } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useProxyImperativeHandle, useReducedMotion } from '../_util/hooks';
@@ -13,7 +13,7 @@ import {
   useSemanticRootStyle,
 } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isFunction, isNumber, isPlainObject } from '../_util/is';
+import { isFunction, isNumber, isPlainObject, isPrimitive } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
@@ -34,7 +34,6 @@ import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import { useToken } from '../theme/internal';
 import useExpandIcon from './ExpandIcon';
-import useColumnTitleProps from './hooks/useColumnTitleProps';
 import useContainerWidth from './hooks/useContainerWidth';
 import useFilledColumns from './hooks/useFilledColumns';
 import type { FilterConfig, FilterState } from './hooks/useFilter';
@@ -45,7 +44,6 @@ import useSelection from './hooks/useSelection';
 import type { SortState } from './hooks/useSorter';
 import useSorter, { getSortData } from './hooks/useSorter';
 import useSpinProps from './hooks/useSpinProps';
-import useTitleColumns from './hooks/useTitleColumns';
 import type {
   ColumnsType,
   ColumnType,
@@ -68,7 +66,7 @@ import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
 import TableMeasureRowContext from './TableMeasureRowContext';
-import { getPaginationSize, normalizePlacement } from './util';
+import { getPaginationSize, normalizePlacement, renderColumnTitle } from './util';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -263,13 +261,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const components = tableProps.components as RcTableProps<RecordType>['components'];
   const ariaProps = pickAttrs(tableProps, { aria: true }) as React.AriaAttributes;
   const hasAriaProps = Object.keys(ariaProps).length > 0;
-  const headerTableContext = React.useMemo<HeaderTableContextValue>(
-    () => ({
-      ariaProps,
-      component: components?.header?.table as React.ElementType | undefined,
-    }),
-    [ariaProps, components?.header?.table],
-  );
 
   const { locale: contextLocale, table } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
@@ -512,11 +503,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   changeEventInfo.filters = filters;
   changeEventInfo.filterStates = filterStates;
 
-  // ============================ Column ============================
-  const columnTitleProps = useColumnTitleProps(sorterTitleProps, filters);
-
-  const [transformTitleColumns] = useTitleColumns(columnTitleProps);
-
   // ========================== Pagination ==========================
   const onPaginationChange = (current: number, pageSize: number) => {
     triggerOnChange(
@@ -636,32 +622,82 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   // ========================== Components ==========================
-  const mergedComponents = React.useMemo<RcTableProps<RecordType>['components']>(() => {
-    let nextComponents = components;
+  const body = components?.body;
+  const customBody = isFunction(body);
+  const bodyCell = customBody ? undefined : body?.cell;
+  const WrappedCell = React.useMemo(
+    () =>
+      React.forwardRef<
+        HTMLElement,
+        React.ComponentPropsWithoutRef<'td'> & { 'data-table-tree-cell'?: boolean }
+      >(({ children, 'data-table-tree-cell': treeCell, ...props }, ref) => {
+        const Cell = bodyCell || (virtual ? 'div' : props.scope ? 'th' : 'td');
+        if (treeCell) {
+          const [controls, content] = children as [React.ReactNode, React.ReactNode];
+          if (controls || !isPrimitive(content)) {
+            children = (
+              <div data-table-tree-cell="">
+                {controls && <div>{controls}</div>}
+                <div>{content}</div>
+              </div>
+            );
+          }
+        }
+        return React.createElement(Cell, { ...props, ref }, children);
+      }),
+    [bodyCell, virtual],
+  );
 
-    if (hasAriaProps) {
-      nextComponents = {
-        ...nextComponents,
-        header: {
-          ...nextComponents?.header,
-          table: HeaderTable,
-        },
-      };
-    }
-
-    return {
-      ...nextComponents,
+  const mergedComponents = React.useMemo<RcTableProps<RecordType>['components']>(
+    () => ({
+      ...components,
+      ...(hasAriaProps && { header: { ...components?.header, table: HeaderTable } }),
+      body: customBody ? body : { ...body, cell: WrappedCell },
       ExpandIcon: MergedExpandIcon,
-    };
-  }, [components, hasAriaProps, MergedExpandIcon]);
+    }),
+    [components, hasAriaProps, customBody, body, WrappedCell, MergedExpandIcon],
+  );
 
   // ============================ Render ============================
+  const treeColumnIndex =
+    customBody || expandType === 'row'
+      ? -1
+      : (mergedExpandable.expandIconColumnIndex ?? (mergedRowSelection ? 1 : 0));
   const transformColumns = React.useCallback(
-    (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> =>
-      transformTitleColumns(
-        transformSelectionColumns(transformFilterColumns(transformSorterColumns(innerColumns))),
-      ),
-    [transformSorterColumns, transformFilterColumns, transformSelectionColumns],
+    (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> => {
+      const titleFilters: Record<string, FilterValue> = {};
+      for (const [key, value] of Object.entries(filters)) {
+        if (isNonNullable(value)) {
+          titleFilters[key] = value;
+        }
+      }
+      const columnTitleProps = { ...sorterTitleProps, filters: titleFilters };
+
+      let leafIndex = 0;
+      const fillTitle = (column: ColumnsType<RecordType>[number]) => {
+        const cloneColumn = { ...column, title: renderColumnTitle(column.title, columnTitleProps) };
+        if ('children' in cloneColumn && cloneColumn.children.length) {
+          cloneColumn.children = cloneColumn.children.map(fillTitle);
+        } else if (leafIndex++ === treeColumnIndex && !column.ellipsis) {
+          cloneColumn.onCell = (record, index) => ({
+            ...column.onCell?.(record, index),
+            'data-table-tree-cell': true,
+          });
+        }
+        return cloneColumn;
+      };
+      return transformSelectionColumns(
+        transformFilterColumns(transformSorterColumns(innerColumns)),
+      ).map(fillTitle);
+    },
+    [
+      sorterTitleProps,
+      filters,
+      transformSorterColumns,
+      transformFilterColumns,
+      transformSelectionColumns,
+      treeColumnIndex,
+    ],
   );
 
   let topPaginationNode: React.ReactNode;
@@ -771,7 +807,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     <div ref={rootRef} className={wrappercls} style={mergedStyles.root}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
-        <HeaderTableContext.Provider value={headerTableContext}>
+        <HeaderTableContext.Provider value={{ ariaProps, component: components?.header?.table }}>
           <TableComponent
             {...virtualProps}
             {...tableProps}

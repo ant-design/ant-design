@@ -59,6 +59,105 @@ describe('Table.expand', () => {
     expect(warnSpy).not.toHaveBeenCalled();
   });
 
+  it('preserves input value and focus outside the expand column when tree data is added', () => {
+    const editableColumns: TableProps<typeof John>['columns'] = [
+      { dataIndex: 'firstName' },
+      { key: 'edit', render: (_, record) => <input aria-label={record.firstName} /> },
+    ];
+    const { getByRole, rerender } = render(<Table columns={editableColumns} dataSource={[John]} />);
+    const input = getByRole('textbox', { name: 'John' });
+    input.focus();
+    fireEvent.change(input, { target: { value: 'Edited name' } });
+
+    rerender(<Table columns={editableColumns} dataSource={[John, { ...Jim, children: [] }]} />);
+
+    const existingInput = getByRole('textbox', { name: 'John' });
+    expect(existingInput).toHaveValue('Edited name');
+    expect(existingInput).toHaveFocus();
+  });
+
+  it.each([false, true])(
+    'preserves input value and focus in the expand column with row selection %s',
+    (withSelection) => {
+      const rowSelection = withSelection ? {} : undefined;
+      const editableColumns: TableProps<typeof John>['columns'] = [
+        { title: 'Name', children: [{ key: 'edit', render: () => <input aria-label="Name" /> }] },
+      ];
+      const { getByRole, rerender } = render(
+        <Table columns={editableColumns} dataSource={[John]} rowSelection={rowSelection} />,
+      );
+      const input = getByRole('textbox', { name: 'Name' });
+      input.focus();
+      fireEvent.change(input, { target: { value: 'Edited name' } });
+
+      rerender(<Table columns={editableColumns} dataSource={data} rowSelection={rowSelection} />);
+
+      const existingInput = getByRole('textbox', { name: 'Name' });
+      expect(existingInput.closest('td')).toContainElement(
+        getByRole('button', { name: 'Expand row' }),
+      );
+      expect(existingInput).toHaveValue('Edited name');
+      expect(existingInput).toHaveFocus();
+    },
+  );
+
+  it('preserves tree row headers and cell props with a custom prefix and expand column', () => {
+    const { getByRole } = render(
+      <Table
+        prefixCls="tree-table"
+        columns={[
+          { dataIndex: 'age' },
+          {
+            dataIndex: 'firstName',
+            rowScope: 'row',
+            onCell: () => ({ title: 'Full name' }),
+          },
+        ]}
+        dataSource={data}
+        expandable={{ expandIconColumnIndex: 1 }}
+      />,
+    );
+
+    const cell = getByRole('rowheader', { name: /John/ });
+    expect(cell).toHaveAttribute('scope', 'row');
+    expect(cell).toHaveAttribute('title', 'Full name');
+    expect(cell).toHaveClass('tree-table-cell-with-append');
+    expect(cell.querySelector('[data-table-tree-cell]')).toContainElement(
+      getByRole('button', { name: 'Expand row' }),
+    );
+  });
+
+  it('preserves the title and native content of an ellipsized expand cell', () => {
+    const { getByRole } = render(
+      <Table columns={[{ dataIndex: 'firstName', ellipsis: true }]} dataSource={data} />,
+    );
+
+    const cell = getByRole('cell', { name: /John/ });
+    expect(cell).toHaveAttribute('title', 'John');
+    expect(cell).toHaveClass('ant-table-cell-ellipsis');
+    expect(cell.querySelector('[data-table-tree-cell]')).toBeNull();
+  });
+
+  it('renders a custom scroll body with tree data', () => {
+    const body = jest.fn((records: ReadonlyArray<(typeof data)[number]>) => (
+      <div>{records[0].firstName}</div>
+    ));
+    const { getByText } = render(
+      <Table
+        columns={[{ dataIndex: 'firstName', width: 120 }]}
+        components={{ body }}
+        dataSource={data}
+        scroll={{ y: 120 }}
+      />,
+    );
+
+    expect(getByText('John')).toBeInTheDocument();
+    expect(body).toHaveBeenCalledWith(
+      data,
+      expect.objectContaining({ onScroll: expect.any(Function) }),
+    );
+  });
+
   it('force renders expanded form fields before expansion', async () => {
     const formRef = React.createRef<FormInstance>();
 

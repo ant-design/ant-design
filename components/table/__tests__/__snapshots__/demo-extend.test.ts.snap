@@ -70,9 +70,15 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      John Brown
-                    </a>
+                    <div
+                      data-table-tree-cell=""
+                    >
+                      <div>
+                        <a>
+                          John Brown
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -132,9 +138,15 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Jim Green
-                    </a>
+                    <div
+                      data-table-tree-cell=""
+                    >
+                      <div>
+                        <a>
+                          Jim Green
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -189,9 +201,15 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Joe Black
-                    </a>
+                    <div
+                      data-table-tree-cell=""
+                    >
+                      <div>
+                        <a>
+                          Joe Black
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -404,9 +422,15 @@ exports[`renders components/table/demo/bordered.tsx extend context correctly 1`]
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      John Brown
-                    </a>
+                    <div
+                      data-table-tree-cell=""
+                    >
+                      <div>
+                        <a>
+                          John Brown
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell column-money"
@@ -427,9 +451,15 @@ exports[`renders components/table/demo/bordered.tsx extend context correctly 1`]
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Jim Green
-                    </a>
+                    <div
+                      data-table-tree-cell=""
+                    >
+                      <div>
+                        <a>
+                          Jim Green
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell column-money"
@@ -450,9 +480,15 @@ exports[`renders components/table/demo/bordered.tsx extend context correctly 1`]
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Joe Black
-                    </a>
+                    <div
+                      data-table-tree-cell=""
+                    >
+                      <div>
+                        <a>
+                          Joe Black
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell column-money"
@@ -9312,9 +9348,15 @@ exports[`renders components/table/demo/ellipsis.tsx extend context correctly 1`]
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      John Brown
-                    </a>
+                    <div
+                      data-table-tree-cell=""
+                    >
+                      <div>
+                        <a>
+                          John Brown
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -9353,9 +9395,15 @@ exports[`renders components/table/demo/ellipsis.tsx extend context correctly 1`]
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Jim Green
-                    </a>
+                    <div
+                      data-table-tree-cell=""
+                    >
+                      <div>
+                        <a>
+                          Jim Green
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -9394,9 +9442,15 @@ exports[`renders components/table/demo/ellipsis.tsx extend context correctly 1`]
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Joe Black
-                    </a>
+                    <div
+                      data-table-tree-cell=""
+                    >
+                      <div>
+                        <a>
+                          Joe Black
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -9612,9 +9666,15 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      John Brown
-                    </a>
+                    <div
+                      data-table-tree-cell=""
+                    >
+                      <div>
+                        <a>
+                          John Brown
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -9745,9 +9805,15 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Jim Green
-                    </a>
+                    <div
+                      data-table-tree-cell=""
+                    >
+                      <div>
+                        <a>
+                          Jim Green
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -9878,9 +9944,15 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend contex
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      Joe Black
-                    </a>
+                    <div
+                      data-table-tree-cell=""
+                    >
+                      <div>
+                        <a>
+                          Joe Black
+                        </a>
+                      </div>
+                    </div>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -23562,9 +23634,15 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        John Brown
-                      </a>
+                      <div
+                        data-table-tree-cell=""
+                      >
+                        <div>
+                          <a>
+                            John Brown
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -23624,9 +23702,15 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        Jim Green
-                      </a>
+                      <div
+                        data-table-tree-cell=""
+                      >
+                        <div>
+                          <a>
+                            Jim Green
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -23681,9 +23765,15 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        Joe Black
-                      </a>
+                      <div
+                        data-table-tree-cell=""
+                      >
+                        <div>
+                          <a>
+                            Joe Black
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -24731,9 +24821,15 @@ exports[`renders components/table/demo/responsive.tsx extend context correctly 1
                   <td
                     class="ant-table-cell"
                   >
-                    <a>
-                      John Brown
-                    </a>
+                    <div
+                      data-table-tree-cell=""
+                    >
+                      <div>
+                        <a>
+                          John Brown
+                        </a>
+                      </div>
+                    </div>
                   </td>
                 </tr>
               </tbody>
@@ -24984,9 +25080,15 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        John Brown
-                      </a>
+                      <div
+                        data-table-tree-cell=""
+                      >
+                        <div>
+                          <a>
+                            John Brown
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25024,9 +25126,15 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        Jim Green
-                      </a>
+                      <div
+                        data-table-tree-cell=""
+                      >
+                        <div>
+                          <a>
+                            Jim Green
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25064,9 +25172,15 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        Joe Black
-                      </a>
+                      <div
+                        data-table-tree-cell=""
+                      >
+                        <div>
+                          <a>
+                            Joe Black
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -25105,9 +25219,15 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
-                        Disabled User
-                      </a>
+                      <div
+                        data-table-tree-cell=""
+                      >
+                        <div>
+                          <a>
+                            Disabled User
+                          </a>
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -30837,17 +30957,25 @@ Array [
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left: 0px;"
-                      />
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                      John Brown sr.
+                      <div
+                        data-table-tree-cell=""
+                      >
+                        <div>
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left: 0px;"
+                          />
+                          <button
+                            aria-expanded="false"
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                            type="button"
+                          />
+                        </div>
+                        <div>
+                          John Brown sr.
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -30884,17 +31012,25 @@ Array [
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left: 0px;"
-                      />
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
-                        type="button"
-                      />
-                      Joe Black
+                      <div
+                        data-table-tree-cell=""
+                      >
+                        <div>
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left: 0px;"
+                          />
+                          <button
+                            aria-expanded="false"
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                            type="button"
+                          />
+                        </div>
+                        <div>
+                          Joe Black
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -31891,17 +32027,25 @@ Array [
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left: 0px;"
-                      />
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                      Edward 0
+                      <div
+                        data-table-tree-cell=""
+                      >
+                        <div>
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left: 0px;"
+                          />
+                          <button
+                            aria-expanded="false"
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                            type="button"
+                          />
+                        </div>
+                        <div>
+                          Edward 0
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -31938,17 +32082,25 @@ Array [
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left: 0px;"
-                      />
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                      Edward 1
+                      <div
+                        data-table-tree-cell=""
+                      >
+                        <div>
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left: 0px;"
+                          />
+                          <button
+                            aria-expanded="false"
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                            type="button"
+                          />
+                        </div>
+                        <div>
+                          Edward 1
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -31985,17 +32137,25 @@ Array [
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left: 0px;"
-                      />
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                      Edward 2
+                      <div
+                        data-table-tree-cell=""
+                      >
+                        <div>
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left: 0px;"
+                          />
+                          <button
+                            aria-expanded="false"
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                            type="button"
+                          />
+                        </div>
+                        <div>
+                          Edward 2
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -32032,17 +32192,25 @@ Array [
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left: 0px;"
-                      />
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                      Edward 3
+                      <div
+                        data-table-tree-cell=""
+                      >
+                        <div>
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left: 0px;"
+                          />
+                          <button
+                            aria-expanded="false"
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                            type="button"
+                          />
+                        </div>
+                        <div>
+                          Edward 3
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -32079,17 +32247,25 @@ Array [
                     <td
                       class="ant-table-cell ant-table-cell-with-append"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left: 0px;"
-                      />
-                      <button
-                        aria-expanded="false"
-                        aria-label="Expand row"
-                        class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                        type="button"
-                      />
-                      Edward 4
+                      <div
+                        data-table-tree-cell=""
+                      >
+                        <div>
+                          <span
+                            class="ant-table-row-indent indent-level-0"
+                            style="padding-left: 0px;"
+                          />
+                          <button
+                            aria-expanded="false"
+                            aria-label="Expand row"
+                            class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                            type="button"
+                          />
+                        </div>
+                        <div>
+                          Edward 4
+                        </div>
+                      </div>
                     </td>
                     <td
                       class="ant-table-cell"
