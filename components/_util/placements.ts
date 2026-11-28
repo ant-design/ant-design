@@ -56,10 +56,10 @@ export function getOverflowOptions(
   };
 
   // Support auto shift
-  if (!mergedOverflow.shiftX) {
+  if (!mergedOverflow.shiftX && mergedOverflow.adjustX === undefined) {
     mergedOverflow.adjustX = true;
   }
-  if (!mergedOverflow.shiftY) {
+  if (!mergedOverflow.shiftY && mergedOverflow.adjustY === undefined) {
     mergedOverflow.adjustY = true;
   }
 
