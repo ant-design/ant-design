@@ -179,6 +179,7 @@ exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correc
     Loading state：
     <button
       aria-checked="false"
+      aria-label="Loading state"
       class="ant-switch css-var-test-id"
       role="switch"
       type="button"
@@ -342,6 +343,7 @@ exports[`renders components/spin/demo/nested.tsx extend context correctly 1`] = 
     Loading state：
     <button
       aria-checked="false"
+      aria-label="Loading state"
       class="ant-switch css-var-test-id"
       role="switch"
       type="button"
