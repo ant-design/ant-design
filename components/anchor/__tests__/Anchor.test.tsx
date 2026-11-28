@@ -62,6 +62,46 @@ describe('Anchor Render', () => {
     getClientRectsMock.mockRestore();
   });
 
+  it.each(['window', 'element'] as const)('scrolls to a section in an iframe %s', async (kind) => {
+    const frame = document.createElement('iframe');
+    document.body.appendChild(frame);
+    const frameWindow = frame.contentWindow!;
+    const frameDoc = frame.contentDocument!;
+    const section = frameDoc.createElement('h2');
+    section.id = getHashUrl();
+    frameDoc.body.appendChild(section);
+    jest.spyOn(section, 'getClientRects').mockReturnValue([{}] as unknown as DOMRectList);
+    const sectionRect = jest
+      .spyOn(section, 'getBoundingClientRect')
+      .mockReturnValue({ height: 20, top: 0 } as DOMRect);
+    const scroll = jest.spyOn(frameWindow, 'scrollTo').mockImplementation(() => {});
+    const target = kind === 'window' ? frameWindow : frameDoc.body;
+    const { getByRole, unmount } = render(
+      <Anchor
+        affix={false}
+        getContainer={() => target}
+        onClick={(event) => event.preventDefault()}
+        items={[{ key: section.id, href: `#${section.id}`, title: 'Section' }]}
+      />,
+    );
+
+    try {
+      const link = getByRole('link');
+      expect(link).toHaveClass('ant-anchor-link-title-active');
+      sectionRect.mockReturnValue({ height: 20, top: 240 } as DOMRect);
+      fireEvent.click(link);
+      await waitFakeTimer();
+      if (kind === 'window') {
+        expect(scroll).toHaveBeenLastCalledWith(0, 240);
+      } else {
+        expect(frameDoc.body.scrollTop).toBe(240);
+      }
+    } finally {
+      unmount();
+      frame.remove();
+    }
+  });
+
   it('renders items correctly', () => {
     const { container, asFragment } = render(
       <Anchor
