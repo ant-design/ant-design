@@ -2,7 +2,7 @@ import * as React from 'react';
 import { flushSync } from 'react-dom';
 import type { UploadProps as RcUploadProps } from '@rc-component/upload';
 import RcUpload from '@rc-component/upload';
-import { useControlledState, useEvent } from '@rc-component/util';
+import { omit, useControlledState, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import fallbackProp from '../_util/fallbackProp';
@@ -243,6 +243,13 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     });
   };
 
+  const getFileForUpdate = (file: RcFile) => {
+    const currentFile = getFileItem(file, mergedFileList);
+    if (currentFile) {
+      return { ...omit(currentFile, ['error', 'response', 'xhr']), ...file2Obj(file) };
+    }
+  };
+
   const onSuccess = (response: any, file: RcFile, xhr: any) => {
     try {
       if (typeof response === 'string') {
@@ -252,12 +259,11 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       /* do nothing */
     }
 
-    // removed
-    if (!getFileItem(file, mergedFileList)) {
+    const targetItem = getFileForUpdate(file);
+    if (!targetItem) {
       return;
     }
 
-    const targetItem = file2Obj(file);
     targetItem.status = 'done';
     targetItem.percent = 100;
     targetItem.response = response;
@@ -269,12 +275,11 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   };
 
   const onProgress = (e: { percent: number }, file: RcFile) => {
-    // removed
-    if (!getFileItem(file, mergedFileList)) {
+    const targetItem = getFileForUpdate(file);
+    if (!targetItem) {
       return;
     }
 
-    const targetItem = file2Obj(file);
     targetItem.status = 'uploading';
     targetItem.percent = e.percent;
 
@@ -284,12 +289,11 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   };
 
   const onError = (error: Error, response: any, file: RcFile) => {
-    // removed
-    if (!getFileItem(file, mergedFileList)) {
+    const targetItem = getFileForUpdate(file);
+    if (!targetItem) {
       return;
     }
 
-    const targetItem = file2Obj(file);
     targetItem.error = error;
     targetItem.response = response;
     targetItem.status = 'error';
