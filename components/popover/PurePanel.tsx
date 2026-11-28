@@ -84,7 +84,6 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
 
   return (
     <div className={rootClassName} style={style}>
-      <div className={`${prefixCls}-arrow`} />
       <Popup
         {...props}
         className={hashId}
@@ -92,6 +91,10 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
         classNames={mergedClassNames}
         styles={mergedStyles}
       >
+        <div
+          className={clsx(`${prefixCls}-arrow`, mergedClassNames.arrow)}
+          style={mergedStyles.arrow}
+        />
         {children || (
           <Overlay
             prefixCls={prefixCls}
