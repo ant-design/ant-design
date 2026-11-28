@@ -14,7 +14,6 @@ import {
 } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isFunction, isNumber, isPlainObject } from '../_util/is';
-import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -240,18 +239,33 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     [columns, children],
   );
   const baseColumns = useFilledColumns(rawColumns, column);
-  const needResponsive = React.useMemo(
-    () => baseColumns.some((col: ColumnType<RecordType>) => col.responsive),
-    [baseColumns],
-  );
+  const needResponsive = React.useMemo(() => {
+    const hasResponsive = (col: ColumnsType<RecordType>[number]): boolean =>
+      !!col.responsive || ('children' in col && !!col.children?.some(hasResponsive));
+    return baseColumns.some(hasResponsive);
+  }, [baseColumns]);
 
   const screens = useBreakpoint(needResponsive);
 
   const mergedColumns = React.useMemo(() => {
-    const matched = new Set(Object.keys(screens).filter((m) => screens[m as Breakpoint]));
+    if (!needResponsive) {
+      return baseColumns;
+    }
 
-    return baseColumns.filter((c) => !c.responsive || c.responsive.some((r) => matched.has(r)));
-  }, [baseColumns, screens]);
+    const filterColumns = (cols: ColumnsType<RecordType>): ColumnsType<RecordType> =>
+      cols.flatMap((col): ColumnsType<RecordType> => {
+        if (col.responsive && !col.responsive.some((breakpoint) => screens[breakpoint])) {
+          return [];
+        }
+        if ('children' in col && col.children?.length) {
+          const children = filterColumns(col.children);
+          return children.length ? [{ ...col, children }] : [];
+        }
+        return [col];
+      });
+
+    return filterColumns(baseColumns);
+  }, [baseColumns, needResponsive, screens]);
 
   const tableProps: TableProps<RecordType> = omit(props, [
     'className',

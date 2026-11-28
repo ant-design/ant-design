@@ -20,6 +20,48 @@ describe('Table', () => {
     warnSpy.mockRestore();
   });
 
+  it('applies responsive breakpoints within column groups', () => {
+    const query = '(min-width: 768px)';
+    const desktop = Object.assign(new EventTarget(), { matches: false, media: query });
+    const matchMedia = window.matchMedia;
+    window.matchMedia = (value) =>
+      value === query ? (desktop as MediaQueryList) : matchMedia(value);
+    try {
+      const { getByText, queryByText } = render(
+        <Table
+          columns={[
+            {
+              title: 'Account',
+              children: [
+                { title: 'Name', dataIndex: 'name' },
+                {
+                  title: 'Desktop details',
+                  children: [{ title: 'Email', dataIndex: 'email', responsive: ['md'] }],
+                },
+              ],
+            },
+          ]}
+          dataSource={[{ key: 1, name: 'Ada', email: 'ada@example.com' }]}
+          pagination={false}
+        />,
+      );
+
+      expect(getByText('Ada')).toBeInTheDocument();
+      expect(queryByText('ada@example.com')).not.toBeInTheDocument();
+      expect(queryByText('Email')).not.toBeInTheDocument();
+      expect(queryByText('Desktop details')).not.toBeInTheDocument();
+
+      act(() => {
+        desktop.matches = true;
+        desktop.dispatchEvent(Object.assign(new Event('change'), { matches: true }));
+      });
+      expect(getByText('Desktop details')).toBeInTheDocument();
+      expect(getByText('ada@example.com')).toBeInTheDocument();
+    } finally {
+      window.matchMedia = matchMedia;
+    }
+  });
+
   it('renders JSX correctly', () => {
     const data = [
       {
