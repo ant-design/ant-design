@@ -423,6 +423,34 @@ describe('Table.rowSelection', () => {
     expect(order).toEqual(['onSelect', 'onChange']);
   });
 
+  it('uses refreshed children of selected off-page rows when propagating selection', () => {
+    const onChange = jest.fn();
+    const renderTable = (childKey: string) =>
+      createTable({
+        pagination: { pageSize: 1 },
+        dataSource: [
+          { key: 'page-one', name: 'First' },
+          { key: 'parent', name: 'Off-page parent', children: [{ key: childKey, name: childKey }] },
+        ],
+        rowSelection: {
+          checkStrictly: false,
+          preserveSelectedRowKeys: true,
+          defaultSelectedRowKeys: ['parent'],
+          onChange,
+        },
+      });
+    const { container, rerender } = render(renderTable('old-child'));
+    rerender(renderTable('new-child'));
+    fireEvent.click(container.querySelector('tbody input')!);
+
+    const [keys, records] = onChange.mock.lastCall!;
+    expect(keys).toHaveLength(3);
+    expect(keys).toEqual(expect.arrayContaining(['page-one', 'parent', 'new-child']));
+    expect(records).toEqual(
+      expect.arrayContaining([expect.objectContaining({ key: 'new-child' })]),
+    );
+  });
+
   it('fires selectMulti event', () => {
     const order: string[] = [];
     const handleSelectMulti = jest.fn().mockImplementation(() => {
