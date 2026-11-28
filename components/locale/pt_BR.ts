@@ -19,6 +19,7 @@ const localeValues: Locale = {
     show: 'Mostrar',
     hide: 'Ocultar',
     sortable: 'classificável',
+    clear: 'Limpar',
   },
   Table: {
     filterTitle: 'Menu de Filtro',
@@ -66,7 +67,7 @@ const localeValues: Locale = {
     titles: ['', ''],
     searchPlaceholder: 'Procurar',
     itemUnit: 'item',
-    itemsUnit: 'items',
+    itemsUnit: 'itens',
     remove: 'Remover',
     selectCurrent: 'Selecionar página atual',
     removeCurrent: 'Remover página atual',
@@ -104,10 +105,10 @@ const localeValues: Locale = {
     defaultValidateMessages: {
       default: 'Erro ${label} na validação de campo',
       required: 'Por favor, insira ${label}',
-      enum: '${label} deve ser um dos seguinte: [${enum}]',
-      whitespace: '${label} não pode ser um carácter vazio',
+      enum: '${label} deve ser um dos seguintes: [${enum}]',
+      whitespace: '${label} não pode ser um caractere vazio',
       date: {
-        format: ' O formato de data ${label} é inválido',
+        format: 'O formato de data ${label} é inválido',
         parse: '${label} não pode ser convertido para uma data',
         invalid: '${label} é uma data inválida',
       },
@@ -133,7 +134,7 @@ const localeValues: Locale = {
         range: '${label} deve possuir entre ${min} e ${max} caracteres',
       },
       number: {
-        len: '${label} deve ser igual à ${len}',
+        len: '${label} deve ser igual a ${len}',
         min: 'O valor mínimo de ${label} é ${min}',
         max: 'O valor máximo de ${label} é ${max}',
         range: '${label} deve estar entre ${min} e ${max}',
@@ -159,6 +160,9 @@ const localeValues: Locale = {
     transparent: 'Transparente',
     singleColor: 'Único',
     gradientColor: 'Gradiente',
+  },
+  Input: {
+    otpCell: 'Caractere ${index} de ${total}',
   },
 };
 
