@@ -1,11 +1,12 @@
 import React, { useImperativeHandle, useMemo } from 'react';
 import type { ReactNode } from 'react';
-import { pickAttrs, useControlledState } from '@rc-component/util';
+import { isNonNullable, pickAttrs, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useSemanticRootStyle } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isPlainObject } from '../_util/is';
+import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import CheckableTag from './CheckableTag';
@@ -110,6 +111,17 @@ const CheckableTagGroup = React.forwardRef<
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-checkable-group`;
 
+  // =============================== Warning ===============================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Tag.CheckableTagGroup');
+
+    warning(
+      !multiple || value === undefined || value === null || Array.isArray(value),
+      'usage',
+      '`value` should be an array when `multiple` is true.',
+    );
+  }
+
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
@@ -144,12 +156,17 @@ const CheckableTagGroup = React.forwardRef<
 
   // =============================== Values ===============================
   const [mergedValue, setMergedValue] = useControlledState(defaultValue, value);
+  let valueList: CheckableTagValue[] = [];
+  if (Array.isArray(mergedValue)) {
+    valueList = mergedValue;
+  } else if (isNonNullable(mergedValue)) {
+    valueList = [mergedValue];
+  }
 
   const handleChange = (checked: boolean, option: CheckableTagOption<CheckableTagValue>) => {
     let newValue: CheckableTagValue | CheckableTagValue[] | null = null;
 
     if (multiple) {
-      const valueList = (mergedValue || []) as CheckableTagValue[];
       newValue = checked
         ? [...valueList, option.value]
         : valueList.filter((item) => item !== option.value);
@@ -200,11 +217,7 @@ const CheckableTagGroup = React.forwardRef<
           key={option.value}
           className={clsx(`${groupPrefixCls}-item`, mergedClassNames.item, option.className)}
           style={{ ...mergedStyles.item, ...option.style }}
-          checked={
-            multiple
-              ? ((mergedValue as CheckableTagValue[]) || []).includes(option.value)
-              : mergedValue === option.value
-          }
+          checked={multiple ? valueList.includes(option.value) : valueList[0] === option.value}
           onChange={(checked) => handleChange(checked, option)}
           disabled={disabled}
         >
