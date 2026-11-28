@@ -81,11 +81,13 @@ export default function confirm(config: ModalFuncProps) {
   let closeDialog: (...args: any[]) => void;
   let currentConfig: any;
   let timeoutId: ReturnType<typeof setTimeout>;
+  // Arguments of the last `closeDialog` call. The modal is destroyed after closing only when set.
+  let closeArgs: any[] | undefined;
 
   const destroy = (...args: any[]) => {
     const triggerCancel = args.some((param) => param?.triggerCancel);
     if (triggerCancel) {
-      config.onCancel?.(() => {}, ...args.slice(1));
+      currentConfig.onCancel?.(() => {}, ...args.slice(1));
     }
     for (let i = 0; i < destroyFns.length; i++) {
       const fn = destroyFns[i];
@@ -98,6 +100,18 @@ export default function confirm(config: ModalFuncProps) {
     unmount(container).then(() => {
       // Do nothing
     });
+  };
+
+  // Kept out of `currentConfig` so that `update` can still replace the user's `afterClose`
+  const afterClose = () => {
+    // The user's `afterClose` can call `closeDialog` again (e.g. through `Modal.destroyAll`)
+    const args = closeArgs;
+    if (isFunction(currentConfig.afterClose)) {
+      currentConfig.afterClose();
+    }
+    if (args) {
+      destroy(...args);
+    }
   };
 
   const scheduleRender = (props: ConfirmDialogProps) => {
@@ -113,7 +127,7 @@ export default function confirm(config: ModalFuncProps) {
       const iconPrefixCls = global.getIconPrefixCls();
       const theme = global.getTheme();
 
-      const dom = <ConfirmDialogWrapper {...props} />;
+      const dom = <ConfirmDialogWrapper {...props} afterClose={afterClose} />;
 
       render(
         <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} theme={theme}>
@@ -125,16 +139,8 @@ export default function confirm(config: ModalFuncProps) {
   };
 
   closeDialog = (...args: any[]) => {
-    currentConfig = {
-      ...currentConfig,
-      open: false,
-      afterClose: () => {
-        if (isFunction(config?.afterClose)) {
-          config.afterClose();
-        }
-        destroy(...args);
-      },
-    };
+    closeArgs = args;
+    currentConfig = { ...currentConfig, open: false };
     scheduleRender(currentConfig);
   };
 
@@ -145,6 +151,10 @@ export default function confirm(config: ModalFuncProps) {
       currentConfig = configUpdate(currentConfig);
     } else {
       currentConfig = { ...currentConfig, ...configUpdate };
+    }
+    // Reopening cancels the pending close, so the next close must not destroy the modal
+    if (currentConfig.open) {
+      closeArgs = undefined;
     }
     scheduleRender(currentConfig);
   };
